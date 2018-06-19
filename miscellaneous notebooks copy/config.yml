@@ -1,0 +1,190 @@
+- folder: Fundamentals
+  name: Fundamentals
+  sections:
+  - Fundamentals.ipynb
+  - Outcome_Space_and_Events.ipynb
+  - Equally_Likely_Outcomes.ipynb
+  - Collisions_in_Hashing.ipynb
+  - Birthday_Problem.ipynb
+  - Exponential_Approximation.ipynb
+- folder: Calculating_Chances
+  name: Calculating Chances
+  sections:
+  - Calculating_Chances.ipynb
+  - Addition.ipynb
+  - Examples.ipynb
+  - Multiplication.ipynb
+  - More_Examples.ipynb
+- folder: Random_Variables
+  name: Random Variables
+  sections:
+  - Random_Variables.ipynb
+  - Functions_on_an_Outcome_Space.ipynb
+  - Distributions.ipynb
+  - Equality.ipynb
+- folder: Relations_Between_Variables
+  name: Relations Between Variables
+  sections:
+  - Relations_Between_Variables.ipynb
+  - Joint_Distributions.ipynb
+  - Marginal_Distributions.ipynb
+  - Conditional_Distributions.ipynb
+  - Dependence_and_Independence.ipynb
+- folder: Collections_of_Events
+  name: Collections of Events
+  sections:
+  - Collections_of_Events.ipynb
+  - Intersection_of_Several_Events.ipynb
+  - Union_of_Several_Events.ipynb
+  - The_Matching_Problem.ipynb
+  - Booles_Inequality.ipynb
+- folder: Random_Counts
+  name: Random Counts
+  sections:
+  - Random_Counts.ipynb
+  - Binomial_Distribution.ipynb
+  - Examples.ipynb
+  - Odds_Ratios.ipynb
+  - Law_of_Small_Numbers.ipynb
+- folder: Poissonization
+  name: Poissonization
+  sections:
+  - Poissonization.ipynb
+  - Poissonizing_the_Binomial.ipynb
+  - Poissonizing_the_Multinomial.ipynb
+- folder: Dependence
+  name: Dependence
+  sections:
+  - Dependence.ipynb
+  - Updating_Probabilities.ipynb
+  - Randomizing_a_Parameter.ipynb
+  - Sampling_Without_Replacement.ipynb
+  - Hypergeometric_Distribution.ipynb
+- folder: Expectation
+  name: Expectation
+  sections:
+  - Expectation.ipynb
+  - Definition.ipynb
+  - Additivity.ipynb
+  - Expectations_of_Functions.ipynb
+- folder: Standard_Deviation
+  name: Standard Deviation
+  sections:
+  - Standard_Deviation.ipynb
+  - Definition.ipynb
+  - Prediction_and_Estimation.ipynb
+  - Bounds.ipynb
+  - Heavy_Tails.ipynb
+- folder: Conditioning_Revisited
+  name: Conditioning Revisited
+  sections:
+  - Conditioning_Revisited.ipynb
+  - Probability_by_Conditioning.ipynb
+  - Expectation_by_Conditioning.ipynb
+  - Expected_Waiting_Times.ipynb
+- folder: Markov_Chains
+  name: Markov Chains
+  sections:
+  - Markov_Chains.ipynb
+  - Chain_at_a_Fixed_Time.ipynb
+  - Notation_and_Terminology.ipynb
+  - Long_Run_Behavior.ipynb
+  - Examples.ipynb
+- folder: Hitting_and_Occupation_Times
+  name: Hitting and Occupation Times
+  sections:
+  - Hitting_and_Occupation_Times.ipynb
+  - Waiting_Till_a_Pattern_Appears.ipynb
+  - Returns_and_First_Passage_Times.ipynb
+  - Occupation_Times_Within_a_Block.ipynb
+  - Periodic_Chains.ipynb
+- folder: Reversing_Markov_Chains
+  name: Reversing Markov Chains
+  sections:
+  - Reversing_Markov_Chains.ipynb
+  - Detailed_Balance.ipynb
+  - Reversibility.ipynb
+  - Code_Breaking.ipynb
+  - Markov_Chain_Monte_Carlo.ipynb
+- folder: Variance_Via_Covariance
+  name: Variance Via Covariance
+  sections:
+  - Variance_Via_Covariance.ipynb
+  - Properties_of_Covariance.ipynb
+  - Sums_of_IID_Samples.ipynb
+  - Sums_of_Simple_Random_Samples.ipynb
+  - Finite_Population_Correction.ipynb
+- folder: The_Central_Limit_Theorem
+  name: The Central Limit Theorem
+  sections:
+  - The_Central_Limit_Theorem.ipynb
+  - Exact_Distribution.ipynb
+  - PGFs_in_NumPy.ipynb
+  - Central_Limit_Theorem.ipynb
+  - The_Sample_Mean.ipynb
+  - Confidence_Intervals.ipynb
+- folder: Continuous_Distributions
+  name: Continuous Distributions
+  sections:
+  - Continuous_Distributions.ipynb
+  - Density_and_CDF.ipynb
+  - The_Meaning_of_Density.ipynb
+  - Expectation.ipynb
+  - Calculus_in_SymPy.ipynb
+- folder: Transformations
+  name: Transformations
+  sections:
+  - Transformations.ipynb
+  - Exponential_Distribution.ipynb
+  - Linear_Transformations.ipynb
+  - Monotone_Functions.ipynb
+- folder: Joint_Densities
+  name: Joint Densities
+  sections:
+  - Joint_Densities.ipynb
+  - Probabilities_and_Expectations.ipynb
+  - Independence.ipynb
+  - Marginal_and_Conditional_Densities.ipynb
+  - Beta_Densities_with_Integer_Parameters.ipynb
+- folder: Applications_of_the_Normal_Distribution
+  name: Applications of the Normal Distribution
+  sections:
+  - Applications_of_the_Normal_Distribution.ipynb
+  - Properties_of_the_Standard_Normal.ipynb
+  - Sums_of_Independent_Normal_Variables.ipynb
+  - Maximum_Likelihood_Estimation.ipynb
+  - Chi_Squared_Distributions.ipynb
+  - Sums_of_Squares_of_Standard_Normals.ipynb
+- folder: Distributions_of_Sums
+  name: Distributions of Sums
+  sections:
+  - Distributions_of_Sums.ipynb
+  - Convolution_Formula.ipynb
+  - Moment_Generating_Functions.ipynb
+  - MGFs_Normal_and_the_CLT.ipynb
+  - Chernoff_Bound.ipynb
+- folder: Prior_and_Posterior_Distributions
+  name: Prior and Posterior Distributions
+  sections:
+  - Prior_and_Posterior_Distributions.ipynb
+  - Conditioning_on_a_Continuous_Variable.ipynb
+  - Beta_Binomial.ipynb
+  - Distribution_of_the_Number_of_Successes.ipynb
+  - Long_Run_Proportion_of_Successes.ipynb
+- folder: Prediction
+  name: Prediction
+  sections:
+  - Prediction.ipynb
+  - Conditional_Variance.ipynb
+  - Examples.ipynb
+  - Least_Squares.ipynb
+- folder: The_Bivariate_Normal_Distribution
+  name: The Bivariate Normal Distribution
+  sections:
+  - The_Bivariate_Normal_Distribution.ipynb
+  - Standard_Bivariate_Normal_Distribution.ipynb
+  - Historical_Example.ipynb
+  - Independence_and_Angles.ipynb
+  - Linear_Combinations.ipynb
+  - Multivariate_Normal_Distribution.ipynb
+  - Best_Predictor.ipynb
