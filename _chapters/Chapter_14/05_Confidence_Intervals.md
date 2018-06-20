@@ -267,7 +267,7 @@ bootstrap_mean(baby, 'Maternal Age', 5000)
 {:.output_stream}
 ```
 Approximate 95% confidence interval for population mean:
-26.9 to 27.57
+26.89 to 27.56
 
 ```
 

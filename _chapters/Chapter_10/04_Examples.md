@@ -167,7 +167,7 @@ stationary.ev()/2
 
 {:.output_data_text}
 ```
-1.5
+1.5000000000000013
 ```
 
 

@@ -242,7 +242,7 @@ five_roll_space
         </tr>
     </tbody>
 </table>
-<p>... (7766 rows omitted)</p
+<p>... (7766 rows omitted)</p>
 </div>
 
 
@@ -325,7 +325,7 @@ five_rolls_sum
         </tr>
     </tbody>
 </table>
-<p>... (7766 rows omitted)</p
+<p>... (7766 rows omitted)</p>
 </div>
 
 
@@ -447,7 +447,7 @@ five_rolls_sum.where('S(omega)', are.equal_to(10))
         </tr>
     </tbody>
 </table>
-<p>... (116 rows omitted)</p
+<p>... (116 rows omitted)</p>
 </div>
 
 

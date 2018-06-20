@@ -135,7 +135,7 @@ results
         </tr>
     </tbody>
 </table>
-<p>... (355 rows omitted)</p
+<p>... (355 rows omitted)</p>
 </div>
 
 

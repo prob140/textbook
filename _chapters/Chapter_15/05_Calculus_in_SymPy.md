@@ -285,7 +285,7 @@ expon_density
 
 
 
-$$\frac{\lambda}{e^{\lambda t}}$$
+$$\lambda e^{- \lambda t}$$
 
 
 
@@ -331,7 +331,7 @@ indefinite
 
 
 
-$$- \frac{1}{e^{\lambda t}}$$
+$$- e^{- \lambda t}$$
 
 
 

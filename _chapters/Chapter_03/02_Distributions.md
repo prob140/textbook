@@ -71,7 +71,7 @@ five_rolls_sum
         </tr>
     </tbody>
 </table>
-<p>... (7766 rows omitted)</p
+<p>... (7766 rows omitted)</p>
 </div>
 
 
@@ -139,7 +139,7 @@ dist_S
         </tr>
     </tbody>
 </table>
-<p>... (16 rows omitted)</p
+<p>... (16 rows omitted)</p>
 </div>
 
 
@@ -245,7 +245,7 @@ dist_S
         </tr>
     </tbody>
 </table>
-<p>... (16 rows omitted)</p
+<p>... (16 rows omitted)</p>
 </div>
 
 

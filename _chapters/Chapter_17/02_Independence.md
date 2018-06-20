@@ -147,7 +147,7 @@ jt_density
 
 
 
-$$\frac{\lambda \mu}{e^{\lambda x} e^{\mu y}}$$
+$$\lambda \mu e^{- \lambda x} e^{- \mu y}$$
 
 
 
@@ -161,7 +161,7 @@ p_Y_greater_than_X
 
 
 
-$$\int_{0}^{\infty}\int_{0}^{y} \frac{\lambda \mu}{e^{\lambda x} e^{\mu y}}\, dx\, dy$$
+$$\int_{0}^{\infty}\int_{0}^{y} \lambda \mu e^{- \lambda x} e^{- \mu y}\, dx\, dy$$
 
 
 

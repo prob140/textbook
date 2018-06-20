@@ -87,7 +87,7 @@ Now suppose you draw $N$ independent times where $N$ has the Poisson $(20)$ dist
 
 {:.output_data_text}
 ```
-0.71270362753222383
+0.71270362753222372
 ```
 
 
