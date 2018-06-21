@@ -55,11 +55,9 @@ dist_X
         <tr>
             <td>3    </td> <td>0.2        </td>
         </tr>
-    </tbody>
         <tr>
             <td>4    </td> <td>0.5        </td>
         </tr>
-    </tbody>
         <tr>
             <td>5    </td> <td>0.3        </td>
         </tr>
@@ -112,11 +110,9 @@ sd_table
         <tr>
             <td>3   </td> <td>1.21        </td> <td>0.2     </td>
         </tr>
-    </tbody>
         <tr>
             <td>4   </td> <td>0.01        </td> <td>0.5     </td>
         </tr>
-    </tbody>
         <tr>
             <td>5   </td> <td>0.81        </td> <td>0.3     </td>
         </tr>

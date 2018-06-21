@@ -97,19 +97,15 @@ Table().with_columns(
         <tr>
             <td>0.004     </td> <td>0.442953        </td>
         </tr>
-    </tbody>
         <tr>
             <td>0.01      </td> <td>0.666667        </td>
         </tr>
-    </tbody>
         <tr>
             <td>0.05      </td> <td>0.912442        </td>
         </tr>
-    </tbody>
         <tr>
             <td>0.1       </td> <td>0.956522        </td>
         </tr>
-    </tbody>
         <tr>
             <td>0.5       </td> <td>0.994975        </td>
         </tr>

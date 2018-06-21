@@ -112,39 +112,30 @@ baby
         <tr>
             <td>120         </td> <td>284             </td> <td>27          </td> <td>62             </td> <td>100                      </td> <td>False          </td>
         </tr>
-    </tbody>
         <tr>
             <td>113         </td> <td>282             </td> <td>33          </td> <td>64             </td> <td>135                      </td> <td>False          </td>
         </tr>
-    </tbody>
         <tr>
             <td>128         </td> <td>279             </td> <td>28          </td> <td>64             </td> <td>115                      </td> <td>True           </td>
         </tr>
-    </tbody>
         <tr>
             <td>108         </td> <td>282             </td> <td>23          </td> <td>67             </td> <td>125                      </td> <td>True           </td>
         </tr>
-    </tbody>
         <tr>
             <td>136         </td> <td>286             </td> <td>25          </td> <td>62             </td> <td>93                       </td> <td>False          </td>
         </tr>
-    </tbody>
         <tr>
             <td>138         </td> <td>244             </td> <td>33          </td> <td>62             </td> <td>178                      </td> <td>False          </td>
         </tr>
-    </tbody>
         <tr>
             <td>132         </td> <td>245             </td> <td>23          </td> <td>65             </td> <td>140                      </td> <td>False          </td>
         </tr>
-    </tbody>
         <tr>
             <td>120         </td> <td>289             </td> <td>25          </td> <td>62             </td> <td>125                      </td> <td>False          </td>
         </tr>
-    </tbody>
         <tr>
             <td>143         </td> <td>299             </td> <td>30          </td> <td>66             </td> <td>136                      </td> <td>True           </td>
         </tr>
-    </tbody>
         <tr>
             <td>140         </td> <td>351             </td> <td>27          </td> <td>68             </td> <td>120                      </td> <td>False          </td>
         </tr>
@@ -267,7 +258,7 @@ bootstrap_mean(baby, 'Maternal Age', 5000)
 {:.output_stream}
 ```
 Approximate 95% confidence interval for population mean:
-26.89 to 27.56
+26.9 to 27.57
 
 ```
 

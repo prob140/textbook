@@ -44,7 +44,6 @@ Table().values(coins).probability(prior)
         <tr>
             <td>0.5  </td> <td>0.25       </td>
         </tr>
-    </tbody>
         <tr>
             <td>0.9  </td> <td>0.75       </td>
         </tr>

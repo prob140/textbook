@@ -268,11 +268,9 @@ ev_T_given_S
         <tr>
             <td>5   </td> <td>3.5         </td> <td>0.2     </td>
         </tr>
-    </tbody>
         <tr>
             <td>6   </td> <td>3.5         </td> <td>0.4     </td>
         </tr>
-    </tbody>
         <tr>
             <td>7   </td> <td>3.25        </td> <td>0.4     </td>
         </tr>

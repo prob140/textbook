@@ -81,35 +81,27 @@ joint_table
         <tr>
             <td>0   </td> <td>0   </td> <td>0.125      </td>
         </tr>
-    </tbody>
         <tr>
             <td>0   </td> <td>1   </td> <td>0.125      </td>
         </tr>
-    </tbody>
         <tr>
             <td>0   </td> <td>2   </td> <td>0          </td>
         </tr>
-    </tbody>
         <tr>
             <td>1   </td> <td>0   </td> <td>0.125      </td>
         </tr>
-    </tbody>
         <tr>
             <td>1   </td> <td>1   </td> <td>0.25       </td>
         </tr>
-    </tbody>
         <tr>
             <td>1   </td> <td>2   </td> <td>0.125      </td>
         </tr>
-    </tbody>
         <tr>
             <td>2   </td> <td>0   </td> <td>0          </td>
         </tr>
-    </tbody>
         <tr>
             <td>2   </td> <td>1   </td> <td>0.125      </td>
         </tr>
-    </tbody>
         <tr>
             <td>2   </td> <td>2   </td> <td>0.125      </td>
         </tr>

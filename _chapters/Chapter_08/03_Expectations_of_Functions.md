@@ -95,19 +95,15 @@ dist
         <tr>
             <td>1   </td> <td>0.15  </td>
         </tr>
-    </tbody>
         <tr>
             <td>2   </td> <td>0.25  </td>
         </tr>
-    </tbody>
         <tr>
             <td>3   </td> <td>0.3   </td>
         </tr>
-    </tbody>
         <tr>
             <td>4   </td> <td>0.2   </td>
         </tr>
-    </tbody>
         <tr>
             <td>5   </td> <td>0.1   </td>
         </tr>
@@ -143,19 +139,15 @@ dist_with_Y
         <tr>
             <td>1   </td> <td>2   </td> <td>0.15  </td>
         </tr>
-    </tbody>
         <tr>
             <td>2   </td> <td>1   </td> <td>0.25  </td>
         </tr>
-    </tbody>
         <tr>
             <td>3   </td> <td>0   </td> <td>0.3   </td>
         </tr>
-    </tbody>
         <tr>
             <td>4   </td> <td>1   </td> <td>0.2   </td>
         </tr>
-    </tbody>
         <tr>
             <td>5   </td> <td>2   </td> <td>0.1   </td>
         </tr>
@@ -207,19 +199,15 @@ dist
         <tr>
             <td>1   </td> <td>0.15  </td>
         </tr>
-    </tbody>
         <tr>
             <td>2   </td> <td>0.25  </td>
         </tr>
-    </tbody>
         <tr>
             <td>3   </td> <td>0.3   </td>
         </tr>
-    </tbody>
         <tr>
             <td>4   </td> <td>0.2   </td>
         </tr>
-    </tbody>
         <tr>
             <td>5   </td> <td>0.1   </td>
         </tr>

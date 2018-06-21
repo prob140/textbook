@@ -119,31 +119,24 @@ three_toss_space
         <tr>
             <td>['H' 'H' 'H']</td> <td>0.125   </td>
         </tr>
-    </tbody>
         <tr>
             <td>['H' 'H' 'T']</td> <td>0.125   </td>
         </tr>
-    </tbody>
         <tr>
             <td>['H' 'T' 'H']</td> <td>0.125   </td>
         </tr>
-    </tbody>
         <tr>
             <td>['H' 'T' 'T']</td> <td>0.125   </td>
         </tr>
-    </tbody>
         <tr>
             <td>['T' 'H' 'H']</td> <td>0.125   </td>
         </tr>
-    </tbody>
         <tr>
             <td>['T' 'H' 'T']</td> <td>0.125   </td>
         </tr>
-    </tbody>
         <tr>
             <td>['T' 'T' 'H']</td> <td>0.125   </td>
         </tr>
-    </tbody>
         <tr>
             <td>['T' 'T' 'T']</td> <td>0.125   </td>
         </tr>
@@ -204,39 +197,30 @@ five_roll_space
         <tr>
             <td>[1 1 1 1 1]</td> <td>0.000128601</td>
         </tr>
-    </tbody>
         <tr>
             <td>[1 1 1 1 2]</td> <td>0.000128601</td>
         </tr>
-    </tbody>
         <tr>
             <td>[1 1 1 1 3]</td> <td>0.000128601</td>
         </tr>
-    </tbody>
         <tr>
             <td>[1 1 1 1 4]</td> <td>0.000128601</td>
         </tr>
-    </tbody>
         <tr>
             <td>[1 1 1 1 5]</td> <td>0.000128601</td>
         </tr>
-    </tbody>
         <tr>
             <td>[1 1 1 1 6]</td> <td>0.000128601</td>
         </tr>
-    </tbody>
         <tr>
             <td>[1 1 1 2 1]</td> <td>0.000128601</td>
         </tr>
-    </tbody>
         <tr>
             <td>[1 1 1 2 2]</td> <td>0.000128601</td>
         </tr>
-    </tbody>
         <tr>
             <td>[1 1 1 2 3]</td> <td>0.000128601</td>
         </tr>
-    </tbody>
         <tr>
             <td>[1 1 1 2 4]</td> <td>0.000128601</td>
         </tr>
@@ -287,39 +271,30 @@ five_rolls_sum
         <tr>
             <td>[1 1 1 1 1]</td> <td>5       </td> <td>0.000128601</td>
         </tr>
-    </tbody>
         <tr>
             <td>[1 1 1 1 2]</td> <td>6       </td> <td>0.000128601</td>
         </tr>
-    </tbody>
         <tr>
             <td>[1 1 1 1 3]</td> <td>7       </td> <td>0.000128601</td>
         </tr>
-    </tbody>
         <tr>
             <td>[1 1 1 1 4]</td> <td>8       </td> <td>0.000128601</td>
         </tr>
-    </tbody>
         <tr>
             <td>[1 1 1 1 5]</td> <td>9       </td> <td>0.000128601</td>
         </tr>
-    </tbody>
         <tr>
             <td>[1 1 1 1 6]</td> <td>10      </td> <td>0.000128601</td>
         </tr>
-    </tbody>
         <tr>
             <td>[1 1 1 2 1]</td> <td>6       </td> <td>0.000128601</td>
         </tr>
-    </tbody>
         <tr>
             <td>[1 1 1 2 2]</td> <td>7       </td> <td>0.000128601</td>
         </tr>
-    </tbody>
         <tr>
             <td>[1 1 1 2 3]</td> <td>8       </td> <td>0.000128601</td>
         </tr>
-    </tbody>
         <tr>
             <td>[1 1 1 2 4]</td> <td>9       </td> <td>0.000128601</td>
         </tr>
@@ -409,39 +384,30 @@ five_rolls_sum.where('S(omega)', are.equal_to(10))
         <tr>
             <td>[1 1 1 1 6]</td> <td>10      </td> <td>0.000128601</td>
         </tr>
-    </tbody>
         <tr>
             <td>[1 1 1 2 5]</td> <td>10      </td> <td>0.000128601</td>
         </tr>
-    </tbody>
         <tr>
             <td>[1 1 1 3 4]</td> <td>10      </td> <td>0.000128601</td>
         </tr>
-    </tbody>
         <tr>
             <td>[1 1 1 4 3]</td> <td>10      </td> <td>0.000128601</td>
         </tr>
-    </tbody>
         <tr>
             <td>[1 1 1 5 2]</td> <td>10      </td> <td>0.000128601</td>
         </tr>
-    </tbody>
         <tr>
             <td>[1 1 1 6 1]</td> <td>10      </td> <td>0.000128601</td>
         </tr>
-    </tbody>
         <tr>
             <td>[1 1 2 1 5]</td> <td>10      </td> <td>0.000128601</td>
         </tr>
-    </tbody>
         <tr>
             <td>[1 1 2 2 4]</td> <td>10      </td> <td>0.000128601</td>
         </tr>
-    </tbody>
         <tr>
             <td>[1 1 2 3 3]</td> <td>10      </td> <td>0.000128601</td>
         </tr>
-    </tbody>
         <tr>
             <td>[1 1 2 4 2]</td> <td>10      </td> <td>0.000128601</td>
         </tr>

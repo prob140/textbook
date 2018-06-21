@@ -97,39 +97,30 @@ results
         <tr>
             <td>1     </td> <td>1               </td> <td>0                    </td>
         </tr>
-    </tbody>
         <tr>
             <td>2     </td> <td>0.99726         </td> <td>0.00273973           </td>
         </tr>
-    </tbody>
         <tr>
             <td>3     </td> <td>0.991796        </td> <td>0.00820417           </td>
         </tr>
-    </tbody>
         <tr>
             <td>4     </td> <td>0.983644        </td> <td>0.0163559            </td>
         </tr>
-    </tbody>
         <tr>
             <td>5     </td> <td>0.972864        </td> <td>0.0271356            </td>
         </tr>
-    </tbody>
         <tr>
             <td>6     </td> <td>0.959538        </td> <td>0.0404625            </td>
         </tr>
-    </tbody>
         <tr>
             <td>7     </td> <td>0.943764        </td> <td>0.0562357            </td>
         </tr>
-    </tbody>
         <tr>
             <td>8     </td> <td>0.925665        </td> <td>0.0743353            </td>
         </tr>
-    </tbody>
         <tr>
             <td>9     </td> <td>0.905376        </td> <td>0.0946238            </td>
         </tr>
-    </tbody>
         <tr>
             <td>10    </td> <td>0.883052        </td> <td>0.116948             </td>
         </tr>

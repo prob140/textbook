@@ -33,39 +33,30 @@ five_rolls_sum
         <tr>
             <td>[1 1 1 1 1]</td> <td>5       </td> <td>0.000128601</td>
         </tr>
-    </tbody>
         <tr>
             <td>[1 1 1 1 2]</td> <td>6       </td> <td>0.000128601</td>
         </tr>
-    </tbody>
         <tr>
             <td>[1 1 1 1 3]</td> <td>7       </td> <td>0.000128601</td>
         </tr>
-    </tbody>
         <tr>
             <td>[1 1 1 1 4]</td> <td>8       </td> <td>0.000128601</td>
         </tr>
-    </tbody>
         <tr>
             <td>[1 1 1 1 5]</td> <td>9       </td> <td>0.000128601</td>
         </tr>
-    </tbody>
         <tr>
             <td>[1 1 1 1 6]</td> <td>10      </td> <td>0.000128601</td>
         </tr>
-    </tbody>
         <tr>
             <td>[1 1 1 2 1]</td> <td>6       </td> <td>0.000128601</td>
         </tr>
-    </tbody>
         <tr>
             <td>[1 1 1 2 2]</td> <td>7       </td> <td>0.000128601</td>
         </tr>
-    </tbody>
         <tr>
             <td>[1 1 1 2 3]</td> <td>8       </td> <td>0.000128601</td>
         </tr>
-    </tbody>
         <tr>
             <td>[1 1 1 2 4]</td> <td>9       </td> <td>0.000128601</td>
         </tr>
@@ -101,39 +92,30 @@ dist_S
         <tr>
             <td>5       </td> <td>0.000128601 </td>
         </tr>
-    </tbody>
         <tr>
             <td>6       </td> <td>0.000643004 </td>
         </tr>
-    </tbody>
         <tr>
             <td>7       </td> <td>0.00192901  </td>
         </tr>
-    </tbody>
         <tr>
             <td>8       </td> <td>0.00450103  </td>
         </tr>
-    </tbody>
         <tr>
             <td>9       </td> <td>0.00900206  </td>
         </tr>
-    </tbody>
         <tr>
             <td>10      </td> <td>0.0162037   </td>
         </tr>
-    </tbody>
         <tr>
             <td>11      </td> <td>0.0263632   </td>
         </tr>
-    </tbody>
         <tr>
             <td>12      </td> <td>0.0392233   </td>
         </tr>
-    </tbody>
         <tr>
             <td>13      </td> <td>0.0540123   </td>
         </tr>
-    </tbody>
         <tr>
             <td>14      </td> <td>0.0694444   </td>
         </tr>
@@ -207,39 +189,30 @@ dist_S
         <tr>
             <td>5    </td> <td>0.000128601</td>
         </tr>
-    </tbody>
         <tr>
             <td>6    </td> <td>0.000643004</td>
         </tr>
-    </tbody>
         <tr>
             <td>7    </td> <td>0.00192901 </td>
         </tr>
-    </tbody>
         <tr>
             <td>8    </td> <td>0.00450103 </td>
         </tr>
-    </tbody>
         <tr>
             <td>9    </td> <td>0.00900206 </td>
         </tr>
-    </tbody>
         <tr>
             <td>10   </td> <td>0.0162037  </td>
         </tr>
-    </tbody>
         <tr>
             <td>11   </td> <td>0.0263632  </td>
         </tr>
-    </tbody>
         <tr>
             <td>12   </td> <td>0.0392233  </td>
         </tr>
-    </tbody>
         <tr>
             <td>13   </td> <td>0.0540123  </td>
         </tr>
-    </tbody>
         <tr>
             <td>14   </td> <td>0.0694444  </td>
         </tr>
@@ -343,31 +316,24 @@ event_table
         <tr>
             <td>14   </td> <td>0.0694444  </td>
         </tr>
-    </tbody>
         <tr>
             <td>15   </td> <td>0.0837191  </td>
         </tr>
-    </tbody>
         <tr>
             <td>16   </td> <td>0.0945216  </td>
         </tr>
-    </tbody>
         <tr>
             <td>17   </td> <td>0.100309   </td>
         </tr>
-    </tbody>
         <tr>
             <td>18   </td> <td>0.100309   </td>
         </tr>
-    </tbody>
         <tr>
             <td>19   </td> <td>0.0945216  </td>
         </tr>
-    </tbody>
         <tr>
             <td>20   </td> <td>0.0837191  </td>
         </tr>
-    </tbody>
         <tr>
             <td>21   </td> <td>0.0694444  </td>
         </tr>

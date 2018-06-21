@@ -171,15 +171,12 @@ pi
         <tr>
             <td>1    </td> <td>0.00549451 </td>
         </tr>
-    </tbody>
         <tr>
             <td>2    </td> <td>0.0549451  </td>
         </tr>
-    </tbody>
         <tr>
             <td>3    </td> <td>0.494505   </td>
         </tr>
-    </tbody>
         <tr>
             <td>4    </td> <td>0.445055   </td>
         </tr>

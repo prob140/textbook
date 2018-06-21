@@ -242,19 +242,15 @@ reflecting_walk.steady_state()
         <tr>
             <td>1    </td> <td>0.125      </td>
         </tr>
-    </tbody>
         <tr>
             <td>2    </td> <td>0.25       </td>
         </tr>
-    </tbody>
         <tr>
             <td>3    </td> <td>0.25       </td>
         </tr>
-    </tbody>
         <tr>
             <td>4    </td> <td>0.25       </td>
         </tr>
-    </tbody>
         <tr>
             <td>5    </td> <td>0.125      </td>
         </tr>
@@ -440,19 +436,15 @@ circle_walk.steady_state()
         <tr>
             <td>1    </td> <td>0.2        </td>
         </tr>
-    </tbody>
         <tr>
             <td>2    </td> <td>0.2        </td>
         </tr>
-    </tbody>
         <tr>
             <td>3    </td> <td>0.2        </td>
         </tr>
-    </tbody>
         <tr>
             <td>4    </td> <td>0.2        </td>
         </tr>
-    </tbody>
         <tr>
             <td>5    </td> <td>0.2        </td>
         </tr>

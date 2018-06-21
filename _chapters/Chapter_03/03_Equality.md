@@ -82,15 +82,12 @@ dist
         <tr>
             <td>0    </td> <td>0.125      </td>
         </tr>
-    </tbody>
         <tr>
             <td>1    </td> <td>0.375      </td>
         </tr>
-    </tbody>
         <tr>
             <td>2    </td> <td>0.375      </td>
         </tr>
-    </tbody>
         <tr>
             <td>3    </td> <td>0.125      </td>
         </tr>
@@ -163,15 +160,12 @@ dist_X1
         <tr>
             <td>1    </td> <td>0.1        </td>
         </tr>
-    </tbody>
         <tr>
             <td>2    </td> <td>0.2        </td>
         </tr>
-    </tbody>
         <tr>
             <td>3    </td> <td>0.3        </td>
         </tr>
-    </tbody>
         <tr>
             <td>4    </td> <td>0.4        </td>
         </tr>
@@ -214,15 +208,12 @@ dist_X2
         <tr>
             <td>1    </td> <td>0.1        </td>
         </tr>
-    </tbody>
         <tr>
             <td>2    </td> <td>0.2        </td>
         </tr>
-    </tbody>
         <tr>
             <td>3    </td> <td>0.3        </td>
         </tr>
-    </tbody>
         <tr>
             <td>4    </td> <td>0.4        </td>
         </tr>

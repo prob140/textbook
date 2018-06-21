@@ -269,7 +269,7 @@ reflecting_walk.simulate_path(1, 7)
 
 {:.output_data_text}
 ```
-array([1, 1, 1, 1, 2, 2, 2, 2])
+array([1, 2, 2, 2, 3, 4, 3, 3])
 ```
 
 

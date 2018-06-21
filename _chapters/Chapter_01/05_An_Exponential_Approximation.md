@@ -124,39 +124,30 @@ results
         <tr>
             <td>1     </td> <td>0                    </td> <td>0                        </td>
         </tr>
-    </tbody>
         <tr>
             <td>2     </td> <td>0.00273973           </td> <td>0.00273598               </td>
         </tr>
-    </tbody>
         <tr>
             <td>3     </td> <td>0.00820417           </td> <td>0.00818549               </td>
         </tr>
-    </tbody>
         <tr>
             <td>4     </td> <td>0.0163559            </td> <td>0.016304                 </td>
         </tr>
-    </tbody>
         <tr>
             <td>5     </td> <td>0.0271356            </td> <td>0.0270254                </td>
         </tr>
-    </tbody>
         <tr>
             <td>6     </td> <td>0.0404625            </td> <td>0.0402629                </td>
         </tr>
-    </tbody>
         <tr>
             <td>7     </td> <td>0.0562357            </td> <td>0.0559104                </td>
         </tr>
-    </tbody>
         <tr>
             <td>8     </td> <td>0.0743353            </td> <td>0.0738438                </td>
         </tr>
-    </tbody>
         <tr>
             <td>9     </td> <td>0.0946238            </td> <td>0.0939222                </td>
         </tr>
-    </tbody>
         <tr>
             <td>10    </td> <td>0.116948             </td> <td>0.115991                 </td>
         </tr>

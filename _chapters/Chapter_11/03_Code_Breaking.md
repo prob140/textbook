@@ -68,23 +68,18 @@ decoding
         <tr>
             <td>['a' 'd' 't']</td> <td>['a' 't' 'd' 't']</td>
         </tr>
-    </tbody>
         <tr>
             <td>['a' 't' 'd']</td> <td>['a' 'd' 't' 'd']</td>
         </tr>
-    </tbody>
         <tr>
             <td>['d' 'a' 't']</td> <td>['d' 't' 'a' 't']</td>
         </tr>
-    </tbody>
         <tr>
             <td>['d' 't' 'a']</td> <td>['d' 'a' 't' 'a']</td>
         </tr>
-    </tbody>
         <tr>
             <td>['t' 'a' 'd']</td> <td>['t' 'd' 'a' 'd']</td>
         </tr>
-    </tbody>
         <tr>
             <td>['t' 'd' 'a']</td> <td>['t' 'a' 'd' 'a']</td>
         </tr>
@@ -238,23 +233,18 @@ decoding.sort('Score of Decoder', descending=True)
         <tr>
             <td>['d' 't' 'a']</td> <td>['d' 'a' 't' 'a']</td> <td>0.284492        </td>
         </tr>
-    </tbody>
         <tr>
             <td>['d' 'a' 't']</td> <td>['d' 't' 'a' 't']</td> <td>0.134142        </td>
         </tr>
-    </tbody>
         <tr>
             <td>['t' 'd' 'a']</td> <td>['t' 'a' 'd' 'a']</td> <td>0.0818868       </td>
         </tr>
-    </tbody>
         <tr>
             <td>['a' 'd' 't']</td> <td>['a' 't' 'd' 't']</td> <td>0.0102363       </td>
         </tr>
-    </tbody>
         <tr>
             <td>['t' 'a' 'd']</td> <td>['t' 'd' 'a' 'd']</td> <td>0.00624874      </td>
         </tr>
-    </tbody>
         <tr>
             <td>['a' 't' 'd']</td> <td>['a' 'd' 't' 'd']</td> <td>0.00294638      </td>
         </tr>
