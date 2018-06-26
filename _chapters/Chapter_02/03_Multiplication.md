@@ -53,11 +53,13 @@ It is denoted $P(\text{second card R} \mid \text{first card G})$. That's a verti
 
 Now our original calculation for the pair of cards can be written one card at a time:
 
+$$
 \begin{align*}
 P(\text{GR}) &= \frac{\#\{\text{GR}\}}{6} \\ \\
 &= \frac{\#\{\text{GR, GB}\}}{6} \times \frac{\#\{\text{GR}\}}{\#\{\text{GR, GB}\}} \\ \\
 &= P(\text{first card G}) \times P(\text{second card R} \mid \text{first card G})
 \end{align*}
+$$
 
 ### Conditional Probability ###
 Calculations like the one above motivate a new definition. Let $A$ and $B$ be two events. Then the *conditional probability of $B$ given $A$* is defined by:
