@@ -135,6 +135,8 @@ if __name__ == '__main__':
     files = _markdown_to_files(MARKDOWN_FILE)
 
     # --- Loop through all ipynb/md files, convert to md as necessary and copy. ---
+    n_skipped_files = 0
+    n_built_files = 0
     for ix_file, (title, link, level) in tqdm(list(enumerate(files))):
         if len(link) == 0:
             continue
@@ -145,7 +147,9 @@ if __name__ == '__main__':
         filename = op.basename(link)
         new_folder = op.dirname(link).replace(NOTEBOOKS_FOLDER_NAME, TEXTBOOK_FOLDER_NAME)
         new_file_path = op.join(new_folder, filename.replace('.ipynb', '.md'))
-        if overwrite is True and op.exists(new_file_path):
+
+        if overwrite is False and op.exists(new_file_path):
+            n_skipped_files += 1
             continue
 
         if not op.isdir(new_folder):
@@ -214,7 +218,11 @@ if __name__ == '__main__':
         yaml_fm += ['  url: {}'.format(prev_page_link.lstrip('._').replace('"', "'"))]
         yaml_fm += ["  title: '{}'".format(prev_file_title)]
         yaml_fm += ['nextchapter:']
+<<<<<<< HEAD
         yaml_fm += ['  url: {}'.format(next_page_link.lstrip('._').replace('"', "'"))]
+=======
+        yaml_fm += ['  url: {}'.format(_prepare_link(next_page_link).replace('"', "'"))]
+>>>>>>> 84a174f... Merge branch 'master' of https://github.com/choldgraf/textbook-jekyll-template
         yaml_fm += ["  title: '{}'".format(next_file_title)]
         if ix_file == 0 and site_yaml.get('textbook_only') is True:
             yaml_fm += ['redirect_from: /']
@@ -225,6 +233,11 @@ if __name__ == '__main__':
         # Write the result
         with open(new_file_path, 'w') as ff:
             ff.writelines(lines)
+        n_built_files += 1
+
+    print("Done generating {} files, skipped {} files".format(n_built_files, n_skipped_files))
+    if n_built_files == 0:
+        print("---\nDelete the markdown files in '{}' for any pages that you wish to re-build.\n---\n".format(TEXTBOOK_FOLDER_NAME))
 
     # Generate sidebar, replacing the old one if it exists
     _generate_sidebar(files)
