@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_08/02_Additivity.ipynb
 title: '8.2 Additivity'
-permalink: 'chapters/chapter-08/02-additivity'
+permalink: 'chapters/Chapter_08/02_Additivity'
 previouschapter:
-  url: chapters/chapter-08/01-definition
+  url: chapters/Chapter_08/01_Definition
   title: '8.1 Definition'
 nextchapter:
-  url: chapters/chapter-08/03-expectations-of-functions
+  url: chapters/Chapter_08/03_Expectations_of_Functions
   title: '8.3 Expectations of Functions'
+redirect_from:
+  - 'chapters/chapter-08/02-additivity'
 ---
 
 ## Additivity

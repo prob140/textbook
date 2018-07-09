@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_06/00_Random_Counts.ipynb
 title: 'Chapter 6: Random Counts'
-permalink: 'chapters/chapter-06/00-random-counts'
+permalink: 'chapters/Chapter_06/00_Random_Counts'
 previouschapter:
-  url: chapters/chapter-05/04-sampling-without-replacement
+  url: chapters/Chapter_05/04_Sampling_Without_Replacement
   title: '5.4 Sampling Without Replacement'
 nextchapter:
-  url: chapters/chapter-06/01-binomial-distribution
+  url: chapters/Chapter_06/01_Binomial_Distribution
   title: '6.1 The Binomial Distribution'
+redirect_from:
+  - 'chapters/chapter-06/00-random-counts'
 ---
 
 # Random Counts

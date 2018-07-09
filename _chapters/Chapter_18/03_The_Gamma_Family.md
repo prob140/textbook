@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_18/03_The_Gamma_Family.ipynb
 title: '18.3 The Gamma Family'
-permalink: 'chapters/chapter-18/03-the-gamma-family'
+permalink: 'chapters/Chapter_18/03_The_Gamma_Family'
 previouschapter:
-  url: chapters/chapter-18/02-sums-of-independent-normal-variables
+  url: chapters/Chapter_18/02_Sums_of_Independent_Normal_Variables
   title: '18.2 Sums of Independent Normal Variables'
 nextchapter:
-  url: chapters/chapter-18/04-chi-squared-distributions
+  url: chapters/Chapter_18/04_Chi_Squared_Distributions
   title: '18.4 Chi-Squared Distributions'
+redirect_from:
+  - 'chapters/chapter-18/03-the-gamma-family'
 ---
 
 ## The Gamma Family

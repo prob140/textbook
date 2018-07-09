@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_13/00_Variance_Via_Covariance.ipynb
 title: 'Chapter 13: Variance Via Covariance'
-permalink: 'chapters/chapter-13/00-variance-via-covariance'
+permalink: 'chapters/Chapter_13/00_Variance_Via_Covariance'
 previouschapter:
-  url: chapters/chapter-12/04-heavy-tails
+  url: chapters/Chapter_12/04_Heavy_Tails
   title: '12.4 Heavy Tails'
 nextchapter:
-  url: chapters/chapter-13/01-properties-of-covariance
+  url: chapters/Chapter_13/01_Properties_of_Covariance
   title: '13.1 Properties of Covariance'
+redirect_from:
+  - 'chapters/chapter-13/00-variance-via-covariance'
 ---
 
 # Variance Via Covariance

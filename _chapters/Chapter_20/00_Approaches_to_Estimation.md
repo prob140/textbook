@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_20/00_Approaches_to_Estimation.ipynb
 title: 'Chapter 20: Approaches to Estimation'
-permalink: 'chapters/chapter-20/00-approaches-to-estimation'
+permalink: 'chapters/Chapter_20/00_Approaches_to_Estimation'
 previouschapter:
-  url: chapters/chapter-19/04-chernoff-bound
+  url: chapters/Chapter_19/04_Chernoff_Bound
   title: '19.4 Chernoff Bound'
 nextchapter:
-  url: chapters/chapter-20/01-maximum-likelihood
+  url: chapters/Chapter_20/01_Maximum_Likelihood
   title: '20.1 Maximum Likelihood'
+redirect_from:
+  - 'chapters/chapter-20/00-approaches-to-estimation'
 ---
 
 # Approaches to Estimation

@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_24/01_Bivariate_Normal_Distribution.ipynb
 title: '24.1 Bivariate Normal Distribution'
-permalink: 'chapters/chapter-24/01-bivariate-normal-distribution'
+permalink: 'chapters/Chapter_24/01_Bivariate_Normal_Distribution'
 previouschapter:
-  url: chapters/chapter-24/00-simple-linear-regression
+  url: chapters/Chapter_24/00_Simple_Linear_Regression
   title: 'Chapter 24: Simple Linear Regression'
 nextchapter:
-  url: chapters/chapter-24/02-linear-least-squares
+  url: chapters/Chapter_24/02_Linear_Least_Squares
   title: '24.2 Least Squares Linear Predictor'
+redirect_from:
+  - 'chapters/chapter-24/01-bivariate-normal-distribution'
 ---
 
 ## Bivariate Normal Distribution

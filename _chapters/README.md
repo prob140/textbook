@@ -1,13 +1,15 @@
 ---
 title: 'Authors and License'
-permalink: 'chapters/readme'
+permalink: 'chapters/README'
 previouschapter:
   url: 
   title: ''
 nextchapter:
-  url: chapters/to-the-student
+  url: chapters/To_the_Student
   title: 'To the Student'
-redirect_from: /
+redirect_from:
+  - 'chapters/readme'
+  - '/'
 ---
 Prob 140
 ======================================

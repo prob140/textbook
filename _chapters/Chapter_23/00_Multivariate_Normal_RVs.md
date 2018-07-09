@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_23/00_Multivariate_Normal_RVs.ipynb
 title: 'Chapter 23: Jointly Normal Random Variables'
-permalink: 'chapters/chapter-23/00-multivariate-normal-rvs'
+permalink: 'chapters/Chapter_23/00_Multivariate_Normal_RVs'
 previouschapter:
-  url: chapters/chapter-22/04-least-squares-predictor
+  url: chapters/Chapter_22/04_Least_Squares_Predictor
   title: '22.4 Least Squares Predictor'
 nextchapter:
-  url: chapters/chapter-23/01-random-vectors
+  url: chapters/Chapter_23/01_Random_Vectors
   title: '23.1 Random Vectors'
+redirect_from:
+  - 'chapters/chapter-23/00-multivariate-normal-rvs'
 ---
 
 # Jointly Normal Random Variables

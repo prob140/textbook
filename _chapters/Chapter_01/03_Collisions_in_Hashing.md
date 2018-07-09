@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_01/03_Collisions_in_Hashing.ipynb
 title: '1.3 Collisions in Hashing'
-permalink: 'chapters/chapter-01/03-collisions-in-hashing'
+permalink: 'chapters/Chapter_01/03_Collisions_in_Hashing'
 previouschapter:
-  url: chapters/chapter-01/02-equally-likely-outcomes
+  url: chapters/Chapter_01/02_Equally_Likely_Outcomes
   title: '1.2 Equally Likely Outcomes'
 nextchapter:
-  url: chapters/chapter-01/04-birthday-problem
+  url: chapters/Chapter_01/04_Birthday_Problem
   title: '1.4 The Birthday Problem'
+redirect_from:
+  - 'chapters/chapter-01/03-collisions-in-hashing'
 ---
 
 ## Collisions in Hashing

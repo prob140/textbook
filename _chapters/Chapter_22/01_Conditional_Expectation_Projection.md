@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_22/01_Conditional_Expectation_Projection.ipynb
 title: '22.1 Conditional Expectation As a Projection'
-permalink: 'chapters/chapter-22/01-conditional-expectation-projection'
+permalink: 'chapters/Chapter_22/01_Conditional_Expectation_Projection'
 previouschapter:
-  url: chapters/chapter-22/00-prediction
+  url: chapters/Chapter_22/00_Prediction
   title: 'Chapter 22: Prediction'
 nextchapter:
-  url: chapters/chapter-22/02-variance-by-conditioning
+  url: chapters/Chapter_22/02_Variance_by_Conditioning
   title: '22.2 Variance by Conditioning'
+redirect_from:
+  - 'chapters/chapter-22/01-conditional-expectation-projection'
 ---
 
 ## Conditional Expectation As a Projection

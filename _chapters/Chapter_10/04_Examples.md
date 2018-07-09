@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_10/04_Examples.ipynb
 title: '10.4 Examples'
-permalink: 'chapters/chapter-10/04-examples'
+permalink: 'chapters/Chapter_10/04_Examples'
 previouschapter:
-  url: chapters/chapter-10/03-long-run-behavior
+  url: chapters/Chapter_10/03_Long_Run_Behavior
   title: '10.3 Long Run Behavior'
 nextchapter:
-  url: chapters/chapter-11/00-reversing-markov-chains
+  url: chapters/Chapter_11/00_Reversing_Markov_Chains
   title: 'Chapter 11: Reversing Markov Chains'
+redirect_from:
+  - 'chapters/chapter-10/04-examples'
 ---
 
 ## Examples

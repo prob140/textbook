@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_08/03_Expectations_of_Functions.ipynb
 title: '8.3 Expectations of Functions'
-permalink: 'chapters/chapter-08/03-expectations-of-functions'
+permalink: 'chapters/Chapter_08/03_Expectations_of_Functions'
 previouschapter:
-  url: chapters/chapter-08/02-additivity
+  url: chapters/Chapter_08/02_Additivity
   title: '8.2 Additivity'
 nextchapter:
-  url: chapters/chapter-09/00-conditioning-revisited
+  url: chapters/Chapter_09/00_Conditioning_Revisited
   title: 'Chapter 9: Conditioning, Revisited'
+redirect_from:
+  - 'chapters/chapter-08/03-expectations-of-functions'
 ---
 
 ## Expectations of Functions

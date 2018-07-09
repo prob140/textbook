@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_16/03_Two_to_One_Functions.ipynb
 title: '16.3 Two-to-One Functions'
-permalink: 'chapters/chapter-16/03-two-to-one-functions'
+permalink: 'chapters/Chapter_16/03_Two_to_One_Functions'
 previouschapter:
-  url: chapters/chapter-16/02-monotone-functions
+  url: chapters/Chapter_16/02_Monotone_Functions
   title: '16.2 Monotone Functions'
 nextchapter:
-  url: chapters/chapter-17/00-joint-densities
+  url: chapters/Chapter_17/00_Joint_Densities
   title: 'Chapter 17: Joint Densities'
+redirect_from:
+  - 'chapters/chapter-16/03-two-to-one-functions'
 ---
 
 ## Two-to-One Functions

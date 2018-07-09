@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_11/02_Reversibility.ipynb
 title: '11.2 Reversibility'
-permalink: 'chapters/chapter-11/02-reversibility'
+permalink: 'chapters/Chapter_11/02_Reversibility'
 previouschapter:
-  url: chapters/chapter-11/01-detailed-balance
+  url: chapters/Chapter_11/01_Detailed_Balance
   title: '11.1 Detailed Balance'
 nextchapter:
-  url: chapters/chapter-11/03-code-breaking
+  url: chapters/Chapter_11/03_Code_Breaking
   title: '11.3 Code Breaking'
+redirect_from:
+  - 'chapters/chapter-11/02-reversibility'
 ---
 
 ## Reversibility

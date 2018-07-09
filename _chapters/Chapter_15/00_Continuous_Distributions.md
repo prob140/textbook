@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_15/00_Continuous_Distributions.ipynb
 title: 'Chapter 15: Continuous Distributions'
-permalink: 'chapters/chapter-15/00-continuous-distributions'
+permalink: 'chapters/Chapter_15/00_Continuous_Distributions'
 previouschapter:
-  url: chapters/chapter-14/05-confidence-intervals
+  url: chapters/Chapter_14/05_Confidence_Intervals
   title: '14.5 Confidence Intervals'
 nextchapter:
-  url: chapters/chapter-15/01-density-and-cdf
+  url: chapters/Chapter_15/01_Density_and_CDF
   title: '15.1 Density and CDF'
+redirect_from:
+  - 'chapters/chapter-15/00-continuous-distributions'
 ---
 
 # Continuous Distributions

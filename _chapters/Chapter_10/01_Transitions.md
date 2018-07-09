@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_10/01_Transitions.ipynb
 title: '10.1 Transitions'
-permalink: 'chapters/chapter-10/01-transitions'
+permalink: 'chapters/Chapter_10/01_Transitions'
 previouschapter:
-  url: chapters/chapter-10/00-markov-chains
+  url: chapters/Chapter_10/00_Markov_Chains
   title: 'Chapter 10: Markov Chains'
 nextchapter:
-  url: chapters/chapter-10/02-deconstructing-chains
+  url: chapters/Chapter_10/02_Deconstructing_Chains
   title: '10.2 Deconstructing Chains'
+redirect_from:
+  - 'chapters/chapter-10/01-transitions'
 ---
 
 ## Transitions

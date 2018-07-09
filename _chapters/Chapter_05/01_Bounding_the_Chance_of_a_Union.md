@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_05/01_Bounding_the_Chance_of_a_Union.ipynb
 title: '5.1 Bounding the Chance of a Union'
-permalink: 'chapters/chapter-05/01-bounding-the-chance-of-a-union'
+permalink: 'chapters/Chapter_05/01_Bounding_the_Chance_of_a_Union'
 previouschapter:
-  url: chapters/chapter-05/00-collections-of-events
+  url: chapters/Chapter_05/00_Collections_of_Events
   title: 'Chapter 5: Collections of Events'
 nextchapter:
-  url: chapters/chapter-05/02-inclusion-exclusion
+  url: chapters/Chapter_05/02_Inclusion_Exclusion
   title: '5.2 Inclusion-Exclusion'
+redirect_from:
+  - 'chapters/chapter-05/01-bounding-the-chance-of-a-union'
 ---
 
 ## Bounding the Chance of a Union

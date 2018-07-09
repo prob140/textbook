@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_04/00_Relations_Between_Variables.ipynb
 title: 'Chapter 4: Relations Between Variables'
-permalink: 'chapters/chapter-04/00-relations-between-variables'
+permalink: 'chapters/Chapter_04/00_Relations_Between_Variables'
 previouschapter:
-  url: chapters/chapter-03/03-equality
+  url: chapters/Chapter_03/03_Equality
   title: '3.3 Equality'
 nextchapter:
-  url: chapters/chapter-04/01-joint-distributions
+  url: chapters/Chapter_04/01_Joint_Distributions
   title: '4.1 Joint Distributions'
+redirect_from:
+  - 'chapters/chapter-04/00-relations-between-variables'
 ---
 
 # Relations Between Variables

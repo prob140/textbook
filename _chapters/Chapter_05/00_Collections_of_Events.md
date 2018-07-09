@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_05/00_Collections_of_Events.ipynb
 title: 'Chapter 5: Collections of Events'
-permalink: 'chapters/chapter-05/00-collections-of-events'
+permalink: 'chapters/Chapter_05/00_Collections_of_Events'
 previouschapter:
-  url: chapters/chapter-04/05-dependence-and-independence
+  url: chapters/Chapter_04/05_Dependence_and_Independence
   title: '4.5 Dependence and Independence'
 nextchapter:
-  url: chapters/chapter-05/01-bounding-the-chance-of-a-union
+  url: chapters/Chapter_05/01_Bounding_the_Chance_of_a_Union
   title: '5.1 Bounding the Chance of a Union'
+redirect_from:
+  - 'chapters/chapter-05/00-collections-of-events'
 ---
 
 # Collections of Events

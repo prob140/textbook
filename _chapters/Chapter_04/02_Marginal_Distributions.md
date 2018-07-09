@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_04/02_Marginal_Distributions.ipynb
 title: '4.2 Marginal Distributions'
-permalink: 'chapters/chapter-04/02-marginal-distributions'
+permalink: 'chapters/Chapter_04/02_Marginal_Distributions'
 previouschapter:
-  url: chapters/chapter-04/01-joint-distributions
+  url: chapters/Chapter_04/01_Joint_Distributions
   title: '4.1 Joint Distributions'
 nextchapter:
-  url: chapters/chapter-04/03-conditional-distributions
+  url: chapters/Chapter_04/03_Conditional_Distributions
   title: '4.3 Conditional Distributions'
+redirect_from:
+  - 'chapters/chapter-04/02-marginal-distributions'
 ---
 
 ## Marginal Distributions

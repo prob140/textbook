@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_03/03_Equality.ipynb
 title: '3.3 Equality'
-permalink: 'chapters/chapter-03/03-equality'
+permalink: 'chapters/Chapter_03/03_Equality'
 previouschapter:
-  url: chapters/chapter-03/02-distributions
+  url: chapters/Chapter_03/02_Distributions
   title: '3.2 Distributions'
 nextchapter:
-  url: chapters/chapter-04/00-relations-between-variables
+  url: chapters/Chapter_04/00_Relations_Between_Variables
   title: 'Chapter 4: Relations Between Variables'
+redirect_from:
+  - 'chapters/chapter-03/03-equality'
 ---
 
 ## Equality

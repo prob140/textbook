@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_06/03_Hypergeometric_Distribution.ipynb
 title: '6.3 The Hypergeometric Distribution'
-permalink: 'chapters/chapter-06/03-hypergeometric-distribution'
+permalink: 'chapters/Chapter_06/03_Hypergeometric_Distribution'
 previouschapter:
-  url: chapters/chapter-06/02-examples
+  url: chapters/Chapter_06/02_Examples
   title: '6.2 Examples'
 nextchapter:
-  url: chapters/chapter-06/04-odds-ratios
+  url: chapters/Chapter_06/04_Odds_Ratios
   title: '6.4 Odds Ratios'
+redirect_from:
+  - 'chapters/chapter-06/03-hypergeometric-distribution'
 ---
 
 ## The Hypergeometric Distribution

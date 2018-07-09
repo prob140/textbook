@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_18/04_Chi_Squared_Distributions.ipynb
 title: '18.4 Chi-Squared Distributions'
-permalink: 'chapters/chapter-18/04-chi-squared-distributions'
+permalink: 'chapters/Chapter_18/04_Chi_Squared_Distributions'
 previouschapter:
-  url: chapters/chapter-18/03-the-gamma-family
+  url: chapters/Chapter_18/03_The_Gamma_Family
   title: '18.3 The Gamma Family'
 nextchapter:
-  url: chapters/chapter-19/00-distributions-of-sums
+  url: chapters/Chapter_19/00_Distributions_of_Sums
   title: 'Chapter 19: Distributions of Sums'
+redirect_from:
+  - 'chapters/chapter-18/04-chi-squared-distributions'
 ---
 
 ## Chi-Squared Distributions

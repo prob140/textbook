@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_18/02_Sums_of_Independent_Normal_Variables.ipynb
 title: '18.2 Sums of Independent Normal Variables'
-permalink: 'chapters/chapter-18/02-sums-of-independent-normal-variables'
+permalink: 'chapters/Chapter_18/02_Sums_of_Independent_Normal_Variables'
 previouschapter:
-  url: chapters/chapter-18/01-standard-normal-basics
+  url: chapters/Chapter_18/01_Standard_Normal_Basics
   title: '18.1 Standard Normal: The Basics'
 nextchapter:
-  url: chapters/chapter-18/03-the-gamma-family
+  url: chapters/Chapter_18/03_The_Gamma_Family
   title: '18.3 The Gamma Family'
+redirect_from:
+  - 'chapters/chapter-18/02-sums-of-independent-normal-variables'
 ---
 
 ## Sums of Independent Normal Variables

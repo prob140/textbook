@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_16/00_Transformations.ipynb
 title: 'Chapter 16: Transformations'
-permalink: 'chapters/chapter-16/00-transformations'
+permalink: 'chapters/Chapter_16/00_Transformations'
 previouschapter:
-  url: chapters/chapter-15/05-calculus-in-sympy
+  url: chapters/Chapter_15/05_Calculus_in_SymPy
   title: '15.5 Calculus in SymPy'
 nextchapter:
-  url: chapters/chapter-16/01-linear-transformations
+  url: chapters/Chapter_16/01_Linear_Transformations
   title: '16.1 Linear Transformations'
+redirect_from:
+  - 'chapters/chapter-16/00-transformations'
 ---
 
 # Transformations

@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_15/05_Calculus_in_SymPy.ipynb
 title: '15.5 Calculus in SymPy'
-permalink: 'chapters/chapter-15/05-calculus-in-sympy'
+permalink: 'chapters/Chapter_15/05_Calculus_in_SymPy'
 previouschapter:
-  url: chapters/chapter-15/04-exponential-distribution
+  url: chapters/Chapter_15/04_Exponential_Distribution
   title: '15.4 Exponential Distribution'
 nextchapter:
-  url: chapters/chapter-16/00-transformations
+  url: chapters/Chapter_16/00_Transformations
   title: 'Chapter 16: Transformations'
+redirect_from:
+  - 'chapters/chapter-15/05-calculus-in-sympy'
 ---
 
 ## Calculus in SymPy

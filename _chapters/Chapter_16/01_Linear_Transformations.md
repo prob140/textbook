@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_16/01_Linear_Transformations.ipynb
 title: '16.1 Linear Transformations'
-permalink: 'chapters/chapter-16/01-linear-transformations'
+permalink: 'chapters/Chapter_16/01_Linear_Transformations'
 previouschapter:
-  url: chapters/chapter-16/00-transformations
+  url: chapters/Chapter_16/00_Transformations
   title: 'Chapter 16: Transformations'
 nextchapter:
-  url: chapters/chapter-16/02-monotone-functions
+  url: chapters/Chapter_16/02_Monotone_Functions
   title: '16.2 Monotone Functions'
+redirect_from:
+  - 'chapters/chapter-16/01-linear-transformations'
 ---
 
 ## Linear Transformations

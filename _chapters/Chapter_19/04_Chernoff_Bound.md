@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_19/04_Chernoff_Bound.ipynb
 title: '19.4 Chernoff Bound'
-permalink: 'chapters/chapter-19/04-chernoff-bound'
+permalink: 'chapters/Chapter_19/04_Chernoff_Bound'
 previouschapter:
-  url: chapters/chapter-19/03-mgfs-normal-and-the-clt
+  url: chapters/Chapter_19/03_MGFs_Normal_and_the_CLT
   title: '19.3 MGFs, the Normal, and the CLT'
 nextchapter:
-  url: chapters/chapter-20/00-approaches-to-estimation
+  url: chapters/Chapter_20/00_Approaches_to_Estimation
   title: 'Chapter 20: Approaches to Estimation'
+redirect_from:
+  - 'chapters/chapter-19/04-chernoff-bound'
 ---
 
 ## Chernoff Bound

@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_10/02_Deconstructing_Chains.ipynb
 title: '10.2 Deconstructing Chains'
-permalink: 'chapters/chapter-10/02-deconstructing-chains'
+permalink: 'chapters/Chapter_10/02_Deconstructing_Chains'
 previouschapter:
-  url: chapters/chapter-10/01-transitions
+  url: chapters/Chapter_10/01_Transitions
   title: '10.1 Transitions'
 nextchapter:
-  url: chapters/chapter-10/03-long-run-behavior
+  url: chapters/Chapter_10/03_Long_Run_Behavior
   title: '10.3 Long Run Behavior'
+redirect_from:
+  - 'chapters/chapter-10/02-deconstructing-chains'
 ---
 
 ## Deconstructing Chains

@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_10/03_Long_Run_Behavior.ipynb
 title: '10.3 Long Run Behavior'
-permalink: 'chapters/chapter-10/03-long-run-behavior'
+permalink: 'chapters/Chapter_10/03_Long_Run_Behavior'
 previouschapter:
-  url: chapters/chapter-10/02-deconstructing-chains
+  url: chapters/Chapter_10/02_Deconstructing_Chains
   title: '10.2 Deconstructing Chains'
 nextchapter:
-  url: chapters/chapter-10/04-examples
+  url: chapters/Chapter_10/04_Examples
   title: '10.4 Examples'
+redirect_from:
+  - 'chapters/chapter-10/03-long-run-behavior'
 ---
 
 ## Long Run Behavior

@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_01/04_Birthday_Problem.ipynb
 title: '1.4 The Birthday Problem'
-permalink: 'chapters/chapter-01/04-birthday-problem'
+permalink: 'chapters/Chapter_01/04_Birthday_Problem'
 previouschapter:
-  url: chapters/chapter-01/03-collisions-in-hashing
+  url: chapters/Chapter_01/03_Collisions_in_Hashing
   title: '1.3 Collisions in Hashing'
 nextchapter:
-  url: chapters/chapter-01/05-an-exponential-approximation
+  url: chapters/Chapter_01/05_An_Exponential_Approximation
   title: '1.5 An Exponential Approximation'
+redirect_from:
+  - 'chapters/chapter-01/04-birthday-problem'
 ---
 
 ## The Birthday Problem

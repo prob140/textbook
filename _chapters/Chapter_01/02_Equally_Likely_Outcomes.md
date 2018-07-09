@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_01/02_Equally_Likely_Outcomes.ipynb
 title: '1.2 Equally Likely Outcomes'
-permalink: 'chapters/chapter-01/02-equally-likely-outcomes'
+permalink: 'chapters/Chapter_01/02_Equally_Likely_Outcomes'
 previouschapter:
-  url: chapters/chapter-01/01-outcome-space-and-events
+  url: chapters/Chapter_01/01_Outcome_Space_and_Events
   title: '1.1 Outcome Space and Events'
 nextchapter:
-  url: chapters/chapter-01/03-collisions-in-hashing
+  url: chapters/Chapter_01/03_Collisions_in_Hashing
   title: '1.3 Collisions in Hashing'
+redirect_from:
+  - 'chapters/chapter-01/02-equally-likely-outcomes'
 ---
 
 ## Equally Likely Outcomes

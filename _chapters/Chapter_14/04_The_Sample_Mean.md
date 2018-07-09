@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_14/04_The_Sample_Mean.ipynb
 title: '14.4 The Sample Mean'
-permalink: 'chapters/chapter-14/04-the-sample-mean'
+permalink: 'chapters/Chapter_14/04_The_Sample_Mean'
 previouschapter:
-  url: chapters/chapter-14/03-central-limit-theorem
+  url: chapters/Chapter_14/03_Central_Limit_Theorem
   title: '14.3 Central Limit Theorem'
 nextchapter:
-  url: chapters/chapter-14/05-confidence-intervals
+  url: chapters/Chapter_14/05_Confidence_Intervals
   title: '14.5 Confidence Intervals'
+redirect_from:
+  - 'chapters/chapter-14/04-the-sample-mean'
 ---
 
 ## The Sample Mean

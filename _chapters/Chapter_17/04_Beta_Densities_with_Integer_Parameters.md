@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_17/04_Beta_Densities_with_Integer_Parameters.ipynb
 title: '17.4 Beta Densities with Integer Parameters'
-permalink: 'chapters/chapter-17/04-beta-densities-with-integer-parameters'
+permalink: 'chapters/Chapter_17/04_Beta_Densities_with_Integer_Parameters'
 previouschapter:
-  url: chapters/chapter-17/03-marginal-and-conditional-densities
+  url: chapters/Chapter_17/03_Marginal_and_Conditional_Densities
   title: '17.3 Marginal and Conditional Densities'
 nextchapter:
-  url: chapters/chapter-18/00-the-normal-and-gamma-families
+  url: chapters/Chapter_18/00_The_Normal_and_Gamma_Families
   title: 'Chapter 18: The Normal and Gamma Families'
+redirect_from:
+  - 'chapters/chapter-17/04-beta-densities-with-integer-parameters'
 ---
 
 ## Beta Densities with Integer Parameters

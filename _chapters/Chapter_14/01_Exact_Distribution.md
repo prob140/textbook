@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_14/01_Exact_Distribution.ipynb
 title: '14.1 Exact Distribution'
-permalink: 'chapters/chapter-14/01-exact-distribution'
+permalink: 'chapters/Chapter_14/01_Exact_Distribution'
 previouschapter:
-  url: chapters/chapter-14/00-the-central-limit-theorem
+  url: chapters/Chapter_14/00_The_Central_Limit_Theorem
   title: 'Chapter 14: The Central Limit Theorem'
 nextchapter:
-  url: chapters/chapter-14/02-pgfs-in-numpy
+  url: chapters/Chapter_14/02_PGFs_in_NumPy
   title: '14.2 PGFs in NumPy'
+redirect_from:
+  - 'chapters/chapter-14/01-exact-distribution'
 ---
 
 ## Exact Distribution

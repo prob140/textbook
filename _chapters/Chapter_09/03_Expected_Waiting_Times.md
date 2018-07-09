@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_09/03_Expected_Waiting_Times.ipynb
 title: '9.3 Expected Waiting Times'
-permalink: 'chapters/chapter-09/03-expected-waiting-times'
+permalink: 'chapters/Chapter_09/03_Expected_Waiting_Times'
 previouschapter:
-  url: chapters/chapter-09/02-expectation-by-conditioning
+  url: chapters/Chapter_09/02_Expectation_by_Conditioning
   title: '9.2 Expectation by Conditioning'
 nextchapter:
-  url: chapters/chapter-10/00-markov-chains
+  url: chapters/Chapter_10/00_Markov_Chains
   title: 'Chapter 10: Markov Chains'
+redirect_from:
+  - 'chapters/chapter-09/03-expected-waiting-times'
 ---
 
 ## Expected Waiting Times

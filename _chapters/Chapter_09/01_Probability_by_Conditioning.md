@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_09/01_Probability_by_Conditioning.ipynb
 title: '9.1 Probability by Conditioning'
-permalink: 'chapters/chapter-09/01-probability-by-conditioning'
+permalink: 'chapters/Chapter_09/01_Probability_by_Conditioning'
 previouschapter:
-  url: chapters/chapter-09/00-conditioning-revisited
+  url: chapters/Chapter_09/00_Conditioning_Revisited
   title: 'Chapter 9: Conditioning, Revisited'
 nextchapter:
-  url: chapters/chapter-09/02-expectation-by-conditioning
+  url: chapters/Chapter_09/02_Expectation_by_Conditioning
   title: '9.2 Expectation by Conditioning'
+redirect_from:
+  - 'chapters/chapter-09/01-probability-by-conditioning'
 ---
 
 ## Probability by Conditioning

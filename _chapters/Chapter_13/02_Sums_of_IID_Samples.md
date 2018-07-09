@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_13/02_Sums_of_IID_Samples.ipynb
 title: '13.2 Sums of IID Samples'
-permalink: 'chapters/chapter-13/02-sums-of-iid-samples'
+permalink: 'chapters/Chapter_13/02_Sums_of_IID_Samples'
 previouschapter:
-  url: chapters/chapter-13/01-properties-of-covariance
+  url: chapters/Chapter_13/01_Properties_of_Covariance
   title: '13.1 Properties of Covariance'
 nextchapter:
-  url: chapters/chapter-13/03-sums-of-simple-random-samples
+  url: chapters/Chapter_13/03_Sums_of_Simple_Random_Samples
   title: '13.3 Sums of Simple Random Samples'
+redirect_from:
+  - 'chapters/chapter-13/02-sums-of-iid-samples'
 ---
 
 ## Sums of IID Samples

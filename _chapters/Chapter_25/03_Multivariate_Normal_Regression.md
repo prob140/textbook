@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_25/03_Multivariate_Normal_Regression.ipynb
 title: '25.3 Regression and the Multivariate Normal'
-permalink: 'chapters/chapter-25/03-multivariate-normal-regression'
+permalink: 'chapters/Chapter_25/03_Multivariate_Normal_Regression'
 previouschapter:
-  url: chapters/chapter-25/02-best-linear-predictor
+  url: chapters/Chapter_25/02_Best_Linear_Predictor
   title: '25.2 Best Linear Predictor'
 nextchapter:
   url: 
   title: ''
+redirect_from:
+  - 'chapters/chapter-25/03-multivariate-normal-regression'
 ---
 
 ## Regression and the Multivariate Normal

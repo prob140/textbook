@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_15/01_Density_and_CDF.ipynb
 title: '15.1 Density and CDF'
-permalink: 'chapters/chapter-15/01-density-and-cdf'
+permalink: 'chapters/Chapter_15/01_Density_and_CDF'
 previouschapter:
-  url: chapters/chapter-15/00-continuous-distributions
+  url: chapters/Chapter_15/00_Continuous_Distributions
   title: 'Chapter 15: Continuous Distributions'
 nextchapter:
-  url: chapters/chapter-15/02-the-meaning-of-density
+  url: chapters/Chapter_15/02_The_Meaning_of_Density
   title: '15.2 The Meaning of Density'
+redirect_from:
+  - 'chapters/chapter-15/01-density-and-cdf'
 ---
 
 ## Density and CDF

@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_13/04_Finite_Population_Correction.ipynb
 title: '13.4 Finite Population Correction'
-permalink: 'chapters/chapter-13/04-finite-population-correction'
+permalink: 'chapters/Chapter_13/04_Finite_Population_Correction'
 previouschapter:
-  url: chapters/chapter-13/03-sums-of-simple-random-samples
+  url: chapters/Chapter_13/03_Sums_of_Simple_Random_Samples
   title: '13.3 Sums of Simple Random Samples'
 nextchapter:
-  url: chapters/chapter-14/00-the-central-limit-theorem
+  url: chapters/Chapter_14/00_The_Central_Limit_Theorem
   title: 'Chapter 14: The Central Limit Theorem'
+redirect_from:
+  - 'chapters/chapter-13/04-finite-population-correction'
 ---
 
 ## Finite Population Correction

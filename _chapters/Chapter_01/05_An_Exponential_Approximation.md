@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_01/05_An_Exponential_Approximation.ipynb
 title: '1.5 An Exponential Approximation'
-permalink: 'chapters/chapter-01/05-an-exponential-approximation'
+permalink: 'chapters/Chapter_01/05_An_Exponential_Approximation'
 previouschapter:
-  url: chapters/chapter-01/04-birthday-problem
+  url: chapters/Chapter_01/04_Birthday_Problem
   title: '1.4 The Birthday Problem'
 nextchapter:
-  url: chapters/chapter-02/00-calculating-chances
+  url: chapters/Chapter_02/00_Calculating_Chances
   title: 'Chapter 2: Calculating Chances'
+redirect_from:
+  - 'chapters/chapter-01/05-an-exponential-approximation'
 ---
 
 ## An Exponential Approximation

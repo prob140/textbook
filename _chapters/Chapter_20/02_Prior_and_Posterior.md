@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_20/02_Prior_and_Posterior.ipynb
 title: '20.2 Prior and Posterior'
-permalink: 'chapters/chapter-20/02-prior-and-posterior'
+permalink: 'chapters/Chapter_20/02_Prior_and_Posterior'
 previouschapter:
-  url: chapters/chapter-20/01-maximum-likelihood
+  url: chapters/Chapter_20/01_Maximum_Likelihood
   title: '20.1 Maximum Likelihood'
 nextchapter:
-  url: chapters/chapter-20/03-independence-revisited
+  url: chapters/Chapter_20/03_Independence_Revisited
   title: '20.3 Independence, Revisited'
+redirect_from:
+  - 'chapters/chapter-20/02-prior-and-posterior'
 ---
 
 ## Prior and Posterior

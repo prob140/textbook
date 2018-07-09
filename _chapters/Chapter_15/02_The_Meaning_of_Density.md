@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_15/02_The_Meaning_of_Density.ipynb
 title: '15.2 The Meaning of Density'
-permalink: 'chapters/chapter-15/02-the-meaning-of-density'
+permalink: 'chapters/Chapter_15/02_The_Meaning_of_Density'
 previouschapter:
-  url: chapters/chapter-15/01-density-and-cdf
+  url: chapters/Chapter_15/01_Density_and_CDF
   title: '15.1 Density and CDF'
 nextchapter:
-  url: chapters/chapter-15/03-expectation
+  url: chapters/Chapter_15/03_Expectation
   title: '15.3 Expectation'
+redirect_from:
+  - 'chapters/chapter-15/02-the-meaning-of-density'
 ---
 
 ## The Meaning of Density

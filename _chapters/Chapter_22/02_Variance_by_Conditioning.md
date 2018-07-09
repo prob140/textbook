@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_22/02_Variance_by_Conditioning.ipynb
 title: '22.2 Variance by Conditioning'
-permalink: 'chapters/chapter-22/02-variance-by-conditioning'
+permalink: 'chapters/Chapter_22/02_Variance_by_Conditioning'
 previouschapter:
-  url: chapters/chapter-22/01-conditional-expectation-projection
+  url: chapters/Chapter_22/01_Conditional_Expectation_Projection
   title: '22.1 Conditional Expectation As a Projection'
 nextchapter:
-  url: chapters/chapter-22/03-examples
+  url: chapters/Chapter_22/03_Examples
   title: '22.3 Examples'
+redirect_from:
+  - 'chapters/chapter-22/02-variance-by-conditioning'
 ---
 
 ## Variance by Conditioning

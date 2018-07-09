@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_20/01_Maximum_Likelihood.ipynb
 title: '20.1 Maximum Likelihood'
-permalink: 'chapters/chapter-20/01-maximum-likelihood'
+permalink: 'chapters/Chapter_20/01_Maximum_Likelihood'
 previouschapter:
-  url: chapters/chapter-20/00-approaches-to-estimation
+  url: chapters/Chapter_20/00_Approaches_to_Estimation
   title: 'Chapter 20: Approaches to Estimation'
 nextchapter:
-  url: chapters/chapter-20/02-prior-and-posterior
+  url: chapters/Chapter_20/02_Prior_and_Posterior
   title: '20.2 Prior and Posterior'
+redirect_from:
+  - 'chapters/chapter-20/01-maximum-likelihood'
 ---
 
 ## Maximum Likelihood

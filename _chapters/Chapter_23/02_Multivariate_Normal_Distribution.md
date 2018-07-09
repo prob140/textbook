@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_23/02_Multivariate_Normal_Distribution.ipynb
 title: '23.2 Multivariate Normal Distribution'
-permalink: 'chapters/chapter-23/02-multivariate-normal-distribution'
+permalink: 'chapters/Chapter_23/02_Multivariate_Normal_Distribution'
 previouschapter:
-  url: chapters/chapter-23/01-random-vectors
+  url: chapters/Chapter_23/01_Random_Vectors
   title: '23.1 Random Vectors'
 nextchapter:
-  url: chapters/chapter-23/03-linear-combinations
+  url: chapters/Chapter_23/03_Linear_Combinations
   title: '23.3 Linear Combinations'
+redirect_from:
+  - 'chapters/chapter-23/02-multivariate-normal-distribution'
 ---
 
 ## Multivariate Normal Distribution

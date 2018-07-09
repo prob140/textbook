@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_15/04_Exponential_Distribution.ipynb
 title: '15.4 Exponential Distribution'
-permalink: 'chapters/chapter-15/04-exponential-distribution'
+permalink: 'chapters/Chapter_15/04_Exponential_Distribution'
 previouschapter:
-  url: chapters/chapter-15/03-expectation
+  url: chapters/Chapter_15/03_Expectation
   title: '15.3 Expectation'
 nextchapter:
-  url: chapters/chapter-15/05-calculus-in-sympy
+  url: chapters/Chapter_15/05_Calculus_in_SymPy
   title: '15.5 Calculus in SymPy'
+redirect_from:
+  - 'chapters/chapter-15/04-exponential-distribution'
 ---
 
 ## Exponential Distribution

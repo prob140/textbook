@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_13/03_Sums_of_Simple_Random_Samples.ipynb
 title: '13.3 Sums of Simple Random Samples'
-permalink: 'chapters/chapter-13/03-sums-of-simple-random-samples'
+permalink: 'chapters/Chapter_13/03_Sums_of_Simple_Random_Samples'
 previouschapter:
-  url: chapters/chapter-13/02-sums-of-iid-samples
+  url: chapters/Chapter_13/02_Sums_of_IID_Samples
   title: '13.2 Sums of IID Samples'
 nextchapter:
-  url: chapters/chapter-13/04-finite-population-correction
+  url: chapters/Chapter_13/04_Finite_Population_Correction
   title: '13.4 Finite Population Correction'
+redirect_from:
+  - 'chapters/chapter-13/03-sums-of-simple-random-samples'
 ---
 
 ## Sums of Simple Random Samples

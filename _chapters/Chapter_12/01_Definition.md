@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_12/01_Definition.ipynb
 title: '12.1 Definition'
-permalink: 'chapters/chapter-12/01-definition'
+permalink: 'chapters/Chapter_12/01_Definition'
 previouschapter:
-  url: chapters/chapter-12/00-standard-deviation
+  url: chapters/Chapter_12/00_Standard_Deviation
   title: 'Chapter 12: Standard Deviation'
 nextchapter:
-  url: chapters/chapter-12/02-prediction-and-estimation
+  url: chapters/Chapter_12/02_Prediction_and_Estimation
   title: '12.2 Prediction and Estimation'
+redirect_from:
+  - 'chapters/chapter-12/01-definition'
 ---
 
 ## Definition

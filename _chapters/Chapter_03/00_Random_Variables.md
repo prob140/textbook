@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_03/00_Random_Variables.ipynb
 title: 'Chapter 3: Random Variables'
-permalink: 'chapters/chapter-03/00-random-variables'
+permalink: 'chapters/Chapter_03/00_Random_Variables'
 previouschapter:
-  url: chapters/chapter-02/05-updating-probabilities
+  url: chapters/Chapter_02/05_Updating_Probabilities
   title: '2.5 Updating Probabilities'
 nextchapter:
-  url: chapters/chapter-03/01-functions-on-an-outcome-space
+  url: chapters/Chapter_03/01_Functions_on_an_Outcome_Space
   title: '3.1 Functions on an Outcome Space'
+redirect_from:
+  - 'chapters/chapter-03/00-random-variables'
 ---
 
 # Random Variables

@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/To_the_Student.ipynb
 title: 'To the Student'
-permalink: 'chapters/to-the-student'
+permalink: 'chapters/To_the_Student'
 previouschapter:
-  url: chapters/readme
+  url: chapters/README
   title: 'Authors and License'
 nextchapter:
-  url: chapters/chapter-01/00-fundamentals
+  url: chapters/Chapter_01/00_Fundamentals
   title: 'Chapter 1: Fundamentals'
+redirect_from:
+  - 'chapters/to-the-student'
 ---
 
 # To the  Student

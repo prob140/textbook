@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_23/04_Independence.ipynb
 title: '23.4 Independence'
-permalink: 'chapters/chapter-23/04-independence'
+permalink: 'chapters/Chapter_23/04_Independence'
 previouschapter:
-  url: chapters/chapter-23/03-linear-combinations
+  url: chapters/Chapter_23/03_Linear_Combinations
   title: '23.3 Linear Combinations'
 nextchapter:
-  url: chapters/chapter-24/00-simple-linear-regression
+  url: chapters/Chapter_24/00_Simple_Linear_Regression
   title: 'Chapter 24: Simple Linear Regression'
+redirect_from:
+  - 'chapters/chapter-23/04-independence'
 ---
 
 ## Independence

@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_05/04_Sampling_Without_Replacement.ipynb
 title: '5.4 Sampling Without Replacement'
-permalink: 'chapters/chapter-05/04-sampling-without-replacement'
+permalink: 'chapters/Chapter_05/04_Sampling_Without_Replacement'
 previouschapter:
-  url: chapters/chapter-05/03-the-matching-problem
+  url: chapters/Chapter_05/03_The_Matching_Problem
   title: '5.3 The Matching Problem'
 nextchapter:
-  url: chapters/chapter-06/00-random-counts
+  url: chapters/Chapter_06/00_Random_Counts
   title: 'Chapter 6: Random Counts'
+redirect_from:
+  - 'chapters/chapter-05/04-sampling-without-replacement'
 ---
 
 ## Sampling Without Replacement

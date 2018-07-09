@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_07/02_Poissonizing_the_Multinomial.ipynb
 title: '7.2 Poissonizing the Multinomial'
-permalink: 'chapters/chapter-07/02-poissonizing-the-multinomial'
+permalink: 'chapters/Chapter_07/02_Poissonizing_the_Multinomial'
 previouschapter:
-  url: chapters/chapter-07/01-poissonizing-the-binomial
+  url: chapters/Chapter_07/01_Poissonizing_the_Binomial
   title: '7.1 Poissonizing the Binomial'
 nextchapter:
-  url: chapters/chapter-08/00-expectation
+  url: chapters/Chapter_08/00_Expectation
   title: 'Chapter 8: Expectation'
+redirect_from:
+  - 'chapters/chapter-07/02-poissonizing-the-multinomial'
 ---
 
 ## Poissonizing the Multinomial

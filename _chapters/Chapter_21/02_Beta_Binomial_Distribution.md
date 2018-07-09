@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_21/02_Beta_Binomial_Distribution.ipynb
 title: '21.2 The Beta-Binomial Distribution'
-permalink: 'chapters/chapter-21/02-beta-binomial-distribution'
+permalink: 'chapters/Chapter_21/02_Beta_Binomial_Distribution'
 previouschapter:
-  url: chapters/chapter-21/01-updating-and-prediction
+  url: chapters/Chapter_21/01_Updating_and_Prediction
   title: '21.1 Updating and Prediction'
 nextchapter:
-  url: chapters/chapter-21/03-long-run-proportion-of-heads
+  url: chapters/Chapter_21/03_Long_Run_Proportion_of_Heads
   title: '21.3 Long Run Proportion of Heads'
+redirect_from:
+  - 'chapters/chapter-21/02-beta-binomial-distribution'
 ---
 
 ## The Beta-Binomial Distribution

@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_08/00_Expectation.ipynb
 title: 'Chapter 8: Expectation'
-permalink: 'chapters/chapter-08/00-expectation'
+permalink: 'chapters/Chapter_08/00_Expectation'
 previouschapter:
-  url: chapters/chapter-07/02-poissonizing-the-multinomial
+  url: chapters/Chapter_07/02_Poissonizing_the_Multinomial
   title: '7.2 Poissonizing the Multinomial'
 nextchapter:
-  url: chapters/chapter-08/01-definition
+  url: chapters/Chapter_08/01_Definition
   title: '8.1 Definition'
+redirect_from:
+  - 'chapters/chapter-08/00-expectation'
 ---
 
 # Expectation

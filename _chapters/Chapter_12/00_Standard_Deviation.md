@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_12/00_Standard_Deviation.ipynb
 title: 'Chapter 12: Standard Deviation'
-permalink: 'chapters/chapter-12/00-standard-deviation'
+permalink: 'chapters/Chapter_12/00_Standard_Deviation'
 previouschapter:
-  url: chapters/chapter-11/04-markov-chain-monte-carlo
+  url: chapters/Chapter_11/04_Markov_Chain_Monte_Carlo
   title: '11.4 Markov Chain Monte Carlo'
 nextchapter:
-  url: chapters/chapter-12/01-definition
+  url: chapters/Chapter_12/01_Definition
   title: '12.1 Definition'
+redirect_from:
+  - 'chapters/chapter-12/00-standard-deviation'
 ---
 
 # Standard Deviation

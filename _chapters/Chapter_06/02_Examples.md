@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_06/02_Examples.ipynb
 title: '6.2 Examples'
-permalink: 'chapters/chapter-06/02-examples'
+permalink: 'chapters/Chapter_06/02_Examples'
 previouschapter:
-  url: chapters/chapter-06/01-binomial-distribution
+  url: chapters/Chapter_06/01_Binomial_Distribution
   title: '6.1 The Binomial Distribution'
 nextchapter:
-  url: chapters/chapter-06/03-hypergeometric-distribution
+  url: chapters/Chapter_06/03_Hypergeometric_Distribution
   title: '6.3 The Hypergeometric Distribution'
+redirect_from:
+  - 'chapters/chapter-06/02-examples'
 ---
 
 ## Examples

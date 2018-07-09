@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_25/01_Bilinearity_in_Matrix_Notation.ipynb
 title: '25.1 Bilinearity in Matrix Notation'
-permalink: 'chapters/chapter-25/01-bilinearity-in-matrix-notation'
+permalink: 'chapters/Chapter_25/01_Bilinearity_in_Matrix_Notation'
 previouschapter:
-  url: chapters/chapter-25/00-multiple-regression
+  url: chapters/Chapter_25/00_Multiple_Regression
   title: 'Chapter 25: Multiple Regression'
 nextchapter:
-  url: chapters/chapter-25/02-best-linear-predictor
+  url: chapters/Chapter_25/02_Best_Linear_Predictor
   title: '25.2 Best Linear Predictor'
+redirect_from:
+  - 'chapters/chapter-25/01-bilinearity-in-matrix-notation'
 ---
 
 ## Bilinearity in Matrix Notation

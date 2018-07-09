@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_24/03_Regression_and_Bivariate_Normal.ipynb
 title: '24.3 Regression and the Bivariate Normal'
-permalink: 'chapters/chapter-24/03-regression-and-bivariate-normal'
+permalink: 'chapters/Chapter_24/03_Regression_and_Bivariate_Normal'
 previouschapter:
-  url: chapters/chapter-24/02-linear-least-squares
+  url: chapters/Chapter_24/02_Linear_Least_Squares
   title: '24.2 Least Squares Linear Predictor'
 nextchapter:
-  url: chapters/chapter-24/04-regression-equation
+  url: chapters/Chapter_24/04_Regression_Equation
   title: '24.4 The Regression Equation'
+redirect_from:
+  - 'chapters/chapter-24/03-regression-and-bivariate-normal'
 ---
 
 ## Regression and the Bivariate Normal

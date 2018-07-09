@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_17/02_Independence.ipynb
 title: '17.2 Independence'
-permalink: 'chapters/chapter-17/02-independence'
+permalink: 'chapters/Chapter_17/02_Independence'
 previouschapter:
-  url: chapters/chapter-17/01-probabilities-and-expectations
+  url: chapters/Chapter_17/01_Probabilities_and_Expectations
   title: '17.1 Probabilities and Expectations'
 nextchapter:
-  url: chapters/chapter-17/03-marginal-and-conditional-densities
+  url: chapters/Chapter_17/03_Marginal_and_Conditional_Densities
   title: '17.3 Marginal and Conditional Densities'
+redirect_from:
+  - 'chapters/chapter-17/02-independence'
 ---
 
 ## Independence

@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_14/05_Confidence_Intervals.ipynb
 title: '14.5 Confidence Intervals'
-permalink: 'chapters/chapter-14/05-confidence-intervals'
+permalink: 'chapters/Chapter_14/05_Confidence_Intervals'
 previouschapter:
-  url: chapters/chapter-14/04-the-sample-mean
+  url: chapters/Chapter_14/04_The_Sample_Mean
   title: '14.4 The Sample Mean'
 nextchapter:
-  url: chapters/chapter-15/00-continuous-distributions
+  url: chapters/Chapter_15/00_Continuous_Distributions
   title: 'Chapter 15: Continuous Distributions'
+redirect_from:
+  - 'chapters/chapter-14/05-confidence-intervals'
 ---
 
 ## Confidence Intervals

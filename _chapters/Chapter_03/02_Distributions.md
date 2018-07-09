@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_03/02_Distributions.ipynb
 title: '3.2 Distributions'
-permalink: 'chapters/chapter-03/02-distributions'
+permalink: 'chapters/Chapter_03/02_Distributions'
 previouschapter:
-  url: chapters/chapter-03/01-functions-on-an-outcome-space
+  url: chapters/Chapter_03/01_Functions_on_an_Outcome_Space
   title: '3.1 Functions on an Outcome Space'
 nextchapter:
-  url: chapters/chapter-03/03-equality
+  url: chapters/Chapter_03/03_Equality
   title: '3.3 Equality'
+redirect_from:
+  - 'chapters/chapter-03/02-distributions'
 ---
 
 ## Distributions

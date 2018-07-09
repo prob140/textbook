@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_07/00_Poissonization.ipynb
 title: 'Chapter 7: Poissonization'
-permalink: 'chapters/chapter-07/00-poissonization'
+permalink: 'chapters/Chapter_07/00_Poissonization'
 previouschapter:
-  url: chapters/chapter-06/05-law-of-small-numbers
+  url: chapters/Chapter_06/05_Law_of_Small_Numbers
   title: '6.5 The Law of Small Numbers'
 nextchapter:
-  url: chapters/chapter-07/01-poissonizing-the-binomial
+  url: chapters/Chapter_07/01_Poissonizing_the_Binomial
   title: '7.1 Poissonizing the Binomial'
+redirect_from:
+  - 'chapters/chapter-07/00-poissonization'
 ---
 
 # Poissonization

@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_02/01_Addition.ipynb
 title: '2.1 Addition'
-permalink: 'chapters/chapter-02/01-addition'
+permalink: 'chapters/Chapter_02/01_Addition'
 previouschapter:
-  url: chapters/chapter-02/00-calculating-chances
+  url: chapters/Chapter_02/00_Calculating_Chances
   title: 'Chapter 2: Calculating Chances'
 nextchapter:
-  url: chapters/chapter-02/02-examples
+  url: chapters/Chapter_02/02_Examples
   title: '2.2 Examples'
+redirect_from:
+  - 'chapters/chapter-02/01-addition'
 ---
 
 ## Addition

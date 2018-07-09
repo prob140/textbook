@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_19/03_MGFs_Normal_and_the_CLT.ipynb
 title: '19.3 MGFs, the Normal, and the CLT'
-permalink: 'chapters/chapter-19/03-mgfs-normal-and-the-clt'
+permalink: 'chapters/Chapter_19/03_MGFs_Normal_and_the_CLT'
 previouschapter:
-  url: chapters/chapter-19/02-moment-generating-functions
+  url: chapters/Chapter_19/02_Moment_Generating_Functions
   title: '19.2 Moment Generating Functions'
 nextchapter:
-  url: chapters/chapter-19/04-chernoff-bound
+  url: chapters/Chapter_19/04_Chernoff_Bound
   title: '19.4 Chernoff Bound'
+redirect_from:
+  - 'chapters/chapter-19/03-mgfs-normal-and-the-clt'
 ---
 
 ## MGFs, the Normal, and the CLT

@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_14/03_Central_Limit_Theorem.ipynb
 title: '14.3 Central Limit Theorem'
-permalink: 'chapters/chapter-14/03-central-limit-theorem'
+permalink: 'chapters/Chapter_14/03_Central_Limit_Theorem'
 previouschapter:
-  url: chapters/chapter-14/02-pgfs-in-numpy
+  url: chapters/Chapter_14/02_PGFs_in_NumPy
   title: '14.2 PGFs in NumPy'
 nextchapter:
-  url: chapters/chapter-14/04-the-sample-mean
+  url: chapters/Chapter_14/04_The_Sample_Mean
   title: '14.4 The Sample Mean'
+redirect_from:
+  - 'chapters/chapter-14/03-central-limit-theorem'
 ---
 
 ## Central Limit Theorem

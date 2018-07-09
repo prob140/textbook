@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_05/03_The_Matching_Problem.ipynb
 title: '5.3 The Matching Problem'
-permalink: 'chapters/chapter-05/03-the-matching-problem'
+permalink: 'chapters/Chapter_05/03_The_Matching_Problem'
 previouschapter:
-  url: chapters/chapter-05/02-inclusion-exclusion
+  url: chapters/Chapter_05/02_Inclusion_Exclusion
   title: '5.2 Inclusion-Exclusion'
 nextchapter:
-  url: chapters/chapter-05/04-sampling-without-replacement
+  url: chapters/Chapter_05/04_Sampling_Without_Replacement
   title: '5.4 Sampling Without Replacement'
+redirect_from:
+  - 'chapters/chapter-05/03-the-matching-problem'
 ---
 
 ## The Matching Problem

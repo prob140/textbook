@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_06/04_Odds_Ratios.ipynb
 title: '6.4 Odds Ratios'
-permalink: 'chapters/chapter-06/04-odds-ratios'
+permalink: 'chapters/Chapter_06/04_Odds_Ratios'
 previouschapter:
-  url: chapters/chapter-06/03-hypergeometric-distribution
+  url: chapters/Chapter_06/03_Hypergeometric_Distribution
   title: '6.3 The Hypergeometric Distribution'
 nextchapter:
-  url: chapters/chapter-06/05-law-of-small-numbers
+  url: chapters/Chapter_06/05_Law_of_Small_Numbers
   title: '6.5 The Law of Small Numbers'
+redirect_from:
+  - 'chapters/chapter-06/04-odds-ratios'
 ---
 
 ## Odds Ratios

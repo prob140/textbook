@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_15/03_Expectation.ipynb
 title: '15.3 Expectation'
-permalink: 'chapters/chapter-15/03-expectation'
+permalink: 'chapters/Chapter_15/03_Expectation'
 previouschapter:
-  url: chapters/chapter-15/02-the-meaning-of-density
+  url: chapters/Chapter_15/02_The_Meaning_of_Density
   title: '15.2 The Meaning of Density'
 nextchapter:
-  url: chapters/chapter-15/04-exponential-distribution
+  url: chapters/Chapter_15/04_Exponential_Distribution
   title: '15.4 Exponential Distribution'
+redirect_from:
+  - 'chapters/chapter-15/03-expectation'
 ---
 
 ## Expectation

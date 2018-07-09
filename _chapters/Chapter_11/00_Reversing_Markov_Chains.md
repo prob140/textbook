@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_11/00_Reversing_Markov_Chains.ipynb
 title: 'Chapter 11: Reversing Markov Chains'
-permalink: 'chapters/chapter-11/00-reversing-markov-chains'
+permalink: 'chapters/Chapter_11/00_Reversing_Markov_Chains'
 previouschapter:
-  url: chapters/chapter-10/04-examples
+  url: chapters/Chapter_10/04_Examples
   title: '10.4 Examples'
 nextchapter:
-  url: chapters/chapter-11/01-detailed-balance
+  url: chapters/Chapter_11/01_Detailed_Balance
   title: '11.1 Detailed Balance'
+redirect_from:
+  - 'chapters/chapter-11/00-reversing-markov-chains'
 ---
 
 # Reversing Markov Chains

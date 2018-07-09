@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_17/03_Marginal_and_Conditional_Densities.ipynb
 title: '17.3 Marginal and Conditional Densities'
-permalink: 'chapters/chapter-17/03-marginal-and-conditional-densities'
+permalink: 'chapters/Chapter_17/03_Marginal_and_Conditional_Densities'
 previouschapter:
-  url: chapters/chapter-17/02-independence
+  url: chapters/Chapter_17/02_Independence
   title: '17.2 Independence'
 nextchapter:
-  url: chapters/chapter-17/04-beta-densities-with-integer-parameters
+  url: chapters/Chapter_17/04_Beta_Densities_with_Integer_Parameters
   title: '17.4 Beta Densities with Integer Parameters'
+redirect_from:
+  - 'chapters/chapter-17/03-marginal-and-conditional-densities'
 ---
 
 ## Marginal and Conditional Densities

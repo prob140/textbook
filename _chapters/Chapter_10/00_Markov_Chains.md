@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_10/00_Markov_Chains.ipynb
 title: 'Chapter 10: Markov Chains'
-permalink: 'chapters/chapter-10/00-markov-chains'
+permalink: 'chapters/Chapter_10/00_Markov_Chains'
 previouschapter:
-  url: chapters/chapter-09/03-expected-waiting-times
+  url: chapters/Chapter_09/03_Expected_Waiting_Times
   title: '9.3 Expected Waiting Times'
 nextchapter:
-  url: chapters/chapter-10/01-transitions
+  url: chapters/Chapter_10/01_Transitions
   title: '10.1 Transitions'
+redirect_from:
+  - 'chapters/chapter-10/00-markov-chains'
 ---
 
 # Markov Chains #

@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_21/01_Updating_and_Prediction.ipynb
 title: '21.1 Updating and Prediction'
-permalink: 'chapters/chapter-21/01-updating-and-prediction'
+permalink: 'chapters/Chapter_21/01_Updating_and_Prediction'
 previouschapter:
-  url: chapters/chapter-21/00-the-beta-and-the-binomial
+  url: chapters/Chapter_21/00_The_Beta_and_the_Binomial
   title: 'Chapter 21: The Beta and the Binomial'
 nextchapter:
-  url: chapters/chapter-21/02-beta-binomial-distribution
+  url: chapters/Chapter_21/02_Beta_Binomial_Distribution
   title: '21.2 The Beta-Binomial Distribution'
+redirect_from:
+  - 'chapters/chapter-21/01-updating-and-prediction'
 ---
 
 ## Updating and Prediction

@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_18/00_The_Normal_and_Gamma_Families.ipynb
 title: 'Chapter 18: The Normal and Gamma Families'
-permalink: 'chapters/chapter-18/00-the-normal-and-gamma-families'
+permalink: 'chapters/Chapter_18/00_The_Normal_and_Gamma_Families'
 previouschapter:
-  url: chapters/chapter-17/04-beta-densities-with-integer-parameters
+  url: chapters/Chapter_17/04_Beta_Densities_with_Integer_Parameters
   title: '17.4 Beta Densities with Integer Parameters'
 nextchapter:
-  url: chapters/chapter-18/01-standard-normal-basics
+  url: chapters/Chapter_18/01_Standard_Normal_Basics
   title: '18.1 Standard Normal: The Basics'
+redirect_from:
+  - 'chapters/chapter-18/00-the-normal-and-gamma-families'
 ---
 
 # The Normal and Gamma Families

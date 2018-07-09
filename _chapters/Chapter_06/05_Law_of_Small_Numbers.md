@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_06/05_Law_of_Small_Numbers.ipynb
 title: '6.5 The Law of Small Numbers'
-permalink: 'chapters/chapter-06/05-law-of-small-numbers'
+permalink: 'chapters/Chapter_06/05_Law_of_Small_Numbers'
 previouschapter:
-  url: chapters/chapter-06/04-odds-ratios
+  url: chapters/Chapter_06/04_Odds_Ratios
   title: '6.4 Odds Ratios'
 nextchapter:
-  url: chapters/chapter-07/00-poissonization
+  url: chapters/Chapter_07/00_Poissonization
   title: 'Chapter 7: Poissonization'
+redirect_from:
+  - 'chapters/chapter-06/05-law-of-small-numbers'
 ---
 
 ## The Law of Small Numbers

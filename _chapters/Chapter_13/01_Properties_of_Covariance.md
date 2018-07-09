@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_13/01_Properties_of_Covariance.ipynb
 title: '13.1 Properties of Covariance'
-permalink: 'chapters/chapter-13/01-properties-of-covariance'
+permalink: 'chapters/Chapter_13/01_Properties_of_Covariance'
 previouschapter:
-  url: chapters/chapter-13/00-variance-via-covariance
+  url: chapters/Chapter_13/00_Variance_Via_Covariance
   title: 'Chapter 13: Variance Via Covariance'
 nextchapter:
-  url: chapters/chapter-13/02-sums-of-iid-samples
+  url: chapters/Chapter_13/02_Sums_of_IID_Samples
   title: '13.2 Sums of IID Samples'
+redirect_from:
+  - 'chapters/chapter-13/01-properties-of-covariance'
 ---
 
 ## Properties of Covariance

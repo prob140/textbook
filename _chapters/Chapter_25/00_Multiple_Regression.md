@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_25/00_Multiple_Regression.ipynb
 title: 'Chapter 25: Multiple Regression'
-permalink: 'chapters/chapter-25/00-multiple-regression'
+permalink: 'chapters/Chapter_25/00_Multiple_Regression'
 previouschapter:
-  url: chapters/chapter-24/04-regression-equation
+  url: chapters/Chapter_24/04_Regression_Equation
   title: '24.4 The Regression Equation'
 nextchapter:
-  url: chapters/chapter-25/01-bilinearity-in-matrix-notation
+  url: chapters/Chapter_25/01_Bilinearity_in_Matrix_Notation
   title: '25.1 Bilinearity in Matrix Notation'
+redirect_from:
+  - 'chapters/chapter-25/00-multiple-regression'
 ---
 
 # Multiple Regression

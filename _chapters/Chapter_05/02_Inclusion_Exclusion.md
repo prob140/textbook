@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_05/02_Inclusion_Exclusion.ipynb
 title: '5.2 Inclusion-Exclusion'
-permalink: 'chapters/chapter-05/02-inclusion-exclusion'
+permalink: 'chapters/Chapter_05/02_Inclusion_Exclusion'
 previouschapter:
-  url: chapters/chapter-05/01-bounding-the-chance-of-a-union
+  url: chapters/Chapter_05/01_Bounding_the_Chance_of_a_Union
   title: '5.1 Bounding the Chance of a Union'
 nextchapter:
-  url: chapters/chapter-05/03-the-matching-problem
+  url: chapters/Chapter_05/03_The_Matching_Problem
   title: '5.3 The Matching Problem'
+redirect_from:
+  - 'chapters/chapter-05/02-inclusion-exclusion'
 ---
 
 ## Inclusion-Exclusion

@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_16/02_Monotone_Functions.ipynb
 title: '16.2 Monotone Functions'
-permalink: 'chapters/chapter-16/02-monotone-functions'
+permalink: 'chapters/Chapter_16/02_Monotone_Functions'
 previouschapter:
-  url: chapters/chapter-16/01-linear-transformations
+  url: chapters/Chapter_16/01_Linear_Transformations
   title: '16.1 Linear Transformations'
 nextchapter:
-  url: chapters/chapter-16/03-two-to-one-functions
+  url: chapters/Chapter_16/03_Two_to_One_Functions
   title: '16.3 Two-to-One Functions'
+redirect_from:
+  - 'chapters/chapter-16/02-monotone-functions'
 ---
 
 ## Monotone Functions

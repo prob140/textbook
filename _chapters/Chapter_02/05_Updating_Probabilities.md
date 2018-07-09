@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_02/05_Updating_Probabilities.ipynb
 title: '2.5 Updating Probabilities'
-permalink: 'chapters/chapter-02/05-updating-probabilities'
+permalink: 'chapters/Chapter_02/05_Updating_Probabilities'
 previouschapter:
-  url: chapters/chapter-02/04-more-examples
+  url: chapters/Chapter_02/04_More_Examples
   title: '2.4 More Examples'
 nextchapter:
-  url: chapters/chapter-03/00-random-variables
+  url: chapters/Chapter_03/00_Random_Variables
   title: 'Chapter 3: Random Variables'
+redirect_from:
+  - 'chapters/chapter-02/05-updating-probabilities'
 ---
 
 ## Updating Probabilities

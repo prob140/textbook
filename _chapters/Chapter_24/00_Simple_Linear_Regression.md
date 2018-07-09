@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_24/00_Simple_Linear_Regression.ipynb
 title: 'Chapter 24: Simple Linear Regression'
-permalink: 'chapters/chapter-24/00-simple-linear-regression'
+permalink: 'chapters/Chapter_24/00_Simple_Linear_Regression'
 previouschapter:
-  url: chapters/chapter-23/04-independence
+  url: chapters/Chapter_23/04_Independence
   title: '23.4 Independence'
 nextchapter:
-  url: chapters/chapter-24/01-bivariate-normal-distribution
+  url: chapters/Chapter_24/01_Bivariate_Normal_Distribution
   title: '24.1 Bivariate Normal Distribution'
+redirect_from:
+  - 'chapters/chapter-24/00-simple-linear-regression'
 ---
 
 # Simple Linear Regression

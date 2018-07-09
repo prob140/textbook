@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_11/01_Detailed_Balance.ipynb
 title: '11.1 Detailed Balance'
-permalink: 'chapters/chapter-11/01-detailed-balance'
+permalink: 'chapters/Chapter_11/01_Detailed_Balance'
 previouschapter:
-  url: chapters/chapter-11/00-reversing-markov-chains
+  url: chapters/Chapter_11/00_Reversing_Markov_Chains
   title: 'Chapter 11: Reversing Markov Chains'
 nextchapter:
-  url: chapters/chapter-11/02-reversibility
+  url: chapters/Chapter_11/02_Reversibility
   title: '11.2 Reversibility'
+redirect_from:
+  - 'chapters/chapter-11/01-detailed-balance'
 ---
 
 ## Detailed Balance

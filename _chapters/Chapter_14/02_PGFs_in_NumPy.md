@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_14/02_PGFs_in_NumPy.ipynb
 title: '14.2 PGFs in NumPy'
-permalink: 'chapters/chapter-14/02-pgfs-in-numpy'
+permalink: 'chapters/Chapter_14/02_PGFs_in_NumPy'
 previouschapter:
-  url: chapters/chapter-14/01-exact-distribution
+  url: chapters/Chapter_14/01_Exact_Distribution
   title: '14.1 Exact Distribution'
 nextchapter:
-  url: chapters/chapter-14/03-central-limit-theorem
+  url: chapters/Chapter_14/03_Central_Limit_Theorem
   title: '14.3 Central Limit Theorem'
+redirect_from:
+  - 'chapters/chapter-14/02-pgfs-in-numpy'
 ---
 
 ## PGFs in NumPy

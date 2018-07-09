@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_02/02_Examples.ipynb
 title: '2.2 Examples'
-permalink: 'chapters/chapter-02/02-examples'
+permalink: 'chapters/Chapter_02/02_Examples'
 previouschapter:
-  url: chapters/chapter-02/01-addition
+  url: chapters/Chapter_02/01_Addition
   title: '2.1 Addition'
 nextchapter:
-  url: chapters/chapter-02/03-multiplication
+  url: chapters/Chapter_02/03_Multiplication
   title: '2.3 Multiplication'
+redirect_from:
+  - 'chapters/chapter-02/02-examples'
 ---
 
 ## Examples

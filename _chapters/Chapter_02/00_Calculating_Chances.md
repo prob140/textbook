@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_02/00_Calculating_Chances.ipynb
 title: 'Chapter 2: Calculating Chances'
-permalink: 'chapters/chapter-02/00-calculating-chances'
+permalink: 'chapters/Chapter_02/00_Calculating_Chances'
 previouschapter:
-  url: chapters/chapter-01/05-an-exponential-approximation
+  url: chapters/Chapter_01/05_An_Exponential_Approximation
   title: '1.5 An Exponential Approximation'
 nextchapter:
-  url: chapters/chapter-02/01-addition
+  url: chapters/Chapter_02/01_Addition
   title: '2.1 Addition'
+redirect_from:
+  - 'chapters/chapter-02/00-calculating-chances'
 ---
 
 # Calculating Chances

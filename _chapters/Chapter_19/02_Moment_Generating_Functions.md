@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_19/02_Moment_Generating_Functions.ipynb
 title: '19.2 Moment Generating Functions'
-permalink: 'chapters/chapter-19/02-moment-generating-functions'
+permalink: 'chapters/Chapter_19/02_Moment_Generating_Functions'
 previouschapter:
-  url: chapters/chapter-19/01-convolution-formula
+  url: chapters/Chapter_19/01_Convolution_Formula
   title: '19.1 The Convolution Formula'
 nextchapter:
-  url: chapters/chapter-19/03-mgfs-normal-and-the-clt
+  url: chapters/Chapter_19/03_MGFs_Normal_and_the_CLT
   title: '19.3 MGFs, the Normal, and the CLT'
+redirect_from:
+  - 'chapters/chapter-19/02-moment-generating-functions'
 ---
 
 ## Moment Generating Functions

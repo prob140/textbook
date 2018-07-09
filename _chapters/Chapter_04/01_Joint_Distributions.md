@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_04/01_Joint_Distributions.ipynb
 title: '4.1 Joint Distributions'
-permalink: 'chapters/chapter-04/01-joint-distributions'
+permalink: 'chapters/Chapter_04/01_Joint_Distributions'
 previouschapter:
-  url: chapters/chapter-04/00-relations-between-variables
+  url: chapters/Chapter_04/00_Relations_Between_Variables
   title: 'Chapter 4: Relations Between Variables'
 nextchapter:
-  url: chapters/chapter-04/02-marginal-distributions
+  url: chapters/Chapter_04/02_Marginal_Distributions
   title: '4.2 Marginal Distributions'
+redirect_from:
+  - 'chapters/chapter-04/01-joint-distributions'
 ---
 
 ## Joint Distributions

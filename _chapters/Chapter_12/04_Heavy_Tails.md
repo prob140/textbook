@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_12/04_Heavy_Tails.ipynb
 title: '12.4 Heavy Tails'
-permalink: 'chapters/chapter-12/04-heavy-tails'
+permalink: 'chapters/Chapter_12/04_Heavy_Tails'
 previouschapter:
-  url: chapters/chapter-12/03-bounds
+  url: chapters/Chapter_12/03_Bounds
   title: '12.3 Tail Bounds'
 nextchapter:
-  url: chapters/chapter-13/00-variance-via-covariance
+  url: chapters/Chapter_13/00_Variance_Via_Covariance
   title: 'Chapter 13: Variance Via Covariance'
+redirect_from:
+  - 'chapters/chapter-12/04-heavy-tails'
 ---
 
 ## Heavy Tails

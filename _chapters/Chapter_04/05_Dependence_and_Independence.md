@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_04/05_Dependence_and_Independence.ipynb
 title: '4.5 Dependence and Independence'
-permalink: 'chapters/chapter-04/05-dependence-and-independence'
+permalink: 'chapters/Chapter_04/05_Dependence_and_Independence'
 previouschapter:
-  url: chapters/chapter-04/04-updating-distributions
+  url: chapters/Chapter_04/04_Updating_Distributions
   title: '4.4 Updating Distributions'
 nextchapter:
-  url: chapters/chapter-05/00-collections-of-events
+  url: chapters/Chapter_05/00_Collections_of_Events
   title: 'Chapter 5: Collections of Events'
+redirect_from:
+  - 'chapters/chapter-04/05-dependence-and-independence'
 ---
 
 ## Dependence and Independence

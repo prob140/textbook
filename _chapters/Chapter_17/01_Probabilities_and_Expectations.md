@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_17/01_Probabilities_and_Expectations.ipynb
 title: '17.1 Probabilities and Expectations'
-permalink: 'chapters/chapter-17/01-probabilities-and-expectations'
+permalink: 'chapters/Chapter_17/01_Probabilities_and_Expectations'
 previouschapter:
-  url: chapters/chapter-17/00-joint-densities
+  url: chapters/Chapter_17/00_Joint_Densities
   title: 'Chapter 17: Joint Densities'
 nextchapter:
-  url: chapters/chapter-17/02-independence
+  url: chapters/Chapter_17/02_Independence
   title: '17.2 Independence'
+redirect_from:
+  - 'chapters/chapter-17/01-probabilities-and-expectations'
 ---
 
 ## Probabilities and Expectations

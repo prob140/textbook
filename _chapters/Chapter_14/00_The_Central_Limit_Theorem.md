@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_14/00_The_Central_Limit_Theorem.ipynb
 title: 'Chapter 14: The Central Limit Theorem'
-permalink: 'chapters/chapter-14/00-the-central-limit-theorem'
+permalink: 'chapters/Chapter_14/00_The_Central_Limit_Theorem'
 previouschapter:
-  url: chapters/chapter-13/04-finite-population-correction
+  url: chapters/Chapter_13/04_Finite_Population_Correction
   title: '13.4 Finite Population Correction'
 nextchapter:
-  url: chapters/chapter-14/01-exact-distribution
+  url: chapters/Chapter_14/01_Exact_Distribution
   title: '14.1 Exact Distribution'
+redirect_from:
+  - 'chapters/chapter-14/00-the-central-limit-theorem'
 ---
 
 # The Central Limit Theorem

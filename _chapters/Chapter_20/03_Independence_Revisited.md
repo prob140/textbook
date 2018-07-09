@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_20/03_Independence_Revisited.ipynb
 title: '20.3 Independence, Revisited'
-permalink: 'chapters/chapter-20/03-independence-revisited'
+permalink: 'chapters/Chapter_20/03_Independence_Revisited'
 previouschapter:
-  url: chapters/chapter-20/02-prior-and-posterior
+  url: chapters/Chapter_20/02_Prior_and_Posterior
   title: '20.2 Prior and Posterior'
 nextchapter:
-  url: chapters/chapter-21/00-the-beta-and-the-binomial
+  url: chapters/Chapter_21/00_The_Beta_and_the_Binomial
   title: 'Chapter 21: The Beta and the Binomial'
+redirect_from:
+  - 'chapters/chapter-20/03-independence-revisited'
 ---
 
 ## Independence, Revisited

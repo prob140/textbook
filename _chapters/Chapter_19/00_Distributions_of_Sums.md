@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_19/00_Distributions_of_Sums.ipynb
 title: 'Chapter 19: Distributions of Sums'
-permalink: 'chapters/chapter-19/00-distributions-of-sums'
+permalink: 'chapters/Chapter_19/00_Distributions_of_Sums'
 previouschapter:
-  url: chapters/chapter-18/04-chi-squared-distributions
+  url: chapters/Chapter_18/04_Chi_Squared_Distributions
   title: '18.4 Chi-Squared Distributions'
 nextchapter:
-  url: chapters/chapter-19/01-convolution-formula
+  url: chapters/Chapter_19/01_Convolution_Formula
   title: '19.1 The Convolution Formula'
+redirect_from:
+  - 'chapters/chapter-19/00-distributions-of-sums'
 ---
 
 # Distributions of Sums

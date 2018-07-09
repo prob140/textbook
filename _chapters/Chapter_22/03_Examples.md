@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_22/03_Examples.ipynb
 title: '22.3 Examples'
-permalink: 'chapters/chapter-22/03-examples'
+permalink: 'chapters/Chapter_22/03_Examples'
 previouschapter:
-  url: chapters/chapter-22/02-variance-by-conditioning
+  url: chapters/Chapter_22/02_Variance_by_Conditioning
   title: '22.2 Variance by Conditioning'
 nextchapter:
-  url: chapters/chapter-22/04-least-squares-predictor
+  url: chapters/Chapter_22/04_Least_Squares_Predictor
   title: '22.4 Least Squares Predictor'
+redirect_from:
+  - 'chapters/chapter-22/03-examples'
 ---
 
 ## Examples

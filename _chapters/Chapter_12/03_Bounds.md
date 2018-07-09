@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_12/03_Bounds.ipynb
 title: '12.3 Tail Bounds'
-permalink: 'chapters/chapter-12/03-bounds'
+permalink: 'chapters/Chapter_12/03_Bounds'
 previouschapter:
-  url: chapters/chapter-12/02-prediction-and-estimation
+  url: chapters/Chapter_12/02_Prediction_and_Estimation
   title: '12.2 Prediction and Estimation'
 nextchapter:
-  url: chapters/chapter-12/04-heavy-tails
+  url: chapters/Chapter_12/04_Heavy_Tails
   title: '12.4 Heavy Tails'
+redirect_from:
+  - 'chapters/chapter-12/03-bounds'
 ---
 
 ## Tail Bounds

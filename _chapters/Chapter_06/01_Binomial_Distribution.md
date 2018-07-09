@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_06/01_Binomial_Distribution.ipynb
 title: '6.1 The Binomial Distribution'
-permalink: 'chapters/chapter-06/01-binomial-distribution'
+permalink: 'chapters/Chapter_06/01_Binomial_Distribution'
 previouschapter:
-  url: chapters/chapter-06/00-random-counts
+  url: chapters/Chapter_06/00_Random_Counts
   title: 'Chapter 6: Random Counts'
 nextchapter:
-  url: chapters/chapter-06/02-examples
+  url: chapters/Chapter_06/02_Examples
   title: '6.2 Examples'
+redirect_from:
+  - 'chapters/chapter-06/01-binomial-distribution'
 ---
 
 ## The Binomial Distribution

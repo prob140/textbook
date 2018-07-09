@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_04/04_Updating_Distributions.ipynb
 title: '4.4 Updating Distributions'
-permalink: 'chapters/chapter-04/04-updating-distributions'
+permalink: 'chapters/Chapter_04/04_Updating_Distributions'
 previouschapter:
-  url: chapters/chapter-04/03-conditional-distributions
+  url: chapters/Chapter_04/03_Conditional_Distributions
   title: '4.3 Conditional Distributions'
 nextchapter:
-  url: chapters/chapter-04/05-dependence-and-independence
+  url: chapters/Chapter_04/05_Dependence_and_Independence
   title: '4.5 Dependence and Independence'
+redirect_from:
+  - 'chapters/chapter-04/04-updating-distributions'
 ---
 
 ## Updating Distributions

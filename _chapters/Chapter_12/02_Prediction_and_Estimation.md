@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_12/02_Prediction_and_Estimation.ipynb
 title: '12.2 Prediction and Estimation'
-permalink: 'chapters/chapter-12/02-prediction-and-estimation'
+permalink: 'chapters/Chapter_12/02_Prediction_and_Estimation'
 previouschapter:
-  url: chapters/chapter-12/01-definition
+  url: chapters/Chapter_12/01_Definition
   title: '12.1 Definition'
 nextchapter:
-  url: chapters/chapter-12/03-bounds
+  url: chapters/Chapter_12/03_Bounds
   title: '12.3 Tail Bounds'
+redirect_from:
+  - 'chapters/chapter-12/02-prediction-and-estimation'
 ---
 
 ## Prediction and Estimation

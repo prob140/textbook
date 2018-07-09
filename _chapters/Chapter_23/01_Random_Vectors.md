@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_23/01_Random_Vectors.ipynb
 title: '23.1 Random Vectors'
-permalink: 'chapters/chapter-23/01-random-vectors'
+permalink: 'chapters/Chapter_23/01_Random_Vectors'
 previouschapter:
-  url: chapters/chapter-23/00-multivariate-normal-rvs
+  url: chapters/Chapter_23/00_Multivariate_Normal_RVs
   title: 'Chapter 23: Jointly Normal Random Variables'
 nextchapter:
-  url: chapters/chapter-23/02-multivariate-normal-distribution
+  url: chapters/Chapter_23/02_Multivariate_Normal_Distribution
   title: '23.2 Multivariate Normal Distribution'
+redirect_from:
+  - 'chapters/chapter-23/01-random-vectors'
 ---
 
 ## Random Vectors

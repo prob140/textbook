@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_23/03_Linear_Combinations.ipynb
 title: '23.3 Linear Combinations'
-permalink: 'chapters/chapter-23/03-linear-combinations'
+permalink: 'chapters/Chapter_23/03_Linear_Combinations'
 previouschapter:
-  url: chapters/chapter-23/02-multivariate-normal-distribution
+  url: chapters/Chapter_23/02_Multivariate_Normal_Distribution
   title: '23.2 Multivariate Normal Distribution'
 nextchapter:
-  url: chapters/chapter-23/04-independence
+  url: chapters/Chapter_23/04_Independence
   title: '23.4 Independence'
+redirect_from:
+  - 'chapters/chapter-23/03-linear-combinations'
 ---
 
 ## Linear Combinations

@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_19/01_Convolution_Formula.ipynb
 title: '19.1 The Convolution Formula'
-permalink: 'chapters/chapter-19/01-convolution-formula'
+permalink: 'chapters/Chapter_19/01_Convolution_Formula'
 previouschapter:
-  url: chapters/chapter-19/00-distributions-of-sums
+  url: chapters/Chapter_19/00_Distributions_of_Sums
   title: 'Chapter 19: Distributions of Sums'
 nextchapter:
-  url: chapters/chapter-19/02-moment-generating-functions
+  url: chapters/Chapter_19/02_Moment_Generating_Functions
   title: '19.2 Moment Generating Functions'
+redirect_from:
+  - 'chapters/chapter-19/01-convolution-formula'
 ---
 
 ## The Convolution Formula

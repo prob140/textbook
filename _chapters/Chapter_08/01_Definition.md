@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_08/01_Definition.ipynb
 title: '8.1 Definition'
-permalink: 'chapters/chapter-08/01-definition'
+permalink: 'chapters/Chapter_08/01_Definition'
 previouschapter:
-  url: chapters/chapter-08/00-expectation
+  url: chapters/Chapter_08/00_Expectation
   title: 'Chapter 8: Expectation'
 nextchapter:
-  url: chapters/chapter-08/02-additivity
+  url: chapters/Chapter_08/02_Additivity
   title: '8.2 Additivity'
+redirect_from:
+  - 'chapters/chapter-08/01-definition'
 ---
 
 ## Definition

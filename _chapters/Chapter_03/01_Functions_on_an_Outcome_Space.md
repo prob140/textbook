@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_03/01_Functions_on_an_Outcome_Space.ipynb
 title: '3.1 Functions on an Outcome Space'
-permalink: 'chapters/chapter-03/01-functions-on-an-outcome-space'
+permalink: 'chapters/Chapter_03/01_Functions_on_an_Outcome_Space'
 previouschapter:
-  url: chapters/chapter-03/00-random-variables
+  url: chapters/Chapter_03/00_Random_Variables
   title: 'Chapter 3: Random Variables'
 nextchapter:
-  url: chapters/chapter-03/02-distributions
+  url: chapters/Chapter_03/02_Distributions
   title: '3.2 Distributions'
+redirect_from:
+  - 'chapters/chapter-03/01-functions-on-an-outcome-space'
 ---
 
 ## Functions on an Outcome Space

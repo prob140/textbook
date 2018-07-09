@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_07/01_Poissonizing_the_Binomial.ipynb
 title: '7.1 Poissonizing the Binomial'
-permalink: 'chapters/chapter-07/01-poissonizing-the-binomial'
+permalink: 'chapters/Chapter_07/01_Poissonizing_the_Binomial'
 previouschapter:
-  url: chapters/chapter-07/00-poissonization
+  url: chapters/Chapter_07/00_Poissonization
   title: 'Chapter 7: Poissonization'
 nextchapter:
-  url: chapters/chapter-07/02-poissonizing-the-multinomial
+  url: chapters/Chapter_07/02_Poissonizing_the_Multinomial
   title: '7.2 Poissonizing the Multinomial'
+redirect_from:
+  - 'chapters/chapter-07/01-poissonizing-the-binomial'
 ---
 
 ## Poissonizing the Binomial

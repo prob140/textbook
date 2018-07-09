@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_02/04_More_Examples.ipynb
 title: '2.4 More Examples'
-permalink: 'chapters/chapter-02/04-more-examples'
+permalink: 'chapters/Chapter_02/04_More_Examples'
 previouschapter:
-  url: chapters/chapter-02/03-multiplication
+  url: chapters/Chapter_02/03_Multiplication
   title: '2.3 Multiplication'
 nextchapter:
-  url: chapters/chapter-02/05-updating-probabilities
+  url: chapters/Chapter_02/05_Updating_Probabilities
   title: '2.5 Updating Probabilities'
+redirect_from:
+  - 'chapters/chapter-02/04-more-examples'
 ---
 
 ## More Examples

@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_21/03_Long_Run_Proportion_of_Heads.ipynb
 title: '21.3 Long Run Proportion of Heads'
-permalink: 'chapters/chapter-21/03-long-run-proportion-of-heads'
+permalink: 'chapters/Chapter_21/03_Long_Run_Proportion_of_Heads'
 previouschapter:
-  url: chapters/chapter-21/02-beta-binomial-distribution
+  url: chapters/Chapter_21/02_Beta_Binomial_Distribution
   title: '21.2 The Beta-Binomial Distribution'
 nextchapter:
-  url: chapters/chapter-22/00-prediction
+  url: chapters/Chapter_22/00_Prediction
   title: 'Chapter 22: Prediction'
+redirect_from:
+  - 'chapters/chapter-21/03-long-run-proportion-of-heads'
 ---
 
 ## Long Run Proportion of Heads

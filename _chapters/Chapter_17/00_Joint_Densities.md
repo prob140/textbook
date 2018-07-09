@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_17/00_Joint_Densities.ipynb
 title: 'Chapter 17: Joint Densities'
-permalink: 'chapters/chapter-17/00-joint-densities'
+permalink: 'chapters/Chapter_17/00_Joint_Densities'
 previouschapter:
-  url: chapters/chapter-16/03-two-to-one-functions
+  url: chapters/Chapter_16/03_Two_to_One_Functions
   title: '16.3 Two-to-One Functions'
 nextchapter:
-  url: chapters/chapter-17/01-probabilities-and-expectations
+  url: chapters/Chapter_17/01_Probabilities_and_Expectations
   title: '17.1 Probabilities and Expectations'
+redirect_from:
+  - 'chapters/chapter-17/00-joint-densities'
 ---
 
 # Joint Densities

@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_25/02_Best_Linear_Predictor.ipynb
 title: '25.2 Best Linear Predictor'
-permalink: 'chapters/chapter-25/02-best-linear-predictor'
+permalink: 'chapters/Chapter_25/02_Best_Linear_Predictor'
 previouschapter:
-  url: chapters/chapter-25/01-bilinearity-in-matrix-notation
+  url: chapters/Chapter_25/01_Bilinearity_in_Matrix_Notation
   title: '25.1 Bilinearity in Matrix Notation'
 nextchapter:
-  url: chapters/chapter-25/03-multivariate-normal-regression
+  url: chapters/Chapter_25/03_Multivariate_Normal_Regression
   title: '25.3 Regression and the Multivariate Normal'
+redirect_from:
+  - 'chapters/chapter-25/02-best-linear-predictor'
 ---
 
 ## Best Linear Predictor

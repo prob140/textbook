@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_11/03_Code_Breaking.ipynb
 title: '11.3 Code Breaking'
-permalink: 'chapters/chapter-11/03-code-breaking'
+permalink: 'chapters/Chapter_11/03_Code_Breaking'
 previouschapter:
-  url: chapters/chapter-11/02-reversibility
+  url: chapters/Chapter_11/02_Reversibility
   title: '11.2 Reversibility'
 nextchapter:
-  url: chapters/chapter-11/04-markov-chain-monte-carlo
+  url: chapters/Chapter_11/04_Markov_Chain_Monte_Carlo
   title: '11.4 Markov Chain Monte Carlo'
+redirect_from:
+  - 'chapters/chapter-11/03-code-breaking'
 ---
 
 ## Code Breaking

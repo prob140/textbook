@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_01/01_Outcome_Space_and_Events.ipynb
 title: '1.1 Outcome Space and Events'
-permalink: 'chapters/chapter-01/01-outcome-space-and-events'
+permalink: 'chapters/Chapter_01/01_Outcome_Space_and_Events'
 previouschapter:
-  url: chapters/chapter-01/00-fundamentals
+  url: chapters/Chapter_01/00_Fundamentals
   title: 'Chapter 1: Fundamentals'
 nextchapter:
-  url: chapters/chapter-01/02-equally-likely-outcomes
+  url: chapters/Chapter_01/02_Equally_Likely_Outcomes
   title: '1.2 Equally Likely Outcomes'
+redirect_from:
+  - 'chapters/chapter-01/01-outcome-space-and-events'
 ---
 
 ## Outcome Space and Events

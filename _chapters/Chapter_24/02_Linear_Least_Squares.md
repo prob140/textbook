@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_24/02_Linear_Least_Squares.ipynb
 title: '24.2 Least Squares Linear Predictor'
-permalink: 'chapters/chapter-24/02-linear-least-squares'
+permalink: 'chapters/Chapter_24/02_Linear_Least_Squares'
 previouschapter:
-  url: chapters/chapter-24/01-bivariate-normal-distribution
+  url: chapters/Chapter_24/01_Bivariate_Normal_Distribution
   title: '24.1 Bivariate Normal Distribution'
 nextchapter:
-  url: chapters/chapter-24/03-regression-and-bivariate-normal
+  url: chapters/Chapter_24/03_Regression_and_Bivariate_Normal
   title: '24.3 Regression and the Bivariate Normal'
+redirect_from:
+  - 'chapters/chapter-24/02-linear-least-squares'
 ---
 
 ## Least Squares Linear Predictor

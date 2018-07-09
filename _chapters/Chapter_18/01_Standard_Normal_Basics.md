@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_18/01_Standard_Normal_Basics.ipynb
 title: '18.1 Standard Normal: The Basics'
-permalink: 'chapters/chapter-18/01-standard-normal-basics'
+permalink: 'chapters/Chapter_18/01_Standard_Normal_Basics'
 previouschapter:
-  url: chapters/chapter-18/00-the-normal-and-gamma-families
+  url: chapters/Chapter_18/00_The_Normal_and_Gamma_Families
   title: 'Chapter 18: The Normal and Gamma Families'
 nextchapter:
-  url: chapters/chapter-18/02-sums-of-independent-normal-variables
+  url: chapters/Chapter_18/02_Sums_of_Independent_Normal_Variables
   title: '18.2 Sums of Independent Normal Variables'
+redirect_from:
+  - 'chapters/chapter-18/01-standard-normal-basics'
 ---
 
 ## Standard Normal: The Basics

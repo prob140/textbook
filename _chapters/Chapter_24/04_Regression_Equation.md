@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_24/04_Regression_Equation.ipynb
 title: '24.4 The Regression Equation'
-permalink: 'chapters/chapter-24/04-regression-equation'
+permalink: 'chapters/Chapter_24/04_Regression_Equation'
 previouschapter:
-  url: chapters/chapter-24/03-regression-and-bivariate-normal
+  url: chapters/Chapter_24/03_Regression_and_Bivariate_Normal
   title: '24.3 Regression and the Bivariate Normal'
 nextchapter:
-  url: chapters/chapter-25/00-multiple-regression
+  url: chapters/Chapter_25/00_Multiple_Regression
   title: 'Chapter 25: Multiple Regression'
+redirect_from:
+  - 'chapters/chapter-24/04-regression-equation'
 ---
 
 ## The Regression Equation

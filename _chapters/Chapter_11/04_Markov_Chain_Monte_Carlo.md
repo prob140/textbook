@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_11/04_Markov_Chain_Monte_Carlo.ipynb
 title: '11.4 Markov Chain Monte Carlo'
-permalink: 'chapters/chapter-11/04-markov-chain-monte-carlo'
+permalink: 'chapters/Chapter_11/04_Markov_Chain_Monte_Carlo'
 previouschapter:
-  url: chapters/chapter-11/03-code-breaking
+  url: chapters/Chapter_11/03_Code_Breaking
   title: '11.3 Code Breaking'
 nextchapter:
-  url: chapters/chapter-12/00-standard-deviation
+  url: chapters/Chapter_12/00_Standard_Deviation
   title: 'Chapter 12: Standard Deviation'
+redirect_from:
+  - 'chapters/chapter-11/04-markov-chain-monte-carlo'
 ---
 
 ## Markov Chain Monte Carlo

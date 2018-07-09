@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_22/00_Prediction.ipynb
 title: 'Chapter 22: Prediction'
-permalink: 'chapters/chapter-22/00-prediction'
+permalink: 'chapters/Chapter_22/00_Prediction'
 previouschapter:
-  url: chapters/chapter-21/03-long-run-proportion-of-heads
+  url: chapters/Chapter_21/03_Long_Run_Proportion_of_Heads
   title: '21.3 Long Run Proportion of Heads'
 nextchapter:
-  url: chapters/chapter-22/01-conditional-expectation-projection
+  url: chapters/Chapter_22/01_Conditional_Expectation_Projection
   title: '22.1 Conditional Expectation As a Projection'
+redirect_from:
+  - 'chapters/chapter-22/00-prediction'
 ---
 
 # Prediction

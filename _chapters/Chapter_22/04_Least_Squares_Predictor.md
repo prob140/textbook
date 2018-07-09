@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_22/04_Least_Squares_Predictor.ipynb
 title: '22.4 Least Squares Predictor'
-permalink: 'chapters/chapter-22/04-least-squares-predictor'
+permalink: 'chapters/Chapter_22/04_Least_Squares_Predictor'
 previouschapter:
-  url: chapters/chapter-22/03-examples
+  url: chapters/Chapter_22/03_Examples
   title: '22.3 Examples'
 nextchapter:
-  url: chapters/chapter-23/00-multivariate-normal-rvs
+  url: chapters/Chapter_23/00_Multivariate_Normal_RVs
   title: 'Chapter 23: Jointly Normal Random Variables'
+redirect_from:
+  - 'chapters/chapter-22/04-least-squares-predictor'
 ---
 
 ## Least Squares Predictor

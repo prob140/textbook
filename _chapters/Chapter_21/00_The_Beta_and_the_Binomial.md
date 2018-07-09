@@ -1,13 +1,15 @@
 ---
 interact_link: notebooks/Chapter_21/00_The_Beta_and_the_Binomial.ipynb
 title: 'Chapter 21: The Beta and the Binomial'
-permalink: 'chapters/chapter-21/00-the-beta-and-the-binomial'
+permalink: 'chapters/Chapter_21/00_The_Beta_and_the_Binomial'
 previouschapter:
-  url: chapters/chapter-20/03-independence-revisited
+  url: chapters/Chapter_20/03_Independence_Revisited
   title: '20.3 Independence, Revisited'
 nextchapter:
-  url: chapters/chapter-21/01-updating-and-prediction
+  url: chapters/Chapter_21/01_Updating_and_Prediction
   title: '21.1 Updating and Prediction'
+redirect_from:
+  - 'chapters/chapter-21/00-the-beta-and-the-binomial'
 ---
 
 # The Beta and the Binomial
