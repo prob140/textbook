@@ -1,13 +1,3 @@
----
-interact_link: notebooks/To_the_Student.ipynb
-title: 'To the Student'
-previouschapter:
-  url: chapters/README
-  title: 'Authors and License'
-nextchapter:
-  url: chapters/Chapter_01/00_Fundamentals
-  title: 'Chapter 1: Fundamentals'
----
 
 # To the  Student #
 

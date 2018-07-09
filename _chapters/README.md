@@ -1,13 +1,3 @@
----
-title: 'Authors and License'
-previouschapter:
-  url: 
-  title: ''
-nextchapter:
-  url: chapters/To_the_Student
-  title: 'To the Student'
-redirect_from: /
----
 Prob 140
 ======================================
 

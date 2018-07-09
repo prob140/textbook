@@ -1,13 +1,3 @@
----
-interact_link: notebooks/Chapter_01/04_Birthday_Problem.ipynb
-title: '1.4 The Birthday Problem'
-previouschapter:
-  url: chapters/Chapter_01/03_Collisions_in_Hashing
-  title: '1.3 Collisions in Hashing'
-nextchapter:
-  url: chapters/Chapter_01/05_An_Exponential_Approximation
-  title: '1.5 An Exponential Approximation'
----
 
 ## The Birthday Problem ##
 
@@ -149,7 +139,7 @@ plt.ylim(0, 1);
 ```
 
 
-![png]({{ site.baseurl }}/images/chapters/Chapter_01/04_Birthday_Problem_13_0.png)
+![png](/Users/dominiccroce/Documents/School/prob140su/textbook-jekyll-template/images/chapters/Chapter_01/04_Birthday_Problem_13_0.png)
 
 
 You can see that if there are more than about 50 people, then the chance of a matching pair of birthdays is pretty close to 1. 

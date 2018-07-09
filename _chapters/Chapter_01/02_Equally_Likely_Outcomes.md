@@ -1,13 +1,3 @@
----
-interact_link: notebooks/Chapter_01/02_Equally_Likely_Outcomes.ipynb
-title: '1.2 Equally Likely Outcomes'
-previouschapter:
-  url: chapters/Chapter_01/01_Outcome_Space_and_Events
-  title: '1.1 Outcome Space and Events'
-nextchapter:
-  url: chapters/Chapter_01/03_Collisions_in_Hashing
-  title: '1.3 Collisions in Hashing'
----
 
 ## Equally Likely Outcomes ##
 
@@ -15,7 +5,7 @@ nextchapter:
 
 The assumption of equally likely outcomes is a simple and ancient model of randomness. It defines probabilities as proportions. The assumption that $\Omega$ is finite makes proportions easy to identify as fractions of the total number of outcomes.
 
-For some $n > 1$, let $\Omega$ consist of $n$ outcomes. Let $A \subseteq \Omega$ be an event. Define $\\#(A)$ to be the number of outcomes in the subset $A$. Thus $\\#(\Omega ) = n$, $\\#(\phi ) = 0$, and $0 < \\#(A) < n$ for any other event $A$.
+For some $n > 1$, let $\Omega$ consist of $n$ outcomes. Let $A \subseteq \Omega$ be an event. Define $\#(A)$ to be the number of outcomes in the subset $A$. Thus $\#(\Omega ) = n$, $\#(\phi ) = 0$, and $0 < \#(A) < n$ for any other event $A$.
 
 For an event $A$, let $P(A)$ denote **the probability that $A$ occurs**, or **the chance that $A$ occurs**. We will use the words "probability" and "chance" synonymously, and we will often use "happens" instead of the more formal "occurs".
 

@@ -1,13 +1,3 @@
----
-interact_link: notebooks/Chapter_01/05_An_Exponential_Approximation.ipynb
-title: '1.5 An Exponential Approximation'
-previouschapter:
-  url: chapters/Chapter_01/04_Birthday_Problem
-  title: '1.4 The Birthday Problem'
-nextchapter:
-  url: chapters/Chapter_02/00_Calculating_Chances
-  title: 'Chapter 2: Calculating Chances'
----
 
 ## An Exponential Approximation ##
 
@@ -49,6 +39,7 @@ Once we have an approximation to $\log (P(\text{no collision}))$, we can use exp
 ### Step 3. Use Properties of $\log$ ###
 This is usually the step where the main calculation happens. Remember that $\log(1+x) \sim x$ for small $x$, where the symbol $\sim$ here means that the ratio of the two sides goes to 1 as $x$ goes to 0. The approximation might not be great for larger $x$ but let's try it out anyway.
 
+$$
 \begin{align*}
 \log(P(\text{no collision})) ~ &=~ \sum_{i=0}^{n-1} \log(\frac{N-i}{N}) \\
 &=~ \sum_{i=0}^{n-1} \log(1 - \frac{i}{N}) \\
@@ -56,6 +47,7 @@ This is usually the step where the main calculation happens. Remember that $\log
 &=~ -\frac{1}{N} \sum_{i=0}^{n-1} i \\ \\
 &= - \frac{1}{N} \cdot \frac{(n-1)n}{2}
 \end{align*}
+$$
 
 by the formula for the sum of the first $n-1$ positive integers.
 
@@ -169,7 +161,7 @@ plt.ylim(0, 1);
 ```
 
 
-![png]({{ site.baseurl }}/images/chapters/Chapter_01/05_An_Exponential_Approximation_13_0.png)
+![png](/Users/dominiccroce/Documents/School/prob140su/textbook-jekyll-template/images/chapters/Chapter_01/05_An_Exponential_Approximation_13_0.png)
 
 
 On the scale of this graph, the blue dots (the exact values) are almost indistinguishable from the gold (our exponential approximation). You can run the code again with the less careful approximation that replaces $(n-1)n$ by $n^2$ and see that the approximation is still excellent.

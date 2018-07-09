@@ -1,13 +1,3 @@
----
-interact_link: notebooks/Chapter_01/01_Outcome_Space_and_Events.ipynb
-title: '1.1 Outcome Space and Events'
-previouschapter:
-  url: chapters/Chapter_01/00_Fundamentals
-  title: 'Chapter 1: Fundamentals'
-nextchapter:
-  url: chapters/Chapter_01/02_Equally_Likely_Outcomes
-  title: '1.2 Equally Likely Outcomes'
----
 
 ## Outcome Space and Events ##
 
