@@ -184,16 +184,16 @@ $$
 P(Y = y \mid X = x) = \frac{P(X = x, Y = y)}{P(X = x)}
 $$
 
-Therefore, for a fixed value $x^*$ of $X$, the *conditional distribution* of $Y$, given $X = x^*$ is the collection of probabilities
+Therefore, for a fixed value $x^\*$ of $X$, the *conditional distribution* of $Y$, given $X = x^\*$ is the collection of probabilities
 $$
 P(Y = y \mid X = x^*) = \frac{P(X = x^*, Y = y)}{P(X = x^*)}
 $$
-where $y$ ranges over all the values of $Y$. Keep in mind that $y$ represents values of the variable here. The value $x^*$ is the particular value of $X$ that was observed; it is a constant.
+where $y$ ranges over all the values of $Y$. Keep in mind that $y$ represents values of the variable here. The value $x^\*$ is the particular value of $X$ that was observed; it is a constant.
 
 ### The Probabilities in a Conditional Distribution Sum to 1
 In a distribution, the probabilities have to sum to 1. To see that this is true for the conditional distribution defined above, start by using the fundamental rule. 
 
-Find $P(X = x^*)$ by partitioning the event $\{ X = x^* \}$ according to the values of $Y$:
+Find $P(X = x^\*)$ by partitioning the event $\{ X = x^* \}$ according to the values of $Y$:
 
 $$
 P(X = x^*) = \sum_{\text{all }y} P(X = x^*, Y = y)

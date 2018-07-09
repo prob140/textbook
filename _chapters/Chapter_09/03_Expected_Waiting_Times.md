@@ -28,7 +28,7 @@ This is called the geometric $(p)$ distribution on $1, 2, 3, \ldots $, because i
 The method is based on representing $X$ in terms of a mixture of random variables:
 - With probability 1, at least one toss has to be made. So $X = 1 + Y$ where $Y$ is the random number of tosses after the first one.
 - With probability $p$ the first toss is a head, so $Y = 0$.
-- With the remaining probability $q$ the first toss is a tail, and then *the process starts over* independently of what has happened before. That is, with probability $q$, $Y = X^*$ where $X^*$ is an independent copy of $X$.
+- With the remaining probability $q$ the first toss is a tail, and then *the process starts over* independently of what has happened before. That is, with probability $q$, $Y = X^\*$ where $X^\*$ is an independent copy of $X$.
 
 Therefore, by additivity and averaging conditional expectations,
 
@@ -72,7 +72,7 @@ In tosses of a $p$-coin, let $W_{HH}$ be the number of tosses till you see two h
 ** Question.** What is $E(W_{HH})$?
 
 **Answer 1.** We can find this is several ways. One way is by conditioning on the first two tosses.
-- With probability $q$, the first toss is a tail, so $W_{HH} = 1 + W^*$ where $W^*$ is an independent copy of $W_{HH}$.
+- With probability $q$, the first toss is a tail, so $W_{HH} = 1 + W^\*$ where $W^\*$ is an independent copy of $W_{HH}$.
 - With probability $pq$ the first two tosses are HT, and $W_{HH} = 2 + W^{**}$
 where $W^{**}$ is an independent copy of $W_{HH}$.
 - With probability $p^2$, the first two tosses are heads, and $W_{HH} = 2$.
@@ -93,7 +93,7 @@ by repeatedly using $p + q = 1$.
 
 Notice that $W_{HH} = X + Y$ where $Y$ is the additional number of tosses needed after $X$.
 - With probability $p$, the toss after $X$ is a head, so $Y = 1$.
-- With probability $q$, the toss after $X$ is a tail, so $Y = 1 + W^*$ where $W^*$ is an independent copy of $W_{HH}$.
+- With probability $q$, the toss after $X$ is a tail, so $Y = 1 + W^\*$ where $W^\*$ is an independent copy of $W_{HH}$.
 
 So if $x = E(W_{HH})$ then
 $$

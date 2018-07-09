@@ -24,7 +24,7 @@ E\Big{(}  \frac{X-\mu_X}{\sigma_X}  \cdot \frac{Y-\mu_Y}{\sigma_Y}  \Big{)}
 ~ = ~ E(X^*Y^*)
 $$
 
-where $X^*$ is $X$ in standard units and $Y^*$ is $Y$ in standard units.
+where $X^\*$ is $X$ in standard units and $Y^\*$ is $Y$ in standard units.
 
 #### Properties of Correlation
 You showed all of these in exercises.
@@ -293,7 +293,7 @@ If you think of $\rho X$ as a "signal" and $\sqrt{1-\rho^2}Z$ as "noise", then $
 When we are working with just two variables $X$ and $Y$, matrix representations are often unnecessary. We will use the following three representations interchangeably.
 
 - $X_1$ and $X_2$ are bivariate normal with parameters $(\mu_1, \mu_2, \sigma_1^2, \sigma_2^2, \rho)$
-- The standardized variables $X_1^*$ and $X_2^*$ are standard bivariate normal with correlation $\rho$. Then $X_2^* = \rho X_1^* + \sqrt{1-\rho^2}Z$ for some standard normal $Z$ that is independent of $X_1^*$. This follows from Definition 2 of the multivariate normal.
+- The standardized variables $X_1^\*$ and $X_2^\*$ are standard bivariate normal with correlation $\rho$. Then $X_2^\* = \rho X_1^\* + \sqrt{1-\rho^2}Z$ for some standard normal $Z$ that is independent of $X_1^\*$. This follows from Definition 2 of the multivariate normal.
 - $X_1$ and $X_2$ have the multivariate normal distribution with mean vector $[\mu_1 ~ \mu_2]^T$ and covariance matrix
 
 $$
