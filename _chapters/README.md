@@ -1,3 +1,14 @@
+---
+title: 'Authors and License'
+permalink: 'chapters/readme'
+previouschapter:
+  url: 
+  title: ''
+nextchapter:
+  url: chapters/to-the-student
+  title: 'To the Student'
+redirect_from: /
+---
 Prob 140
 ======================================
 

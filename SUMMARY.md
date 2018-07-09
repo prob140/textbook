@@ -1,6 +1,4 @@
 
-# Summary
-
 * [Authors and License](notebooks/README.md)
 * [To the Student](notebooks/To_the_Student.ipynb)
  

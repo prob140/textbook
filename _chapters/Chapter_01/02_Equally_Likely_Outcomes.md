@@ -1,15 +1,26 @@
+---
+interact_link: notebooks/Chapter_01/02_Equally_Likely_Outcomes.ipynb
+title: '1.2 Equally Likely Outcomes'
+permalink: 'chapters/chapter-01/02-equally-likely-outcomes'
+previouschapter:
+  url: chapters/chapter-01/01-outcome-space-and-events
+  title: '1.1 Outcome Space and Events'
+nextchapter:
+  url: chapters/chapter-01/03-collisions-in-hashing
+  title: '1.3 Collisions in Hashing'
+---
 
-## Equally Likely Outcomes ##
+## Equally Likely Outcomes
 
 "If a coin is tossed, what is the chance that it lands heads?" Ask this question and the most common answer that you will get is $1/2$. If you press for a reason, don't be surprised to hear, "Because the coin has two faces." A coin does indeed have two faces, but notice an assumption hidden inside the "reasoning" you have been given: that each of the two faces has the same chance as the other. 
 
 The assumption of equally likely outcomes is a simple and ancient model of randomness. It defines probabilities as proportions. The assumption that $\Omega$ is finite makes proportions easy to identify as fractions of the total number of outcomes.
 
-For some $n > 1$, let $\Omega$ consist of $n$ outcomes. Let $A \subseteq \Omega$ be an event. Define $\#(A)$ to be the number of outcomes in the subset $A$. Thus $\#(\Omega ) = n$, $\#(\phi ) = 0$, and $0 < \#(A) < n$ for any other event $A$.
+For some $n > 1$, let $\Omega$ consist of $n$ outcomes. Let $A \subseteq \Omega$ be an event. Define $\\#(A)$ to be the number of outcomes in the subset $A$. Thus $\\#(\Omega ) = n$, $\\#(\phi ) = 0$, and $0 < \\#(A) < n$ for any other event $A$.
 
 For an event $A$, let $P(A)$ denote **the probability that $A$ occurs**, or **the chance that $A$ occurs**. We will use the words "probability" and "chance" synonymously, and we will often use "happens" instead of the more formal "occurs".
 
-### Probabilities on a Space of Equally Likely Outcomes ###
+### Probabilities on a Space of Equally Likely Outcomes
 If all $n$ outcomes in $\Omega$ are assumed to be equally likely, then the probability that the event $A$ occurs is defined by
 
 $$
@@ -19,7 +30,7 @@ $$
 
 This idea that probabilities are proportions lies at the heart of many calculations. As you will see later, rules for combining proportions become rules for combining probabilities, whether or not all outcomes are equally likely. But for now we will work in settings where it is natural to assume that outcomes are equally likely.
 
-#### Example 1: Random Permutations ####
+#### Example 1: Random Permutations
 Let $\Omega$ be the space of all permutations of the letters $a$, $b$, and $c$. Then $\Omega$ contains $n=6$ outcomes:
 $$
 \Omega ~=~ \{ abc, ~acb, ~bac, ~bca, ~cab, ~cba \}
@@ -43,7 +54,7 @@ $$
 
 Thus the assumption that all the permutations are equally likely makes all three positions of $a$ equally likely as well. The same is true of the positions of $b$ and $c$, as you should check.
 
-#### Example 2: Random Number Generator ####
+#### Example 2: Random Number Generator
 Suppose a random number generator returns a pair of digits from among the 100 pairs 00, 01, 02, $\ldots$, 98, 99, in a way that makes all the pairs equally likely to be returned. 
 
 You will have noticed that the pairs correspond to the 100 integers 0 through 99. In what follows, it will be useful to remind yourself of the product rule of counting: 

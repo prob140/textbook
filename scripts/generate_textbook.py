@@ -4,6 +4,7 @@ import os.path as op
 import shutil as sh
 import yaml
 from nbclean import NotebookCleaner
+import nbformat as nbf
 from tqdm import tqdm
 import numpy as np
 import argparse
@@ -35,12 +36,35 @@ def _markdown_to_files(path_markdown, indent=2):
     return files
 
 
+def _prepare_link(link):
+    """Prep the formatting for a link."""
+    link = _strip_suffixes(link)
+    link = link.lstrip('._').lower().replace('_', '-')
+    link = link.replace(NOTEBOOKS_FOLDER_NAME,
+                        TEXTBOOK_FOLDER_NAME.lstrip('_'))
+    return link
+
+
 def _strip_suffixes(string, suffixes=None):
     """Remove suffixes so we can create links."""
     suffixes = ['.ipynb', '.md'] if suffixes is None else suffixes
     for suff in suffixes:
         string = string.replace(suff, '')
     return string
+
+
+def _clean_notebook_cells(path_ntbk):
+    """Clean up cell text of an nbformat NotebookNode."""
+    ntbk = nbf.read(path_ntbk, nbf.NO_CONVERT)
+    # Remove '#' from the end of markdown headers
+    for cell in ntbk.cells:
+        if cell.cell_type == "markdown":
+            cell_lines = cell.source.split('\n')
+            for ii, line in enumerate(cell_lines):
+                if line.startswith('#'):
+                    cell_lines[ii] = line.rstrip('#').rstrip()
+            cell.source = '\n'.join(cell_lines)
+    nbf.write(ntbk, path_ntbk)
 
 
 def _clean_lines(lines):
@@ -70,15 +94,14 @@ def _generate_sidebar(files):
     sidebar_text = []
     sidebar_text.append({'title': 'Home', 'class': 'level_0', 'url': '/'})
     chapter_ix = 1
-    for ix_file, (title, link, level) in tqdm(list(enumerate(files))):
+    for ix_file, (title, link, level) in list(enumerate(files)):
         if level > 0 and len(link) == 0:
             continue
         if level == 0:
             if site_yaml.get('number_chapters', False) is True:
                 title = '{}. {}'.format(chapter_ix, title)
             chapter_ix += 1
-        new_link = link.replace(NOTEBOOKS_FOLDER_NAME, TEXTBOOK_FOLDER_NAME.lstrip('_'))
-        new_link = _strip_suffixes(new_link).lstrip('.')
+        new_link = _prepare_link(link)
         new_item = {'title': title, "class": "level_{}".format(int(level)), 'url': new_link}
         if level == 0:
             if ix_file != (len(files) - 1) and level < files[ix_file + 1][-1]:
@@ -127,6 +150,9 @@ if __name__ == '__main__':
     with open(CONFIG_FILE, 'r') as ff:
         site_yaml = yaml.load(ff.read())
     # Load the textbook ymal for this site
+    if not op.exists(SITE_TEXTBOOK):
+        with open(SITE_TEXTBOOK, 'w') as ff:
+            pass
     with open(SITE_TEXTBOOK, 'r') as ff:
         textbook_yaml = yaml.load(ff.read())
     textbook_yaml = {} if textbook_yaml is None else textbook_yaml
@@ -161,14 +187,14 @@ if __name__ == '__main__':
             prev_file_title = ''
         else:
             prev_file_title, prev_page_link, _ = files[ix_file-1]
-            prev_page_link = _strip_suffixes(prev_page_link.replace(NOTEBOOKS_FOLDER_NAME, TEXTBOOK_FOLDER_NAME))
+            prev_page_link = _prepare_link(prev_page_link)
 
         if ix_file == len(files) - 1:
             next_page_link = ''
             next_file_title = ''
         else:
             next_file_title, next_page_link, _ = files[ix_file+1]
-            next_page_link = _strip_suffixes(next_page_link.replace(NOTEBOOKS_FOLDER_NAME, TEXTBOOK_FOLDER_NAME))
+            next_page_link = _prepare_link(next_page_link)
 
         # Convert notebooks or just copy md if no notebook.
         if link.endswith('.ipynb'):
@@ -182,6 +208,7 @@ if __name__ == '__main__':
             cleaner.remove_cells(search_text="# HIDDEN")
             cleaner.clear('stderr')
             cleaner.save(tmp_notebook)
+            _clean_notebook_cells(tmp_notebook)
 
             # Run nbconvert moving it to the output folder
             # This is the output directory for `.md` files
@@ -214,8 +241,9 @@ if __name__ == '__main__':
         if link.endswith('.ipynb'):
             yaml_fm += ['interact_link: {}'.format(link.lstrip('./'))]
         yaml_fm += ["title: '{}'".format(title)]
+        yaml_fm += ["permalink: '{}'".format(_prepare_link(link))]
         yaml_fm += ['previouschapter:']
-        yaml_fm += ['  url: {}'.format(prev_page_link.lstrip('._').replace('"', "'"))]
+        yaml_fm += ['  url: {}'.format(_prepare_link(prev_page_link).replace('"', "'"))]
         yaml_fm += ["  title: '{}'".format(prev_file_title)]
         yaml_fm += ['nextchapter:']
         yaml_fm += ['  url: {}'.format(_prepare_link(next_page_link).replace('"', "'"))]
@@ -231,10 +259,10 @@ if __name__ == '__main__':
             ff.writelines(lines)
         n_built_files += 1
 
-    print("Done generating {} files, skipped {} files".format(n_built_files, n_skipped_files))
+    print("\n***\nGenerated {} new files\nSkipped {} already-built files".format(n_built_files, n_skipped_files))
     if n_built_files == 0:
-        print("---\nDelete the markdown files in '{}' for any pages that you wish to re-build.\n---\n".format(TEXTBOOK_FOLDER_NAME))
-
+        print("\nDelete the markdown files in '{}' for any pages that you wish to re-build.".format(TEXTBOOK_FOLDER_NAME))
+    print('***\n')
     # Generate sidebar, replacing the old one if it exists
     _generate_sidebar(files)
 

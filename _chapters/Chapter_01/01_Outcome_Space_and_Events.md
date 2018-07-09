@@ -1,5 +1,16 @@
+---
+interact_link: notebooks/Chapter_01/01_Outcome_Space_and_Events.ipynb
+title: '1.1 Outcome Space and Events'
+permalink: 'chapters/chapter-01/01-outcome-space-and-events'
+previouschapter:
+  url: chapters/chapter-01/00-fundamentals
+  title: 'Chapter 1: Fundamentals'
+nextchapter:
+  url: chapters/chapter-01/02-equally-likely-outcomes
+  title: '1.2 Equally Likely Outcomes'
+---
 
-## Outcome Space and Events ##
+## Outcome Space and Events
 
 Any experiment involving randomness results in one of a number of possible outcomes. The outcome space is the collection of all such outcomes. 
 
@@ -11,7 +22,7 @@ An **outcome** $\omega$ is an element of the outcome space $\Omega$. Though $\om
 
 An **event** is a subset of $\Omega$. The empty set $\phi$ and the entire space $\Omega$ are allowed as subsets. By convention, early letters of the alphabet like $A$ and $B$ are commonly used as notation for events.
 
-#### Example 1: Permutations ####
+#### Example 1: Permutations
 Suppose you are shuffling three cards labeled $a$, $b$, and $c$. Then the space of all possible outcomes is
 $$
 \Omega ~=~ \{ abc, ~acb, ~bac, ~bca, ~cab, ~cba \}

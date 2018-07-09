@@ -1,5 +1,16 @@
+---
+interact_link: notebooks/To_the_Student.ipynb
+title: 'To the Student'
+permalink: 'chapters/to-the-student'
+previouschapter:
+  url: chapters/readme
+  title: 'Authors and License'
+nextchapter:
+  url: chapters/chapter-01/00-fundamentals
+  title: 'Chapter 1: Fundamentals'
+---
 
-# To the  Student #
+# To the  Student
 
 Data science is about making conclusions based on large amounts of data of diverse forms. But most data sets, no matter how large or complex, provide only incomplete information about the questions that interest us. When data scientists make conclusions, they often have to account for uncertainty.
 

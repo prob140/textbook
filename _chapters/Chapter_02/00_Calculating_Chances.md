@@ -1,5 +1,16 @@
+---
+interact_link: notebooks/Chapter_02/00_Calculating_Chances.ipynb
+title: 'Chapter 2: Calculating Chances'
+permalink: 'chapters/chapter-02/00-calculating-chances'
+previouschapter:
+  url: chapters/chapter-01/05-an-exponential-approximation
+  title: '1.5 An Exponential Approximation'
+nextchapter:
+  url: chapters/chapter-02/01-addition
+  title: '2.1 Addition'
+---
 
-# Calculating Chances #
+# Calculating Chances
 
 Once you start working with probabilities, you quickly realize that the assumption of all possible outcomes being equally likely isn't always reasonable. For example, if you think a coin is biased then you won't want to assume that it lands heads with the same chance as tails. 
 

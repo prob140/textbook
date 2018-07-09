@@ -1,5 +1,16 @@
+---
+interact_link: notebooks/Chapter_01/05_An_Exponential_Approximation.ipynb
+title: '1.5 An Exponential Approximation'
+permalink: 'chapters/chapter-01/05-an-exponential-approximation'
+previouschapter:
+  url: chapters/chapter-01/04-birthday-problem
+  title: '1.4 The Birthday Problem'
+nextchapter:
+  url: chapters/chapter-02/00-calculating-chances
+  title: 'Chapter 2: Calculating Chances'
+---
 
-## An Exponential Approximation ##
+## An Exponential Approximation
 
 The goal of this section is to understand how the chance of at least one collision behaves as a function of the number of individuals $n$, when there are $N$ hash values and $N$ is large compared to $n$. 
 
@@ -13,7 +24,7 @@ While this gives an exact formula for the chance, it doesn't give us a sense of 
 
 The main steps in the approximation will be used repeatedly in this course, so we will set them out in some detail here.
 
-### Step 1. Only Approximate Terms that Need Approximation ###
+### Step 1. Only Approximate Terms that Need Approximation
 
 While this might seem obvious, it's worth noting as it can save a lot of unnecessary fiddling. We are trying to approximate
 $$
@@ -27,7 +38,7 @@ We can subtract the approximation from 1 at the end.
 
 In other words, we'll approximate $P(\text{no collision})$ instead. 
 
-### Step 2. Use $\log$ to Convert Products to Sums ###
+### Step 2. Use $\log$ to Convert Products to Sums
 Our formula is a product, but we are much better at working with sums. The `log` function helps us turn the product into a sum:
 
 $$
@@ -36,7 +47,7 @@ $$
 
 Once we have an approximation to $\log (P(\text{no collision}))$, we can use exponentiation to convert it to an approximation for what we want, which is $P(\text{no collision})$.
 
-### Step 3. Use Properties of $\log$ ###
+### Step 3. Use Properties of $\log$
 This is usually the step where the main calculation happens. Remember that $\log(1+x) \sim x$ for small $x$, where the symbol $\sim$ here means that the ratio of the two sides goes to 1 as $x$ goes to 0. The approximation might not be great for larger $x$ but let's try it out anyway.
 
 $$
@@ -51,7 +62,7 @@ $$
 
 by the formula for the sum of the first $n-1$ positive integers.
 
-### Step 4. Invert as Needed to Complete the Approximation ###
+### Step 4. Invert as Needed to Complete the Approximation
 The hard work has been done, and now we just have to clean things up. Step 3 gave us
 
 $$
@@ -76,7 +87,7 @@ Now you can see why the $P(\text{at least one collision})$ rises sharply as a fu
 
 It's worth noting that there is only one approxmation in the entire calculation: it's in the line in the middle of Step 3, where we use $\log(1+x) \sim x$ for small $x$. We will encounter this approximation several times in the course.
 
-### How Good is the Approximation? ###
+### How Good is the Approximation?
 To see how the exponential approximation compares with the exact probabilities, let's work in the context of birthdays; you can change $N$ in the code if you prefer a different setting. 
 
 To see the entire sequence of steps, we will redo our exact calculations and augment them with a column of approximations. We'll use the somewhat more careful approximation of the two above.
@@ -161,7 +172,7 @@ plt.ylim(0, 1);
 ```
 
 
-![png](/Users/dominiccroce/Documents/School/prob140su/textbook-jekyll-template/images/chapters/Chapter_01/05_An_Exponential_Approximation_13_0.png)
+![png]({{ site.baseurl }}/images/chapters/Chapter_01/05_An_Exponential_Approximation_13_0.png)
 
 
 On the scale of this graph, the blue dots (the exact values) are almost indistinguishable from the gold (our exponential approximation). You can run the code again with the less careful approximation that replaces $(n-1)n$ by $n^2$ and see that the approximation is still excellent.

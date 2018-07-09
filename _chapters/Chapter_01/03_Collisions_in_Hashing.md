@@ -1,5 +1,16 @@
+---
+interact_link: notebooks/Chapter_01/03_Collisions_in_Hashing.ipynb
+title: '1.3 Collisions in Hashing'
+permalink: 'chapters/chapter-01/03-collisions-in-hashing'
+previouschapter:
+  url: chapters/chapter-01/02-equally-likely-outcomes
+  title: '1.2 Equally Likely Outcomes'
+nextchapter:
+  url: chapters/chapter-01/04-birthday-problem
+  title: '1.4 The Birthday Problem'
+---
 
-## Collisions in Hashing ##
+## Collisions in Hashing
 
 In computer science, *hash functions* assign a code called a *hash value* to each of a set of individuals. It's important that each individual be assigned a unique value. If two individuals are assigned the same value, there is a *collision*, and this causes trouble in identification. Yet it is cumbersome to keep track of which hash values have and have not been assigned, as the numbers of hash values and individuals can be very large.
 
@@ -9,7 +20,7 @@ Let's make some assumptions about randomness and find the probability that there
 
 Notice that we are assuming that each of the $n$ individuals could be assigned any of the $N$ values regardless of what has been assigned to others. This includes the truly unfortunate possibility that all $n$ individuals are assigned the same value.
 
-### No Collisions ###
+### No Collisions
 
 What is the chance that there are no collisions? 
 
@@ -51,7 +62,7 @@ The symbol $\prod$ stands for "product" just as $\sum$ stands for "sum".
 
 And now the bad news:
 
-### At Least One Collision ###
+### At Least One Collision
 Each sequence either has at least one collision, or it has no collisions. No sequence can be in both of those categories, so by the rules of proportion we have
 
 $$

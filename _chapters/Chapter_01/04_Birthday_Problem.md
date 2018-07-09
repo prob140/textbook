@@ -1,9 +1,20 @@
+---
+interact_link: notebooks/Chapter_01/04_Birthday_Problem.ipynb
+title: '1.4 The Birthday Problem'
+permalink: 'chapters/chapter-01/04-birthday-problem'
+previouschapter:
+  url: chapters/chapter-01/03-collisions-in-hashing
+  title: '1.3 Collisions in Hashing'
+nextchapter:
+  url: chapters/chapter-01/05-an-exponential-approximation
+  title: '1.5 An Exponential Approximation'
+---
 
-## The Birthday Problem ##
+## The Birthday Problem
 
 A classical problem in probability is about "collisions" of birthdays. This *birthday problem* was posed by [Richard von Mises](https://en.wikipedia.org/wiki/Richard_von_Mises) and other mathematicians – its origin has not been well established. The main question is, "If there are $n$ people in a room, what is the chance that some pair among them have the same birthday?"
 
-### Assumptions of Randomness ###
+### Assumptions of Randomness
 The problem is commonly solved under the assumptions that each year consists of 365 days and that each person is equally likely to be born on any of the 365 days regardless of the birthdays of others. 
 
 You can see that assumptions ignore leap years as well as multiple births (twins, for example) and any lack of uniformity in the distribution of births during the year. These assumptions make calculations simpler but might not reflect the reality of birthdays in every population. Data scientists have to be careful about their assumptions – if the assumptions don't reflect the truth, then the conclusions won't either. 
@@ -12,7 +23,7 @@ So let's note that we are working under simplifying assumptions that we should c
 
 There are many [variations](http://onlinelibrary.wiley.com/store/10.1111/j.1740-9713.2013.00705.x/asset/sign705.pdf;jsessionid=491D7D4A673C963B34E14B5AE6197321.f02t01?v=1&t=iy0wn3y5&s=199ae2fb587c25b7cde75105b0f11d2f25016108) of the birthday problem, but we will stick with the classic.
 
-### The Chance of a Match ###
+### The Chance of a Match
 We will state our assumptions succinctly as "all $365^n$ sequences of birthdays are equally likely". You can see that this makes the birthday problem the same as the collision problem of the previous section, with $N = 365$. As before, the only interesting cases are when $n \le N$, for which
 
 $$
@@ -20,7 +31,7 @@ P(\text{no match}) ~=~
 P(\text{all $n$ birthdays are different}) ~=~ \prod_{i=0}^{n-1} \frac{N-i}{N}
 $$
 
-### Computing the Chance ###
+### Computing the Chance
 
 With $N$ fixed at 365, the function `p_no_match` takes $n$ as its argument and returns the probability that there is no match among $n$ birthdays. 
 
@@ -127,7 +138,7 @@ Next, notice that in the boring case where there is just one person, there can't
 
 Finally, notice that when the number of people is small, the chance they all have different birthdays is large. This is consistent with our intuition that if the number of individuals is small relative to the number of available hash values, and you assign values to individuals at random, then the chance of a collision is small.
 
-### The Birthday "Paradox" ###
+### The Birthday "Paradox"
 But the chance of a collision increases as the number of people increases. In fact, it increases rather sharply.
 
 
@@ -139,7 +150,7 @@ plt.ylim(0, 1);
 ```
 
 
-![png](/Users/dominiccroce/Documents/School/prob140su/textbook-jekyll-template/images/chapters/Chapter_01/04_Birthday_Problem_13_0.png)
+![png]({{ site.baseurl }}/images/chapters/Chapter_01/04_Birthday_Problem_13_0.png)
 
 
 You can see that if there are more than about 50 people, then the chance of a matching pair of birthdays is pretty close to 1. 

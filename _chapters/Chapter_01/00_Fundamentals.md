@@ -1,5 +1,16 @@
+---
+interact_link: notebooks/Chapter_01/00_Fundamentals.ipynb
+title: 'Chapter 1: Fundamentals'
+permalink: 'chapters/chapter-01/00-fundamentals'
+previouschapter:
+  url: chapters/to-the-student
+  title: 'To the Student'
+nextchapter:
+  url: chapters/chapter-01/01-outcome-space-and-events
+  title: '1.1 Outcome Space and Events'
+---
 
-# Fundamentals #
+# Fundamentals
 
 Exactly what probabilities are has been the subject of contentious debate. Some people think that probabilities are long-run frequencies that only apply to events that can happen over and over again under identical conditions. Others think that probabilities quantify an individual's subjective degree of uncertainty about events of any kind and can vary across individuals. Still others don't fall rigidly into either of those groups.
 
