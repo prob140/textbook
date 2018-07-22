@@ -45,7 +45,7 @@ def generate_summary(configuration,cold=False):
     SUMMARY_head = """
 # Summary
 
-* [Authors and License](README.md)
+* [Authors and License](notebooks/README.md)
 * [To the Student](notebooks/To_the_Student.ipynb)
 
     """
