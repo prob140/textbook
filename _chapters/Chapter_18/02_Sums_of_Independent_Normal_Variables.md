@@ -21,6 +21,7 @@ This section consists of examples based on one important fact:
 We will prove the fact in a later section using moment generating functions. For now, we will just run a quick simulation and then see how to use the fact in examples.
 
 
+
 {:.input_area}
 ```python
 mu_X = 10
@@ -35,7 +36,8 @@ plt.title('$X$ is normal (10, $2^2$); $Y$ is normal (15, $3^2$)');
 ```
 
 
-![png]({{ site.baseurl }}/images/chapters/Chapter_18/02_Sums_of_Independent_Normal_Variables_2_0.png)
+
+![png](../../images/chapters/Chapter_18/02_Sums_of_Independent_Normal_Variables_2_0.png)
 
 
 The simulation above generates 10,000 copies of $X+Y$ where $X$ has the normal distribution with mean 10 and SD 2 and $Y$ is independent of $X$ and has the normal distribution with mean 15 and SD 3. The distribution of the sum is clearly normal. You can vary the parameters and check that the distribution of the sum has the same shape, though with different labels on the axes.
@@ -71,12 +73,21 @@ $$
 because $H_A - H_B$ is normal with mean 0 and SD $\sqrt{3^2 + 3^2} = \sqrt{18} = 4.24$ inches.
 
 
+
+
+
+![png](../../images/chapters/Chapter_18/02_Sums_of_Independent_Normal_Variables_7_0.png)
+
+
+
+
 {:.input_area}
 ```python
 mu = 0
 sigma = 18**0.5
 1 - stats.norm.cdf(2, mu, sigma)
 ```
+
 
 
 
@@ -120,6 +131,7 @@ $$
 
 
 
+
 {:.input_area}
 ```python
 mu = 0.5 - 2*0.27
@@ -127,6 +139,7 @@ var = (0.5*0.5/1000) + 4*(0.27*.73/1000)
 sigma = var**0.5
 1 - stats.norm.cdf(0, mu, sigma)
 ```
+
 
 
 

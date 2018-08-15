@@ -50,6 +50,20 @@ At each toss we will keep track of the gambler's net gain. So he will start out 
 
 It's a good idea to start visualizing the random trajectory of the gambler's net gain as a *path*. Here are two graphs that assume $a = 3$ and $b = 7$. The first graph shows a path that leads to the gambler reaching a net gain of $\\$b$. The second shows a path to ruin.
 
+
+
+
+
+![png](../../images/chapters/Chapter_09/01_Probability_by_Conditioning_4_0.png)
+
+
+
+
+
+
+![png](../../images/chapters/Chapter_09/01_Probability_by_Conditioning_5_0.png)
+
+
 **Question.** What is the probability that the gambler is ruined?
 
 **Answer.** You can see from the paths above that at the first step the gambler's net gain will be either -1 or 1, and then we will have to work out the probability of ruin from that point.
@@ -79,6 +93,13 @@ $$
 The successive differences are equal, which means that $p_k$ is a linear function of $k$.
 
 Here is the line assuming $a= \\$3$ and $b = \\$7$ as before. The red lines show that $p_0 = 0.7$.
+
+
+
+
+
+![png](../../images/chapters/Chapter_09/01_Probability_by_Conditioning_7_0.png)
+
 
 For general $a$ and $b$, the line starts at $(-a, 1)$ and has slope $-1/(a+b)$. So
 the chance of ruin is
@@ -129,3 +150,10 @@ $$
 Note that if $p < 1/2$ then $r > 1$ and both the numerator and denominator are negative.
 
 Here is a graph of the ruin probabilities, for $a = 3$ and $b = 10$ as before, but now with a coin that is biased towards heads with $p = 0.6$. Not surprisingly, as the initial fortune increases the probability of ruin falls more sharply for this coin than for the fair coin. Even when the gambler starts with only $\\$3$, his chance of ruin is less than 30%.
+
+
+
+
+
+![png](../../images/chapters/Chapter_09/01_Probability_by_Conditioning_10_0.png)
+

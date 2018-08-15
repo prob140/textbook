@@ -95,6 +95,7 @@ To see how the exponential approximation compares with the exact probabilities, 
 To see the entire sequence of steps, we will redo our exact calculations and augment them with a column of approximations. We'll use the somewhat more careful approximation of the two above.
 
 
+
 {:.input_area}
 ```python
 N = 365 
@@ -114,6 +115,7 @@ results = results.with_columns(
 
 results
 ```
+
 
 
 
@@ -166,6 +168,7 @@ results
 The first 10 approximations look pretty good. Let's take a look at some more.
 
 
+
 {:.input_area}
 ```python
 results.scatter('Trials')
@@ -174,7 +177,8 @@ plt.ylim(0, 1);
 ```
 
 
-![png]({{ site.baseurl }}/images/chapters/Chapter_01/05_An_Exponential_Approximation_13_0.png)
+
+![png](../../images/chapters/Chapter_01/05_An_Exponential_Approximation_13_0.png)
 
 
 On the scale of this graph, the blue dots (the exact values) are almost indistinguishable from the gold (our exponential approximation). You can run the code again with the less careful approximation that replaces $(n-1)n$ by $n^2$ and see that the approximation is still excellent.

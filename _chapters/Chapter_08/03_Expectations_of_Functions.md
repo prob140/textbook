@@ -75,6 +75,7 @@ The crucial thing to note about this method is that **we didn't have to first fi
 Let $X$ have a distribution we worked with earlier:
 
 
+
 {:.input_area}
 ```python
 x = np.arange(1, 6)
@@ -83,6 +84,7 @@ dist = Table().values(x).probability(probs)
 dist = dist.relabel('Value', 'x').relabel('Probability', 'P(X=x)')
 dist
 ```
+
 
 
 
@@ -121,12 +123,14 @@ Let $g$ be the function defined by $g(x) = |x-3|$, and let $Y = g(X)$. In other 
 To calculate $E(Y)$, we first have to create a column that transforms the values of $X$ into values of $Y$:
 
 
+
 {:.input_area}
 ```python
 dist_with_Y = dist.with_column('g(x)', np.abs(dist.column('x')-3)).move_to_end('P(X=x)')
 
 dist_with_Y
 ```
+
 
 
 
@@ -163,11 +167,13 @@ dist_with_Y
 To get $E(Y)$, find the appropriate weighed average: multiply the `g(x)` and `P(X=x)` columns, and add. The calculation shows that $E(Y) = 0.95$.
 
 
+
 {:.input_area}
 ```python
 ev_Y = sum(dist_with_Y.column('g(x)') * dist_with_Y.column('P(X=x)'))
 ev_Y
 ```
+
 
 
 
@@ -183,10 +189,12 @@ ev_Y
 Let $X$ be as above, but now let $Y = \min(X, 3)$. We want $E(Y)$. What we know is the distribution of $X$:
 
 
+
 {:.input_area}
 ```python
 dist
 ```
+
 
 
 
@@ -223,11 +231,13 @@ dist
 To find $E(Y)$ we can just go row by row and replace the value of $x$ by the value of $\min(x, 3)$, and then find the weighted average:
 
 
+
 {:.input_area}
 ```python
 ev_Y = 1*0.15 + 2*0.25 + 3*0.3 + 3*0.2 + 3*0.1
 ev_Y
 ```
+
 
 
 

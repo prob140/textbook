@@ -73,8 +73,8 @@ In tosses of a $p$-coin, let $W_{HH}$ be the number of tosses till you see two h
 
 **Answer 1.** We can find this is several ways. One way is by conditioning on the first two tosses.
 - With probability $q$, the first toss is a tail, so $W_{HH} = 1 + W^\*$ where $W^\*$ is an independent copy of $W_{HH}$.
-- With probability $pq$ the first two tosses are HT, and $W_{HH} = 2 + W^{**}$
-where $W^{**}$ is an independent copy of $W_{HH}$.
+- With probability $pq$ the first two tosses are HT, and $W_{HH} = 2 + W^{\*\*}$
+where $W^{\*\*}$ is an independent copy of $W_{HH}$.
 - With probability $p^2$, the first two tosses are heads, and $W_{HH} = 2$.
 
 So if $x = E(W_{HH})$ then
@@ -106,11 +106,11 @@ $$
 as before.
 
 ### Gambler's Ruin: Duration of the Game
-Let's return to the setting of the gambler's ruin problem with a fair coin. The gambler starts with $\$a$ and bets on a fair coin till either his net gain reaches $\$b$ or he loses all his money. Let $T$ be the duration of the game. 
+Let's return to the setting of the gambler's ruin problem with a fair coin. The gambler starts with $\\$a$ and bets on a fair coin till either his net gain reaches $\\$b$ or he loses all his money. Let $T$ be the duration of the game. 
 
 **Question.** What the expected duration of the game?
 
-**Answer.** Let $E_k(T)$ denote the expected duration of the game given that the gambler starts with a net gain of $\$k$. We want $E_0(T)$.
+**Answer.** Let $E_k(T)$ denote the expected duration of the game given that the gambler starts with a net gain of $\\$k$. We want $E_0(T)$.
 
 By conditioning on the first step, we see that for $-a+1 \le k \le b-1$,
 

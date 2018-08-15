@@ -26,12 +26,14 @@ The goal of this example is to see how the information about the number of heads
 Let $R$ be the probability with which the random coin lands heads. The possible values of $R$ are 0.5 and 0.9, and the prior probability distribution of $R$ is given by the following table.
 
 
+
 {:.input_area}
 ```python
 coins = [0.5, 0.9]
 prior = [0.25, 0.75]
 Table().values(coins).probability(prior)
 ```
+
 
 
 
@@ -82,6 +84,7 @@ We can use the same kind of reasoning to work out $P(R = r, H = h)$ for all valu
 Let's do that directly in Python. The function `joint_probs` takes $r$ and $h$ as arguments and returns $P(R = r, H = h)$.
 
 
+
 {:.input_area}
 ```python
 def joint_probs(r, h):
@@ -99,13 +102,16 @@ def joint_probs(r, h):
         return 0.75*heads_2_tosses.item(h)
 ```
 
+
 We can now use `prob140` methods to construct a joint distribution table for $R$ and $H$, as described in the section on Joint Distributions. Recall that we used `coins` and `prior` to construct the prior distribution of $R$:
+
 
 
 {:.input_area}
 ```python
 coins, prior
 ```
+
 
 
 
@@ -118,6 +124,7 @@ coins, prior
 
 
 
+
 {:.input_area}
 ```python
 heads = np.arange(3)
@@ -126,6 +133,7 @@ joint_dist = joint_tbl.to_joint()
 
 joint_dist
 ```
+
 
 
 
@@ -181,10 +189,12 @@ The values of $P(R = 0.9, H = 2)$ and $P(R = 0.5, H = 1)$ agree with those that 
 Let's check that the marginal of $R$ agrees with the assumption that the coin is picked at random from one fair coin and three biased coins. With no information about the number of heads, the distribution of $R$ should just be the prior. And it is, as you can see in the bottom margin of the table below.
 
 
+
 {:.input_area}
 ```python
 joint_dist.marginal('R')
 ```
+
 
 
 
@@ -245,10 +255,12 @@ Now suppose I pick the coin (in secret), toss it twice, and tell you the number 
 To start off, it's a good idea to find the conditional distribution of $R$ given the value of $H$. Here are all those conditional distributions, for different given values of $H$. 
 
 
+
 {:.input_area}
 ```python
 joint_dist.conditional_dist('R', 'H')
 ```
+
 
 
 

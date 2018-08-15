@@ -81,6 +81,7 @@ The plane is $E(Y \mid \mathbf{X}) = \boldsymbol{\Sigma}_{Y, \mathbf{X}}\boldsym
 Notice that all three variables are in standard units and that the two predictor variables are not highly correlated: $r(X_1, X_2) = 0.2$. You can change the parameters, of course, but you will get an error message if you enter a "covariance matrix" that is not positive semidefinite.
 
 
+
 {:.input_area}
 ```python
 mu = [0, 0, 0]
@@ -91,12 +92,14 @@ multivariate_normal_regression(mu, cov, 200)
 ```
 
 
-![png]({{ site.baseurl }}/images/chapters/Chapter_25/03_Multivariate_Normal_Regression_4_0.png)
+
+![png](../../images/chapters/Chapter_25/03_Multivariate_Normal_Regression_4_0.png)
 
 
 This is the three-dimensional version of the familiar football shaped scatter diagram with the "best predictor" line going through it. The plane goes through the "vertical center" of the cloud.
 
 In the simulation below, the correlations between $Y$ and two predictor variables have been reduced. Notice the greater spread about the plane.
+
 
 
 {:.input_area}
@@ -109,10 +112,12 @@ multivariate_normal_regression(mu, cov, 200)
 ```
 
 
-![png]({{ site.baseurl }}/images/chapters/Chapter_25/03_Multivariate_Normal_Regression_6_0.png)
+
+![png](../../images/chapters/Chapter_25/03_Multivariate_Normal_Regression_6_0.png)
 
 
 The calcuations of this chapter, for predicting the value of a random variabe $Y$ by a linear function of random variables $X_1, X_2, \ldots, X_p$, have direct applications to data. What we see is just a cloud of points:
+
 
 
 {:.input_area}
@@ -121,7 +126,8 @@ Scatter_multivariate_normal(mu, cov, 200)
 ```
 
 
-![png]({{ site.baseurl }}/images/chapters/Chapter_25/03_Multivariate_Normal_Regression_8_0.png)
+
+![png](../../images/chapters/Chapter_25/03_Multivariate_Normal_Regression_8_0.png)
 
 
 But we don't know the parameters of the distribution, so we can't draw the right plane through the scatter. The problem of multiple regression is to *estimate* the plane based on the data.

@@ -19,6 +19,7 @@ Let $T$ be a random variable, and let $S$ be a random variable defined on the sa
 We will start with a simple example to illustrate the ideas. Let the joint distribution of $T$ and $S$ be as in the table below.
 
 
+
 {:.input_area}
 ```python
 t = [3, 4]
@@ -28,6 +29,7 @@ jd2 = Table().values('T', t, 'S', s).probability(pp)
 jt_dist = jd2.to_joint()
 jt_dist
 ```
+
 
 
 
@@ -83,10 +85,12 @@ How can $S$ be involved in the calculation of $E(T)$?
 Notice that to find $E(T)$, you could use the joint distribution table and the definition of expectation as follows:
 
 
+
 {:.input_area}
 ```python
 3*(0.3 + 0.2 + 0.1) + 4*(0.1 + 0.2 + 0.1) 
 ```
+
 
 
 
@@ -103,10 +107,12 @@ This is equivalent to going to each cell of the table, weighting the value of $T
 Let's condition on $S$:
 
 
+
 {:.input_area}
 ```python
 jt_dist.conditional_dist('T', 'S')
 ```
+
 
 
 
@@ -170,10 +176,12 @@ jt_dist.conditional_dist('T', 'S')
 Each of the three conditional distributions is a distribution in its own right. Therefore its histogram has a balance point, just as the marginal distribution of $T$ does.
 
 
+
 {:.input_area}
 ```python
 jt_dist.conditional_dist('T', 'S', show_ev=True)
 ```
+
 
 
 
@@ -247,6 +255,7 @@ You can see $E(T) = 3.4$ in the row corresponding to the distribution of $T$. An
 This defines a *function of $S$*: for each value $s$ of $S$, the function returns $E(T \mid S=s)$.
 
 
+
 {:.input_area}
 ```python
 ev_T_given_S = Table().with_columns(
@@ -256,6 +265,7 @@ ev_T_given_S = Table().with_columns(
 )
 ev_T_given_S
 ```
+
 
 
 
@@ -288,11 +298,13 @@ This function of $S$ is called the *conditional expectation of $T$ given $S$* an
 As it's a random variable, it has an expectation, which we can calculate using the non-linear function rule. The answer is a quantity that you will recognize.
 
 
+
 {:.input_area}
 ```python
 ev = sum(ev_T_given_S.column('E(T | S = s)')*ev_T_given_S.column('P(S = s)'))
 ev
 ```
+
 
 
 

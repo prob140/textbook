@@ -54,10 +54,12 @@ $$
 which is approximately 12.4%.
 
 
+
 {:.input_area}
 ```python
 1 - stats.norm.cdf(2, 0.5*2, np.sqrt(1-0.5**2))
 ```
+
 
 
 

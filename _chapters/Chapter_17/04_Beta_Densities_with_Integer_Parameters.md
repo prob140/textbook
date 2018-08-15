@@ -25,6 +25,13 @@ is a joint density, but there was no clue where it came from. In this section we
 ### Order Statistics of IID Uniform $(0, 1)$ Variables
 Let $U_1, U_2, \ldots, U_n$ be i.i.d. uniform on $(0, 1)$. Imagine each $U_i$ as the position of a dart thrown at the unit interval. The graph below shows the positions of five such darts, each shown as a star.
 
+
+
+
+
+![png](../../images/chapters/Chapter_17/04_Beta_Densities_with_Integer_Parameters_3_0.png)
+
+
 Based on the graph above, can you tell which star corresponds to $U_1$? You can't, because $U_1$ could be any of the five stars. So also you can't identify any of the five variables $U_1, U_2, U_3, U_4, U_5$. 
 
 What you *can* see, however, is the list of $U_i$'s *sorted in increasing order*. You can see the value of the minimum, the second on the sorted list, the third, the fourth, and finally the fifth which is the maximum.
@@ -33,12 +40,26 @@ These are called the *order statistics* of $U_1, U_2, U_3, U_4, U_5$, and are de
 
 Remember that because the $U_i$'s are independent random variables with densities, there can't be ties: the chance that two of them are equal is 0.
 
+
+
+
+
+![png](../../images/chapters/Chapter_17/04_Beta_Densities_with_Integer_Parameters_5_0.png)
+
+
 In general for $1 \le k \le n$, the *$k$th order statistic* of $U_1, U_2, \ldots, U_n$ is the $k$th value when the $U_i$'s are sorted in increasing order. This can also be thought of as the $k$th *ranked* value when the minimum has rank 1. It is denoted $U_{(k)}$.
 
 ### Joint Density of Two Order Statistics
 Let $n = 5$ as above and let's try to work out the joint density of $U_{(2)}$ and $U_{(4)}$. That's the joint density of the second and fourth values on the sorted list.
 
 The graph below shows the event $\{U_{(2)} \in dx, U_{(4)} \in dy\}$ for values $x$ and $y$ such that $0 < x < y < 1$.
+
+
+
+
+
+![png](../../images/chapters/Chapter_17/04_Beta_Densities_with_Integer_Parameters_8_0.png)
+
 
 To find $P(U_{(2)} \in dx, U_{(4)} \in dy)$, notice that:
 - One of $U_1, U_2, U_3, U_4, U_5$ must be in $dx$; there are 5 ways to choose this one.
@@ -69,6 +90,13 @@ Let $U_{(k)}$ be the $k$th order statistic of $U_1, U_2, \ldots, U_n$. We will f
 The graph below displays the event $\{ U_{(k)} \in dx \}$. For the event to occur,
 - One of the variables $U_1, U_2, \ldots, U_n$ has to be in $dx$.
 - Of the remaining $n-1$ variables, $k-1$ must have values in $(0, x)$ and the rest in $(x, 1)$.
+
+
+
+
+
+![png](../../images/chapters/Chapter_17/04_Beta_Densities_with_Integer_Parameters_11_0.png)
+
 
 There are $n$ ways to choose the variable that lands in $dx$. Once that is chosen, $k-1$ of the remaining $n-1$ variables must have values in $(0, x)$. Thus 
 
@@ -109,6 +137,7 @@ Notice that the uniform $(0, 1)$ density is the same as the beta density with pa
 The graph below shows some beta density curves. As you would expect, the beta $(3, 3)$ density is symmetric about 0.5. 
 
 
+
 {:.input_area}
 ```python
 x = np.arange(0, 1.01, 0.01)
@@ -118,7 +147,8 @@ plt.title('Beta $(i, 6-i)$ densities for $1 \leq i \leq 5$');
 ```
 
 
-![png]({{ site.baseurl }}/images/chapters/Chapter_17/04_Beta_Densities_with_Integer_Parameters_10_0.png)
+
+![png](../../images/chapters/Chapter_17/04_Beta_Densities_with_Integer_Parameters_14_0.png)
 
 
 By choosing the parameters appropriately, you can create beta densities that put much of their mass near a prescribed value. That is one of the reasons beta densities are used to model *random proportions*. For example, if you think that the probability that an email is spam is most likely in the 60% to 90% range, but might be lower, you might model your belief by choosing the density that peaks at around 0.75 in the graph above.

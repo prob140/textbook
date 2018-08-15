@@ -66,6 +66,7 @@ The Poisson is a distribution in its own right. It does not have to arise as a l
 To understand the parameter $\mu$ of the Poisson distribution, a first step is to notice that mode of the distribution is just around $\mu$. Here is an example where $\mu = 3.74$. No computing system can calculate infinitely many probabilities, so we have just calculated the Poisson probabilities till the sum is close enough to 1 that the `prob140` library considers it a Distribution object. 
 
 
+
 {:.input_area}
 ```python
 mu = 3.74
@@ -77,13 +78,15 @@ plt.title('Poisson (3.74)');
 ```
 
 
-![png]({{ site.baseurl }}/images/chapters/Chapter_07/00_Poissonization_5_0.png)
+
+![png](../../images/chapters/Chapter_07/00_Poissonization_5_0.png)
 
 
 The mode is 3. To find a formula for the mode, follow the process we used for the binomial: calculate the consecutive odds ratios, notice that they are decreasing, and see where they cross 1. This is left to you as an exercise. Your calculations should conclude the following:
 
 #### Mode of the Poisson
 The mode of the Poisson distribution is the integer part of $\mu$. That is, the most likely value is $\mu$ rounded *down* to an integer. If $\mu$ is an integer, both $\mu$ and $\mu - 1$ are modes.
+
 
 
 {:.input_area}
@@ -93,12 +96,13 @@ k = range(20)
 poi_probs_4 = stats.poisson.pmf(k, mu)
 poi_dist_4 = Table().values(k).probability(poi_probs_4)
 Plot(poi_dist_4)
-plt.ylim(0, 25)
 plt.title('Poisson (4)');
+
 ```
 
 
-![png]({{ site.baseurl }}/images/chapters/Chapter_07/00_Poissonization_7_0.png)
+
+![png](../../images/chapters/Chapter_07/00_Poissonization_7_0.png)
 
 
 In later chapters we will learn a lot more about the parameter $\mu$ of the Poisson distribution. For now, just keep in mind that the most likely value is essentially $\mu$.
@@ -107,15 +111,16 @@ In later chapters we will learn a lot more about the parameter $\mu$ of the Pois
 Very often, we need probabilities of the form $P(X > x)$ or $P(X \le x)$. For example, if $X$ has the Poisson $(4)$ distribution, here is the event $\{ X \le 5 \}$.
 
 
+
 {:.input_area}
 ```python
 Plot(poi_dist_4, event=range(6))
-plt.ylim(0, 25)
 plt.title('Poisson (4)');
 ```
 
 
-![png]({{ site.baseurl }}/images/chapters/Chapter_07/00_Poissonization_10_0.png)
+
+![png](../../images/chapters/Chapter_07/00_Poissonization_10_0.png)
 
 
 The *cumulative distribution function* or c.d.f. of any random variable is a function that calculates this "area to the left" of any point. If you denote the c.d.f. by $F$, then
@@ -129,10 +134,12 @@ We will get to know this function better later in the course. For now, note that
 For $X$ a Poisson $(4)$ random variable, the gold area above is $P(X \le 5)$ which is about 78.5%.
 
 
+
 {:.input_area}
 ```python
 stats.poisson.cdf(5, 4)
 ```
+
 
 
 
@@ -147,10 +154,12 @@ stats.poisson.cdf(5, 4)
 Just to be sure, you can check that the answer is the same as what you would have got by summing the probabilities of the individual values:
 
 
+
 {:.input_area}
 ```python
 sum(stats.poisson.pmf(np.arange(6), 4))
 ```
+
 
 
 

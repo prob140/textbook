@@ -65,6 +65,7 @@ So whether you are sampling with replacement or without, the variance of the sam
 The table below gives the fpc for a variety of population and sample sizes.
 
 
+
 {:.input_area}
 ```python
 pop = make_array(1000, 10000, 50000, 100000, 500000, 1000000)
@@ -73,6 +74,8 @@ def fpc(pct):
     samp = np.round(pop*pct/100, 0)
     return np.round(((pop-samp)/(pop-1))**0.5, 6)
 ```
+
+
 
 
 {:.input_area}
@@ -85,6 +88,7 @@ Table().with_columns(
   '20% Sample', fpc(20)
 )
 ```
+
 
 
 
@@ -124,12 +128,14 @@ Table().with_columns(
 The values in each column are essentially constant, because each is essentially the square root of the fraction *not* sampled:
 
 
+
 {:.input_area}
 ```python
 sample_pct = make_array(1, 5, 10, 20)
 
 (1 - sample_pct/100)**0.5
 ```
+
 
 
 

@@ -52,6 +52,7 @@ But be warned: **the converse is not true**. If all the marginals of a random ve
 The cells below show the empirical joint and marginal distributions of an interesting data set. Read the comment at the top of each cell to see what is being computed and displayed.
 
 
+
 {:.input_area}
 ```python
 # Generate 100,000 iid standard normal points
@@ -65,12 +66,16 @@ t = Table().with_column(
 ```
 
 
+
+
 {:.input_area}
 ```python
 # Select just those where both elements have the same sign
 
 new = t.where(t.column(0) * t.column(1) > 0)
 ```
+
+
 
 
 {:.input_area}
@@ -82,7 +87,9 @@ new.scatter(0, 1)
 ```
 
 
-![png]({{ site.baseurl }}/images/chapters/Chapter_23/03_Linear_Combinations_8_0.png)
+
+![png](../../images/chapters/Chapter_23/03_Linear_Combinations_8_0.png)
+
 
 
 
@@ -95,7 +102,9 @@ plt.xticks(np.arange(-5, 6));
 ```
 
 
-![png]({{ site.baseurl }}/images/chapters/Chapter_23/03_Linear_Combinations_9_0.png)
+
+![png](../../images/chapters/Chapter_23/03_Linear_Combinations_9_0.png)
+
 
 
 
@@ -108,12 +117,14 @@ plt.xticks(np.arange(-5, 6));
 ```
 
 
-![png]({{ site.baseurl }}/images/chapters/Chapter_23/03_Linear_Combinations_10_0.png)
+
+![png](../../images/chapters/Chapter_23/03_Linear_Combinations_10_0.png)
 
 
 Both marginals are normal but the joint distribution is far from bivariate normal. 
 
 To get the formula for the joint density of these variables, start with the circularly symmetric joint density of two i.i.d. standard normals and restrict it to Quadrants 1 and 3. This leaves out half of the volume under the original surface, so remember to multiply by 2 to make the total volume under the new surface equal to 1.
+
 
 
 {:.input_area}
@@ -128,5 +139,6 @@ Plot_3d((-4, 4), (-4, 4), new_density, rstride=4, cstride=5)
 ```
 
 
-![png]({{ site.baseurl }}/images/chapters/Chapter_23/03_Linear_Combinations_12_0.png)
+
+![png](../../images/chapters/Chapter_23/03_Linear_Combinations_12_0.png)
 

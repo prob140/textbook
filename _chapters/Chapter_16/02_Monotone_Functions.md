@@ -110,6 +110,13 @@ $$
 
 This is the *Rayleigh* density. Its graph is shown below.
 
+
+
+
+
+![png](../../images/chapters/Chapter_16/02_Monotone_Functions_6_0.png)
+
+
 A log-normal density can be used as an approximation for the density of a product of a large number of i.i.d. random variables. The log of the product is the sum of a large number of i.i.d. variables, and hence is approximately normal by the Central Limit Theorem.
 
 ### Change of Variable Formula for Density: Monotone Function
@@ -149,3 +156,10 @@ $$
 You should check that $f_V$ is indeed a density, that is, it integrates to 1. You should also check that the expectation of $V$ is infinite.
 
 The density $f_V$ belongs to the *Pareto* family of densities, much used in economics.
+
+
+
+
+
+![png](../../images/chapters/Chapter_16/02_Monotone_Functions_10_0.png)
+

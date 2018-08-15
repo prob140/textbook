@@ -21,6 +21,7 @@ Establishing the Strong Law is beyond the scope of this course, but we can easil
 We will start with the function `binomial_proportion` that takes $p$ and $n$ as its arguments and returns an array consisting of the sequence $\{ \frac{S_k}{k}: k = 1, 2, \ldots, n\}$ where $S_k = I_1 + I_2 + \cdots + I_k$. That's the sequence of the proportions of heads in trials 1 through $n$.
 
 
+
 {:.input_area}
 ```python
 def binomial_proportions(p, n):
@@ -29,10 +30,13 @@ def binomial_proportions(p, n):
 ```
 
 
+
+
 {:.input_area}
 ```python
 binomial_proportions(0.5, 4)
 ```
+
 
 
 
@@ -51,6 +55,7 @@ The function `plot_binomial_proportions` plots the proportions. Its first argume
 We will call each of the plots a *path* of the observed proportions.
 
 
+
 {:.input_area}
 ```python
 def plot_binomial_proportions(p_array, n):
@@ -61,7 +66,9 @@ def plot_binomial_proportions(p_array, n):
     plt.title('Proportion of Successes in $k$ Trials');
 ```
 
+
 Let's use `plot_binomial_proportions` to simulate two sets of 1000 fair coin tosses and keep track of the proportion of heads.
+
 
 
 {:.input_area}
@@ -71,12 +78,14 @@ plot_binomial_proportions(two_fair_coins, 1000)
 ```
 
 
-![png]({{ site.baseurl }}/images/chapters/Chapter_21/03_Long_Run_Proportion_of_Heads_8_0.png)
+
+![png](../../images/chapters/Chapter_21/03_Long_Run_Proportion_of_Heads_8_0.png)
 
 
 The paths fluctuate when the number of trials is low, but settle down to very near 0.5 as the number of trials increases.
 
 If you are wondering why $p$ has to be entered as an array instead of just one number, be patient for a bit. Generate 10 paths of the proportions of sixes in 1000 rolls of a die, by first creating an array of 10 values of $p$, each of which is 1/6.
+
 
 
 {:.input_area}
@@ -86,7 +95,8 @@ plot_binomial_proportions(ten_dice, 1000)
 ```
 
 
-![png]({{ site.baseurl }}/images/chapters/Chapter_21/03_Long_Run_Proportion_of_Heads_10_0.png)
+
+![png](../../images/chapters/Chapter_21/03_Long_Run_Proportion_of_Heads_10_0.png)
 
 
 These paths level off at $1/6$.
@@ -105,6 +115,7 @@ To generate paths of this process, we have to start with a random choice of $p$.
 Here are 10 paths. Notice how `np.random.choice` is being used to pick $p$. You have used this method in your labs.
 
 
+
 {:.input_area}
 ```python
 random_p = np.random.choice([0.2, 0.7], size = 10, p = [0.5, 0.5])
@@ -112,7 +123,8 @@ plot_binomial_proportions(random_p, 1000)
 ```
 
 
-![png]({{ site.baseurl }}/images/chapters/Chapter_21/03_Long_Run_Proportion_of_Heads_13_0.png)
+
+![png](../../images/chapters/Chapter_21/03_Long_Run_Proportion_of_Heads_13_0.png)
 
 
 Now you can see about half the paths settling down at 0.2 and the other half at 0.7. This makes sense: about half the time, the chosen value of $p$ will be 0.2, and those paths will settle at 0.2 as we saw in the earlier examples. The other half of the time, the chosen $p$ will be 0.7 and the corresponding paths will settle at 0.7
@@ -123,6 +135,7 @@ What you have observed is that **if $n$ is large, the distribution of the observ
 Suppose we start with the uniform prior. As in the previous section, we let $X$ be uniform on $(0, 1)$, and given $X = p$ we run i.i.d. Bernoulli $(p)$ trials. Here are 10 paths of this process, consisting of 1000 trials each. Remember that the uniform $(0, 1)$ distribution is the same as beta $(1, 1)$.
 
 
+
 {:.input_area}
 ```python
 p_array = stats.beta.rvs(size = 10, a = 1, b = 1)
@@ -130,7 +143,8 @@ plot_binomial_proportions(p_array, 1000)
 ```
 
 
-![png]({{ site.baseurl }}/images/chapters/Chapter_21/03_Long_Run_Proportion_of_Heads_16_0.png)
+
+![png](../../images/chapters/Chapter_21/03_Long_Run_Proportion_of_Heads_16_0.png)
 
 
 Look at the right edge of the graph. That's a sample of 10 points from the distribution of the sample proportion of successes in 1000 trials. Run the cell a few times and you should see that the distribution looks roughly uniform.
@@ -140,6 +154,7 @@ Indeed, from bottom to top you are essentially seeing the order statistics of 10
 Here are 15 paths of the proportion of successes when the probability of success is picked according to the beta $(2, 8)$ distribution.
 
 
+
 {:.input_area}
 ```python
 p_array = stats.beta.rvs(size = 15, a = 2, b = 8)
@@ -147,10 +162,12 @@ plot_binomial_proportions(p_array, 1000)
 ```
 
 
-![png]({{ site.baseurl }}/images/chapters/Chapter_21/03_Long_Run_Proportion_of_Heads_19_0.png)
+
+![png](../../images/chapters/Chapter_21/03_Long_Run_Proportion_of_Heads_19_0.png)
 
 
 The graph below shows the beta $(2, 8)$ density. The bulk of the probability is over the interval 0 to 0.6, consistent with where the paths end up in the graph above.
+
 
 
 {:.input_area}
@@ -164,7 +181,8 @@ plt.title('Beta $(2, 8)$ Density');
 ```
 
 
-![png]({{ site.baseurl }}/images/chapters/Chapter_21/03_Long_Run_Proportion_of_Heads_21_0.png)
+
+![png](../../images/chapters/Chapter_21/03_Long_Run_Proportion_of_Heads_21_0.png)
 
 
 ### Beta Prior, Beta Limit
@@ -177,6 +195,7 @@ Here is a simulation that confirms this. It consists of 10,000 repetitions of th
 - Toss a $p$-coin 1000 times and record the proportion of heads.
 
 The histogram shows the distribution the 10,000 simulated proportions, with the beta $(2, 8)$ density overlaid.
+
 
 
 {:.input_area}
@@ -195,5 +214,6 @@ plt.title('Beta $(2, 8)$ Prior, and Proportion of Successes at $n = 1000$');
 ```
 
 
-![png]({{ site.baseurl }}/images/chapters/Chapter_21/03_Long_Run_Proportion_of_Heads_23_0.png)
+
+![png](../../images/chapters/Chapter_21/03_Long_Run_Proportion_of_Heads_23_0.png)
 

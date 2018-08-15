@@ -19,10 +19,12 @@ To understand the relation between two variables you must examine the conditiona
 In our example about heads in three tosses of a coin, where $X$ is the number of heads in the first two tosses and $Y$ the number of heads in the last two tosses, the joint distribution of $X$ and $Y$ and the two marginals are displayed in the table below.
 
 
+
 {:.input_area}
 ```python
 joint_dist.both_marginals()
 ```
+
 
 
 
@@ -93,12 +95,14 @@ Given a particular value $x$ of $X$, that is, given that there were $x$ heads in
 In random variable language, for each value $x$ of $X$, the random variable $Y$ has a conditional distribution given $X = x$. We can get all three of these conditional distributions as follows:
 
 
+
 {:.input_area}
 ```python
 # conditional distribution of Y given each different value of X
 
 joint_dist.conditional_dist('Y', 'X') 
 ```
+
 
 
 

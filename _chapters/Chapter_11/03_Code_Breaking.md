@@ -52,10 +52,12 @@ You can read the rest of the table in the same way.
 Notice that in each decoded message, a letter appears twice, at indices 1 and 3. That's the letter being used to decode t in atdt. A feature of substitution codes is that each letter *original* is coded by a letter *code*, with the same letter *code* being used every time the letter *original* appears in the text. So the decoder must have the same feature.
 
 
+
 {:.input_area}
 ```python
 decoding
 ```
+
 
 
 
@@ -99,10 +101,12 @@ We have put together some data on the frequency of the different *bigrams*, or t
 It makes sense that the 'aa' transitions are rare; we don't use words like aardvark very often. Even 2% seems large until you remember that it is the proportion of 'aa' transitions only among transitions 'aa', 'ad', and 'at', because we have restricted the alphabet. If you look at its proportion among all $26\times26$ bigrams, that will be much lower.
 
 
+
 {:.input_area}
 ```python
 bigrams
 ```
+
 
 
 
@@ -166,11 +170,13 @@ To assign the score, we assume that all three letters are equally likely to star
 According to our `decoding` table above, tada is the result we get by applying the decoder ['t', 'd', 'a'] to our data atdt. For now, we will say that *the score of this decoder, given the data*, is 8%. Later we will introduce more formal calculations and terminology.
 
 
+
 {:.input_area}
 ```python
 # score of decoder ['t', 'd', 'a']
 0.653477 * 0.219458 * 0.570995
 ```
+
 
 
 
@@ -185,10 +191,12 @@ According to our `decoding` table above, tada is the result we get by applying t
 To automate such calcuations we can use the `prob_of_path` method. Remember that its first argument is the initial state, and the second argument is a list or array consisting of the remaining states in sequence.
 
 
+
 {:.input_area}
 ```python
 bigrams.prob_of_path('t', ['a', 'd', 'a'])
 ```
+
 
 
 
@@ -207,13 +215,16 @@ So we are going to need the probabilities of each of the six "decoded" paths.
 Let's define a function `score` that will take a list or array of characters and return the probability of the corresponding path using the `bigrams` transition matrix. In our example, this is the same as returning the score of the corresponding decoder.
 
 
+
 {:.input_area}
 ```python
 def score(x):
     return bigrams.prob_of_path(x[0], x[1:])
 ```
 
+
 Here are the results in decreasing order of score. There is a clear winner: the decoder ['d', 't', 'a'] corresponding to the message 'data' has more than twice the score of any other decoder.
+
 
 
 {:.input_area}
@@ -221,6 +232,7 @@ Here are the results in decreasing order of score. There is a clear winner: the 
 decoding = decoding.with_column('Score of Decoder', decoding.apply(score, 1))
 decoding.sort('Score of Decoder', descending=True)
 ```
+
 
 
 
@@ -263,10 +275,12 @@ What we have been able to do with an alphabet of three characters becomes daunti
 Here is the number 70!. That's a lot of decoders. Our computing system can't handle that many, and other systems will have the same problem.
 
 
+
 {:.input_area}
 ```python
 math.factorial(70)
 ```
+
 
 
 

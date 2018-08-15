@@ -130,6 +130,7 @@ It will visit states 2 and 1 as well, but rarely, state 1 being particularly rar
 Let's simulate paths of this process. First, we construct the transition matrix and confirm our calculations of $\pi$.
 
 
+
 {:.input_area}
 ```python
 s = np.arange(1, 5)
@@ -156,11 +157,14 @@ bnd = MarkovChain.from_transition_function(s, trans)
 ```
 
 
+
+
 {:.input_area}
 ```python
 pi = bnd.steady_state()
 pi
 ```
+
 
 
 
@@ -196,6 +200,7 @@ We can use `simulate_path` to plot a path of the chain. Notice that unlike our p
 The graph below shows one path of length 200. Run the cell a few times and look at each path forwards as well as backwards. You won't find a systematic difference between the two. 
 
 
+
 {:.input_area}
 ```python
 plt.figure(figsize=(10,5))
@@ -210,5 +215,6 @@ plt.title('Reversibility: Path of Birth and Death Chain in Steady State');
 ```
 
 
-![png]({{ site.baseurl }}/images/chapters/Chapter_11/02_Reversibility_10_0.png)
+
+![png](../../images/chapters/Chapter_11/02_Reversibility_10_0.png)
 

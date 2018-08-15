@@ -18,6 +18,13 @@ If you know $E(X)$ and $SD(X)$ you can get some idea of how much probability the
 
 In this section we are going to get upper bounds on probabilities such as the gold area in the graph below. That's $P(X \ge 20)$ for the random variable $X$ whose distribution is displayed in the histogram.
 
+
+
+
+
+![png](../../images/chapters/Chapter_12/03_Bounds_2_0.png)
+
+
 ### Monotonicity
 To do this, we will start with an observation about expectations of functions of $X$.
 
@@ -30,6 +37,13 @@ $$
 $$
 
 Now suppose $X$ is a non-negative random variable, and let $c$ be a positive number. Consider the two functions $g$ and $h$ graphed below.
+
+
+
+
+
+![png](../../images/chapters/Chapter_12/03_Bounds_5_0.png)
+
 
 The function $g$ is the identity $g(x) = x$ for all $x$. It leaves $x$ unchanged. So $E(g(X)) = E(X)$.
 
@@ -57,6 +71,13 @@ $$
 $$
 You can see that the bound is pretty crude. The gold area is clearly quite a bit less than 0.325.
 
+
+
+
+
+![png](../../images/chapters/Chapter_12/03_Bounds_7_0.png)
+
+
 Another way to think of Markov's bound is that if $X$ is a non-negative random variable then
 
 $$
@@ -72,6 +93,13 @@ Notes:
 
 ### Chebyshev's Inequality
 Markov's bound only uses $E(X)$, not $SD(X)$. To get bounds on tails it seems better to use $SD(X)$ if we can. *Chebyshev's Inequality* does just that. It provides a bound on the two tails outside an interval that is symmetric about $E(X)$ as in the following graph.
+
+
+
+
+
+![png](../../images/chapters/Chapter_12/03_Bounds_11_0.png)
+
 
 The red arrow marks $\mu_X$ as usual, and now the two blue arrows are at a distance of $SD(X)$ on either side of the mean. It is often going to be convenient to think of $E(X)$ as "the origin" and to measure distances in units of SDs on either side.
 

@@ -36,6 +36,7 @@ Almost invariably, we will calculate standard deviations by first finding the va
 Let's try out the definition of the SD on a random variable $X$ that has the distribution defined below.
 
 
+
 {:.input_area}
 ```python
 x = make_array(3, 4, 5)
@@ -43,6 +44,7 @@ probs = make_array(0.2, 0.5, 0.3)
 dist_X = Table().values(x).probability(probs)
 dist_X
 ```
+
 
 
 
@@ -71,10 +73,12 @@ dist_X
 
 
 
+
 {:.input_area}
 ```python
 dist_X.ev()
 ```
+
 
 
 
@@ -89,6 +93,7 @@ dist_X.ev()
 Here are the squared deviations from the expectation $E(X) = 4.1$.
 
 
+
 {:.input_area}
 ```python
 sd_table = Table().with_columns(
@@ -98,6 +103,7 @@ sd_table = Table().with_columns(
 )
 sd_table
 ```
+
 
 
 
@@ -128,11 +134,13 @@ sd_table
 The standard deviation of $X$ is the square root of the mean squared deviation. The calculation below shows that its numerical value is $SD(X) = 0.7$.
 
 
+
 {:.input_area}
 ```python
 sd_X = np.sqrt(sum(sd_table.column(1)*sd_table.column(2)))
 sd_X
 ```
+
 
 
 
@@ -147,10 +155,12 @@ sd_X
 The `prob140` method `sd` applied to a distribution object returns the standard deviation, saving you the calculation above.
 
 
+
 {:.input_area}
 ```python
 dist_X.sd()
 ```
+
 
 
 
@@ -170,6 +180,7 @@ First, the SD of a constant should be 0. You should check that this is indeed wh
 The SD is a measure of spread. It's natural to want measures of spread to remain unchanged if we just shift a probability histogram to the left or right. Such a shift occurs when we add a constant to a random variable. The figure below shows the distribution of the same $X$ as above, along with the distribution of $X+5$. It is clear that $X+5$ should have the same SD as $X$.
 
 
+
 {:.input_area}
 ```python
 dist2 = Table().values(x+5).probability(probs)
@@ -177,10 +188,12 @@ Plots('X', dist_X, 'X+5', dist2)
 ```
 
 
-![png]({{ site.baseurl }}/images/chapters/Chapter_12/01_Definition_12_0.png)
+
+![png](../../images/chapters/Chapter_12/01_Definition_12_0.png)
 
 
 On the other hand, multiplying $X$ by a constant results in a distribution that should have a different spread. Here is the distribution of $X$ along with the distribution of $4X$. The spread of the distribution of $4X$ appears to be four times as large as that of $X$. 
+
 
 
 {:.input_area}
@@ -191,10 +204,12 @@ plt.xlim(0, 40);
 ```
 
 
-![png]({{ site.baseurl }}/images/chapters/Chapter_12/01_Definition_14_0.png)
+
+![png](../../images/chapters/Chapter_12/01_Definition_14_0.png)
 
 
 Multiplying by $-4$ should have the same effect on the spread as multiplying by 4, as the figure below shows. One histogram is just the mirror image of the other about the vertical axis at 0. There is no change in spread.
+
 
 
 {:.input_area}
@@ -204,7 +219,8 @@ Plots('-4X', dist4, '4X', dist3 )
 ```
 
 
-![png]({{ site.baseurl }}/images/chapters/Chapter_12/01_Definition_16_0.png)
+
+![png](../../images/chapters/Chapter_12/01_Definition_16_0.png)
 
 
 The graphs above help us visualize what happens to the SD when the random variable is transformed linearly. Let $Y = aX + b$. Then

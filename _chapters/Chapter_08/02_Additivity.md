@@ -167,6 +167,7 @@ Examples of use:
 - The expected number of times green pockets win in 20 independent spins of a roulette wheel is $20 \times \frac{2}{38} = 1.053$, roughly.
 
 
+
 {:.input_area}
 ```python
 k = np.arange(11)
@@ -177,7 +178,8 @@ plt.title('Binomial (10, 0.75)');
 ```
 
 
-![png]({{ site.baseurl }}/images/chapters/Chapter_08/02_Additivity_7_0.png)
+
+![png](../../images/chapters/Chapter_08/02_Additivity_7_0.png)
 
 
 Notice that we didn't use independence. Additivity of expectation works whether or not the random variables being added are independent. This will be very helpful in the next example.
@@ -208,6 +210,7 @@ Examples of use:
 These answers are intuitively clear, and we now have a theoretical justification for them.
 
 
+
 {:.input_area}
 ```python
 # Number of hearts in a poker hand 
@@ -222,7 +225,8 @@ plt.title('Hypergeometric (N=52, G=13, n=5)');
 ```
 
 
-![png]({{ site.baseurl }}/images/chapters/Chapter_08/02_Additivity_10_0.png)
+
+![png](../../images/chapters/Chapter_08/02_Additivity_10_0.png)
 
 
 ### Example: Number of Missing Classes

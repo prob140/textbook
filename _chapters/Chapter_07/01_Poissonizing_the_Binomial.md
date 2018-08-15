@@ -136,10 +136,12 @@ $$
 Numerically, this is about 5%.
 
 
+
 {:.input_area}
 ```python
 (1 - stats.poisson.cdf(4, 18))*(1 - stats.poisson.cdf(4, 2))
 ```
+
 
 
 

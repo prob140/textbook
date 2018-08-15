@@ -80,7 +80,7 @@ $$
 $$
 
 ### Constraints on $\boldsymbol{\Sigma}$
-We know that $\boldsymbol{\Sigma}$ has to be symmetric and that all the elements on its main diagonal must be non-negative. Also, no matter what $\mathbf{A}$ is, the diagonal elements of $\boldsymbol{\Sigma}_\mathbf{Y}$ must all be non-negative as they are the variances of the elements of $\mathbf{Y}$. By the formula for $\boldsymbol{\Sigma}_\mathbf{Y}$ this means
+We know that $\boldsymbol{\Sigma}$ has to be symmetric and that all the elements on its main diagonal must be non-negative. Also, no matter what $\mathbf{A}$ is, the diagonal elements of $\boldsymbol{\Sigma}\_\mathbf{Y}$ must all be non-negative as they are the variances of the elements of $\mathbf{Y}$. By the formula for $\boldsymbol{\Sigma}_\mathbf{Y}$ this means
 
 $$
 \mathbf{a} \boldsymbol{\Sigma} \mathbf{a}^T ~ \ge ~ 0 ~~~~ \text{for all } 1\times n \text{ vectors } \mathbf{a}

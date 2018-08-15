@@ -22,10 +22,12 @@ Let's start with some examples and then move to precise definitions and results.
 Here is the joint distribution of two random variables $X$ and $Y$. From this, what can we say about whether $X$ and $Y$ are dependent or independent?
 
 
+
 {:.input_area}
 ```python
 dist1
 ```
+
 
 
 
@@ -96,10 +98,12 @@ You can see at once that if $X = 3$ then $Y$ can only be 0, whereas if $X = 2$ t
 Here is an example in which you can't quickly determine dependence or independence by just looking at the possible values.
 
 
+
 {:.input_area}
 ```python
 dist2
 ```
+
 
 
 
@@ -153,10 +157,12 @@ dist2
 But you can tell by looking at the conditional distributions of $Y$ given $X$. They are different.
 
 
+
 {:.input_area}
 ```python
 dist2.conditional_dist('Y', 'X')
 ```
+
 
 
 
@@ -222,10 +228,12 @@ It follows (and you should try to prove this), that at least some of the conditi
 Notice that not all the conditional distributions are different. The conditional distribution of $X$ given $Y=5$ is the same as the conditional distribution of $X$ given $Y=6$. But given $Y=7$, the conditional distribution changes. $X$ and $Y$ are dependent.
 
 
+
 {:.input_area}
 ```python
 dist2.conditional_dist('X', 'Y')
 ```
+
 
 
 
@@ -291,10 +299,12 @@ dist2.conditional_dist('X', 'Y')
 Here is a joint distribution table in which you can't immediately tell whether there is dependence. 
 
 
+
 {:.input_area}
 ```python
 dist3
 ```
+
 
 
 
@@ -370,10 +380,12 @@ dist3
 But look what happens when you condition $X$ on $Y$.
 
 
+
 {:.input_area}
 ```python
 dist3.conditional_dist('X', 'Y')
 ```
+
 
 
 
@@ -467,10 +479,12 @@ Given the value of $Y$, the probabilities for $X$ don't change at all. That's in
 You could have drawn the same conclusion by conditioning $Y$ on $X$:
 
 
+
 {:.input_area}
 ```python
 dist3.conditional_dist('Y', 'X')
 ```
+
 
 
 

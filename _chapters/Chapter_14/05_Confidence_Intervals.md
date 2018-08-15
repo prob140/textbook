@@ -16,6 +16,13 @@ redirect_from:
 
 Suppose you have a large i.i.d. sample. The CLT implies that with chance about 95%, the sample mean is within 2 SDs of the population mean.
 
+
+
+
+
+![png](../../images/chapters/Chapter_14/05_Confidence_Intervals_2_0.png)
+
+
 This can be expressed in a different way:
 
 - In about 95% of all samples, the sample mean is in the range *population mean $\pm ~ 2 \sigma/\sqrt{n}$*.
@@ -31,13 +38,22 @@ The interval *sample mean $\pm ~ 2 \sigma/\sqrt{n}$* is called *an approximate 9
 
 You could choose a different confidence level, say 80%. With that choice, you would expect the interval to be narrower. To find out exactly how many SDs you have to go on either side of the center to pick up a central area of about 80%, you have to find the corresponding $z$ on the standard normal curve, as shown below.
 
+
+
+
+
+![png](../../images/chapters/Chapter_14/05_Confidence_Intervals_5_0.png)
+
+
 As you know from Data 8 and can see in the figure, the interval runs from the 10th to the 90th percentile of the distribution. So $z$ is the 90th percentile of the standard normal curve, also known as the "90 percent point" of the curve. The `scipy` method is therefore called `ppf` and takes a decimal value as its argument.
+
 
 
 {:.input_area}
 ```python
 stats.norm.ppf(.9)
 ```
+
 
 
 
@@ -54,10 +70,12 @@ Therefore an approximate 80% confidence interval for the population mean $\mu$ i
 Let's double check that 2 is a good choice of $z$ for a 95% interval. The $z$ that we need is the 97.5 percent point:
 
 
+
 {:.input_area}
 ```python
 stats.norm.ppf(.975)
 ```
+
 
 
 
@@ -90,16 +108,20 @@ The only difference between confidence intervals of different levels is the choi
 Let's return to an example very familiar from Data 8: a random sample of 1,174 pairs of mothers and their newborns.
 
 
+
 {:.input_area}
 ```python
 baby = Table.read_table('baby.csv')
 ```
 
 
+
+
 {:.input_area}
 ```python
 baby
 ```
+
 
 
 
@@ -154,6 +176,7 @@ The third column consists of the ages of the mothers. Let's construct an approxi
 We can apply the methods of this section because our data come from a large random sample.
 
 
+
 {:.input_area}
 ```python
 n = 1174
@@ -162,6 +185,7 @@ ages = baby.column('Maternal Age')
 samp_mean = np.mean(ages)
 samp_mean
 ```
+
 
 
 
@@ -182,11 +206,13 @@ So we estimate $\sigma$ by the SD of the data. There is some error in this estim
 The estimate of $\sigma$ is about 5.82 years.
 
 
+
 {:.input_area}
 ```python
 sigma_estimate = np.std(ages)
 sigma_estimate
 ```
+
 
 
 
@@ -201,10 +227,12 @@ sigma_estimate
 An approximate 95% confidence interval for the mean birth weight of babies in the population is $(26.89, 27.57)$ years.
 
 
+
 {:.input_area}
 ```python
 samp_mean - 2*sigma_estimate/(n**0.5), samp_mean + 2*sigma_estimate/(n**0.5)
 ```
+
 
 
 
@@ -219,6 +247,7 @@ samp_mean - 2*sigma_estimate/(n**0.5), samp_mean + 2*sigma_estimate/(n**0.5)
 No bootstrapping required! 
 
 Now let's compare our interval to the interval we got in Data 8 by using the bootstrap percentile method. Here is the function `bootstrap_mean` from Data 8.
+
 
 
 {:.input_area}
@@ -250,13 +279,16 @@ def bootstrap_mean(original_sample, label, replications):
     plt.plot(make_array(left, right), make_array(0, 0), color='yellow', lw=8);
 ```
 
+
 Let's construct a bootstrap 95% confidence interval for the population mean. We will use 5000 bootstrap samples as we did in Data 8.
+
 
 
 {:.input_area}
 ```python
 bootstrap_mean(baby, 'Maternal Age', 5000)
 ```
+
 
 {:.output_stream}
 ```
@@ -266,12 +298,13 @@ Approximate 95% confidence interval for population mean:
 ```
 
 
-![png]({{ site.baseurl }}/images/chapters/Chapter_14/05_Confidence_Intervals_22_1.png)
+![png](../../images/chapters/Chapter_14/05_Confidence_Intervals_24_1.png)
 
 
 The bootstrap confidence interval is essentially identical to the interval (26.89, 27.57) that we got by using the normal approximation.
 
 As we did in Data 8, let's observe that the distribution of maternal ages in the sample is far from normal:
+
 
 
 {:.input_area}
@@ -280,7 +313,8 @@ baby.select('Maternal Age').hist()
 ```
 
 
-![png]({{ site.baseurl }}/images/chapters/Chapter_14/05_Confidence_Intervals_25_0.png)
+
+![png](../../images/chapters/Chapter_14/05_Confidence_Intervals_27_0.png)
 
 
 But the empirical distribution of the sample mean, displayed as the output of the previous cell, is roughly bell shaped. That is because the probability distribution of the mean of the large sample *is* approximately normal, by the Central Limit Theorem.

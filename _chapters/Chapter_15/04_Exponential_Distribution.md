@@ -22,6 +22,13 @@ $$
 
 The graph below shows the density $f_T$ for $\lambda = 5$.
 
+
+
+
+
+![png](../../images/chapters/Chapter_15/04_Exponential_Distribution_2_0.png)
+
+
 ### CDF and Survival Function
 The exponential distribution is often used as a model for random lifetimes, in settings that we will study in greater detail below. For now, just think of $T$ as the lifetime of an object like a lightbulb, and note that the cdf at time $t$ can be thought of as the chance that the object dies before time $t$:
 
@@ -57,8 +64,22 @@ Later in the course we will see how to find $E(T^2)$ without calculus.
 
 The graph below shows the density $f_T$ with the labeled points on the horizontal axis corresponding to standard units of -1, 0, 1, 2, and 3. The random variable $T$ can't be negative, and the density doesn't go further than 1 SD below the mean. The spread comes from the long right hand tail.
 
+
+
+
+
+![png](../../images/chapters/Chapter_15/04_Exponential_Distribution_5_0.png)
+
+
 ### Median
 Here are graphs of the cdf and the survival function.
+
+
+
+
+
+![png](../../images/chapters/Chapter_15/04_Exponential_Distribution_7_0.png)
+
 
 Notice that the two curves intersect at the vertical level 0.5. If $t_{0.5}$ is the value of $t$ at which the curves intersect, then
 

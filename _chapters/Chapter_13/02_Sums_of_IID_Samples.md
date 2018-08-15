@@ -80,6 +80,7 @@ $$
 Here is the distribution of $X$. You can see that there is almost no probability outside the range $E(X) \pm 3SD(X)$.
 
 
+
 {:.input_area}
 ```python
 k = np.arange(25, 75, 1)
@@ -89,5 +90,6 @@ Plot(binom_dist, show_ev=True, show_sd=True)
 ```
 
 
-![png]({{ site.baseurl }}/images/chapters/Chapter_13/02_Sums_of_IID_Samples_4_0.png)
+
+![png](../../images/chapters/Chapter_13/02_Sums_of_IID_Samples_4_0.png)
 

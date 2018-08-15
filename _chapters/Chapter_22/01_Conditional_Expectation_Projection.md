@@ -18,6 +18,13 @@ Suppose we are trying to predict the value of a random variable $Y$ based on a r
 
 Formally, given $X=x$, we are proposing to predict $Y$ by $E(Y \mid X=x)$.
 
+
+
+
+
+![png](../../images/chapters/Chapter_22/01_Conditional_Expectation_Projection_2_0.png)
+
+
 The conditional expectation $E(Y \mid X)$ is the function of $X$ defined by
 
 $$
@@ -38,6 +45,13 @@ D_w = Y - b(X)
 $$
 
 The subscript $w$ reminds us that this error is a deviation *within* a vertical strip – it is the difference between $Y$ and the center of the strip at the given value of $X$.
+
+
+
+
+
+![png](../../images/chapters/Chapter_22/01_Conditional_Expectation_Projection_4_0.png)
+
 
 To find properties of $b(X)$ as an estimate of $Y$ it will be helpful to recall some properties of conditional expectation. 
 

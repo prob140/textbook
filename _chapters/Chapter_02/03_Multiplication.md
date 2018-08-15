@@ -16,6 +16,13 @@ redirect_from:
 
 The main axiom of probability is about mutually exclusive events, and it turns out that we don't need any further axioms to deal with events that intersect.
 
+
+
+
+
+![png](../../images/chapters/Chapter_02/03_Multiplication_2_0.png)
+
+
 Let $A$ and $B$ be two events. The *intersection* $A \cap B$ is the event that both $A$ and $B$ occur, and is shown in bright blue in the Venn diagram on the right. 
 
 Because we will encounter intersections all the time, we'll be a little lazy in our notation: we will use $AB$ to denote the intersection and not bother writing the intersection symbol $\cap$. You will have to keep in mind that $AB$ is an event, not a product.

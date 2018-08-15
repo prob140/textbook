@@ -32,6 +32,7 @@ This very simple random count $X$ is called the *indicator of success* on the tr
 Here is the probability histogram of a random variable $X$ that has the Bernoulli $(1/3)$ distribution.
 
 
+
 {:.input_area}
 ```python
 bern_1_3 = Table().values([0,1]).probability([2/3, 1/3])
@@ -41,7 +42,8 @@ plt.title('Bernoulli (1/3)');
 ```
 
 
-![png]({{ site.baseurl }}/images/chapters/Chapter_06/00_Random_Counts_3_0.png)
+
+![png](../../images/chapters/Chapter_06/00_Random_Counts_3_0.png)
 
 
 ### Counting is the Same as Adding Zeros and Ones

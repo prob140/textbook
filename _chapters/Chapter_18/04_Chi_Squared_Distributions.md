@@ -41,6 +41,13 @@ $$
 
 Here are the graphs of the chi-squared densities for degrees of freedom 2 through 5.
 
+
+
+
+
+![png](../../images/chapters/Chapter_18/04_Chi_Squared_Distributions_4_0.png)
+
+
 The chi-squared (2) distribution is exponential because it is the gamma $(1, 1/2)$ distribution. This distribution has three names:
 - chi-squared (2)
 - gamma (1, 1/2)

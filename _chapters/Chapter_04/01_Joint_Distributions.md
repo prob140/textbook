@@ -38,6 +38,7 @@ $$
 The constraints on $x$ and $y$ are that each must be in the range $\{0, 1, 2\}$ and $\vert x - y \vert < 2$. Let's define a function that takes $x$ and $y$ as its arguments and returns $P(X = x, Y = y)$.
 
 
+
 {:.input_area}
 ```python
 def joint_probability(x, y):
@@ -49,13 +50,16 @@ def joint_probability(x, y):
         return 0
 ```
 
+
 The `prob140` library contains Table methods for displaying the joint distribution of two random variables. As a first step, you need the possible values of each of the two variables. In our example, both have values $\{0, 1, 2\}$ and so the same list or array will serve for both.
+
 
 
 {:.input_area}
 ```python
 k = np.arange(3)
 ```
+
 
 To construct a joint distribution object, we have to first construct a table of all possible pairs of values and probabilities. The call is:
 
@@ -64,11 +68,13 @@ To construct a joint distribution object, we have to first construct a table of 
 where `function_name` is a function that takes $x$ and $y$ as arguments and returns $P(X = x, Y = y)$.
 
 
+
 {:.input_area}
 ```python
 joint_table = Table().values('X', k, 'Y', k).probability_function(joint_probability)
 joint_table
 ```
+
 
 
 
@@ -117,10 +123,12 @@ joint_table
 This table displays the joint distribution. To check that this is indeed a distribution, we can add up all the probabilities. The sum is 1, as it should be for a distribution.
 
 
+
 {:.input_area}
 ```python
 joint_table.column(2).sum()
 ```
+
 
 
 
@@ -138,11 +146,13 @@ Though the table above does display the joint distribution, it is more conventio
 The method `to_joint` converts the table above into a "joint distribution object" that is displayed as a conventional *joint distribution table* for $X$ and $Y$.
 
 
+
 {:.input_area}
 ```python
 joint_dist = joint_table.to_joint()
 joint_dist
 ```
+
 
 
 

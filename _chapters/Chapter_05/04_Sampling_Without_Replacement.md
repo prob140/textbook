@@ -72,16 +72,20 @@ This shows that dealing 5 cards one by one at random without replacement is prob
 The `misc` module in `scipy` allows you to compute these combinatorial terms.
 
 
+
 {:.input_area}
 ```python
 from scipy import misc
 ```
 
 
+
+
 {:.input_area}
 ```python
 misc.comb(52, 5)
 ```
+
 
 
 

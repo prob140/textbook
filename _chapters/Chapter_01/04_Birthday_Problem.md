@@ -46,10 +46,13 @@ P(\text{at least one matching pair}) ~=~
 $$
 
 
+
 {:.input_area}
 ```python
 N = 365
 ```
+
+
 
 
 {:.input_area}
@@ -60,16 +63,22 @@ def p_no_match(n):
 ```
 
 
+
+
 {:.input_area}
 ```python
 results = Table().with_column('Trials', np.arange(1, N+1, 1))
 ```
 
 
+
+
 {:.input_area}
 ```python
 different = results.apply(p_no_match, 'Trials')
 ```
+
+
 
 
 {:.input_area}
@@ -81,10 +90,13 @@ results = results.with_columns(
 ```
 
 
+
+
 {:.input_area}
 ```python
 results
 ```
+
 
 
 
@@ -144,6 +156,7 @@ Finally, notice that when the number of people is small, the chance they all hav
 But the chance of a collision increases as the number of people increases. In fact, it increases rather sharply.
 
 
+
 {:.input_area}
 ```python
 results.scatter('Trials', 'P(at least one match)')
@@ -152,7 +165,8 @@ plt.ylim(0, 1);
 ```
 
 
-![png]({{ site.baseurl }}/images/chapters/Chapter_01/04_Birthday_Problem_13_0.png)
+
+![png](../../images/chapters/Chapter_01/04_Birthday_Problem_13_0.png)
 
 
 You can see that if there are more than about 50 people, then the chance of a matching pair of birthdays is pretty close to 1. 
@@ -160,10 +174,12 @@ You can see that if there are more than about 50 people, then the chance of a ma
 How many people must there be for the chance of a collision to be more than 50%? Let's see if we can find the smallest number of people for which this happens.
 
 
+
 {:.input_area}
 ```python
 results.where('P(at least one match)', are.between(0.5, 0.51))
 ```
+
 
 
 

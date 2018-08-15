@@ -19,10 +19,12 @@ Joint distribution tables partition the entire outcome space according to the va
 In our example, we are tossing a coin three times. $X$ is the number of heads in the first two tosses and $Y$ the number of heads in the last two tosses. Here once again is the joint distribution table for $X$ and $Y$.
 
 
+
 {:.input_area}
 ```python
 joint_dist
 ```
+
 
 
 
@@ -97,10 +99,12 @@ That is, $P(X = x)$ is the sum of the probabilities in the column `X=x`. Because
 To find the numerical values of the distribution of $X$, we will use a method called `marginal` which takes the name `X` as its argument and operates on a joint distribution object. The reason for using the word "marginal" will become clear as soon as we see the output.
 
 
+
 {:.input_area}
 ```python
 joint_dist.marginal('X')
 ```
+
 
 
 
@@ -169,10 +173,12 @@ This is just a new name for the probability distribution of $X$, the number of h
 What you can do for $X$, you can do as well for $Y$ by looking along the rows.
 
 
+
 {:.input_area}
 ```python
 joint_dist.marginal('Y')
 ```
+
 
 
 
@@ -236,10 +242,12 @@ $Y$ is also the number of heads in two tosses of a coin (the last two of three t
 You can also get both marginals at once:
 
 
+
 {:.input_area}
 ```python
 joint_dist.both_marginals()
 ```
+
 
 
 

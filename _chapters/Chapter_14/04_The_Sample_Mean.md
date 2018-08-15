@@ -33,6 +33,7 @@ These results imply that as the sample size increases, the distribution of the s
 You can see this in the graph below. The graph shows the distributions of the sum of 5 rolls and the sum of 20 rolls of a die. The distributions are exact, calculated using the function `dist_sum` defined using pgf methods earlier in this chapter.
 
 
+
 {:.input_area}
 ```python
 die = np.append(0, (1/6)*np.ones(6))
@@ -42,7 +43,8 @@ Plots('Sum of 5 dice', dist_sum_5, 'Sum of 20 dice', dist_sum_20)
 ```
 
 
-![png]({{ site.baseurl }}/images/chapters/Chapter_14/04_The_Sample_Mean_2_0.png)
+
+![png](../../images/chapters/Chapter_14/04_The_Sample_Mean_2_0.png)
 
 
 You can see the normal distribution appearing already for the sum of 5 and 20 dice. 
@@ -76,6 +78,13 @@ The variability of the sample mean decreases as the sample size increases. So, a
 
 The graph below shows the distributions of the means of 5 rolls of a die and of 20 rolls. Both are centered at 3.5 but the distribution of the mean of the larger sample is narrower. You saw this frequently in Data 8: as the sample size increases, the distribution of the sample mean gets more concentrated around the population mean.
 
+
+
+
+
+![png](../../images/chapters/Chapter_14/04_The_Sample_Mean_5_0.png)
+
+
 Accuracy doesn't come cheap. The SD of the sample mean decreases according to the square root of the sample size. Therefore if you want to decrease the SD of the sample mean by a factor of 3, you have to increase the sample size by a factor of $3^2 = 9$.
 
 The general result is usually stated in the reverse.
@@ -96,10 +105,10 @@ $$
 
 That is, for large $n$ it is almost certain that the sample average is in the range $\mu \pm \epsilon$.
 
-To prove the law, we will show that $P(|\bar{X}_n - \mu| \ge \epsilon) \to 0$. This is straightforward by Chebyshev's Inequality.
+To prove the law, we will show that $P(\|\bar{X}_n - \mu\| \ge \epsilon) \to 0$. This is straightforward by Chebyshev's Inequality.
 
 $$
-P(|\bar{X}_n - \mu| \ge \epsilon)~ \le ~ \frac{\sigma_{\bar{X}_n}^2}{\epsilon^2} 
+P(\|\bar{X}_n - \mu\| \ge \epsilon)~ \le ~ \frac{\sigma_{\bar{X}_n}^2}{\epsilon^2} 
 ~ = ~ \frac{\sigma^2}{n\epsilon^2} ~ \to ~ 0 ~~~ \text{as } n \to \infty
 $$
 
@@ -115,4 +124,11 @@ $$
 P(\bar{X}_n \le x) ~ \approx ~ \Phi \big{(} \frac{x - \mu}{\sigma/\sqrt{n}} \big{)} ~~~~ \text{for all } x
 $$
 
+
+
+
+
+
+
+![png](../../images/chapters/Chapter_14/04_The_Sample_Mean_10_0.png)
 

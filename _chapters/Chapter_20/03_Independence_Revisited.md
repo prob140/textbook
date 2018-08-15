@@ -87,6 +87,13 @@ This makes sense: given that the first toss is a head, we are more inclined to b
 
 The constant of integration is easy to find. The posterior density given that the first toss is a head is $f_{X \vert A} (p) = 2p$ for $p \in (0, 1)$
 
+
+
+
+
+![png](../../images/chapters/Chapter_20/03_Independence_Revisited_5_0.png)
+
+
 To double-check our earlier calculation, we can find $P(\text{second toss is a head} \mid \text{first toss is a head})$ using this posterior density. 
 
 $$

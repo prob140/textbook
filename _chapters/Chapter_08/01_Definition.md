@@ -36,6 +36,7 @@ The second formula is often given as "the" definition of expectation, but the fi
 Suppose $X$ has the distribution given below.
 
 
+
 {:.input_area}
 ```python
 x = np.arange(1, 6)
@@ -45,10 +46,12 @@ Plot(example_dist)
 ```
 
 
-![png]({{ site.baseurl }}/images/chapters/Chapter_08/01_Definition_3_0.png)
+
+![png](../../images/chapters/Chapter_08/01_Definition_3_0.png)
 
 
 Then by the formula on the range of $X$, we have $E(X) = 2.85$.
+
 
 
 {:.input_area}
@@ -56,6 +59,7 @@ Then by the formula on the range of $X$, we have $E(X) = 2.85$.
 ev_X = sum(x*probs)
 ev_X
 ```
+
 
 
 
@@ -70,10 +74,12 @@ ev_X
 You can also call the `prob140` function `ev` to calculate $E(X)$:
 
 
+
 {:.input_area}
 ```python
 example_dist.ev()
 ```
+
 
 
 
@@ -90,13 +96,15 @@ Expectation is often also called *expected value*, hence the name of the functio
 But then what does the expected value represent? To see this, first visualize $E(X)$ using the `show_ev=True` option to `Plot`.
 
 
+
 {:.input_area}
 ```python
 Plot(example_dist, show_ev=True)
 ```
 
 
-![png]({{ site.baseurl }}/images/chapters/Chapter_08/01_Definition_9_0.png)
+
+![png](../../images/chapters/Chapter_08/01_Definition_9_0.png)
 
 
 If you have studied some physics, you will recognize that the formula we used for the expectation is the same as the formula for the center of gravity of a system in which weights equal to the corresponding probabilities hang from each possible value 1, 2, 3, 4, and 5. 
@@ -111,6 +119,7 @@ You can also think of expectation as the *long run average* value of the random 
 You can use the `emp_dist` method to convert the array of simulated values to a distribution object which you can then use with `Plot` and other `prob140` functions. The `show_ave=True` option of `Plot` displays the average of the simulated values. 
 
 
+
 {:.input_area}
 ```python
 simulated_X = example_dist.sample_from_dist(10000)
@@ -120,16 +129,19 @@ plt.title('Empirical Distribution');
 ```
 
 
-![png]({{ site.baseurl }}/images/chapters/Chapter_08/01_Definition_12_0.png)
+
+![png](../../images/chapters/Chapter_08/01_Definition_12_0.png)
 
 
 The average of the 10,000 simulated values of $X$ is very close to $E(X)$ but not exactly equal.
+
 
 
 {:.input_area}
 ```python
 np.mean(simulated_X)
 ```
+
 
 
 
@@ -169,6 +181,7 @@ $$
 by our calculation above. Thus every probability is an expectation. We will use this heavily in later sections.
 
 
+
 {:.input_area}
 ```python
 x = [0, 1]
@@ -179,7 +192,8 @@ plt.title('Bernoulli (0.25)');
 ```
 
 
-![png]({{ site.baseurl }}/images/chapters/Chapter_08/01_Definition_19_0.png)
+
+![png](../../images/chapters/Chapter_08/01_Definition_19_0.png)
 
 
 ### Uniform on an Interval of Integers
@@ -204,6 +218,7 @@ E(X) = \frac{n}{2}
 $$
 
 
+
 {:.input_area}
 ```python
 x = np.arange(10)
@@ -214,7 +229,8 @@ plt.title('Uniform on Integers 0, 1, 2, ..., 9');
 ```
 
 
-![png]({{ site.baseurl }}/images/chapters/Chapter_08/01_Definition_21_0.png)
+
+![png](../../images/chapters/Chapter_08/01_Definition_21_0.png)
 
 
 ### Poisson
@@ -233,6 +249,7 @@ $$
 **We now have an important new interpretation of the parameter of the Poisson distribution.** We saw earlier it was close to the mode; now we know that it is also the balance point or expectation of the distribution. The notation $\mu$ was chosen to stand for "mean".
 
 
+
 {:.input_area}
 ```python
 k = np.arange(15)
@@ -243,7 +260,8 @@ plt.title('Poisson (2)');
 ```
 
 
-![png]({{ site.baseurl }}/images/chapters/Chapter_08/01_Definition_23_0.png)
+
+![png](../../images/chapters/Chapter_08/01_Definition_23_0.png)
 
 
 ### Existence

@@ -82,6 +82,7 @@ Transition diagrams are great for understanding the rules by which a chain moves
 To start constructing the matrix, we set the array `s` to be the set of states and the transition function `refl_walk_probs` to take arguments $i$ and $j$ and return $P(i, j)$.
 
 
+
 {:.input_area}
 ```python
 s = np.arange(1, 6)
@@ -113,6 +114,7 @@ def refl_walk_probs(i, j):
             return 0
 ```
 
+
 You can use the `prob140` library to construct `MarkovChain` objects. The `from_transition_function` method takes two arguments:
 - an array of the states
 - a transition function
@@ -120,11 +122,13 @@ You can use the `prob140` library to construct `MarkovChain` objects. The `from_
 and displays the one-step transition matrix of a `MarkovChain` object.
 
 
+
 {:.input_area}
 ```python
 reflecting_walk = MarkovChain.from_transition_function(s, refl_walk_probs)
 reflecting_walk
 ```
+
 
 
 
@@ -214,10 +218,12 @@ P(1, 2)P(2, 2)P(2, 3)P(3, 4)P(4, 3) \approx 0.4\%
 $$
 
 
+
 {:.input_area}
 ```python
 0.5 * 0.5 * 0.25 * 0.25 * 0.25
 ```
+
 
 
 
@@ -232,10 +238,12 @@ $$
 The `MarkovChain` method `prob_of_path` saves you the trouble of doing the multiplication. It takes as its arguments the starting state and the rest of the path (in a list or array), and returns the probability of the path.
 
 
+
 {:.input_area}
 ```python
 reflecting_walk.prob_of_path(1, [2, 2, 3, 4, 3])
 ```
+
 
 
 
@@ -248,10 +256,12 @@ reflecting_walk.prob_of_path(1, [2, 2, 3, 4, 3])
 
 
 
+
 {:.input_area}
 ```python
 reflecting_walk.prob_of_path(1, [2, 2, 3, 4, 3, 5])
 ```
+
 
 
 
@@ -266,10 +276,12 @@ reflecting_walk.prob_of_path(1, [2, 2, 3, 4, 3, 5])
 You can simulate paths of the chain using the `simulate_path` method. It takes two arguments: the starting state and the number of steps of the path. By default it returns an array consisting of the sequence of states in the path. The optional argument `plot_path=True` plots the simulated path. Run the cells below a few times and see how the output changes.
 
 
+
 {:.input_area}
 ```python
 reflecting_walk.simulate_path(1, 7)
 ```
+
 
 
 
@@ -282,13 +294,15 @@ array([1, 1, 1, 1, 1, 2, 1, 1])
 
 
 
+
 {:.input_area}
 ```python
 reflecting_walk.simulate_path(1, 10, plot_path=True)
 ```
 
 
-![png]({{ site.baseurl }}/images/chapters/Chapter_10/01_Transitions_13_0.png)
+
+![png](../../images/chapters/Chapter_10/01_Transitions_13_0.png)
 
 
 ### $n$-Step Transition Matrix
@@ -305,10 +319,12 @@ The $n$-step transition probability $P_n(i, j)$ can be represented as the $(i, j
 The `MarkovChain` method `transition_matrix` takes $n$ as its argument and displays the $n$-step transition matrix. Here is the 2-step transition matrix of the reflecting walk defined earlier in this section.
 
 
+
 {:.input_area}
 ```python
 reflecting_walk.transition_matrix(2)
 ```
+
 
 
 
@@ -412,10 +428,12 @@ By induction, you can show that the $n$-step transition matrix of the chain is $
 Here is a display of the 5-step transition matrix of the reflecting walk.
 
 
+
 {:.input_area}
 ```python
 reflecting_walk.transition_matrix(5)
 ```
+
 
 
 
@@ -499,11 +517,13 @@ This is a display, but to work with the matrix we have to represent it in a form
 For the reflecting walk, we will start by extracting $\mathbb{P}$ as the matrix `refl_walk_P`.
 
 
+
 {:.input_area}
 ```python
 refl_walk_P = reflecting_walk.get_transition_matrix(1)
 refl_walk_P
 ```
+
 
 
 
@@ -522,10 +542,12 @@ array([[ 0.5 ,  0.5 ,  0.  ,  0.  ,  0.  ],
 Let's check that the 5-step transition matrix displayed earlier is the same as $\mathbb{P}^5$. You can use `np.linalg.matrix_power` to raise a matrix to a non-negative integer power. The first argument is the matrix, the second is the power.
 
 
+
 {:.input_area}
 ```python
 np.linalg.matrix_power(refl_walk_P, 5)
 ```
+
 
 
 
@@ -552,10 +574,12 @@ To understand the long run behavior of the chain, let $n$ be large and let's exa
 Here is the display of $\mathbb{P}^n$ for the reflecting walk, for $n = 25, 50$, and $100$.
 
 
+
 {:.input_area}
 ```python
 reflecting_walk.transition_matrix(25)
 ```
+
 
 
 
@@ -631,6 +655,7 @@ reflecting_walk.transition_matrix(25)
 </table>
 </div>
 </div>
+
 
 
 
@@ -643,6 +668,7 @@ reflecting_walk.transition_matrix(50)
 
 
 
+
 <div markdown="0">
 <div>
 <style scoped>
@@ -718,10 +744,12 @@ reflecting_walk.transition_matrix(50)
 
 
 
+
 {:.input_area}
 ```python
 reflecting_walk.transition_matrix(100)
 ```
+
 
 
 

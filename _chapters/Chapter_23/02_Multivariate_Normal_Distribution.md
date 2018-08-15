@@ -45,6 +45,7 @@ The shape of the density is determined by the *quadratic form* $\frac{1}{2}(\mat
 Here is the joint density surface of standard normal variables $X_1$ and $X_2$ that are jointly normal with $Cov(X_1, X_2) = 0.8$. The call is `Plot_bivariate_normal(mu, cov)` where the mean vector `mu` is a list and the covariance matrix is a list of lists specifying the rows.
 
 
+
 {:.input_area}
 ```python
 mu = [0, 0]
@@ -53,7 +54,8 @@ Plot_bivariate_normal(mu, cov)
 ```
 
 
-![png]({{ site.baseurl }}/images/chapters/Chapter_23/02_Multivariate_Normal_Distribution_3_0.png)
+
+![png](../../images/chapters/Chapter_23/02_Multivariate_Normal_Distribution_3_0.png)
 
 
 Note the elliptical contours, and that the probability is concentrated around a straight line. 
@@ -61,6 +63,7 @@ Note the elliptical contours, and that the probability is concentrated around a 
 In more than two dimensions we can no longer draw joint density surfaces. In three dimensions we can make i.i.d. draws from a multivariate normal joint density and plot the resulting points. Here is an example of the empirical distribution of 1000 observations of standard normal variables $X_1$, $X_2$, and $X_3$ that are jointly normal with $Cov(X_1, X_2) = 0.6$, $Cov(X_1, X_3) = 0.5$, and $Cov(X_2, X_3) = 0.2$. Note the elliptical cloud.
 
 The call is `Scatter_multivariate_normal(mu, cov, n)` where `n` is the number of points to generate. The function checks whether the specified matrix is positive semidefinite.
+
 
 
 {:.input_area}
@@ -71,7 +74,8 @@ Scatter_multivariate_normal(mu2, cov2, 1000)
 ```
 
 
-![png]({{ site.baseurl }}/images/chapters/Chapter_23/02_Multivariate_Normal_Distribution_5_0.png)
+
+![png](../../images/chapters/Chapter_23/02_Multivariate_Normal_Distribution_5_0.png)
 
 
 To see how the quadratic form arises, let $\mathbf{X}$ be multivariate normal. By Definition 2, $\mathbf{X} = \mathbf{AZ} + \mathbf{b}$ for some invertible $\mathbf{A}$ and vector $\mathbf{b}$, and some i.i.d. standard normal $\mathbf{Z}$. 

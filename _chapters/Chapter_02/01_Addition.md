@@ -20,6 +20,13 @@ For example, suppose you are selecting one student at random from a class in whi
 
 What's the big deal about mutually exclusive events? To understand this, start by thinking about the event that the selected student is a freshman or a sophomore. In the language of set theory, that's the *union* of the two events "freshman" and "sophomore". It is a great idea to use Venn diagrams to visualize events. In the diagram below, imagine $A$ and $B$ to be two mutually exclusive events shown as blue and gold circles. Because the events are mutually exclusive, the corresponding circles don't overlap. The union is the set of all the points in the two circles.
 
+
+
+
+
+![png](../../images/chapters/Chapter_02/01_Addition_2_0.png)
+
+
 What's the chance that the student is a freshman or a sophomore? In the population, 40% are freshmen and 20% are sophomores, so a natural answer is 60%. That's the percent of students who satisfy our criterion of "freshman or sophomore". The simple addition works because the two groups are disjoint.
 
 Kolmogorov used this idea to formulate the third and most important axiom of probability. Formally, $A$ and $B$ are mutually exclusive events if their intersection is empty:
@@ -53,6 +60,13 @@ A \backslash B = A \cap B^c
 $$
 where $B^c$ is the complement of $B$. The difference is the bright blue ring on the right.
 
+
+
+
+
+![png](../../images/chapters/Chapter_02/01_Addition_7_0.png)
+
+
 What's the chance that the student is in the bright blue difference? If you answered, "50% - 40% = 10%", you are right, and it's great that your intuition is saying that probabilities behave just like areas. They do. In fact the calculation follows from the axiom of additivity, which we also motivated by looking at areas.
 
 #### Difference Rule
@@ -78,6 +92,13 @@ If an event has chance 40%, what's the chance that it doesn't happen? The "obvio
 For any event $B$, $P(B^c) = 1 - P(B)$.
 
 **Proof.** The Venn diagram below shows what to do. Take $A = \Omega$ in the formula for the difference, and remember the second axiom $P(\Omega) = 1$. Alternatively, redo the argument for the difference rule in this special case.
+
+
+
+
+
+![png](../../images/chapters/Chapter_02/01_Addition_11_0.png)
+
 
 When you see a minus sign in a calculation of probabilities, as in the Complement Rule above, you will often find that the minus sign is due to a rearrangement of terms in an application of the addition rule.
 

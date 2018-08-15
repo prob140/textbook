@@ -81,6 +81,7 @@ That is why binomial histograms are either non-increasing or non-decreasing, or 
 Let's visualize this for a $n = 23$ and $p = 0.7$, two parameters that have no significance other than being our choice to use in this example.
 
 
+
 {:.input_area}
 ```python
 n = 23
@@ -92,7 +93,9 @@ Plot(bin_dist)
 ```
 
 
-![png]({{ site.baseurl }}/images/chapters/Chapter_06/04_Odds_Ratios_4_0.png)
+
+![png](../../images/chapters/Chapter_06/04_Odds_Ratios_4_0.png)
+
 
 
 
@@ -104,6 +107,7 @@ Plot(bin_dist)
 k = np.arange(1, n+1, 1)
 ((n - k + 1)/k)*(p/(1-p))
 ```
+
 
 
 
@@ -125,10 +129,12 @@ What Python is helpfully telling us is that the invisible bar at 1 is 53.666... 
 We can solve an inequality to show that the largest $k$ for which $R(k) \ge 1$ is the integer part of $(n+1)p$. In our example, this is $k = 16$ because
 
 
+
 {:.input_area}
 ```python
 (n+1)*p
 ```
+
 
 
 

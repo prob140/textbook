@@ -21,6 +21,13 @@ In this section we will find the density of $Y$ by developing a modification of 
 ### Density of $Y = X^2$
 If $X$ can take both positive and negative values, we have to account for the fact that there are two mutually exclusive ways in which the event $\{ Y \in dy \}$ can happen: either $X$ has to be near the positive square root of $y$ or near the negative square root of $y$.
 
+
+
+
+
+![png](../../images/chapters/Chapter_16/03_Two_to_One_Functions_3_0.png)
+
+
 So the density of $Y$ at $y$ has two components, as follows. For $y > 0$,
 
 $$

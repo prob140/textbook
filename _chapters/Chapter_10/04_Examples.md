@@ -41,6 +41,7 @@ The chain is clearly irreducible. It is aperiodic because $P(i, i) > 0$.
 **Answer.** We have computers. So let's first find the stationary distribution for $N=100$ particles, and then see if we can identify it for general $N$.
 
 
+
 {:.input_area}
 ```python
 N = 100
@@ -62,7 +63,8 @@ Plot(ehrenfest.steady_state(), edges=True)
 ```
 
 
-![png]({{ site.baseurl }}/images/chapters/Chapter_10/04_Examples_3_0.png)
+
+![png](../../images/chapters/Chapter_10/04_Examples_3_0.png)
 
 
 That looks suspiciously like the binomial (100, 1/2) distribution. In fact it *is* the binomial (100, 1/2) distribution. Since you've guessed it, all you have to do is plug it into the balance equations and check that they work out. 
@@ -94,11 +96,13 @@ In other words, the stationary distribution is proportional to the binomial coef
 Suppose I run the lazy reflecting random walk from the previous section for a long time. As a reminder, here is its stationary distribution.
 
 
+
 {:.input_area}
 ```python
 stationary = reflecting_walk.steady_state()
 stationary
 ```
+
 
 
 
@@ -137,10 +141,12 @@ stationary
 **Answer 1.** In the long run, the chain is in steady state. So I expect that on 62.5% of the moves I will win nothing; on 25% of the moves I will win $\$4$; and on 12.5% of the moves I will win $\$5$. My expected long run average reward per move is $\$1.625$.
 
 
+
 {:.input_area}
 ```python
 0*0.625 + 4*0.25 + 5*.125
 ```
+
 
 
 
@@ -157,10 +163,12 @@ stationary
 **Answer 2.** Each time the chain is in state $i$, I expect to get $i/2$ heads. When the chain is in steady state, the expected number of coins I toss at any given move is 3. So, by iterated expectations, the long run average number of heads I expect to get is 1.5.
 
 
+
 {:.input_area}
 ```python
 stationary.ev()/2
 ```
+
 
 
 

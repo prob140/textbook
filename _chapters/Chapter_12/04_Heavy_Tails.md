@@ -17,6 +17,7 @@ redirect_from:
 This short section shows an example of how expectations and SDs, though very useful in many situations, aren't quite adequate when distributions have long, fat tails. Here is one such distribution.
 
 
+
 {:.input_area}
 ```python
 N = 1000
@@ -28,12 +29,14 @@ plt.xlim(0, N/10);
 ```
 
 
-![png]({{ site.baseurl }}/images/chapters/Chapter_12/04_Heavy_Tails_2_0.png)
+
+![png](../../images/chapters/Chapter_12/04_Heavy_Tails_2_0.png)
 
 
 You can see that the tail stretches out quite far. If we sample independently from this population, how does the sample average behave? Averages are affected by values out in the tails. 
 
 Let's simulate the distribution of the average of a random sample of size 500 from this distribution. We'll do 10,000 repetitions to try to get the empirical distribution to settle down.
+
 
 
 {:.input_area}
@@ -45,10 +48,12 @@ Table().with_column('Sample Means', means).hist(bins=20)
 ```
 
 
-![png]({{ site.baseurl }}/images/chapters/Chapter_12/04_Heavy_Tails_4_0.png)
+
+![png](../../images/chapters/Chapter_12/04_Heavy_Tails_4_0.png)
 
 
 That's a lovely distribution, but take a look at where it is centered. The center is just above 130, whereas the original distribution looked as though it was petering out at about 100:
+
 
 
 {:.input_area}
@@ -58,16 +63,19 @@ plt.xlim(0, N/10);
 ```
 
 
-![png]({{ site.baseurl }}/images/chapters/Chapter_12/04_Heavy_Tails_6_0.png)
+
+![png](../../images/chapters/Chapter_12/04_Heavy_Tails_6_0.png)
 
 
 This is where we have to remember that the original disribution actually goes out to 1000. Even though the tail is hardly visible beyond 100 on the scale of our graph, it is there and it is affecting the expectation. The expected value is about 133.6, which explains the center of the empirical distribution of the sample average. 
+
 
 
 {:.input_area}
 ```python
 dist.ev()
 ```
+
 
 
 
@@ -84,10 +92,12 @@ It is sobering to realize that the balance point of the above histogram isn't ev
 How do we reconcile this with Chebyshev's Inequality telling us that the bulk of the probability is within a few SDs of the mean? The only way to find out is to calculate the SD of the distribution.
 
 
+
 {:.input_area}
 ```python
 dist.sd()
 ```
+
 
 
 
@@ -113,12 +123,14 @@ According to Wikipedia, "... in the Brown Corpus of American English text, the w
 Now take another look at how the underlying distribution in our example was defined:
 
 
+
 {:.input_area}
 ```python
 N = 1000
 n = np.arange(1, N+1, 1)
 probs = (1/n)*(1/np.sum(1/n))
 ```
+
 
 We are pretending that we have a corpus of $N=1000$ words arranged in rank order, with Rank 1 being awarded to the most commonly occurring word. The probabilities are inversely proportional to rank. Notice that `1/np.sum(1/n)` is just the constant of proportionality that makes the probabilities add up to 1. If you call that constant $c$, then the probabilities are:
 

@@ -49,6 +49,13 @@ $$
 
 Now let $R = \sqrt{X^2 + Y^2}$. To find the density of $R$, let's try to calculate $P(R \in dr)$. The event is shown in the graph below.
 
+
+
+
+
+![png](../../images/chapters/Chapter_18/01_Standard_Normal_Basics_4_0.png)
+
+
 To find the corresponding volume under the joint density surface, two observations will help.
 
 - Because of circular symmetry, the joint density surface is essentially at a constant height over the entire gold ring. The height is $c^2e^{-\frac{1}{2}r^2}$. 
@@ -76,6 +83,14 @@ $$
 $$
 
 
+
+
+
+![png](../../images/chapters/Chapter_18/01_Standard_Normal_Basics_6_0.png)
+
+
+
+
 {:.input_area}
 ```python
 def indep_standard_normals(x,y):
@@ -86,7 +101,8 @@ plt.title('Joint Density of $X$ and $Y$');
 ```
 
 
-![png]({{ site.baseurl }}/images/chapters/Chapter_18/01_Standard_Normal_Basics_5_0.png)
+
+![png](../../images/chapters/Chapter_18/01_Standard_Normal_Basics_7_0.png)
 
 
 ### Expectation

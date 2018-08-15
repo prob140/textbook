@@ -56,9 +56,23 @@ SciPy calls $1/\lambda$ the "scale" parameter of the gamma distribution. Because
 ### The Shape Parameter $r$
 Here are the graphs of the gamma $(r, 1)$ densities for $r = 1$, $1.5$, and 2.
 
+
+
+
+
+![png](../../images/chapters/Chapter_18/03_The_Gamma_Family_5_0.png)
+
+
 When $r = 1$ the density is exponential. As $r$ gets larger the density moves to the right and flattens out, consistent with the increasing mean $r$ and SD $\sqrt{r}$.
 
 When $r = 10$, the gamma density looks almost normal. To see why, we will examine sums of independent gamma variables.
+
+
+
+
+
+![png](../../images/chapters/Chapter_18/03_The_Gamma_Family_7_0.png)
+
 
 ### Sums of Independent Gamma Variables with the Same Rate
 **If $X$ has the gamma $(r, \lambda)$ distribution and $Y$ independent of $X$ has the gamma $(s, \lambda)$ distribution, then $X+Y$ has the gamma $(r+s, \lambda)$ distribution.**
@@ -66,6 +80,7 @@ When $r = 10$, the gamma density looks almost normal. To see why, we will examin
 Note that for the result to apply, the rate parameter has to be the same for $X$ and $Y$. The rate parameter turns out to be the same for $X+Y$ as well, and the shape parameters add up.
 
 We will prove this result in the next chapter along with the corresponding result for sums of independent normal variables. For now, let's test out the result by simulation just as we did with the sums of normals. The first three lines in the cell below set the values of $\lambda$, $r$, and $s$. The rest simulates 10000 values of $X+Y$ and plots the gamma $(r+s, \lambda)$ density over the simulated values.
+
 
 
 {:.input_area}
@@ -88,7 +103,8 @@ plt.title('$X+Y$ where $X$: gamma$(r, \lambda)$ and $Y$: gamma$(s, \lambda)$');
 ```
 
 
-![png]({{ site.baseurl }}/images/chapters/Chapter_18/03_The_Gamma_Family_7_0.png)
+
+![png](../../images/chapters/Chapter_18/03_The_Gamma_Family_9_0.png)
 
 
 You can now see why the gamma $(r, \lambda)$ distribution is approximately normal for large $r$. By the result above, for integer $r$ the sum of $r$ i.i.d. exponential $(\lambda)$ random variables has the gamma $(r, \lambda)$ distribution. For fixed $\lambda$ and increasing $r$, the Central Limit Theorem says the distribution of the sum tends to the normal. 

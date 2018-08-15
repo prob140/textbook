@@ -17,10 +17,12 @@ redirect_from:
 Our space is the outcomes of five rolls of a die, and our random variable $S$ is the total number of spots on the five rolls.
 
 
+
 {:.input_area}
 ```python
 five_rolls_sum
 ```
+
 
 
 
@@ -75,11 +77,13 @@ In the last section we found $P(S = 10)$. We could use that same process to find
 To do this, we will start by dropping the `omega` column. Then we will `group` the table by the distinct values of `S(omega)`, and use `sum` to add up all the probabilities in each group.
 
 
+
 {:.input_area}
 ```python
 dist_S = five_rolls_sum.drop('omega').group('S(omega)', sum)
 dist_S
 ```
+
 
 
 
@@ -136,10 +140,12 @@ The contents of the table – all the possible values of the random variable, al
 Let's check this, to make sure that all the $\omega$'s in the outcome space have been accounted for in the column of probabilities.
 
 
+
 {:.input_area}
 ```python
 dist_S.column(1).sum()
 ```
+
 
 
 
@@ -163,13 +169,16 @@ First, we will construct a probability distribution object which, while it looks
 To keep the code easily readable, let's extract the possible values and probabilities separately as arrays:
 
 
+
 {:.input_area}
 ```python
 s = dist_S.column(0)
 p_s = dist_S.column(1)
 ```
 
+
 To turn these into a probability distribution object, start with an empty table and use the `values` and `probability` Table methods. The argument of `values` is a list or an array of possible values, and the argument of `probability` is a list or an array of the corresponding probabilities. 
+
 
 
 {:.input_area}
@@ -177,6 +186,7 @@ To turn these into a probability distribution object, start with an empty table 
 dist_S = Table().values(s).probability(p_s)
 dist_S
 ```
+
 
 
 
@@ -229,13 +239,15 @@ dist_S
 That looks exactly like the table we had before except for more readable column labels. But now for the benefit: to visualize the distribution in a histogram, just use the `prob140` method `Plot` as follows.
 
 
+
 {:.input_area}
 ```python
 Plot(dist_S)
 ```
 
 
-![png]({{ site.baseurl }}/images/chapters/Chapter_03/02_Distributions_14_0.png)
+
+![png](../../images/chapters/Chapter_03/02_Distributions_14_0.png)
 
 
 #### Notes on `Plot`
@@ -256,13 +268,15 @@ As you know from Data 8, the interval between the points of inflection of the be
 The `event` argument of `Plot` lets you visualize the probability of the event, as follows.
 
 
+
 {:.input_area}
 ```python
 Plot(dist_S, event = np.arange(14, 22, 1))
 ```
 
 
-![png]({{ site.baseurl }}/images/chapters/Chapter_03/02_Distributions_18_0.png)
+
+![png](../../images/chapters/Chapter_03/02_Distributions_18_0.png)
 
 
 The gold area is the equal to $P(14 \le S \le 21)$.
@@ -270,10 +284,12 @@ The gold area is the equal to $P(14 \le S \le 21)$.
 The `prob_event` method operates on probability distribution objects to return the probability of an event. To find $P(14 \le S \le 21)$, use it as follows.
 
 
+
 {:.input_area}
 ```python
 dist_S.prob_event(np.arange(14, 22, 1))
 ```
+
 
 
 
@@ -299,11 +315,13 @@ This one means:
 - First extract the event $\{ S = s\}$ for each value $s$ in the range 14 through 21:
 
 
+
 {:.input_area}
 ```python
 event_table = dist_S.where(0, are.between(14, 22))
 event_table
 ```
+
 
 
 
@@ -349,10 +367,12 @@ event_table
 - Then add the probabilities of all those events:
 
 
+
 {:.input_area}
 ```python
 event_table.column('Probability').sum()
 ```
+
 
 
 
@@ -367,10 +387,12 @@ event_table.column('Probability').sum()
 The `prob_event` method does all this in one step. Here it is again, for comparison.
 
 
+
 {:.input_area}
 ```python
 dist_S.prob_event(np.arange(14, 22, 1))
 ```
+
 
 
 
@@ -398,10 +420,12 @@ $$
 A quick way of finding the numerical value:
 
 
+
 {:.input_area}
 ```python
 dist_S.prob_event(np.arange(20, 31, 1))
 ```
+
 
 
 
@@ -419,10 +443,12 @@ P(\big{\vert} S - 10 \big{|} \le 6) ~ = ~ P(4 \le S \le 16) ~ = ~ \sum_{s=4}^{16
 $$
 
 
+
 {:.input_area}
 ```python
 dist_S.prob_event(np.arange(4, 17, 1))
 ```
+
 
 
 

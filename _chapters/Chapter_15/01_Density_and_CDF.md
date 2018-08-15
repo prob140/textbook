@@ -39,6 +39,13 @@ is a density. It is easy to check by calculus that it integrates to 1.
 
 Here is a graph of the function $f$. The density puts all the probability on the unit interval.
 
+
+
+
+
+![png](../../images/chapters/Chapter_15/01_Density_and_CDF_2_0.png)
+
+
 ### Density is Not the Same as Probability
 In the example above, $f(0.5) = 6/4 = 1.5 > 1$. Indeed, there are many values of $x$ for which $f(x) > 1$. So the values of $f$ are clearly not probabilities.
 
@@ -52,6 +59,13 @@ $$
 
 And we will draw the graph of $f$ only over the region where it is positive:
 
+
+
+
+
+![png](../../images/chapters/Chapter_15/01_Density_and_CDF_4_0.png)
+
+
 ### Areas are Probabilities
 A random variable $X$ is said to *have density $f$* if for every pair $a < b$,
 
@@ -60,6 +74,13 @@ P(a < X \le b) ~ = ~ \int_a^b f(x)dx
 $$
 
 This integral is the area between $a$ and $b$ under the density curve. The graph below shows the area corresponding to $P(0.6 < X \le 0.8)$ for a random variable $X$ that has the density in our example.
+
+
+
+
+
+![png](../../images/chapters/Chapter_15/01_Density_and_CDF_6_0.png)
+
 
 The area is
 $$
@@ -82,7 +103,21 @@ $$
 F(x) ~ = ~ \int_0^x 6s(1-s)ds ~ = ~ 3x^2 - 2x^3
 $$
 
+
+
+
+
+![png](../../images/chapters/Chapter_15/01_Density_and_CDF_9_0.png)
+
+
 In terms of the graph of the density, $F(x)$ is all the area to the left of $x$ under the density curve. The graph below shows the area corresponding to $F(0.8)$.
+
+
+
+
+
+![png](../../images/chapters/Chapter_15/01_Density_and_CDF_11_0.png)
+
 
 $$
 P(X \le 0.8) ~ = ~  F(0.8) ~ = ~ 3\cdot0.8^3 - 2\cdot0.8^2 ~ = ~ 0.896
@@ -93,6 +128,13 @@ As before, the cdf can be used to find probabilities of intervals. For every pai
 $$
 P(a < X \le b) ~ = ~ F(b) - F(a) 
 $$
+
+
+
+
+
+![png](../../images/chapters/Chapter_15/01_Density_and_CDF_14_0.png)
+
 
 $$
 \begin{align*}

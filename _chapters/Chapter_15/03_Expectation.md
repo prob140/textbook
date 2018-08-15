@@ -60,6 +60,13 @@ f_U(u) =
 \end{cases}
 $$
 
+
+
+
+
+![png](../../images/chapters/Chapter_15/03_Expectation_3_0.png)
+
+
 Areas under $f_U$ are rectangles, so it follows easily that the probability of an interval is its length relative to the total length of the unit interval, which is 1. For example, for every pair $u_1$ and $u_2$ with $u_1 < u_2$,
 
 $$
@@ -74,6 +81,13 @@ u ~~~ \text{if } 0 < u < 1 \\
 1 ~~~ \text{if } u \ge 1
 \end{cases}
 $$
+
+
+
+
+
+![png](../../images/chapters/Chapter_15/03_Expectation_5_0.png)
+
 
 The expectation $E(U)$ doesn't require an integral either. It's the balance point of the density "curve", which is 1/2. But if you insist, you can integrate:
 
@@ -137,10 +151,12 @@ $$
 
 
 
+
 {:.input_area}
 ```python
 np.pi * (4/12 + 1)
 ```
+
 
 
 
@@ -161,11 +177,13 @@ SD(\bar{R}) = \frac{\sqrt{4/12}}{\sqrt{100}} ~ = ~ 0.0577 ~ \mbox{cm}
 $$ 
 
 
+
 {:.input_area}
 ```python
 sd_rbar = ((4/12)**0.5)/(100**0.5)
 sd_rbar
 ```
+
 
 
 
@@ -180,6 +198,7 @@ sd_rbar
 By the Central Limit Theorem, the distribution of $\bar{R}$ is approximately normal. Let's draw it using `Plot_norm`.
 
 
+
 {:.input_area}
 ```python
 Plot_norm((0.8, 1.2), 1, sd_rbar)
@@ -188,10 +207,12 @@ plt.title('Approximate Distribution of Sample Mean Radius');
 ```
 
 
-![png]({{ site.baseurl }}/images/chapters/Chapter_15/03_Expectation_11_0.png)
+
+![png](../../images/chapters/Chapter_15/03_Expectation_13_0.png)
 
 
 We are looking for $c$ such that there is about 99% chance that $\bar{R}$ is in the interval $(1-c, 1+c)$. Therefore $1 + c$ is the 99.5th (not 99th) percent point of the curve above, from which you can find $c$.
+
 
 
 {:.input_area}
@@ -199,6 +220,7 @@ We are looking for $c$ such that there is about 99% chance that $\bar{R}$ is in 
 c = stats.norm.ppf(0.995, 1, sd_rbar) - 1
 c
 ```
+
 
 
 
@@ -213,11 +235,13 @@ c
 There is another way to find $c$. Since $c$ is a distance from the mean, $c = zSD(\bar{R})$ where $z$ is such that the area between $-z$ and $z$ under the standard normal curve is about 99%. This $z$ is the 99.5th percent point of the standard normal curve.
 
 
+
 {:.input_area}
 ```python
 z = stats.norm.ppf(0.995)
 z
 ```
+
 
 
 
@@ -230,11 +254,13 @@ z
 
 
 
+
 {:.input_area}
 ```python
 c = z*sd_rbar
 c
 ```
+
 
 
 
@@ -249,6 +275,7 @@ c
 That's the same value of $c$ that we got by the previous method. The graph below shows the corresponding area of 99%.
 
 
+
 {:.input_area}
 ```python
 Plot_norm((0.8, 1.2), 1, sd_rbar, left_end = 1-c, right_end = 1+c)
@@ -258,5 +285,6 @@ plt.title('Gold Area is Approximately 99%');
 ```
 
 
-![png]({{ site.baseurl }}/images/chapters/Chapter_15/03_Expectation_18_0.png)
+
+![png](../../images/chapters/Chapter_15/03_Expectation_20_0.png)
 

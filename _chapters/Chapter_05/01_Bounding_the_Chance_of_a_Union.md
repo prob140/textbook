@@ -17,13 +17,15 @@ redirect_from:
 Before we get to larger collections of events, let's consider the union of two events that are not mutually exclusive. The diagram below shows two such events. The union is the entire colored region: the blue, the gold, as well as the intersection.
 
 
+
 {:.input_area}
 ```python
 show_intersection()
 ```
 
 
-![png]({{ site.baseurl }}/images/chapters/Chapter_05/01_Bounding_the_Chance_of_a_Union_2_0.png)
+
+![png](../../images/chapters/Chapter_05/01_Bounding_the_Chance_of_a_Union_2_0.png)
 
 
 We can find $P(A \cup B)$ by partitioning. A partition of $A \cup B$ is "all of $A$ union the part of $B$ that is not also in $A$": 

@@ -46,6 +46,13 @@ $$
 
 Here is one of those narrow slivers.
 
+
+
+
+
+![png](../../images/chapters/Chapter_15/02_The_Meaning_of_Density_4_0.png)
+
+
 We will now set up some notation that will be used repeatedly in the course.
 
 - $x$ is a point on the horizontal axis
@@ -92,9 +99,17 @@ $$
 
 Let's take another look at the graph of $f$.
 
+
+
+
+
+![png](../../images/chapters/Chapter_15/02_The_Meaning_of_Density_7_0.png)
+
+
 If you simulate multiple independent copies of a random variable that has this density (exactly how to do that will be the subject of the next lab), then for example the simulated values will be more crowded around 0.5 than around 0.2.
 
 The function `simulate_f` takes the number of copies as its argument and displays a histogram of the simulated values overlaid with the graph of $f$.
+
 
 
 {:.input_area}
@@ -103,7 +118,8 @@ simulate_f(10000)
 ```
 
 
-![png]({{ site.baseurl }}/images/chapters/Chapter_15/02_The_Meaning_of_Density_7_0.png)
+
+![png](../../images/chapters/Chapter_15/02_The_Meaning_of_Density_9_0.png)
 
 
 The distribution of 10,000 simulated values follows $f$ pretty closely. 

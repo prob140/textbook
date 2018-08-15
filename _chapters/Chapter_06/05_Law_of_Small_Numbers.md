@@ -19,6 +19,7 @@ The consecutive odds ratios of the binomial $(n, p)$ distribution help us derive
 As an example, here is the binomial $(1000, 2/1000)$ distribution. Note that $1000$ is large, $2/1000$ is pretty small, and $1000 \times (2/1000) = 2$ is the natural number of successes to be thinking about.
 
 
+
 {:.input_area}
 ```python
 n = 1000
@@ -30,7 +31,8 @@ Plot(binom_dist)
 ```
 
 
-![png]({{ site.baseurl }}/images/chapters/Chapter_06/05_Law_of_Small_Numbers_2_0.png)
+
+![png](../../images/chapters/Chapter_06/05_Law_of_Small_Numbers_2_0.png)
 
 
 Though the possible values of the number of successes in 1000 trials can be anywhere between 0 and 1000, the *probable* values are all rather small because $p$ is small. That is why we didn't even bother computing the probabilities beyond $k = 15$. 
@@ -110,10 +112,12 @@ Use `stats.poisson.pmf` just as you would use `stats.binomial.pmf`, but keep in 
 Suppose $n = 1000$ and $p = 2/1000$. Then the exact binomial chance of 3 successes is
 
 
+
 {:.input_area}
 ```python
 stats.binom.pmf(3, 1000, 2/1000)
 ```
+
 
 
 
@@ -128,10 +132,12 @@ stats.binom.pmf(3, 1000, 2/1000)
 The approximating Poisson distribution has parameter $1000 \times (2/1000) = 2$, and so the Poisson approximation to the probability above is
 
 
+
 {:.input_area}
 ```python
 stats.poisson.pmf(3, 2)
 ```
+
 
 
 
@@ -146,6 +152,7 @@ stats.poisson.pmf(3, 2)
 Not bad. To compare the entire distributions, first create the two distribution objects:
 
 
+
 {:.input_area}
 ```python
 k = range(16)
@@ -157,7 +164,9 @@ poi_probs = stats.poisson.pmf(k, 2)
 poi_dist = Table().values(k).probability(poi_probs)
 ```
 
+
 The `prob140` function that draws overlaid histograms is called `Plots` (note the plural). The syntax has alternating arguments: a string label you provide for a distribution, followed by that distribution, then a string label for the second distribution, then that distribution.
+
 
 
 {:.input_area}
@@ -166,10 +175,12 @@ Plots('Binomial (1000, 2/1000)', bin_dist, 'Poisson (2)', poi_dist)
 ```
 
 
-![png]({{ site.baseurl }}/images/chapters/Chapter_06/05_Law_of_Small_Numbers_14_0.png)
+
+![png](../../images/chapters/Chapter_06/05_Law_of_Small_Numbers_14_0.png)
 
 
 Does it look as though there is only one histogram? That's because the approximation is great! Here are the two histograms individually.
+
 
 
 {:.input_area}
@@ -178,7 +189,9 @@ Plot(bin_dist)
 ```
 
 
-![png]({{ site.baseurl }}/images/chapters/Chapter_06/05_Law_of_Small_Numbers_16_0.png)
+
+![png](../../images/chapters/Chapter_06/05_Law_of_Small_Numbers_16_0.png)
+
 
 
 
@@ -188,7 +201,8 @@ Plot(poi_dist)
 ```
 
 
-![png]({{ site.baseurl }}/images/chapters/Chapter_06/05_Law_of_Small_Numbers_17_0.png)
+
+![png](../../images/chapters/Chapter_06/05_Law_of_Small_Numbers_17_0.png)
 
 
 In lab, you will use total variation distance to get an error bound on the approximation.

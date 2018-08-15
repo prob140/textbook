@@ -40,6 +40,13 @@ $$
 \phi(z) = \frac{1}{\sqrt{2\pi}}e^{-\frac{1}{2}z^2}, ~~~ -\infty < z < \infty
 $$
 
+
+
+
+
+![png](../../images/chapters/Chapter_14/03_Central_Limit_Theorem_4_0.png)
+
+
 The curve is symmetric about 0. Its points of inflection are at $z=-1$ and $z=1$. You observed this in Data 8 and can prove it by calculus. 
 
 **A Note on Terminology.** We will say that the curve has *location* parameter 0 and *scale* parameter 1. We will also use the terms *mean* for the location and *SD* for the scale, by analogy with the mean and SD of a random variable in standard units. Later in the course, we will show that this is consistent with definitions of the mean and SD of random variables that have a continuum of values.
@@ -61,6 +68,13 @@ The normal curve with mean $\mu$ and SD $\sigma$ is defined by
 $$
 f(x) ~ = ~ \frac{1}{\sqrt{2\pi}\sigma} e^{-\frac{1}{2}(\frac{x-\mu}{\sigma})^2}, ~~~ -\infty < x < \infty
 $$
+
+
+
+
+
+![png](../../images/chapters/Chapter_14/03_Central_Limit_Theorem_7_0.png)
+
 
 The shape looks exactly the same as the standard normal curve. The only difference is in the scales of measurement on the axes. The center is now $\mu$ instead of 0, and the points of inflection are at a distance of $\sigma$ away from the center instead of 1.
 
@@ -98,6 +112,7 @@ Who cares about the total weight of a random group of people? Ask those who cons
 You can plot this distribution using the `prob140` method `Plot_norm`. The arguments are the interval over which you want the curve to be drawn, the mean, and the SD. 
 
 
+
 {:.input_area}
 ```python
 n = 100
@@ -113,7 +128,8 @@ Plot_norm(plot_interval, mean, sd)
 ```
 
 
-![png]({{ site.baseurl }}/images/chapters/Chapter_14/03_Central_Limit_Theorem_9_0.png)
+
+![png](../../images/chapters/Chapter_14/03_Central_Limit_Theorem_11_0.png)
 
 
 ### Probabilities Under the Normal Curve
@@ -122,22 +138,26 @@ Suppose we want to find the chance that the total weight of the sampled people i
 Notice the argument `right_end=15100`. That tells `Plot_norm` the right end of the interval to shade. If there is no left end specified, it is taken to be the left end of the plot interval.
 
 
+
 {:.input_area}
 ```python
 Plot_norm(plot_interval, mean, sd, right_end=15100)
 ```
 
 
-![png]({{ site.baseurl }}/images/chapters/Chapter_14/03_Central_Limit_Theorem_11_0.png)
+
+![png](../../images/chapters/Chapter_14/03_Central_Limit_Theorem_13_0.png)
 
 
 As before, the function that returns all the probability to the left of a point is called the *cumulative distribution function* (cdf) of the distribution. Call `stats.norm.cdf` with the appropriate parameters to see that the chance is just under 75%.
+
 
 
 {:.input_area}
 ```python
 stats.norm.cdf(15100, mean, sd)
 ```
+
 
 
 
@@ -152,22 +172,26 @@ stats.norm.cdf(15100, mean, sd)
 Approximately what is the chance that the total weight is between 14,800 pounds and 15,100 pounds? Now we specify both `left_end` and `right_end`:
 
 
+
 {:.input_area}
 ```python
 Plot_norm(plot_interval, mean, sd, left_end=14800, right_end=15100)
 ```
 
 
-![png]({{ site.baseurl }}/images/chapters/Chapter_14/03_Central_Limit_Theorem_15_0.png)
+
+![png](../../images/chapters/Chapter_14/03_Central_Limit_Theorem_17_0.png)
 
 
 The shaded area is about 65.6%.
+
 
 
 {:.input_area}
 ```python
 stats.norm.cdf(15100, mean, sd) - stats.norm.cdf(14800, mean, sd)
 ```
+
 
 
 
@@ -185,12 +209,14 @@ There is really only one normal curve that matters – the standard normal curve
 To find the approximate chance that the total weight is less than 15,100 pounds, first standardize the weight and then use the standard normal cdf.
 
 
+
 {:.input_area}
 ```python
 z_right = (15100 - mean)/sd
 
 stats.norm.cdf(z_right)  # The standard curve is the default
 ```
+
 
 
 
@@ -205,12 +231,14 @@ stats.norm.cdf(z_right)  # The standard curve is the default
 To find the approximate chance that the total weight is between 14,800 pounds and 15,100 pounds:
 
 
+
 {:.input_area}
 ```python
 z_left = (14800 - mean)/sd
 
 stats.norm.cdf(z_right) - stats.norm.cdf(z_left)
 ```
+
 
 
 
@@ -247,6 +275,7 @@ A binomial $(n, p)$ random variable is the sum of $n$ i.i.d. indicators. If $n$ 
 So which is it: normal or Poisson? Here are two binomial histograms, both of which have large $n$ but rather different shapes.
 
 
+
 {:.input_area}
 ```python
 k1 = np.arange(25, 76)
@@ -257,7 +286,9 @@ plt.title('Binomial (100, 0.5)');
 ```
 
 
-![png]({{ site.baseurl }}/images/chapters/Chapter_14/03_Central_Limit_Theorem_24_0.png)
+
+![png](../../images/chapters/Chapter_14/03_Central_Limit_Theorem_26_0.png)
+
 
 
 
@@ -271,7 +302,8 @@ plt.title('Binomial (100, 0.1)');
 ```
 
 
-![png]({{ site.baseurl }}/images/chapters/Chapter_14/03_Central_Limit_Theorem_25_0.png)
+
+![png](../../images/chapters/Chapter_14/03_Central_Limit_Theorem_27_0.png)
 
 
 The difference is due to the spread of the distributions. The Poisson approximation applies when the distribution is scrunched up near 0. When the spread is larger so that there are a substantial number of possible values on either side of the mean, then the normal approximation is the one to try.
@@ -285,6 +317,7 @@ You can see what you think of these guidelines, by comparing the total variation
 Here is the binomial (100, 0.5) distribution and the approximating normal curve. The parameters of the curve are $np = 50$ and $\sqrt{npq} = 5$.
 
 
+
 {:.input_area}
 ```python
 Plot(binom_fair)
@@ -294,7 +327,8 @@ plt.title('Binomial (100, 0.5) and its Normal Approximation');
 ```
 
 
-![png]({{ site.baseurl }}/images/chapters/Chapter_14/03_Central_Limit_Theorem_28_0.png)
+
+![png](../../images/chapters/Chapter_14/03_Central_Limit_Theorem_30_0.png)
 
 
 Notice how the points "$\mbox{mean } \pm \mbox{ SD}$" $= 50 \pm 5$ are the points of inflection of the curve. 

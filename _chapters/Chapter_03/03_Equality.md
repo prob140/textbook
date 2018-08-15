@@ -38,12 +38,14 @@ However, there is a sense in which the number of heads "behaves in the same way"
 The outcome space is `three_tosses`:
 
 
+
 {:.input_area}
 ```python
 coin = make_array('H', 'T')
 three_tosses = list(product(coin, repeat=3))
 three_tosses
 ```
+
 
 
 
@@ -65,11 +67,13 @@ three_tosses
 There are only eight outcomes, so it is easy to inspect the table and write the distributions of $N_H$ and $N_T$. Both take the values 0, 1, 2, and 3, with probabilities 1/8, 3/8, 3/8, and 1/8 respectively. This distribution is shown in the table below.
 
 
+
 {:.input_area}
 ```python
 dist = Table().values(np.arange(4)).probability(make_array(1, 3, 3, 1)/8)
 dist
 ```
+
 
 
 
@@ -133,13 +137,16 @@ $$
 When a distribution is defined by a formula like this, you can define a function that does what the formula says:
 
 
+
 {:.input_area}
 ```python
 def prob1(i):
     return i/10
 ```
 
+
 Then you can create a probability distribution object using `value` as before but now with `probability_function` that takes the name of the function as its argument:
+
 
 
 {:.input_area}
@@ -148,6 +155,7 @@ possible_i = np.arange(1, 5, 1)
 dist_X1 = Table().values(possible_i).probability_function(prob1)
 dist_X1
 ```
+
 
 
 
@@ -181,6 +189,7 @@ dist_X1
 Convince yourself that the function `prob2` below returns $P(X_2 = i)$ for each $i$. The event has been partitioned according to the value of $X_1$.
 
 
+
 {:.input_area}
 ```python
 def prob2(i):
@@ -191,11 +200,14 @@ def prob2(i):
 ```
 
 
+
+
 {:.input_area}
 ```python
 dist_X2 = Table().values(possible_i).probability_function(prob2)
 dist_X2
 ```
+
 
 
 

@@ -61,6 +61,7 @@ For now, just assume that this is a joint density, that is, it integrates to 1. 
 To do this, we will use a 3-dimensional plotting routine. First, we define the joint density function. For use in our plotting routine, this function must take $x$ and $y$ as its inputs and return the value $f(x, y)$ as defined above.
 
 
+
 {:.input_area}
 ```python
 def joint(x,y):
@@ -70,7 +71,9 @@ def joint(x,y):
         return 120 * x * (y-x) * (1-y)
 ```
 
+
 Now we will call `Plot_3d` to plot the surface. The arguments are the limits on the $x$ and $y$ axes, the name of the function to be plotted, and two optional arguments `rstride` and `cstride` that determine how many grid lines to use. Larger numbers correspond to less frequent grid lines.
+
 
 
 {:.input_area}
@@ -79,12 +82,20 @@ Plot_3d(x_limits=(0,1), y_limits=(0,1), f=joint, cstride=4, rstride=4)
 ```
 
 
-![png]({{ site.baseurl }}/images/chapters/Chapter_17/01_Probabilities_and_Expectations_7_0.png)
+
+![png](../../images/chapters/Chapter_17/01_Probabilities_and_Expectations_7_0.png)
 
 
 The surface has level 0 in the lower right hand triangle because it is not possible for the point $(X, Y)$ to be in that region.
 
 The possible values of $(X, Y)$ are the blue region shown below. For calculations by hand, we will frequently draw just the possible values and not the surface.
+
+
+
+
+
+![png](../../images/chapters/Chapter_17/01_Probabilities_and_Expectations_9_0.png)
+
 
 ### The Total Volume Under the Surface
 The function $f$ looks like a bit of a mess but it is easy to see that it is non-negative. It's a good idea to check that the total probability under the surface is equal to 1. 
@@ -105,6 +116,7 @@ $$
 To use `SymPy` we must first declare the two variables to have values in the unit interval, and assign the function to the name `f`. This specification doesn't say that $x < y$ but we will enforce that condition when we integrate.
 
 
+
 {:.input_area}
 ```python
 declare('x', interval=(0, 1))
@@ -112,16 +124,19 @@ declare('y', interval=(0, 1))
 f = 120*x*(y-x)*(1-y)
 ```
 
+
 The double integral requires a call to `Integral` that specifies the inner integral first and then the outer. The call says:
 - The function being integrated is $f$.
 - The inner integral is over the variable $x$ which goes from $0$ to y.
 - The outer integral is over the variable $y$ which goes from 0 to 1.
 
 
+
 {:.input_area}
 ```python
 Integral(f, (x, 0, y), (y, 0, 1))
 ```
+
 
 
 
@@ -133,10 +148,12 @@ $$\int_{0}^{1}\int_{0}^{y} 120 x \left(- x + y\right) \left(- y + 1\right)\, dx\
 To evaluate the integral, use `doit()`:
 
 
+
 {:.input_area}
 ```python
 Integral(f, (x, 0, y), (y, 0, 1)).doit()
 ```
+
 
 
 
@@ -151,6 +168,13 @@ Probabilities are volumes under the joint density surface. In other words, they 
 ### Example 1
 Suppose you want to find $P(Y > 4X)$. The event is the blue region in the graph below.
 
+
+
+
+
+![png](../../images/chapters/Chapter_17/01_Probabilities_and_Expectations_19_0.png)
+
+
 To find the region of integration, notice that for fixed $y$, the value of $x$ goes from 0 to $y/4$. So 
 $$
 \begin{align*}
@@ -164,6 +188,7 @@ $$
 #### By `SymPy`
 
 
+
 {:.input_area}
 ```python
 Integral(f, (x, 0, y/4), (y, 0, 1))
@@ -172,7 +197,9 @@ Integral(f, (x, 0, y/4), (y, 0, 1))
 
 
 
+
 $$\int_{0}^{1}\int_{0}^{\frac{y}{4}} 120 x \left(- x + y\right) \left(- y + 1\right)\, dx\, dy$$
+
 
 
 
@@ -185,7 +212,9 @@ Integral(f, (x, 0, y/4), (y, 0, 1)).doit()
 
 
 
+
 $$\frac{5}{32}$$
+
 
 
 
@@ -194,6 +223,7 @@ $$\frac{5}{32}$$
 ```python
 5/32
 ```
+
 
 
 
@@ -214,10 +244,12 @@ $$
 You can crank that out by hand or use `SymPy`.
 
 
+
 {:.input_area}
 ```python
 Integral(f, (x, 0.25, y), (y, 0.5, 1))
 ```
+
 
 
 
@@ -227,10 +259,12 @@ $$\int_{0.5}^{1}\int_{0.25}^{y} 120 x \left(- x + y\right) \left(- y + 1\right)\
 
 
 
+
 {:.input_area}
 ```python
 Integral(f, (x, 0.25, y), (y, 0.5, 1)).doit()
 ```
+
 
 
 
@@ -264,6 +298,7 @@ $$
 Remember that `x` and `y` have already been defined as symbolic variables with values in the unit interval.
 
 
+
 {:.input_area}
 ```python
 ev_y_over_x = Integral((y/x)*f, (x, 0, y), (y, 0, 1))
@@ -273,7 +308,9 @@ ev_y_over_x
 
 
 
+
 $$\int_{0}^{1}\int_{0}^{y} 120 y \left(- x + y\right) \left(- y + 1\right)\, dx\, dy$$
+
 
 
 
@@ -282,6 +319,7 @@ $$\int_{0}^{1}\int_{0}^{y} 120 y \left(- x + y\right) \left(- y + 1\right)\, dx\
 ```python
 ev_y_over_x.doit()
 ```
+
 
 
 

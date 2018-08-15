@@ -54,6 +54,7 @@ $$
 Here is a graph of the joint density surface.
 
 
+
 {:.input_area}
 ```python
 def indep_standard_normals(x,y):
@@ -63,7 +64,8 @@ Plot_3d((-4, 4), (-4, 4), indep_standard_normals, rstride=4, cstride=4)
 ```
 
 
-![png]({{ site.baseurl }}/images/chapters/Chapter_17/02_Independence_3_0.png)
+
+![png](../../images/chapters/Chapter_17/02_Independence_3_0.png)
 
 
 Notice the circular symmetry of the surface. This is because the formula for the joint density involves the pair $(x, y)$ through the expression $x^2 + y^2$ which is symmetric in $x$ and $y$.
@@ -82,6 +84,7 @@ $$
 The graph below shows the joint density surface in the case $\lambda = 0.5$ and $\mu = 0.25$, so that $E(X) = 2$ and $E(Y) = 4$.
 
 
+
 {:.input_area}
 ```python
 def independent_exp(x, y):
@@ -91,10 +94,18 @@ Plot_3d((0, 10), (0, 10), independent_exp)
 ```
 
 
-![png]({{ site.baseurl }}/images/chapters/Chapter_17/02_Independence_6_0.png)
+
+![png](../../images/chapters/Chapter_17/02_Independence_6_0.png)
 
 
 To find $P(Y > X)$ we must integrate the joint density over the upper triangle of the first quadrant, a portion of which is shown below.
+
+
+
+
+
+![png](../../images/chapters/Chapter_17/02_Independence_8_0.png)
+
 
 The probability is therefore
 $$
@@ -139,6 +150,7 @@ Let's do it in `SymPy` to check that the answer comes out the same.
 Keep in mind that `SymPy` doesn't like to display negative exponents, so some functions appear in a different form compared to the way we usually write them.
 
 
+
 {:.input_area}
 ```python
 declare('x', 'y', 'lamda', 'mu', positive=True)
@@ -154,7 +166,9 @@ jt_density
 
 
 
+
 $$\lambda \mu e^{- \lambda x} e^{- \mu y}$$
+
 
 
 
@@ -168,7 +182,9 @@ p_Y_greater_than_X
 
 
 
+
 $$\int_{0}^{\infty}\int_{0}^{y} \lambda \mu e^{- \lambda x} e^{- \mu y}\, dx\, dy$$
+
 
 
 
@@ -177,6 +193,7 @@ $$\int_{0}^{\infty}\int_{0}^{y} \lambda \mu e^{- \lambda x} e^{- \mu y}\, dx\, d
 ```python
 p_Y_greater_than_X.doit()
 ```
+
 
 
 

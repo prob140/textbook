@@ -82,10 +82,12 @@ For example, suppose that in your population the distribution of classes is as f
 Now suppose you draw $N$ independent times where $N$ has the Poisson $(20)$ distribution, then the chance that you will get at least 3 individuals in each class is about 71.27%.
 
 
+
 {:.input_area}
 ```python
 (1 - stats.poisson.cdf(2, 4))*(1-stats.poisson.cdf(2, 6))*(1-stats.poisson.cdf(2, 10))
 ```
+
 
 
 

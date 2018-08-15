@@ -146,6 +146,7 @@ Look at the paths (simulate some more if you like) and answer the following ques
 - If someone showed you the path of one of these two processes but didn't say which of the two it was, could you identify the process?
 
 
+
 {:.input_area}
 ```python
 states = np.arange(5)
@@ -168,10 +169,13 @@ circle_walk_1 = MarkovChain.from_transition_function(states, transition_prob)
 ```
 
 
+
+
 {:.input_area}
 ```python
 circle_walk_1
 ```
+
 
 
 
@@ -251,13 +255,16 @@ circle_walk_1
 
 
 
+
 {:.input_area}
 ```python
 circle_walk_1.simulate_path(0, 50, plot_path=True)
 ```
 
 
-![png]({{ site.baseurl }}/images/chapters/Chapter_11/01_Detailed_Balance_7_0.png)
+
+![png](../../images/chapters/Chapter_11/01_Detailed_Balance_7_0.png)
+
 
 
 
@@ -271,10 +278,13 @@ circle_walk_2 = MarkovChain.from_transition_function(states, transition_prob)
 ```
 
 
+
+
 {:.input_area}
 ```python
 circle_walk_2
 ```
+
 
 
 
@@ -354,11 +364,13 @@ circle_walk_2
 
 
 
+
 {:.input_area}
 ```python
 circle_walk_2.simulate_path(0, 50, plot_path=True)
 ```
 
 
-![png]({{ site.baseurl }}/images/chapters/Chapter_11/01_Detailed_Balance_10_0.png)
+
+![png](../../images/chapters/Chapter_11/01_Detailed_Balance_10_0.png)
 

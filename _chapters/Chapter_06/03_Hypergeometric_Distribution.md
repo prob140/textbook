@@ -49,6 +49,7 @@ $$
 The `stats.hypergeom.pmf` function allows us to calculate hypergeometric probabilities. The first argument is the set of possible values for which we want the probabilities. Then come the parameters, in the order population size, number of good elements, sample size.
 
 
+
 {:.input_area}
 ```python
 k = np.arange(5)
@@ -57,6 +58,7 @@ G = 4  # number of good elements in population
 n = 5  # simple random sample size
 stats.hypergeom.pmf(k, N, G, n)
 ```
+
 
 
 
@@ -72,10 +74,12 @@ array([  6.58841998e-01,   2.99473636e-01,   3.99298181e-02,
 Those are the chances of all the different possible numbers of aces in a poker hand. They are rather hard to read, so let's try rounding them.
 
 
+
 {:.input_area}
 ```python
 np.round(stats.hypergeom.pmf(k, N, G, n), 3)
 ```
+
 
 
 
@@ -90,6 +94,7 @@ array([ 0.659,  0.299,  0.04 ,  0.002,  0.   ])
 The number of aces among 5 cards is overwhelmingly likely to be 0 or 1. The histogram of the distribution can be drawn using `Plot`.
 
 
+
 {:.input_area}
 ```python
 ace_probs = stats.hypergeom.pmf(k, N, G, n)
@@ -99,11 +104,13 @@ plt.title('Number of Aces in a 5-Card Hand');
 ```
 
 
-![png]({{ site.baseurl }}/images/chapters/Chapter_06/03_Hypergeometric_Distribution_8_0.png)
+
+![png](../../images/chapters/Chapter_06/03_Hypergeometric_Distribution_8_0.png)
 
 
 ### Red Cards in a Bridge Hand
 Here is the distribution of the number of red cards in a bridge hand of 13 cards:
+
 
 
 {:.input_area}
@@ -120,7 +127,8 @@ plt.title('Number of Red Cards in a 13-Card Hand');
 ```
 
 
-![png]({{ site.baseurl }}/images/chapters/Chapter_06/03_Hypergeometric_Distribution_10_0.png)
+
+![png](../../images/chapters/Chapter_06/03_Hypergeometric_Distribution_10_0.png)
 
 
 This one looks rather binomial. And indeed, there is a close relation between the binomial and the hypergeometric distributions.
@@ -137,6 +145,7 @@ If the population size $N$ is large relative to the sample size $n$, then it doe
 To see whether this intuition can be confirmed by calculation, let's visualize some hypergeometric distributions and the corresponding binomial approximations. You can change the parameters in the code below. Just make sure that $n$ is small relative to $N$.
 
 
+
 {:.input_area}
 ```python
 N = 100
@@ -151,7 +160,8 @@ Plots('Hypergeometric (100, 30, 10)', hyp_dist, 'Binomial (10, 0.3)', bin_dist)
 ```
 
 
-![png]({{ site.baseurl }}/images/chapters/Chapter_06/03_Hypergeometric_Distribution_13_0.png)
+
+![png](../../images/chapters/Chapter_06/03_Hypergeometric_Distribution_13_0.png)
 
 
 They are pretty close, though you can see that the hypergeometric distribution is a bit taller and narrower. In a later chapter we will quantify this difference in spread.
@@ -178,10 +188,12 @@ To find the chance that 11 or more of the "pain relief" group would have ended u
 - g = 11 or more
 
 
+
 {:.input_area}
 ```python
 sum(stats.hypergeom.pmf([11, 12, 13], 31, 13, 15))
 ```
+
 
 
 

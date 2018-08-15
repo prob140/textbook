@@ -24,6 +24,7 @@ f(x, y) ~ = ~
 $$
 
 
+
 {:.input_area}
 ```python
 def jt_dens(x,y):
@@ -36,12 +37,21 @@ Plot_3d(x_limits=(0,1), y_limits=(0,1), f=jt_dens, cstride=4, rstride=4)
 ```
 
 
-![png]({{ site.baseurl }}/images/chapters/Chapter_17/03_Marginal_and_Conditional_Densities_2_0.png)
+
+![png](../../images/chapters/Chapter_17/03_Marginal_and_Conditional_Densities_2_0.png)
 
 
 Then the possible values of $(X, Y)$ are in the upper right hand triangle of the unit square.
 
+
+
+
+
+![png](../../images/chapters/Chapter_17/03_Marginal_and_Conditional_Densities_4_0.png)
+
+
 Here is a quick check by `SymPy` to see that the function $f$ is indeed a joint density.
+
 
 
 {:.input_area}
@@ -52,10 +62,13 @@ joint_density = 30*(y-x)**4
 ```
 
 
+
+
 {:.input_area}
 ```python
 Integral(joint_density, (y, x, 1), (x, 0, 1)).doit()
 ```
+
 
 
 
@@ -77,6 +90,13 @@ f_X(x)dx &\sim P(X \in dx) \\
 $$
 
 You can see the reasoning behind this calculation in the graph below. The blue strip shows the event $\{ X \in dx \}$ for a value of $x$ very near 0.25. To find the volume $P(X \in dx)$, we hold $x$ fixed and add over all $y$. 
+
+
+
+
+
+![png](../../images/chapters/Chapter_17/03_Marginal_and_Conditional_Densities_9_0.png)
+
 
 So the density of $X$ is given by
 $$
@@ -100,16 +120,25 @@ $$
 Here is the joint density surface again. You can see that $X$ is much more likely to be near 0 than near 1. 
 
 
+
 {:.input_area}
 ```python
 Plot_3d(x_limits=(0,1), y_limits=(0,1), f=jt_dens, cstride=4, rstride=4)
 ```
 
 
-![png]({{ site.baseurl }}/images/chapters/Chapter_17/03_Marginal_and_Conditional_Densities_10_0.png)
+
+![png](../../images/chapters/Chapter_17/03_Marginal_and_Conditional_Densities_12_0.png)
 
 
 That can be seen in the shape of the density of $X$.
+
+
+
+
+
+![png](../../images/chapters/Chapter_17/03_Marginal_and_Conditional_Densities_14_0.png)
+
 
 ### Density of $Y$
 Correspondingly, the density of $Y$ can be found by fixing $y$ and integrating over $x$ as follows:
@@ -124,6 +153,13 @@ For $0 < y < 1$,
 $$
 f_Y(y) ~ = ~ \int_0^y 30(y-x)^4dx ~ = ~ 6y^5
 $$
+
+
+
+
+
+![png](../../images/chapters/Chapter_17/03_Marginal_and_Conditional_Densities_16_0.png)
+
 
 ### Conditional Densities
 Consider the conditional probability $P(Y \in dy \mid X \in dx)$. By the division rule, 
@@ -164,6 +200,7 @@ $$
 This is a density on $(0.4, 1)$:
 
 
+
 {:.input_area}
 ```python
 declare('y', interval=(0.4, 1))
@@ -174,11 +211,19 @@ Integral(cond_density, (y, 0.4, 1)).doit()
 
 
 
+
 $$0.999999999999999$$
 
 
 
 The figure below shows the overlaid graphs of the density of $Y$ and the conditional density of $Y$ given $X = 0.4$. You can see that the conditional density is more concentrated on large values of $Y$, because under the condition $X = 0.4$ you know that $Y$ can't be small.
+
+
+
+
+
+![png](../../images/chapters/Chapter_17/03_Marginal_and_Conditional_Densities_21_0.png)
+
 
 #### Using a Conditional Density
 We can use conditional densities to find probabilities and expectations, just as we would use an ordinary density. Here are some examples of calculations. In each case we will set up the integrals and then use `SymPy`.
@@ -190,12 +235,14 @@ $$
 The answer is about 60%. 
 
 
+
 {:.input_area}
 ```python
 declare('y', interval=(0, 1))
 cond_density = (5/(0.6**5))*(y - 0.4)**4
 Integral(cond_density, (y, 0.9, 1)).doit()
 ```
+
 
 
 
@@ -211,10 +258,12 @@ E(Y \mid X = 0.4) ~ = ~ \int_{0.4}^1 y \frac{5}{0.6^5} (y - 0.4)^4 dy ~ = ~ 0.9
 $$
 
 
+
 {:.input_area}
 ```python
 Integral(y*cond_density, (y, 0.4, 1)).doit()
 ```
+
 
 
 

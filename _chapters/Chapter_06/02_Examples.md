@@ -41,10 +41,12 @@ $$
 The second form would be quicker if you were going to complete the numerical calculations by hand. But you are not going to be doing that. Rather, you will do:
 
 
+
 {:.input_area}
 ```python
 sum(stats.binom.pmf(np.arange(3, 21), 20, 0.1))
 ```
+
 
 
 
@@ -59,10 +61,12 @@ sum(stats.binom.pmf(np.arange(3, 21), 20, 0.1))
 or, equivalently,
 
 
+
 {:.input_area}
 ```python
 1 - sum(stats.binom.pmf(np.arange(3), 20, 0.1))
 ```
+
 
 
 
@@ -83,12 +87,14 @@ So now what's a "trial"? It's a course staff member: GSI or tutor. There are 7 o
 We're all set to use the binomial: $n = 7$, $k = 0, 1, 2, 3$, and $p$ is the probability of getting two 0's in 20 runs. Hence
 
 
+
 {:.input_area}
 ```python
 p = stats.binom.pmf(2, 20, 0.1)
 
 sum(stats.binom.pmf(np.arange(4), 7, p))
 ```
+
 
 
 
@@ -122,10 +128,12 @@ $$
 which is
 
 
+
 {:.input_area}
 ```python
 sum(stats.binom.pmf(np.arange(3, 8), 10, 1/2))
 ```
+
 
 
 

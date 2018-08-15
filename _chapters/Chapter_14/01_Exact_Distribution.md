@@ -93,4 +93,4 @@ Wonderful! We're done! Except that actually doing this involves raising a polyno
 
 Fortunately, as you will see in the next section, `NumPy` comes to our rescue with a set of polynomial methods.
 
-**Technical Note.** We have defined the probability generating function for random variables that have finitely many non-negative integer values. The definition can be extended to random variables that have infinitely many non-negative integer values. But in that case the pgf is an infinite series and we have to be careful about convergence. Typically the pgf is defined only on the domain $|s| \le 1$ so that it converges.
+**Technical Note.** We have defined the probability generating function for random variables that have finitely many non-negative integer values. The definition can be extended to random variables that have infinitely many non-negative integer values. But in that case the pgf is an infinite series and we have to be careful about convergence. Typically the pgf is defined only on the domain $\|s\| \le 1$ so that it converges.

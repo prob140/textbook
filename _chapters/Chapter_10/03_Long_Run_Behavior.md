@@ -141,10 +141,12 @@ We studied this in an earlier section. The transition diagram is
 Here is the transition matrix $\mathbb{P}$.
 
 
+
 {:.input_area}
 ```python
 reflecting_walk
 ```
+
 
 
 
@@ -226,10 +228,12 @@ reflecting_walk
 The `MarkovChain` method `steady_state` returns the stationary distribution $\pi$. You saw earlier that this is the limit of the rows of $\mathbb{P}$.
 
 
+
 {:.input_area}
 ```python
 reflecting_walk.steady_state()
 ```
+
 
 
 
@@ -317,6 +321,7 @@ In other words, this walk is just the same as the sticky reflecting walk, except
 At every step, the next move is determined by a random choice from among three options and by the chain's current location, not on how it got to that location. So the process is a Markov chain. Let's call it $X_0, X_1, X_2, \ldots $ and define its transition matrix.
 
 
+
 {:.input_area}
 ```python
 s = np.arange(1, 6)
@@ -335,10 +340,13 @@ circle_walk = MarkovChain.from_transition_function(s, circle_walk_probs)
 ```
 
 
+
+
 {:.input_area}
 ```python
 circle_walk
 ```
+
 
 
 
@@ -420,10 +428,12 @@ circle_walk
 Because of the symmetry of the transition behavior, no state should be occupied more than any other state, and hence all the $\pi(j)$'s should be equal. This is confirmed by `steady_state`.
 
 
+
 {:.input_area}
 ```python
 circle_walk.steady_state()
 ```
+
 
 
 

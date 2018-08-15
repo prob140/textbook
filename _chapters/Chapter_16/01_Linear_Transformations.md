@@ -38,6 +38,13 @@ Conversely if $T_1$ has the exponential $(1)$ distribution, then $T = \frac{1}{\
 
 Here are graphs of the densities of $T_1$ and $T = \frac{1}{2}T_1$. We know that $T$ has the exponential $(2)$ distribution. 
 
+
+
+
+
+![png](../../images/chapters/Chapter_16/01_Linear_Transformations_2_0.png)
+
+
 The formulas for the two densities are
 
 $$

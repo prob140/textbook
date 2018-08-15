@@ -36,10 +36,12 @@ P(D \mid + ) = \frac{P(D \text{ and } +)}{P(+)}
 $$
 
 
+
 {:.input_area}
 ```python
 (.004*.99)/(0.004*.99 + 0.996*.005)
 ```
+
 
 
 
@@ -79,6 +81,7 @@ For such a person, we have to rethink our assumptions about randomness. If a per
 - We will observe the changes in the "posterior probability" of disease given that the person tested positive, for different values of the prior.
 
 
+
 {:.input_area}
 ```python
 prior = make_array(0.004, 0.01, 0.05, 0.1, 0.5)
@@ -87,6 +90,7 @@ Table().with_columns(
     'Posterior P(D|+)', (prior*0.99)/(prior*0.99 + (1-prior)*0.005)
 )
 ```
+
 
 
 

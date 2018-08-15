@@ -47,6 +47,7 @@ where $A = (X_1 + X_2 + \ldots + X_n)/n$ is the sample average.
 Here is the simulation we did in Data 8, using a sample of size 30 to estimate $N$ which we had taken to be 300.
 
 
+
 {:.input_area}
 ```python
 N = 300
@@ -68,6 +69,8 @@ results = Table().with_columns(
 ```
 
 
+
+
 {:.input_area}
 ```python
 every_ten = np.arange(1, N+101, 10)
@@ -75,7 +78,8 @@ results.hist(bins=every_ten)
 ```
 
 
-![png]({{ site.baseurl }}/images/chapters/Chapter_12/02_Prediction_and_Estimation_5_0.png)
+
+![png](../../images/chapters/Chapter_12/02_Prediction_and_Estimation_5_0.png)
 
 
 We constructed the estimator $2A - 1$ to be unbiased, and indeed its empirical distribution is symmetric around the parameter 300. The estimator $M$ is clearly biased: it can never be larger than $N$ but it can be smaller. If we just compare expectations, then $E(2A-1) = 300$ while $E(M) \ne 300$, so it seems as though $2A-1$ is the better estimate.
@@ -83,10 +87,12 @@ We constructed the estimator $2A - 1$ to be unbiased, and indeed its empirical d
 But the graph tells a different story, because the graph also shows the spread in each of the two distributions. The distribution of $2A-1$ is much more spread out than the distribution of $M$. The two empirical SDs differ by a factor of around 3.5:
 
 
+
 {:.input_area}
 ```python
 np.std(maxes)
 ```
+
 
 
 
@@ -99,10 +105,12 @@ np.std(maxes)
 
 
 
+
 {:.input_area}
 ```python
 np.std(double_means)
 ```
+
 
 
 

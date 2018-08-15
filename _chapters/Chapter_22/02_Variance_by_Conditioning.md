@@ -33,6 +33,13 @@ In the graph below, the black line is at the level $E(Y)$, and the dark blue poi
 - $D_w$, the length of the purple segment
 - $D_b$, the length of the green segment
 
+
+
+
+
+![png](../../images/chapters/Chapter_22/02_Variance_by_Conditioning_2_0.png)
+
+
 ### Decomposition of Variance
 The expectation $E(Y)$ is a constant. That means $D_b = b(X) - E(Y)$ is a function of $X$ and hence is uncorrelated with $D_w$. Because $D_Y = D_w + D_b$, we have a *decomposition of variance*:
 

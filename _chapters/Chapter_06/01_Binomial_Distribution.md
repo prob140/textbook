@@ -102,10 +102,12 @@ $$
 `SciPy` is a system for scientific computing, based on Python. The `stats` submodule of `scipy` does numerous calculations in probability and statistics. We will be importing it at the start of every notebook from now on.
 
 
+
 {:.input_area}
 ```python
 from scipy import stats
 ```
+
 
 The function `stats.binom.pmf` takes three arguments: $k$, $n$, and $p$, in that order. It returns the numerical value of $P(S_n = k)$ For short, we will say that the function returns the binomial $(n, p)$ probability of $k$.
 
@@ -115,10 +117,12 @@ The chance of 3 sixes in 7 rolls of a die is
 $\binom{7}{3}(1/6)^3(5/6)^4$ by the binomial formula, which works out to about 8% by the calculation below.
 
 
+
 {:.input_area}
 ```python
 stats.binom.pmf(3, 7, 1/6)
 ```
+
 
 
 
@@ -133,10 +137,12 @@ stats.binom.pmf(3, 7, 1/6)
 You can also specify an array or list of values of $k$, and `stats.binom.pmf` will return an array consisting of all their probabilities.
 
 
+
 {:.input_area}
 ```python
 stats.binom.pmf([2, 3, 4], 7, 1/6)
 ```
+
 
 
 
@@ -151,10 +157,12 @@ array([ 0.23442858,  0.07814286,  0.01562857])
 Thus to find $P(2 \le S_7 \le 4)$, you can use
 
 
+
 {:.input_area}
 ```python
 sum(stats.binom.pmf([2, 3, 4], 7, 1/6))
 ```
+
 
 
 
@@ -170,6 +178,7 @@ sum(stats.binom.pmf([2, 3, 4], 7, 1/6))
 To visualize binomial distributions we will use the `prob140` method `Plot`, by first using `stats.binom.pmf` to calculate the binomial probabilities. The cell below plots the distribution of $S_7$ above. Notice how we start by specifying all the possible values of $S_7$ in the array `k`.
 
 
+
 {:.input_area}
 ```python
 n = 7
@@ -181,12 +190,14 @@ Plot(binom_7_1_6_dist)
 ```
 
 
-![png]({{ site.baseurl }}/images/chapters/Chapter_06/01_Binomial_Distribution_12_0.png)
+
+![png](../../images/chapters/Chapter_06/01_Binomial_Distribution_12_0.png)
 
 
 Not surprisingly, the graph shows that in 7 rolls of a die you are most likely to get around 1 six.
 
 This distribution is not symmetric, as you would expect. But something interesting happens to the distribution of the number of sixes when you increase the number of rolls.
+
 
 
 {:.input_area}
@@ -200,12 +211,14 @@ Plot(binom_600_1_6_dist)
 ```
 
 
-![png]({{ site.baseurl }}/images/chapters/Chapter_06/01_Binomial_Distribution_14_0.png)
+
+![png](../../images/chapters/Chapter_06/01_Binomial_Distribution_14_0.png)
 
 
 This distribution is close to symmetric, even though the die has only a 1/6 chance of showing a six.
 
 Also notice that while the the *possible* values of the number of sixes range from 0 to 600, the *probable* values are in a much smaller range. The `plt.xlim` function allows us to zoom in on the probable values. The semicolon is just to prevent Python giving us a message that clutters up the graph. The `edges=True` option forces `Plot` to draw lines separating the bars; by default, it stops doing that if the number of bars is large.
+
 
 
 {:.input_area}
@@ -215,12 +228,14 @@ plt.xlim(70, 130);
 ```
 
 
-![png]({{ site.baseurl }}/images/chapters/Chapter_06/01_Binomial_Distribution_16_0.png)
+
+![png](../../images/chapters/Chapter_06/01_Binomial_Distribution_16_0.png)
 
 
 But the binomial $(n, p)$ distribution doesn't always look bell shaped if $n$ is large.
 
 Something quite different happens if for example your random variable is the number of successes in 600 independent trials that have probability 1/600 of success on each trial. Then the distribution of the number of successes is binomial $(600, 1/600)$, which looks like this:
+
 
 
 {:.input_area}
@@ -234,10 +249,12 @@ Plot(binom_600_1_600_dist)
 ```
 
 
-![png]({{ site.baseurl }}/images/chapters/Chapter_06/01_Binomial_Distribution_18_0.png)
+
+![png](../../images/chapters/Chapter_06/01_Binomial_Distribution_18_0.png)
 
 
 We really can't see that at all! Let's zoom in. When we set the limits on the horizontal axis, we have to account for the bar at 0 being centered at the 0 and hence starting at -0.5.
+
 
 
 {:.input_area}
@@ -247,7 +264,8 @@ plt.xlim(-1, 10);
 ```
 
 
-![png]({{ site.baseurl }}/images/chapters/Chapter_06/01_Binomial_Distribution_20_0.png)
+
+![png](../../images/chapters/Chapter_06/01_Binomial_Distribution_20_0.png)
 
 
 Now you can see that in 600 independent trials with probability 1/600 of success on each trial, you are most likely to get no successes or 1 success. There is some chance that you get 2 through 4 successes, but the chance of any number of successes greater than 4 is barely visible on the scale of the graph.

@@ -40,13 +40,15 @@ The function `bivariate_normal_regression` takes $\rho$ and $n$ as its arguments
 You saw such plots in Data 8 but run the cell a few times anyway to refresh your memory. You can see the regression effect when $\rho > 0$: the green line is flatter than the red "equal standard units" 45 degree line. 
 
 
+
 {:.input_area}
 ```python
 bivariate_normal_regression(0.6, 1000)
 ```
 
 
-![png]({{ site.baseurl }}/images/chapters/Chapter_24/03_Regression_and_Bivariate_Normal_2_0.png)
+
+![png](../../images/chapters/Chapter_24/03_Regression_and_Bivariate_Normal_2_0.png)
 
 
 ### Prediction Error
@@ -73,11 +75,13 @@ One way to answer such questions is by making some probabilistic assumptions. Ro
 Given that the student is on the 80th percentile of verbal scores, we know they are at what Python calls the 80 percent point of the standard normal curve. So their score in standard units is approximately 0.84:
 
 
+
 {:.input_area}
 ```python
 standard_units_x = stats.norm.ppf(0.8)
 standard_units_x
 ```
+
 
 
 
@@ -92,12 +96,14 @@ standard_units_x
 The regression prediction of the math score in standard units is $0.5 \times 0.84 = 0.42$.
 
 
+
 {:.input_area}
 ```python
 rho = 0.5
 standard_units_predicted_y = rho * standard_units_x
 standard_units_predicted_y
 ```
+
 
 
 
@@ -112,10 +118,12 @@ standard_units_predicted_y
 The area to the left of 0.42 under the standard normal curve is about 66%, so your prediction is that the student will be on roughly the 66th percentile of math scores.
 
 
+
 {:.input_area}
 ```python
 stats.norm.cdf(standard_units_predicted_y)
 ```
+
 
 
 

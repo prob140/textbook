@@ -114,6 +114,7 @@ Run the cell again, keeping $r = 5$ and $s = 3$ but changing $n$ to 10 and $k$ t
 Also try other values of the parameters as well as $n$ and $k$, including values where the observed proportion is quite different from the mean of the prior.
 
 
+
 {:.input_area}
 ```python
 # Prior: beta (r, s)
@@ -130,7 +131,8 @@ plot_prior_and_posterior(r, s, n, k)
 ```
 
 
-![png]({{ site.baseurl }}/images/chapters/Chapter_21/01_Updating_and_Prediction_7_0.png)
+
+![png](../../images/chapters/Chapter_21/01_Updating_and_Prediction_7_0.png)
 
 
 You can see how the data dominate the prior. The posterior distribution is concentrated around the posterior mean. The prior mean was 0.625, but given that we got 70 heads in 100 tosses, the posterior mean is 0.694 which is very close to the observerd proportion 0.7. 
