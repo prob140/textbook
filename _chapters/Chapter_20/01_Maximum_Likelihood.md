@@ -75,6 +75,7 @@ The function $L$ looks much more friendly than $Lik$.
 Because $\log(C)$ doesn't affect the maximization, we have defined a function to calculate $L - \log(C)$ for the sample 52.8, 51.1, 54.2, and 52.5 drawn from the normal $(\mu, 1)$ distribution. Remember that we began this section by comparing 32 and 52 as estimates of $\mu$, based on this sample.
 
 
+
 {:.input_area}
 ```python
 sample = make_array(52.8, 51.1, 54.2, 52.5)
@@ -82,7 +83,15 @@ def shifted_log_lik(mu):
     return (-1/2) * sum((sample - mu)**2)
 ```
 
+
 Here is a graph of the function for $\mu$ in the interval $(30, 70)$.
+
+
+
+
+
+![png](../../images/chapters/Chapter_20/01_Maximum_Likelihood_5_0.png)
+
 
 The maximizing value of $\mu$ looks very close to 52.5. To find exactly where it is, we will find the derivative of $L$ with respect to $\mu$ and set that equal to 0.
 
@@ -105,10 +114,12 @@ We should check that this yields a maximum and not a minimum, but given the answ
 We have shown that the MLE of $\mu$ is the sample mean $\bar{X}$, regardless of the population SD $\sigma$. In the case of the sample we used for the plot above, $\bar{X} = 52.65$.
 
 
+
 {:.input_area}
 ```python
 np.mean(sample)
 ```
+
 
 
 
