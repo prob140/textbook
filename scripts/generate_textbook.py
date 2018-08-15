@@ -68,12 +68,13 @@ def _clean_notebook_cells(path_ntbk):
     nbf.write(ntbk, path_ntbk)
 
 
-def _clean_lines(lines):
+def _clean_lines(lines, filepath):
     """Replace images with jekyll image root and add escape chars as needed."""
     inline_replace_chars = ['#']
     for ii, line in enumerate(lines):
         # Images: replace absolute nbconvert image paths to baseurl paths
-        line = line.replace(IMAGES_FOLDER, '{{ site.baseurl }}/images')
+        path_rel_root = op.relpath(SITE_ROOT, op.dirname(filepath))
+        line = line.replace(IMAGES_FOLDER, op.join(path_rel_root, 'images'))
 
         # Adding escape slashes since Jekyll removes them
         # Make sure we have at least two dollar signs and they
@@ -81,7 +82,7 @@ def _clean_lines(lines):
         dollars = np.where(['$' == char for char in line])[0]
         if len(dollars) > 2 and all(ii > 1 for ii in (dollars[1:] - dollars[:1])):
             for char in inline_replace_chars:
-                line = line.replace('\\#', '\\\\#')
+                line = line.replace('\\{}'.format(char), '\\\\{}'.format(char))
         line = line.replace(' \\$', ' \\\\$')
         lines[ii] = line
     return lines
@@ -222,7 +223,10 @@ if __name__ == '__main__':
             # Clean up the file before converting
             cleaner = NotebookCleaner(tmp_notebook)
             cleaner.remove_cells(empty=True)
-            cleaner.remove_cells(search_text="# HIDDEN")
+            if site_yaml.get('hide_cell_text', False):
+                cleaner.remove_cells(search_text=site_yaml.get('hide_cell_text'))
+            if site_yaml.get('hide_code_text', False):
+                cleaner.clear(kind="content", search_text=site_yaml.get('hide_code_text'))
             cleaner.clear('stderr')
             cleaner.save(tmp_notebook)
             _clean_notebook_cells(tmp_notebook)
@@ -250,7 +254,7 @@ if __name__ == '__main__':
         # Extra slash to the inline math before `#` since Jekyll strips it
         with open(new_file_path, 'r') as ff:
             lines = ff.readlines()
-        lines = _clean_lines(lines)
+        lines = _clean_lines(lines, new_file_path)
 
         # Front-matter YAML
         yaml_fm = []

@@ -34,10 +34,15 @@ div.MathJax_Display {
 
 // Sidebar
 div.sidebar {
-  width: 25%;
   @media (min-width: 64em) {
     overflow-y: auto;
     height: calc( 100vh - 2em ) !important;
+  }
+}
+
+div.textbook div.sidebar {
+  @media (min-width: 64em) {
+    position: fixed;
   }
 }
 
@@ -60,6 +65,10 @@ section.textbook article {
     height: calc( 100vh - 2em ) !important;
     overflow-y: auto;
   }
+}
+
+article.textbook section.page__content {
+  min-height: calc( 100vh - 2em );
 }
 
 article.textbook section {
