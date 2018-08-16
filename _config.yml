@@ -2,7 +2,7 @@ minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt"
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Stat 140 Textbook with Jekyll"
+title                    : "Prob 140 Textbook"
 title_separator          : "-"
 name                     : "Ani Adhikari"
 description              : ""
@@ -20,7 +20,7 @@ hub_type                 : "jupyterhub"  # ['binder', 'jupyterhub']  Whether to 
 textbook_repo_base       : "https://github.com/"  # The site on which the textbook repository is hosted
 textbook_repo_org        : "prob140"  # The username or organization that owns this repository
 textbook_repo_name       : "textbook"  # The name of the repository on the web
-textbook_repo_branch     : "master"  # The branch on which your textbook is hosted.
+textbook_repo_branch     : "gh-pages"  # The branch on which your textbook is hosted.
 number_chapters          : false  # Whether to number the chapers in the sidebar for the textbook
 chapter_titles           : true  # Whether to include the title of the chapter at the top of each chapter
 textbook_only            : true  # If 'true', the home page will be the first chapter of the textbook, and *only* the sidebar is shown
