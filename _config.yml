@@ -6,8 +6,8 @@ title                    : "Stat 140 Textbook with Jekyll"
 title_separator          : "-"
 name                     : "Ani Adhikari"
 description              : ""
-url                      : "https://dcroce.github.io" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
-baseurl                  : "/textbook-jekyll-template" # the subpath of your site, e.g. "/blog". Defaults to "/"
+url                      : "http://prob140.org" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+baseurl                  : "/textbook" # the subpath of your site, e.g. "/blog". Defaults to "/"
 repository               : # GitHub username/repo-name for this site
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 footer                   : false # Whether to include a footer with the built site
