@@ -18,8 +18,8 @@ hub_url                  : "https://prob140.datahub.berkeley.edu"  # The URL for
 hub_name                 : "JupyterHub"  # The name of your JupyterHub (used for the button in the NavBar. If an empty string, no button is shown)
 hub_type                 : "jupyterhub"  # ['binder', 'jupyterhub']  Whether to build interact links for a BinderHub or a JupyterHub
 textbook_repo_base       : "https://github.com/"  # The site on which the textbook repository is hosted
-textbook_repo_org        : "dcroce"  # The username or organization that owns this repository
-textbook_repo_name       : "textbook-jekyll-template"  # The name of the repository on the web
+textbook_repo_org        : "prob140"  # The username or organization that owns this repository
+textbook_repo_name       : "textbook"  # The name of the repository on the web
 textbook_repo_branch     : "master"  # The branch on which your textbook is hosted.
 number_chapters          : false  # Whether to number the chapers in the sidebar for the textbook
 chapter_titles           : true  # Whether to include the title of the chapter at the top of each chapter
