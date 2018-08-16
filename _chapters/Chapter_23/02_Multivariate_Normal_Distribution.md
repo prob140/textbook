@@ -117,7 +117,7 @@ $$
 f_\mathbf{X}(\mathbf{x}) ~ = ~ f(\mathbf{z}) \cdot \frac{1}{s}
 $$
 
-where $\mathbf{z}$ is the preimage of $\mathbf{x}$ and $s$ is the volume of the parallelopiped formed by the transformed unit vectors. That is, $s = |\det(\mathbf{A})|$. Now
+where $\mathbf{z}$ is the preimage of $\mathbf{x}$ and $s$ is the volume of the parallelopiped formed by the transformed unit vectors. That is, $s = \|\det(\mathbf{A})\|$. Now
 
 $$
 \det(\boldsymbol{\Sigma}_\mathbf{X}) ~ = ~ \det(\mathbf{AA}^T) ~ = ~ (\det(\mathbf{A}))^2

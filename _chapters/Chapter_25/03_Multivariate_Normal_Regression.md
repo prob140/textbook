@@ -16,8 +16,9 @@ redirect_from:
 
 Whe $Y$ and $\mathbf{X}$ have a multivariate normal distribution with positive definite covariance matrix, then best linear predictor derived in the previous section is the best among all predictors of $Y$ based on $\mathbf{X}$. That is,
 
-- $E(Y \mid \mathbf{X}) = \boldsymbol{\Sigma}_{Y, \mathbf{X}}\boldsymbol{\Sigma}_\mathbf{X}^{-1} (\mathbf{X} - \boldsymbol{\mu}_\mathbf{X}) + \mu_Y$
-- $Var(Y \mid \mathbf{X}) = \sigma_Y^2 - \boldsymbol{\Sigma}_{Y, \mathbf{X}}\boldsymbol{\Sigma}_\mathbf{X}^{-1} \boldsymbol{\Sigma}_{\mathbf{X}, Y}$
+- $E(Y \mid \mathbf{X}) = \boldsymbol{\Sigma}\_{Y, \mathbf{X}}\boldsymbol{\Sigma}\_\mathbf{X}^{-1} (\mathbf{X} - \boldsymbol{\mu}\_\mathbf{X}) + \mu_Y$
+- $Var(Y \mid \mathbf{X}) = \sigma_Y^2 - \boldsymbol{\Sigma}\_{Y, \mathbf{X}}\boldsymbol{\Sigma}\_\mathbf{X}^{-1} \boldsymbol{\Sigma}\_{\mathbf{X}, Y}$
+
 
 Also, the conditional distribution of $Y$ given $\mathbf{X}$ is normal.
 
@@ -76,7 +77,7 @@ $$
 
 The cell below produces a simulation of 200 points drawn from the multivariate normal distribution with the parameters provided. The variable plotted on the vertical dimension is $Y$, with the other two axes representing the two predictors $X_1$ and $X_2$.
 
-The plane is $E(Y \mid \mathbf{X}) = \boldsymbol{\Sigma}_{Y, \mathbf{X}}\boldsymbol{\Sigma}_\mathbf{X}^{-1} (\mathbf{X} - \boldsymbol{\mu}_\mathbf{X}) + \mu_Y$. Keep in mind that it is computed according to this formula; it has not been estimated based on the 200 simulated points.
+The plane is $E(Y \mid \mathbf{X}) = \boldsymbol{\Sigma}\_{Y, \mathbf{X}}\boldsymbol{\Sigma}\_\mathbf{X}^{-1} (\mathbf{X} - \boldsymbol{\mu}\_\mathbf{X}) + \mu\_Y$. Keep in mind that it is computed according to this formula; it has not been estimated based on the 200 simulated points.
 
 Notice that all three variables are in standard units and that the two predictor variables are not highly correlated: $r(X_1, X_2) = 0.2$. You can change the parameters, of course, but you will get an error message if you enter a "covariance matrix" that is not positive semidefinite.
 
@@ -136,4 +137,4 @@ The data – that is, the cloud of points – consist of $n$ observations of the
 
 The standard notation is to let $X$ be the $n \times p$ predictor matrix whose $j$th column $[x_{1j} ~ x_{2j} ~ \ldots ~ x_{nj}]^T$ consists of the $n$ observations of the $j$th predictor variable $X_j$. Let $y$ denoted the $n \times 1$ vector of observations of $Y$. 
 
-Our formula says that the coefficients of the best linear function for predicting $Y$ based on $\mathbf{X}$ are the entries of the $p \times 1$ vector $\mathbf{b}= \boldsymbol{\Sigma}_\mathbf{X}^{-1}\boldsymbol{\Sigma}_{\mathbf{X}, Y}$. The coefficients of the best linear function based on the data are the entries of the $p \times 1$ vector $\hat{\beta} = (X^TX)^{-1}X^Ty$. You should be able to work out why.
+Our formula says that the coefficients of the best linear function for predicting $Y$ based on $\mathbf{X}$ are the entries of the $p \times 1$ vector $\mathbf{b}= \boldsymbol{\Sigma}\_\mathbf{X}^{-1}\boldsymbol{\Sigma}\_{\mathbf{X}, Y}$. The coefficients of the best linear function based on the data are the entries of the $p \times 1$ vector $\hat{\beta} = (X^TX)^{-1}X^Ty$. You should be able to work out why.

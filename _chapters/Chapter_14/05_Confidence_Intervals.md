@@ -100,7 +100,7 @@ P(\bar{X}_n \in \mu ~ \pm ~ z_\lambda \sigma/\sqrt{n}) ~ = ~
 P(\mu \in \bar{X}_n ~ \pm ~ z_\lambda \sigma/\sqrt{n})
 $$
 
-The random interval $\bar{X}_n ~ \pm ~ z_\lambda \sigma/\sqrt{n}$ is called *an approximate $\lambda$% confidence interval for the population mean $\mu$*. There is about a $\lambda$% chance that this random interval contains the parameter $\mu$.
+The random interval $\bar{X}_n ~ \pm ~ z\_\lambda \sigma/\sqrt{n}$ is called *an approximate $\lambda$% confidence interval for the population mean $\mu$*. There is about a $\lambda$% chance that this random interval contains the parameter $\mu$.
 
 The only difference between confidence intervals of different levels is the choice of $z$ which depends on the level. The other two components are the sample mean and its SD.
 

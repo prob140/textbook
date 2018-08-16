@@ -69,7 +69,7 @@ $$
 ### Waiting till HH
 In tosses of a $p$-coin, let $W_{HH}$ be the number of tosses till you see two heads in a row. 
 
-** Question.** What is $E(W_{HH})$?
+**Question.** What is $E(W_{HH})$?
 
 **Answer 1.** We can find this is several ways. One way is by conditioning on the first two tosses.
 - With probability $q$, the first toss is a tail, so $W_{HH} = 1 + W^\*$ where $W^\*$ is an independent copy of $W_{HH}$.
