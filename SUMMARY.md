@@ -36,6 +36,7 @@
  * [5.2 Inclusion-Exclusion](notebooks/Chapter_05/02_Inclusion_Exclusion.ipynb)
  * [5.3 The Matching Problem](notebooks/Chapter_05/03_The_Matching_Problem.ipynb)
  * [5.4 Sampling Without Replacement](notebooks/Chapter_05/04_Sampling_Without_Replacement.ipynb)
+ * [5.5 Review Problem Set 1](notebooks/Chapter_05/05_Review_Problems_Set_1.ipynb)
 
 * [Chapter 6: Random Counts](notebooks/Chapter_06/00_Random_Counts.ipynb)
  * [6.1 The Binomial Distribution](notebooks/Chapter_06/01_Binomial_Distribution.ipynb)
