@@ -14,7 +14,7 @@ redirect_from:
 
 ## Collisions in Hashing
 
-In computer science, *hash functions* assign a code called a *hash value* to each of a set of individuals. It's important that each individual be assigned a unique value. If two individuals are assigned the same value, there is a *collision*, and this causes trouble in identification. Yet it is cumbersome to keep track of which hash values have and have not been assigned, as the numbers of hash values and individuals can be very large.
+In computer science, *hash functions* assign a code called a *hash value* to each member of a set of individuals. It's important that each individual be assigned a unique value. If two individuals are assigned the same value, there is a *collision*, and this causes trouble in identification. Yet it is cumbersome to keep track of which hash values have and have not been assigned, as the numbers of hash values and individuals can be very large.
 
 What if the hash values were just assigned at random, without taking into account which of them have already been assigned? If there are a large number of distinct values and a relatively small number of individuals, then it seems reasonable to think that the chance of a collision will be small. For example, if there are 1,000 available hash values and only 5 individuals, it doesn't seem likely that you'll get a collision if you just pick a random sequence of 5 values for the 5 individuals.
 
@@ -45,9 +45,11 @@ Let's do it this way:
 - Notice that for each $i$, the term in the product corresponding to Place $i$ is $N-i$. This makes the sequence easy to continue up to the end, that is, to Place $(n-1)$.
 
 $$
-P(\mbox{no collisions}) ~=~ 
-\frac{N(N-1)(N-2) \cdots (N-(n-1))}{N^n}
-~=~ \frac{N(N-1)(N-2) \cdots (N-n+1)}{N^n}
+\begin{align*}
+P(\mbox{no collisions}) ~ &=~ 
+\frac{N(N-1)(N-2) \cdots (N-(n-1))}{N^n} \\ \\
+&=~ \frac{N(N-1)(N-2) \cdots (N-n+1)}{N^n}
+\end{align*}
 $$
 
 "Continuing the sequence" is an informal process that needs a mathematical justification. You can prove that by the method of induction.
@@ -55,9 +57,11 @@ $$
 There are $n$ terms in the product in the numerator, and there are $n$ factors of $N$ in the denominator. This allows us to write the formula in a different way, as a product of $n$ fractions:
 
 $$
-P(\mbox{no collisions}) ~=~
-\frac{N}{N} \cdot \frac{N-1}{N} \cdot \frac{N-2}{N} \cdots \frac{N-n+1}{N}
-~=~ \prod_{i=0}^{n-1} \frac{N-i}{N}
+\begin{align*}
+P(\mbox{no collisions}) ~ &=~
+\frac{N}{N} \cdot \frac{N-1}{N} \cdot \frac{N-2}{N} \cdots \frac{N-n+1}{N} \\ \\
+&=~ \prod_{i=0}^{n-1} \frac{N-i}{N}
+\end{align*}
 $$
 
 The symbol $\prod$ stands for "product" just as $\sum$ stands for "sum".

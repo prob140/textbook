@@ -32,21 +32,23 @@ $$
 
 This idea that probabilities are proportions lies at the heart of many calculations. As you will see later, rules for combining proportions become rules for combining probabilities, whether or not all outcomes are equally likely. But for now we will work in settings where it is natural to assume that outcomes are equally likely.
 
-#### Example 1: Random Permutations
+### Example 1: Random Permutations
 Let $\Omega$ be the space of all permutations of the letters $a$, $b$, and $c$. Then $\Omega$ contains $n=6$ outcomes:
+
 $$
 \Omega ~=~ \{ abc, ~acb, ~bac, ~bca, ~cab, ~cba \}
 $$
+
 If we assume that all six permutations are equally likely, we are working with what are called *random permutations* of the three letters. Under this assumption, we can augment our table of events with a column of chances.
 
 Event | Verbal Description                               | Subset $~~~~~~~~~~~~$| Probability
 :----:|:-------------------------------------------------|:-------------|:------:| 
-$A$   | $a$ appears first                                |$\{abc, ~acb\}$ | $\frac{2}{6} = \frac{1}{3}$ 
-$B$   | $b$ and $c$ are not next to each other           |$\{bac, ~cab\}$ | $\frac{1}{3}$
-$C$   | the letters are in alphabetical order            | $\{abc\}$ | $\frac{1}{6}$    
+$A$   | $a$ appears first                                |$\\{abc, ~acb\\}$ | $\frac{2}{6} = \frac{1}{3}$ 
+$B$   | $b$ and $c$ are not next to each other           |$\\{bac, ~cab\\}$ | $\frac{1}{3}$
+$C$   | the letters are in alphabetical order            | $\\{abc\\}$ | $\frac{1}{6}$    
 $D$   | $a$ appears first, $b$ next, but $c$ isn't third | $\phi$ | $0$       
 $E$   | $c$ is either first, second, or third            | $\Omega$ | $1$ 
-$F$   | the letters form a word that means "taxi" | $\{ cab \}$ | $\frac{1}{6}$
+$F$   | the letters form a word that means "taxi" | $\\{ cab \\}$ | $\frac{1}{6}$
 
 Notice that
 $$
@@ -56,7 +58,7 @@ $$
 
 Thus the assumption that all the permutations are equally likely makes all three positions of $a$ equally likely as well. The same is true of the positions of $b$ and $c$, as you should check.
 
-#### Example 2: Random Number Generator
+### Example 2: Random Number Generator
 Suppose a random number generator returns a pair of digits from among the 100 pairs 00, 01, 02, $\ldots$, 98, 99, in a way that makes all the pairs equally likely to be returned. 
 
 You will have noticed that the pairs correspond to the 100 integers 0 through 99. In what follows, it will be useful to remind yourself of the product rule of counting: 

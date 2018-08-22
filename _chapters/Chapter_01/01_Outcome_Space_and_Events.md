@@ -24,24 +24,24 @@ An **outcome** $\omega$ is an element of the outcome space $\Omega$. Though $\om
 
 An **event** is a subset of $\Omega$. The empty set $\phi$ and the entire space $\Omega$ are allowed as subsets. By convention, early letters of the alphabet like $A$ and $B$ are commonly used as notation for events.
 
-#### Example 1: Permutations
+### Example: Permutations
 Suppose you are shuffling three cards labeled $a$, $b$, and $c$. Then the space of all possible outcomes is
 $$
 \Omega ~=~ \{ abc, ~acb, ~bac, ~bca, ~cab, ~cba \}
 $$
-The event $\{abc, ~ acb \}$  can be described as "$a$ appears first". Such verbal descriptions of events are made formal by defining the events as subsets. This is the first step in developing a theory that is precise and consistent while also being expressed in language that is natural for applications.
+The event $\\{abc, ~ acb \\}$  can be described as "$a$ appears first". Such verbal descriptions of events are made formal by defining the events as subsets. This is the first step in developing a theory that is precise and consistent while also capable of being expressed in language that is natural for applications.
 
 Event | Verbal Description                               | Subset $~~~~~~~~~~~~$|
 :----:|:-------------------------------------------------|:------------- 
-$A$   | $a$ appears first                                |$\{abc, ~acb\}$ 
-$B$   | $b$ and $c$ are not next to each other           |$\{bac, ~cab\}$
-$C$   | the letters are in alphabetical order            | $\{abc\}$     
+$A$   | $a$ appears first                                |$\\{abc, ~acb\\}$ 
+$B$   | $b$ and $c$ are not next to each other           |$\\{bac, ~cab\\}$
+$C$   | the letters are in alphabetical order            | $\\{abc\\}$     
 $D$   | $a$ appears first, $b$ next, but $c$ isn't third | $\phi$        
 $E$   | $c$ is either first, second, or third            | $\Omega$ 
-$F$   | the letters form a word that means "taxi" | $\{ cab \}$
+$F$   | the letters form a word that means "taxi" | $\\{ cab \\}$
 
 
-**A note about "types":** The outcome $\omega = cab$ is different from the event $F = \{ cab \}$. The outcome is an element of the outcome space, and the event is a subset of the outcome space. This subset happens to consist of just one outcome, but it's still a subset, not an element. You can think of this as analogous to different types in Python: `'cab'` is a string whereas `['cab']` is a list.
+**A note about "types":** The outcome $\omega = cab$ is different from the event $F = \\{ cab \\}$. The outcome is an element of the outcome space, and the event is a subset of the outcome space. This subset happens to consist of just one outcome, but it's still a subset, not an element. You can think of this as analogous to different types in Python: `'cab'` is a string whereas `['cab']` is a list.
 
 The table contains six events and you can come up with many more. For each one, see if you can give an interesting verbal description.
 

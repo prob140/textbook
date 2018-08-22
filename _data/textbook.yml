@@ -92,6 +92,9 @@ chapters:
   - class: level_0
     title: 5.4 Sampling Without Replacement
     url: chapters/Chapter_05/04_Sampling_Without_Replacement
+  - class: level_0
+    title: 5.5 Review Problem Set 1
+    url: chapters/Chapter_05/05_Review_Problems_Set_1
   class: level_0
   title: 'Chapter 5: Collections of Events'
   url: chapters/Chapter_05/00_Collections_of_Events

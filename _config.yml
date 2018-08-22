@@ -2,7 +2,7 @@ minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt"
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Stat 140 Textbook with Jekyll"
+title                    : "Prob 140 Textbook"
 title_separator          : "-"
 name                     : "Ani Adhikari"
 description              : ""
@@ -14,13 +14,13 @@ footer                   : false # Whether to include a footer with the built si
 masthead                 : false  # Whether to include a masthead (header/navbar) with the site.
 
 # Textbook settings
-hub_url                  : "https://prob140.datahub.berkeley.edu"  # The URL for your JupyterHub/BinderHub.
+hub_url                  : "https://main.datahub.berkeley.edu"  # The URL for your JupyterHub/BinderHub.
 hub_name                 : "JupyterHub"  # The name of your JupyterHub (used for the button in the NavBar. If an empty string, no button is shown)
 hub_type                 : "jupyterhub"  # ['binder', 'jupyterhub']  Whether to build interact links for a BinderHub or a JupyterHub
 textbook_repo_base       : "https://github.com/"  # The site on which the textbook repository is hosted
 textbook_repo_org        : "prob140"  # The username or organization that owns this repository
 textbook_repo_name       : "textbook"  # The name of the repository on the web
-textbook_repo_branch     : "master"  # The branch on which your textbook is hosted.
+textbook_repo_branch     : "gh-pages"  # The branch on which your textbook is hosted.
 number_chapters          : false  # Whether to number the chapers in the sidebar for the textbook
 chapter_titles           : true  # Whether to include the title of the chapter at the top of each chapter
 textbook_only            : true  # If 'true', the home page will be the first chapter of the textbook, and *only* the sidebar is shown

@@ -14,7 +14,7 @@ div#main {
 }
 
 div.MathJax_Display {
-  font-size: .7em;
+  font-size: .92em;
 }
 
 .page {
@@ -49,6 +49,12 @@ div.textbook div.sidebar {
 .sidebar a:hover {
   text-decoration: underline;
 }
+
+p a {
+  color: #008cff !important;
+}
+
+
 
 .sidebar a.current {
   color: #008cff;
