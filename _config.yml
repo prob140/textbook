@@ -14,7 +14,7 @@ footer                   : false # Whether to include a footer with the built si
 masthead                 : false  # Whether to include a masthead (header/navbar) with the site.
 
 # Textbook settings
-hub_url                  : "https://main.datahub.berkeley.edu"  # The URL for your JupyterHub/BinderHub.
+hub_url                  : "https://datahub.berkeley.edu"  # The URL for your JupyterHub/BinderHub.
 hub_name                 : "JupyterHub"  # The name of your JupyterHub (used for the button in the NavBar. If an empty string, no button is shown)
 hub_type                 : "jupyterhub"  # ['binder', 'jupyterhub']  Whether to build interact links for a BinderHub or a JupyterHub
 textbook_repo_base       : "https://github.com/"  # The site on which the textbook repository is hosted
