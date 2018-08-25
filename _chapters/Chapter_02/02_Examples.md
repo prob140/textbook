@@ -23,8 +23,8 @@ A coin is tossed $n$ times so that all $2^n$ possible sequences of heads and tai
 
 **Answer.** There are many sequences in which each face appears at least once. For example, if $n=4$, such sequences include HTTT, HTHT, TTHT, and so on. 
 
-**Method – Complement:** 
-When an event can happen in many different ways, it might be a good idea to look at the ways in which it *doesn't* happen, in case there are fewer of those.** 
+**Method: Complement.** 
+When an event can happen in many different ways, it might be a good idea to look at the ways in which it *doesn't* happen, in case there are fewer of those.
 
 For $n=4$, the only sequences in which we *don't* get at least one occurrence of each face are HHHH and TTTT. Indeed, for any $n$, there are only two sequences in which we don't get both faces: all heads, and all tails. These are the two sequences in which all the elements are the same.
 
@@ -86,7 +86,7 @@ A random number generator produces two digits so that all the 100 pairs of digit
 
 **Question.** What is the chance that the second digit is greater than the first?
 
-**Answer, Method I – Partition:** Make an organized list of all the ways in which the event can happen. A good way to list the pairs in which the second digit is greater than the first is to *partition* the pairs according to the value of the first digit:
+**Answer, Method I: Partition.** Make an organized list of all the ways in which the event can happen. A good way to list the pairs in which the second digit is greater than the first is to *partition* the pairs according to the value of the first digit:
 
 - first digit 0, second 1 through 9
 - first digit 1, second 2 through 9
@@ -96,12 +96,13 @@ A random number generator produces two digits so that all the 100 pairs of digit
 
 This partition makes it easy to count all the pairs in which the second digit is greater than the first: there are $9+8+7+6+5+4+3+2+1 = (9\times10)/2 = 45$ of them among the 100 possible pairs. So the answer is 0.45.
 
-**Answer, Method II – Symmetry:** Convince yourself of some symmetry: the chance that the second digit is greater than the first is the same as the chance that the first digit is greater than the second. One way to do this is to partition the second event according to the value of the second digit and notice the correspondence with the partition in Method I.
+**Answer, Method II: Symmetry.** Convince yourself of some symmetry: the chance that the second digit is greater than the first is the same as the chance that the first digit is greater than the second. One way to do this is to partition the second event according to the value of the second digit and notice the correspondence with the partition in Method I.
 
 So if $p = P(\text{second digit is greater than the first})$, the addition rule says
+
 $$
 \begin{align*}
-1 &= P(\text{first digit is greater than the second}) + P(\text{the two digits are equal}) + P(\text{second digit is greater than the first}) \\
+1 &= P(\text{first digit greater than second}) + P(\text{the two are equal}) + P(\text{second digit greater than first}) \\ \\
 &= p + \frac{10}{100} + p
 \end{align*}
 $$

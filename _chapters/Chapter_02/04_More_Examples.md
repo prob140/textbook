@@ -36,7 +36,8 @@ A box contains $b$ black balls and $w$ white balls. A ball is drawn at random, a
 
 **Question 1.** What is the chance that the first ball drawn is black?
 
-**Answer 1.** Not much effort required. 
+**Answer 1.** Not much effort required.
+
 $$
 P(\text{first ball black}) = \frac{b}{b+w}
 $$
@@ -54,11 +55,13 @@ P(\text{second ball black}) &= P(WB) + P(BB) \\ \\
 &= \frac{b}{b+w}
 \end{align*}
 $$
+
 That's the same as the chance that the first ball is black, no matter what $d$ is. This scheme is interesting!
 
 **Question 3.** What is the chance that the second ball drawn is black, given that the first one drawn was black?
 
 **Answer 3.** We already used this in the calculation above. Conditional probabilities "going forwards in time" can often just be read off the information in the question, as in this case:
+
 $$
 P(\text{second ball black} \mid \text{first ball black}) =
 \frac{b+d}{b+w+d}

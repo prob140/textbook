@@ -45,6 +45,8 @@ $$
 P(\text{GR}) = \frac{1}{6} = \frac{1}{3} \times \frac{1}{2}
 $$
 
+### Conditional Probability
+
 Let's try to interpret the two fractions in the product. The first factor is not hard to identify.
 
 $$
@@ -71,10 +73,9 @@ P(\text{GR}) &= \frac{\#\{\text{GR}\}}{6} \\ \\
 \end{align*}
 $$
 
-### Conditional Probability
-Calculations like the one above motivate a new definition. Let $A$ and $B$ be two events. Then the *conditional probability of $B$ given $A$* is defined by:
+Calculations like the one above motivate a new definition. Let $A$ and $B$ be two events. Then the *conditional probability of $B$ given $A$* is defined by the following rule.
 
-#### Division Rule
+### Division Rule
 $$
 P(B \mid A) = \frac{P(AB)}{P(A)}
 $$
@@ -85,7 +86,7 @@ The definition says: You're given that $A$ happened, so restrict your attention 
 
 We are dividing by $P(A)$, and the more careful among you might be wondering what happens if $P(A) = 0$. Well, in that case we wouldn't be given that $A$ happened, because $A$ can't happen. So that's not a case we have to worry about.
 
-#### Multiplication Rule
+### Multiplication Rule
 This is just a rearrangement of the definition of conditional probability, but it is perhaps the most commonly used rule of all.
 
 Let $A$ and $B$ be two events. Then the chance that they both happen is

@@ -1,8 +1,8 @@
 ### PROGRAMATICALLY GENERATED, DO NOT MODIFY
 chapters:
 - class: level_0
-  title: Course Home
-  url: http://prob140.org/
+  title: Home
+  url: /
 - class: level_0
   title: Authors and License
   url: chapters/README

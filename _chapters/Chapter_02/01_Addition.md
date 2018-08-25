@@ -14,7 +14,7 @@ redirect_from:
 
 ## Addition
 
-The third axiom is about events that are *mutually exclusive*. Informally, two events $A$ and $B$ are mutually exclusive if at most one of them can happen; in other words, they can't both happen. 
+The third axiom is about events that are *mutually exclusive*. Two events $A$ and $B$ are mutually exclusive if at most one of them can happen; in other words, they can't both happen. 
 
 For example, suppose you are selecting one student at random from a class in which 40% of the students are freshmen and 20% are sophomores. Each student is either a freshman or a sophomore or neither; but no student is both a freshman and a sophomore. So if $A$ is the event "the student selected is a freshman" and $B$ is the event "the student selected is a sophomore", then $A$ and $B$ are mutually exclusive.
 
@@ -34,7 +34,7 @@ $$
 A \cap B = \phi
 $$
 
-#### The Third Axiom: Addition Rule
+### The Third Axiom: Addition Rule
 In the context of finite outcome spaces, the axiom says:
 
 - If $A$ and $B$ are mutually exclusive events, then $P(A \cup B) = P(A) + P(B)$.
@@ -69,7 +69,7 @@ where $B^c$ is the complement of $B$. The difference is the bright blue ring on 
 
 What's the chance that the student is in the bright blue difference? If you answered, "50% - 40% = 10%", you are right, and it's great that your intuition is saying that probabilities behave just like areas. They do. In fact the calculation follows from the axiom of additivity, which we also motivated by looking at areas.
 
-#### Difference Rule
+### Difference Rule
 Suppose $A$ and $B$ are events such that $B \subseteq A$. Then $P(A \backslash B) = P(A) - P(B)$.
 
 **Proof.** Because $B \subseteq A$, 

@@ -6,8 +6,8 @@ previouschapter:
   url: chapters/Chapter_05/03_The_Matching_Problem
   title: '5.3 The Matching Problem'
 nextchapter:
-  url: chapters/Chapter_06/00_Random_Counts
-  title: 'Chapter 6: Random Counts'
+  url: chapters/Chapter_05/05_Review_Problems_Set_1
+  title: '5.5 Review Problem Set 1'
 redirect_from:
   - 'chapters/chapter-05/04-sampling-without-replacement'
 ---

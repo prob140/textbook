@@ -78,7 +78,7 @@ The wheel is spun 20 times.
 Assume that on each spin, each pocket is equally likely to appear; and assume that the spins are independent of each other. 
 Find the probability that all three colors appear.
 
-## Additional Practice
+### Additional Practice
 
 **13.**
 A deck consists of 52 cards. A poker hand is 5 	cards dealt at random without replacement.

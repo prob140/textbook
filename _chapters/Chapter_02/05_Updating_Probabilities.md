@@ -37,9 +37,10 @@ $$
 
 
 
+
 {:.input_area}
 ```python
-(.004*.99)/(0.004*.99 + 0.996*.005)
+(0.004*0.99)/(0.004*0.99 + 0.996*0.005)
 ```
 
 
@@ -72,7 +73,7 @@ Let's take a closer look at the numerical value of the answer we got in our exam
 
 This is not a fault of the test or of Bayes' Rule. It's due to our premise that the person "is picked at random from the population." The disease is so rare that the proportion of people who have the disease and test positive is actually a bit smaller than the people who don't have the disease and get a bad test result. This explains why the answer for a randomly picked person is less than 50%.
 
-But a person who go to get tested for a disease usually does so because they or their doctors think they should. And in that case they are no longer "randomly picked" members of the population. 
+But people who go to get tested for a disease usually do so because they or their doctors think they should. And in that case they are no longer "randomly picked" members of the population. 
 
 For such a person, we have to rethink our assumptions about randomness. If a person thinks they might have the disease, then their subjective probability of having the disease should be larger than the probability for a random member of the population. Let's take the following steps to see how much difference the prior makes.
 
