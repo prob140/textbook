@@ -17,11 +17,11 @@ masthead                 : false  # Whether to include a masthead (header/navbar
 hub_url                  : "https://datahub.berkeley.edu"  # The URL for your JupyterHub/BinderHub.
 hub_name                 : "JupyterHub"  # The name of your JupyterHub (used for the button in the NavBar. If an empty string, no button is shown)
 hub_type                 : "jupyterhub"  # ['binder', 'jupyterhub']  Whether to build interact links for a BinderHub or a JupyterHub
-textbook_repo_base       : "https://github.com/"  # The site on which the textbook repository is hosted
+textbook_repo_base       : "https://github.com/prob140/textbook"  # The site on which the textbook repository is hosted
 textbook_repo_org        : "prob140"  # The username or organization that owns this repository
 textbook_repo_name       : "textbook"  # The name of the repository on the web
 textbook_repo_branch     : "gh-pages"  # The branch on which your textbook is hosted.
-number_chapters          : false  # Whether to number the chapers in the sidebar for the textbook
+number_chapters          : false  # Whether to number the chapters in the sidebar for the textbook
 chapter_titles           : true  # Whether to include the title of the chapter at the top of each chapter
 textbook_only            : true  # If 'true', the home page will be the first chapter of the textbook, and *only* the sidebar is shown
 use_jupyterlab           : false  # If 'true', interact links will use JupyterLab as the interface
@@ -95,10 +95,10 @@ social:
 
 # Analytics
 analytics:
-  provider               : false # false (default), "google", "google-universal", "custom"
+  provider               : google # false (default), "google", "google-universal", "custom"
   google:
-    tracking_id          :
-    anonymize_ip         : # true, false (default)
+    tracking_id          : UA-124609561-1
+    anonymize_ip         : false # true, false (default)
 
 
 # Site Author

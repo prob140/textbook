@@ -13,9 +13,12 @@ DESCRIPTION = ("Convert a collection of Jupyter Notebooks into Jekyll "
                "markdown suitable for a course textbook.")
 
 parser = argparse.ArgumentParser(description=DESCRIPTION)
-parser.add_argument("--site_root", default=None, help="Path to the root of the textbook repository.")
-parser.add_argument("--overwrite", action='store_true', help="Overwrite md files if they already exist.")
-parser.add_argument("--execute", action='store_true', help="Execute notebooks before converting to MD.")
+parser.add_argument("--site_root", default=None,
+                    help="Path to the root of the textbook repository.")
+parser.add_argument("--overwrite", action='store_true',
+                    help="Overwrite md files if they already exist.")
+parser.add_argument("--execute", action='store_true',
+                    help="Execute notebooks before converting to MD.")
 parser.set_defaults(overwrite=False, execute=False)
 
 
@@ -89,9 +92,15 @@ def _clean_lines(lines, filepath):
 
 
 def _generate_sidebar(files):
-    """Generate the sidebar text for the textbook, and add it to the textbook yaml."""
+    """
+    Generate the sidebar text for the textbook, and add it to the textbook yaml.
+    """
     sidebar_text = []
-    sidebar_text.append({'title': 'Home', 'class': 'level_0', 'url': '/'})
+    sidebar_text.append({
+        'title': 'Course Home',
+        'class': 'level_0',
+        'url': 'http://prob140.org',
+    })
     chapter_ix = 1
     for ix_file, (title, link, level) in list(enumerate(files)):
         if level > 0 and len(link) == 0:
@@ -101,7 +110,11 @@ def _generate_sidebar(files):
                 title = '{}. {}'.format(chapter_ix, title)
             chapter_ix += 1
         new_link = _prepare_link(link)
-        new_item = {'title': title, "class": "level_{}".format(int(level)), 'url': new_link}
+        new_item = {
+            'title': title,
+            'class': 'level_{}'.format(int(level)),
+            'url': new_link
+        }
         if level == 0:
             if ix_file != (len(files) - 1) and level < files[ix_file + 1][-1]:
                 new_item['children'] = []
@@ -117,13 +130,18 @@ def _generate_sidebar(files):
 
 
 def _copy_non_content_files():
-    """Copy non-markdown/notebook files in the notebooks/ folder into Chapters so relative links work."""
+    """
+    Copy non-markdown/notebook files in the notebooks/ folder into Chapters so
+    relative links work.
+    """
     all_files = glob(op.join(NOTEBOOKS_FOLDER, '**', '*'), recursive=True)
-    non_content_files = [ii for ii in all_files if not any(ii.endswith(ext) for ext in ['.ipynb', '.md'])]
+    non_content_files = [ii for ii in all_files if not any(ii.endswith(ext)
+                         for ext in ['.ipynb', '.md'])]
     for ifile in non_content_files:
         if op.isdir(ifile):
             continue
-        # Convert the old link to the new path, note this may change folder name structure
+        # Convert the old link to the new path, note this may change folder
+        # name structure
         old_link = ifile.split(NOTEBOOKS_FOLDER)[-1]
         new_link = _prepare_link(old_link)
 
