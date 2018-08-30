@@ -30,8 +30,8 @@
 }
 
 .search-content {
-  display: none;
-  visibility: hidden;
+  //display: none;
+  //visibility: hidden;
   padding-top: 1em;
   padding-bottom: 1em;
 
@@ -87,7 +87,7 @@
 
   .archive__item {
     margin-bottom: 2em;
-
+/*
     @include breakpoint($large) {
       width: 75%;
     }
@@ -95,6 +95,7 @@
     @include breakpoint($x-large) {
       width: 50%;
     }
+*/
   }
 
   .archive__item-title {

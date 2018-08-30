@@ -9,6 +9,9 @@ chapters:
 - class: level_0
   title: To the Student
   url: chapters/To_the_Student
+- class: level_0
+  title: Search
+  url: chapters/Search
 - children:
   - class: level_0
     title: 1.1 Outcome Space and Events

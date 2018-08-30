@@ -3,6 +3,7 @@
 
 * [Authors and License](notebooks/README.md)
 * [To the Student](notebooks/To_the_Student.ipynb)
+* [Search](notebooks/Search.md)
 
     
 * [Chapter 1: Fundamentals](notebooks/Chapter_01/00_Fundamentals.ipynb)
