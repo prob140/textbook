@@ -21,6 +21,7 @@ Let's call such a permutation $(X_1, X_2, \ldots , X_n)$. For any permutation $i
 $$
 P(X_1 = i_1, X_2 = i_2, \ldots, X_n = i_n) = \frac{1}{n!}
 $$
+
 Notice that the right hand side doesn't depend on the particular permutation specified on the left. We say that the "coordinates $X_1, X_2, \ldots , X_n$ are exchangeable."
 
 ### Symmetry
@@ -30,13 +31,16 @@ For each fixed $i$, the $i$th coordinate $X_i$ is an integer between 1 and $n$. 
 $$
 P(X_i = k) = \frac{(n-1)!}{n!} = \frac{1}{n}
 $$
+
 using a now-familiar method of putting item $k$ at coordinate $i$ and letting the other $n-1$ elements vary arbitrarily. Thus for each $i$, the distribution of $X_i$ is uniform on 1 through $n$.
 
 For any two coordinates $i$ and $j$, 
+
 $$
 P(X_i = k, X_j = l) = \frac{1}{n} \cdot \frac{1}{n-1}, ~~
 1 \le k \ne l \le n
 $$
+
 Once again, the probability on the right doesn't depend on the particular $i$ and $j$ on the left.
 
 We have seen these probabilities earlier in the context of the matching problem. In that problem we were finding probabilities of matches, for example $P(X_i = i, X_j = j)$. But the answers didn't depend on $i$ and $j$; it just mattered that we were looking at two positions. The same is true here.
@@ -62,6 +66,7 @@ To find the chance of getting a particular subset of five cards in your hand, yo
 - To get the particular set of 5 in the hand, put one of them in Position 1; you can do this in 5 ways. Then put the next in Position 4, and so on.
 
 Thus the chance of a particular hand is
+
 $$
 \frac{5 \times 4 \times 3 \times 2 \times 1}{52 \times 51 \times 50 \times 49 \times 48} 
 = \frac{5! 47!}{52!} = \frac{1}{\binom{52}{5}}
@@ -69,13 +74,13 @@ $$
 
 This shows that dealing 5 cards one by one at random without replacement is probabilistically equivalent to shuffling the cards and pulling out five cards.
 
-The `misc` module in `scipy` allows you to compute these combinatorial terms.
+The `special` module in `scipy` allows you to compute these combinatorial terms.
 
 
 
 {:.input_area}
 ```python
-from scipy import misc
+from scipy import special
 ```
 
 
@@ -83,7 +88,7 @@ from scipy import misc
 
 {:.input_area}
 ```python
-misc.comb(52, 5)
+special.comb(52, 5)
 ```
 
 
@@ -122,11 +127,13 @@ The number of samples that contain $g$ good individuals is obtained by the produ
 - For each choice of these $g$ good individuals, there are $\binom{N-G}{n-g}$ choices of bad individuals you can make.
 
 So the total number of samples containing $g$ good individuals is
+
 $$
 \binom{G}{g}\binom{N-G}{n-g}
 $$
 
 The chance of getting $g$ good elements in the sample is
+
 $$
 \binom{G}{g}\binom{N-G}{n-g} \big{/} \binom{N}{n} 
 $$

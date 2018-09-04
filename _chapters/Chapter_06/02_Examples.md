@@ -33,6 +33,7 @@ A random number generator draws repeatedly at random with replacement from the 1
 - Same probability of success on each trial? Yes, $p = 0.1$.
 
 The answer can be written in two equivalent ways:
+
 $$
 \sum_{k=3}^{20} \binom{20}{k} 0.1^k 0.9^{20-k}
 = 1 - \sum_{k=0}^2 \binom{20}{k} 0.1^k 0.9^{20-k}
@@ -107,6 +108,7 @@ sum(stats.binom.pmf(np.arange(4), 7, p))
 
 
 As a math formula, this is
+
 $$
 \sum_{k=0}^3 \binom{7}{k}p^k(1-p)^{7-k} ~~ \text{where } 
 p = \binom{20}{2} 0.1^2 0.9^{18}

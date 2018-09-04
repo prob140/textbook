@@ -20,11 +20,13 @@ Binomial $(n, p)$ probabilities involve powers and factorials, both of which are
 Fix $n$ and $p$, and let $P(k)$ be the binomial $(n, p)$ probability of $k$. That is, let $P(k)$ be the chance of getting $k$ successes in $n$ independent trials with probability $p$ of success on each trial.
 
 For $k \ge 1$, define the *$k$th consecutive odds ratio*
+
 $$
 R(k) = \frac{P(k)}{P(k-1)}
 $$
 
 To see how this helps us calculate each $P(k)$ without having to calculate factorials and powers each time, notice that
+
 $$
 \begin{align*}
 P(0) &= (1-p)^n \\ \\
@@ -69,9 +71,11 @@ R(k) < 1 &\iff P(k) < P(k-1)
 $$
 
 Note also that the form
+
 $$
 R(k) = \big{(} \frac{n+1}{k} - 1 \big{)} \cdot \frac{p}{1-p}
 $$
+
 tells us the the ratios are a *decreasing function of $k$*. In the formula, $n$ and $p$ are the parameters of the distribution and hence constant. It is $k$ that varies, and $k$ appears in the denominator.
 
 This implies that once $R(k) < 1$ for some $k$, it will remain less than 1 for all larger $k$. In other words, once the histogram starts going down, it will keep going down. It cannot come back up again. 
@@ -152,14 +156,19 @@ A *mode* of a discrete distribution is a possible value that has the highest pro
 For all $k$ such that $R(k) \ge 1$, we will say that the binomial histogram is either rising or flat at $k$. The largest $k$ for which $R(k) \ge 1$ has to be a mode; for all larger $k$, the histogram will be falling.
 
 Let $q = 1-p$. Every value $k$ for which $R(k) \ge 1$ must satisfy
+
 $$
 \big{(} \frac{n+1}{k} - 1 \big{)} \frac{p}{q} ~ \ge ~ 1
 $$
-That is, 
+
+That is,
+
 $$
 \frac{n+1}{k} ~ \ge ~ \frac{q}{p} + 1 ~ = ~ \frac{1}{p}
 $$
+
 which is equivalent to
+
 $$
 k ~ \le ~ (n+1)p
 $$

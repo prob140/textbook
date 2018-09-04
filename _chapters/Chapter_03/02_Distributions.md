@@ -305,6 +305,7 @@ The chance is 69.6%, not very far from 68%.
 
 ### Math and Code Correspondence
 $P(14 \le S \le 21)$ can be found by partitioning the event as the union of the events $\{S = s\}$ in the range 14 through 21, and using the addition rule.
+
 $$
 P(14 \le S \le 21) = \sum_{s = 14}^{21} P(S = s)
 $$

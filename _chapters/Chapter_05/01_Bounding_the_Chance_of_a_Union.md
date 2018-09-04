@@ -29,6 +29,7 @@ show_intersection()
 
 
 We can find $P(A \cup B)$ by partitioning. A partition of $A \cup B$ is "all of $A$ union the part of $B$ that is not also in $A$": 
+
 $$
 A \cup B = A \cup (B \backslash AB)
 $$
@@ -44,6 +45,7 @@ $$
 We now have a formula for the case $n = 2$. It calculates the probability of the union of two events, by first *including* the chance of each event, and then *excluding* the chance of the intersection. This gives rise to its name:
 
 #### Inclusion-Exclusion Formula: Union of Two Events
+
 $$
 P(A \cup B) = P(A) + P(B) - P(AB)
 $$
@@ -56,6 +58,7 @@ For now, we'll observe something much simpler, which is that adding the probabil
 You can see that in the diagram above, for $n = 2$. If you just add $P(A)$ and $P(B)$, you double count the intersection and your answer is larger than $P(A \cup B)$. That is also apparent from the inclusion-exclusion formula above.
 
 *Boole's Inequality* provides an upper bound on the chance of the union of $n$ events. Let $A_1, A_2, \ldots , A_n$ be events. Then Boole's Inequality says that
+
 $$
 P(\bigcup_{i=1}^n A_i) \le \sum_{i=1}^n P(A_i)
 $$
@@ -71,6 +74,7 @@ P(\bigcup_{i=1}^n A_i) \ge \max\{P(A_i): 1 \le i \le n \}
 $$
 
 So
+
 $$
 \max\{P(A_i): 1 \le i \le n \} ~ \le ~ P(\bigcup_{i=1}^n A_i)
 ~ \le ~ \sum_{i=1}^n P(A_i)
@@ -94,6 +98,7 @@ Boole's Inequality can help you figure out what to do.
 Let $A_i$ be the event that Estimate $i$ is good. You want $P(A_1A_2A_3A_4A_5) = 0.95$. But now you are stuck, because all you can control are $P(A_1)$, $P(A_2)$, $P(A_3)$, $P(A_4)$, and $P(A_5)$ individually. You can make each of them as large as you want, but you don't know how they relate to the chance of the intersection, because the five estimates are dependent. They are all based on the same sample.
 
 You can get yourself out of this problem by looking at the complement of the event "all five are good". The complement is "at least one is bad", which is the union of the events "Estimate $i$ is bad". Your condition is
+
 $$
 \begin{align*}
 0.05 &= P(\text{at least one estimate is bad}) \\

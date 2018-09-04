@@ -6,8 +6,8 @@ previouschapter:
   url: chapters/Chapter_08/02_Additivity
   title: '8.2 Additivity'
 nextchapter:
-  url: chapters/Chapter_09/00_Conditioning_Revisited
-  title: 'Chapter 9: Conditioning, Revisited'
+  url: chapters/Chapter_08/04_Review_Problems_Set_2
+  title: '8.4 Review Problems: Set 2'
 redirect_from:
   - 'chapters/chapter-08/03-expectations-of-functions'
 ---
@@ -45,16 +45,19 @@ $$
 This allows us to write $E(Y)$ in three equivalent ways:
 
 #### On the range of $Y$
+
 $$
 E(Y) =  \sum_{\text{all }y} yP(Y=y)
 $$
 
 #### On the domain $\Omega$
+
 $$
 E(Y) = E(g(X)) = \sum_{\omega \in \Omega} (g \circ X) (\omega) P(\omega)
 $$
 
 #### On the range of $X$
+
 $$
 E(Y) = E(g(X)) = \sum_{\text{all }x} g(x)P(X=x)
 $$
@@ -265,6 +268,7 @@ E(X(X-1)) = E(X^2 - X) = E(X^2) - E(X)
 $$
 
 so
+
 $$
 E(X^2) = E(X(X-1)) + E(X)
 $$

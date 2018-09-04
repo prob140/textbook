@@ -28,6 +28,7 @@ We know that there are $n!$ possible permutations, all of which are equally like
 - Once that is done, the remaining $n-1$ letters can be permuted in $(n-1)!$ ways.
 
 So
+
 $$
 P(\text{match at Position }i) = \frac{(n-1)!}{n!} 
 = \frac{1}{n}
@@ -40,6 +41,7 @@ Now fix any pair of positions $i \ne j$. To find $P(\text{matches at Positions }
 - Once that is done, the remaining $n-2$ letters can be permuted in $(n-2)!$ ways.
 
 So
+
 $$
 P(\text{matches at Positions } i \text{ and } j) = 
 \frac{(n-2)!}{n!} 
@@ -50,6 +52,7 @@ The second term in the product is
 $P(\text{match at } j \mid \text{match at } i)$ and is just the chance of a match at a fixed spot in the reduced set of $n-1$ letters after letter $i$ and envelope $i$ have been removed.
 
 You should check by induction that for $k = 1, 2, \ldots , n$,
+
 $$
 P(\text{matches at a specified set of } k \text{ positions})
 = \frac{1}{n} \cdot \frac{1}{n-1} \cdot \cdots \cdot \frac{1}{n-k+1}
@@ -86,10 +89,13 @@ $$
 If those sums look hair-raising, look again. None of the terms being added has an index ($i$, $j$, etc) in it! Each sum consists of adding a constant value multiple times, and is therefore equal to the constant times the number of terms in the sum. 
 
 The number of terms in the first sum is $n$. As we observed in an earlier section, the number of terms being added in the second sum is
+
 $$
 \frac{n(n-1)}{2!}
 $$
+
 In the third sum the number of terms is
+
 $$
 \frac{n(n-1)(n-2)}{3!}
 $$
@@ -107,6 +113,7 @@ $$
 $$
 
 Remember that
+
 $$
 P\big{(}\bigcup_{i=1}^n A_i \big{)} = 
 P(\text{at least one match})

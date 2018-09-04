@@ -37,6 +37,7 @@ P(\text{SSSFFFF}) =
 \big{(}\frac{1}{6}\big{)}^3 \big{(}\frac{5}{6}\big{)}^4
 = P(\text{SFFSSFF})
 $$
+
 by independence. Indeed, any sequence of three S's and four F's has the same probability. So by the addition rule,
 
 $$
@@ -70,9 +71,11 @@ $$
 That's "number of trials factorial; divided by number of successes factorial times number of failures factorial; times the probability of success to the power number of successes; times the probability of failure to the power number of failures."
 
 - The formula makes sense for the edge cases $k=0$ and $k=n$. We can calculate $P(S_n = 0)$ without any of the machinery developed above. It's the chance of no successes, which is the chance of all failures, which is $(1-p)^n$. Our formula says
+
 $$
 P(S_n = 0) = \frac{n!}{0!(n-0)!} p^0 (1-p)^{n-0} = (1-p)^n
 $$
+
 after all the dust clears in the formula; the first two factors are both 1. You can check that $P(S_n = n) = p^n$, the
 chance that all the trials are successes.
 
