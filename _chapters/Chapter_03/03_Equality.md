@@ -18,6 +18,7 @@ We know what it means for two numbers to be equal. Equality of random variables,
 
 ### Equal
 Two random variables $X$ and $Y$ defined on the same outcome space are *equal* if their values are the same for every outcome in the space. The notation is $X = Y$ and it means that
+
 $$
 X(\omega) = Y(\omega) \text{ for all } \omega \in \Omega
 $$
@@ -29,6 +30,7 @@ We write this simply as $N_H = 3 - N_T$.
 
 ### Equal in Distribution
 $N_H$ and $N_T$, as defined above, are not equal. For example,
+
 $$
 N_H(\text{TTT}) = 0 ~~~ \text{but} ~~~ N_T(\text{TTT}) = 3
 $$ 
@@ -107,6 +109,7 @@ dist
 We say that $N_H$ and $N_T$ are *equal in distribution*. 
 
 In general, two random variables $X$ and $Y$ are equal in distribution if they have the same probability distribution. This is denoted
+
 $$
 X \stackrel{d}{=} Y
 $$
@@ -115,6 +118,7 @@ $$
 Equality is stronger than equality in distribution. If two random variables are the same, outcome by outcome, then they must have the same distribution because they are the same function on the outcome space. 
 
 That is, for any two random variables $X$ and $Y$,
+
 $$
 X = Y \implies X \stackrel{d}{=} Y
 $$
@@ -131,9 +135,11 @@ A deck contains 10 cards, labeled 1, 2, 2, 3, 3, 3, 4, 4, 4, 4. Two cards are de
 **Question 2.** Are $X_1$ and $X_2$ equal in distribution?
 
 **Answer 2.** Let's find the two distributions and compare. Clearly the possible values are 1, 2, 3, and 4 in each case. The distribution of $X_1$ is easy: 
+
 $$
 P(X_1 = i ) = \frac{i}{10} , ~~ i = 1, 2, 3, 4
 $$
+
 When a distribution is defined by a formula like this, you can define a function that does what the formula says:
 
 
@@ -239,6 +245,7 @@ dist_X2
 
 
 The two distributions are the same! Here is yet another example of symmetry in sampling without replacement. The conclusion is
+
 $$
 X_1 \stackrel{d}{=} X_2
 $$

@@ -40,6 +40,7 @@ It is important to note that the set "$1 \le i < j \le n$" specifies all unorder
 In the same way, $1 \le i < j < k \le n$ specifies all unordered triples of distinct indices. And so on.
 
 **Guess.** Based on what we saw for three events, we will guess that the chance of the union of $n$ events can be calculated by:
+
 - including the probabilities of all the events; then
 - excluding the probabilities of all the double-intersections; then
 - including the probabilities of all the triple-intersections; then
@@ -74,16 +75,19 @@ $$
 
 
 Clearly there are $n$ terms in the first sum. For reasons that will become clear in the next step, we will write that as
+
 $$
 \binom{n}{1} = n
 $$
 
 In the second sum the terms correspond to distinct unordered pairs chosen from the indices 1 through $n$. That number is
+
 $$
 \binom{n}{2} = \frac{n(n-1)}{2}
 $$
 
 In the third sum, the number of terms is the number of sets of three:
+
 $$
 \binom{n}{3} = \frac{n(n-1)(n-2)}{3!}
 $$

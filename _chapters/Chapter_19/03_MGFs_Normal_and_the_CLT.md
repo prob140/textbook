@@ -91,7 +91,7 @@ $$
 
 where for each $i$, the random variable $X_i^*$ is $X_i$ in standard units. 
 
-The random variables $X_i^*$ are i.i.d., so let $M_{X^*}$ denote the mgf of any one of them. By the linear transformation property proved above, the mgf of each $\frac{1}{\sqrt{n}}X_i^*$ is given by
+The random variables $X_i^\*$ are i.i.d., so let $M_{X^\*}$ denote the mgf of any one of them. By the linear transformation property proved above, the mgf of each $\frac{1}{\sqrt{n}}X_i^\*$ is given by
 
 $$
 M_{\frac{1}{\sqrt{n}}X_i^*} (t) ~ = ~ M_{X^*} (t/\sqrt{n})
@@ -107,7 +107,7 @@ M_{S_n^*} (t) ~ &= ~ \big{(} M_{X^*}(t/\sqrt{n}) \big{)}^n \\ \\
 \end{align*}
 $$
 
-by ignoring small terms and using the fact that for any standardized random variable $X^*$ we have $E(X^*) = 0$ and $E({X^*}^2) = 1$.
+by ignoring small terms and using the fact that for any standardized random variable $X^\*$ we have $E(X^\*) = 0$ and $E({X^\*}^2) = 1$.
 
 Thus for large $n$,
 

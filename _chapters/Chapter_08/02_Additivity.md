@@ -92,9 +92,11 @@ Suppose $\theta$ is a parameter of the distribution of $X$, and suppose $E(X) = 
 If an estimator is unbiased, and you use it to generate estimates repeatedely and independently, then in the long run the average of all the estimates is equal to the parameter being estimated. On average, the unbiased estimator is neither higher nor lower than the parameter. That's usually considered a good quality in an estimator.
 
 As in the sample sum example above, let $S_n$ be the sum of a sample of size $n$ drawn from a population that has mean $\mu$. Let $A_n$ be the sample average, that is,
+
 $$
 A_n = \frac{S_n}{n}
 $$
+
 Then, regardless of whether the draws were made with replacement or without,
 
 $$
@@ -115,7 +117,7 @@ $$
 
 and so $A_n$ is *not* an unbiased estimator of $N$. That's not surprising because $N$ is the maximum possible value of each observation and $A_n$ should be somewhere in the middle of all the possible values.
 
-But we can tweak $A_n$ to create an unbiased estimator of $N$. Let $A_n^* = 2A_n - 1$. Then
+But because $E(A_n)$ is a linear function of $N$, we can tweak $A_n$ to create an unbiased estimator of $N$. We just have to invert the linear function. Let $A_n^* = 2A_n - 1$. Then
 
 $$
 E(A_n^*) = 2E(A_n) - 1 = 2 \cdot \frac{N+1}{2} - 1 = N
@@ -156,10 +158,12 @@ $$
 
 where for each $j$ in the range 1 through $n$, $I_j$ is the indicator of "Trial $j$ is a success". Thus
 
+$$
 \begin{align*}
 E(X) &= E(I_1) + E(I_2) + \cdots + E(I_n) ~~~~ \text{(additivity)} \\
 &= np ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \text{(}E(I_j) = p \text{ for all } j \text{)}
 \end{align*}
+$$
 
 Examples of use:
 - The expected number of heads in 100 tosses of a coin is $100 \times 0.5 = 50$. 

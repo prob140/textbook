@@ -17,11 +17,13 @@ redirect_from:
 The *expectation* of a random variable $X$, denoted $E(X)$, is the average of the possible values of $X$ weighted by their probabilities. This can be calculated in two equivalent ways.
 
 #### On the domain of $X$:
+
 $$
 E(X) = \sum_{\omega \in \Omega} X(\omega)P(\omega)
 $$
 
 #### On the range of $X$:
+
 $$
 E(X) = \sum_{\text{all }x} xP(X=x)
 $$

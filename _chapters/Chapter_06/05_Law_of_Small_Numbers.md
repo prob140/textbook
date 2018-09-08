@@ -47,6 +47,7 @@ Let $n \to \infty$ and $p_n \to 0$ in such a way that $np_n \to \mu > 0$. It's i
 Let $P_n(k)$ be the binomial $(n, p_n)$ probability of $k$ successes.
 
 Then 
+
 $$
 P_n(0) = (1 - p_n)^n = \big{(} 1 - \frac{np_n}{n} \big{)}^n
 \to e^{-\mu} ~~~ \text{as } n \to \infty
@@ -61,6 +62,7 @@ $$
 = -np_n
 \sim -\mu
 $$
+
 when $n$ is large, because $p_n \sim 0$ and $np_n \sim \mu$.
 
 ### Approximation to $P(k)$
@@ -99,9 +101,11 @@ This is called the Poisson approximation to the binomial. The parameter of the P
 The distribution is named after its originator, the French mathematician [Siméon Denis Poisson](https://en.wikipedia.org/wiki/Siméon_Denis_Poisson) (1781-1840).
 
 The terms in the approximation are proportional to the terms in the series expansion of $e^{\mu}$:
+
 $$
 \frac{\mu^k}{k!}, ~~ k \ge 0
 $$
+
 The expansion is infinite, but we are only going up to a finite (though large) number of terms $n$. You now start to see the value of being able to work with probability spaces that have an infinite number of possible outcomes.
 
 We'll get to that in a later section. For now, let's see if the approximation we derived is any good.
@@ -205,7 +209,7 @@ Plot(poi_dist)
 ![png](../../images/chapters/Chapter_06/05_Law_of_Small_Numbers_17_0.png)
 
 
-In lab, you will use total variation distance to get an error bound on the approximation.
+In lab, you will use total variation distance to get a bound on the error in the approximation.
 
 A reasonable question to ask at this stage is, "Well that's all very nice, but why should I bother with approximations when I can just use Python to compute the exact binomial probabilities using `stats.binom.pmf`?"
 

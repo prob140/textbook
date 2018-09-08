@@ -54,6 +54,7 @@
  * [8.1 Definition](notebooks/Chapter_08/01_Definition.ipynb)
  * [8.2 Additivity](notebooks/Chapter_08/02_Additivity.ipynb)
  * [8.3 Expectations of Functions](notebooks/Chapter_08/03_Expectations_of_Functions.ipynb)
+ * [8.4 Review Problems: Set 2](notebooks/Chapter_08/04_Review_Problems_Set_2.ipynb)
 
 * [Chapter 9: Conditioning, Revisited](notebooks/Chapter_09/00_Conditioning_Revisited.ipynb)
  * [9.1 Probability by Conditioning](notebooks/Chapter_09/01_Probability_by_Conditioning.ipynb)
