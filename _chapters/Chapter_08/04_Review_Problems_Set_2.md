@@ -107,7 +107,7 @@ Let $p \in (0, 1)$ and let $X$ be the number of spots showing on a flattened die
 **11.**
 If you bet a dollar on a "split" at roulette, you have a 2/38 chance of winning. If you win the bet, your net gain is $\\$17$. If you lose the bet, you lose your dollar.
 
-Suppose you make 100 bets. Find the chance that you come out ahead, that is, the chance that you end up with more money than you had at the start.
+Suppose you make 100 one-dollar bets on a split. Assume that all the bets are independent of each other. Find the chance that you come out ahead, that is, the chance that you end up with more money than you had at the start.
 
 **12.**
 Let $X_1, X_2, \ldots, X_n$ be i.i.d. Poisson $(\lambda)$ random variables.
@@ -136,7 +136,7 @@ Let $X$ have the Poisson $(\mu)$ distribution. Find
 [First read the Poisson portions of Sections 8.1 and 8.3.]
 
 **16.**
-A test for a disease produces a correct result with chance 0.99. Suppose the test is run on 300 patients.
+A test for a disease produces a correct result with chance 0.99. Suppose the test is run on 300 patients, and that each test is independent of all the others.
 
 (a) What is the chance that for at least 295 patients the result is correct?
 
