@@ -89,7 +89,7 @@ The expectation of a linear transformation of $X$ is the linear transformation o
 ### Example: An Unbiased Estimator
 Suppose $\theta$ is a parameter of the distribution of $X$, and suppose $E(X) = \theta$. Then we say that * $X$ is an unbiased estimator of $\theta$*. 
 
-If an estimator is unbiased, and you use it to generate estimates repeatedely and independently, then in the long run the average of all the estimates is equal to the parameter being estimated. On average, the unbiased estimator is neither higher nor lower than the parameter. That's usually considered a good quality in an estimator.
+If an estimator is unbiased, and you use it to generate estimates repeatedly and independently, then in the long run the average of all the estimates is equal to the parameter being estimated. On average, the unbiased estimator is neither higher nor lower than the parameter. That's usually considered a good quality in an estimator.
 
 As in the sample sum example above, let $S_n$ be the sum of a sample of size $n$ drawn from a population that has mean $\mu$. Let $A_n$ be the sample average, that is,
 

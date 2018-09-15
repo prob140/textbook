@@ -372,16 +372,21 @@ Notice that $S$ is the sum of a random number of terms.
 
 **Answer.** If $N$ were the constant 10, then the answer would be $10\mu_X$. This is our signal to condition on $N$. Here are the steps to follow.
 - First condition on a fixed value of $N$. Given $N=n$, $S$ is the sum of $n$ i.i.d. terms. Hence 
+
 $$
 E(S \mid N=n) = n\mu_X
 $$ 
+
 This is an equality of real numbers. Note that it is true for all $n$, including 0.
 - Next write the conditional expectation in random variable notation.
+
 $$
 E(S \mid N) = N\mu_X
 $$
+
 This is an equality of random variables.
 - Now use iterated expectations.
+
 $$
 E(S) = E(E(S \mid N)) = E(N\mu_X) = E(N)\mu_X = \mu_N\mu_X
 $$
@@ -409,7 +414,7 @@ $$
 
 Indeed, the result is true for $k=0$ as well. So the expected total number of people through Generation $n$ is
 
-
+$$
 \begin{equation}
 \sum_{k=0}^n \mu^k = 
  \begin{cases} 
@@ -417,6 +422,7 @@ Indeed, the result is true for $k=0$ as well. So the expected total number of pe
       \frac{1 - \mu^{n+1}}{1 - \mu} = \frac{\mu^{n+1} - 1}{\mu - 1} & \text{if } \mu \ne 1
    \end{cases}
 \end{equation}
+$$
  
 The value of $\mu$, the expected number of progeny of a single individual, determines how this expected total behaves as $n$ gets large. Even with no deaths, if $\mu < 1$ the expected population size tends to a positive constant as $n \to \infty$. But if $\mu \ge 1$ then the expected population size explodes.
 
@@ -432,6 +438,7 @@ Two more properties formalize the idea that the variable that is given can be tr
 - **"Pulling out a Constant"**: $~E(g(S)T \mid S) = g(S)E(T \mid S)$.
 
 For example,
+
 $$
 E(3ST + \log(S)U + 7 \mid S) = 3SE(T \mid S) + \log(S)E(U \mid S) + 7
 $$

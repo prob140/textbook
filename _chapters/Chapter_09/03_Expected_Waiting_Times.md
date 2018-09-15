@@ -37,6 +37,7 @@ E(X) = 1 + pE(0) ~ + ~ qE(X^*) = 1 + qE(X))
 $$
 
 Solve for $E(X)$:
+
 $$
 E(X) = \frac{1}{p}
 $$
@@ -78,15 +79,18 @@ where $W^{\*\*}$ is an independent copy of $W_{HH}$.
 - With probability $p^2$, the first two tosses are heads, and $W_{HH} = 2$.
 
 So if $x = E(W_{HH})$ then
+
 $$
 x = q(1+x) + pq(2+x) + p^22
 $$
 
 So 
+
 $$
 x = \frac{q + 2pq + 2p^2}{1 - q - pq} 
 = \frac{1+p}{p^2}
 $$
+
 by repeatedly using $p + q = 1$.
 
 **Answer 2.** Another way is by conditioning on $X$, the number of tosses till the first head. We know that $E(X) = 1/p$. 
@@ -96,21 +100,25 @@ Notice that $W_{HH} = X + Y$ where $Y$ is the additional number of tosses needed
 - With probability $q$, the toss after $X$ is a tail, so $Y = 1 + W^\*$ where $W^\*$ is an independent copy of $W_{HH}$.
 
 So if $x = E(W_{HH})$ then
+
 $$
 x = E(X) + E(Y) = \frac{1}{p} + p + q(1 + x)
 $$
+
 So
+
 $$
 px = \frac{1}{p} + 1 ~~~~ \text{and hence} ~~~~ x = \frac{1+p}{p^2}
 $$
+
 as before.
 
 ### Gambler's Ruin: Duration of the Game
-Let's return to the setting of the gambler's ruin problem with a fair coin. The gambler starts with $\\$a$ and bets on a fair coin till either his net gain reaches $\\$b$ or he loses all his money. Let $T$ be the duration of the game. 
+Let's return to the setting of the gambler's ruin problem with a fair coin and positive integers $a < b$. The gambler starts with $a$ dollars and bets on tosses of the coin till either his net gain reaches $b$ dollars or he loses all his money. Let $T$ be the duration of the game. 
 
 **Question.** What the expected duration of the game?
 
-**Answer.** Let $E_k(T)$ denote the expected duration of the game given that the gambler starts with a net gain of $\\$k$. We want $E_0(T)$.
+**Answer.** Let $E_k(T)$ denote the expected duration of the game given that the gambler starts with a net gain of $k$ dollars. We want $E_0(T)$.
 
 By conditioning on the first step, we see that for $-a+1 \le k \le b-1$,
 

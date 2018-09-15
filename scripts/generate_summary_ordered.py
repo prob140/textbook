@@ -47,6 +47,7 @@ def generate_summary(configuration,cold=False):
 
 * [Authors and License](notebooks/README.md)
 * [To the Student](notebooks/To_the_Student.ipynb)
+* [Search](notebooks/Search.md)
 
     """
 
