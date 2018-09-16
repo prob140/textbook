@@ -27,7 +27,7 @@ To see exactly what it is, notice that there's a natural recursion or "renewal" 
 - either Jo wins on Roll 1;
 - or Jo gets a non-six on Roll 1, then Bo gets a non-six on Roll 2, and then *the game starts over* and Jo wins.
 
-So if $x$ is the chance that Jo is the winner, then $x$ satisfies an equation:
+So at Time 0 (that is, before the dice are rolled), let $x$ be the chance that Jo is the winner. Then $x$ satisfies an equation:
 
 $$
 x = \frac{1}{6} + \big{(}\frac{5}{6}\big{)}^2 x
@@ -42,9 +42,9 @@ $$
 which is greater than half as we had guessed.
 
 ### Gambler's Ruin: Fair Coin
-Let $a$ and $b$ be two positive integers. Suppose a gambler starts with $\\$a$ and bets on the tosses of a coin. Every time the coin lands heads, the gambler wins a dollar. Every time it lands tails, the gambler loses a dollar. 
+Let $a$ and $b$ be two positive integers. Suppose a gambler starts with $a$ dollars and bets on the tosses of a coin. Every time the coin lands heads, the gambler wins a dollar. Every time it lands tails, the gambler loses a dollar. 
 
-Now suppose the gambler has a *stopping rule*: he will stop once his net gain is $\\$b$ or he has no money left, whichever happens first. If the gambler ends up when has no money, he is ruined. Our goal in this example is to find the probability that the gambler is ruined.
+Now suppose the gambler has a *stopping rule*: he will stop once his net gain is $b$ dollars or he has no money left, whichever happens first. If the gambler ends up when has no money, he is ruined. Our goal in this example is to find the probability that the gambler is ruined.
 
 At each toss we will keep track of the gambler's net gain. So he will start out at 0 and stop when the he gets to $b$ or $-a$, whichever happens first.
 
@@ -68,7 +68,7 @@ It's a good idea to start visualizing the random trajectory of the gambler's net
 
 **Answer.** You can see from the paths above that at the first step the gambler's net gain will be either -1 or 1, and then we will have to work out the probability of ruin from that point.
 
-For any $k$, let $p_k$ be the chance that the gambler is ruined given that he starts with a net gain of $\\$k$. 
+For any $k$, let $p_k$ be the chance that the gambler is ruined given that he starts with a net gain of $k$ dollars. 
 
 The chance that we are looking for is $p_0$. 
 
@@ -92,7 +92,7 @@ $$
 
 The successive differences are equal, which means that $p_k$ is a linear function of $k$.
 
-Here is the line assuming $a= \\$3$ and $b = \\$7$ as before. The red lines show that $p_0 = 0.7$.
+Here is the line assuming $a= 3$ and $b = 7$ as before. The red lines show that $p_0 = 0.7$.
 
 
 
@@ -108,13 +108,13 @@ $$
 p_0 ~ = ~ 1 - \frac{a}{a+b} ~ = ~  \frac{b}{a+b}
 $$
 
-The chance that the gambler ends up gaining $\\$b$ is
+The chance that the gambler ends up gaining $b$ dollars is
 
 $$
 1 - p_0 = \frac{a}{a+b}
 $$
 
-For fixed $a$, this is a decreasing function of $b$. That makes sense. For fixed $a$, the larger $b$ is, the harder it is for the gambler to end up making $\\$b$.
+For fixed $a$, this is a decreasing function of $b$. That makes sense. For fixed $a$, the larger $b$ is, the harder it is for the gambler to end up making $b$ dollars.
 
 ### Gambler's Ruin: Unfair Coin
 If the gambler bets on tosses of a coin that lands heads with $p \ne 1/2$, then the equations become

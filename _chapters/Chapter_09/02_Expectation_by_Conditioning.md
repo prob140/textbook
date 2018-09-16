@@ -258,7 +258,7 @@ This defines a *function of $S$*: for each value $s$ of $S$, the function return
 
 {:.input_area}
 ```python
-ev_T_given_S = Table().with_columns(
+ev_T_given_S = Table().with_column(
     's', s,
     'E(T | S = s)', [3.5, 3.5, 3.25],
     'P(S = s)', [0.2, 0.4, 0.4]
@@ -325,7 +325,7 @@ In short, $E(T)$ is the *expectation of the conditional expectation of $T$ given
 ### Conditional Expectation as a Random Variable
 In general, suppose $T$ and $S$ are two random variables on a probability space.
 
-Then for each fixed value of $s$, $T$ has a conditional distribution given $S=s$. This is an ordinary distribution and has an expectation. That is called the *expectation of $T$ given $S=s$* and is denoted $E(T \mid S = s)$. 
+Then for each fixed value of $s$, $T$ has a conditional distribution given $S=s$. This is an ordinary distribution and has an expectation. That is called the *conditional expectation of $T$ given $S=s$* and is denoted $E(T \mid S = s)$. 
 
 So for each $s$, there is a value $E(T \mid S=s)$. This defines a function of the random variable $S$. It is called the *conditional expectation of $T$ given $S$*, and is denoted $E(T \mid S)$.
 
