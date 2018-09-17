@@ -25,15 +25,15 @@ Markov Chains form a class of stochastic processes. They are named after  [Andre
 
 $$ P(X_{n+1} = i_{n+1} \mid X_0 = i_0, X_1 = i_1 , \ldots, X_{n-1} = i_{n-1}, X_n = i_n) = P(X_{n+1} = i_{n+1} \mid X_n = i_n) $$
 
-For example, consider a *random walk* where a gambler starts with a fortune of $\$a$ for some positive integer $a$, and bets on successive tosses of a fair coin. If the coin lands heads he gains a dollar, and if it lands tails he loses a dollar. 
+For example, consider a *random walk* where a gambler starts with a fortune of $a$ dollars for some positive integer $a$, and bets on successive tosses of a fair coin. If the coin lands heads he gains a dollar, and if it lands tails he loses a dollar. 
 
-Let $X_{0} = a$, and for $n > 0$ let $X_{n+1} = X_n + I_n$ where $I_1, I_2, \ldots $ is an i.i.d. sequence of Bernoulli $(1/2)$ trials. The Markov property holds for this process: given the gambler's fortune at time $n$, the distribution of his fortune at time $n+1$ doesn't depend on his fortune before time $n$. So the process $X_0, X_1, X_2, \ldots $ is a Markov Chain representing the evolution of the gambler's fortune over time. 
+Let $X_{0} = a$, and for $n > 0$ let $X_{n+1} = X_n + I_n$ where $I_1, I_2, \ldots $ is an i.i.d. sequence of increments, each taking the value $+1$ or $-1$ with chance $1/2$. The Markov property holds for this process: given the gambler's fortune at time $n$, the distribution of his fortune at time $n+1$ doesn't depend on his fortune before time $n$. So the process $X_0, X_1, X_2, \ldots $ is a Markov Chain representing the evolution of the gambler's fortune over time. 
 
 The *state space* of a Markov Chain is the set of possible values of the random variables in the chain. The state space of the random walk described above is the set of all integers. In this course we will restrict the state space to be discrete and typically finite.
 
 ### Conditional Independence
 Recall that two random variables $X$ and $Y$ are independent if the conditional distribution of $X$ given $Y$ is just the unconditional distribution of $X$.
 
-Random variables $X$ and $Y$ are said to be *conditionally independent given $Z$* if the conditional distribution of $X$ given both $Y$ and $Z$ is just the conditional distribution of $X$ given $Z$. That is, if you know $Z$, then additional knowledge about $Y$ doesn't change your opinion about $X$.
+Random variables $X$ and $Y$ are said to be *conditionally independent given $Z$* if the conditional distribution of $X$ given both $Y$ and $Z$ is just the conditional distribution of $X$ given $Z$ alone. That is, if you know $Z$, then additional knowledge about $Y$ doesn't change your opinion about $X$.
 
 In a Markov Chain, if you define time $n$ to be the present, time $n+1$ to be the future, and times $0$ through $n-1$ to be the past, then the Markov property says that the past and future are conditionally independent given the present.

@@ -25,9 +25,13 @@ P(X_n = i_n \mid X_{n-1} = i_{n-1})
 \end{align*}
 $$
 
+The distribution of $X_0$ is called the *initial distribution* of the chain.
+
 The conditional probabilities in the product are called *transition probabilities*. For states $i$ and $j$, the conditional probability $P(X_{n+1} = j \mid X_n = i)$ is called a *one-step transition probability at time $n$*. 
 
-For many chains such as the random walk, these one-step transition probabilities depend only on the states $i$ and $j$, not on the time $n$. For example, for the random walk,
+### Stationary Transition Probabilities
+
+For many chains such as the random walk, the one-step transition probabilities depend only on the states $i$ and $j$, not on the time $n$. For example, for the random walk,
 
 $$
 \begin{equation}
@@ -40,8 +44,6 @@ P(X_{n+1} = j \mid X_n = i) =
 $$
 
 for every $n$. 
-
-### Stationary Transition Probabilities
 When one-step transition probabilites don't depend on $n$, they are called *stationary* or *time-homogenous*. All the Markov chains that we will study in this course have time-homogenous transition probabilities.
 
 For such a chain, define the *one-step transition probability*
@@ -49,15 +51,17 @@ For such a chain, define the *one-step transition probability*
 $$
 P(i, j) ~ = ~ P(X_{n+1} = j \mid X_n = i) ~ = ~ P(X_1 = j \mid X_0 = i)
 $$
-Then
+
+Then the probability of every path of finite length is the product of a term from the initial distribution and a sequence of one-step transition probabilities:
+
 $$
 P(X_0 = i_0, X_1 = i_1, X_2 = i_2, \ldots, X_n = i_n)
 ~ = ~ P(X_0 = i_0)P(i_0, i_1)P(i_1, i_2) \cdots P(i_{n-1}, i_n)
 $$
 
+### One-Step Transition Matrix
 The one-step transition probabilities can be represented as elements of a matrix. This isn't just for compactness of notation – it leads to a powerful theory.
 
-### One-Step Transition Matrix
 The *one-step transition matrix* of the chain is the matrix $\mathbb{P}$ whose $(i, j)$th element is $P(i, j) = P(X_1 = j \mid X_0 = i)$.
 
 Often, $\mathbb{P}$ is just called *the transition matrix* for short. Note two important properties:
@@ -69,9 +73,9 @@ Let's see what the transition matrix looks like in an example.
 
 ### Sticky Reflecting Random Walk
 Often, the transition behavior of a Markov chain is easier to describe in a *transition diagram* instead of a matrix. Here is such a diagram for a chain on the states 1, 2, 3, 4, and 5. The diagram shows the one-step transition probabilities.
-- If the chain is at any state, it stays there with chance 0.5.
+- No matter at which state the chain is, it stays there with chance 0.5.
 - If the chain is at states 2 through 4, it moves to each of its two adjacent state with chance 0.25.
-- If the chain is at states 1 or 5, it moves to its adjacent state with chance 0.5
+- If the chain is at states 1 or 5, it moves to its adjacent state with chance 0.5.
 
 ![Reflecting Lazy Walk](trans_refl.png)
 
@@ -235,7 +239,7 @@ $$
 
 
 
-The `MarkovChain` method `prob_of_path` saves you the trouble of doing the multiplication. It takes as its arguments the starting state and the rest of the path (in a list or array), and returns the probability of the path.
+The `MarkovChain` method `prob_of_path` saves you the trouble of doing the multiplication. It takes as its arguments the starting state and the rest of the path (in a list or array), and returns the probability of the path given the starting state.
 
 
 
@@ -412,6 +416,7 @@ Given that 1 is the starting state, the total chance of the two paths is $(0.5 \
 Because of the Markov property, the one-step transition probabilities are all you need to find the 2-step transition probabilities. 
 
 In general, we can find $P_2(i, j)$ by conditioning on where the chain was at time 1.
+
 $$
 \begin{align*}
 P_2(i, j) ~ &= ~ P(X_2 = j \mid X_0 = i) \\
@@ -563,7 +568,7 @@ array([[ 0.24609375,  0.41015625,  0.234375  ,  0.08984375,  0.01953125],
 
 
 
-That is indeed the same as the matrix displayed by `transition_matrix` though harder to read.
+This is indeed the same as the matrix displayed by `transition_matrix`, though it is harder to read.
 
 When we want to use $\mathbb{P}$ in computations, we will use this matrix representation. For displays, `transition_matrix` is better.
 

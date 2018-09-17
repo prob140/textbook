@@ -14,7 +14,7 @@ redirect_from:
 
 ## Long Run Behavior
 
-Every irreducible and aperiodic Markov Chain with a finite state space exhibits astonishing regularity after it has run for a while. The proof of the convergence theorem below is beyond the scope of this course, but you have seen the result by computation. All the results are true in greater generality, for some classes of Markov Chains on infinitely many states. 
+Every irreducible and aperiodic Markov Chain on a finite state space exhibits astonishing regularity after it has run for a while. The proof of the convergence theorem below is beyond the scope of this course, but in examples you have seen the result by computation. All the results are true in greater generality for some classes of Markov Chains on infinitely many states. 
 
 ### Convergence to Stationarity
 Let $X_0, X_1, \ldots$ be an irreducible, aperiodic Markov chain on a finite state space $S$. Then for all states $i$ and $j$,
@@ -49,12 +49,14 @@ P_{n+1}(i, j) = \sum_{k \in S} P_n(i, k)P(k, j)
 $$
 
 Therefore
+
 $$
 \begin{align*}
 \lim_{n \to \infty} P_{n+1}(i, j) &= \lim_{n \to \infty} \sum_{k \in S} P_n(i, k)P(k, j) \\ \\
 &= \sum_{k \in S} \big{(} \lim_{n \to \infty} P_n(i, k) \big{)} P(k, j)
 \end{align*}
 $$
+
 We can exchange the limit and the sum because $S$ is finite. Now apply the theorem on convergence to stationarity:
 
 $$
@@ -66,7 +68,7 @@ These are called the *balance equations*.
 In matrix notation, if you think of $\pi$ as a row vector, these equations become
 
 $$
-\pi = \pi \mathbb{P} ~~~~~ \text{or, equivalently,} ~~~~~ \pi\mathbb{P} = \pi
+\pi = \pi \mathbb{P} ~~~~~ \text{or, as we will usually write it,} ~~~~~ \pi\mathbb{P} = \pi
 $$
 
 This helps us compute $\pi$ without taking limits.
@@ -78,7 +80,7 @@ To see what is being "balanced" in these equations, imagine a large number of in
 
 Then at any instant and for any state $j$, there is some proportion of particles that is leaving $j$, and another proportion that is entering $j$. The balance equations say that those two proportions are equal.
 
-Let's check this by looking at the equations again: for any state $j$,
+Let's check this by looking at the equations again. For any state $j$,
 
 $$
 \pi(j) = \sum_{k \in S} \pi(k)P(k, j)
@@ -86,7 +88,7 @@ $$
 
 For every $k \in S$ (including $k=j$), think of $\pi(k)$ as the proportion of particles leaving state $k$ after the chain has been run a long time. Then the left hand side is the proportion leaving $j$. The generic term in the sum on the right is the proportion that left $k$ at the previous instant and are moving to $j$. The sum is all the particles entering $j$. When the two sides are equal, the chain is *balanced*. 
 
-The theorem on convergence to stationarity says that the chain approaches balance as $n$ gets large. If it actually achieves balance, that is, if the distribution of $X_n$ is $\pi$ for some $n$, then it stays balanced. The reason:
+The theorem on convergence to stationarity says that the chain approaches balance as $n$ gets large. If it actually achieves balance, that is, if the distribution of $X_n$ is equal to $\pi$ for some $n$, then it stays balanced. The reason:
 
 $$
 P(X_{n+1} = j) = \sum_{i \in S} P(X_n = i)P(i, j) = \sum_{i \in S} \pi(i)P(i, j) = \pi(j)
@@ -116,7 +118,10 @@ $$
 = \frac{1}{n} \sum_{m=1}^n P_m(i, j)
 $$
 
-Now recall a property of convergent sequences of real numbers: If $x_n \to x$ as $n \to \infty$, then the sequence of averages also converges to $x$:
+Now recall a property of convergent sequences of real numbers: 
+
+- If $x_n \to x$ as $n \to \infty$, then the sequence of averages also converges to $x$. That is,
+
 $$
 \frac{1}{n} \sum_{m=1}^n x_m \to x ~~~ \text{as } n \to \infty
 $$
@@ -126,7 +131,9 @@ Take $x_n = P_n(i, j)$. Then by the theorem on convergence to stationarity,
 $$
 P_n(i, j) \to \pi(j) ~~~ \text{as } n \to \infty
 $$
+
 and hence the averages also converge:
+
 $$
 \frac{1}{n} \sum_{m=1}^n P_m(i, j) \to \pi(j) ~~~ \text{as } n \to \infty
 $$
@@ -282,6 +289,7 @@ $$
 $$
 
 Follow the same process to get all five balance equations:
+
 $$
 \begin{align*}
 \pi(1) &= 0.5\pi(1) + 0.25\pi(2) \\
@@ -291,12 +299,14 @@ $$
 \pi(5) &= 0.25\pi(4) + 0.5\pi(5)
 \end{align*}
 $$
+
 Some observations make the system easy to solve.
 - By rearranging the first equation, we get $\pi(2) = 2\pi(1)$.
 - By symmetry, $\pi(1) = \pi(5)$ and $\pi(2) = \pi (4)$.
 - Because $\pi(2) = \pi(4)$, the equation for $\pi(3)$ shows that $\pi(3) = \pi(2) = \pi(4)$.
 
 So the distribution $\pi$ is
+
 $$
 \big{(} \pi(1), 2\pi(1), 2\pi(1), 2\pi(1), \pi(1) \big{)}
 $$
@@ -307,11 +317,9 @@ $$
 \pi = \big{(} \frac{1}{8}, \frac{2}{8}, \frac{2}{8}, \frac{2}{8}, \frac{1}{8} \big{)}
 $$
 
-This agrees with what we got by using `distribution` for $n=100$. In fact we could just have used the method `steady_state` to get $\pi$:
-
 This implies that in the long run, the lazy reflecting random walk of this section is expected to spend about 12.5% of its time at state 1, 25% of its time at each of states 2, 3, and 4, and the remaining 12.5% of its time at state 5.
 
-### Lazy Random Walk on a Circle
+### Sticky Random Walk on a Circle
 Now let the state space be five points arranged on a circle. Suppose the process starts at Point 1, and at each step either stays in place with probability 0.5 (and thus is sticky), or moves to one of the two neighboring points with chance 0.25 each, regardless of the other moves. 
 
 In other words, this walk is just the same as the sticky reflecting walk, except that $1 \rightarrow 5$ and $5 \rightarrow 1$ transitions are both possible. This transition behavior can be summed up in a transition diagram. Notice that the transition behavior is the same for all the states.

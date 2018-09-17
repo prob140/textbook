@@ -74,7 +74,7 @@ The third form is the one to use. It uses the known distribution of $X$. It says
 
 The crucial thing to note about this method is that **we didn't have to first find the distribution of $Y$**. That saves us a lot of work. Let's see how our method works in some examples.
 
-### Example 1: $Y = |X-3|$
+### Example 1: $Y = \vert X-3 \vert$
 Let $X$ have a distribution we worked with earlier:
 
 
@@ -121,7 +121,7 @@ dist
 
 
 
-Let $g$ be the function defined by $g(x) = |x-3|$, and let $Y = g(X)$. In other words, $Y = |X - 3|$. 
+Let $g$ be the function defined by $g(x) = \vert x-3 \vert$, and let $Y = g(X)$. In other words, $Y = \vert X - 3 \vert$. 
 
 To calculate $E(Y)$, we first have to create a column that transforms the values of $X$ into values of $Y$:
 

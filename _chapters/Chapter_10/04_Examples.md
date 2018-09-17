@@ -22,6 +22,7 @@ Here are two examples to illustrate how to find the stationary distribution and 
 The model says that there are two containers containing a total of $N$ particles. At each instant, a container is selected at random and a particle is selected at random independently of the container. Then the selected particle is placed in the selected container; if it was already in that container, it stays there.
 
 Let $X_n$ be the number of particles in Container 1 at time $n$. Then $X_0, X_1, \ldots$ is a Markov chain with transition probabilities given by:
+
 $$
 \begin{equation}
 P(i, j) = 
@@ -70,6 +71,7 @@ Plot(ehrenfest.steady_state(), edges=True)
 That looks suspiciously like the binomial (100, 1/2) distribution. In fact it *is* the binomial (100, 1/2) distribution. Since you've guessed it, all you have to do is plug it into the balance equations and check that they work out. 
 
 The balance equations are:
+
 $$
 \begin{align*}
 \pi(0) &= \frac{1}{2}\pi(0) + \frac{1}{2N}\pi(1) \\
@@ -77,13 +79,20 @@ $$
 \pi(N) &= \frac{1}{2N}\pi(N-1) + \frac{1}{2}\pi(N)
 \end{align*}
 $$
-You have already guessed the solution by looking at the answer calculated for $N=100$. But if you want to start from scratch, you'll have to simplify the balance equations and try to write all the elements of $\pi$ in terms of $\pi(0)$. You will get:
+
+You have already guessed the solution by looking at the answer calculated for $N=100$. But if you want to start from scratch, you'll have to simplify the balance equations.
+
+To do this, **it's a great idea to write all the elements of $\pi$ in terms of one of the elements**. 
+
+Try writing all the elements of $\pi$ in terms of $\pi(0)$. You will get:
+
 $$
 \begin{align*}
 \pi(1) &= N\pi(0) \\ \\
 \pi(2) &= \frac{N(N-1)}{2} \pi0 = \binom{N}{2} \pi(0)
 \end{align*}
 $$
+
 and so on by induction:
 
 $$
@@ -93,7 +102,7 @@ $$
 In other words, the stationary distribution is proportional to the binomial coefficients. So $\pi(0) = 1/2^N$ to make all the elements sum to 1, and the distribution is binomial $(N, 1/2)$.
 
 ### Expected Reward
-Suppose I run the lazy reflecting random walk from the previous section for a long time. As a reminder, here is its stationary distribution.
+Suppose I run the sticky reflecting random walk from the previous section for a long time. As a reminder, here is its stationary distribution.
 
 
 
@@ -136,9 +145,9 @@ stationary
 
 
 
-**Question 1.** Suppose that every time the chain is in state 4, I win $\$4$; every time it's in state 5, I win $\$5$; otherwise I win nothing. What is my expected long run average reward?
+**Question 1.** Suppose that every time the chain is in state 4, I win 4 dollars; every time it's in state 5, I win 5 dollars; otherwise I win nothing. What is my expected long run average reward?
 
-**Answer 1.** In the long run, the chain is in steady state. So I expect that on 62.5% of the moves I will win nothing; on 25% of the moves I will win $\$4$; and on 12.5% of the moves I will win $\$5$. My expected long run average reward per move is $\$1.625$.
+**Answer 1.** In the long run, the chain is in steady state. So I expect that on 62.5% of the moves I will win nothing; on 25% of the moves I will win 4 dollars; and on 12.5% of the moves I will win 5 dollars. My expected long run average reward per move is 1.65 dollars.
 
 
 
