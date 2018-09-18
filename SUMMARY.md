@@ -72,6 +72,7 @@
  * [11.2 Reversibility](notebooks/Chapter_11/02_Reversibility.ipynb)
  * [11.3 Code Breaking](notebooks/Chapter_11/03_Code_Breaking.ipynb)
  * [11.4 Markov Chain Monte Carlo](notebooks/Chapter_11/04_Markov_Chain_Monte_Carlo.ipynb)
+ * [11.5 Review Set on Conditioning and Markov Chains](notebooks/Chapter_11/05_Review_Conditioning_and_MC.ipynb)
 
 * [Chapter 12: Standard Deviation](notebooks/Chapter_12/00_Standard_Deviation.ipynb)
  * [12.1 Definition](notebooks/Chapter_12/01_Definition.ipynb)

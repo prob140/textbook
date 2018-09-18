@@ -188,6 +188,9 @@ chapters:
   - class: level_0
     title: 11.4 Markov Chain Monte Carlo
     url: chapters/Chapter_11/04_Markov_Chain_Monte_Carlo
+  - class: level_0
+    title: 11.5 Review Set on Conditioning and Markov Chains
+    url: chapters/Chapter_11/05_Review_Conditioning_and_MC
   class: level_0
   title: 'Chapter 11: Reversing Markov Chains'
   url: chapters/Chapter_11/00_Reversing_Markov_Chains
