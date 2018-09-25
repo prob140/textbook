@@ -74,11 +74,13 @@ Let's take this formula in two pieces, as in the exponential example.
 This is a good way to understand the formula, and will help you understand the corresponding formula for non-linear transformations.
 
 For a formal proof, start with the case $a > 0$.
+
 $$
 F_Y(y) = P(aX+b \le y) = P\big{(}X \le \frac{y-b}{a}\big{)} = F_X\big{(}\frac{y-b}{a}\big{)}
 $$
 
 By the chain rule of differentiation,
+
 $$
 f_Y(y) = f_X\big{(}\frac{y-b}{a}\big{)} \cdot \frac{1}{a}
 $$
@@ -90,6 +92,7 @@ F_Y(y) = P(aX+b \le y) = P\big{(}X \ge \frac{y-b}{a}\big{)} = 1 - F_X\big{(}\fra
 $$
 
 Now the chain rule yields
+
 $$
 f_Y(y) ~ = ~ -f_X\big{(}\frac{y-b}{a}\big{)} \cdot \frac{1}{a}
 ~ = ~ f_X\big{(}\frac{y-b}{a}\big{)} \cdot \frac{1}{\lvert a \rvert}
@@ -120,6 +123,7 @@ Let the distribution of $U$ be uniform on $(0, 1)$ and for constants $b > a$ let
 First it is a good idea to be clear about the possible values of $V$. Since the possible values of $U$ are in $(0, 1)$, the possible values of $V$ are in $(a, b)$.
 
 At $v \in (a, b)$, the density of $V$ is
+
 $$
 f_V(v) ~ = ~ f_U\big{(} \frac{v - a}{b-a} \big{)} \frac{1}{b-a} ~ = ~
 1 \cdot \frac{1}{b-a} ~ = ~ \frac{1}{b-a}

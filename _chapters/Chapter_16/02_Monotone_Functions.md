@@ -70,6 +70,7 @@ $$
 
 #### The Formula
 Let $g$ be a differentiable, increasing function. The density of $Y = g(X)$ is given by
+
 $$
 f_Y(y) ~ = ~ f_X(x) \cdot \frac{1}{g'(x)} ~~~ \text{at } x = g^{-1}(y)
 $$
@@ -82,14 +83,14 @@ To see what is going on in the calculation, we will follow the same process as w
 This gives us an intuitive justification for the formula.
 
 ### Applying the Formula
-Let $X$ have the exponential (1) density and let $Y = \sqrt{X}$. We can take the square root because $X$ is a positive random variable. 
+Let $X$ have the exponential (1/2) density and let $Y = \sqrt{X}$. We can take the square root because $X$ is a positive random variable. 
 
 Let's find the density of $Y$ by applying the formula we have derived above. We will organize our calculation in four preliminary steps, and then plug into the formula.
 
 - **The function:** Take $g(x) = \sqrt{x}$. Then $g$ is increasing and its possible values are $(0, \infty)$.
-- **The derviative:** The derivative of $g$ is given by $g'(x) = 1/2\sqrt{x}$.
+- **The derviative:** The derivative of $g$ is given by $g'(x) = 1/(2\sqrt{x})$.
 - **The inverse function:** Let $y = g(x) = \sqrt{x}$. We will now write $x$ in terms of $y$, to get $x = y^2$.
-- **The known density:** The density of $X$ is $f_X(x) = e^{-x}$ for $x > 0$.
+- **The known density:** The density of $X$ is $f_X(x) = (1/2)e^{-(1/2)x}$ for $x > 0$.
 
 We are ready to plug this into our formula. Keep in mind that the possible values of $Y$ are $(0, \infty)$. For $y > 0$ the formula says
 
@@ -101,14 +102,14 @@ So for $y > 0$,
 
 $$
 \begin{align*}
-f_Y(y) ~ &= ~ e^{-x} \cdot \frac{1}{1/2\sqrt{x}} ~~~~ \mbox{at } x = y^2 \\
-&= ~ 2\sqrt{x} e^{-x} ~~~~ \mbox{at } x = y^2 \\
-&= ~ 2\sqrt{y^2} e^{-y^2} \\
-&= ~ 2y e^{-y^2}
+f_Y(y) ~ &= ~ (1/2)e^{-\frac{1}{2}x} \cdot \frac{1}{1/(2\sqrt{x})} ~~~~ \mbox{at } x = y^2 \\
+&= ~ \sqrt{x} e^{-\frac{1}{2}x} ~~~~ \mbox{at } x = y^2 \\
+&= ~ \sqrt{y^2} e^{-\frac{1}{2}y^2} \\
+&= ~ y e^{-\frac{1}{2}y^2}
 \end{align*}
 $$
 
-This is the *Rayleigh* density. Its graph is shown below.
+This is called the *Rayleigh* density. Its graph is shown below.
 
 
 
@@ -116,8 +117,6 @@ This is the *Rayleigh* density. Its graph is shown below.
 
 ![png](../../images/chapters/Chapter_16/02_Monotone_Functions_6_0.png)
 
-
-A log-normal density can be used as an approximation for the density of a product of a large number of i.i.d. random variables. The log of the product is the sum of a large number of i.i.d. variables, and hence is approximately normal by the Central Limit Theorem.
 
 ### Change of Variable Formula for Density: Monotone Function
 Let $g$ be smooth and monotone (that is, either increasing or decreasing). The density of $Y = g(X)$ is given by
@@ -140,15 +139,19 @@ The components of the change of variable formula for densities:
 - **The known density:** $f_U(u) = 1$ for $0 < u < 1$.
 
 By the formula, for $v > 1$ we have
+
 $$
 f_V(v) ~ = ~ f_U(u) \cdot \frac{1}{\lvert g'(u) \rvert} ~~~ \text{at } u = g^{-1}(v)
 $$
 
 That is, for $v > 1$,
+
 $$
 f_V(v) ~ = ~ 1 \cdot u^2 ~~~ \text{at } u = 1/v
 $$
+
 So 
+
 $$
 f_V(v) ~ = ~ \frac{1}{v^2}, ~~~ v > 1
 $$
@@ -161,5 +164,5 @@ The density $f_V$ belongs to the *Pareto* family of densities, much used in econ
 
 
 
-![png](../../images/chapters/Chapter_16/02_Monotone_Functions_10_0.png)
+![png](../../images/chapters/Chapter_16/02_Monotone_Functions_9_0.png)
 

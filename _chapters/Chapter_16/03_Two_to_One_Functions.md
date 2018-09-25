@@ -33,11 +33,15 @@ So the density of $Y$ at $y$ has two components, as follows. For $y > 0$,
 $$
 f_Y(y) ~ = ~ a + b
 $$
+
 where
+
 $$
 a = f_X(x_1)\cdot \frac{1}{2x_1} ~~~~ \text{at } x_1 = \sqrt{y}
 $$
+
 and
+
 $$
 b = f_X(x_2)\cdot \frac{1}{\vert 2x_2 \vert} ~~~~ \text{at } x_2 = -\sqrt{y}
 $$

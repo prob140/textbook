@@ -49,6 +49,7 @@ That is, given that $A$ has occurred, the chance of $B$ is higher than it is ove
 Suppose you have a population of $N$ elements of which $G$ are good. Let $X$ be the number of good elements in simple random sample of $n$ elements drawn from the population. Remember that simple random samples are drawn without replacement.
 
 We know that
+
 $$
 X = \sum_{j=1}^n I_j
 $$
@@ -72,6 +73,7 @@ Cov(I_j, I_k) = \frac{G}{N} \cdot \frac{G-1}{N-1} - \frac{G}{N} \cdot \frac{G}{N
 $$
 
 Therefore
+
 $$
 \begin{align*}
 Var(X) &= \sum_{j=1}^n Var(I_j) + \mathop{\sum \sum}_{1 \le j \ne k \le n} Cov(I_j, I_k) \\ \\
@@ -98,11 +100,13 @@ Let $S_n = X_1 + X_2 + \cdots + X_n$. Then $E(S_n) = n\mu$, and
 $$
 Var(S_n) ~ = ~ \sum_{i=1}^n Var(X_i) + \mathop{\sum \sum}_{1 \le i \ne j \le n} Cov(X_i, X_j) ~ = ~ n\sigma^2 + n(n-1)Cov(X_1, X_2)
 $$
+
 by symmetry.
 
 How can we find $Cov(X_1, X_2)$? It's not a good idea to try and multiply the two variables, as they are dependent and their distributions might be unpleasant. The expected product will be hard to find.
 
 What we can use is the observation that the equation we derived above for $Var(S_n)$ is valid for any sample size. In particular, it is valid in the case when we take a census, that is, when we sample all the elements of the population. In that case $n = N$ and the equation is
+
 $$
 Var(S_N) = N\sigma^2 + N(N-1)Cov(X_1, X_2)
 $$

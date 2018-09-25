@@ -224,6 +224,7 @@ Plots('-4X', dist4, '4X', dist3 )
 
 
 The graphs above help us visualize what happens to the SD when the random variable is transformed linearly. Let $Y = aX + b$. Then
+
 $$
 \begin{align*}
 Var(Y) = E\big{[} (Y-\mu_Y)^2 \big{]} &= E\big{[} (aX + b - a\mu_X - b)^2 \big{]}\\ 
@@ -246,6 +247,7 @@ In particular, it is very handy to remember that $SD(X) = SD(-X)$.
 
 ### "Computational" Formula for Variance
 An algebraic simplification of the formula for variance turns out to be very useful.
+
 $$
 \begin{align*}
 \sigma_X^2 &= E\big{(} (X-\mu_X)^2 \big{)} \\ \\
@@ -275,6 +277,7 @@ $$
 
 ### Uniform
 Let $U$ be uniform on $1, 2, 3, \ldots, n$. Then
+
 $$
 \begin{align*}
 E(U^2) &= \sum_{k=1}^n k^2 \cdot \frac{1}{n} \\ \\
@@ -310,11 +313,13 @@ E(X^2) = \mu^2 + \mu
 $$
 
 We also know that $E(X) = \mu$. Thus
+
 $$
 Var(X) = \mu^2 + \mu - \mu^2 = \mu
 $$
 
 and 
+
 $$
 SD(X) = \sqrt{\mu}
 $$

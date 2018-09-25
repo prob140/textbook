@@ -42,7 +42,13 @@ If we have two competing estimators of a parameter, we can use expected values a
 As an example, recall the German warplanes example of Data 8. The model was that we were observing $X_1, X_2, \ldots , X_n$, which are $n$ draws made at random with replacement from $1, 2, \ldots , N$. The goal was to estimate $N$, the total number of warplanes.
 
 One natural estimate is $M = \max(X_1, X_2, \ldots , X_n)$. The other, developed more carefully earlier in this text than in Data 8, is $2A - 1$
-where $A = (X_1 + X_2 + \ldots + X_n)/n$ is the sample average.
+where 
+
+$$
+A = \frac{X_1 + X_2 + \ldots + X_n}{n}
+$$ 
+
+is the sample average.
 
 Here is the simulation we did in Data 8, using a sample of size 30 to estimate $N$ which we had taken to be 300.
 

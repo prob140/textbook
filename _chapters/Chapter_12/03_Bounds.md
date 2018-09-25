@@ -31,6 +31,7 @@ To do this, we will start with an observation about expectations of functions of
 Suppose $g$ and $h$ are functions such that $g(X) \ge h(X)$, that is, $P(g(X) \ge h(X)) = 1$. Then $E(g(X)) \ge E(h(X))$.
 
 This result is apparent when you notice that for all $\omega$ in the outcome space,
+
 $$
 (g \circ X)(\omega) \ge (h \circ X)(\omega) ~~~~ \text{and therefore} ~~~~
 (g \circ X)(\omega)P(\omega) \ge (h \circ X)(\omega)P(\omega)
@@ -59,6 +60,7 @@ We have just proved
 
 ### Markov's Inequality
 Let $X$ be a non-negative random variable. Then for any $c > 0$, 
+
 $$
 P(X \ge c) ~ \le ~ \frac{E(X)}{c}
 $$
@@ -66,9 +68,11 @@ $$
 This result is called a "tail bound" because it puts an upper limit on how big the right tail at $c$ can be. It is worth noting that $P(X > c) \le P(X \ge c) \le E(X)/c$ by Markov's bound.
 
 In the figure below, $E(X) = 6.5$ and $c = 20$. Markov's inequality says that the gold area is *at most*
+
 $$
 \frac{6.5}{20} = 0.325
 $$
+
 You can see that the bound is pretty crude. The gold area is clearly quite a bit less than 0.325.
 
 
@@ -167,6 +171,7 @@ So if you have converted a random variable to standard units, the overwhelming m
 Chebyshev's Inequality is often written as follows:
 
 For all $c > 0$,
+
 $$
 P\big{(}|X - \mu_X| \ge c \big{)} ~ \le ~ \frac{\sigma_X^2}{c^2}
 $$

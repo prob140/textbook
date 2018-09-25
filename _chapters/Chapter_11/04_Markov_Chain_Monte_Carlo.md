@@ -6,8 +6,8 @@ previouschapter:
   url: chapters/Chapter_11/03_Code_Breaking
   title: '11.3 Code Breaking'
 nextchapter:
-  url: chapters/Chapter_12/00_Standard_Deviation
-  title: 'Chapter 12: Standard Deviation'
+  url: chapters/Chapter_11/05_Review_Conditioning_and_MC
+  title: '11.5 Review Set on Conditioning and Markov Chains'
 redirect_from:
   - 'chapters/chapter-11/04-markov-chain-monte-carlo'
 ---
@@ -35,9 +35,11 @@ Exactly who proposed the first algorithm to create such a Markov Chain is the su
 
 The goal is to create a transition matrix $\mathbb{P}$ so that $\pi$ and $\mathbb{P}$ together solve the detailed balance equations. 
 
-The algorithm is based on any symmetric transition matrix $Q$ that creates an irreducible aperiodic chain on the state space. For example, if the state space is numerical you could start with, "Wherever the chain is, it picks one of the three closest values (including itself) with probability $1/3$ each." For a pair of states $i$ and $j$, the transition probability $Q(i, j)$ is called the *proposal probability*.
+The algorithm starts with any symmetric, irreducible transition matrix $Q$ on the state space. For example, if the state space is numerical you could start with, "Wherever the chain is, it picks one of the three closest values (including itself) with probability $1/3$ each." For a pair of states $i$ and $j$, the transition probability $Q(i, j)$ is called the *proposal probability*.
 
-Here are the steps that determine the transitions of the new chain.
+The algorithm then introduces additional randomization to create a new chain that is irreducible and aperiodic and has $\pi$ as its stationary distribution.
+
+Here are the rules that determine the transitions of the new chain.
 
 - Suppose the chain is at $i$ at time $n$, that is, suppose $X_n = i$. Pick a state $j$ according to the proposal probability $Q(i, j)$. This $j$ is the candidate state to which your chain might move.
 
@@ -55,7 +57,9 @@ $$
 
 Thus the new chain either moves to the state picked according to $Q$, or it stays where it is. We say that it *accepts a move to a new state* based on $Q$ and $r$, and otherwise it doesn't move. 
 
-The new chain is irreducible because the proposal chain is irreducible. It is aperiodic because it can stay in place. So it has a steady state distribution. The alogrithm says that this steady state distribution is the same as the distribution $\pi$ that was used to define the ratios $r(i, j)$.
+The new chain is irreducible because the proposal chain is irreducible. It is aperiodic because it can stay in place. So it has a steady state distribution. 
+
+The alogrithm says that this steady state distribution is the same as the distribution $\pi$ that was used to define the ratios $r(i, j)$.
 
 ### How to Think About the Algorithm
 Before we prove that the algorithm works, let's examine what it is doing in the context of decoders.
