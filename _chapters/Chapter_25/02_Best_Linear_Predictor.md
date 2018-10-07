@@ -129,14 +129,14 @@ $$
 Cov(Y, \hat{Y}) ~ = ~ Var(\hat{Y})
 $$
 The variance of the error is
-
+$$
 \begin{align*}
 Var(W) ~ &= ~ Cov(Y - \hat{Y}, Y - \hat{Y}) \\
 &= ~ Var(Y) - 2Cov(Y, \hat{Y}) + Var(\hat{Y}) \\
 &= ~ Var(Y) - Var(\hat{Y}) \\
 &= ~ \sigma_Y^2 - \boldsymbol{\Sigma}_{Y, \mathbf{X}}\boldsymbol{\Sigma}_\mathbf{X}^{-1} \boldsymbol{\Sigma}_{\mathbf{X}, Y}
 \end{align*}
-
+$$
 In the case of simple regression under the bivariate normal model, we saw that the error variance was
 
 $$

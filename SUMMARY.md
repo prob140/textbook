@@ -99,6 +99,7 @@
  * [15.3 Expectation](notebooks/Chapter_15/03_Expectation.ipynb)
  * [15.4 Exponential Distribution](notebooks/Chapter_15/04_Exponential_Distribution.ipynb)
  * [15.5 Calculus in SymPy](notebooks/Chapter_15/05_Calculus_in_SymPy.ipynb)
+ * [15.6 Review Problems: Set 3](notebooks/Chapter_15/06_Review_Problems_Set_3.ipynb)
 
 * [Chapter 16: Transformations](notebooks/Chapter_16/00_Transformations.ipynb)
  * [16.1 Linear Transformations](notebooks/Chapter_16/01_Linear_Transformations.ipynb)

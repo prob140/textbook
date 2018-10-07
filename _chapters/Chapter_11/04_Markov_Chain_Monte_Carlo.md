@@ -79,7 +79,7 @@ The algorithm does this by comparing the *acceptance ratio* $r(i, j) = \pi(j)/\p
 ### The Algorithm Works
 We will now show that the detailed balance equations are solved by the desired limit distribution $\pi$ and the transition matrix $\mathbb{P}$ of the chain created by the Metropolis algorithm.
 
-Take any two states $i$ and $j$.
+Take any two distinct states $i$ and $j$.
 
 #### Case 1: $\pi(i) = \pi(j)$
 Then $r(i, j) = 1$. By the algorithm, $P(i, j) = Q(i, j)$ and also $P(j, i) = Q(j, i) = Q(i, j)$ by the symmetry of $Q$. 

@@ -70,15 +70,11 @@ $$
 Hence we can *generate the moments of $X$* by evaluating successive derivatives of $M_X$ at $t=0$. This is one way in which mgf's are helpful.
 
 ### Identifying the Distribution
-In this class we have made heavy use of the first and second moments, and no use at all of the higher moments. That will continue to be the case. But mgf's do involve all the moments, and this results in a property that is very useful for proving facts about distributions:
+In this class we have made heavy use of the first and second moments, and no use at all of the higher moments. That will continue to be the case. But mgf's do involve all the moments, and this results in a property that is very useful for proving facts about distributions. This property is valid if the mgf exists in an interval around 0, which we assumed earlier in this section.
 
 **If two distributions have the same mgf, then they must be the same distribution.** For example, if you recognize the mgf of a random variable as the mgf of a normal distribution, then the random variable must be normal.
 
 By contrast, if you know the expectation of a random variable you can't identify the distribution of the random variable; even if you know both the mean and the SD (equivalently, the first and second moments), you can't identify the distribution. But if you know the moment generating function, and hence all the moments, then you can.
-
-This property is valid if the mgf exists in an interval around 0, which we assumed earlier in this section.
-
-That the mgf identifies the distribution is another reason the mgf is useful.
 
 ### Working Well with Sums
 The third reason mgf's are useful is that like the pgf, the mgf of the sum of independent random variables is easily computed as a product.

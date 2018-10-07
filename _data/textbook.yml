@@ -261,6 +261,9 @@ chapters:
   - class: level_0
     title: 15.5 Calculus in SymPy
     url: chapters/Chapter_15/05_Calculus_in_SymPy
+  - class: level_0
+    title: '15.6 Review Problems: Set 3'
+    url: chapters/Chapter_15/06_Review_Problems_Set_3
   class: level_0
   title: 'Chapter 15: Continuous Distributions'
   url: chapters/Chapter_15/00_Continuous_Distributions
