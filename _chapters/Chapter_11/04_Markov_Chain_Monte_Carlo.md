@@ -74,7 +74,7 @@ The algorithm does this by comparing the *acceptance ratio* $r(i, j) = \pi(j)/\p
 
 - If $r(i, j) \ge 1$, the likelihood of $j$ is at least as large that of $i$, so you *accept the proposal* and move to $j$. 
 
-- If $r(i, j) < 1$, the proposed decoder $j$ has *less* likelihood than the current $i$, so it is tempting to stay at $i$. But this risks the chain getting stuck at a local maximum. The algorithm provides a chance to avoid this, by tossing a biased coin. If the coin lands tails, the chain moves to $j$ even though $j$ has a *lower* likelihood than the current decoder $i$. The idea is that from this new position there might be paths to decoders that have the highest likelihoods of all.
+- If $r(i, j) < 1$, the proposed decoder $j$ has *less* likelihood than the current $i$, so it is tempting to stay at $i$. But this risks the chain getting stuck at a local maximum. The algorithm provides a chance to avoid this, by tossing a biased coin. If the coin lands heads, the chain moves to $j$ even though $j$ has a *lower* likelihood than the current decoder $i$. The idea is that from this new position there might be paths to decoders that have the highest likelihoods of all.
 
 ### The Algorithm Works
 We will now show that the detailed balance equations are solved by the desired limit distribution $\pi$ and the transition matrix $\mathbb{P}$ of the chain created by the Metropolis algorithm.
