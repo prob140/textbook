@@ -93,9 +93,9 @@ In each of Parts **a** and **b**, find $P(X > 4E(X))$ if you can. If you can't, 
 **9.**
 Let $A_n$ be the average of an i.i.d. random sample of size $n$ drawn from a population that has mean 100 and SD 2.
 
-(a) What can you say about the value of $P(X \text{ is in the interval } 100 \pm 2)$ if $n = 4$?
+(a) What can you say about the value of $P(A_n \text{ is in the interval } 100 \pm 2)$ if $n = 4$?
 
-(b) What can you say about the value of $P(X \text{ is in the interval } 100 \pm 0.2)$ if $n = 400$?
+(b) What can you say about the value of $P(A_n \text{ is in the interval } 100 \pm 0.2)$ if $n = 400$?
 
 **10.**
 Let $X$ have the exponential $(\lambda)$ distribution and let $c$ be a positive constant. Let $Y = cX$. Find the survival function of $Y$ and hence identify the distribution of $Y$.
