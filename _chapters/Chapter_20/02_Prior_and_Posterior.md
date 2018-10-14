@@ -40,11 +40,12 @@ When $X$ is continuous, the denominator is 0. In this case there is one main ide
 - $P(A \mid X \in dx)$ is essentially constant regardless of exactly where the infinitesimal interval $dx$ is placed relative to $x$. This constant value will be denoted $P(A \mid X = x)$.
 
 So for continuous $X$, we will define
+
 $$
 P(A \mid X = x) ~ = ~ P(A \mid X \in dx) ~ \sim ~ \frac{P(A, X \in dx)}{P(X \in dx)} 
 $$
 
-We are assuming that the limit of the right hand side as $dx$ goes to 0 exists and doesn't depend exactly how $dx$ is defined: around $x$, or to the left of $x$, or to the right, and so on. This will be true under regularity conditions; you can just assume it works.
+We are assuming that the limit of the right hand side as $dx$ goes to 0 exists and doesn't depend exactly how $dx$ is defined: around $x$, or to the left of $x$, or to the right, and so on. This will be true under regularity conditions. You can just assume it works.
 
 ### Posterior Density
 Let $X$ have possible values in the unit interval and probability density function $f_X$. Let $H$ be the number of heads in $n$ tosses of a coin that lands heads with probability $X$. That is, for each $x$ suppose the conditional distribution of $H$ given $X=p$ is binomial $(n, p)$.

@@ -33,10 +33,7 @@ For fixed positive numbers $r$ and $s$, not necessarily integers, the beta $(r, 
 
 $$
 f(x) = 
-\begin{cases}
-\frac{\Gamma(r+s)}{\Gamma(r)\Gamma(s)} x^{r-1}(1-x)^{s-1}, ~~~ 0 < x < 1 \\
-0 ~~~~~~~~~~~ \text{otherwise}
-\end{cases}
+\frac{\Gamma(r+s)}{\Gamma(r)\Gamma(s)} x^{r-1}(1-x)^{s-1}, ~~~ 0 < x < 1 
 $$
 
 We will not prove that this function integrates to 1, but it is true and should be believable because we have seen it to be true for integer values of the parameters.
@@ -88,7 +85,7 @@ $$
 
 This beta posterior density is easy to remember. Start with the prior; update the first parameter by adding the observed number of heads; update the second parameter by adding the observed number of tails.
 
-#### Conjugate Prior
+### Conjugate Prior
 The prior distribution of the probability of heads is from the beta family. The posterior distribution of the probability of heads, given the number of heads, is another beta density. The beta prior and binomial likelihood combine to result in a beta posterior. The beta family is therefore called a *family of conjugate priors* for the binomial distribution: the posterior is another member of the same family as the prior.
 
 ### MAP Estimate: Posterior Mode

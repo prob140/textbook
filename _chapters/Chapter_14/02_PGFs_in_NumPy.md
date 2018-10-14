@@ -22,7 +22,7 @@ Recall our algorithm to find the distribution of $S_n$, the sum of $n$ i.i.d. co
 
 In this section we will use `NumPy` to carry out this algorithm.
 
-Suppose the distribution of $X_1$ is given by $p_0 = 0.1$, $p_1 = 0.5$, $p_2 = 0.4$. Let `probs_X1` be an array containing the probabilities of the values 0, 1, and 2.
+Let's start with an example. Suppose the distribution of $X_1$ is given by $p_0 = 0.1$, $p_1 = 0.5$, $p_2 = 0.4$. Let `probs_X1` be an array containing the probabilities of the values 0, 1, and 2.
 
 
 
@@ -72,7 +72,7 @@ coeffs_X1
 
 {:.output_data_text}
 ```
-array([ 0.4,  0.5,  0.1])
+array([0.4, 0.5, 0.1])
 ```
 
 
@@ -103,7 +103,7 @@ Now suppose $S_3$ is the sum of three i.i.d. copies of $X_1$. The pgf of $S_3$ i
 
 {:.input_area}
 ```python
-pgf_S3 = pgf_X1**3
+pgf_S3 = pgf_X1 ** 3
 print(pgf_S3)
 ```
 
@@ -133,7 +133,7 @@ coeffs_S3
 
 {:.output_data_text}
 ```
-array([ 0.064,  0.24 ,  0.348,  0.245,  0.087,  0.015,  0.001])
+array([0.064, 0.24 , 0.348, 0.245, 0.087, 0.015, 0.001])
 ```
 
 
@@ -154,7 +154,7 @@ probs_S3
 
 {:.output_data_text}
 ```
-array([ 0.001,  0.015,  0.087,  0.245,  0.348,  0.24 ,  0.064])
+array([0.001, 0.015, 0.087, 0.245, 0.348, 0.24 , 0.064])
 ```
 
 
@@ -177,6 +177,8 @@ Plot(dist_S3)
 ### A Function to Calculate the Distribution of $S_n$
 We will combine the steps above to create a function `dist_sum` that takes as its arguments the number of terms $n$ and the probabilities in the distribution of $X_1$, and returns the distribution of the sum of $n$ i.i.d. copies of $X_1$.
 
+Remember that $X_1$ must have a finite number of non-negative integer values.
+
 
 
 {:.input_area}
@@ -194,22 +196,20 @@ def dist_sum(n, probs_0_through_N):
     # Find the probailities of those values
     coeffs_X1 = np.flipud(probs_0_through_N)
     pgf_X1 = np.poly1d(coeffs_X1)
-    pgf_Sn = pgf_X1**n
+    pgf_Sn = pgf_X1 ** n
     coeffs_Sn = pgf_Sn.c
     probs_Sn = np.flipud(coeffs_Sn)
     
-    t = Table().with_columns(
-        'Value', values_Sn,
-        'Probability', probs_Sn
-    )
+    t = Table().values(values_Sn).probability(probs_Sn)
+    
     return t
 ```
 
 
 ### The Sum of the Numbers on $n$ Rolls of a Die
-In Chapter 3 we found the exact distribution of the sum of five rolls of a die by listing all $6^5$ possible outcomes and computing the sum for each of them. That method gets intractable with larger numbers of rolls. Let's see if our new method can find the distribution of the sum of 10 rolls of a die.
+In Chapter 3 we found the exact distribution of the sum of five rolls of a die by listing all $6^5$ possible outcomes and computing the sum for each of them. That method gets intractable with larger numbers of rolls. Let's see if our new method can find the distribution of the total number of spots on 10 rolls of a die.
 
-We have to start with the distribution of a single roll, for which it is important to remember to include 0 as the probability of 0 spots. Otherwise the pgf will be wrong because `NumPy` won't know that it is not supposed to include a term of degree 0.
+We have to start with the distribution of the number of spots on a single roll, for which it is important to remember to include 0 as the probability of 0 spots. Otherwise the pgf will be wrong because `NumPy` won't know that it is not supposed to include a term of degree 0.
 
 
 
@@ -225,8 +225,8 @@ die
 
 {:.output_data_text}
 ```
-array([ 0.        ,  0.16666667,  0.16666667,  0.16666667,  0.16666667,
-        0.16666667,  0.16666667])
+array([0.        , 0.16666667, 0.16666667, 0.16666667, 0.16666667,
+       0.16666667, 0.16666667])
 ```
 
 
@@ -256,7 +256,7 @@ Plot(dist_sum(10, die))
 
 
 ### Making Waves
-The distribution of the sum of 10 rolls of a die looks beautifully normal. Do all sums have roughly normal distributions? 
+The distribution of the sum of 10 rolls of a die looks beautifully normal. Do all random sample sums have roughly normal distributions? 
 
 To explore this question, let $X_1$ have the distribution given by $p_1 = p_2 = p_9 = 1/3$.
 

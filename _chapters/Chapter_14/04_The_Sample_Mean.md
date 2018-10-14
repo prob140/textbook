@@ -14,7 +14,7 @@ redirect_from:
 
 ## The Sample Mean
 
-What's central about the Central Limit Theorem? One answer is that it allows us to make inferences based on random samples even when we don't know much about the distribution of the population.
+What's central about the Central Limit Theorem? One answer is that it allows us to make inferences based on random samples when we don't know much about the distribution of the population. For data scientists, that's very valuable.
 
 In Data 8 you saw that if we want estimate the mean of a population, we can construct confidence intervals for the parameter based on the mean of a large random sample. In that course you used the bootstrap to generate an empirical distribution of the sample mean, and then used the empirical distribution to create the confidence interval. You will recall that those empirical distributions were invariably bell shaped.
 
@@ -49,7 +49,11 @@ Plots('Sum of 5 dice', dist_sum_5, 'Sum of 20 dice', dist_sum_20)
 
 You can see the normal distribution appearing already for the sum of 5 and 20 dice. 
 
-You can see also that the gold distribution isn't four times as spread out as the blue, though the sample size in the gold distribution is four times that of the blue. The gold distribution is is half as tall and twice as spread out as the blue. That is because the SD of the sum is proportional to $\sqrt{n}$. It grows slower than $n$. Because the sample size is larger by a factor of 4, the SD of the gold distribution is $\sqrt{4} = 2$ times the SD of the blue.
+The gold histogram is more spread out than the blue. Because both are probability histograms, both have 1 as their total area. So the gold histogram has to be lower than the blue.
+
+Now let's look at the spread more carefully.
+
+You can see also that the gold distribution isn't four times as spread out as the blue, though the sample size in the gold distribution is four times that of the blue. The gold distribution is twice as spread out (and therefore half as tall) as the blue. That is because the SD of the sum is proportional to $\sqrt{n}$. It grows slower than $n$. Because the sample size is larger by a factor of 4, the SD of the gold distribution is $\sqrt{4} = 2$ times the SD of the blue.
 
 The *average* of the sample behaves differently.
 
@@ -85,6 +89,7 @@ The graph below shows the distributions of the means of 5 rolls of a die and of 
 ![png](../../images/chapters/Chapter_14/04_The_Sample_Mean_5_0.png)
 
 
+### Square Root Law
 Accuracy doesn't come cheap. The SD of the sample mean decreases according to the square root of the sample size. Therefore if you want to decrease the SD of the sample mean by a factor of 3, you have to increase the sample size by a factor of $3^2 = 9$.
 
 The general result is usually stated in the reverse.
@@ -93,27 +98,27 @@ The general result is usually stated in the reverse.
 If you multiply the sample size by a factor, then the SD of the sample mean decreases by the square root of the factor.
 
 ### Weak Law of Large Numbers
-The sample mean is an unbiased estimator of the population mean, and has a small SD when the sample size is large. So the mean of a large sample is close to the population mean with high probability. 
+The sample mean is an unbiased estimator of the population mean and has a small SD when the sample size is large. So the mean of a large sample is close to the population mean with high probability. 
 
 The formal result is called the *Weak Law of Large Numbers*.
 
 Let $X_1, X_2, \ldots, X_n$ be i.i.d., each with mean $\mu$ and SD $\sigma$, and let $\bar{X}_n$ be the sample mean. Fix any number $\epsilon > 0$; it is best to imagine $\epsilon$ to be very small. Then
 
 $$
-P(|\bar{X}_n - \mu| < \epsilon) \to 1 ~~~ \text{as } n \to \infty
+P(\vert \bar{X}_n - \mu \vert < \epsilon) \to 1 ~~~ \text{as } n \to \infty
 $$
 
 That is, for large $n$ it is almost certain that the sample average is in the range $\mu \pm \epsilon$.
 
-To prove the law, we will show that $P(\|\bar{X}_n - \mu\| \ge \epsilon) \to 0$. This is straightforward by Chebyshev's Inequality.
+To prove the law, we will show that $P(\vert \bar{X}_n - \mu \vert \ge \epsilon) \to 0$. This is straightforward by Chebyshev's Inequality.
 
 $$
-P(\|\bar{X}_n - \mu\| \ge \epsilon)~ \le ~ \frac{\sigma_{\bar{X}_n}^2}{\epsilon^2} 
+P(\vert \bar{X}_n - \mu \vert \ge \epsilon)~ \le ~ \frac{\sigma_{\bar{X}_n}^2}{\epsilon^2} 
 ~ = ~ \frac{\sigma^2}{n\epsilon^2} ~ \to ~ 0 ~~~ \text{as } n \to \infty
 $$
 
 ### Related Laws
-- **Strong Law of Large Numbers.** This says that with probability 1, the sample average converges to a limit, and that limit is the constant $\mu$. See [this blog post by Fields Medalist Terence Tao](https://terrytao.wordpress.com/2008/06/18/the-strong-law-of-large-numbers/). He states the laws in the case where the underlying SDs may not exist. Note that our proof of the Weak Law is not valid in that case; the result is still true but the proof needs more care.
+- **Strong Law of Large Numbers.** This says that if you have a large iid then sample, then with probability 1 the running sample averages converge to a limit, and that limit is the constant $\mu$. See [this blog post by Fields Medalist Terence Tao](https://terrytao.wordpress.com/2008/06/18/the-strong-law-of-large-numbers/). He states the laws in the case where the underlying SDs may not exist. Note that our proof of the Weak Law is not valid in that case; the result is still true but the proof needs more care.
 - **Law of Small Numbers.** This is the title of a book by [Ladislaus Bortkiewicz](https://en.wikipedia.org/wiki/Ladislaus_Bortkiewicz) (1868-1931) in which he described the Poisson approximation to distributions of rare events. That's why Section 6.4 of these notes is called the Law of Small Numbers.
 - **Law of Averages.** This is a common name for the Weak Law in the case where the population is binary and the sample mean is just the proportion of successes in the sample. In common usage, people sometimes forget that the law is a limit statement. If you are tossing a fair coin and have seen 10 heads in a row, the chance that the next toss is a head is still 1/2. The law of averages does not say that you are "due for a tail". It doesn't apply to finite sets of tosses.
 

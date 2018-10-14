@@ -15,6 +15,7 @@ redirect_from:
 ## Probabilities and Expectations
 
 A function $f$ on the plane is called a *joint density* if:
+
 - $f(x, y) \ge 0$ for all $x$, $y$ 
 - $\int_x \int_y f(x, y)dydx = 1$
 
@@ -36,11 +37,13 @@ Also analogous is the interpretation of the joint density as part of the calcula
 The infinitesimal region is a tiny rectangle in the plane just around the point $(x, y)$. Its width is $dx$ and its length is $dy$. The corresponding volume is that of a rectangular box whose base is the tiny rectangle and whose height is $f(x, y)$.
 
 Thus for all $x$ and $y$,
+
 $$
 P(X \in dx, Y \in dy) ~ \sim ~ f(x, y)dxdy
 $$
 
 and the joint density measures *probability per unit area*:
+
 $$
 f(x, y) ~ \sim ~ \frac{P(X \in dx, Y \in dy)}{dxdy}
 $$
@@ -126,6 +129,7 @@ f = 120*x*(y-x)*(1-y)
 
 
 The double integral requires a call to `Integral` that specifies the inner integral first and then the outer. The call says:
+
 - The function being integrated is $f$.
 - The inner integral is over the variable $x$ which goes from $0$ to y.
 - The outer integral is over the variable $y$ which goes from 0 to 1.
@@ -176,6 +180,7 @@ Suppose you want to find $P(Y > 4X)$. The event is the blue region in the graph 
 
 
 To find the region of integration, notice that for fixed $y$, the value of $x$ goes from 0 to $y/4$. So 
+
 $$
 \begin{align*}
 P(Y > 4X) ~ &= ~ \int_0^1 \int_0^{y/4} 120x(y-x)(1-y)dxdy \\
@@ -235,6 +240,13 @@ $$0.15625$$
 ### Example 2
 Suppose you want to find $P(X > 0.25, Y > 0.5)$. The event is the colored region below. 
 
+
+
+
+
+![png](../../images/chapters/Chapter_17/01_Probabilities_and_Expectations_26_0.png)
+
+
 Now $P(X > 0.25, Y > 0.5)$ is the integral of the joint density function over this region. Notice that for each fixed value of $y > 0.5$, the value of $x$ in this event goes from $0.25$ to $y$. So let's integrate $x$ first and then $y$, as we did in the previous calculations.
 
 $$
@@ -275,6 +287,7 @@ $$0.578125$$
 
 ### Expectation
 Let $g$ be a function on the plane. Then
+
 $$
 E(g(X, Y)) ~ = ~ \int_y \int_x g(x, y)f(x, y)dxdy 
 $$
@@ -285,6 +298,7 @@ This is an application of the non-linear function rule for expectation, applied 
 As an example, let's find $E(\frac{Y}{X})$ for $X$ and $Y$ with the joint density $f$ used in the examples above.
 
 Here $g(x, y) = \frac{y}{x}$, and
+
 $$
 \begin{align*}
 E\big{(}\frac{Y}{X}\big{)} ~ &= ~ \int_y \int_x g(x, y)f(x, y)dxdy \\ \\

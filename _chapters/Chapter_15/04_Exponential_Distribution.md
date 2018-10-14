@@ -54,13 +54,13 @@ $$
 E(T) ~ = ~ \int_0^\infty S(t)dt ~ = ~ \int_0^\infty e^{-\lambda t}dt ~ = ~ \frac{1}{\lambda}
 $$
 
-To find $E(T^2)$, you can use integration by parts, or you could accept for now that $E(T^2) = 2/\lambda^2$ and therefore 
+To find $E(T^2)$, you can use integration by parts, or you can accept for now that $E(T^2) = 2/\lambda^2$ and therefore 
 
 $$
 Var(T) ~ = ~ \frac{1}{\lambda^2} ~~~~ \mbox{and } ~~~~ SD(T) = \frac{1}{\lambda}
 $$
 
-Later in the course we will see how to find $E(T^2)$ without calculus.
+Later in the course we will see how to find $E(T^2)$ without integration.
 
 The graph below shows the density $f_T$ with the labeled points on the horizontal axis corresponding to standard units of -1, 0, 1, 2, and 3. The random variable $T$ can't be negative, and the density doesn't go further than 1 SD below the mean. The spread comes from the long right hand tail.
 
@@ -98,9 +98,9 @@ $$
 e^{-\lambda t_{0.5}} = 0.5 ~ \iff ~ -\lambda t_{0.5} = \log(0.5) ~ \iff ~ \lambda t_{0.5} =  \log(2) ~ \iff ~ t_{0.5} = \frac{\log(2)}{\lambda} = \log(2)E(T)
 $$
 
-Because $\log(2) < 1$, the median lifetime $t_{0.5}$ is less than the mean lifetime $E(T) = 1/\lambda$ as you can see on the graph. This is consistent with an observation you made in Data 8: if a distribution has a right hand tail, the mean is greater than the median.
+Because $\log(2) < 1$, the median lifetime $t_{0.5}$ is less than the mean lifetime $E(T) = 1/\lambda$ as you can see on the graph. This is consistent with an observation you made in Data 8: if a distribution has a right hand tail, the median is less than the mean.
 
-The exponential distribution is often used to model lifetimes of objects like radioactive atoms which undergo *exponential decay*. The *half life* of a radioactive isotope is defined as the time by which half of the atoms of the isotope will have decayed. That is, the half life is the median of the exponential lifetime of the atom. The parameter $\lambda$ is called the *decay rate* of the atom. By the property of the median $t_{0.5}$ derived above, the relation between $\lambda$ and the half life is
+The exponential distribution is often used to model lifetimes of objects like radioactive atoms that undergo *exponential decay*. The *half life* of a radioactive isotope is defined as the time by which half of the atoms of the isotope will have decayed. That is, the half life is the median of the exponential lifetime of the atom. The parameter $\lambda$ is called the *decay rate* of the atom. By the property of the median $t_{0.5}$ derived above, the relation between $\lambda$ and the half life is
 
 $$
 \text{half life} = \frac{\log(2)}{\lambda}

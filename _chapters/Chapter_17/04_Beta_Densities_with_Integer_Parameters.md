@@ -62,6 +62,7 @@ The graph below shows the event $\{U_{(2)} \in dx, U_{(4)} \in dy\}$ for values 
 
 
 To find $P(U_{(2)} \in dx, U_{(4)} \in dy)$, notice that:
+
 - One of $U_1, U_2, U_3, U_4, U_5$ must be in $dx$; there are 5 ways to choose this one.
 - Of the remaining 4 variables, one of them must be in $dy$; there are 4 ways to choose this one.
 - Of the remaining 3, one must be in $(0, x)$.
@@ -69,9 +70,12 @@ To find $P(U_{(2)} \in dx, U_{(4)} \in dy)$, notice that:
 - The last one must be in $(y, 1)$.
 
 Thus
+
 $$
-P(U_{(2)} \in dx, U_{(4)} \in dy) ~ \sim ~ 5(1dx) \cdot 4(1dy) \cdot 3x \cdot 2(y-x) \cdot 1(1-y) 
-~ = ~ 120x(y-x)(1-y)dxdy
+\begin{align*}
+P(U_{(2)} \in dx, U_{(4)} \in dy) ~ &\sim ~ 5(1dx) \cdot 4(1dy) \cdot 3x \cdot 2(y-x) \cdot 1(1-y) \\ 
+&\sim ~ 120x(y-x)(1-y)dxdy
+\end{align*}
 $$
 
 and therefore the joint density of $U_{(2)}$ and $U_{(4)}$ is given by
@@ -113,6 +117,7 @@ f_{U_{(k)}} (x) = \frac{n!}{(k-1)!(n-k)!} x^{k-1}(1-x)^{n-k}, ~~~ 0 < x < 1
 $$
 
 Let's rewrite the exponents slightly:
+
 $$
 f_{U_{(k)}} (x) = \frac{n!}{(k-1)!((n-k+1)-1)!} x^{k-1}(1-x)^{(n-k+1)-1}, ~~~ 0 < x < 1
 $$
@@ -130,7 +135,7 @@ is a probability density function. This is called the *beta density with paramet
 
 The order statistic $U_{(k)}$ has the beta density with parameters $k$ and $n-k+1$.
 
-The shape of the density is determined by the factors that involve $x$ and $1-x$. All the factorials are just parts of the constant that make the density integrate to 1.
+The shape of the density is determined by the two factors that involve $x$. All the factorials are just parts of the constant that make the density integrate to 1.
 
 Notice that the uniform $(0, 1)$ density is the same as the beta density with parameters $r = 1$ and $s = 1$. The uniform $(0, 1)$ density is a member of the *beta family*.
 
@@ -168,9 +173,9 @@ Let $X$ have the beta $(r, s)$ density for two positive integer parameters $r$ a
 
 $$
 \begin{align*}
-E(X) &= \int_0^1 x \frac{(r+s-1)!}{(r-1)!(s-1)!} x^{r-1}(1-x)^{s-1}dx \\
-&= \frac{(r+s-1)!}{(r-1)!(s-1)!} \int_0^1 x^r(1-x)^{s-1}dx \\
-&= \frac{(r+s-1)!}{(r-1)!(s-1)!} \cdot \frac{r!(s-1)!}{(r+s)!} ~~~~ \text{(beta integral for parameters } r+1 \text{and } s\text{)}\\
+E(X) &= \int_0^1 x \frac{(r+s-1)!}{(r-1)!(s-1)!} x^{r-1}(1-x)^{s-1}dx \\ \\
+&= \frac{(r+s-1)!}{(r-1)!(s-1)!} \int_0^1 x^r(1-x)^{s-1}dx \\ \\
+&= \frac{(r+s-1)!}{(r-1)!(s-1)!} \cdot \frac{r!(s-1)!}{(r+s)!} ~~~~~~~ \text{(beta integral for parameters } r+1 \text{and } s\text{)}\\ \\
 &= \frac{r}{r+s}
 \end{align*}
 $$

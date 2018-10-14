@@ -67,12 +67,14 @@ $$
 ![png](../../images/chapters/Chapter_15/03_Expectation_3_0.png)
 
 
-Areas under $f_U$ are rectangles, so it follows easily that the probability of an interval is its length relative to the total length of the unit interval, which is 1. For example, for every pair $u_1$ and $u_2$ with $u_1 < u_2$,
+The area under $f_U$ over an interval is a rectangle. So it follows easily that the probability of an interval is its length relative to the total length of the unit interval, which is 1. For example, for every pair $u_1$ and $u_2$ with $u_1 < u_2$,
 
 $$
 P(u_1 < U < u_2) ~ = ~ u_2 - u_1
 $$
+
 Equivalently, the cdf of $U$ is
+
 $$
 F_U(u) = 
 \begin{cases}

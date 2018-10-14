@@ -156,7 +156,7 @@ no matter what the distribution of $X$ is.
 Chebyshev's Inequality says
 
 $$
-P(|X - \mu_X| > z\sigma_X) \le \frac{1}{z^2}
+P(|X - \mu_X| \ge z\sigma_X) \le \frac{1}{z^2}
 $$
 
 which is the same as saying

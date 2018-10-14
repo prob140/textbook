@@ -51,7 +51,7 @@ $$
 
 You can see that $G_X$ is a polynomial of degree $N$, and that the coefficient of $s^k$ is $p_k = P(X=k)$.
 
-So if you were given the pgf of a random variable, you could read off the distribution of the random variable by simply listing all the powers and the corresponding coefficients.
+So if you were given the pgf of a random variable, you could read off the distribution of the random variable by simply listing all the powers and the corresponding coefficients: the powers are the possible values, and the coefficients are the corresponding probabilities.
 
 To see how this might help us find the distribution of a sum, observe that for every $s$, the value $G_X(s)$ is an expectation:
 
@@ -71,7 +71,7 @@ We have used the fact that for independent random variables, the expectation of 
 The result says that the pgf of the sum of two independent random variables is the product of the two pgfs. This extends easily to more than two random variables and yields a simple formula for the pgf of the sum of i.i.d. variables.
 
 ### PGF of the Sum of an IID Sample
-Let $X_1, X_2, \ldots, X_n$ be i.i.d. with a distribution on $0, 1, 2, \ldots, N$. Let $S_n = X_1 + X_2 + \cdots + X_n$. Then the probability generating function of $S_n$ is
+Let $X_1, X_2, \ldots, X_n$ be i.i.d. random variables with possible values $0, 1, 2, \ldots, N$. Let $S_n = X_1 + X_2 + \cdots + X_n$. Then the probability generating function of $S_n$ is
 
 $$
 G_{S_n}(s) ~ = ~ \big{(}G_{X_1}(s)\big{)}^n, ~~~ -\infty < s < \infty

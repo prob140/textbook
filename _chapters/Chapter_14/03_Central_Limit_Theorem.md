@@ -49,13 +49,13 @@ $$
 
 The curve is symmetric about 0. Its points of inflection are at $z=-1$ and $z=1$. You observed this in Data 8 and can prove it by calculus. 
 
-**A Note on Terminology.** We will say that the curve has *location* parameter 0 and *scale* parameter 1. We will also use the terms *mean* for the location and *SD* for the scale, by analogy with the mean and SD of a random variable in standard units. Later in the course, we will show that this is consistent with definitions of the mean and SD of random variables that have a continuum of values.
+**A Note on Terminology.** We will say that the curve has *location* parameter 0 and *scale* parameter 1. In the case of normal distributions we will also use the terms *mean* for the location and *SD* for the scale, by analogy with the mean and SD of a random variable in standard units. This was the terminology you used in Data 8. Later in the course, we will show that the terminology is consistent with definitions of the mean and SD of random variables that have a continuum of possible values.
 
-The total area under the curve is 1. This requires some work to prove. You might have seen it in a calculus class. We will prove it later in the course by using probability methods. 
+The total area under the curve is 1. This requires some work to prove. You might have seen it in a calculus class. We will prove it later in the course using probability methods. 
 
-If the distribution of a random variable $X$ is roughly bell shaped, then the distribution of the standardized variable $Z$ roughly follows the standard normal curve above.
+You can think of think of the curve as something resembling the probability histogram of a random variable that has been converted to standard units.
 
-Notice that there is almost no probability outside the range $(-3, 3)$. Recall the following figures from Data 8.
+Notice that there is almost no probability outside the range $(-3, 3)$. Recall the following figures from Data 8:
 
 - Area between -1 and 1: about 68%
 - Area between -2 and 2: about 95%
@@ -64,7 +64,7 @@ Notice that there is almost no probability outside the range $(-3, 3)$. Recall t
 ### Normal Curves
 The standard normal curve is one of a *family* of normal curves, each identified by its location and scale parameters, also known as its mean and SD.
 
-The normal curve with mean $\mu$ and SD $\sigma$ is defined by
+The normal curve with *mean* $\mu$ and *SD* $\sigma$ is defined by
 $$
 f(x) ~ = ~ \frac{1}{\sqrt{2\pi}\sigma} e^{-\frac{1}{2}(\frac{x-\mu}{\sigma})^2}, ~~~ -\infty < x < \infty
 $$
@@ -102,19 +102,21 @@ The Central Limit Theorem is the primary reason for using the SD as the measure 
 
 Exactly how large $n$ has to be for the approximation to be good does depend on the distribution of $X_i$. We will say more about that later. For now, assume that the sample sizes we are using are large enough for the normal approximation to be reasonable.
 
-The proof of this theorem is beyond the scope of this course. But you have seen plenty of evidence for it in the simulations done in Data 8 and in the exact distributions of sums computed in the previous section.
+A complete proof of this theorem is beyond the scope of this course. A calculation in a later chapter will bring you closer to a proof. For now, just accept it. You have seen plenty of evidence for it in the simulations done in Data 8 and in the exact distributions of sums computed in the previous section.
 
 #### Example
 Suppose the weights of a sample of 100 people are i.i.d. with a mean of 150 pounds and an SD of 15 pounds. Then the total weight of the sampled people is roughly normal with mean $100 \times 150 = 15,000$ pounds and SD $\sqrt{100} \times 15 = 150$ pounds.
 
 Who cares about the total weight of a random group of people? Ask those who construct stadiums, elevators, and airplanes.
 
-You can plot this distribution using the `prob140` method `Plot_norm`. The arguments are the interval over which you want the curve to be drawn, the mean, and the SD. 
+You can plot this distribution using the `prob140` method `Plot_norm`. There are three arguments: the interval over which you want the curve to be drawn, the mean, and the SD. 
 
 
 
 {:.input_area}
 ```python
+# Approximate distribution of iid sample sum
+
 n = 100
 mu = 150
 sigma = 15
@@ -135,7 +137,7 @@ Plot_norm(plot_interval, mean, sd)
 ### Probabilities Under the Normal Curve
 Suppose we want to find the chance that the total weight of the sampled people is less than 15,100 pounds. That is approximately the gold area below. The approximation is in the use of the normal curve.
 
-Notice the argument `right_end=15100`. That tells `Plot_norm` the right end of the interval to shade. If there is no left end specified, it is taken to be the left end of the plot interval.
+Notice the argument `right_end=15100`. That tells `Plot_norm` the right end of the interval to shade. If there is no left end specified, as in this case, the left end is taken to be the left end of the plot interval.
 
 
 
@@ -149,7 +151,7 @@ Plot_norm(plot_interval, mean, sd, right_end=15100)
 ![png](../../images/chapters/Chapter_14/03_Central_Limit_Theorem_13_0.png)
 
 
-As before, the function that returns all the probability to the left of a point is called the *cumulative distribution function* (cdf) of the distribution. Call `stats.norm.cdf` with the appropriate parameters to see that the chance is just under 75%.
+As before, the function that returns all the probability to the left of a point is called the cumulative distribution function (cdf) of the distribution. Call `stats.norm.cdf` with the appropriate parameters to see that the chance is just under 75%.
 
 
 
@@ -164,7 +166,7 @@ stats.norm.cdf(15100, mean, sd)
 
 {:.output_data_text}
 ```
-0.74750746245307709
+0.7475074624530771
 ```
 
 
@@ -223,7 +225,7 @@ stats.norm.cdf(z_right)  # The standard curve is the default
 
 {:.output_data_text}
 ```
-0.74750746245307709
+0.7475074624530771
 ```
 
 
@@ -245,7 +247,7 @@ stats.norm.cdf(z_right) - stats.norm.cdf(z_left)
 
 {:.output_data_text}
 ```
-0.65629624272720921
+0.6562962427272092
 ```
 
 
@@ -253,10 +255,10 @@ stats.norm.cdf(z_right) - stats.norm.cdf(z_left)
 A common notation for the standard normal cdf is the upper case letter $\Phi$, because it is the integral of $\phi$:
 
 $$
-\Phi(x) = \int_{-\infty}^x \phi(z)dz, ~~~~ -\infty < x < \infty
+\Phi(x) = \int_{-\infty}^x \phi(z)dz ~, ~~~~ -\infty < x < \infty
 $$
 
-This integral, while finite, does not have a closed form formula that can be written in terms of arithmetic operations, powers, trigonometric functions, exponential and logarithmic functions, and composition. It has to be approximated by numerical integration. That is why every statistical system has a built-in function such as `stats.norm.cdf` that provides excellent approximations.
+This integral, while finite, does not have a closed form formula that can be written in terms of arithmetic operations, powers, trigonometric functions, exponential and logarithmic functions, composition, and other mathematical operations. It has to be approximated by numerical integration. That is why every statistical system has a built-in function such as `stats.norm.cdf` that provides excellent approximations.
 
 Standardizing and the standard normal cdf $\Phi$ together provide a compact notation for areas under all normal curves. We don't have to use different functions for different values of the parameters.
 

@@ -43,7 +43,7 @@ binomial_proportions(0.5, 4)
 
 {:.output_data_text}
 ```
-array([ 0.        ,  0.        ,  0.33333333,  0.5       ])
+array([0.        , 0.5       , 0.66666667, 0.5       ])
 ```
 
 

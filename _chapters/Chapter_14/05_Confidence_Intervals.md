@@ -31,12 +31,12 @@ That is the same as saying:
 
 - In about 95% of all samples, the population mean is in the range *sample mean $\pm ~ 2 \sigma/\sqrt{n}$*.
 
-That is why the interval *sample mean $\pm ~ 2 \sigma/\sqrt{n}$* is used as an interval of estimates of $\mu$.
+That is why the interval "sample mean $\pm ~ 2 \sigma/\sqrt{n}$" is used as an interval of estimates of $\mu$.
 
-### Confidence Intervals for $\mu$
-The interval *sample mean $\pm ~ 2 \sigma/\sqrt{n}$* is called *an approximate 95% confidence interval for the parameter $\mu$*. The interval has a *confidence level* of 95%.
+### Inverse of the Standard Normal CDF
+The interval *sample mean $\pm ~ 2 \sigma/\sqrt{n}$* is called *an approximate 95% confidence interval for the parameter $\mu$*. The interval has a *confidence level* of 95%. The level determines the use of $z = 2$ as the multiplier of the SD of the sample mean.
 
-You could choose a different confidence level, say 80%. With that choice, you would expect the interval to be narrower. To find out exactly how many SDs you have to go on either side of the center to pick up a central area of about 80%, you have to find the corresponding $z$ on the standard normal curve, as shown below.
+You could choose a different confidence level, say 80%. With that choice you would expect the interval to be narrower. To find out exactly how many SDs you have to go on either side of the center to pick up a central area of about 80%, you have to find the corresponding $z$ on the standard normal curve, as shown below.
 
 
 
@@ -89,13 +89,47 @@ stats.norm.ppf(.975)
 
 That's $z = 1.96$, which we have been calling 2. It's good enough, but $z = 1.96$ is also commonly used for constructing 95% confidence intervals.
 
-### General Definition
-Let $\lambda$ be any confidence level. Let $z_\lambda$ be the point such that the interval $(-z_\lambda, ~ z_\lambda)$ contains $\lambda$% of the area under the standard normal curve. In our example above, $\lambda$ was 80 and $z_\lambda$ was 1.28.
+The `ppf` and `cdf` functions are inverses of each other. 
+
+
+
+{:.input_area}
+```python
+stats.norm.cdf(1.96), stats.norm.ppf(0.975)
+```
+
+
+
+
+
+{:.output_data_text}
+```
+(0.9750021048517795, 1.959963984540054)
+```
+
+
+
+In math notation,
+
+$$
+\Phi(z) ~ = ~ p ~~ \iff ~~ \Phi^{-1}(p) = z
+$$
+
+### Confidence Interval for Population Mean
+Let $\lambda$% be any confidence level. Let $z_\lambda$ be the point such that the interval $(-z_\lambda, ~ z_\lambda)$ contains $\lambda$% of the area under the standard normal curve. In our example above, $\lambda$ was 80 and $z_\lambda$ was 1.28. 
+
+In general, let $p = \lambda/100$ convert $\lambda$ into a proportion. In our example, $\lambda = 80$ and so $p = 0.8$. Then
+
+$$
+z_\lambda ~ = ~ \Phi^{-1}(p + 0.5(1-p))
+$$
+
+In our example, we used `stats.norm.ppf(0.9)` which evaluated to 1.28.
 
 Then if $n$ is large,
 
 $$
-\frac{\lambda}{100} ~ \approx ~ 
+p ~ = ~ \frac{\lambda}{100} ~ \approx ~ 
 P(\bar{X}_n \in \mu ~ \pm ~ z_\lambda \sigma/\sqrt{n}) ~ = ~
 P(\mu \in \bar{X}_n ~ \pm ~ z_\lambda \sigma/\sqrt{n})
 $$
@@ -179,7 +213,6 @@ We can apply the methods of this section because our data come from a large rand
 
 {:.input_area}
 ```python
-n = 1174
 ages = baby.column('Maternal Age')
 
 samp_mean = np.mean(ages)
@@ -197,13 +230,34 @@ samp_mean
 
 
 
+
+
+{:.input_area}
+```python
+n = baby.num_rows
+n
+```
+
+
+
+
+
+{:.output_data_text}
+```
+1174
+```
+
+
+
 The observed value of $\bar{X}_n$ in the sample is 27.23 years. We know that $n = 1174$, so all we need is the population SD $\sigma$ and then we can complete our calculation.
 
-But of course we don't know the population SD $\sigma$.
+But of course we don't know the population SD $\sigma$. We only have a sample.
 
-So we estimate $\sigma$ by the SD of the data. There is some error in this estimate, of course, but it gets divided by $\sqrt{n}$ and therefore doesn't have much effect. Remember that our methods rely on the CLT and are only valid when $n$ is large.
+As data scientists, we are used to lifting ourselves by our own bootstraps. Notice that the SD of the sample mean is $\sigma/\sqrt{n}$. If we estimate $\sigma$ by the SD of the data, there will be some error in the estimate but the error will be divided by $\sqrt{n}$ and therefore won't have much effect. 
 
-The estimate of $\sigma$ is about 5.82 years.
+That means we can use "sample SD divided by $\sqrt{n}$" as an estimate of $\sigma/\sqrt{n}$. 
+
+The sample SD, our estimate of $\sigma$, is about 5.82 years.
 
 
 
@@ -219,7 +273,7 @@ sigma_estimate
 
 {:.output_data_text}
 ```
-5.8153604041908968
+5.815360404190897
 ```
 
 
@@ -230,7 +284,10 @@ An approximate 95% confidence interval for the mean birth weight of babies in th
 
 {:.input_area}
 ```python
-samp_mean - 2*sigma_estimate/(n**0.5), samp_mean + 2*sigma_estimate/(n**0.5)
+sd_sample_mean = sigma_estimate/(n ** 0.5)
+
+ci_95_pop_mean = samp_mean + 1.96 * make_array(-1, 1) * sd_sample_mean
+ci_95_pop_mean
 ```
 
 
@@ -239,7 +296,7 @@ samp_mean - 2*sigma_estimate/(n**0.5), samp_mean + 2*sigma_estimate/(n**0.5)
 
 {:.output_data_text}
 ```
-(26.888831911866099, 27.567726861558093)
+array([26.89562086, 27.56093791])
 ```
 
 
@@ -259,12 +316,13 @@ def bootstrap_mean(original_sample, label, replications):
     label: label of column containing the variable
     replications: number of bootstrap samples
     """
-    just_one_column = original_sample.column(label)
-    n = len(just_one_column)
+    just_one_column = original_sample.select(label)
+    n = just_one_column.num_rows
+    
     means = make_array()
     for i in np.arange(replications):
-        bootstrap_sample = np.random.choice(just_one_column, size=n)
-        resampled_mean = np.mean(bootstrap_sample)
+        bootstrap_sample = just_one_column.sample()
+        resampled_mean = np.mean(bootstrap_sample.column(0))
         means = np.append(means, resampled_mean)
         
     left = percentile(2.5, means)
@@ -293,12 +351,12 @@ bootstrap_mean(baby, 'Maternal Age', 5000)
 {:.output_stream}
 ```
 Approximate 95% confidence interval for population mean:
-26.9 to 27.55
+26.89 to 27.56
 
 ```
 
 
-![png](../../images/chapters/Chapter_14/05_Confidence_Intervals_24_1.png)
+![png](../../images/chapters/Chapter_14/05_Confidence_Intervals_27_1.png)
 
 
 The bootstrap confidence interval is essentially identical to the interval (26.89, 27.57) that we got by using the normal approximation.
@@ -314,7 +372,7 @@ baby.select('Maternal Age').hist()
 
 
 
-![png](../../images/chapters/Chapter_14/05_Confidence_Intervals_27_0.png)
+![png](../../images/chapters/Chapter_14/05_Confidence_Intervals_30_0.png)
 
 
-But the empirical distribution of the sample mean, displayed as the output of the previous cell, is roughly bell shaped. That is because the probability distribution of the mean of the large sample *is* approximately normal, by the Central Limit Theorem.
+But the empirical distribution of the sample mean, displayed as the output of the previous cell, is roughly bell shaped. That is because the probability distribution of the mean of the large sample *is* approximately normal by the Central Limit Theorem, even though the distribution of the population is skewed.

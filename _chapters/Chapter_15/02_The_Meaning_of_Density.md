@@ -134,4 +134,4 @@ $$
 
 so that the units of height are "percent per unit on the horizontal axis".
 
-Not only does this way of drawing histograms allow you to account for bins of different widths, as discussed in Data 8, it also leads directly to probability densities of random variables.
+Not only does this way of drawing histograms allow you to account for bins of different widths, as discussed in Data 8, it also leads directly to probability densities of random variables. You can think of the density curve as what the empirical histogram of the simulated values would look like if you had infinitely many simulations and infinitely narrow bins.

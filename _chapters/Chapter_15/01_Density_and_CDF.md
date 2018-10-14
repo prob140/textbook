@@ -20,9 +20,11 @@ $$
 \int_{-\infty}^\infty f(x)dx ~ = 1
 $$
 
-Then $f$ is a *probability density function* or just *density* for short.
+Then $f$ is called a *probability density function* or just *density* for short.
 
-For example, the function $f$ defined by
+In the next section we will discuss the reason behind the name. For now, imagine the graph of $f$ as a kind of continuous probability histogram. We will soon make that precise.
+
+As an example, the function $f$ defined by
 
 $$
 f(x) = 
@@ -35,7 +37,7 @@ $$
 
 is a density. It is easy to check by calculus that it integrates to 1. 
 
-**Note:** The calculus used in this text is very straightforward. You should be able to do it easily by hand. Later in this chapter we will give you some Python tools for calculus.
+**Note:** The calculus used in this text is very straightforward. You should be able to do it easily by hand. Later in this chapter we will give you some Python tools for calculus. We will also show how understanding probability can help us do calculus quickly.
 
 Here is a graph of the function $f$. The density puts all the probability on the unit interval.
 
@@ -94,7 +96,7 @@ $$
 F(x) ~ = ~ P(X \le x) ~ = ~ \int_{-\infty}^x f(s)ds
 $$
 
-You are already familiar with the cdf defined as $F(x) = P(X \le x)$; what's new is that we can compute the probability by integrating the density function.
+You are already familiar with the definition $F(x) = P(X \le x)$. What's new is that we can compute the probability by integrating the density function.
 
 In our example, the only possible values of the random variable $X$ are between 0 and 1, so $F(x) = 0$ for $x \le 0$ and $F(x) = 1$ for $x \ge 1$.
 For $x$ between 0 and 1,

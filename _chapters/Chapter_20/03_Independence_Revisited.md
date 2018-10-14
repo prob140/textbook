@@ -22,7 +22,9 @@ Let $X$ have density $f_X$ and let $A$ be an event. Then
 $$
 P(A, X \in dx) ~ = ~ P(X \in dx)P(A \mid X = x) ~ \sim ~ f_X(x)dxP(A \mid X = x)
 $$
+
 So
+
 $$
 P(A) ~ = ~ \int_{\text{all x}} P(A, X \in dx) ~ = ~ \int_{\text{all x}} P(A \mid X = x)f_X(x)dx
 $$
@@ -56,7 +58,7 @@ $$
 P(\text{both tosses are heads}) ~ = ~ \int_0^1 p^2 \cdot 1dp ~ = ~ \frac{1}{3}
 $$
 
-That's *greater than* $1/4$ which is the chance of two heads given that you are tossing a fair coin. **The results of the two tosses are not independent.**
+That's *greater than* $1/4$ which is the chance of two heads given that you are tossing a fair coin twice. **The results of the two tosses are not independent.**
 
 Let's see what's going on here. We know that
 
@@ -69,6 +71,7 @@ P(\text{second toss is a head} \mid \text{first toss is a head}) \\
 $$
 
 Therefore
+
 $$
 P(\text{second toss is a head} \mid \text{first toss is a head}) ~ = ~ \frac{2}{3} ~ > ~ \frac{1}{2}
 $$
