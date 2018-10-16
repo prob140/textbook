@@ -14,7 +14,11 @@ redirect_from:
 
 ## Confidence Intervals
 
-Suppose you have a large i.i.d. sample. The CLT implies that with chance about 95%, the sample mean is within 2 SDs of the population mean.
+Suppose you have a large i.i.d. sample $X_1, X_2, \ldots, X_n$, and let $\bar{X}_n$ be the sample mean. The CLT implies that with chance about 95%, the sample mean is within 2 SDs of the population mean:
+
+$$
+P\big{(}\bar{X}_n \in (\mu - 2\frac{\sigma}{\sqrt{n}}, ~~~ \mu + 2\frac{\sigma}{\sqrt{n}}) \big{)} ~ \approx ~~ 0.95
+$$
 
 
 
@@ -25,16 +29,20 @@ Suppose you have a large i.i.d. sample. The CLT implies that with chance about 9
 
 This can be expressed in a different way:
 
-- In about 95% of all samples, the sample mean is in the range *population mean $\pm ~ 2 \sigma/\sqrt{n}$*.
+$$
+P\big{(}\vert \bar{X}_n - \mu \vert < 2\frac{\sigma}{\sqrt{n}}\big{)} ~ \approx ~~ 0.95
+$$
 
-That is the same as saying:
+Distance is symmetric, so this is the same as saying:
 
-- In about 95% of all samples, the population mean is in the range *sample mean $\pm ~ 2 \sigma/\sqrt{n}$*.
+$$
+P\big{(}\mu \in (\bar{X}_n - 2\frac{\sigma}{\sqrt{n}}, ~~~ \bar{X}_n + 2\frac{\sigma}{\sqrt{n}})\big{)} ~ \approx ~~ 0.95
+$$
 
-That is why the interval "sample mean $\pm ~ 2 \sigma/\sqrt{n}$" is used as an interval of estimates of $\mu$.
+That is why the interval "sample mean $\pm$ 2 measures of spread" is used as an interval of estimates of $\mu$.
 
 ### Inverse of the Standard Normal CDF
-The interval *sample mean $\pm ~ 2 \sigma/\sqrt{n}$* is called *an approximate 95% confidence interval for the parameter $\mu$*. The interval has a *confidence level* of 95%. The level determines the use of $z = 2$ as the multiplier of the SD of the sample mean.
+The interval $\bar{X}_n \pm ~ 2 \sigma/\sqrt{n}$ is called *an approximate 95% confidence interval for the parameter $\mu$*, the population mean. The interval has a *confidence level* of 95%. The level determines the use of $z = 2$ as the multiplier of the SD of the sample mean.
 
 You could choose a different confidence level, say 80%. With that choice you would expect the interval to be narrower. To find out exactly how many SDs you have to go on either side of the center to pick up a central area of about 80%, you have to find the corresponding $z$ on the standard normal curve, as shown below.
 
@@ -118,25 +126,24 @@ $$
 ### Confidence Interval for Population Mean
 Let $\lambda$% be any confidence level. Let $z_\lambda$ be the point such that the interval $(-z_\lambda, ~ z_\lambda)$ contains $\lambda$% of the area under the standard normal curve. In our example above, $\lambda$ was 80 and $z_\lambda$ was 1.28. 
 
-In general, let $p = \lambda/100$ convert $\lambda$ into a proportion. In our example, $\lambda = 80$ and so $p = 0.8$. Then
+Let $p = \lambda/100$ be the value of $\lambda$ converted into a proportion. For example if $\lambda = 80$ then $p = 0.8$. Then
 
 $$
 z_\lambda ~ = ~ \Phi^{-1}(p + 0.5(1-p))
 $$
 
-In our example, we used `stats.norm.ppf(0.9)` which evaluated to 1.28.
+because all of the area to the left of $z_\lambda$ is the area $p$ between $z_\lambda$ and $-z_\lambda$ plus the tail to the left of $-z_\lambda$. 
 
-Then if $n$ is large,
+If $n$ is large,
 
 $$
-p ~ = ~ \frac{\lambda}{100} ~ \approx ~ 
-P(\bar{X}_n \in \mu ~ \pm ~ z_\lambda \sigma/\sqrt{n}) ~ = ~
-P(\mu \in \bar{X}_n ~ \pm ~ z_\lambda \sigma/\sqrt{n})
+p ~ \approx ~ 
+P\big{(}\mu \in (\bar{X}_n - z_\lambda \frac{\sigma}{\sqrt{n}}, ~~~ \bar{X}_n + z_\lambda \frac{\sigma}{\sqrt{n}})\big{)}
 $$
 
-The random interval $\bar{X}_n ~ \pm ~ z\_\lambda \sigma/\sqrt{n}$ is called *an approximate $\lambda$% confidence interval for the population mean $\mu$*. There is about a $\lambda$% chance that this random interval contains the parameter $\mu$.
+The random interval $\bar{X}_n ~ \pm ~ z_\lambda \sigma/\sqrt{n}$ is called *an approximate $\lambda$% confidence interval for the population mean $\mu$*. There is about a $\lambda$% chance that this random interval contains the parameter $\mu$.
 
-The only difference between confidence intervals of different levels is the choice of $z$ which depends on the level. The other two components are the sample mean and its SD.
+The only difference between confidence intervals of different levels is the choice of $z_\lambda$ which depends on the level $\lambda$. The other two components are the sample mean and its SD.
 
 ### A Data 8 Example Revisited
 Let's return to an example very familiar from Data 8: a random sample of 1,174 pairs of mothers and their newborns.

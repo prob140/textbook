@@ -6,8 +6,8 @@ previouschapter:
   url: chapters/Chapter_15/04_Exponential_Distribution
   title: '15.4 Exponential Distribution'
 nextchapter:
-  url: chapters/Chapter_16/00_Transformations
-  title: 'Chapter 16: Transformations'
+  url: chapters/Chapter_15/06_Review_Problems_Set_3
+  title: '15.6 Review Problems: Set 3'
 redirect_from:
   - 'chapters/chapter-15/05-calculus-in-sympy'
 ---
@@ -137,6 +137,7 @@ $$0.432064000000001$$
 
 
 For $x$ in the unit interval, the cdf of $X$ is
+
 $$
 F(x) ~ = ~ P(X \le x) ~ = ~ \int_0^x f(s)ds ~ = ~ I(s)~ \Big{\rvert}_0^x ~ = ~ I(x) - I(0)
 $$
@@ -305,7 +306,7 @@ The density is 0 on the negative numbers. Here is its graph when $\lambda = 3$.
 ![png](../../images/chapters/Chapter_15/05_Calculus_in_SymPy_32_0.png)
 
 
-To check that $f$ is a density, we have to confirm that its integral is 1. So we will declare two positive symbolic variables `t` and `lamda`. Notice the incorrectly spelled `lamda`. That is because `lambda` has another meaning in Python, as some of you might know.
+To check that $f$ is a density, we have to confirm that its integral is 1. So we will declare two positive symbolic variables `t` and `lamda`. Notice the incorrectly spelled `lamda` instead of `lambda`. That is because `lambda` has another meaning in Python, as some of you might know.
 
 In fact `lamda` is a constant, not a variable. But `SymPy` needs to know that it's an algebraic object, so we have to declare it as such.
 
@@ -320,7 +321,7 @@ declare('t', positive=True)
 ```
 
 
-Now we will define the density function. Notice the use of `exp` for the exponential function. Notice also that the form of the answer looks different from the way we have written it above, though it's algebraically the same.
+Now we will define the density function. Notice the use of `exp` for the exponential function. 
 
 
 
@@ -337,8 +338,6 @@ expon_density
 $$\lambda e^{- \lambda t}$$
 
 
-
-This is an unavoidable aspect of computer aided algebra, and it is the reason we will use `SymPy` purely for computation, not for display.
 
 To see that the function is a density, we can check that its integral from 0 to $\infty$ is 1. The symbol that `SymPy` uses for $\infty$ is `oo`, a double lower case o. It looks very much like $\infty$.
 
@@ -423,10 +422,13 @@ $$1 - e^{- \lambda t}$$
 
 
 Thus the cdf of the exponential $(\lambda)$ density is
+
 $$
 F_T(t) ~ = ~ 1 - e^{-\lambda t}
 $$
+
 Also,
+
 $$
 E(T) ~ = ~ \int_0^\infty t \lambda e^{-\lambda t} dt ~ = ~ \frac{1}{\lambda}
 $$
@@ -450,6 +452,7 @@ $$\frac{1}{\lambda}$$
 
 
 And 
+
 $$
 E(T^2) = \frac{2}{\lambda^2}
 $$
@@ -471,12 +474,13 @@ $$\frac{2}{\lambda^{2}}$$
 
 
 So 
+
 $$
 Var(T) ~ = ~ \frac{2}{\lambda^2} - \frac{1}{\lambda^2} ~ = ~ \frac{1}{\lambda^2}
 $$
+
 and hence
+
 $$
 SD(T) ~ = ~ \frac{1}{\lambda}
 $$
-
-The purpose of this section has been to give you a workout in `SymPy`. We will take a closer look at the exponential distribution in the next section.
