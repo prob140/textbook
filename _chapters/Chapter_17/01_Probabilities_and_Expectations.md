@@ -116,19 +116,28 @@ $$
 $$
 
 #### By `SymPy`
-To use `SymPy` we must first declare the two variables to have values in the unit interval, and assign the function to the name `f`. This specification doesn't say that $x < y$ but we will enforce that condition when we integrate.
+To use `SymPy` we must create two symbolic variables. As our variables are positive, we can specify that as well. Then we can assign the expression that defines the function to the name `f`. This specification doesn't say that $x < y$ but we will enforce that condition when we integrate.
 
 
 
 {:.input_area}
 ```python
-declare('x', interval=(0, 1))
-declare('y', interval=(0, 1))
+x = Symbol('x', positive=True)
+y = Symbol('y', positive=True)
+
 f = 120*x*(y-x)*(1-y)
+f
 ```
 
 
-The double integral requires a call to `Integral` that specifies the inner integral first and then the outer. The call says:
+
+
+
+$$120 x \left(- x + y\right) \left(- y + 1\right)$$
+
+
+
+Displaying the double integral requires a call to `Integral` that specifies the inner integral first and then the outer. The call says:
 
 - The function being integrated is $f$.
 - The inner integral is over the variable $x$ which goes from $0$ to y.
@@ -309,7 +318,7 @@ E\big{(}\frac{Y}{X}\big{)} ~ &= ~ \int_y \int_x g(x, y)f(x, y)dxdy \\ \\
 $$
 
 #### By `SymPy`
-Remember that `x` and `y` have already been defined as symbolic variables with values in the unit interval.
+Remember that `x` and `y` have already been defined as symbolic variables that are positive.
 
 
 

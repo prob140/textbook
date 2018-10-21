@@ -37,13 +37,13 @@ $$
 where
 
 $$
-a = f_X(x_1)\cdot \frac{1}{2x_1} ~~~~ \text{at } x_1 = \sqrt{y}
+a = \frac{f_X(x_1)}{2x_1} ~~~~ \text{at } x_1 = \sqrt{y}
 $$
 
 and
 
 $$
-b = f_X(x_2)\cdot \frac{1}{\vert 2x_2 \vert} ~~~~ \text{at } x_2 = -\sqrt{y}
+b = \frac{f_X(x_2)}{\vert 2x_2 \vert} ~~~~ \text{at } x_2 = -\sqrt{y}
 $$
 
 We have used $g'(x) = 2x$ when $g(x) = x^2$.
@@ -68,8 +68,8 @@ Let $Z$ be standard normal and let $W = Z^2$. The possible values of $W$ are non
 
 $$
 \begin{align*}
-f_W(w) ~ &= ~ f_Z(\sqrt{w})\cdot \frac{1}{2\sqrt{w}} ~ + ~ f_Z(-\sqrt{w})\cdot \frac{1}{2\sqrt{w}} \\ \\
-&= ~ \frac{1}{\sqrt{2\pi}} e^{-\frac{1}{2}w} \cdot \frac{1}{2\sqrt{w}} ~ + ~ \frac{1}{\sqrt{2\pi}} e^{-\frac{1}{2}w} \cdot \frac{1}{2\sqrt{w}} \\ \\
+f_W(w) ~ &= ~ \frac{f_Z(\sqrt{w})}{2\sqrt{w}} ~ + ~ \frac{f_Z(-\sqrt{w})}{2\sqrt{w}} \\ \\
+&= ~ \frac{\frac{1}{\sqrt{2\pi}} e^{-\frac{1}{2}w}}{2\sqrt{w}} ~ + ~ \frac{\frac{1}{\sqrt{2\pi}} e^{-\frac{1}{2}w}}{2\sqrt{w}} \\ \\
 &= \frac{1}{\sqrt{2\pi}} w^{-\frac{1}{2}} e^{-\frac{1}{2}w}
 \end{align*}
 $$

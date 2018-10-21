@@ -51,13 +51,13 @@ init_printing()
 ```
 
 
-Next, we have to tell Python which variables are symbolic and what their possible values are. The function `declare` lets us do this. It takes as its arguments the string representing the variable, and an option `interval` specifying the interval of possible values of the variable. In our example, the variable `x` takes values in the unit interval. In later examples we will show you how to declare infinite intervals of possible values.
+Next, we have to create tell Python that an object is symbolic. In our example, the variable $x$ is the natural candidate to be a symbol. You can use `Symbol` for this, by using the argument `'x'`. We have assinged the symbol to the name `x`.
 
 
 
 {:.input_area}
 ```python
-declare('x', interval=(0, 1))
+x = Symbol('x')
 ```
 
 
@@ -79,9 +79,9 @@ $$105 x^{2} \left(- x + 1\right)^{4}$$
 
 
 
-That's the density $f$ defined by the equation at the start of the section. Notice that what we naturally think of as $1 - x$ is expressed as $-x + 1$. That's because `SymPy` is writing the polynomial leading with the term of highest degree.
+That's the expression for $f(x)$ defined by the equation at the start of the section. Notice that what we naturally think of as $1 - x$ is expressed as $-x + 1$. That's because `SymPy` is writing the polynomial leading with the term of highest degree.
 
-Let's not simply accept that this function is a density. Let's check that it is a density by integrating it from 0 to 1. To do this, we use the method `Integral` that takes the name of a function and a *tuple* (a sequence in parentheses) consisting of the variable of integration and the lower and upper limits of integration. We have assigned this integral to the name `total_area`
+Let's not simply accept that this function is a density. Let's check that it is a density by integrating it from 0 to 1. To display this, we use the method `Integral` that takes the name of a function and a *tuple* (a sequence in parentheses) consisting of the variable of integration and the lower and upper limits of integration. We have assigned this integral to the name `total_area`.
 
 
 
@@ -99,7 +99,7 @@ $$\int_{0}^{1} 105 x^{2} \left(- x + 1\right)^{4}\, dx$$
 
 
 
-The output of displays the integral, which is nice, but what we really want is its numerical value. In `SymPy`, this is achieved by rather rudely instructing the method to `doit()`.
+The output of displays the integral, which is nice, but what we really want is its numerical value. In `SymPy`, this is achieved by abruptly instructing the method to `doit()`.
 
 
 
@@ -118,14 +118,14 @@ $$1$$
 
 This confirms that the function $f$ is a density.
 
-We can use `Integral` again to find the chance of any interval. Here is $P(0.2 < X < 0.4)$.
+We can use `Integral` to find the chance that $X$ is in any interval. Here is $P(0.2 < X < 0.4)$.
 
 
 
 {:.input_area}
 ```python
-p_02_04 = Integral(density, (x, 0.2, 0.4)).doit()
-p_02_04
+prob_02_04 = Integral(density, (x, 0.2, 0.4)).doit()
+prob_02_04
 ```
 
 
@@ -204,8 +204,8 @@ To find the value of the cdf at a specified point, say 0.4, we have to substitut
 
 {:.input_area}
 ```python
-cdf_04 = cdf.subs(x, 0.4)
-cdf_04
+cdf_at_04 = cdf.subs(x, 0.4)
+cdf_at_04
 ```
 
 
@@ -222,8 +222,8 @@ Thus $P(X \le 0.4)$ is roughly 58%. Earlier we calulated $P(0.2 < X < 0.4) = 43.
 
 {:.input_area}
 ```python
-cdf_02 = cdf.subs(x, 0.2)
-cdf_04 - cdf_02
+cdf_at_02 = cdf.subs(x, 0.2)
+cdf_at_04 - cdf_at_02
 ```
 
 
@@ -306,22 +306,20 @@ The density is 0 on the negative numbers. Here is its graph when $\lambda = 3$.
 ![png](../../images/chapters/Chapter_15/05_Calculus_in_SymPy_32_0.png)
 
 
-To check that $f$ is a density, we have to confirm that its integral is 1. So we will declare two positive symbolic variables `t` and `lamda`. Notice the incorrectly spelled `lamda` instead of `lambda`. That is because `lambda` has another meaning in Python, as some of you might know.
+To check that $f$ is a density, we have to confirm that its integral is 1. We will start by constructing two symbols, `t` and `lamda`. Notice the incorrectly spelled `lamda` instead of `lambda`. That is because `lambda` has another meaning in Python, as some of you might know.
 
-In fact `lamda` is a constant, not a variable. But `SymPy` needs to know that it's an algebraic object, so we have to declare it as such.
-
-Note the use of `positive=True` to declare positive variables.
+Note the use of `positive=True` to specify that the symbol can take on only positive values.
 
 
 
 {:.input_area}
 ```python
-declare('lamda', positive=True)
-declare('t', positive=True)
+t = Symbol('t', positive=True)
+lamda = Symbol('lamda', positive=True)
 ```
 
 
-Now we will define the density function. Notice the use of `exp` for the exponential function. 
+Next we construct the expression for the density. Notice the use of `exp` for the exponential function. 
 
 
 
@@ -369,7 +367,7 @@ $$
 \int_0^t \lambda e^{-\lambda s}ds ~ = ~ I(t) - I(0)
 $$
 
-where $I$ is the indefinite integral of the density. To get this indefinite integral we will use `Integral` as before, except that this time we must specify `t` as the variable of integration. That is because `SymPy` sees two algebraic quantities `t` and `lamda` in the density, and doesn't know which one is the variable unless we tell it.
+where $I$ is the indefinite integral of the density. To get this indefinite integral we will use `Integral` as before, except that this time we must specify `t` as the variable of integration. That is because `SymPy` sees two symbols `t` and `lamda` in the density, and doesn't know which one is the variable unless we tell it.
 
 
 
@@ -421,13 +419,13 @@ $$1 - e^{- \lambda t}$$
 
 
 
-Thus the cdf of the exponential $(\lambda)$ density is
+Thus the cdf of $T$ is
 
 $$
 F_T(t) ~ = ~ 1 - e^{-\lambda t}
 $$
 
-Also,
+The expectation of $T$ is
 
 $$
 E(T) ~ = ~ \int_0^\infty t \lambda e^{-\lambda t} dt ~ = ~ \frac{1}{\lambda}
@@ -451,11 +449,7 @@ $$\frac{1}{\lambda}$$
 
 
 
-And 
-
-$$
-E(T^2) = \frac{2}{\lambda^2}
-$$
+Calculating $E(T^2)$ is just as easy.
 
 
 
@@ -473,14 +467,38 @@ $$\frac{2}{\lambda^{2}}$$
 
 
 
-So 
+The variance and SD follow directly.
 
-$$
-Var(T) ~ = ~ \frac{2}{\lambda^2} - \frac{1}{\lambda^2} ~ = ~ \frac{1}{\lambda^2}
-$$
 
-and hence
 
-$$
-SD(T) ~ = ~ \frac{1}{\lambda}
-$$
+{:.input_area}
+```python
+variance = expected_square - (expectation ** 2)
+variance
+```
+
+
+
+
+
+$$\frac{1}{\lambda^{2}}$$
+
+
+
+
+
+{:.input_area}
+```python
+sd = variance ** 0.5
+sd
+```
+
+
+
+
+
+$$\frac{1}{\lambda^{1.0}}$$
+
+
+
+That's a pretty funny way of writing $\frac{1}{\lambda}$ but we'll take it. It's a small price to pay for not having to do all the integrals by hand.

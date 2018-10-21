@@ -309,6 +309,9 @@ chapters:
   - class: level_0
     title: 18.4 Chi-Squared Distributions
     url: chapters/Chapter_18/04_Chi_Squared_Distributions
+  - class: level_0
+    title: '18.5 Review Problems: Set 4'
+    url: chapters/Chapter_18/05_Review_Problems_Set_4
   class: level_0
   title: 'Chapter 18: The Normal and Gamma Families'
   url: chapters/Chapter_18/00_The_Normal_and_Gamma_Families

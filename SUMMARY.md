@@ -117,6 +117,7 @@
  * [18.2 Sums of Independent Normal Variables](notebooks/Chapter_18/02_Sums_of_Independent_Normal_Variables.ipynb)
  * [18.3 The Gamma Family](notebooks/Chapter_18/03_The_Gamma_Family.ipynb)
  * [18.4 Chi-Squared Distributions](notebooks/Chapter_18/04_Chi_Squared_Distributions.ipynb)
+ * [18.5 Review Problems: Set 4](notebooks/Chapter_18/05_Review_Problems_Set_4.ipynb)
 
 * [Chapter 19: Distributions of Sums](notebooks/Chapter_19/00_Distributions_of_Sums.ipynb)
  * [19.1 The Convolution Formula](notebooks/Chapter_19/01_Convolution_Formula.ipynb)

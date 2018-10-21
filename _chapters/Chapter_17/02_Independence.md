@@ -126,10 +126,13 @@ P(Y > X) &= \int_0^\infty \int_x^\infty \lambda e^{-\lambda x} \mu e^{-\mu y} dy
 $$
 
 Thus
+
 $$
 P(Y > X) ~ = ~ \frac{\lambda}{\lambda + \mu}
 $$
+
 Analogously,
+
 $$
 P(X > Y) ~ = ~ \frac{\mu}{\lambda + \mu}
 $$
@@ -144,23 +147,31 @@ $$
 \int_0^\infty \int_0^y \lambda e^{-\lambda x} \mu e^{-\mu y} dx dy
 $$
 
-
-Let's do it in `SymPy` to check that the answer comes out the same.
-
-Keep in mind that `SymPy` doesn't like to display negative exponents, so some functions appear in a different form compared to the way we usually write them.
+Let's take the easy way out by using `SymPy` to confirm that we will get the same answer.
 
 
 
 {:.input_area}
 ```python
-declare('x', 'y', 'lamda', 'mu', positive=True)
+# Create the symbols; they are all positive
+
+x = Symbol('x', positive=True)
+y = Symbol('y', positive=True)
+lamda = Symbol('lamda', positive=True)
+mu = Symbol('mu', positive=True)
+```
+
+
+
+
+{:.input_area}
+```python
+# Construct the expression for the joint density
 
 f_X = lamda * exp(-lamda * x)
-
 f_Y = mu * exp(-mu * y)
-
-jt_density = f_X * f_Y
-jt_density
+joint_density = f_X * f_Y
+joint_density
 ```
 
 
@@ -175,8 +186,9 @@ $$\lambda \mu e^{- \lambda x} e^{- \mu y}$$
 
 {:.input_area}
 ```python
-p_Y_greater_than_X = Integral(jt_density, (x, 0, y), (y, 0, oo))
-p_Y_greater_than_X
+# Display the integral – first x, then y
+
+Integral(joint_density, (x, 0, y), (y, 0, oo))
 ```
 
 
@@ -191,7 +203,10 @@ $$\int_{0}^{\infty}\int_{0}^{y} \lambda \mu e^{- \lambda x} e^{- \mu y}\, dx\, d
 
 {:.input_area}
 ```python
-p_Y_greater_than_X.doit()
+# Evaluate the integral
+
+answer = Integral(joint_density, (x, 0, y), (y, 0, oo)).doit()
+answer
 ```
 
 
@@ -202,10 +217,20 @@ $$1 - \frac{\mu}{\lambda \left(1 + \frac{\mu}{\lambda}\right)}$$
 
 
 
-That looks strange but it is equal to
 
-$$
-1 - \frac{\mu}{\lambda + \mu} ~ = ~ \frac{\lambda}{\lambda + \mu}
-$$
 
-which is the same as the answer we got earlier.
+{:.input_area}
+```python
+# Confirm that it is the same 
+# as what we got by integrating in the other order
+
+simplify(answer)
+```
+
+
+
+
+
+$$\frac{\lambda}{\lambda + \mu}$$
+
+

@@ -72,7 +72,7 @@ $$
 Let $g$ be a differentiable, increasing function. The density of $Y = g(X)$ is given by
 
 $$
-f_Y(y) ~ = ~ f_X(x) \cdot \frac{1}{g'(x)} ~~~ \text{at } x = g^{-1}(y)
+f_Y(y) ~ = ~ \frac{f_X(x)}{g'(x)} ~~~ \text{at } x = g^{-1}(y)
 $$
 
 ### Understanding the Formula
@@ -87,22 +87,22 @@ Let $X$ have the exponential (1/2) density and let $Y = \sqrt{X}$. We can take t
 
 Let's find the density of $Y$ by applying the formula we have derived above. We will organize our calculation in four preliminary steps, and then plug into the formula.
 
-- **The function:** Take $g(x) = \sqrt{x}$. Then $g$ is increasing and its possible values are $(0, \infty)$.
-- **The derviative:** The derivative of $g$ is given by $g'(x) = 1/(2\sqrt{x})$.
+- **The density of the original random variable:** The density of $X$ is $f_X(x) = (1/2)e^{-(1/2)x}$ for $x > 0$.
+- **The function being applied to the original random variable:** Take $g(x) = \sqrt{x}$. Then $g$ is increasing and its possible values are $(0, \infty)$.
 - **The inverse function:** Let $y = g(x) = \sqrt{x}$. We will now write $x$ in terms of $y$, to get $x = y^2$.
-- **The known density:** The density of $X$ is $f_X(x) = (1/2)e^{-(1/2)x}$ for $x > 0$.
+- **The derviative:** The derivative of $g$ is given by $g'(x) = 1/(2\sqrt{x})$.
 
 We are ready to plug this into our formula. Keep in mind that the possible values of $Y$ are $(0, \infty)$. For $y > 0$ the formula says
 
 $$
-f_Y(y) ~ = ~ f_X(x) \cdot \frac{1}{g'(x)} ~~~ \text{at } x = g^{-1}(y)
+f_Y(y) ~ = ~ \frac{f_X(x)} {g'(x)} ~~~ \text{at } x = g^{-1}(y)
 $$
 
 So for $y > 0$,
 
 $$
 \begin{align*}
-f_Y(y) ~ &= ~ (1/2)e^{-\frac{1}{2}x} \cdot \frac{1}{1/(2\sqrt{x})} ~~~~ \mbox{at } x = y^2 \\
+f_Y(y) ~ &= ~ \frac{(1/2)e^{-\frac{1}{2}x}}{1/(2\sqrt{x})} ~~~~ \mbox{at } x = y^2 \\
 &= ~ \sqrt{x} e^{-\frac{1}{2}x} ~~~~ \mbox{at } x = y^2 \\
 &= ~ \sqrt{y^2} e^{-\frac{1}{2}y^2} \\
 &= ~ y e^{-\frac{1}{2}y^2}
@@ -122,7 +122,7 @@ This is called the *Rayleigh* density. Its graph is shown below.
 Let $g$ be smooth and monotone (that is, either increasing or decreasing). The density of $Y = g(X)$ is given by
 
 $$
-f_Y(y) ~ = ~ f_X(x) \cdot \frac{1}{\lvert g'(x) \rvert} ~~~ \text{at } x = g^{-1}(y)
+f_Y(y) ~ = ~ \frac{f_X(x)}{\lvert g'(x) \rvert} ~~~ \text{at } x = g^{-1}(y)
 $$
 
 We have proved the result for increasing $g$. When $g$ is decreasing, the proof is analogous to proof in the linear case and accounts for $g'$ being negative. We won't take the time to write it out.
@@ -133,15 +133,15 @@ Let $U$ be uniform on $(0, 1)$ and let $V = 1/U$. The distribution of $V$ is cal
 To find the density of $V$, start by noticing that the possible values of $V$ are in $(1, \infty)$ as the possible values of $U$ are in $(0, 1)$.
 
 The components of the change of variable formula for densities:
+- **The original density:** $f_U(u) = 1$ for $0 < u < 1$.
 - **The function:** Define $g(u) = 1/u$.
-- **The derivative:** Then $g'(u) = -u^{-2}$.
 - **The inverse function:** Let $v = g(u) = 1/u$. Then $u = g^{-1}(v) = 1/v$.
-- **The known density:** $f_U(u) = 1$ for $0 < u < 1$.
+- **The derivative:** Then $g'(u) = -u^{-2}$.
 
 By the formula, for $v > 1$ we have
 
 $$
-f_V(v) ~ = ~ f_U(u) \cdot \frac{1}{\lvert g'(u) \rvert} ~~~ \text{at } u = g^{-1}(v)
+f_V(v) ~ = ~ \frac{f_U(u)}{\lvert g'(u) \rvert} ~~~ \text{at } u = g^{-1}(v)
 $$
 
 That is, for $v > 1$,

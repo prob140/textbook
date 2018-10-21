@@ -15,6 +15,7 @@ redirect_from:
 ## Marginal and Conditional Densities
 
 Let random variables $X$ and $Y$ have the joint density defined by
+
 $$
 f(x, y) ~ = ~ 
 \begin{cases}
@@ -56,8 +57,9 @@ Here is a quick check by `SymPy` to see that the function $f$ is indeed a joint 
 
 {:.input_area}
 ```python
-declare('x', interval=(0, 1))
-declare('y', interval=(0, 1))
+x = Symbol('x', positive=True)
+y = Symbol('y', positive=True)
+
 joint_density = 30*(y-x)**4
 ```
 
@@ -77,7 +79,7 @@ $$1$$
 
 
 
-### Density of $X$
+### Marginal Density of $X$
 We can use the joint density $f$ to find the density of $X$. Call this density $f_X$. We know that
 
 $$
@@ -99,6 +101,7 @@ You can see the reasoning behind this calculation in the graph below. The blue s
 
 
 So the density of $X$ is given by
+
 $$
 f_X(x) ~ = ~ \int_y f(x, y)dy ~~~~~ \text{for all } x
 $$
@@ -150,6 +153,7 @@ $$
 In our example, the joint density surface indicates that $Y$ is more likely to be near 1 than near 0, which is confirmed by calculation. Remember that $y > x$ and therefore for each fixed $y$, the possible values of $x$ are 0 through $y$. 
 
 For $0 < y < 1$,
+
 $$
 f_Y(y) ~ = ~ \int_0^y 30(y-x)^4dx ~ = ~ 6y^5
 $$
@@ -203,9 +207,11 @@ This is a density on $(0.4, 1)$:
 
 {:.input_area}
 ```python
-declare('y', interval=(0.4, 1))
-cond_density = (5/(0.6**5)) * (y - 0.4)**4
-Integral(cond_density, (y, 0.4, 1)).doit()
+y = Symbol('y', positive=True)
+
+conditional_density_Y_given_X_is_04 = (5/(0.6**5)) * (y - 0.4)**4
+
+Integral(conditional_density_Y_given_X_is_04, (y, 0.4, 1)).doit()
 ```
 
 
@@ -225,7 +231,7 @@ The figure below shows the overlaid graphs of the density of $Y$ and the conditi
 ![png](../../images/chapters/Chapter_17/03_Marginal_and_Conditional_Densities_21_0.png)
 
 
-#### Using a Conditional Density
+### Using a Conditional Density
 We can use conditional densities to find probabilities and expectations, just as we would use an ordinary density. Here are some examples of calculations. In each case we will set up the integrals and then use `SymPy`.
 
 $$
@@ -238,9 +244,7 @@ The answer is about 60%.
 
 {:.input_area}
 ```python
-declare('y', interval=(0, 1))
-cond_density = (5/(0.6**5))*(y - 0.4)**4
-Integral(cond_density, (y, 0.9, 1)).doit()
+Integral(conditional_density_Y_given_X_is_04, (y, 0.9, 1)).doit()
 ```
 
 
@@ -261,7 +265,7 @@ $$
 
 {:.input_area}
 ```python
-Integral(y*cond_density, (y, 0.4, 1)).doit()
+Integral(y*conditional_density_Y_given_X_is_04, (y, 0.4, 1)).doit()
 ```
 
 
@@ -272,7 +276,7 @@ $$0.899999999999998$$
 
 
 
-For any fixed value of $y$, the conditional density of $X$ given $Y = y$ is
+You can condition $X$ on $Y$ in the same way. By analogous arguments, for any fixed value of $y$ the conditional density of $X$ given $Y = y$ is
 
 $$
 f_{X \mid Y=y} (x) ~ = ~ \frac{f(x, y)}{f_Y(y)} ~~~~~ \text{for all } x
