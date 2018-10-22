@@ -93,7 +93,7 @@ dist1
 
 
 
-You can see at once that if $X = 3$ then $Y$ can only be 0, whereas if $X = 2$ then $Y$ can be either 1 or 2. Knowing the value of $X$ changes the distribution of $Y$. That's dependence. 
+You can see at once that if $X = 3$ then $Y$ can only be 0, whereas if $X = 2$ then $Y$ can be either 0 or 1. Knowing the value of $X$ changes the distribution of $Y$. That's dependence. 
 
 Here is an example in which you can't quickly determine dependence or independence by just looking at the possible values.
 

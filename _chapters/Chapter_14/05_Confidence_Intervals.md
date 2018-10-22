@@ -138,10 +138,10 @@ If $n$ is large,
 
 $$
 p ~ \approx ~ 
-P\big{(}\mu \in (\bar{X}_n - z_\lambda \frac{\sigma}{\sqrt{n}}, ~~~ \bar{X}_n + z_\lambda \frac{\sigma}{\sqrt{n}})\big{)}
+P\big{(}\mu \in (\bar{X}_{n} - z_{\lambda} \frac{\sigma}{\sqrt{n}}, ~~~ \bar{X}_n + z_\lambda \frac{\sigma}{\sqrt{n}})\big{)}
 $$
 
-The random interval $\bar{X}_n ~ \pm ~ z_\lambda \sigma/\sqrt{n}$ is called *an approximate $\lambda$% confidence interval for the population mean $\mu$*. There is about a $\lambda$% chance that this random interval contains the parameter $\mu$.
+The random interval $\bar{X}\_{n} ~ \pm ~ z\_{\lambda} \sigma/\sqrt{n}$ is called *an approximate $\lambda$% confidence interval for the population mean $\mu$*. There is about a $\lambda$% chance that this random interval contains the parameter $\mu$.
 
 The only difference between confidence intervals of different levels is the choice of $z_\lambda$ which depends on the level $\lambda$. The other two components are the sample mean and its SD.
 

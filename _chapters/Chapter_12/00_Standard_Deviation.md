@@ -3,8 +3,8 @@ interact_link: notebooks/Chapter_12/00_Standard_Deviation.ipynb
 title: 'Chapter 12: Standard Deviation'
 permalink: 'chapters/Chapter_12/00_Standard_Deviation'
 previouschapter:
-  url: chapters/Chapter_11/04_Markov_Chain_Monte_Carlo
-  title: '11.4 Markov Chain Monte Carlo'
+  url: chapters/Chapter_11/05_Review_Conditioning_and_MC
+  title: '11.5 Review Set on Conditioning and Markov Chains'
 nextchapter:
   url: chapters/Chapter_12/01_Definition
   title: '12.1 Definition'

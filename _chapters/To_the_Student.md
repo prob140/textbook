@@ -6,8 +6,8 @@ previouschapter:
   url: chapters/README
   title: 'Authors and License'
 nextchapter:
-  url: chapters/Chapter_01/00_Fundamentals
-  title: 'Chapter 1: Fundamentals'
+  url: chapters/Search
+  title: 'Search'
 redirect_from:
   - 'chapters/to-the-student'
 ---

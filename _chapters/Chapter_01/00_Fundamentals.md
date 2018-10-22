@@ -3,8 +3,8 @@ interact_link: notebooks/Chapter_01/00_Fundamentals.ipynb
 title: 'Chapter 1: Fundamentals'
 permalink: 'chapters/Chapter_01/00_Fundamentals'
 previouschapter:
-  url: chapters/To_the_Student
-  title: 'To the Student'
+  url: chapters/Search
+  title: 'Search'
 nextchapter:
   url: chapters/Chapter_01/01_Outcome_Space_and_Events
   title: '1.1 Outcome Space and Events'

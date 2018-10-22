@@ -3,8 +3,8 @@ interact_link: notebooks/Chapter_19/00_Distributions_of_Sums.ipynb
 title: 'Chapter 19: Distributions of Sums'
 permalink: 'chapters/Chapter_19/00_Distributions_of_Sums'
 previouschapter:
-  url: chapters/Chapter_18/04_Chi_Squared_Distributions
-  title: '18.4 Chi-Squared Distributions'
+  url: chapters/Chapter_18/05_Review_Problems_Set_4
+  title: '18.5 Review Problems: Set 4'
 nextchapter:
   url: chapters/Chapter_19/01_Convolution_Formula
   title: '19.1 The Convolution Formula'

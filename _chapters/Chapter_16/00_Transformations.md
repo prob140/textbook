@@ -3,8 +3,8 @@ interact_link: notebooks/Chapter_16/00_Transformations.ipynb
 title: 'Chapter 16: Transformations'
 permalink: 'chapters/Chapter_16/00_Transformations'
 previouschapter:
-  url: chapters/Chapter_15/05_Calculus_in_SymPy
-  title: '15.5 Calculus in SymPy'
+  url: chapters/Chapter_15/06_Review_Problems_Set_3
+  title: '15.6 Review Problems: Set 3'
 nextchapter:
   url: chapters/Chapter_16/01_Linear_Transformations
   title: '16.1 Linear Transformations'

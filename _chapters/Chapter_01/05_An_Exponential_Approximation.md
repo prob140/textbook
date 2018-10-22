@@ -22,20 +22,24 @@ $$
 P(\text{at least one collision}) ~=~ 1 ~-~ \prod_{i=0}^{n-1} \frac{N-i}{N}
 $$
 
-While this gives an exact formula for the chance, it doesn't give us a sense of how the function grows. Let's see if we can develop an approximation with a form that is simpler and therefore easier to study.
+While this gives an exact formula for the chance, it doesn't give us a sense of how the function grows. Let's see if we can develop an approximation that has a simpler form and is therefore easier to study.
 
 The main steps in the approximation will be used repeatedly in this course, so we will set them out in some detail here.
 
 ### Step 1. Only Approximate Terms that Need Approximation
 
 While this might seem obvious, it's worth noting as it can save a lot of unnecessary fiddling. We are trying to approximate
+
 $$
 1 ~-~ \prod_{i=0}^{n-1} \frac{N-i}{N}
 $$
+
 so all we need to approximate is
+
 $$
 \prod_{i=0}^{n-1} \frac{N-i}{N}
 $$
+
 We can subtract the approximation from 1 at the end.
 
 In other words, we'll approximate $P(\text{no collision})$ instead. 
@@ -74,14 +78,13 @@ $$
 and so by exponentiation on both sides we get
 
 $$
-P(\text{no collision}) ~\sim ~ e^{- \frac{1}{N} \cdot \frac{(n-1)n}{2}}
-~=~
+P(\text{no collision}) ~\sim ~ 
 e^{- (n-1)n/2N } ~ \sim ~ e^{-n^2/2N}
 $$
 
 Finally,
 $$
-P(\text{at least one collision}) ~\sim ~ 1 - e^{- \frac{(n-1)n}{2N}}
+P(\text{at least one collision}) ~\sim ~ 1 - e^{- (n-1)n/2N }
 ~ \sim ~ 1 - e^{-n^2/2N}
 $$
 
@@ -108,7 +111,7 @@ trials = np.arange(1, N+1, 1)
 results = Table().with_column('Trials', trials)
 different = results.apply(p_no_match, 'Trials')
 
-results = results.with_columns(
+results = results.with_column(
     'P(at least one match)', 1 - different,
     'Exponential Approximation', 1 - np.e**( -(trials - 1)*trials/(2*N) )
 )
@@ -131,30 +134,39 @@ results
         <tr>
             <td>1     </td> <td>0                    </td> <td>0                        </td>
         </tr>
+    </tbody>
         <tr>
             <td>2     </td> <td>0.00273973           </td> <td>0.00273598               </td>
         </tr>
+    </tbody>
         <tr>
             <td>3     </td> <td>0.00820417           </td> <td>0.00818549               </td>
         </tr>
+    </tbody>
         <tr>
             <td>4     </td> <td>0.0163559            </td> <td>0.016304                 </td>
         </tr>
+    </tbody>
         <tr>
             <td>5     </td> <td>0.0271356            </td> <td>0.0270254                </td>
         </tr>
+    </tbody>
         <tr>
             <td>6     </td> <td>0.0404625            </td> <td>0.0402629                </td>
         </tr>
+    </tbody>
         <tr>
             <td>7     </td> <td>0.0562357            </td> <td>0.0559104                </td>
         </tr>
+    </tbody>
         <tr>
             <td>8     </td> <td>0.0743353            </td> <td>0.0738438                </td>
         </tr>
+    </tbody>
         <tr>
             <td>9     </td> <td>0.0946238            </td> <td>0.0939222                </td>
         </tr>
+    </tbody>
         <tr>
             <td>10    </td> <td>0.116948             </td> <td>0.115991                 </td>
         </tr>

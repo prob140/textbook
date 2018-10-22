@@ -6,8 +6,8 @@ previouschapter:
   url: chapters/Chapter_18/03_The_Gamma_Family
   title: '18.3 The Gamma Family'
 nextchapter:
-  url: chapters/Chapter_19/00_Distributions_of_Sums
-  title: 'Chapter 19: Distributions of Sums'
+  url: chapters/Chapter_18/05_Review_Problems_Set_4
+  title: '18.5 Review Problems: Set 4'
 redirect_from:
   - 'chapters/chapter-18/04-chi-squared-distributions'
 ---
