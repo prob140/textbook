@@ -225,7 +225,7 @@ A random variable $X$ has the beta $(2, 2)$ density. Given $X = x$, the conditio
 
 (c) Find the joint density of $X$ and $Y$. Remember to specify the region where it is positive.
 
-(d) Find $P(X < 0.3, |Y| < 0.3X)$.
+(d) Find $P(X < 0.3, \vert Y \vert < 0.3X)$.
 
 **20.**
 As you know, the Gamma function is defined as an integral. It turns out that its numerical values are hard to calculate exactly except in some cases. Here are two of those cases.
@@ -241,9 +241,9 @@ Let $X$ and $Y$ be i.i.d. with a joint density.
 
 (a) Find $P(Y > X)$.
 
-(b) Find $P(|Y| > |X|)$.
+(b) Find $P(\vert Y \vert > \vert X \vert)$.
 
-(c) If $X$ and $Y$ are i.i.d. standard normal, find $P(Y > |X|)$.
+(c) If $X$ and $Y$ are i.i.d. standard normal, find $P(Y > \vert X \vert)$.
 
 **22.**
 Two points are placed independently and uniformly at random on the unit interval. This creates three segments of the interval. What is the chance that the three segments can form a triangle?
