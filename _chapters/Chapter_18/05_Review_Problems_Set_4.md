@@ -74,7 +74,7 @@ Let $X$ and $Y$ have joint density $f$ given by
 $$
 f(x, y) ~ = ~ 
 \begin{cases}
-\frac{10}{243}x(3-x)^4 (x-y), ~~~~ 0 < y < x < 3 \\
+\frac{40}{243}x(3-x)(x-y), ~~~~ 0 < y < x < 3 \\
 0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \text{otherwise}
 \end{cases}
 $$
@@ -249,3 +249,11 @@ Let $X$ and $Y$ be i.i.d. with a joint density.
 Two points are placed independently and uniformly at random on the unit interval. This creates three segments of the interval. What is the chance that the three segments can form a triangle?
 
 [To find probabilities of events determined by two independent uniform $(0,1)$ random variables, it's a good idea to draw the unit square.]
+
+**23.** Let $X_i$, $i = 1,2$ be independent random variables such that $X_i$ has the exponential $(\lambda_i)$ distribution. Suppose $\lambda_1 \ne \lambda_2$.
+
+(a) Use the convolution formula to find the density of the sum $S = X_1 + X_2$.
+
+(b) Show by algebra that the expression you got for the density in Part (a) is non-negative for all positive $\lambda_1 \ne \lambda_2$.
+
+(c) For $i=1, 2$, let $f_i$ denote the exponential density of $X_i$. Show that the density you got in part (a) is equal to $c_1f_1 + c_2f_2$ for two constants $c_1$ and $c_2$ such that $c_1+c_2 = 1$. Are $c_1$ and $c_2$ both positive?
