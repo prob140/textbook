@@ -21,6 +21,7 @@ $$
 $$
 
 the mean squared error of prediction is
+
 $$
 MSE(\hat{Y}_{\mathbf{c}, d}) ~ = ~ E\big{(} (Y - \hat{Y}_{\mathbf{c}, d})^2 \big{)}
 $$
@@ -37,15 +38,20 @@ In the case of simple regression, we wrote the regression equation in the form
 $$
 \hat{Y} ~ = ~ \sigma_{Y,X}(\sigma_X^2)^{-1}(X - \mu_X) + \mu_Y
 $$
+
 Now define
+
 $$
 \hat{Y}_\mathbf{b} ~ = ~ \boldsymbol{\Sigma}_{Y, \mathbf{X}}\boldsymbol{\Sigma}_\mathbf{X}^{-1} (\mathbf{X} - \boldsymbol{\mu}_\mathbf{X}) + \mu_Y
 ~ = ~ \mathbf{b}^T(\mathbf{X} - \boldsymbol{\mu}_\mathbf{X}) + \mu_Y
 $$
+
 where
+
 $$
 \mathbf{b} ~ = ~ \boldsymbol{\Sigma}_\mathbf{X}^{-1} \boldsymbol{\Sigma}_{\mathbf{X}, Y}
 $$
+
 is the $p \times 1$ vector of the coefficients of the linear function.
 
 Clearly $\hat{Y}_\mathbf{b}$ is a linear predictor of $Y$ based on $\mathbf{X}$. We will show that it is the least squares linear predictor. The steps will follow those that we used to show that conditional expectation is the least squares predictor among all predictors.
@@ -54,15 +60,19 @@ Clearly $\hat{Y}_\mathbf{b}$ is a linear predictor of $Y$ based on $\mathbf{X}$.
 Notice that $E(\hat{Y}_\mathbf{b}) ~ = ~ \mu_Y$. The predictor is unbiased.
 
 Define the error in the prediction to be
+
 $$
 W ~ = ~ Y - \hat{Y}_\mathbf{b}
 $$
+
 Then
+
 $$
 E(W) ~ = ~ 0
 $$
 
 We will now show that $W$ is uncorrelated with all linear combinations of elements of $\mathbf{X}$.
+
 $$
 \begin{align*}
 Cov(W, \mathbf{a}^T\mathbf{X}) ~ &= ~ Cov(Y - \hat{Y}_\mathbf{b}, \mathbf{a}^T\mathbf{X}) \\
@@ -84,7 +94,9 @@ Once you have done that, you can restrict the search for the best linear predict
 $$
 \hat{Y}_\mathbf{h} ~ = ~ \mathbf{h}^T(\mathbf{X} - \boldsymbol{\mu}_\mathbf{X}) + \mu_Y
 $$
+
 where $\mathbf{h}$ is some $p \times 1$ vector of coefficients. Then
+
 $$
 \begin{align*}
 MSE(\hat{Y}_\mathbf{h}) ~ &= ~ E\big{(} (Y - \hat{Y}_\mathbf{h})^2 \big{)}\\
@@ -124,11 +136,15 @@ The error in the prediction is $W = Y - \hat{Y}$. Because $\hat{Y}$ is a linear 
 $$
 0 ~ = ~ Cov(W, \hat{Y}) ~ = ~ Cov(Y - \hat{Y}, \hat{Y}) ~ = ~ Cov(Y, \hat{Y}) - Var(\hat{Y})
 $$
+
 Therefore
+
 $$
 Cov(Y, \hat{Y}) ~ = ~ Var(\hat{Y})
 $$
+
 The variance of the error is
+
 $$
 \begin{align*}
 Var(W) ~ &= ~ Cov(Y - \hat{Y}, Y - \hat{Y}) \\
@@ -137,6 +153,7 @@ Var(W) ~ &= ~ Cov(Y - \hat{Y}, Y - \hat{Y}) \\
 &= ~ \sigma_Y^2 - \boldsymbol{\Sigma}_{Y, \mathbf{X}}\boldsymbol{\Sigma}_\mathbf{X}^{-1} \boldsymbol{\Sigma}_{\mathbf{X}, Y}
 \end{align*}
 $$
+
 In the case of simple regression under the bivariate normal model, we saw that the error variance was
 
 $$

@@ -72,4 +72,4 @@ The joint density surface is flat. So the shape of the density of $S$ depends on
 ![png](../../images/chapters/Chapter_19/01_Convolution_Formula_7_0.png)
 
 
-At the other end of the difficulty scale, the integral in the convolution formula can sometimes be quite intractable. In the rest of the chapter we will develop a different way of deriving distributions of sums.
+At the other end of the difficulty scale, the integral in the convolution formula can sometimes be quite intractable. In the rest of the chapter we will develop a different way of identifying distributions of sums.

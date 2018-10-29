@@ -45,7 +45,9 @@ b \\
 d
 \end{bmatrix}
 $$
+
 Then
+
 $$
 \mathbf{AX} + \mathbf{b} ~ = ~ 
 \begin{bmatrix}
@@ -81,7 +83,9 @@ To predict $Y$ based on $\mathbf{X}$ we will need to work with the covariance of
 $$
 \sigma_{X_i, Y} ~ = ~ Cov(X_i, Y) 
 $$
+
 and define the *covariance vector* of $\mathbf{X}$ and $Y$ to be
+
 $$
 \boldsymbol{\Sigma}_{\mathbf{X}, Y} ~ = ~ 
 \begin{bmatrix}
@@ -100,6 +104,7 @@ $$
 $$
 
 By the linearity of covariance,
+
 $$
 Cov(\mathbf{a}^T\mathbf{X}, Y) ~ = ~ \mathbf{a}^T \boldsymbol{\Sigma}_{\mathbf{X}, Y}
 $$

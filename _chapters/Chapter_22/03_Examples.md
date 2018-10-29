@@ -50,9 +50,11 @@ The distribution table of the random variable $Var(M \mid I_H)$ is
 |**Probability**| $p$ | $q$ |
 
 So
+
 $$
 E(M) ~ = ~ E(E(M \mid I_H)) ~ = ~ \mu_Xp + \mu_Yq
 $$
+
 and
 
 $$
@@ -99,17 +101,21 @@ By the variance formula of the previous example,
 $$
 \sigma^2 = Var(X) = 0^2p + \sigma^2q + \big{(}1^2p + (1+\frac{1}{p})^2q - \frac{1}{p^2}\big{)}
 $$
+
 So
+
 $$
 \sigma^2p ~ = ~ \frac{p^3 + (p+1)^2q - 1}{p^2} ~ = ~ \frac{p^3 + (1+p)(1-p^2) - 1}{p^2}
 ~ = ~ \frac{p(1-p)}{p^2}
 $$
+
 and so $Var(X) = \sigma^2 = q/p^2$.
 
 ### Normal with a Normal Mean
 Let $M$ be normal $(\mu, \sigma_M^2)$, and given $M = m$, let $X$ be normal $(m, \sigma_X^2)$.
 
 Then
+
 $$
 E(X \mid M) ~ = ~ M, ~~~~~~ Var(X \mid M) ~ = ~ \sigma_X^2
 $$
@@ -117,6 +123,7 @@ $$
 Notice that the conditional variance is a constant; it is the same no matter what the value of $M$ turns out to be.
 
 So $E(X) = E(M) = \mu$ and 
+
 $$
 Var(X) ~ = ~ E(\sigma_X^2) + Var(M) ~ = ~ \sigma_X^2 + \sigma_M^2
 $$
@@ -125,6 +132,7 @@ $$
 Let $N$ be a random variable with values $0, 1, 2, \ldots$, mean $\mu_N$, and SD $\sigma_N$. Let $X_1, X_2, \ldots $ be i.i.d. with mean $\mu_X$ and SD $\sigma_X$, independent of $N$. 
 
 Define the *random sum* $S_N$ as
+
 $$
 S_N = 
 \begin{cases}
@@ -138,11 +146,15 @@ Then as we have seen before, $E(S_N \mid N = n) = n\mu_X$ for all $n$ (including
 $$
 E(S_N \mid N) ~ = ~ N\mu_X
 $$
+
 Also
+
 $$
 Var(S_N \mid N) ~ = ~ N\sigma_X^2
 $$
+
 So 
+
 $$
 E(S_N) ~ = ~ E(N\mu_X) ~ = ~ \mu_XE(N) ~ = ~ \mu_N\mu_X
 $$

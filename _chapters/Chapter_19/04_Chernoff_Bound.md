@@ -20,11 +20,13 @@ We already know two such bounds. Let $X$ be a random variable with expectation $
 
 #### Markov's Bound on the Right Hand Tail
 If $X$ is non-negative, 
+
 $$
 P(X \ge c) ~  \le ~ \frac{\mu}{c}
 $$
 
 #### Chebychev's Bound on Two Tails
+
 $$
 P(\lvert X - \mu\rvert \ge c) ~ \le ~ \frac{\sigma^2}{c^2}
 $$
@@ -88,12 +90,15 @@ So the problem reduces to finding the value of $t$ that minimizes the function $
 $$
 c ~ = ~ \sigma^2 t^*
 $$
+
 and hence
+
 $$
 t^* ~ = ~ \frac{c}{\sigma^2}
 $$
 
 So the Chernoff bound is 
+
 $$
 P(X - \mu \ge c) ~ \le ~ e^{-ct^* + \sigma^2{t^*}^2/2} ~ = ~ e^{-c^2/2\sigma^2}
 $$
@@ -120,7 +125,9 @@ $$
 P(X \le c) ~ = ~ P(e^{-tX} \ge e^{-tc}) ~ \le ~ \frac{E(e^{-tX})}{e^{-tc}}
 ~ = ~ \frac{M_X(-t)}{e^{-tc}}
 $$
+
 and therefore
+
 $$
 P(X \le c) ~ \le ~ \min_{t > 0} \frac{M_X(-t)}{e^{-tc}}
 $$

@@ -19,7 +19,7 @@ The equation of the regression line for predicting $Y$ based on $X$ can be writt
 Let $X$ and $Y$ be bivariate normal with parameters $(\mu_X, \mu_Y, \sigma_X^2, \sigma_Y^2, \rho)$. Then, as we have seen, the best predictor $E(Y \mid X)$ is a linear function of $X$ and hence the formula for $E(Y \mid X)$ is also the equation of the regression line.
 
 ### In Standard Units
-Let $X^*$ be $X$ in standard units and $Y^*$ be $Y$ in standard units. The regression equation is
+Let $X^\*$ be $X$ in standard units and $Y^\*$ be $Y$ in standard units. The regression equation is
 
 $$
 E(Y^* \mid X^*) ~ = ~ \rho X^*
@@ -37,7 +37,7 @@ $$
 Var(Y^* \mid X^*) ~ = ~ 1 - \rho^2
 $$
 
-We know more than just the conditional expectation and conditional variance. We know that the conditional distribution of $Y^*$ given $X^*$ is normal. This allows us to find conditional probabilities given $X^*$, by the usual normal curve methods. For example, 
+We know more than just the conditional expectation and conditional variance. We know that the conditional distribution of $Y^\*$ given $X^\*$ is normal. This allows us to find conditional probabilities given $X^\*$, by the usual normal curve methods. For example, 
 
 $$
 P(Y^* < y^* \mid X^* = x^*) ~ = ~ \Phi \big{(} \frac{y^* - \rho x^*}{\sqrt{1-\rho^2}} \big{)}
@@ -45,7 +45,7 @@ $$
 
 In one of Galton's famous data sets, the distribution of the heights of father-son pairs was roughly bivariate normal with a correlation of 0.5. Of the fathers whose heights were two SDs above average, about what percent had sons whose heights were more than 2 SDs above average?
 
-By the regression effect, you know this answer has to be less than 50%. If $Y^*$ denotes the height of a randomly picked son in standard units, and $X^*$ the height of his father in standard units, then the proportion is approximately
+By the regression effect, you know this answer has to be less than 50%. If $Y^\*$ denotes the height of a randomly picked son in standard units, and $X^\*$ the height of his father in standard units, then the proportion is approximately
 
 $$
 P(Y^* > 2 \mid X^* = 2) ~ = ~ 1 - \Phi \big{(} \frac{2 - 0.5\times2}{\sqrt{1-0.5^2}} \big{)}
@@ -72,9 +72,10 @@ which is approximately 12.4%.
 
 
 ### In the Original Units
-Usually, you want to make predictions in the units in which the data were measured. Before changing units in the formulas above, keep in mind that conditioning on $X$ is equivalent to conditioning on $X^*$. If you know the value of either of $X$ or $X^*$, you also know the other.
+Usually, you want to make predictions in the units in which the data were measured. Before changing units in the formulas above, keep in mind that conditioning on $X$ is equivalent to conditioning on $X^\*$. If you know the value of either of $X$ or $X^\*$, you also know the other.
 
 The regression equation is
+
 $$
 \begin{align*}
 E(Y \mid X) ~ &= ~ E(\sigma_Y Y^* + \mu_Y \mid X) \\
@@ -92,7 +93,9 @@ $$
 SD(Y \mid X) ~ = ~ SD(\sigma_Y Y^* + \mu_Y \mid X) ~ = ~ 
 \sigma_Y SD(Y^* \mid X) ~ = ~ \sqrt{1-\rho^2}\sigma_Y
 $$
+
 and
+
 $$
 Var(Y \mid X) = (1 - \rho^2)\sigma_Y^2
 $$
@@ -110,11 +113,15 @@ $$
 \sigma_{Y,X} & \sigma_Y^2
 \end{bmatrix}
 $$
+
 Now
+
 $$
 \rho ~ = ~ \frac{\sigma_{X,Y}}{\sigma_X \sigma_Y}
 $$
+
 and the regression equation can be written as
+
 $$
 \begin{align*}
 E(Y \mid X) ~ &= ~ \sigma_Y \rho \big{(} \frac{X - \mu_X}{\sigma_X} \big{)} + \mu_Y \\
@@ -124,10 +131,13 @@ E(Y \mid X) ~ &= ~ \sigma_Y \rho \big{(} \frac{X - \mu_X}{\sigma_X} \big{)} + \m
 $$
 
 Also
+
 $$
 \rho^2 ~ = ~ \frac{\sigma_{X,Y}^2}{\sigma_X^2 \sigma_Y^2}
 $$
+
 so the variance of the error is
+
 $$
 Var(Y \mid X) ~ = ~ (1 - \rho^2)\sigma_Y^2 ~ = ~ \sigma_Y^2 - \sigma_{X,Y}^2 (\sigma_X^2)^{-1} ~ = ~ \sigma_Y^2 - \sigma_{Y,X} (\sigma_X^2)^{-1} \sigma_{X,Y}
 $$

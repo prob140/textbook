@@ -19,10 +19,13 @@ You have seen in exercises that a non-negative random variable $X$ has the *gamm
 $$
 f_X(x) ~ = ~ \frac{\lambda^r}{\Gamma(r)} x^{r-1}e^{-\lambda x}, ~~~~~ x \ge 0
 $$
+
 Here
+
 $$
 \Gamma(r) ~ = ~ \int_0^\infty x^{r-1}e^{-x} dx
 $$
+
 is the *Gamma* function applied to $r$, and is part of the constant that makes the density integrate to 1.
 
 As you have shown, the key fact about the Gamma function is the recursion 
@@ -30,7 +33,9 @@ As you have shown, the key fact about the Gamma function is the recursion
 $$
 \Gamma(r+1) ~ = ~ r\Gamma (r), ~~~~ r > 0
 $$
+
 which implies in particular that 
+
 $$
 \Gamma(r) ~ = ~ (r-1)! ~~~~ \text{if } r \text{ is a positive integer}
 $$
@@ -99,7 +104,7 @@ t = np.arange(min(w), max(w)+0.1, (max(w) - min(w))/100)
 dens = stats.gamma.pdf(t, r+s, scale=1/lam)
 plt.plot(t, dens, color='red', lw=2, label='gamma $(r+s, \lambda)$')
 plt.legend()
-plt.title('$X+Y$ where $X$: gamma$(r, \lambda)$ and $Y$: gamma$(s, \lambda)$');
+plt.title('$X$ is gamma$(r, \lambda)$; $Y$ is gamma$(s, \lambda)$ independent of $X$');
 ```
 
 
@@ -109,4 +114,4 @@ plt.title('$X+Y$ where $X$: gamma$(r, \lambda)$ and $Y$: gamma$(s, \lambda)$');
 
 You can now see why the gamma $(r, \lambda)$ distribution is approximately normal for large $r$. By the result above, for integer $r$ the sum of $r$ i.i.d. exponential $(\lambda)$ random variables has the gamma $(r, \lambda)$ distribution. For fixed $\lambda$ and increasing $r$, the Central Limit Theorem says the distribution of the sum tends to the normal. 
 
-The gamma family is used for modeling right-skewed distributions of non-negative variables. In data science, the gamma family also appears in the context of squaring "centered" normal random variables, that is, normal random variables with mean 0. The next section sets out the details.
+The gamma family is used for modeling right-skewed distributions of non-negative variables. In data science, the gamma family also appears in the context of squaring i.i.d. "centered" normal random variables, that is, normal random variables with mean 0. The next section sets out the details.

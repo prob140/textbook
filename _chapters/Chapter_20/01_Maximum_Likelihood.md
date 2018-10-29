@@ -185,11 +185,13 @@ $$
 \frac{X}{\hat{p}} - \frac{n-X}{1-\hat{p}} = 0
 $$
 Hence
+
 $$
 (1-\hat{p})X = (n-X)\hat{p} ~~~~~ \text{so} ~~~~~ X = n\hat{p}
 $$
 
 Therefore the MLE of $p$ is
+
 $$ 
 \hat{p} = \frac{X}{n} = \frac{1}{n}\sum_{i=1}^n X_i
 $$
@@ -200,6 +202,7 @@ Because the MLE $\hat{p}$ is the sample proportion, it is unbiased, has SD $\sqr
 
 ### Properties of the MLE
 In the two examples above, the MLE is unbiased and either exactly normal or asymptotically normal. In general, MLEs need not be unbiased, as you will see in an example below. However, under some regularity conditions on the underlying probability distribution or mass function, when the sample is large the MLE is:
+
 - *consistent*, that is, likely to be close to the parameter 
 - roughly normal and almost unbiased 
 
@@ -230,6 +233,7 @@ $$
 
 #### Maximizing the Log Likelihood Function
 We will maximize $L$ in two stages:
+
 - First fix $\sigma$ and maximize with respect to $\mu$.
 - Then plug in the maximizing value of $\mu$ and maximize the resulting function with respect to $\sigma$.
 
@@ -263,6 +267,6 @@ To summarize our result, if $X_1, X_2, \ldots , X_n$ is an i.i.d. normal $(\mu, 
 - $\hat{\mu} = \bar{X}$
 - $\hat{\sigma} = \sqrt{\hat{\sigma}^2}$ where $\hat{\sigma}^2 = \frac{1}{n} \sum_{i=1}^n (X_i - \bar{X})^2$
 
-It is a remarkable fact about i.i.d. normal samples that $\hat{\mu}$ and $\hat{\sigma}^2$ are independent of each other even though they are statistics calculated from the same sample. Towards the end of this course you will see why.
+It is a remarkable fact about i.i.d. normal samples that $\hat{\mu}$ and $\hat{\sigma}^2$ are independent of each other even though they are statistics calculated from the same sample. Later in this course you will see why.
 
 **Computational Note:** MLEs can't always be derived analytically as easily as in our examples. It's important to keep in mind that maximizing log likelihood functions can often be intractable without a numerical optimization method. Also, not all likelihood functions have unique maxima.

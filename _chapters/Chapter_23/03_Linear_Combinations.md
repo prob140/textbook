@@ -41,6 +41,7 @@ Definition 2 implies that the joint distribution of a finite number of linear co
 $$
 Cov(S, D) ~ = ~ Cov(X_1 + X_2, X_1 - X_2) ~ = ~ Var(X_1) - Var(X_2)
 $$
+
 by bilinearity and symmetry of covariance.
 
 ### Marginals
@@ -81,7 +82,7 @@ new = t.where(t.column(0) * t.column(1) > 0)
 {:.input_area}
 ```python
 # The restricted pairs are not jointly normal;
-# that shape isn't an ellipse
+# the shape of the scatter isn't an ellipse
 
 new.scatter(0, 1)
 ```
@@ -97,7 +98,7 @@ new.scatter(0, 1)
 ```python
 # Empirical distribution of horizontal coordinate
 
-new.hist(0, bins=25, ec='w')
+new.hist(0, bins=25)
 plt.xticks(np.arange(-5, 6));
 ```
 
@@ -112,7 +113,7 @@ plt.xticks(np.arange(-5, 6));
 ```python
 # Empirical distribution of vertical coordinate
 
-new.hist(1, bins=25, ec='w')
+new.hist(1, bins=25)
 plt.xticks(np.arange(-5, 6));
 ```
 
