@@ -38,10 +38,13 @@ We say that $r_{X,Y}$ measures the *linear association* between $X$ and $Y$.
 
 #### Variance of a Sum
 Rewrite the formula for correlation to see that 
+
 $$
 Cov(X, Y) ~ = ~ r_{X,Y}\sigma_X\sigma_Y
 $$
+
 So the variance of $X+Y$ is
+
 $$
 \sigma_{X+Y}^2 ~ = ~ \sigma_X^2 + \sigma_Y^2 + 2r_{X,Y}\sigma_X\sigma_Y
 $$
@@ -190,9 +193,11 @@ projection_trig()
 
 
 Thus
+
 $$
 Y ~ = ~ X\cos(\theta) + Z\sin(\theta) ~ = ~ \rho X + \sqrt{1 - \rho^2}Z
 $$
+
 where $\rho = \cos(\theta)$.
 
 The sequence of graphs below illustrates the transformation for $\theta = 30$ degrees.
@@ -225,7 +230,7 @@ cos(theta), (3**0.5)/2
 
 {:.output_data_text}
 ```
-(0.86602540378443871, 0.8660254037844386)
+(0.8660254037844387, 0.8660254037844386)
 ```
 
 

@@ -49,6 +49,7 @@ Here are the graphs of the chi-squared densities for degrees of freedom 2 throug
 
 
 The chi-squared (2) distribution is exponential because it is the gamma $(1, 1/2)$ distribution. This distribution has three names:
+
 - chi-squared (2)
 - gamma (1, 1/2)
 - exponential (1/2)
@@ -88,7 +89,9 @@ $$
 W ~ = ~  \frac{\sigma^2}{n} T ~ = ~ \frac{1}{n} \sum_{i=1}^n (X_i - \mu)^2
 $$
 
-Then $W$ can be computed based on the sample since $\mu$ is known. And since $W$ is a linear tranformation of $T$ it is easy to see that $E(W) = \sigma^2$. So we have constructed an unbiased estimate of $\sigma^2$: it is the mean squared deviation from the known population mean.
+Then $W$ can be computed based on the sample since $\mu$ is known. And since $W$ is a linear tranformation of $T$ it is easy to see that $E(W) = \sigma^2$. 
+
+So we have constructed an unbiased estimate of $\sigma^2$. It is the mean squared deviation from the known population mean.
 
 But typically, $\mu$ is not known. In that case you need a different estimate of $\sigma^2$ since you can't compute $W$ as defined above. You showed in exercises that
 
@@ -101,4 +104,4 @@ is an unbiased estimate of $\sigma^2$ regardless of the distribution of the $X_i
 ### "Degrees of Freedom"
 The example above helps explain the strange term "degrees of freedom" for the parameter of the chi-squared distribution. 
 - When $\mu$ is known, you have $n$ independent centered normals $(X_i - \mu)$ that you can use to estimate $\sigma^2$. That is, you have $n$ degrees of freedom in constructing your estimate.
-- When $\mu$ is not known, you are using all $n$ of $X_1 - \bar{X}, X_2 - \bar{X}, \ldots, X_n - \bar{X}$ in your estimate, but they are not independent. They are the deviations of the list $X_1, X_2, \ldots , X_n$ from their average $\bar{X}$, and hence their sum is 0. So if you know $n-1$ of them, the final one is determined. You only have $n-1$ degrees of freedom.
+- When $\mu$ is not known, you are using all $n$ of $X_1 - \bar{X}, X_2 - \bar{X}, \ldots, X_n - \bar{X}$ in your estimate, but they are not independent. They are the deviations of the list $X_1, X_2, \ldots , X_n$ from their average $\bar{X}$, and hence their sum is 0. If you know $n-1$ of them, the final one is determined. So you only have $n-1$ degrees of freedom.

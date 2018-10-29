@@ -25,7 +25,9 @@ Let $T$ have the exponential $(1/2)$ distribution. Then we will say that $R = \s
 $$
 F_R(r) = 1 - e^{-\frac{1}{2}r^2}, ~~~~ r > 0
 $$
+
 and density given by
+
 $$
 f_R(r) = re^{-\frac{1}{2}r^2}, ~~~~ r > 0
 $$
@@ -62,10 +64,13 @@ To find the corresponding volume under the joint density surface, two observatio
 - The area of the ring is essentially that of a rectangle with width $dr$ and length equal to the circumference $2\pi r$.
 
 Hence
+
 $$
 P(R \in dr) ~ \sim ~ 2\pi r \cdot dr \cdot c^2e^{-\frac{1}{2}r^2}, ~~~~ r > 0
 $$
+
 So the density of $R$ is
+
 $$
 f_R(r) ~ = ~ 2\pi c^2 r e^{-\frac{1}{2}r^2}, ~~~~ r > 0
 $$

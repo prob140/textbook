@@ -22,15 +22,15 @@ For jointly distributed random variables $X$ and $Y$, you know that $E(Y \mid X)
 Let $h(X) = aX + b$ for constants $a$ and $b$, and let $MSE(a, b)$ denote $MSE(h)$.
 
 $$
-MSE(a, b) ~ = ~ E\big{(} (Y - (aX + b))^2 \big{)} 
-~ = ~ E(Y^2) + a^2E(X^2) + b^2 -2aE(XY) - 2bE(Y) + 2abE(X)
+\begin{align*}
+MSE(a, b) ~ &= ~ E\big{(} (Y - (aX + b))^2 \big{)} \\
+&= ~ E(Y^2) + a^2E(X^2) + b^2 -2aE(XY) - 2bE(Y) + 2abE(X)
+\end{align*}
 $$
 
-
-
 To find the *least squares linear predictor*, we have to minimize this MSE over all $a$ and $b$. We will do this using calculus, in two steps:
-- Fix $a$ and find the value $b_a^*$ that minimizes $MSE(a, b)$ for that fixed value of $a$.
-- Then plug in the minimizing value $b_a^*$ in place of $b$ and minimize $MSE(a, b_a^*)$ with respect to $a$.
+- Fix $a$ and find the value $b_a^\*$ that minimizes $MSE(a, b)$ for that fixed value of $a$.
+- Then plug in the minimizing value $b_a^\*$ in place of $b$ and minimize $MSE(a, b_a^\*)$ with respect to $a$.
 
 #### Step 1
 Fix $a$ and minimize $MSE(a, b)$ with respect to $b$.
@@ -47,6 +47,7 @@ $$
 
 #### Step 2
 Now we have to minimize the following function with respect to $a$:
+
 $$
 \begin{align*}
 E\big{(} (Y - (aX + b_a^*))^2 \big{)} ~ &= ~
@@ -67,6 +68,7 @@ At this point we should check that what we have is a minimum, not a maximum, but
 
 ### Slope and Intercept of the Regression Line
 The least squares straight line is called the *regression line*.You now have a proof of its equation, familiar to you from Data 8. The slope and intercept are given by
+
 $$
 \begin{align*} 
 \text{slope of regression line} ~ &= ~ \frac{Cov(X,Y)}{Var(X)} ~ = ~ r_{X,Y} \frac{\sigma_Y}{\sigma_X} \\ \\

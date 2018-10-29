@@ -57,6 +57,7 @@ M_X^{(1)} (t) ~ = ~ \frac{d}{dt} M_X(t) ~ = \frac{E(X)}{1!} + 2t \frac{E(X^2)}{2
 $$
 
 and hence
+
 $$
 M^{(1)} (0) ~ = ~ E(X)
 $$
@@ -70,9 +71,11 @@ $$
 Hence we can *generate the moments of $X$* by evaluating successive derivatives of $M_X$ at $t=0$. This is one way in which mgf's are helpful.
 
 ### Identifying the Distribution
-In this class we have made heavy use of the first and second moments, and no use at all of the higher moments. That will continue to be the case. But mgf's do involve all the moments, and this results in a property that is very useful for proving facts about distributions. This property is valid if the mgf exists in an interval around 0, which we assumed earlier in this section.
+In this class we have made heavy use of the first and second moments, and no use at all of the higher moments. That will continue to be the case. But mgf's do involve all the moments, and this results in a property that is very useful for proving facts about distributions. 
 
-**If two distributions have the same mgf, then they must be the same distribution.** For example, if you recognize the mgf of a random variable as the mgf of a normal distribution, then the random variable must be normal.
+**If two distributions have the same mgf, then they must be the same distribution.** This property is valid if the mgf exists in an interval around 0, which we assumed earlier in this section.
+
+For example, if you recognize the mgf of a random variable as the mgf of a normal distribution, then the random variable must be normal.
 
 By contrast, if you know the expectation of a random variable you can't identify the distribution of the random variable; even if you know both the mean and the SD (equivalently, the first and second moments), you can't identify the distribution. But if you know the moment generating function, and hence all the moments, then you can.
 
@@ -80,11 +83,13 @@ By contrast, if you know the expectation of a random variable you can't identify
 The third reason mgf's are useful is that like the pgf, the mgf of the sum of independent random variables is easily computed as a product.
 
 Let $X$ and $Y$ be independent. Then
+
 $$
 M_{X+Y} (t) ~ = ~ E(e^{t(X+Y)}) ~ = ~ E(e^{tX} \cdot e^{tY})
 $$
 
 So if $X$ and $Y$ are independent,
+
 $$
 M_{X+Y}(t) ~ = ~ M_X(t) M_Y(t)
 $$
@@ -109,6 +114,7 @@ $$
 
 #### Poisson $(\mu)$
 This one is an exercise.
+
 $$
 M_X(t) ~ = ~ e^{\mu(e^t - 1)} ~~~ \text{for all } t
 $$
@@ -118,6 +124,7 @@ You can also use this to show that the sum of independent Poisson variables is P
 ### MGF of a Gamma $(r, \lambda )$ Random Variable
 
 Let $X$ have the gamma $(r, \lambda)$ distribution. Then
+
 $$
 \begin{align*}
 M_X(t) ~ &= ~ \int_0^\infty e^{tx} \frac{\lambda^r}{\Gamma(r)} x^{r-1} e^{-\lambda x} dx \\ \\
@@ -127,8 +134,9 @@ M_X(t) ~ &= ~ \int_0^\infty e^{tx} \frac{\lambda^r}{\Gamma(r)} x^{r-1} e^{-\lamb
 \end{align*} 
 $$
 
-#### Sums of Independent Gamma Variables with the Same Rate
+### Sums of Independent Gamma Variables with the Same Rate
 If $X$ has gamma $(r, \lambda)$ distribution and $Y$ independent of $X$ has gamma $(s, \lambda)$ distribution, then
+
 $$
 \begin{align*} 
 M_{X+Y} (t) ~ &= ~ \big{(} \frac{\lambda}{\lambda - t} \big{)}^r \cdot \big{(} \frac{\lambda}{\lambda - t} \big{)}^s ~~~~ t < \lambda \\ \\
@@ -137,3 +145,5 @@ M_{X+Y} (t) ~ &= ~ \big{(} \frac{\lambda}{\lambda - t} \big{)}^r \cdot \big{(} \
 $$
 
 That's the mgf of the gamma $(r+s, \lambda)$ distribution. Because the mgf identifies the distribution, $X+Y$ must have the gamma $(r+s, \lambda)$ distribution.
+
+This is what we observed in an earlier section by simulation, using numerical values of $r$ and $\lambda$.

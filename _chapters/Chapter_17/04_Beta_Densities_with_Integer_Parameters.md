@@ -61,19 +61,33 @@ The graph below shows the event $\{U_{(2)} \in dx, U_{(4)} \in dy\}$ for values 
 ![png](../../images/chapters/Chapter_17/04_Beta_Densities_with_Integer_Parameters_8_0.png)
 
 
-To find $P(U_{(2)} \in dx, U_{(4)} \in dy)$, notice that:
+To find $P(U_{(2)} \in dx, U_{(4)} \in dy)$, notice that for this event to occur:
 
-- One of $U_1, U_2, U_3, U_4, U_5$ must be in $dx$; there are 5 ways to choose this one.
-- Of the remaining 4 variables, one of them must be in $dy$; there are 4 ways to choose this one.
-- Of the remaining 3, one must be in $(0, x)$.
-- Of the remaining 2, one must be in $(x, y)$.
-- The last one must be in $(y, 1)$.
+- one of $U_1, U_2, U_3, U_4, U_5$ must be in $(0, x)$
+- one must be in $dx$
+- one must be in $(x, y)$
+- one must be in $dy$
+- one must be in $(y, 1)$
 
-Thus
+You can think of each of the five independent uniform $(0, 1)$ variables as a multinomial trial. It can land in any of the five intervals above, independently of the others and with the same chance as the others. 
+
+The chances are given by
 
 $$
 \begin{align*}
-P(U_{(2)} \in dx, U_{(4)} \in dy) ~ &\sim ~ 5(1dx) \cdot 4(1dy) \cdot 3x \cdot 2(y-x) \cdot 1(1-y) \\ 
+&P(U \in (0, x)) = x, ~~ P(U \in dx) \sim 1dx, ~~ P(U \in (x, y)) = (y-x)\\
+&P(U \in dy) \sim 1dy, ~~ P(U \in (y, 1)) = 1-y
+\end{align*}
+$$
+
+where $U$ is any uniform $(0, 1)$ random variable.
+
+Apply the multinomial formula to get
+
+$$
+\begin{align*}
+P(U_{(2)} \in dx, U_{(4)} \in dy) ~ &\sim ~ 
+\frac{5!}{1!1!1!1!1!} x^1 (1dx)^1 (y-x)^1 (1dy)^1 (1-y)^1 \\
 &\sim ~ 120x(y-x)(1-y)dxdy
 \end{align*}
 $$
@@ -102,13 +116,12 @@ The graph below displays the event $\{ U_{(k)} \in dx \}$. For the event to occu
 ![png](../../images/chapters/Chapter_17/04_Beta_Densities_with_Integer_Parameters_11_0.png)
 
 
-There are $n$ ways to choose the variable that lands in $dx$. Once that is chosen, $k-1$ of the remaining $n-1$ variables must have values in $(0, x)$. Thus 
+Apply the multinomial formula again.
 
 $$
-P(U_{(k)} \in dx) \sim n \cdot 1 dx \cdot \binom{n-1}{k-1}x^{k-1}(1-x)^{n-k}
+P(U_{(k)} \in dx) ~ \sim ~
+\frac{n!}{(k-1)! 1! (n-k)!} x^{k-1} (1dx)^1 (1-x)^{n-k}
 $$
-
-by the binomial formula.
 
 Therefore the density of $U_{(k)}$ is given by
 
@@ -116,7 +129,7 @@ $$
 f_{U_{(k)}} (x) = \frac{n!}{(k-1)!(n-k)!} x^{k-1}(1-x)^{n-k}, ~~~ 0 < x < 1
 $$
 
-Let's rewrite the exponents slightly:
+For consistency, let's rewrite the exponents slightly so that each ends with $-1$:
 
 $$
 f_{U_{(k)}} (x) = \frac{n!}{(k-1)!((n-k+1)-1)!} x^{k-1}(1-x)^{(n-k+1)-1}, ~~~ 0 < x < 1
@@ -133,7 +146,7 @@ $$
 
 is a probability density function. This is called the *beta density with parameters $r$ and $s$*.
 
-The order statistic $U_{(k)}$ has the beta density with parameters $k$ and $n-k+1$.
+By the derivation above, **the $k$th order statistic $U_{(k)}$ of $n$ i.i.d. uniform $(0, 1)$ random variables has the beta density with parameters $k$ and $n-k+1$.**
 
 The shape of the density is determined by the two factors that involve $x$. All the factorials are just parts of the constant that make the density integrate to 1.
 

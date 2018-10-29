@@ -15,6 +15,7 @@ redirect_from:
 ## Random Vectors
 
 A *vector valued random variable*, or more simply, a *random vector*, is a list of random variables defined on the same space. We will think of it as a column.
+
 $$
 \mathbf{X} ~ = ~ 
 \begin{bmatrix}
@@ -45,6 +46,7 @@ where $\mathbf{A}_{i*}$ denotes the $i$th row of $\mathbf{A}$ and $\mathbf{b}(i)
 $$
 Y_i ~ = ~ a_{i1}X_1 + a_{i2}X_2 + \cdots + a_{in}X_n + b_i
 $$
+
 where $a_{ij}$ is the $(i, j)$ entry of $\mathbf{A}$ and $b_i = \mathbf{b}(i)$.
 
 Thus $Y_i$ is a linear combination of the elements of $\mathbf{X}$. Therefore by linearity of expectation,
@@ -85,10 +87,13 @@ We know that $\boldsymbol{\Sigma}$ has to be symmetric and that all the elements
 $$
 \mathbf{a} \boldsymbol{\Sigma} \mathbf{a}^T ~ \ge ~ 0 ~~~~ \text{for all } 1\times n \text{ vectors } \mathbf{a}
 $$
+
 which is the same as saying
+
 $$
 \mathbf{a}^T \boldsymbol{\Sigma} \mathbf{a} ~ \ge ~ 0 ~~~~ \text{for all } n\times 1 \text{ vectors } \mathbf{a}
 $$
+
 because $\mathbf{a} \boldsymbol{\Sigma} \mathbf{a}^T$ is a scalar and therefore the same as its transpose.
 
 That is, $\boldsymbol{\Sigma}$ must be positive semidefinite. Usually, we will be working with positive definite covariance matrices, because if $\mathbf{a}^T \boldsymbol{\Sigma} \mathbf{a} = 0$ for some $\mathbf{a}$ then some linear combination of the elements of $\mathbf{X}$ is constant. Hence you can write some of the elements as linear combinations of the others and just study a reduced set of elements.

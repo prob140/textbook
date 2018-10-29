@@ -32,7 +32,7 @@ x = stats.norm.rvs(mu_X, sigma_X, size=10000)
 y = stats.norm.rvs(mu_Y, sigma_Y, size=10000)
 s = x+y
 Table().with_column('S = X+Y', s).hist(bins=20)
-plt.title('$X$ is normal (10, $2^2$); $Y$ is normal (15, $3^2$)');
+plt.title('$X$ is normal (10, $2^2$); $Y$ is normal (15, $3^2$) independent of $X$');
 ```
 
 
@@ -57,6 +57,7 @@ If the underlying distribution is normal, then the distribution of the i.i.d. sa
 
 ### The Difference of Two Independent Normal Variables
 If $Y$ is normal, then so is $-Y$. So if $X$ and $Y$ are independent normal variables then $X-Y$ is normal with mean $\mu_X - \mu_Y$ and variance given by
+
 $$
 Var(X - Y) ~ = ~
 Var(X) + Var(-Y) ~ = ~
@@ -123,6 +124,7 @@ SD(X_1 - 2X_2) = 0.03222
 $$
 
 So
+
 $$
 P(X_1 > 2X_2) ~ = ~ P(X_1 - 2X_2 > 0) 
 ~ \approx ~ 1 - \Phi \big{(} \frac{0 - (-0.04)}{0.03222} \big{)}

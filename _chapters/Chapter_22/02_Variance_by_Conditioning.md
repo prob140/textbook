@@ -48,10 +48,12 @@ Var(D_Y) ~ = ~ Var(D_w) + Var(D_b)
 $$
 
 Let's take a closer look at these three variances. Shifting a random variable by a constant doesn't affect variance. So:
+
 - $Var(D_Y) = Var(Y - E(Y)) = Var(Y)$
 - $Var(D_b) = Var(b(X) - E(Y)) = Var(b(X))$, the *variance of the conditional expectation*.
 
 Finally, because $E(D_w) = 0$,
+
 $$
 \begin{align*}
 Var(D_w) ~ &= ~ E(D_w^2) \\
@@ -73,6 +75,7 @@ $$
 That is, **the variance is equal to the expectation of the conditional variance plus the variance of the conditional expectation**.
 
 It makes sense that the two quantities on the right hand side are involved in the calculation of $Var(Y)$. The variability of $Y$ has two components:
+
 - the rough size of the variability within the individual vertical strips, that is, the expectation of the conditional variance
 - the variability between strips, measured by the variance of the centers of the strips.
 

@@ -28,7 +28,9 @@ This is easy to see from the form of the density of $\mathbf{X}$. If $\boldsymbo
 $$
 (\mathbf{x} - \boldsymbol{\mu})\boldsymbol{\Sigma}^{-1} (\mathbf{x} - \boldsymbol{\mu}) ~ = ~ \sum_{i=1}^n \frac{(x_i - \boldsymbol{\mu}(i))^2}{\sigma_i^2}
 $$
+
 and therefore
+
 $$
 \exp\big{(} -\frac{1}{2} (\mathbf{x} - \boldsymbol{\mu})\boldsymbol{\Sigma}^{-1} (\mathbf{x} - \boldsymbol{\mu}) \big{)} ~ = ~ \prod_{i=1}^n \exp\big{(}-\frac{1}{2} \big{(}\frac{x_i - \boldsymbol{\mu}(i)}{\sigma_i}\big{)}^2\big{)}
 $$
@@ -44,4 +46,8 @@ $$
 Cov(S, D) ~ = ~ Var(X_1) - Var(X_2)
 $$
 
-If $X_1$ and $X_2$ have the same variance then $S$ and $D$ are uncorrelated, and hence also independent by what we have just proved. Thus for example the sum and difference of two i.i.d. normal random variables are independent.
+If $X_1$ and $X_2$ have the same variance then $S$ and $D$ are uncorrelated, and hence also independent by what we have just proved. 
+
+Thus for example the sum and difference of two i.i.d. normal random variables are independent.
+
+You have shown in exercises that the sum and differences of any two i.i.d. random variables are uncorrelated. If in addition the two variables are normal, then their sum and difference are independent, not just uncorrelated.

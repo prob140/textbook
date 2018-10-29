@@ -15,6 +15,7 @@ redirect_from:
 ## Regression and the Bivariate Normal
 
 Let $X$ and $Y$ be standard bivariate normal with correlatin $\rho$. The relation 
+
 $$
 Y ~ = ~ \rho X + \sqrt{1 - \rho^2}Z
 $$
