@@ -90,6 +90,8 @@ Notice that all three variables are in standard units and that the two predictor
 
 {:.input_area}
 ```python
+np.random.seed(0) #make plot deterministic 
+
 mu = [0, 0, 0]
 cov = np.array([[1, 0.6, 0.5],
                 [0.6, 1, 0.2],
@@ -110,6 +112,8 @@ In the simulation below, the correlations between $Y$ and two predictor variable
 
 {:.input_area}
 ```python
+np.random.seed(0) #make plot deterministic 
+
 mu = [0, 0, 0]
 cov = np.array([[1, 0.3, 0.25],
                 [0.3, 1, 0.2],
@@ -128,6 +132,8 @@ The calcuations of this chapter, for predicting the value of a random variabe $Y
 
 {:.input_area}
 ```python
+np.random.seed(0) #make plot deterministic 
+
 Scatter_multivariate_normal(mu, cov, 200)
 ```
 
