@@ -415,6 +415,9 @@ chapters:
   - class: level_0
     title: 25.3 Regression and the Multivariate Normal
     url: chapters/Chapter_25/03_Multivariate_Normal_Regression
+  - class: level_0
+    title: 25.4 Further Review Exercises
+    url: chapters/Chapter_25/04_Further_Review_Exercises
   class: level_0
   title: 'Chapter 25: Multiple Regression'
   url: chapters/Chapter_25/00_Multiple_Regression

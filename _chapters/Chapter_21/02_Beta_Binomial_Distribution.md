@@ -81,16 +81,21 @@ Given $X = p$, the conditional distribution of $S_n$ is binomial $(n, p)$. There
 $$
 E(S_n \mid X = p) ~ = ~ np
 $$
+
 or, equivalently,
+
 $$
 E(S_n \mid X) ~ = ~ nX
 $$
+
 By iteration,
+
 $$
 E(S_n) ~ = ~ E(nX) ~ = ~ nE(X) ~ = ~ n\frac{r}{r+s}
 $$
 
 The expected proportion of heads in $n$ tosses is
+
 $$
 E\big{(} \frac{S_n}{n} \big{)} ~ = ~ \frac{r}{r+s}
 $$
