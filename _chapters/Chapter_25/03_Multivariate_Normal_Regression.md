@@ -6,8 +6,8 @@ previouschapter:
   url: chapters/Chapter_25/02_Best_Linear_Predictor
   title: '25.2 Best Linear Predictor'
 nextchapter:
-  url: 
-  title: ''
+  url: chapters/Chapter_25/04_Further_Review_Exercises
+  title: '25.4 Further Review Exercises'
 redirect_from:
   - 'chapters/chapter-25/03-multivariate-normal-regression'
 ---
@@ -90,13 +90,11 @@ Notice that all three variables are in standard units and that the two predictor
 
 {:.input_area}
 ```python
-np.random.seed(0) #make plot deterministic 
-
 mu = [0, 0, 0]
 cov = np.array([[1, 0.6, 0.5],
                 [0.6, 1, 0.2],
                 [0.5, 0.2, 1]])
-multivariate_normal_regression(mu, cov, 200)
+Plot_multivariate_normal_regression(mu, cov, 200)
 ```
 
 
@@ -118,7 +116,7 @@ mu = [0, 0, 0]
 cov = np.array([[1, 0.3, 0.25],
                 [0.3, 1, 0.2],
                 [0.25, 0.2, 1]])
-multivariate_normal_regression(mu, cov, 200)
+Plot_multivariate_normal_regression(mu, cov, 200)
 ```
 
 
@@ -132,8 +130,6 @@ The calcuations of this chapter, for predicting the value of a random variabe $Y
 
 {:.input_area}
 ```python
-np.random.seed(0) #make plot deterministic 
-
 Scatter_multivariate_normal(mu, cov, 200)
 ```
 

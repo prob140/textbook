@@ -43,7 +43,7 @@ binomial_proportions(0.5, 4)
 
 {:.output_data_text}
 ```
-array([ 1.        ,  0.5       ,  0.66666667,  0.5       ])
+array([0.        , 0.5       , 0.66666667, 0.75      ])
 ```
 
 
@@ -73,8 +73,6 @@ Let's use `plot_binomial_proportions` to simulate two sets of 1000 fair coin tos
 
 {:.input_area}
 ```python
-np.random.seed(26) #make plot deterministic 
-
 two_fair_coins = make_array(0.5, 0.5)
 plot_binomial_proportions(two_fair_coins, 1000)
 ```
@@ -92,8 +90,6 @@ If you are wondering why $p$ has to be entered as an array instead of just one n
 
 {:.input_area}
 ```python
-np.random.seed(26) #make plot deterministic 
-
 ten_dice = (1/6)*np.ones(10)
 plot_binomial_proportions(ten_dice, 1000)
 ```
@@ -122,8 +118,6 @@ Here are 10 paths. Notice how `np.random.choice` is being used to pick $p$. You 
 
 {:.input_area}
 ```python
-np.random.seed(26) #make plot deterministic 
-
 random_p = np.random.choice([0.2, 0.7], size = 10, p = [0.5, 0.5])
 plot_binomial_proportions(random_p, 1000)
 ```
@@ -144,9 +138,6 @@ Suppose we start with the uniform prior. As in the previous section, we let $X$ 
 
 {:.input_area}
 ```python
-np.random.seed(42) #make plot deterministic 
-
-
 p_array = stats.beta.rvs(size = 10, a = 1, b = 1)
 plot_binomial_proportions(p_array, 1000)
 ```
@@ -166,8 +157,6 @@ Here are 15 paths of the proportion of successes when the probability of success
 
 {:.input_area}
 ```python
-np.random.seed(42) #make plot deterministic 
-
 p_array = stats.beta.rvs(size = 15, a = 2, b = 8)
 plot_binomial_proportions(p_array, 1000)
 ```
@@ -211,8 +200,6 @@ The histogram shows the distribution the 10,000 simulated proportions, with the 
 
 {:.input_area}
 ```python
-np.random.seed(0) #make plot deterministic 
-
 proportions = make_array()
 for i in range(10000):
     chosen_p = stats.beta.rvs(size = 1, a = 2, b = 8)
