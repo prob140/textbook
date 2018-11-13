@@ -146,3 +146,55 @@ $$
 $$
 P\big{(} X \ge (1+c)\mu\big{)} ~ \le ~ \exp\big{(}-\frac{c^2}{3}\mu\big{)}, ~~~~ c \in (0, 1)
 $$
+
+**13.** 
+A positive random variable $V$ has expectation $\mu$ and variance $\sigma^2$. 
+
+(a) For each $v > 0$, the conditional distribution of $X$ given $V=v$ is Poisson $(v)$. Find $E(X)$ and $Var(X)$ in terms of $\mu$ and $\sigma$.
+
+(b) For each $v > 0$, the conditional distribution of $X$ given $V=v$ is gamma $(v, \lambda)$ for some fixed $\lambda$. Find $E(X)$ and $Var(X)$ in terms of $\mu$ and $\sigma$.
+
+**14.**
+Let $X_1, X_2, \ldots, X_n$ be i.i.d. with expectation $\mu$ and variance $\sigma^2$. Let $S = \sum_{i=1}^n X_i$.
+
+(a) Find the least squares predictor of $S$ based on $X_1$, and find the mean squared error (MSE) of the predictor.
+
+(b) Find the least squares predictor of $X_1$ based on $S$, and find the MSE of the predictor. Is the predictor a linear function of $S$? If so, it must also be the best among all linear predictors based on $S$, which is commonly known as the regression predictor. 
+
+**15.** 
+A $p$-coin is tossed repeatedly. Let $W_{H}$ be the number of tosses till the first head appears, and $W_{HH}$ the number of tosses till two consecutive heads appear.
+
+(a) Describe a random variable $X$ that  depends only on the tosses after $W_H$ and satisfies $W_{HH} = W_H + X$.
+
+(b) Use Part (a) to find $E(W_{HH})$ and $Var(W_{HH})$.
+
+**16.** 
+Let $N$ be a non-negative integer valued random variable,
+and let $X, X_1, X_2, \ldots $ be i.i.d. and independent of $N$. As before, define
+the *random sum* $S$ by
+
+$$
+\begin{align*}
+S ~~&=~~0~~ \mbox{if}~N=0 \\
+&=~~ X_1 + X_2 + \cdots + X_n ~~ \mbox{if}~N = n > 0 
+\end{align*}
+$$
+
+(a) Let $M$ be our usual notation for moment generating functions.
+By conditioning on $N$, show that
+
+$$
+M_S(t) ~~=~~ M_N\big{(}\log M_X(t) \big{)}
+$$
+
+assuming that all the quantities above are well defined. 
+[The identity $(e^a)^n = e^{an}$ might be handy.]
+
+(b) Let $N$ have the geometric $(p)$ distribution on $\{1, 2, 3, \ldots \}$. Find the mgf of $N$. This doesn't use Part (a).
+
+(c) Let $X_1, X_2, \ldots $ be i.i.d. exponential $(\lambda)$ variables and let $N$ be geometric as in Part (b). Use the results of Parts (a) and (b) to identify the distribution of $S$.
+
+**17.**
+Let $\mathbf{X}$ be a $p \times 1$ random vector and suppose we are trying to predict a random variable $Y$ by a linear function of $\mathbf{X}$. In an earlier [section](http://prob140.org/textbook/chapters/Chapter_25/02_Best_Linear_Predictor) we identified the least squares linear predictor by restricting our search to linear functions of $X$ that are unbiased for $Y$. Show that this was a legitimate move. 
+
+Specifically, let $\hat{Y}_1 = \mathbf{c}^T \mathbf{X} + d$ be a biased predictor so that $E(\hat{Y}_1) \ne \mu_Y$. Find a non-zero constant $k$ such that $\hat{Y}_2 = \hat{Y}_1 + k$ is unbiased, and show that $MSE(\hat{Y}_1) \ge MSE(\hat{Y}_2)$. This will show that the least squares linear predictor has to be unbiased.

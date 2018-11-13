@@ -22,10 +22,7 @@ For jointly distributed random variables $X$ and $Y$, you know that $E(Y \mid X)
 Let $h(X) = aX + b$ for constants $a$ and $b$, and let $MSE(a, b)$ denote $MSE(h)$.
 
 $$
-\begin{align*}
-MSE(a, b) ~ &= ~ E\big{(} (Y - (aX + b))^2 \big{)} \\
-&= ~ E(Y^2) + a^2E(X^2) + b^2 -2aE(XY) - 2bE(Y) + 2abE(X)
-\end{align*}
+MSE(a, b) ~ = ~ E\big{(} (Y - (aX + b))^2 \big{)} 
 $$
 
 To find the *least squares linear predictor*, we have to minimize this MSE over all $a$ and $b$. We will do this using calculus, in two steps:
@@ -36,13 +33,22 @@ To find the *least squares linear predictor*, we have to minimize this MSE over 
 Fix $a$ and minimize $MSE(a, b)$ with respect to $b$.
 
 $$
-\frac{d}{db} MSE(a, b) ~ = ~ 2b - 2E(Y) + 2aE(X)
+\begin{align*}
+MSE(a, b) ~ &= ~ E\big{(} ((Y-aX) - b)^2\big{)}\\
+&= ~ E((Y-aX)^2) -2bE(Y-aX) + b^2
+\end{align*}
+$$
+
+Differentiate this with respect to $b$.
+
+$$
+\frac{d}{db} MSE(a, b) ~ = ~ -2E(Y-aX) + 2b
 $$
 
 Set this equal to 0 and solve to see that the minimizing value of $b$ for the fixed value of $a$ is
 
 $$
-b_a^* ~ = ~ E(Y) - aE(X)
+b_a^* ~ = ~ E(Y-aX) ~ = ~ E(Y) - aE(X)
 $$
 
 #### Step 2
@@ -67,7 +73,7 @@ $$
 At this point we should check that what we have is a minimum, not a maximum, but based on your experience with prediction you might just be willing to accept that we have a minimum. If you're not, then differentiate again and look at the sign of the resulting function.
 
 ### Slope and Intercept of the Regression Line
-The least squares straight line is called the *regression line*.You now have a proof of its equation, familiar to you from Data 8. The slope and intercept are given by
+The least squares straight line is called the *regression line*.You now have a proof of its equation, familiar to you from Data 8. Let $r_{X,Y}$ be the correlation between $X$ and $Y$. Then the slope and intercept are given by
 
 $$
 \begin{align*} 

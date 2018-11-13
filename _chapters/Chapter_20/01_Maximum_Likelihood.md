@@ -184,6 +184,7 @@ $$
 $$
 \frac{X}{\hat{p}} - \frac{n-X}{1-\hat{p}} = 0
 $$
+
 Hence
 
 $$

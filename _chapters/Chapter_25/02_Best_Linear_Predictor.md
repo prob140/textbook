@@ -87,7 +87,7 @@ $$
 Because $E(W) = 0$, we also have $E(W\mathbf{a}^T\mathbf{X}) = Cov(W, \mathbf{a}^T\mathbf{X}) = 0$ for all $\mathbf{a}$.
 
 ### Least Squares
-To show that $\hat{Y}_\mathbf{b}$ minimizes the mean squared error, start with an exercise: show that the best linear predictor has to be unbiased. The weekly Prep Guide starts you off on the argument.
+To show that $\hat{Y}_\mathbf{b}$ minimizes the mean squared error, start with an exercise: show that the best linear predictor has to be unbiased. 
 
 Once you have done that, you can restrict the search for the best linear predictor to all unbiased linear predictors. Define the generic one of these by
 
@@ -118,10 +118,13 @@ $$
 This is the same as $\hat{Y}_\mathbf{b}$. We are just dropping the subscript for convenience, now that we have established that it is the best linear predictor.
 
 As we have seen above, the predictor is unbiased:
+
 $$
 E(\hat{Y}) ~ = ~ E(Y)
 $$
+
 The variance of the predicted values is
+
 $$
 \begin{align*}
 Var(\hat{Y}) ~ &= ~ \mathbf{b}^T \boldsymbol{\Sigma}_\mathbf{X} \mathbf{b} \\
