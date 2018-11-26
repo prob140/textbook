@@ -33,13 +33,13 @@ That is, as $n \to \infty$, every row of the $n$-step transition matrix $\mathbb
 
 ### Properties of the Limit
 
-**(i)** The vector $\pi$ is the unique solution of the *balance equations* $\pi \mathbb{P} = \pi$.
+**(i)** The vector $\pi$ is the unique probability distribution that solves the *balance equations* $\pi \mathbb{P} = \pi$. Every other solution has the form $c\pi$ for some constant $c$.
 
 **(ii)** If for some $n$ the distribution of $X_n$ is $\pi$, then the distribution of $X_m$ is also $\pi$ for all $m > n$. Thus $\pi$ is called the *stationary* or *steady state* distribution of the chain.
 
 **(iii)** For each state $j$, the $j$th entry of the $\pi$ vector $\pi(j)$ is the expected long run proportion of time the chain spends at $j$.
 
-We will assume that the convergence theorem is true; then the other properties follow rather easily. In the remainder of this section we will establish the properties and see how they are used.
+We will assume that the convergence theorem is true; you have observed in numerically in examples. The other properties follow rather easily. In the remainder of this section we will establish the properties and see how they are used.
 
 ### Balance Equations
 Let $n \ge 0$ and let $i$ and $j$ be two states. Then
@@ -63,7 +63,7 @@ $$
 \pi(j) = \sum_{k \in S} \pi(k)P(k, j)
 $$
 
-These are called the *balance equations*.
+These are called the balance equations.
 
 In matrix notation, if you think of $\pi$ as a row vector, these equations become
 

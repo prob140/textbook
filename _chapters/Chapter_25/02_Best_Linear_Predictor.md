@@ -6,8 +6,8 @@ previouschapter:
   url: chapters/Chapter_25/01_Bilinearity_in_Matrix_Notation
   title: '25.1 Bilinearity in Matrix Notation'
 nextchapter:
-  url: chapters/Chapter_25/03_Multivariate_Normal_Regression
-  title: '25.3 Regression and the Multivariate Normal'
+  url: chapters/Chapter_25/03_Multivariate_Normal_Conditioning
+  title: '25.3 Conditioning and the Multivariate Normal'
 redirect_from:
   - 'chapters/chapter-25/02-best-linear-predictor'
 ---
@@ -57,7 +57,7 @@ is the $p \times 1$ vector of the coefficients of the linear function.
 Clearly $\hat{Y}_\mathbf{b}$ is a linear predictor of $Y$ based on $\mathbf{X}$. We will show that it is the least squares linear predictor. The steps will follow those that we used to show that conditional expectation is the least squares predictor among all predictors.
 
 ### Projection
-Notice that $E(\hat{Y}_\mathbf{b}) ~ = ~ \mu_Y$. The predictor is unbiased.
+Notice that $E(\hat{Y}_\mathbf{b}) ~ = ~ \mu_Y$. The predictor has the same mean as the variable being predicted.
 
 Define the error in the prediction to be
 
@@ -87,7 +87,7 @@ $$
 Because $E(W) = 0$, we also have $E(W\mathbf{a}^T\mathbf{X}) = Cov(W, \mathbf{a}^T\mathbf{X}) = 0$ for all $\mathbf{a}$.
 
 ### Least Squares
-To show that $\hat{Y}_\mathbf{b}$ minimizes the mean squared error, start with an exercise: show that the best linear predictor has to be unbiased. 
+To show that $\hat{Y}_\mathbf{b}$ minimizes the mean squared error, start with an exercise: show that the best linear predictor must have the same mean as the variable being predicted. That is, show that the best linear predictor must have mean $\mu_Y$. 
 
 Once you have done that, you can restrict the search for the best linear predictor to all unbiased linear predictors. Define the generic one of these by
 

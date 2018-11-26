@@ -156,5 +156,6 @@
 * [Chapter 25: Multiple Regression](notebooks/Chapter_25/00_Multiple_Regression.ipynb)
  * [25.1 Bilinearity in Matrix Notation](notebooks/Chapter_25/01_Bilinearity_in_Matrix_Notation.ipynb)
  * [25.2 Best Linear Predictor](notebooks/Chapter_25/02_Best_Linear_Predictor.ipynb)
- * [25.3 Regression and the Multivariate Normal](notebooks/Chapter_25/03_Multivariate_Normal_Regression.ipynb)
- * [25.4 Further Review Exercises](notebooks/Chapter_25/04_Further_Review_Exercises.ipynb)
+ * [25.3 Conditioning and the Multivariate Normal](notebooks/Chapter_25/03_Multivariate_Normal_Conditioning.ipynb)
+ * [25.4 Multiple Regression](notebooks/Chapter_25/04_Multiple_Regression.ipynb)
+ * [25.5 Further Review Exercises](notebooks/Chapter_25/05_Further_Review_Exercises.ipynb)

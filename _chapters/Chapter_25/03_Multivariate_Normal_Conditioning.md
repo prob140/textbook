@@ -1,18 +1,18 @@
 ---
-interact_link: notebooks/Chapter_25/03_Multivariate_Normal_Regression.ipynb
-title: '25.3 Regression and the Multivariate Normal'
-permalink: 'chapters/Chapter_25/03_Multivariate_Normal_Regression'
+interact_link: notebooks/Chapter_25/03_Multivariate_Normal_Conditioning.ipynb
+title: '25.3 Conditioning and the Multivariate Normal'
+permalink: 'chapters/Chapter_25/03_Multivariate_Normal_Conditioning'
 previouschapter:
   url: chapters/Chapter_25/02_Best_Linear_Predictor
   title: '25.2 Best Linear Predictor'
 nextchapter:
-  url: chapters/Chapter_25/04_Further_Review_Exercises
-  title: '25.4 Further Review Exercises'
+  url: chapters/Chapter_25/04_Multiple_Regression
+  title: '25.4 Multiple Regression'
 redirect_from:
-  - 'chapters/chapter-25/03-multivariate-normal-regression'
+  - 'chapters/chapter-25/03-multivariate-normal-conditioning'
 ---
 
-## Regression and the Multivariate Normal
+## Conditioning and the Multivariate Normal
 
 Whe $Y$ and $\mathbf{X}$ have a multivariate normal distribution with positive definite covariance matrix, then best linear predictor derived in the previous section is the best among all predictors of $Y$ based on $\mathbf{X}$. That is,
 
@@ -88,7 +88,7 @@ $$
 E(Y \mid \mathbf{X}) = \boldsymbol{\Sigma}_{Y, \mathbf{X}}\boldsymbol{\Sigma}_\mathbf{X}^{-1} (\mathbf{X} - \boldsymbol{\mu}_\mathbf{X}) + \mu_Y
 $$ 
 
-Keep in mind that it is computed according to this formula; it has not been estimated based on the 200 simulated points.
+**Keep in mind that the plane is computed according to this formula; it has not been estimated based on the simulated points.**
 
 Notice that all three variables are in standard units and that the two predictor variables are not highly correlated: $r(X_1, X_2) = 0.2$. You can change the parameters, of course, but you will get an error message if you enter a "covariance matrix" that is not positive semidefinite.
 
@@ -100,15 +100,15 @@ mu = [0, 0, 0]
 cov = np.array([[1, 0.6, 0.5],
                 [0.6, 1, 0.2],
                 [0.5, 0.2, 1]])
-Plot_multivariate_normal_regression(mu, cov, 200)
+Plot_multivariate_normal_cond_exp(mu, cov, 200)
 ```
 
 
 
-![png](../../images/chapters/Chapter_25/03_Multivariate_Normal_Regression_4_0.png)
+![png](../../images/chapters/Chapter_25/03_Multivariate_Normal_Conditioning_4_0.png)
 
 
-This is the three-dimensional version of the familiar football shaped scatter diagram with the "best predictor" line going through it. The plane goes through the "vertical center" of the cloud.
+This is the three-dimensional version of the familiar football shaped scatter diagram with the "best predictor" line going through it. The plane that is the conditional expectation of $Y$ given $\mathbf{X}$ goes through the "vertical center" of the cloud.
 
 In the simulation below, the correlations between $Y$ and two predictor variables have been reduced. Notice the greater spread about the plane.
 
@@ -120,15 +120,17 @@ mu = [0, 0, 0]
 cov = np.array([[1, 0.3, 0.25],
                 [0.3, 1, 0.2],
                 [0.25, 0.2, 1]])
-Plot_multivariate_normal_regression(mu, cov, 200)
+Plot_multivariate_normal_cond_exp(mu, cov, 200)
 ```
 
 
 
-![png](../../images/chapters/Chapter_25/03_Multivariate_Normal_Regression_6_0.png)
+![png](../../images/chapters/Chapter_25/03_Multivariate_Normal_Conditioning_6_0.png)
 
 
-The calcuations of this chapter, for predicting the value of a random variabe $Y$ by a linear function of random variables $X_1, X_2, \ldots, X_p$, have direct applications to data. What we see is just a cloud of points:
+The calcuations of this chapter, for predicting the value of a random variabe $Y$ by a linear function of random variables $X_1, X_2, \ldots, X_p$, have direct applications to data. 
+
+In the data setting, what we see is just a cloud of points:
 
 
 
@@ -139,13 +141,9 @@ Scatter_multivariate_normal(mu, cov, 200)
 
 
 
-![png](../../images/chapters/Chapter_25/03_Multivariate_Normal_Regression_8_0.png)
+![png](../../images/chapters/Chapter_25/03_Multivariate_Normal_Conditioning_8_0.png)
 
 
-But we don't know the parameters of the distribution, so we can't draw the right plane through the scatter. The problem of multiple regression is to *estimate* the plane based on the data.
+But we don't know the parameters of the distribution, so we can't draw the right plane through the scatter. The problem of multiple regression is to *estimate* that plane based on the data, under appropriate assumptions.
 
-The data – that is, the cloud of points – consist of $n$ observations of the random vector $[Y, X_1, X_2, \ldots, X_p]$. The task, then, is to estimate the plane using the $n \times p$ matrix of observed values of the predictor variables and the $n \times 1$ vector of observed values of $Y$. The formula for the best plane follows from the corresponding formulas for random variables developed in this chapter.
-
-The standard notation is to let $X$ be the $n \times p$ predictor matrix whose $j$th column $[x_{1j} ~ x_{2j} ~ \ldots ~ x_{nj}]^T$ consists of the $n$ observations of the $j$th predictor variable $X_j$. Let $y$ denoted the $n \times 1$ vector of observations of $Y$. 
-
-Our formula says that the coefficients of the best linear function for predicting $Y$ based on $\mathbf{X}$ are the entries of the $p \times 1$ vector $\mathbf{b}= \boldsymbol{\Sigma}_\mathbf{X}^{-1}\boldsymbol{\Sigma}_{\mathbf{X}, Y}$. The coefficients of the best linear function based on the data are the entries of the $p \times 1$ vector $\hat{\beta} = (X^TX)^{-1}X^Ty$. You should be able to work out why.
+That is the topic of the next section, which concludes the course.

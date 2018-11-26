@@ -1,15 +1,15 @@
 ---
-interact_link: notebooks/Chapter_25/04_Further_Review_Exercises.ipynb
-title: '25.4 Further Review Exercises'
-permalink: 'chapters/Chapter_25/04_Further_Review_Exercises'
+interact_link: notebooks/Chapter_25/05_Further_Review_Exercises.ipynb
+title: '25.5 Further Review Exercises'
+permalink: 'chapters/Chapter_25/05_Further_Review_Exercises'
 previouschapter:
-  url: chapters/Chapter_25/03_Multivariate_Normal_Regression
-  title: '25.3 Regression and the Multivariate Normal'
+  url: chapters/Chapter_25/04_Multiple_Regression
+  title: '25.4 Multiple Regression'
 nextchapter:
   url: 
   title: ''
 redirect_from:
-  - 'chapters/chapter-25/04-further-review-exercises'
+  - 'chapters/chapter-25/05-further-review-exercises'
 ---
 
 ## Further Review Exercises
@@ -40,19 +40,21 @@ Let $X_1, X_2, \ldots, X_n$ be i.i.d. uniform on $(0, \theta)$.
 **4.** $X$ and $Y$ are i.i.d. with moment generating function $M(t) = e^{t + t^2}$, $-\infty < t < \infty$. What is the distribution of $(X-Y)^2$?
 
 **5.**
-*Capture-recapture* methods are sometimes used to estimate population sizes. A standard image is that a pond contains $N$ fish for some fixed but unknown $N$, and that $G$ of the $N$ fish have been captured, tagged, and returned alive to the pond. 
+*Capture-recapture* methods are sometimes used to estimate population sizes. A standard image is that a pond contains $N$ fish for some fixed but unknown $N$, and that $G$ of the $N$ fish have been captured, tagged, and returned alive to the pond. You can assume that $G/N$ isn't close to 0.
 
 In the recapture phase, assume that a simple random sample of $n$ fish is drawn from the $N$ fish in the pond (you might have to use some imagination to believe this assumption). We can observe $X$, the random number of tagged fish in the sample. 
 
 The goal is to use the observation to estimate $N$.
 
-(a) For large $n$, the sample proportion $X/n$ is likely to be close to a constant. Identify the constant and hence construct an estimate of $N$ based on $X$. Later in this exercise you will see how your estimate is related to the MLE of $N$.
+(a) For large $n$, the sample proportion $X/n$ is likely to be close to a constant. Identify the constant and hence construct an estimate of $N$ based on $X$.
+
+Later in this exercise you will see how your estimate is related to the MLE of $N$.
 
 (b) For $N \ge n$, find the likelihood $lik(N)$. You can assume $n > G$. 
 
-(c) To maximize this likelihood function, adapt the method you used to find the mode of the binomial and Poisson distributions. Find the likelihood ratio $\frac{lik(N+1)}{lik(N)}$ and show that it is a decreasing function of $N$. [Go back and look at how we showed the corresponding fact for binomial odds ratios.]
+(c) Find the likelihood ratio $R(N) = \frac{lik(N)}{lik(N-1)}$ for $N > n$. Simplify the answer as much as you can.
 
-(d) Now find the MLE of $N$. How does it compare with your estimate in (a)?
+(d) Find the maximum likelihood estimate of $N$ by comparing the likelihood ratios and 1. How does the MLE compare with your estimate in (a)?
 
 **6.** 
 Show that if $r > 1$ and $s > 1$ then the mode of the beta $(r, s)$ distribution is $(r-1)/(r+s-2)$. Remember to ignore multiplicative constants and take the log before maximizing. 
@@ -154,7 +156,7 @@ A positive random variable $V$ has expectation $\mu$ and variance $\sigma^2$.
 
 (b) For each $v > 0$, the conditional distribution of $X$ given $V=v$ is gamma $(v, \lambda)$ for some fixed $\lambda$. Find $E(X)$ and $Var(X)$ in terms of $\mu$ and $\sigma$.
 
-**14.**
+**14.** 
 Let $X_1, X_2, \ldots, X_n$ be i.i.d. with expectation $\mu$ and variance $\sigma^2$. Let $S = \sum_{i=1}^n X_i$.
 
 (a) Find the least squares predictor of $S$ based on $X_1$, and find the mean squared error (MSE) of the predictor.
@@ -195,6 +197,128 @@ assuming that all the quantities above are well defined.
 (c) Let $X_1, X_2, \ldots $ be i.i.d. exponential $(\lambda)$ variables and let $N$ be geometric as in Part (b). Use the results of Parts (a) and (b) to identify the distribution of $S$.
 
 **17.**
-Let $\mathbf{X}$ be a $p \times 1$ random vector and suppose we are trying to predict a random variable $Y$ by a linear function of $\mathbf{X}$. In an earlier [section](http://prob140.org/textbook/chapters/Chapter_25/02_Best_Linear_Predictor) we identified the least squares linear predictor by restricting our search to linear functions of $X$ that are unbiased for $Y$. Show that this was a legitimate move. 
+A random vector $\mathbf{Y} = [Y_1 ~~ Y_2 ~~ \cdots ~~ Y_n]^T$ has mean vector $\boldsymbol{\mu}$ and covariance matrix $\sigma^2 \mathbf{I}_n$ where $\sigma > 0$ is a number and $\mathbf{I}_n$ is the $n \times n$ identity matrix. 
 
-Specifically, let $\hat{Y}_1 = \mathbf{c}^T \mathbf{X} + d$ be a biased predictor so that $E(\hat{Y}_1) \ne \mu_Y$. Find a non-zero constant $k$ such that $\hat{Y}_2 = \hat{Y}_1 + k$ is unbiased, and show that $MSE(\hat{Y}_1) \ge MSE(\hat{Y}_2)$. This will show that the least squares linear predictor has to be unbiased.
+(a) Pick one option and explain: $Y_1$ and $Y_2$ are
+
+$~~~~~ (i) ~ \text{independent.} ~~~~~~~~ (ii) ~ \text{uncorrelated but might not be independent.} ~~~~~~~~ (iii) ~ \text{not uncorrelated.}$
+
+(b) Pick one option and explain: $Var(Y_1)$ and $Var(Y_2)$ are
+
+$~~~~~ (i) ~ \text{equal.} ~~~~~~~~ (ii) ~ \text{possibly equal, but might not be.} ~~~~~~~~ (iii) ~ \text{not equal.} $
+
+(c) For $m \le n$ let $\mathbf{A}$ be an $m \times n$ matrix of real numbers, and let $\mathbf{b}$ be an $m \times 1$ vector of real numbers. Let $\mathbf{V} = \mathbf{AY} + \mathbf{b}$. Find the mean vector $\boldsymbol{\mu}\_\mathbf{V}$ and covariance matrix $\boldsymbol{\Sigma}\_\mathbf{V}$ of $\mathbf{V}$.
+
+(d) Let $\mathbf{c}$ be an $m \times 1$ vector of real numbers and let $W = \mathbf{c}^T\mathbf{V}$ for $\mathbf{V}$ defined in Part (c). In terms of $\mathbf{c}$, $\boldsymbol{\mu}\_\mathbf{V}$ and $\boldsymbol{\Sigma}\_\mathbf{V}$, find $E(W)$ and $Var(W)$.
+
+**18.** 
+Let $[X_1 ~~ X_2 ~~ X_3]^T$ be multivariate normal with mean vector $\boldsymbol{\mu}$ and covariance matrix $\boldsymbol{\Sigma}$ given by
+
+$$
+\boldsymbol{\mu} ~ = ~
+\begin{bmatrix}
+\mu \\
+\mu \\
+\mu
+\end{bmatrix}
+~~~~~~~~~~~
+\boldsymbol{\Sigma} ~ = ~ 
+\begin{bmatrix}
+\sigma_1^2 & \sigma_{12} & \sigma_{13} \\
+\sigma_{21} & \sigma_2^2 & \sigma_{23} \\
+\sigma_{31} & \sigma_{32} & \sigma_3^2
+\end{bmatrix}
+$$
+
+Find $P\big{(} (X_1 + X_2)/2 < X_3 + 1 \big{)}$.
+
+**19.**
+Let $X$ be standard normal. Construct a random variable $Y$ as follows:
+
+- Toss a fair coin.
+- If the coin lands heads, let $Y = X$.
+- If the coin lands tails, let $Y = -X$.
+
+(a) Find the cdf of $Y$. 
+
+(b) Find $E(XY)$ by conditioning on the result of the toss.
+
+(c) Are $X$ and $Y$ uncorrelated? 
+
+(d) Are $X$ and $Y$ independent?
+
+(e) Is the joint distribution of $X$ and $Y$ bivariate normal?
+
+**20.**
+Let $X$ and $Y$ be standard bivariate normal with correlation $\rho$. Find $E(\max(X, Y))$. The easiest way is to use the fact that for any two numbers $a$ and $b$, $\max(a, b) = (a + b + \vert a - b \vert)/2$. Check the fact first, and then use it.
+
+**21.**
+Suppose that $X$ is normal $(\mu_X, \sigma_X^2$), $Y$ is normal $(\mu_Y, \sigma_Y^2)$, and the two random variables are independent. Let $S = X+Y$.
+
+(a) Find the conditional distribution of $X$ given $S=s$.
+
+(b) Find the least squares predictor of $X$ based on $S$ and provide its mean squared error.
+
+(c) Find the least squares linear predictor of $X$ based on $S$ and provide its mean squared error.
+
+**22.**
+Let $\mathbf{X}$ be a $p \times 1$ random vector and suppose we are trying to predict a random variable $Y$ by a linear function of $\mathbf{X}$. A [section](http://prob140.org/textbook/chapters/Chapter_25/02_Best_Linear_Predictor) of the textbook identifies the least squares linear predictor by restricting the search to linear functions $h(\mathbf{X})$ for which $E(h(\mathbf{X})) = \mu_Y$. Show that this is a legitimate move. 
+
+Specifically, let $\hat{Y}_1 = \mathbf{c}^T \mathbf{X} + d$ be a linear predictor such that $E(\hat{Y}_1) \ne \mu_Y$. Find a non-zero constant $k$ such that $\hat{Y}_2 = \hat{Y}_1 + k$ satisfies $E(\hat{Y}_2) = \mu_Y$. Then show that $MSE(\hat{Y}_1) \ge MSE(\hat{Y}_2)$. This will show that the least squares linear predictor has to have the same mean as $Y$.
+
+**23.**
+Let $U_1, U_2, U_3, \ldots $ be i.i.d. uniform on $(0, 1)$. For $n \ge 1$, let $S_n = \sum_{i=1}^n U_i$. 
+
+Let $f_{S_n}$ be the density of $S_n$. The formula for $f_{S_n}$ is piecewise polynomial on the possible values $(0, n)$. In this problem we will just focus on the density on the interval $(0, 1)$ and discover a nice consequence.
+
+(a) For $0 < x < 1$, find $f_{S_2}(x)$. 
+
+(b) Use Part (a) and the convolution formula to find $f_{S_3}(x)$ for $0 < x < 1$.
+
+(c) Guess a formula for $f_{S_n}(x)$ for $0 < x < 1$ and prove it by induction.
+
+(d) Find $P(S_n < 1)$.
+
+(e) Let $N = \min\{n: S_n > 1\}$. Use Part (d) to find $E(N)$.
+
+
+**24: Normal Sample Mean and Sample Variance, Part 1**
+
+(a) Let $R$ have the chi-squared distribution with $n$ degrees of freedom. What is the mgf of $R$?
+
+(b)
+For $R$ as in Part (a), suppose
+$R = V + W$ where $V$ and $W$ are independent and $V$ has the chi-squared 
+distribution with $m < n$ degrees of freedom. Can you identify the distribution of $W$? Justify your answer.
+
+(d) Let $X_1, X_2, \ldots , X_n$ be any sequence of random variables and let $\bar{X} = \frac{1}{n}\sum_{i=1}^n X_i$. Let $\alpha$ be
+any constant. Prove the *sum of squares decomposition*
+
+$$
+\sum_{i=1}^n (X_i - \alpha)^2 ~=~ \sum_{i=1}^n (X_i - \bar{X})^2 ~+~ n(\bar{X} - \alpha)^2
+$$
+
+(c) Now let $X_1, X_2, \ldots , X_n$ be i.i.d. normal with mean $\mu$ and variance $\sigma^2 > 0$. Let $S^2$ be the "sample variance" defined by 
+
+$$
+S^2 ~=~ \frac{1}{n-1} \sum_{i=1}^n (X_i - \bar{X})^2
+$$
+
+Use Parts (b) and (c) with an appropriate value of $\alpha$ 
+to find a constant $c$ such that $cS^2$ has a chi-squared distribution. Provide the degrees of freedom.
+
+**25: Normal Sample Mean and Sample Variance, Part 2.**
+Let $X_1, X_2, \ldots, X_n$ be i.i.d. with mean $\mu$ and variance $\sigma^2$. Let $\bar{X}$ denote the sample mean and $S^2$ the sample variance as in the previous exercise.
+
+(a) For $1 \le i \le n$ let $D_i = X_i - \bar{X}$. Find $Cov(D_i, \bar{X})$.
+
+(b) Now assume in addition that $X_1, X_2, \ldots, X_n$ are i.i.d. normal $(\mu, \sigma^2)$. What is the joint distribution of $\bar{X}, D_1, D_2, \ldots, D_{n-1}$? Explain why $D_n$ isn't on the list.
+
+(c) True or false (justify your answer): The sample mean and sample variance of an i.i.d. normal sample are independent of each other.
+
+**26.**
+The heights of a population of mother-daughter pairs have the bivariate normal distribution with equal means of 67 inches, equal SDs of 2 inches, and correlation 0.5.
+
+(a) Of the mothers on the 90th percentile of heights, what proportion have daughters who are taller than the 90th percentile?
+
+(b) In what proportion of mother-daughter pairs are both women taller than average?
