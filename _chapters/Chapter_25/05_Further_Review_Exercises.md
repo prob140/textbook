@@ -282,7 +282,28 @@ Let $f_{S_n}$ be the density of $S_n$. The formula for $f_{S_n}$ is piecewise po
 (e) Let $N = \min\{n: S_n > 1\}$. Use Part (d) to find $E(N)$.
 
 
-**24: Normal Sample Mean and Sample Variance, Part 1**
+**24: Normal Sample Mean and Sample Variance, Part 1.**
+Let $X_1, X_2, \ldots, X_n$ be i.i.d. with mean $\mu$ and variance $\sigma^2$. Let
+
+$$
+\bar{X} ~ = ~ \frac{1}{n} \sum_{i=1}^n X_i
+$$
+
+denote the sample mean and 
+
+$$
+S^2 ~=~ \frac{1}{n-1} \sum_{i=1}^n (X_i - \bar{X})^2
+$$
+
+denote the sample variance as defined earlier in the course.
+
+(a) For $1 \le i \le n$ let $D_i = X_i - \bar{X}$. Find $Cov(D_i, \bar{X})$.
+
+(b) Now assume in addition that $X_1, X_2, \ldots, X_n$ are i.i.d. normal $(\mu, \sigma^2)$. What is the joint distribution of $\bar{X}, D_1, D_2, \ldots, D_{n-1}$? Explain why $D_n$ isn't on the list.
+
+(c) True or false (justify your answer): The sample mean and sample variance of an i.i.d. normal sample are independent of each other.
+
+**25: Normal Sample Mean and Sample Variance, Part 2**
 
 (a) Let $R$ have the chi-squared distribution with $n$ degrees of freedom. What is the mgf of $R$?
 
@@ -291,30 +312,22 @@ For $R$ as in Part (a), suppose
 $R = V + W$ where $V$ and $W$ are independent and $V$ has the chi-squared 
 distribution with $m < n$ degrees of freedom. Can you identify the distribution of $W$? Justify your answer.
 
-(d) Let $X_1, X_2, \ldots , X_n$ be any sequence of random variables and let $\bar{X} = \frac{1}{n}\sum_{i=1}^n X_i$. Let $\alpha$ be
+(c) Let $X_1, X_2, \ldots , X_n$ be any sequence of random variables and let $\bar{X} = \frac{1}{n}\sum_{i=1}^n X_i$. Let $\alpha$ be
 any constant. Prove the *sum of squares decomposition*
 
 $$
 \sum_{i=1}^n (X_i - \alpha)^2 ~=~ \sum_{i=1}^n (X_i - \bar{X})^2 ~+~ n(\bar{X} - \alpha)^2
 $$
 
-(c) Now let $X_1, X_2, \ldots , X_n$ be i.i.d. normal with mean $\mu$ and variance $\sigma^2 > 0$. Let $S^2$ be the "sample variance" defined by 
+(d) Now let $X_1, X_2, \ldots , X_n$ be i.i.d. normal with mean $\mu$ and variance $\sigma^2 > 0$. Let $S^2$ be the "sample variance" defined by 
 
 $$
 S^2 ~=~ \frac{1}{n-1} \sum_{i=1}^n (X_i - \bar{X})^2
 $$
 
-Use Parts (b) and (c) with an appropriate value of $\alpha$ 
-to find a constant $c$ such that $cS^2$ has a chi-squared distribution. Provide the degrees of freedom.
+Find a constant $c$ such that $cS^2$ has a chi-squared distribution. Provide the degrees of freedom.
 
-**25: Normal Sample Mean and Sample Variance, Part 2.**
-Let $X_1, X_2, \ldots, X_n$ be i.i.d. with mean $\mu$ and variance $\sigma^2$. Let $\bar{X}$ denote the sample mean and $S^2$ the sample variance as in the previous exercise.
-
-(a) For $1 \le i \le n$ let $D_i = X_i - \bar{X}$. Find $Cov(D_i, \bar{X})$.
-
-(b) Now assume in addition that $X_1, X_2, \ldots, X_n$ are i.i.d. normal $(\mu, \sigma^2)$. What is the joint distribution of $\bar{X}, D_1, D_2, \ldots, D_{n-1}$? Explain why $D_n$ isn't on the list.
-
-(c) True or false (justify your answer): The sample mean and sample variance of an i.i.d. normal sample are independent of each other.
+[Use Parts (b) and (c) as well as the result of the previous exercise.]
 
 **26.**
 The heights of a population of mother-daughter pairs have the bivariate normal distribution with equal means of 67 inches, equal SDs of 2 inches, and correlation 0.5.
