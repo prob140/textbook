@@ -37,7 +37,8 @@
  * [5.2 Inclusion-Exclusion](notebooks/Chapter_05/02_Inclusion_Exclusion.ipynb)
  * [5.3 The Matching Problem](notebooks/Chapter_05/03_The_Matching_Problem.ipynb)
  * [5.4 Sampling Without Replacement](notebooks/Chapter_05/04_Sampling_Without_Replacement.ipynb)
- * [5.5 Review Problem Set 1](notebooks/Chapter_05/05_Review_Problems_Set_1.ipynb)
+
+* [Review Problem Set 1](notebooks/Chapter_05/05_Review_Problems_Set_1.ipynb)
 
 * [Chapter 6: Random Counts](notebooks/Chapter_06/00_Random_Counts.ipynb)
  * [6.1 The Binomial Distribution](notebooks/Chapter_06/01_Binomial_Distribution.ipynb)
@@ -54,7 +55,8 @@
  * [8.1 Definition](notebooks/Chapter_08/01_Definition.ipynb)
  * [8.2 Additivity](notebooks/Chapter_08/02_Additivity.ipynb)
  * [8.3 Expectations of Functions](notebooks/Chapter_08/03_Expectations_of_Functions.ipynb)
- * [8.4 Review Problems: Set 2](notebooks/Chapter_08/04_Review_Problems_Set_2.ipynb)
+
+* [Review Problems: Set 2](notebooks/Chapter_08/04_Review_Problems_Set_2.ipynb)
 
 * [Chapter 9: Conditioning, Revisited](notebooks/Chapter_09/00_Conditioning_Revisited.ipynb)
  * [9.1 Probability by Conditioning](notebooks/Chapter_09/01_Probability_by_Conditioning.ipynb)
@@ -72,7 +74,8 @@
  * [11.2 Reversibility](notebooks/Chapter_11/02_Reversibility.ipynb)
  * [11.3 Code Breaking](notebooks/Chapter_11/03_Code_Breaking.ipynb)
  * [11.4 Markov Chain Monte Carlo](notebooks/Chapter_11/04_Markov_Chain_Monte_Carlo.ipynb)
- * [11.5 Review Set on Conditioning and Markov Chains](notebooks/Chapter_11/05_Review_Conditioning_and_MC.ipynb)
+
+* [Review Set on Conditioning and Markov Chains](notebooks/Chapter_11/05_Review_Conditioning_and_MC.ipynb)
 
 * [Chapter 12: Standard Deviation](notebooks/Chapter_12/00_Standard_Deviation.ipynb)
  * [12.1 Definition](notebooks/Chapter_12/01_Definition.ipynb)
@@ -99,7 +102,8 @@
  * [15.3 Expectation](notebooks/Chapter_15/03_Expectation.ipynb)
  * [15.4 Exponential Distribution](notebooks/Chapter_15/04_Exponential_Distribution.ipynb)
  * [15.5 Calculus in SymPy](notebooks/Chapter_15/05_Calculus_in_SymPy.ipynb)
- * [15.6 Review Problems: Set 3](notebooks/Chapter_15/06_Review_Problems_Set_3.ipynb)
+
+* [Review Problems: Set 3](notebooks/Chapter_15/06_Review_Problems_Set_3.ipynb)
 
 * [Chapter 16: Transformations](notebooks/Chapter_16/00_Transformations.ipynb)
  * [16.1 Linear Transformations](notebooks/Chapter_16/01_Linear_Transformations.ipynb)
@@ -117,7 +121,8 @@
  * [18.2 Sums of Independent Normal Variables](notebooks/Chapter_18/02_Sums_of_Independent_Normal_Variables.ipynb)
  * [18.3 The Gamma Family](notebooks/Chapter_18/03_The_Gamma_Family.ipynb)
  * [18.4 Chi-Squared Distributions](notebooks/Chapter_18/04_Chi_Squared_Distributions.ipynb)
- * [18.5 Review Problems: Set 4](notebooks/Chapter_18/05_Review_Problems_Set_4.ipynb)
+
+* [Review Problems: Set 4](notebooks/Chapter_18/05_Review_Problems_Set_4.ipynb)
 
 * [Chapter 19: Distributions of Sums](notebooks/Chapter_19/00_Distributions_of_Sums.ipynb)
  * [19.1 The Convolution Formula](notebooks/Chapter_19/01_Convolution_Formula.ipynb)
@@ -158,4 +163,5 @@
  * [25.2 Best Linear Predictor](notebooks/Chapter_25/02_Best_Linear_Predictor.ipynb)
  * [25.3 Conditioning and the Multivariate Normal](notebooks/Chapter_25/03_Multivariate_Normal_Conditioning.ipynb)
  * [25.4 Multiple Regression](notebooks/Chapter_25/04_Multiple_Regression.ipynb)
- * [25.5 Further Review Exercises](notebooks/Chapter_25/05_Further_Review_Exercises.ipynb)
+
+* [Further Review Exercises](notebooks/Chapter_25/05_Further_Review_Exercises.ipynb)

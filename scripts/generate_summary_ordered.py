@@ -58,7 +58,11 @@ def generate_summary(configuration,cold=False):
         entries = ['* [Chapter %d: %s](notebooks/Chapter_%02d/%s)'%(n,chapter['chapter_name'],n,chapter_intro)]
         for i,section in list(enumerate(chapter['sections']))[1:]:
             section_md = section['file_name']
-            section_entry = (' * [%d.%d %s](notebooks/Chapter_%02d/%s)'%(n,i,section['section_name'],n,section_md))
+            section_name = section['section_name']
+            if 'review' in section_name.lower():
+                section_entry = ('\n* [%s](notebooks/Chapter_%02d/%s)'%(section['section_name'],n,section_md))
+            else:
+                section_entry = (' * [%d.%d %s](notebooks/Chapter_%02d/%s)'%(n,i,section['section_name'],n,section_md))
             entries.append(section_entry)
         chapter_summaries.append('\n'.join(entries)+'\n')
 

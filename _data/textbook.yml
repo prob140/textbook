@@ -95,12 +95,12 @@ chapters:
   - class: level_0
     title: 5.4 Sampling Without Replacement
     url: chapters/Chapter_05/04_Sampling_Without_Replacement
-  - class: level_0
-    title: 5.5 Review Problem Set 1
-    url: chapters/Chapter_05/05_Review_Problems_Set_1
   class: level_0
   title: 'Chapter 5: Collections of Events'
   url: chapters/Chapter_05/00_Collections_of_Events
+- class: level_0
+  title: Review Problem Set 1
+  url: chapters/Chapter_05/05_Review_Problems_Set_1
 - children:
   - class: level_0
     title: 6.1 The Binomial Distribution
@@ -140,12 +140,12 @@ chapters:
   - class: level_0
     title: 8.3 Expectations of Functions
     url: chapters/Chapter_08/03_Expectations_of_Functions
-  - class: level_0
-    title: '8.4 Review Problems: Set 2'
-    url: chapters/Chapter_08/04_Review_Problems_Set_2
   class: level_0
   title: 'Chapter 8: Expectation'
   url: chapters/Chapter_08/00_Expectation
+- class: level_0
+  title: 'Review Problems: Set 2'
+  url: chapters/Chapter_08/04_Review_Problems_Set_2
 - children:
   - class: level_0
     title: 9.1 Probability by Conditioning
@@ -188,12 +188,12 @@ chapters:
   - class: level_0
     title: 11.4 Markov Chain Monte Carlo
     url: chapters/Chapter_11/04_Markov_Chain_Monte_Carlo
-  - class: level_0
-    title: 11.5 Review Set on Conditioning and Markov Chains
-    url: chapters/Chapter_11/05_Review_Conditioning_and_MC
   class: level_0
   title: 'Chapter 11: Reversing Markov Chains'
   url: chapters/Chapter_11/00_Reversing_Markov_Chains
+- class: level_0
+  title: Review Set on Conditioning and Markov Chains
+  url: chapters/Chapter_11/05_Review_Conditioning_and_MC
 - children:
   - class: level_0
     title: 12.1 Definition
@@ -261,12 +261,12 @@ chapters:
   - class: level_0
     title: 15.5 Calculus in SymPy
     url: chapters/Chapter_15/05_Calculus_in_SymPy
-  - class: level_0
-    title: '15.6 Review Problems: Set 3'
-    url: chapters/Chapter_15/06_Review_Problems_Set_3
   class: level_0
   title: 'Chapter 15: Continuous Distributions'
   url: chapters/Chapter_15/00_Continuous_Distributions
+- class: level_0
+  title: 'Review Problems: Set 3'
+  url: chapters/Chapter_15/06_Review_Problems_Set_3
 - children:
   - class: level_0
     title: 16.1 Linear Transformations
@@ -309,12 +309,12 @@ chapters:
   - class: level_0
     title: 18.4 Chi-Squared Distributions
     url: chapters/Chapter_18/04_Chi_Squared_Distributions
-  - class: level_0
-    title: '18.5 Review Problems: Set 4'
-    url: chapters/Chapter_18/05_Review_Problems_Set_4
   class: level_0
   title: 'Chapter 18: The Normal and Gamma Families'
   url: chapters/Chapter_18/00_The_Normal_and_Gamma_Families
+- class: level_0
+  title: 'Review Problems: Set 4'
+  url: chapters/Chapter_18/05_Review_Problems_Set_4
 - children:
   - class: level_0
     title: 19.1 The Convolution Formula
@@ -418,10 +418,10 @@ chapters:
   - class: level_0
     title: 25.4 Multiple Regression
     url: chapters/Chapter_25/04_Multiple_Regression
-  - class: level_0
-    title: 25.5 Further Review Exercises
-    url: chapters/Chapter_25/05_Further_Review_Exercises
   class: level_0
   title: 'Chapter 25: Multiple Regression'
   url: chapters/Chapter_25/00_Multiple_Regression
+- class: level_0
+  title: Further Review Exercises
+  url: chapters/Chapter_25/05_Further_Review_Exercises
 first_chapter_url: chapters/README
