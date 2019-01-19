@@ -1,0 +1,339 @@
+# This file contains the order and numbering for all sections in the book.
+# _includes/sidebar.html renders this as a sidebar.
+#
+# Each entry has the following schema:
+#
+# title: Title of chapter or section
+# url: URL of section. Use absolute URLs to link between pages
+# class: (optional) a CSS class to add to this link
+# sections: Contains chapter's sections
+# not_numbered: true if the section shouldn't have a number in the sidebar
+#   (e.g. Introduction or appendices)
+# expand_sections: true if you'd like the sections of this chapter to always
+#   be expanded in the sidebar.
+# divider: true if this entry should just be rendered as a horizontal divider
+#   in the sidebar. All other values are ignored.
+
+- title: Course Home
+  url: http://prob140.org
+  not_numbered: true
+  external: true
+- title: Authors and License
+  url: /README
+  not_numbered: true
+- title: To the Student
+  url: /To_the_Student
+  not_numbered: true
+- title: Search
+  search: true
+
+- divider: true
+
+- header: Textbook
+
+- title: 'Chapter 1: Fundamentals'
+  url: /Chapter_01/00_Fundamentals
+  sections:
+  - title: Outcome Space and Events
+    url: /Chapter_01/01_Outcome_Space_and_Events
+  - title: Equally Likely Outcomes
+    url: /Chapter_01/02_Equally_Likely_Outcomes
+  - title: Collisions in Hashing
+    url: /Chapter_01/03_Collisions_in_Hashing
+  - title: The Birthday Problem
+    url: /Chapter_01/04_Birthday_Problem
+  - title: An Exponential Approximation
+    url: /Chapter_01/05_An_Exponential_Approximation
+- title: 'Chapter 2: Calculating Chances'
+  url: /Chapter_02/00_Calculating_Chances
+  sections:
+  - title: Addition
+    url: /Chapter_02/01_Addition
+  - title: Examples
+    url: /Chapter_02/02_Examples
+  - title: Multiplication
+    url: /Chapter_02/03_Multiplication
+  - title: More Examples
+    url: /Chapter_02/04_More_Examples
+  - title: Updating Probabilities
+    url: /Chapter_02/05_Updating_Probabilities
+
+- title: 'Chapter 3: Random Variables'
+  url: /Chapter_03/00_Random_Variables
+  sections:
+  - title: Functions on an Outcome Space
+    url: /Chapter_03/01_Functions_on_an_Outcome_Space
+  - title: Distributions
+    url: /Chapter_03/02_Distributions
+  - title: Equality
+    url: /Chapter_03/03_Equality
+
+- title: 'Chapter 4: Relations Between Variables'
+  url: /Chapter_04/00_Relations_Between_Variables
+  sections:
+  - title: Joint Distributions
+    url: /Chapter_04/01_Joint_Distributions
+  - title: Marginal Distributions
+    url: /Chapter_04/02_Marginal_Distributions
+  - title: Conditional Distributions
+    url: /Chapter_04/03_Conditional_Distributions
+  - title: Updating Distributions
+    url: /Chapter_04/04_Updating_Distributions
+  - title: Dependence and Independence
+    url: /Chapter_04/05_Dependence_and_Independence
+
+- title: 'Chapter 5: Collections of Events'
+  url: /Chapter_05/00_Collections_of_Events
+  sections:
+  - title: Bounding the Chance of a Union
+    url: /Chapter_05/01_Bounding_the_Chance_of_a_Union
+  - title: Inclusion-Exclusion
+    url: /Chapter_05/02_Inclusion_Exclusion
+  - title: The Matching Problem
+    url: /Chapter_05/03_The_Matching_Problem
+  - title: Sampling Without Replacement
+    url: /Chapter_05/04_Sampling_Without_Replacement
+
+- title: Review Problem Set 1
+  url: /Chapter_05/05_Review_Problems_Set_1
+- sections:
+  - title: The Binomial Distribution
+    url: /Chapter_06/01_Binomial_Distribution
+  - title: Examples
+    url: /Chapter_06/02_Examples
+  - title: The Hypergeometric Distribution
+    url: /Chapter_06/03_Hypergeometric_Distribution
+  - title: Odds Ratios
+    url: /Chapter_06/04_Odds_Ratios
+  - title: The Law of Small Numbers
+    url: /Chapter_06/05_Law_of_Small_Numbers
+  title: 'Chapter 6: Random Counts'
+  url: /Chapter_06/00_Random_Counts
+- title: 'Chapter 7: Poissonization'
+  url: /Chapter_07/00_Poissonization
+  sections:
+  - title: Poissonizing the Binomial
+    url: /Chapter_07/01_Poissonizing_the_Binomial
+  - title: Poissonizing the Multinomial
+    url: /Chapter_07/02_Poissonizing_the_Multinomial
+
+- title: 'Chapter 8: Expectation'
+  url: /Chapter_08/00_Expectation
+  sections:
+  - title: Definition
+    url: /Chapter_08/01_Definition
+  - title: Additivity
+    url: /Chapter_08/02_Additivity
+  - title: Expectations of Functions
+    url: /Chapter_08/03_Expectations_of_Functions
+
+- title: 'Review Problems: Set 2'
+  url: /Chapter_08/04_Review_Problems_Set_2
+- title: 'Chapter 9: Conditioning, Revisited'
+  url: /Chapter_09/00_Conditioning_Revisited
+  sections:
+  - title: Probability by Conditioning
+    url: /Chapter_09/01_Probability_by_Conditioning
+  - title: Expectation by Conditioning
+    url: /Chapter_09/02_Expectation_by_Conditioning
+  - title: Expected Waiting Times
+    url: /Chapter_09/03_Expected_Waiting_Times
+
+- title: 'Chapter 10: Markov Chains'
+  url: /Chapter_10/00_Markov_Chains
+  sections:
+  - title: Transitions
+    url: /Chapter_10/01_Transitions
+  - title: Deconstructing Chains
+    url: /Chapter_10/02_Deconstructing_Chains
+  - title: Long Run Behavior
+    url: /Chapter_10/03_Long_Run_Behavior
+  - title: Examples
+    url: /Chapter_10/04_Examples
+
+- title: 'Chapter 11: Reversing Markov Chains'
+  url: /Chapter_11/00_Reversing_Markov_Chains
+  sections:
+  - title: Detailed Balance
+    url: /Chapter_11/01_Detailed_Balance
+  - title: Reversibility
+    url: /Chapter_11/02_Reversibility
+  - title: Code Breaking
+    url: /Chapter_11/03_Code_Breaking
+  - title: Markov Chain Monte Carlo
+    url: /Chapter_11/04_Markov_Chain_Monte_Carlo
+
+- title: Review Set on Conditioning and Markov Chains
+  url: /Chapter_11/05_Review_Conditioning_and_MC
+- title: 'Chapter 12: Standard Deviation'
+  url: /Chapter_12/00_Standard_Deviation
+  sections:
+  - title: Definition
+    url: /Chapter_12/01_Definition
+  - title: Prediction and Estimation
+    url: /Chapter_12/02_Prediction_and_Estimation
+  - title: Tail Bounds
+    url: /Chapter_12/03_Bounds
+  - title: Heavy Tails
+    url: /Chapter_12/04_Heavy_Tails
+
+- title: 'Chapter 13: Variance Via Covariance'
+  url: /Chapter_13/00_Variance_Via_Covariance
+  sections:
+  - title: Properties of Covariance
+    url: /Chapter_13/01_Properties_of_Covariance
+  - title: Sums of IID Samples
+    url: /Chapter_13/02_Sums_of_IID_Samples
+  - title: Sums of Simple Random Samples
+    url: /Chapter_13/03_Sums_of_Simple_Random_Samples
+  - title: Finite Population Correction
+    url: /Chapter_13/04_Finite_Population_Correction
+
+- title: 'Chapter 14: The Central Limit Theorem'
+  url: /Chapter_14/00_The_Central_Limit_Theorem
+  sections:
+  - title: Exact Distribution
+    url: /Chapter_14/01_Exact_Distribution
+  - title: PGFs in NumPy
+    url: /Chapter_14/02_PGFs_in_NumPy
+  - title: Central Limit Theorem
+    url: /Chapter_14/03_Central_Limit_Theorem
+  - title: The Sample Mean
+    url: /Chapter_14/04_The_Sample_Mean
+  - title: Confidence Intervals
+    url: /Chapter_14/05_Confidence_Intervals
+
+- title: 'Chapter 15: Continuous Distributions'
+  url: /Chapter_15/00_Continuous_Distributions
+  sections:
+  - title: Density and CDF
+    url: /Chapter_15/01_Density_and_CDF
+  - title: The Meaning of Density
+    url: /Chapter_15/02_The_Meaning_of_Density
+  - title: Expectation
+    url: /Chapter_15/03_Expectation
+  - title: Exponential Distribution
+    url: /Chapter_15/04_Exponential_Distribution
+  - title: Calculus in SymPy
+    url: /Chapter_15/05_Calculus_in_SymPy
+
+- title: 'Review Problems: Set 3'
+  url: /Chapter_15/06_Review_Problems_Set_3
+- title: 'Chapter 16: Transformations'
+  url: /Chapter_16/00_Transformations
+  sections:
+  - title: Linear Transformations
+    url: /Chapter_16/01_Linear_Transformations
+  - title: Monotone Functions
+    url: /Chapter_16/02_Monotone_Functions
+  - title: Two-to-One Functions
+    url: /Chapter_16/03_Two_to_One_Functions
+
+- title: 'Chapter 17: Joint Densities'
+  url: /Chapter_17/00_Joint_Densities
+  sections:
+  - title: Probabilities and Expectations
+    url: /Chapter_17/01_Probabilities_and_Expectations
+  - title: Independence
+    url: /Chapter_17/02_Independence
+  - title: Marginal and Conditional Densities
+    url: /Chapter_17/03_Marginal_and_Conditional_Densities
+  - title: Beta Densities with Integer Parameters
+    url: /Chapter_17/04_Beta_Densities_with_Integer_Parameters
+
+- title: 'Chapter 18: The Normal and Gamma Families'
+  url: /Chapter_18/00_The_Normal_and_Gamma_Families
+  sections:
+  - title: '18.1 Standard Normal: The Basics'
+    url: /Chapter_18/01_Standard_Normal_Basics
+  - title: Sums of Independent Normal Variables
+    url: /Chapter_18/02_Sums_of_Independent_Normal_Variables
+  - title: The Gamma Family
+    url: /Chapter_18/03_The_Gamma_Family
+  - title: Chi-Squared Distributions
+    url: /Chapter_18/04_Chi_Squared_Distributions
+
+- title: 'Review Problems: Set 4'
+  url: /Chapter_18/05_Review_Problems_Set_4
+- title: 'Chapter 19: Distributions of Sums'
+  url: /Chapter_19/00_Distributions_of_Sums
+  sections:
+  - title: The Convolution Formula
+    url: /Chapter_19/01_Convolution_Formula
+  - title: Moment Generating Functions
+    url: /Chapter_19/02_Moment_Generating_Functions
+  - title: MGFs, the Normal, and the CLT
+    url: /Chapter_19/03_MGFs_Normal_and_the_CLT
+  - title: Chernoff Bound
+    url: /Chapter_19/04_Chernoff_Bound
+
+- title: 'Chapter 20: Approaches to Estimation'
+  url: /Chapter_20/00_Approaches_to_Estimation
+  sections:
+  - title: Maximum Likelihood
+    url: /Chapter_20/01_Maximum_Likelihood
+  - title: Prior and Posterior
+    url: /Chapter_20/02_Prior_and_Posterior
+  - title: Independence, Revisited
+    url: /Chapter_20/03_Independence_Revisited
+
+- title: 'Chapter 21: The Beta and the Binomial'
+  url: /Chapter_21/00_The_Beta_and_the_Binomial
+  sections:
+  - title: Updating and Prediction
+    url: /Chapter_21/01_Updating_and_Prediction
+  - title: The Beta-Binomial Distribution
+    url: /Chapter_21/02_Beta_Binomial_Distribution
+  - title: Long Run Proportion of Heads
+    url: /Chapter_21/03_Long_Run_Proportion_of_Heads
+
+- title: 'Chapter 22: Prediction'
+  url: /Chapter_22/00_Prediction
+  sections:
+  - title: Conditional Expectation As a Projection
+    url: /Chapter_22/01_Conditional_Expectation_Projection
+  - title: Variance by Conditioning
+    url: /Chapter_22/02_Variance_by_Conditioning
+  - title: Examples
+    url: /Chapter_22/03_Examples
+  - title: Least Squares Predictor
+    url: /Chapter_22/04_Least_Squares_Predictor
+
+- title: 'Chapter 23: Jointly Normal Random Variables'
+  url: /Chapter_23/00_Multivariate_Normal_RVs
+  sections:
+  - title: Random Vectors
+    url: /Chapter_23/01_Random_Vectors
+  - title: Multivariate Normal Distribution
+    url: /Chapter_23/02_Multivariate_Normal_Distribution
+  - title: Linear Combinations
+    url: /Chapter_23/03_Linear_Combinations
+  - title: Independence
+    url: /Chapter_23/04_Independence
+
+- title: 'Chapter 24: Simple Linear Regression'
+  url: /Chapter_24/00_Simple_Linear_Regression
+  sections:
+  - title: Bivariate Normal Distribution
+    url: /Chapter_24/01_Bivariate_Normal_Distribution
+  - title: Least Squares Linear Predictor
+    url: /Chapter_24/02_Linear_Least_Squares
+  - title: Regression and the Bivariate Normal
+    url: /Chapter_24/03_Regression_and_Bivariate_Normal
+  - title: The Regression Equation
+    url: /Chapter_24/04_Regression_Equation
+
+- title: 'Chapter 25: Multiple Regression'
+  url: /Chapter_25/00_Multiple_Regression
+  sections:
+  - title: Bilinearity in Matrix Notation
+    url: /Chapter_25/01_Bilinearity_in_Matrix_Notation
+  - title: Best Linear Predictor
+    url: /Chapter_25/02_Best_Linear_Predictor
+  - title: Conditioning and the Multivariate Normal
+    url: /Chapter_25/03_Multivariate_Normal_Conditioning
+  - title: Multiple Regression
+    url: /Chapter_25/04_Multiple_Regression
+
+- title: Further Review Exercises
+  url: /Chapter_25/05_Further_Review_Exercises
