@@ -2,13 +2,13 @@
 redirect_from:
   - "/chapter-01/04-birthday-problem"
 interact_link: notebooks/Chapter_01/04_Birthday_Problem.ipynb
-title: 'The Birthday Problem'
+title: '1.4 The Birthday Problem'
 prev_page:
   url: /Chapter_01/03_Collisions_in_Hashing
-  title: 'Collisions in Hashing'
+  title: '1.3 Collisions in Hashing'
 next_page:
   url: /Chapter_01/05_An_Exponential_Approximation
-  title: 'An Exponential Approximation'
+  title: '1.5 An Exponential Approximation'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /notebooks***"
 ---
 
@@ -112,39 +112,30 @@ results
         <tr>
             <td>1     </td> <td>1               </td> <td>0                    </td>
         </tr>
-    </tbody>
         <tr>
             <td>2     </td> <td>0.99726         </td> <td>0.00273973           </td>
         </tr>
-    </tbody>
         <tr>
             <td>3     </td> <td>0.991796        </td> <td>0.00820417           </td>
         </tr>
-    </tbody>
         <tr>
             <td>4     </td> <td>0.983644        </td> <td>0.0163559            </td>
         </tr>
-    </tbody>
         <tr>
             <td>5     </td> <td>0.972864        </td> <td>0.0271356            </td>
         </tr>
-    </tbody>
         <tr>
             <td>6     </td> <td>0.959538        </td> <td>0.0404625            </td>
         </tr>
-    </tbody>
         <tr>
             <td>7     </td> <td>0.943764        </td> <td>0.0562357            </td>
         </tr>
-    </tbody>
         <tr>
             <td>8     </td> <td>0.925665        </td> <td>0.0743353            </td>
         </tr>
-    </tbody>
         <tr>
             <td>9     </td> <td>0.905376        </td> <td>0.0946238            </td>
         </tr>
-    </tbody>
         <tr>
             <td>10    </td> <td>0.883052        </td> <td>0.116948             </td>
         </tr>
