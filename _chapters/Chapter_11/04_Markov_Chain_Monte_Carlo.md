@@ -7,7 +7,7 @@ previouschapter:
   title: '11.3 Code Breaking'
 nextchapter:
   url: chapters/Chapter_11/05_Review_Conditioning_and_MC
-  title: 'Review Set on Conditioning and Markov Chains'
+  title: '11.5 Review Set on Conditioning and Markov Chains'
 redirect_from:
   - 'chapters/chapter-11/04-markov-chain-monte-carlo'
 ---

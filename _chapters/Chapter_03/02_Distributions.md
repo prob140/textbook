@@ -135,7 +135,7 @@ dist_S
 
 This table shows all the possible values of $S$ along with all their probabilities. It is called a *probability distribution table* for $S$. 
 
-The contents of the table — all the possible values of the random variable, along with all their probabilities — are called the *probability distribution of $S$*, or just *distribution of $S$* for short. The distribution shows how the total probability of 100% is distributed over all the possible values of $S$.
+The contents of the table – all the possible values of the random variable, along with all their probabilities – are called the *probability distribution of $S$*, or just *distribution of $S$* for short. The distribution shows how the total probability of 100% is distributed over all the possible values of $S$.
 
 Let's check this, to make sure that all the $\omega$'s in the outcome space have been accounted for in the column of probabilities.
 
@@ -152,7 +152,7 @@ dist_S.column(1).sum()
 
 {:.output_data_text}
 ```
-0.9999999999999991
+0.99999999999999911
 ```
 
 
@@ -177,13 +177,13 @@ p_s = dist_S.column(1)
 ```
 
 
-To turn these into a probability distribution object, start with an empty table and use the `values` and `probabilities` Table methods. The argument of `values` is a list or an array of possible values, and the argument of `probabilities` is a list or an array of the corresponding probabilities. 
+To turn these into a probability distribution object, start with an empty table and use the `values` and `probability` Table methods. The argument of `values` is a list or an array of possible values, and the argument of `probability` is a list or an array of the corresponding probabilities. 
 
 
 
 {:.input_area}
 ```python
-dist_S = Table().values(s).probabilities(p_s)
+dist_S = Table().values(s).probability(p_s)
 dist_S
 ```
 
@@ -236,7 +236,7 @@ dist_S
 
 
 
-That looks exactly like the table we had before except that it has more readable column labels. But now for the benefit: to visualize the distribution in a histogram, just use the `prob140` method `Plot` as follows.
+That looks exactly like the table we had before except for more readable column labels. But now for the benefit: to visualize the distribution in a histogram, just use the `prob140` method `Plot` as follows.
 
 
 
@@ -253,7 +253,7 @@ Plot(dist_S)
 #### Notes on `Plot`
 - Recall that `hist` in the `datascience` library displays a histogram of raw data contained in a column of a table. `Plot` in the `prob140` library displays a probability histogram based on a probability distribution as the input.
 
-- `Plot` only works on probability distribution objects created using the `values` and `probabilities` methods. It won't work on a general member of the `Table` class.
+- `Plot` only works on probability distribution objects created using the `values` and `probability` methods. It won't work on a general member of the `Table` class.
 
 - `Plot` works well with random variables that have integer values. Many of the random variables you will encounter in the next few chapters will be integer-valued. For displaying the distributions of other random variables, binning decisions are more complicated.
 
@@ -281,76 +281,36 @@ Plot(dist_S, event = np.arange(14, 22, 1))
 
 The gold area is the equal to $P(14 \le S \le 21)$.
 
-The `event` method takes one argument specifying the event. It displays the rows of the distribution table corresponding to `event` and also the probability of the event.
-
-To find $P(14 \le S \le 21)$, use `event` as follows.
+The `prob_event` method operates on probability distribution objects to return the probability of an event. To find $P(14 \le S \le 21)$, use it as follows.
 
 
 
 {:.input_area}
 ```python
-dist_S.event(np.arange(14, 22, 1))
-```
-
-
-{:.output_stream}
-```
-P(Event) = 0.6959876543209863
-
+dist_S.prob_event(np.arange(14, 22, 1))
 ```
 
 
 
 
-<div markdown="0">
-<table border="1" class="dataframe">
-    <thead>
-        <tr>
-            <th>Outcome</th> <th>Probability</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>14     </td> <td>0.0694444  </td>
-        </tr>
-        <tr>
-            <td>15     </td> <td>0.0837191  </td>
-        </tr>
-        <tr>
-            <td>16     </td> <td>0.0945216  </td>
-        </tr>
-        <tr>
-            <td>17     </td> <td>0.100309   </td>
-        </tr>
-        <tr>
-            <td>18     </td> <td>0.100309   </td>
-        </tr>
-        <tr>
-            <td>19     </td> <td>0.0945216  </td>
-        </tr>
-        <tr>
-            <td>20     </td> <td>0.0837191  </td>
-        </tr>
-        <tr>
-            <td>21     </td> <td>0.0694444  </td>
-        </tr>
-    </tbody>
-</table>
-</div>
+
+{:.output_data_text}
+```
+0.6959876543209863
+```
 
 
 
 The chance is 69.6%, not very far from 68%.
 
 ### Math and Code Correspondence
-$P(14 \le S \le 21)$ can be found by partitioning the event $\{ 14 \le S \le 21 \}$ as the union of the mutually exclusive events $\{S = s\}$ for $14 \le s \le 21$, and then using the addition rule.
+$P(14 \le S \le 21)$ can be found by partitioning the event as the union of the events $\{S = s\}$ in the range 14 through 21, and using the addition rule.
 
 $$
-\{14 \le S \le 21\} ~ = ~ \bigcup_{s = 14}^{21} \{S = s \}, ~~~ \text{ so } ~~~
-P(14 \le S \le 21) ~ = ~ \sum_{s = 14}^{21} P(S = s)
+P(14 \le S \le 21) = \sum_{s = 14}^{21} P(S = s)
 $$
 
-Note carefully the use of lower case $s$ for the generic possible value, in contrast with upper case $S$ for the random variable. Not doing so leads to endless confusion about what the formulas mean.
+Note carefully the use of lower case $s$ for the generic possible value, in contrast with upper case $S$ for the random variable; not doing so leads to endless confusion about what formulas mean.
 
 This one means:
 - First extract the event $\{ S = s\}$ for each value $s$ in the range 14 through 21:
@@ -425,60 +385,23 @@ event_table.column('Probability').sum()
 
 
 
-The `event` method does all this in one step. Here it is again, for comparison.
+The `prob_event` method does all this in one step. Here it is again, for comparison.
 
 
 
 {:.input_area}
 ```python
-dist_S.event(np.arange(14, 22, 1))
-```
-
-
-{:.output_stream}
-```
-P(Event) = 0.6959876543209863
-
+dist_S.prob_event(np.arange(14, 22, 1))
 ```
 
 
 
 
-<div markdown="0">
-<table border="1" class="dataframe">
-    <thead>
-        <tr>
-            <th>Outcome</th> <th>Probability</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>14     </td> <td>0.0694444  </td>
-        </tr>
-        <tr>
-            <td>15     </td> <td>0.0837191  </td>
-        </tr>
-        <tr>
-            <td>16     </td> <td>0.0945216  </td>
-        </tr>
-        <tr>
-            <td>17     </td> <td>0.100309   </td>
-        </tr>
-        <tr>
-            <td>18     </td> <td>0.100309   </td>
-        </tr>
-        <tr>
-            <td>19     </td> <td>0.0945216  </td>
-        </tr>
-        <tr>
-            <td>20     </td> <td>0.0837191  </td>
-        </tr>
-        <tr>
-            <td>21     </td> <td>0.0694444  </td>
-        </tr>
-    </tbody>
-</table>
-</div>
+
+{:.output_data_text}
+```
+0.6959876543209863
+```
 
 
 
@@ -492,24 +415,28 @@ from the table above.
 
 **Example 2.**
 $$
-P(S \ge 20) = \sum_{s=20}^{30} P(S = s)
+P(S > 20) = \sum_{s=20}^{30} P(S = s)
 $$
 
-To find the numerical value without displaying all the outcomes in the event, use `event` and put a semi-colon at the end of the line. This suppresses the table display.
+A quick way of finding the numerical value:
 
 
 
 {:.input_area}
 ```python
-dist_S.event(np.arange(20, 31, 1));
+dist_S.prob_event(np.arange(20, 31, 1))
 ```
 
 
-{:.output_stream}
-```
-P(Event) = 0.30516975308642047
 
+
+
+{:.output_data_text}
 ```
+0.30516975308642047
+```
+
+
 
 **Example 3.**
 $$
@@ -520,12 +447,16 @@ $$
 
 {:.input_area}
 ```python
-dist_S.event(np.arange(4, 17, 1));
+dist_S.prob_event(np.arange(4, 17, 1))
 ```
 
 
-{:.output_stream}
-```
-P(Event) = 0.3996913580246917
 
+
+
+{:.output_data_text}
 ```
+0.39969135802469169
+```
+
+

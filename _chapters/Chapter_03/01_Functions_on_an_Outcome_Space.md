@@ -191,14 +191,14 @@ die = np.arange(1, 7, 1)
 
 five_rolls = list(product(die, repeat=5))  # All possible results of 5 rolls
 
-five_rolls_probs = (1/6**5)**np.ones(6**5)  # Each result has chance 1/6**5
+five_roll_probs = (1/6**5)**np.ones(6**5)  # Each result has chance 1/6**5
 
-five_rolls_space = Table().with_columns(
+five_roll_space = Table().with_columns(
    'omega', five_rolls,
-    'P(omega)', five_rolls_probs
+    'P(omega)', five_roll_probs
 )
 
-five_rolls_space
+five_roll_space
 ```
 
 
@@ -269,10 +269,11 @@ From a computational perspective, the elements of $\Omega$ are in the column `om
 
 {:.input_area}
 ```python
-five_rolls_sum = five_rolls_space.with_column(
-    'S(omega)', five_rolls_space.apply(sum, 'omega')
-).move_to_end('P(omega)')
-
+five_rolls_sum = Table().with_columns(
+    'omega', five_rolls,
+    'S(omega)', five_roll_space.apply(sum, 'omega'),
+    'P(omega)', five_roll_probs
+)
 five_rolls_sum
 ```
 

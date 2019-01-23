@@ -1,6 +1,6 @@
 ---
 interact_link: notebooks/Chapter_11/05_Review_Conditioning_and_MC.ipynb
-title: 'Review Set on Conditioning and Markov Chains'
+title: '11.5 Review Set on Conditioning and Markov Chains'
 permalink: 'chapters/Chapter_11/05_Review_Conditioning_and_MC'
 previouschapter:
   url: chapters/Chapter_11/04_Markov_Chain_Monte_Carlo

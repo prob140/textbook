@@ -4,7 +4,7 @@ title: 'Chapter 12: Standard Deviation'
 permalink: 'chapters/Chapter_12/00_Standard_Deviation'
 previouschapter:
   url: chapters/Chapter_11/05_Review_Conditioning_and_MC
-  title: 'Review Set on Conditioning and Markov Chains'
+  title: '11.5 Review Set on Conditioning and Markov Chains'
 nextchapter:
   url: chapters/Chapter_12/01_Definition
   title: '12.1 Definition'

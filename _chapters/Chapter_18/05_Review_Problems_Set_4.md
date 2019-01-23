@@ -1,6 +1,6 @@
 ---
 interact_link: notebooks/Chapter_18/05_Review_Problems_Set_4.ipynb
-title: 'Review Problems: Set 4'
+title: '18.5 Review Problems: Set 4'
 permalink: 'chapters/Chapter_18/05_Review_Problems_Set_4'
 previouschapter:
   url: chapters/Chapter_18/04_Chi_Squared_Distributions

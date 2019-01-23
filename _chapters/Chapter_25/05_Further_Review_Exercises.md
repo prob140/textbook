@@ -1,6 +1,6 @@
 ---
 interact_link: notebooks/Chapter_25/05_Further_Review_Exercises.ipynb
-title: 'Further Review Exercises'
+title: '25.5 Further Review Exercises'
 permalink: 'chapters/Chapter_25/05_Further_Review_Exercises'
 previouschapter:
   url: chapters/Chapter_25/04_Multiple_Regression

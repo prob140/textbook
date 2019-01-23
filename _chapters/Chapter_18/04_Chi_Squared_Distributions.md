@@ -7,7 +7,7 @@ previouschapter:
   title: '18.3 The Gamma Family'
 nextchapter:
   url: chapters/Chapter_18/05_Review_Problems_Set_4
-  title: 'Review Problems: Set 4'
+  title: '18.5 Review Problems: Set 4'
 redirect_from:
   - 'chapters/chapter-18/04-chi-squared-distributions'
 ---
