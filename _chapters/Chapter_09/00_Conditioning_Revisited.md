@@ -4,7 +4,7 @@ title: 'Chapter 9: Conditioning, Revisited'
 permalink: 'chapters/Chapter_09/00_Conditioning_Revisited'
 previouschapter:
   url: chapters/Chapter_08/04_Review_Problems_Set_2
-  title: '8.4 Review Problems: Set 2'
+  title: 'Review Problems: Set 2'
 nextchapter:
   url: chapters/Chapter_09/01_Probability_by_Conditioning
   title: '9.1 Probability by Conditioning'
