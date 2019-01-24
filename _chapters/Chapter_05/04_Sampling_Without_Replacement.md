@@ -7,7 +7,7 @@ previouschapter:
   title: '5.3 The Matching Problem'
 nextchapter:
   url: chapters/Chapter_05/05_Review_Problems_Set_1
-  title: 'Review Problem Set 1'
+  title: 'Review Problems: Set 1'
 redirect_from:
   - 'chapters/chapter-05/04-sampling-without-replacement'
 ---

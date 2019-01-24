@@ -1,6 +1,6 @@
 ---
 interact_link: notebooks/Chapter_05/05_Review_Problems_Set_1.ipynb
-title: 'Review Problem Set 1'
+title: 'Review Problems: Set 1'
 permalink: 'chapters/Chapter_05/05_Review_Problems_Set_1'
 previouschapter:
   url: chapters/Chapter_05/04_Sampling_Without_Replacement

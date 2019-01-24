@@ -27,9 +27,9 @@
 
 * [Chapter 4: Relations Between Variables](notebooks/Chapter_04/00_Relations_Between_Variables.ipynb)
  * [4.1 Joint Distributions](notebooks/Chapter_04/01_Joint_Distributions.ipynb)
- * [4.2 Marginal Distributions](notebooks/Chapter_04/02_Marginal_Distributions.ipynb)
- * [4.3 Conditional Distributions](notebooks/Chapter_04/03_Conditional_Distributions.ipynb)
- * [4.4 Updating Distributions](notebooks/Chapter_04/04_Updating_Distributions.ipynb)
+ * [4.2 Examples](notebooks/Chapter_04/02_Examples.ipynb)
+ * [4.3 Marginal Distributions](notebooks/Chapter_04/03_Marginal_Distributions.ipynb)
+ * [4.4 Conditional Distributions](notebooks/Chapter_04/04_Conditional_Distributions.ipynb)
  * [4.5 Dependence and Independence](notebooks/Chapter_04/05_Dependence_and_Independence.ipynb)
 
 * [Chapter 5: Collections of Events](notebooks/Chapter_05/00_Collections_of_Events.ipynb)
@@ -38,7 +38,7 @@
  * [5.3 The Matching Problem](notebooks/Chapter_05/03_The_Matching_Problem.ipynb)
  * [5.4 Sampling Without Replacement](notebooks/Chapter_05/04_Sampling_Without_Replacement.ipynb)
 
-* [Review Problem Set 1](notebooks/Chapter_05/05_Review_Problems_Set_1.ipynb)
+* [Review Problems: Set 1](notebooks/Chapter_05/05_Review_Problems_Set_1.ipynb)
 
 * [Chapter 6: Random Counts](notebooks/Chapter_06/00_Random_Counts.ipynb)
  * [6.1 The Binomial Distribution](notebooks/Chapter_06/01_Binomial_Distribution.ipynb)
