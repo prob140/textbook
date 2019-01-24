@@ -1,6 +1,6 @@
 ---
 interact_link: notebooks/Chapter_08/04_Review_Problems_Set_2.ipynb
-title: '8.4 Review Problems: Set 2'
+title: 'Review Problems: Set 2'
 permalink: 'chapters/Chapter_08/04_Review_Problems_Set_2'
 previouschapter:
   url: chapters/Chapter_08/03_Expectations_of_Functions

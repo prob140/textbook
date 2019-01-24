@@ -61,8 +61,8 @@ if __name__ == '__main__':
     files = notebooks_folder_to_files(args.textbook_folder)
     print('Found {} chapters'.format(len(files)))
     md = files_to_markdown(files)
-    
-    
+
+
     out_path_file = os.path.join(args.out_path, 'SUMMARY.md')
     if os.path.exists(out_path_file) and bool(args.overwrite) is False:
         raise ValueError('SUMMARY.md file exists, delete the file or set `overwrite=True`')

@@ -6,8 +6,8 @@ previouschapter:
   url: chapters/Chapter_04/00_Relations_Between_Variables
   title: 'Chapter 4: Relations Between Variables'
 nextchapter:
-  url: chapters/Chapter_04/02_Marginal_Distributions
-  title: '4.2 Marginal Distributions'
+  url: chapters/Chapter_04/02_Examples
+  title: '4.2 Examples'
 redirect_from:
   - 'chapters/chapter-04/01-joint-distributions'
 ---
@@ -35,7 +35,21 @@ $$
 P(X = 1, Y = 2) = P(\text{THH}) = \frac{1}{8}
 $$
 
-The constraints on $x$ and $y$ are that each must be in the range $\{0, 1, 2\}$ and $\vert x - y \vert < 2$. Let's define a function that takes $x$ and $y$ as its arguments and returns $P(X = x, Y = y)$.
+The constraints on $x$ and $y$ are that each must be in the range $\{0, 1, 2\}$ and $\vert x - y \vert < 2$. 
+
+### Joint Distribution Table
+
+The `prob140` library contains a method for displaying the joint distribution of two random variables. As a first step, you need the possible values of each of the two variables. In our example, both $X$ and $Y$ have values $\{0, 1, 2\}$ and so the same list or array will serve for both.
+
+
+
+{:.input_area}
+```python
+k = np.arange(3)
+```
+
+
+Now let's define a function that takes $x$ and $y$ as its arguments and returns $P(X = x, Y = y)$. We found the probabilities by counting, above.
 
 
 
@@ -51,17 +65,9 @@ def joint_probability(x, y):
 ```
 
 
-The `prob140` library contains Table methods for displaying the joint distribution of two random variables. As a first step, you need the possible values of each of the two variables. In our example, both have values $\{0, 1, 2\}$ and so the same list or array will serve for both.
+The syntax for constructing a joint distribution object is analogous to that for constructing a univariate distribution, with some modifications due to the higher dimension. 
 
-
-
-{:.input_area}
-```python
-k = np.arange(3)
-```
-
-
-To construct a joint distribution object, we have to first construct a table of all possible pairs of values and probabilities. The call is:
+We have to specify the name of each of the two variables as well as its possible values, and then we will specify the function that we have defined to find the joint probabilities. The call is
 
 `Table().values(variable_name_1, values_1, variable_name_2, values_2).probability_function(function_name)`
 
@@ -71,85 +77,7 @@ where `function_name` is a function that takes $x$ and $y$ as arguments and retu
 
 {:.input_area}
 ```python
-joint_table = Table().values('X', k, 'Y', k).probability_function(joint_probability)
-joint_table
-```
-
-
-
-
-
-<div markdown="0">
-<table border="1" class="dataframe">
-    <thead>
-        <tr>
-            <th>X</th> <th>Y</th> <th>Probability</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>0   </td> <td>0   </td> <td>0.125      </td>
-        </tr>
-        <tr>
-            <td>0   </td> <td>1   </td> <td>0.125      </td>
-        </tr>
-        <tr>
-            <td>0   </td> <td>2   </td> <td>0          </td>
-        </tr>
-        <tr>
-            <td>1   </td> <td>0   </td> <td>0.125      </td>
-        </tr>
-        <tr>
-            <td>1   </td> <td>1   </td> <td>0.25       </td>
-        </tr>
-        <tr>
-            <td>1   </td> <td>2   </td> <td>0.125      </td>
-        </tr>
-        <tr>
-            <td>2   </td> <td>0   </td> <td>0          </td>
-        </tr>
-        <tr>
-            <td>2   </td> <td>1   </td> <td>0.125      </td>
-        </tr>
-        <tr>
-            <td>2   </td> <td>2   </td> <td>0.125      </td>
-        </tr>
-    </tbody>
-</table>
-</div>
-
-
-
-This table displays the joint distribution. To check that this is indeed a distribution, we can add up all the probabilities. The sum is 1, as it should be for a distribution.
-
-
-
-{:.input_area}
-```python
-joint_table.column(2).sum()
-```
-
-
-
-
-
-{:.output_data_text}
-```
-1.0
-```
-
-
-
-### Joint Distribution Table
-Though the table above does display the joint distribution, it is more conventional and also more illuminating to visualize the same information in a different way.
-
-The method `to_joint` converts the table above into a "joint distribution object" that is displayed as a conventional *joint distribution table* for $X$ and $Y$.
-
-
-
-{:.input_area}
-```python
-joint_dist = joint_table.to_joint()
+joint_dist = Table().values('X', k, 'Y', k).probability_function(joint_probability)
 joint_dist
 ```
 
@@ -207,29 +135,223 @@ joint_dist
 
 
 
+This display of the joint distribution object `joint_dist` is called a *joint distribution table* for $X$ and $Y$. 
+
 Each cell corresponds to a pair $(x, y)$, where $x$ is a value of $X$ and $y$ a value of $Y$. In the cell you see $P(X = x, Y = y)$, the probability of the pair $(x, y)$. 
 
 Joint distribution tables are analogous to the contingency tables you saw in Data 8 when you were analyzing the relation between two categorical variables. In contingency tables, each cell contains the number of individuals in one particular pair of categories. In joint distribution tables, such as the one above, each cell contains the probability of one particular pair of values.
 
+To check that we do indeed have a distribution over all the possible values of the pair $(X, Y)$, we can add up all the probabilities. The sum is 1, as it should be for a distribution.
+
+
+
+{:.input_area}
+```python
+joint_dist.total_probability()
+```
+
+
+
+
+
+{:.output_data_text}
+```
+1.0
+```
+
+
+
+In fact this is a double check, as the the method for constructing the joint distribution object returns an error if all the probabilities don't sum to 1.
+
 ### Finding Probabilities
 The table contains complete information about the relation between $X$ and $Y$. To find the probabiilty of any event determined by $X$ and $Y$, simply identify the cells that make the event happen, and add up their chances. This is an application of the fundamental method of finding probabilities by partitioning an event.
 
-For example,
+For example, consider the event $\{ X = Y \}$ for $X$ and $Y$ as defined in our example above. The event can happen in three ways: if $X$ and $Y$ are both 0, or both 1, or both 2. So
 
 $$
 \begin{align*}
-P(X > Y ) &= P(X = 1, Y = 0) + P(X = 2, Y = 0) + P(X = 2 , Y = 1) \\
-&= 0.125 + 0 + 0.125 \\
-&= 0.25
-\end{align*}
-$$
-
-And
-
-$$
-\begin{align*}
-P(X = Y ) &= P(X = 0, Y = 0) + P(X = 1, Y = 1) + P(X = 2 , Y = 2) \\
+P(X = Y) &= P(X = 0, Y = 0) + P(X = 1, Y = 1) + P(X = 2 , Y = 2) \\
 &= 0.125 + 0.25 + 0.125 \\
 &= 0.5
 \end{align*}
+$$
+
+Let's visualize this using the joint distribution table of $X$ and $Y$. To do this, we need a way of specifying the event $\{ X = Y \}$. 
+
+We will use a method that is of fundamental importance to everything that follows in this course: we will define a function called the *indicator of the event*. The function just returns a Boolean: 1 if the event occurs, and 0 otherwise. In this example, for any pair $(i, j)$ it returns 1 if $i = j$ and 0 otherwise. 
+
+
+
+{:.input_area}
+```python
+def indicator_equal(i, j):
+    return i == j         # Note the == sign. This is a comparison that results in a Boolean.
+```
+
+
+The `event` method applied to a joint distribution object allows us to visualize the event and also displays the probability of the event. The arguments are: 
+
+- The name of a function that is the indicator of the event; it takes two arguments, say `a` and `b`, and returns the Boolean corresponding to whether or not the pair (`a`, `b`) is in the event
+- The name of the random variable whose value is the first co-ordinate `a`
+- The name of the random variable whose value is the second co-ordinate `b`
+
+
+
+{:.input_area}
+```python
+joint_dist.event(indicator_equal, 'X', 'Y')
+```
+
+
+{:.output_stream}
+```
+P(Event) = 0.5
+
+```
+
+
+
+
+<div markdown="0">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>X=0</th>
+      <th>X=1</th>
+      <th>X=2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Y=2</th>
+      <td></td>
+      <td></td>
+      <td>0.125</td>
+    </tr>
+    <tr>
+      <th>Y=1</th>
+      <td></td>
+      <td>0.25</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Y=0</th>
+      <td>0.125</td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+
+
+The display `P(event) = 0.5` is consistent with our earlier answer $P(X = Y) = 0.5$. In the table, probabilities are displayed only in the cells that are in the event, that is, only the cells $(x, y)$ for which $x = y$. 
+
+You can see that these cells all lie along the $x = y$ diagonal line. The coordinate geometry will be visible again when we calculate $P(Y \ge X)$, for example.
+
+
+
+{:.input_area}
+```python
+def indicator_y_at_least_x(i, j):
+    return j >= i
+
+joint_dist.event(indicator_y_at_least_x, 'X', 'Y')
+```
+
+
+{:.output_stream}
+```
+P(Event) = 0.75
+
+```
+
+
+
+
+<div markdown="0">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>X=0</th>
+      <th>X=1</th>
+      <th>X=2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Y=2</th>
+      <td>0.000</td>
+      <td>0.125</td>
+      <td>0.125</td>
+    </tr>
+    <tr>
+      <th>Y=1</th>
+      <td>0.125</td>
+      <td>0.25</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Y=0</th>
+      <td>0.125</td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+
+
+The visible cells form the upper triangle corresponding to points whose coordinates $(x, y)$ satisfy the the inequality $y \ge x$. The chance of the event is $P(Y \ge X) = 0.75$.
+
+### The General Calculation
+As we have seen in these examples, saying that random variables $X$ and $Y$ satisfy a specified condition is the same as saying that the random point $(X, Y)$ falls in a particular region of the plane. In general, an *event determined by $X$ and $Y$* has the form "the point $(X, Y)$ is in a specified region $B$ of the plane". 
+
+In the case of the event $\{ X = Y \}$ the region $B$ is the diagonal formed by points whose coordinates satisfy $x = y$.
+
+In the case of the event $\{ Y \ge X \}$ the region $B$ is the upper triangle formed by the points whose coordinates satisfy $y \ge x$.
+
+The probability of the event is $P((X,Y) \in B)$, which is obtained in two steps:
+
+- Identify all pairs of possible values $(x, y)$ such that $(x, y) \in B$.
+- Add the probabilities $P(X = x, Y = y)$ of all those pairs.
+
+Expressed more compactly,
+
+$$
+P((X, Y) \in B) ~ = ~ \mathop{\sum \sum}_{(x,y) \in B} P(X = x, Y = y)
 $$

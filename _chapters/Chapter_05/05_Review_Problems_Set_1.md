@@ -1,6 +1,6 @@
 ---
 interact_link: notebooks/Chapter_05/05_Review_Problems_Set_1.ipynb
-title: '5.5 Review Problem Set 1'
+title: 'Review Problems: Set 1'
 permalink: 'chapters/Chapter_05/05_Review_Problems_Set_1'
 previouschapter:
   url: chapters/Chapter_05/04_Sampling_Without_Replacement
@@ -12,7 +12,7 @@ redirect_from:
   - 'chapters/chapter-05/05-review-problems-set-1'
 ---
 
-## Review Problem Set 1
+## Review Problems: Set 1
 
 These problems can be solved using the main ideas of Chapters 1 through 5. It is divided into two parts: The Basics, and Additional Practice. The first part will remind you of the fundamental concepts and some typical calculations. The rest are for you to further develop your problem solving skills and your fluency with the notation and ideas.
 
@@ -117,7 +117,7 @@ $$
 **18.**
 There are three boxes, each with two drawers. Box 1 has a gold coin in each drawer and box 2 has a silver coin in each drawer. Box 3 has a silver coin in one drawer and a gold coin in the other. One box is chosen at random, and then a drawer is chosen at random from the box. Find the probability that box 1 is chosen, given that the chosen drawer yields a gold coin.
 
-19.
+**19.**
 Let $X$ be the minimum of $n$ integers drawn at random with replacement from the set $1, 2, 3, \ldots, N$.
 
 (a) For each $k$ in the range 1 through $N$, find $P(X \ge k)$.
@@ -150,13 +150,13 @@ A deck of five cards contains two aces and three queens. The five cards are shuf
 (c) Explain why the probabilities in the second table are just those in the first in a different order. [Hint: think about dealing off the bottom of the deck!]
 
 **25.**
-Cards are dealt from a well-shuffled standard deck until the first heart appears. Let $D$ be the number of cards dealt.
+Cards are dealt from a well-shuffled standard deck until the first heart appears. Let $D$ be the number of cards dealt. Find:
 
-(a) Find $P(D = 5)$.
+(a) $P(D = 5)$
     
-(b) Find $P(D \le 5)$?
+(b) $P(D \le 5)$
 
-(c) Find $P(D = 3 \mid D \le 5)$.
+(c) $P(D = 3 \mid D \le 5)$
 
 **26.**
 In a raffle with $100$ tickets, $10$ people buy $10$ tickets each. Three winning tickets are drawn at random from this pool of $100$ tickets. Let $W$ be the number of people who win. Find:
@@ -173,7 +173,17 @@ Consider a $5$ card hand dealt from a standard card deck. Assume that all ${52 \
 (b) one pair (ranks a,a,b,c,d)
 
 **28.**
-A classroom has $n$ students, where $2$ of the students are twins. Assume that each year consists of 365 days, each of the non-twins is equally likely to be born on any day independent of one another, and the twins are equally likely to be born on any day, independent of the rest.  If $r$ students are sampled from this room without replacement, find an *exact* expression for the probability that two students have the same birthday in this sample. 
+Independent random variables $R$ and $S$ have possible values $0, 1, 2, \ldots, N$ for an integer $N > 3$. For $0 \le k \le N$ let $r_k = P(R = k)$ and let $s_k = P(S = k)$.
+
+Write expressions for the following probabilities in terms of $r_0, r_1, \ldots, r_N$ and $s_1, s_2, \ldots, s_N$.
+
+(a) $P(S = R+3)$
+
+(b) $P(S > R+3)$
+
+(c) $P(\max(R, S) \le n)$ for $0 \le n \le N$
+
+(d) $P(\min(R, S) \le n)$ for $0 \le n \le N$
 
 **29.**
 Seven dice are rolled. Write an expression for  $P(\text{three of one face and four of another})$.

@@ -7,7 +7,7 @@ previouschapter:
   title: '15.4 Exponential Distribution'
 nextchapter:
   url: chapters/Chapter_15/06_Review_Problems_Set_3
-  title: '15.6 Review Problems: Set 3'
+  title: 'Review Problems: Set 3'
 redirect_from:
   - 'chapters/chapter-15/05-calculus-in-sympy'
 ---

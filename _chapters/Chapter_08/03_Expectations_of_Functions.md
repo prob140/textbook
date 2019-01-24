@@ -7,7 +7,7 @@ previouschapter:
   title: '8.2 Additivity'
 nextchapter:
   url: chapters/Chapter_08/04_Review_Problems_Set_2
-  title: '8.4 Review Problems: Set 2'
+  title: 'Review Problems: Set 2'
 redirect_from:
   - 'chapters/chapter-08/03-expectations-of-functions'
 ---

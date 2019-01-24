@@ -68,14 +68,14 @@ chapters:
     title: 4.1 Joint Distributions
     url: chapters/Chapter_04/01_Joint_Distributions
   - class: level_0
-    title: 4.2 Marginal Distributions
-    url: chapters/Chapter_04/02_Marginal_Distributions
+    title: 4.2 Examples
+    url: chapters/Chapter_04/02_Examples
   - class: level_0
-    title: 4.3 Conditional Distributions
-    url: chapters/Chapter_04/03_Conditional_Distributions
+    title: 4.3 Marginal Distributions
+    url: chapters/Chapter_04/03_Marginal_Distributions
   - class: level_0
-    title: 4.4 Updating Distributions
-    url: chapters/Chapter_04/04_Updating_Distributions
+    title: 4.4 Conditional Distributions
+    url: chapters/Chapter_04/04_Conditional_Distributions
   - class: level_0
     title: 4.5 Dependence and Independence
     url: chapters/Chapter_04/05_Dependence_and_Independence
@@ -99,7 +99,7 @@ chapters:
   title: 'Chapter 5: Collections of Events'
   url: chapters/Chapter_05/00_Collections_of_Events
 - class: level_0
-  title: Review Problem Set 1
+  title: 'Review Problems: Set 1'
   url: chapters/Chapter_05/05_Review_Problems_Set_1
 - children:
   - class: level_0

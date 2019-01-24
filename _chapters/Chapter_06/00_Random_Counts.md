@@ -4,7 +4,7 @@ title: 'Chapter 6: Random Counts'
 permalink: 'chapters/Chapter_06/00_Random_Counts'
 previouschapter:
   url: chapters/Chapter_05/05_Review_Problems_Set_1
-  title: '5.5 Review Problem Set 1'
+  title: 'Review Problems: Set 1'
 nextchapter:
   url: chapters/Chapter_06/01_Binomial_Distribution
   title: '6.1 The Binomial Distribution'

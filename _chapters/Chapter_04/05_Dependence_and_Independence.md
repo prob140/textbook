@@ -3,8 +3,8 @@ interact_link: notebooks/Chapter_04/05_Dependence_and_Independence.ipynb
 title: '4.5 Dependence and Independence'
 permalink: 'chapters/Chapter_04/05_Dependence_and_Independence'
 previouschapter:
-  url: chapters/Chapter_04/04_Updating_Distributions
-  title: '4.4 Updating Distributions'
+  url: chapters/Chapter_04/04_Conditional_Distributions
+  title: '4.4 Conditional Distributions'
 nextchapter:
   url: chapters/Chapter_05/00_Collections_of_Events
   title: 'Chapter 5: Collections of Events'
@@ -14,7 +14,7 @@ redirect_from:
 
 ## Dependence and Independence
 
-Conditional distributions help us formalize our intuitive ideas about whether two random variables are independent of each other. Let $X$ and $Y$ be two random variables, and suppose we are given the value of $X$. Does that change our opinion about $Y$? If the answer is yes, then we will say that $X$ and $Y$ are dependent. If the answer is no, no matter what the given value of $X$ is, then we will say that $X$ and $Y$ are independent.
+Conditional distributions help us formalize our intuitive ideas about whether two random variables are independent of each other. Let $X$ and $Y$ be two random variables, and suppose we are given the value of $X$. Does that change our opinion about $Y$? If the answer is yes, then we will say that $X$ and $Y$ are dependent. If the answer is no regardless of the given value of $X$, then we will say that $X$ and $Y$ are independent.
 
 Let's start with some examples and then move to precise definitions and results.
 
@@ -154,78 +154,7 @@ dist2
 
 
 
-But you can tell by looking at the conditional distributions of $Y$ given $X$. They are different.
-
-
-
-{:.input_area}
-```python
-dist2.conditional_dist('Y', 'X')
-```
-
-
-
-
-
-<div markdown="0">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Dist. of Y | X=3</th>
-      <th>Dist. of Y | X=4</th>
-      <th>Marginal of Y</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>Y=7</th>
-      <td>0.500000</td>
-      <td>0.25</td>
-      <td>0.4</td>
-    </tr>
-    <tr>
-      <th>Y=6</th>
-      <td>0.333333</td>
-      <td>0.50</td>
-      <td>0.4</td>
-    </tr>
-    <tr>
-      <th>Y=5</th>
-      <td>0.166667</td>
-      <td>0.25</td>
-      <td>0.2</td>
-    </tr>
-    <tr>
-      <th>Sum</th>
-      <td>1.000000</td>
-      <td>1.00</td>
-      <td>1.0</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div>
-
-
-
-It follows (and you should try to prove this), that at least some of the conditional distributions of $X$ given the different values of $Y$ will also be different from each other and from the marginal of $X$.
-
-Notice that not all the conditional distributions are different. The conditional distribution of $X$ given $Y=5$ is the same as the conditional distribution of $X$ given $Y=6$. But given $Y=7$, the conditional distribution changes. $X$ and $Y$ are dependent.
+But you can tell by looking at the conditional distributions of $X$ given $Y$. Two of them are the same, but the third is different. Knowing the value of $Y$ affects the chances for $X$. 
 
 
 
@@ -285,6 +214,77 @@ dist2.conditional_dist('X', 'Y')
       <th>Marginal of X</th>
       <td>0.60</td>
       <td>0.40</td>
+      <td>1.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+
+
+It follows (and you should try to prove this), that at least some of the conditional distributions of $Y$ given the different values of $X$ will also be different from each other and from the marginal of $Y$.
+
+In this example, all three conditional distributions of $Y$ given the three different values of $X$ are different from each other.
+
+
+
+{:.input_area}
+```python
+dist2.conditional_dist('Y', 'X')
+```
+
+
+
+
+
+<div markdown="0">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Dist. of Y | X=3</th>
+      <th>Dist. of Y | X=4</th>
+      <th>Marginal of Y</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Y=7</th>
+      <td>0.500000</td>
+      <td>0.25</td>
+      <td>0.4</td>
+    </tr>
+    <tr>
+      <th>Y=6</th>
+      <td>0.333333</td>
+      <td>0.50</td>
+      <td>0.4</td>
+    </tr>
+    <tr>
+      <th>Y=5</th>
+      <td>0.166667</td>
+      <td>0.25</td>
+      <td>0.2</td>
+    </tr>
+    <tr>
+      <th>Sum</th>
+      <td>1.000000</td>
+      <td>1.00</td>
       <td>1.0</td>
     </tr>
   </tbody>
@@ -572,7 +572,7 @@ dist3.conditional_dist('Y', 'X')
 
 
 ### Independence of Two Events
-The concept of independence seems intuitive, but it is possible to run into a lot of trouble by not being careful about its definition. So let's define it formally.
+The concept of independence seems intuitive, but it is possible to run into trouble by not being careful about its definition. So let's define it formally.
 
 There are two equivalent definitions of the independence of two events. The first encapsulates the main idea of independence, and the second is useful for calculation.
 
@@ -582,10 +582,14 @@ Two events $A$ and $B$ are *independent* if $P(B \mid A) = P(B)$. Equivalently, 
 What we have observed in the examples of this section can be turned into a formal definition of independence.
 
 Two random variables $X$ and $Y$ are *independent* if for every value $x$ of $X$ and $y$ of $Y$,
+
 $$
 P(Y = y \mid X = x) = P(Y = y)
 $$
-That is, no matter what the given $x$ is, the conditional distribution of $Y$ is the same as if we didn't know that $X=x$.
+
+That is, no matter what the given $x$ is, the conditional distribution of $Y$ given $X=x$ is the same as if we didn't know that $X=x$.
+
+Equivalently (this needs a proof, which consists of a routine application of definitions), for every $y$ the conditional distribution of $X$ given $Y=y$ is the same as if we didn't know that $Y=y$.
 
 An equivalent definition in terms of the independence of events is that for any values of $x$ and $y$, the events $\{ X=x\}$ and $\{Y=y\}$ are independent. 
 
@@ -612,46 +616,24 @@ In practice, this just formalizes statements such as "results of different tosse
 
 Try not to become inhibited by the formalism. Notice how the theory not only supports intuition but also develops it. You can expect your probabilistic intuition to be much sharper at the end of this course than it is now!
 
-### "i.i.d." Random Variables
+### IID Random Variables
 If random variables are mutually independent and identically distributed, they are called "i.i.d." That's one of the most famous acronyms in probability theory. You can think of i.i.d. random variables as draws with replacement from a population, or as the results of independent replications of the same experiment.
 
-Suppose the distribution of $X$ is given by
+Calculations involving i.i.d. random variables are often straightforward. For example, suppose the distribution of $X$ is given by
+
 $$
 P(X = i) = p_i, ~~~ i = 1, 2, \ldots, n
 $$
+
 where $\sum_{i=1}^n p_i = 1$. Now let $X$ and $Y$ be i.i.d. What is $P(X = Y)$? We'll answer this question by using the fundamental method, now in random variable notation.
 
 $$
 \begin{align*}
-P(X = Y) &= \sum_{i=1}^n P(X = i, Y = i) ~~~ \text{(partitioning)} \\
-&= \sum_{i=1}^n P(X = i)P(Y = i) ~~~ \text{(independence)} \\
-&= \sum_{i=1}^n p_i \cdot p_i ~~~ \text{(identical distributions)} \\
-&= \sum_{i=1}^n p_i^2
+P(X = Y) ~ &= ~ \sum_{i=1}^n P(X = i, Y = i) ~~~ \text{(partitioning)} \\
+&= ~ \sum_{i=1}^n P(X = i)P(Y = i) ~~~ \text{(independence)} \\
+&= ~ \sum_{i=1}^n p_i \cdot p_i ~~~ \text{(identical distributions)} \\
+&= ~ \sum_{i=1}^n p_i^2
 \end{align*}
 $$
 
 The last expression is easy to calculate if you know the numerical values of all the $p_i$.
-
-In the same way,
-
-$$
-\begin{align*}
-P(Y > X) &= \sum_{i=1}^n P(X = i, Y > i) \\
-&= \sum_{i=1}^n P(X = i)P(Y > i) \\
-&= \sum_{i=1}^{n-1} P(X = i)P(Y > i)
-\end{align*}
-$$
-
-because $P(Y > n) = 0$. Now for each $i < n$, $P(Y > i) = P(X > i) = \sum_{j=i+1}^n p_j$. Call this sum $b_i$ for "bigger than $i$". Then
-
-$$
-\begin{align*}
-P(Y > X) &= \sum_{i=1}^{n-1} P(X = i)P(Y > i) \\
-&= \sum_{i=1}^{n-1} p_ib_i
-\end{align*}
-$$
-
-This is also a straightforward calculation if you know all the $p_i$. For $n=4$ it boils down to
-$$
-p_1 \cdot(p_2 + p_3 + p_4) ~~ + ~~ p_2 \cdot (p_3 + p_4) ~~ + ~~ p_3 \cdot p_4
-$$

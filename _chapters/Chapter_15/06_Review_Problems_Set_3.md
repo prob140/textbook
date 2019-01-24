@@ -1,6 +1,6 @@
 ---
 interact_link: notebooks/Chapter_15/06_Review_Problems_Set_3.ipynb
-title: '15.6 Review Problems: Set 3'
+title: 'Review Problems: Set 3'
 permalink: 'chapters/Chapter_15/06_Review_Problems_Set_3'
 previouschapter:
   url: chapters/Chapter_15/05_Calculus_in_SymPy

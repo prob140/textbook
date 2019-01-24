@@ -14,7 +14,7 @@ redirect_from:
 
 ## Equality
 
-We know what it means for two numbers to be equal. Equality of random variables, however, can be of more than one kind.
+We know what it means for two numbers to be equal: they are at the same spot on the number line. Equality of random variables, however, can be of more than one kind.
 
 ### Equal
 Two random variables $X$ and $Y$ defined on the same outcome space are *equal* if their values are the same for every outcome in the space. The notation is $X = Y$ and it means that
@@ -22,11 +22,14 @@ Two random variables $X$ and $Y$ defined on the same outcome space are *equal* i
 $$
 X(\omega) = Y(\omega) \text{ for all } \omega \in \Omega
 $$
+
 Informally, this says that no matter what the outcome, if $X$ is 10 then $Y$ must be 10 too; if $X$ is 11, $Y$ must be 11, and so on.
 
-An example will make this clear. Let $N_H$ be the number of heads in three tosses of a coin, and let $N_T$ be the number of tails in the same three tosses. Then the two random variables $N_H$ and $3 - N_T$ are equal. For every possible outcome of the three tosses, the value of $N_H$ is equal to the value of $3 - N_T$.
+An example will make this clear. Let $N_H$ be the number of heads in three tosses of a coin, and let $N_T$ be the number of tails in the same three tosses. 
 
-We write this simply as $N_H = 3 - N_T$.
+Now consider the new random variable $M = 3 - N_T$. The two random variables $N_H$ and $M$ are equal. For every possible outcome of the three tosses, the value of $N_H$ is equal to the value of $M$.
+
+We write this simply as $N_H = M$. Equivalently, $N_H = 3 - N_T$.
 
 ### Equal in Distribution
 $N_H$ and $N_T$, as defined above, are not equal. For example,
@@ -72,7 +75,7 @@ There are only eight outcomes, so it is easy to inspect the table and write the 
 
 {:.input_area}
 ```python
-dist = Table().values(np.arange(4)).probability(make_array(1, 3, 3, 1)/8)
+dist = Table().values(np.arange(4)).probabilities(make_array(1, 3, 3, 1)/8)
 dist
 ```
 
@@ -108,7 +111,11 @@ dist
 
 We say that $N_H$ and $N_T$ are *equal in distribution*. 
 
-In general, two random variables $X$ and $Y$ are equal in distribution if they have the same probability distribution. This is denoted
+In general, two random variables $X$ and $Y$ are equal in distribution if they have the same probability distribution. 
+
+That is, they have the same set of possible values and the same probabilities for all those values. 
+
+Equality in distribution is denoted as
 
 $$
 X \stackrel{d}{=} Y
@@ -151,7 +158,9 @@ def prob1(i):
 ```
 
 
-Then you can create a probability distribution object using `value` as before but now with `probability_function` that takes the name of the function as its argument:
+You can create a probability distribution object for $X_1$ using `values` as before but now with the `probability_function` method.
+
+The argument to `probability_function` is the name of the function that takes $i$ as its argument and returns $P(X_1 = i)$.
 
 
 

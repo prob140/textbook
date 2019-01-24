@@ -7,7 +7,7 @@ previouschapter:
   title: '25.3 Conditioning and the Multivariate Normal'
 nextchapter:
   url: chapters/Chapter_25/05_Further_Review_Exercises
-  title: '25.5 Further Review Exercises'
+  title: 'Further Review Exercises'
 redirect_from:
   - 'chapters/chapter-25/04-multiple-regression'
 ---
