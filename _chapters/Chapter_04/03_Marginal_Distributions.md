@@ -303,7 +303,7 @@ Now at the bottom of the table you have all the column sums, which constitute th
 
 Because the sums appear in the margin of the table, the distribution is called *marginal*. It's a bit silly. But "marginal" is a commonly used term for the probability distribution of $X$ when the distribution has been derived from a joint distribution.
 
-You should recognize that in this example the distribution of $X$ is the number of heads in two tosses of a coin.
+You should recognize that $X$ has the same distribution as the number of heads in two tosses of a coin.
 
 ### Both Marginals
 What you can do for $X$, you can do as well for $Y$ by looking along the rows.

@@ -38,13 +38,13 @@ Not convinced? Then let's calculate.
 **Answer 2.** Let $F$ be the number on the fair die and let $S$ be the number on the biased shape. It is reasonable to assume that the outcome of one die doesn't affect chances for the other. So for every $i$ and $j$ such that $1 \le i, j \le 6$, we have
 
 $$
-P(F = i, S = j) ~ = ~ P(F = i)P(S = j) ~ = ~ (1/6)P(S = j)
+P(F = i, S = j) ~ = ~ P(F = i)P(S = j) ~ = ~ \frac{1}{6}P(S = j)
 $$
 
 We want $P(F = S)$. For this we have to add up the probabilities of the $(i, j)$ pairs that satisfy $i = j$. Those are just the pairs $(i, i)$ for $1 \le i \le 6$.
 
 $$
-P(F = S) ~ = ~ \sum_{i=1}^6 P(F = i, S = i) ~ = ~ \sum_{i=1}^6 (1/6)P(S = i) ~ = ~ (1/6) \sum_{i=1}^6 P(S = i) ~ = ~ (1/6) \cdot 1 ~ = ~ 1/6
+P(F = S) ~ = ~ \sum_{i=1}^6 P(F = i, S = i) ~ = ~ \sum_{i=1}^6 \frac{1}{6}P(S = i) ~ = ~ \frac{1}{6} \sum_{i=1}^6 P(S = i) ~ = ~ \frac{1}{6} \cdot 1 ~ = ~ \frac{1}{6}
 $$
 
 ### Difference
@@ -413,16 +413,16 @@ P(Event) = 0.44791666666666674
 
 
 
-The calculation shows that $P(|F - S| \le 1) \approx 0.448$.
+The calculation shows that $P(\vert F - S \vert \le 1) \approx 0.448$.
 
-The event is a diagonal band of cells, bounded by the lines $j = i-1$ and $j = i+1$. That is because the condition $|i - j| \le 1$ is the same as $i-1 \le j \le i+1$.
+The event is a diagonal band of cells, bounded by the lines $j = i-1$ and $j = i+1$. That is because the condition $\vert i - j \vert \le 1$ is the same as $i-1 \le j \le i+1$.
 
-Notice the edge cases $i=1$ and $i=6$. When $i=1$, the condition $|i - j| \le 1$ is only satisfied by $j=1$ and $j=2$, because $j = -1$ is not a possible outcome of the dice. Nor is $j = 7$ when $i = 6$. So there are two terms to add in each of the columns labeled $F=1$ and $F=6$, and three in each of the other columns.
+Notice the edge cases $i=1$ and $i=6$. When $i=1$, the condition $\vert i - j \vert \le 1$ is only satisfied by $j=1$ and $j=2$, because $j = -1$ is not a possible outcome of the dice. Nor is $j = 7$ when $i = 6$. So there are two terms to add in each of the columns labeled $F=1$ and $F=6$, and three in each of the other columns.
 
 Check carefully that you agree that in math notation the calculation is
 
 $$
-P(|F - S| \le 1) ~ = ~ \sum_{j=1}^2 P(F = 1, S = j) ~ + ~ \sum_{i=2}^5\sum_{j=i-1}^{i+1} P(F = i, S = j) ~ + ~ \sum_{j=5}^6 P(F = 6, S = j)
+P(\vert F - S \vert \le 1) ~ = ~ \sum_{j=1}^2 P(F = 1, S = j) ~ + ~ \sum_{i=2}^5\sum_{j=i-1}^{i+1} P(F = i, S = j) ~ + ~ \sum_{j=5}^6 P(F = 6, S = j)
 $$
 
 ### Sum
@@ -434,8 +434,8 @@ $$
 The event $\{ F + S = 7 \}$ consists of all possible pairs $(i, j)$ such that $i + j = 7$. For each fixed $i$, there is exactly one $j$ that satisfies $i+j = 7$, and that's $j = 7-i$. So
 
 $$
-P(F+S = 7) ~ = ~ \sum_{i=1}^6 P(F = i, S = 7-i) ~ = ~ \sum_{i=1}^6 (1/6)P(S = 7-i)
-~ = ~ (1/6) \sum_{i=1}^6 P(S = 7-i) ~ = ~ 1/6
+P(F+S = 7) ~ = ~ \sum_{i=1}^6 P(F = i, S = 7-i) ~ = ~ \sum_{i=1}^6 \frac{1}{6}P(S = 7-i)
+~ = ~ \frac{1}{6} \sum_{i=1}^6 P(S = 7-i) ~ = ~ \frac{1}{6}
 $$
 
 because $\sum_{i=1}^6 P(S = 7-i) = P(S=6) + P(S=5) + \cdots + P(S=1) = 1$.
@@ -560,6 +560,10 @@ P(Event) = 0.16666666666666663
 Let $F_n$ be the number on a fair die and $D_n$ the number on the other die.
 
 $$
-P(F_n + D_n = n+1) ~ = ~ \sum_{i=1}^n P(F_n = i, D_n = n+1-i) ~ = ~ \sum_{i=1}^n (1/n)P(D_n = n+1-i)
-~ = ~ (1/n) \sum_{i=1}^n P(D_n = n+1-i) ~ = ~ 1/n
+\begin{align*}
+P(F_n + D_n = n+1) ~ &= ~ \sum_{i=1}^n P(F_n = i, D_n = n+1-i) \\
+&= ~ \sum_{i=1}^n \frac{1}{n}P(D_n = n+1-i) \\
+&= ~ \frac{1}{n} \sum_{i=1}^n P(D_n = n+1-i) \\
+&= ~ \frac{1}{n}
+\end{align*}
 $$

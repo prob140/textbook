@@ -204,9 +204,11 @@ $$
 By *normalizing* all the probabilities in the row by their sum, we get the *conditional distribution of $X$ given $Y=3$*.
 
 $$
-P(X = 0 \mid Y = 3) ~ = ~ \frac{0.03125}{0.3125} = 0.1, ~~~~~
-P(X = 1 \mid Y = 3) ~ = ~ \frac{0.1875}{0.3125} = 0.6, ~~~~~
-P(X = 2 \mid Y = 3) ~ = ~ \frac{0.03125}{0.3125} = 0.3, ~~~~~
+\begin{align*}
+P(X = 0 \mid Y = 3) ~ &= ~ \frac{0.03125}{0.3125} = 0.1 \\ \\
+P(X = 1 \mid Y = 3) ~ &= ~ \frac{0.1875}{0.3125} = 0.6 \\ \\
+P(X = 2 \mid Y = 3) ~ &= ~ \frac{0.03125}{0.3125} = 0.3
+\end{align*}
 $$
 
 Compare this conditional distribution to the unconditional distribution of $X$:
