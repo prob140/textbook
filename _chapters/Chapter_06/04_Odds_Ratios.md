@@ -14,7 +14,7 @@ redirect_from:
 
 ## Odds Ratios
 
-Binomial $(n, p)$ probabilities involve powers and factorials, both of which are difficult to compute when $n$ is large. This section is about a simplification of the computation of the entire distribution. The result also helps us understand the shape of binomial histograms.
+Binomial $(n, p)$ probabilities involve powers and factorials, both of which are difficult to compute when $n$ is large. This section is about simplifying the computation of the entire distribution. The result also helps us understand the shape of binomial histograms.
 
 ### Consecutive Odds Ratios
 Fix $n$ and $p$, and let $P(k)$ be the binomial $(n, p)$ probability of $k$. That is, let $P(k)$ be the chance of getting $k$ successes in $n$ independent trials with probability $p$ of success on each trial.
@@ -92,7 +92,7 @@ n = 23
 p = 0.7
 k = range(n+1)
 bin_23_7 = stats.binom.pmf(k, n, p)
-bin_dist = Table().values(k).probability(bin_23_7)
+bin_dist = Table().values(k).probabilities(bin_23_7)
 Plot(bin_dist)
 ```
 
@@ -118,42 +118,21 @@ k = np.arange(1, n+1, 1)
 
 {:.output_data_text}
 ```
-array([ 53.66666667,  25.66666667,  16.33333333,  11.66666667,
-         8.86666667,   7.        ,   5.66666667,   4.66666667,
-         3.88888889,   3.26666667,   2.75757576,   2.33333333,
-         1.97435897,   1.66666667,   1.4       ,   1.16666667,
-         0.96078431,   0.77777778,   0.61403509,   0.46666667,
-         0.33333333,   0.21212121,   0.10144928])
+array([53.66666667, 25.66666667, 16.33333333, 11.66666667,  8.86666667,
+        7.        ,  5.66666667,  4.66666667,  3.88888889,  3.26666667,
+        2.75757576,  2.33333333,  1.97435897,  1.66666667,  1.4       ,
+        1.16666667,  0.96078431,  0.77777778,  0.61403509,  0.46666667,
+        0.33333333,  0.21212121,  0.10144928])
 ```
 
 
 
 What Python is helpfully telling us is that the invisible bar at 1 is 53.666... times larger than the even more invisible bar at 0. The ratios decrease after that but they are still bigger than 1 through $k = 16$. The histogram rises till it reaches its peak at $k = 16$. You can see that $R(16) = 1.1666 > 1$. Then the ratios drop below one, so the histogram starts going down.
 
-We can solve an inequality to show that the largest $k$ for which $R(k) \ge 1$ is the integer part of $(n+1)p$. In our example, this is $k = 16$ because
-
-
-
-{:.input_area}
-```python
-(n+1)*p
-```
-
-
-
-
-
-{:.output_data_text}
-```
-16.799999999999997
-```
-
-
-
 ### Mode of the Binomial
 A *mode* of a discrete distribution is a possible value that has the highest probability. There may be more than one such value, so there may be more than one mode.
 
-For all $k$ such that $R(k) \ge 1$, we will say that the binomial histogram is either rising or flat at $k$. The largest $k$ for which $R(k) \ge 1$ has to be a mode; for all larger $k$, the histogram will be falling.
+For all $k$ such that $R(k) \ge 1$, we will say that the binomial histogram is rising at $k$. Which values of $k$ have this property? To answer this, we have to solve an inequality.
 
 Let $q = 1-p$. Every value $k$ for which $R(k) \ge 1$ must satisfy
 
@@ -173,13 +152,37 @@ $$
 k ~ \le ~ (n+1)p
 $$
 
-Therefore the largest $k$ for which $R(k) \le 1$ is the integer part of $(n+1)p$. That's a mode of the binomial.
+We have shown that for all $k$ in the range 0 through the integer part of $(n+1)p$, the histogram rises; for larger $k$, it falls.
+
+Therefore the peak of the histogram is at the integer part of $(n+1)p$. That's a mode of the binomial.
 
 Because the odds ratios are non-decreasing in $k$, the only way in which there can be more than one mode is if there is a $k$ such that $R(k) = 1$. In that case, $P(k) = P(k-1)$ and therefore both $k$ and $k-1$ will be modes. To summarize:
 
 #### The Mode
 The mode of the binomial $(n, p)$ distribution is the integer part of $(n+1)p$. If $(n+1)p$ is an integer, then $(n+1)p - 1$ is also a mode. 
 
+To see that this is consistent with what we observed in our numerical example above, let's calculate $(n+1)p$ in that case.
+
+
+
+{:.input_area}
+```python
+(n+1) * p
+```
+
+
+
+
+
+{:.output_data_text}
+```
+16.799999999999997
+```
+
+
+
+The integer part of $(n+1)p$ is 16, which is the mode that we observed.
+
 But in fact, $np$ is a more natural quantity to calculate. For example, if you are counting the number of heads in 100 tosses of a coin, then the distribution is binomial $(100, 1/2)$ and you naturally expect $np = 50$ heads. You don't want to be worrying about $101 \times (1/2)$. 
 
-You don't have to worry when $n$ is large, because then $np$ and $(n+1)p$ are pretty close. In a later section we will examine a situation in which you can use $np$ to get an approximation to the shape of the binomial distribution when $n$ is large.
+In fact you don't have to worry when $n$ is large, because then $np$ and $(n+1)p$ are pretty close. In a later section we will examine a situation in which you can use $np$ to get an approximation to the shape of the binomial distribution when $n$ is large.

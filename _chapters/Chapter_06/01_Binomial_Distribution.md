@@ -132,7 +132,7 @@ stats.binom.pmf(3, 7, 1/6)
 
 {:.output_data_text}
 ```
-0.078142861225422938
+0.07814286122542294
 ```
 
 
@@ -152,7 +152,7 @@ stats.binom.pmf([2, 3, 4], 7, 1/6)
 
 {:.output_data_text}
 ```
-array([ 0.23442858,  0.07814286,  0.01562857])
+array([0.23442858, 0.07814286, 0.01562857])
 ```
 
 
@@ -172,7 +172,7 @@ sum(stats.binom.pmf([2, 3, 4], 7, 1/6))
 
 {:.output_data_text}
 ```
-0.32820001714677649
+0.3282000171467765
 ```
 
 
@@ -188,7 +188,7 @@ n = 7
 p = 1/6
 k = np.arange(n+1)
 binom_7_1_6 = stats.binom.pmf(k, n, p)
-binom_7_1_6_dist = Table().values(k).probability(binom_7_1_6)
+binom_7_1_6_dist = Table().values(k).probabilities(binom_7_1_6)
 Plot(binom_7_1_6_dist)
 ```
 
@@ -209,7 +209,7 @@ n = 600
 p = 1/6
 k = np.arange(n+1)
 binom_600_1_6 = stats.binom.pmf(k, n, p)
-binom_600_1_6_dist = Table().values(k).probability(binom_600_1_6)
+binom_600_1_6_dist = Table().values(k).probabilities(binom_600_1_6)
 Plot(binom_600_1_6_dist)
 ```
 
@@ -247,7 +247,7 @@ n = 600
 p = 1/600
 k = np.arange(n+1)
 binom_600_1_600 = stats.binom.pmf(k, n, p)
-binom_600_1_600_dist = Table().values(k).probability(binom_600_1_600)
+binom_600_1_600_dist = Table().values(k).probabilities(binom_600_1_600)
 Plot(binom_600_1_600_dist)
 ```
 

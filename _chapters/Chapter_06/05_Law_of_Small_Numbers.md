@@ -26,7 +26,7 @@ n = 1000
 p = 2/1000
 k = np.arange(16)
 binom_probs = stats.binom.pmf(k, n, p)
-binom_dist = Table().values(k).probability(binom_probs)
+binom_dist = Table().values(k).probabilities(binom_probs)
 Plot(binom_dist)
 ```
 
@@ -41,7 +41,7 @@ Since the histogram is all scrunched up near 0, only very few bars have noticeab
 
 To see how to do this, we will start with $P(0)$.
 
-### Approximation to $P(0)$
+### Approximating $P(0)$
 Let $n \to \infty$ and $p_n \to 0$ in such a way that $np_n \to \mu > 0$. It's important to ensure that $p_n$ doesn't go to 0 so fast that $np_n \to 0$ as well, because in that case all the probability just gets concentrated at the value 0 when $n$ is large.
 
 Let $P_n(k)$ be the binomial $(n, p_n)$ probability of $k$ successes.
@@ -65,7 +65,7 @@ $$
 
 when $n$ is large, because $p_n \sim 0$ and $np_n \sim \mu$.
 
-### Approximation to $P(k)$
+### Approximating $P(k)$
 In general, for fixed $k > 1$,
 
 $$
@@ -162,10 +162,10 @@ Not bad. To compare the entire distributions, first create the two distribution 
 k = range(16)
 
 bin_probs = stats.binom.pmf(k, 1000, 2/1000)
-bin_dist = Table().values(k).probability(bin_probs)
+bin_dist = Table().values(k).probabilities(bin_probs)
 
 poi_probs = stats.poisson.pmf(k, 2)
-poi_dist = Table().values(k).probability(poi_probs)
+poi_dist = Table().values(k).probabilities(poi_probs)
 ```
 
 

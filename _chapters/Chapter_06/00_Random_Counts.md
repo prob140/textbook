@@ -35,7 +35,7 @@ Here is the probability histogram of a random variable $X$ that has the Bernoull
 
 {:.input_area}
 ```python
-bern_1_3 = Table().values([0,1]).probability([2/3, 1/3])
+bern_1_3 = Table().values([0,1]).probabilities([2/3, 1/3])
 Plot(bern_1_3)
 plt.xlabel('Value of $X$')
 plt.title('Bernoulli (1/3)');

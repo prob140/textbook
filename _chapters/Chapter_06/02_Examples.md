@@ -54,7 +54,7 @@ sum(stats.binom.pmf(np.arange(3, 21), 20, 0.1))
 
 {:.output_data_text}
 ```
-0.32307319481053343
+0.3230731948105334
 ```
 
 
@@ -74,7 +74,7 @@ or, equivalently,
 
 {:.output_data_text}
 ```
-0.32307319481053431
+0.3230731948105343
 ```
 
 
@@ -102,7 +102,7 @@ sum(stats.binom.pmf(np.arange(4), 7, p))
 
 {:.output_data_text}
 ```
-0.89236130614839881
+0.8923613061483988
 ```
 
 
@@ -142,7 +142,7 @@ sum(stats.binom.pmf(np.arange(3, 8), 10, 1/2))
 
 {:.output_data_text}
 ```
-0.89062500000000089
+0.8906250000000009
 ```
 
 

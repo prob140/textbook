@@ -65,8 +65,8 @@ stats.hypergeom.pmf(k, N, G, n)
 
 {:.output_data_text}
 ```
-array([  6.58841998e-01,   2.99473636e-01,   3.99298181e-02,
-         1.73607905e-03,   1.84689260e-05])
+array([6.58841998e-01, 2.99473636e-01, 3.99298181e-02, 1.73607905e-03,
+       1.84689260e-05])
 ```
 
 
@@ -86,7 +86,7 @@ np.round(stats.hypergeom.pmf(k, N, G, n), 3)
 
 {:.output_data_text}
 ```
-array([ 0.659,  0.299,  0.04 ,  0.002,  0.   ])
+array([0.659, 0.299, 0.04 , 0.002, 0.   ])
 ```
 
 
@@ -98,7 +98,7 @@ The number of aces among 5 cards is overwhelmingly likely to be 0 or 1. The hist
 {:.input_area}
 ```python
 ace_probs = stats.hypergeom.pmf(k, N, G, n)
-ace_dist = Table().values(k).probability(ace_probs)
+ace_dist = Table().values(k).probabilities(ace_probs)
 Plot(ace_dist)
 plt.title('Number of Aces in a 5-Card Hand');
 ```
@@ -120,7 +120,7 @@ N = 52
 G = 26
 n = 13
 bridge_probs = stats.hypergeom.pmf(k, N, G, n)
-bridge_dist = Table().values(k).probability(bridge_probs)
+bridge_dist = Table().values(k).probabilities(bridge_probs)
 
 Plot(bridge_dist)
 plt.title('Number of Red Cards in a 13-Card Hand');
@@ -154,8 +154,8 @@ n = 10
 k = np.arange(n+1)
 hyp_probs = stats.hypergeom.pmf(k, N, G, n)
 bin_probs = stats.binom.pmf(k, n, G/N)
-hyp_dist = Table().values(k).probability(hyp_probs)
-bin_dist = Table().values(k).probability(bin_probs)
+hyp_dist = Table().values(k).probabilities(hyp_probs)
+bin_dist = Table().values(k).probabilities(bin_probs)
 Plots('Hypergeometric (100, 30, 10)', hyp_dist, 'Binomial (10, 0.3)', bin_dist)
 ```
 
@@ -200,7 +200,7 @@ sum(stats.hypergeom.pmf([11, 12, 13], 31, 13, 15))
 
 {:.output_data_text}
 ```
-0.00082997550460762949
+0.0008299755046076295
 ```
 
 
@@ -212,3 +212,425 @@ In Data 8 we simulated the difference between the two group proportions under th
 The calculation here does not require simulation and produces an exact P-value.
 
 This method is called Fisher's exact test. That's the same Sir Ronald Fisher who formalized tests of hypotheses, suggested cutoffs for P-values, and so on. The method can be used for any sample size and any randomized controlled experiment with a binary response.
+
+### Joint, Marginal, and Conditional Distributions
+The calculations above extend easily to samples that can come out in more than two categories. Consider a five-card poker hand dealt from a well-shuffled deck. Let $H$ be the number of hearts and $S$ the number of spaces in the hand. Let us find the joint distribution of $H$ and $S$.
+
+The hand can have cards other than hearts and spades, of course. Let $X$ be the number of those cards, which must be diamonds or clubs. Then
+
+$$
+P(H = h, S = s) ~ = ~ P(H = s, S = s, X = 5 - (h+s)) ~ = ~ 
+\frac{\binom{13}{h}\binom{13}{s}\binom{26}{5-h-s}}{\binom{52}{5}}, ~~ 0 \le h+s \le 5
+$$
+
+The SciPy module `special` allows you to calculate binomial coefficients, so let's import it.
+
+
+
+{:.input_area}
+```python
+from scipy import special
+```
+
+
+The expression `special.comb(n, k)` evaluates to $\binom{n}{k}$. This allows us to calculate the joint distribution of $H$ and $S$.
+
+
+
+{:.input_area}
+```python
+def joint_prob(h, s):
+    if (h+s >=0) and (h+s <=5):
+        numerator = special.comb(13, h) * special.comb(13, s) * special.comb(26, 5 - h -s)
+        denominator = special.comb(52, 5)
+        return numerator / denominator
+    else:
+        return 0
+    
+k = np.arange(6)
+joint_dist = Table().values('H', k, 'S', k).probability_function(joint_prob)
+joint_dist
+```
+
+
+
+
+
+<div markdown="0">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>H=0</th>
+      <th>H=1</th>
+      <th>H=2</th>
+      <th>H=3</th>
+      <th>H=4</th>
+      <th>H=5</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>S=5</th>
+      <td>0.000495</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>S=4</th>
+      <td>0.007153</td>
+      <td>0.003576</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>S=3</th>
+      <td>0.035764</td>
+      <td>0.037195</td>
+      <td>0.008583</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>S=2</th>
+      <td>0.078031</td>
+      <td>0.126801</td>
+      <td>0.060864</td>
+      <td>0.008583</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>S=1</th>
+      <td>0.074780</td>
+      <td>0.169068</td>
+      <td>0.126801</td>
+      <td>0.037195</td>
+      <td>0.003576</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>S=0</th>
+      <td>0.025310</td>
+      <td>0.074780</td>
+      <td>0.078031</td>
+      <td>0.035764</td>
+      <td>0.007153</td>
+      <td>0.000495</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+
+
+The distribution of $H$ can be obtained by summing along the columns, or by using the `marginal` method:
+
+
+
+{:.input_area}
+```python
+joint_dist.marginal('H')
+```
+
+
+
+
+
+<div markdown="0">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>H=0</th>
+      <th>H=1</th>
+      <th>H=2</th>
+      <th>H=3</th>
+      <th>H=4</th>
+      <th>H=5</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>S=5</th>
+      <td>0.000495</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>S=4</th>
+      <td>0.007153</td>
+      <td>0.003576</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>S=3</th>
+      <td>0.035764</td>
+      <td>0.037195</td>
+      <td>0.008583</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>S=2</th>
+      <td>0.078031</td>
+      <td>0.126801</td>
+      <td>0.060864</td>
+      <td>0.008583</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>S=1</th>
+      <td>0.074780</td>
+      <td>0.169068</td>
+      <td>0.126801</td>
+      <td>0.037195</td>
+      <td>0.003576</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>S=0</th>
+      <td>0.025310</td>
+      <td>0.074780</td>
+      <td>0.078031</td>
+      <td>0.035764</td>
+      <td>0.007153</td>
+      <td>0.000495</td>
+    </tr>
+    <tr>
+      <th>Sum: Marginal of H</th>
+      <td>0.221534</td>
+      <td>0.411420</td>
+      <td>0.274280</td>
+      <td>0.081543</td>
+      <td>0.010729</td>
+      <td>0.000495</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+
+
+But $H$ is the number of hearts in a five-card hand, so we already know that $H$ has the hypergeometric $(52, 13, 5)$ distribution. Let's confirm that this is the same as the marginal distribution above.
+
+
+
+{:.input_area}
+```python
+stats.hypergeom.pmf(k, 52, 13, 5)
+```
+
+
+
+
+
+{:.output_data_text}
+```
+array([0.22153361, 0.41141957, 0.27427971, 0.08154262, 0.01072929,
+       0.0004952 ])
+```
+
+
+
+If you know how many spades are in the hand, then what is the conditional distribution of $H$?
+
+
+
+{:.input_area}
+```python
+joint_dist.conditional_dist('H', 'S')
+```
+
+
+
+
+
+<div markdown="0">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>H=0</th>
+      <th>H=1</th>
+      <th>H=2</th>
+      <th>H=3</th>
+      <th>H=4</th>
+      <th>H=5</th>
+      <th>Sum</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Dist. of H | S=5</th>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Dist. of H | S=4</th>
+      <td>0.666667</td>
+      <td>0.333333</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Dist. of H | S=3</th>
+      <td>0.438596</td>
+      <td>0.456140</td>
+      <td>0.105263</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Dist. of H | S=2</th>
+      <td>0.284495</td>
+      <td>0.462304</td>
+      <td>0.221906</td>
+      <td>0.031294</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Dist. of H | S=1</th>
+      <td>0.181761</td>
+      <td>0.410937</td>
+      <td>0.308203</td>
+      <td>0.090406</td>
+      <td>0.008693</td>
+      <td>0.000000</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Dist. of H | S=0</th>
+      <td>0.114250</td>
+      <td>0.337556</td>
+      <td>0.352232</td>
+      <td>0.161440</td>
+      <td>0.032288</td>
+      <td>0.002235</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Marginal of H</th>
+      <td>0.221534</td>
+      <td>0.411420</td>
+      <td>0.274280</td>
+      <td>0.081543</td>
+      <td>0.010729</td>
+      <td>0.000495</td>
+      <td>1.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+
+
+Let's see if we recognize these numbers. Remember that the $(h, s)$ cell of the table contains $P(H = h \mid S =s )$.
+
+For an extreme case, look at the top row. Given that there are five spades in the hand, there can't be any hearts. That is why the table says $P(H = 0 \mid S = 5) = 1$.
+
+Now suppose we are given that $S = 1$. Then $H$ can have values 0 through 4, and for any integer $h$ in this range we have
+
+$$
+P(H = h \mid S = 1) ~ = ~ \frac{P(H = h, S = 1)}{P(S = 1)} ~ = ~ 
+\frac{\binom{13}{h}\binom{13}{1}\binom{26}{5 - h - 1}}{\binom{13}{1}\binom{39}{4}}
+$$
+
+by canceling factors of $1/\binom{52}{5}$ in the numerator and denominator. After canceling $\binom{13}{1}$ as well, we have
+
+$$
+P(H = h \mid S = 1) ~ = ~ \frac{\binom{13}{h}\binom{26}{4 - h}}{\binom{39}{4}}, ~~ 0 \le h \le 4
+$$
+
+This is the hypergeometric $(39, 13, 4)$ distribution: given that there is one spade in the hand, the other four cards are like a simple random sample drawn from the 39 hearts, diamonds, and clubs.
+
+
+
+{:.input_area}
+```python
+stats.hypergeom.pmf(np.arange(5), 39, 13, 4)
+```
+
+
+
+
+
+{:.output_data_text}
+```
+array([0.18176071, 0.41093725, 0.30820294, 0.0904062 , 0.0086929 ])
+```
+
+
+
+These are the probabilities in the row corresponding to the given condition $S=1$ in the table of conditional distributions above.

@@ -91,6 +91,7 @@ In the third sum, the number of terms is the number of sets of three:
 $$
 \binom{n}{3} = \frac{n(n-1)(n-2)}{3!}
 $$
+
 and so on.
 
 This shows that a lot of terms are being added and subtracted in the inclusion-exclusion formula. 

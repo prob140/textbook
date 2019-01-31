@@ -99,6 +99,7 @@ In the third sum the number of terms is
 $$
 \frac{n(n-1)(n-2)}{3!}
 $$
+
 and so on. Therefore
 
 $$
@@ -128,6 +129,7 @@ P(\text{no match}) &= 1 - \big{(}1 - \frac{1}{2!} + \frac{1}{3!} - \cdots (-1)^{
 &\sim e^{-1}
 \end{align*}
 $$
+
 when $n$ is large.
 
 In the language of random variables, let $M_n$ be the number of fixed points (matches) in a random permutation of $n$ elements. Then for every $n \ge 1$ we have an exact formula for the chance that $M_n$ is 0:
