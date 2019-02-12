@@ -25,8 +25,7 @@ We will start with a simple example to illustrate the ideas. Let the joint distr
 t = [3, 4]
 s = [5, 6, 7]
 pp = [0.1, 0.2, 0.3, 0.1, 0.2, 0.1]
-jd2 = Table().values('T', t, 'S', s).probability(pp)
-jt_dist = jd2.to_joint()
+jt_dist = Table().values('T', t, 'S', s).probabilities(pp)
 jt_dist
 ```
 

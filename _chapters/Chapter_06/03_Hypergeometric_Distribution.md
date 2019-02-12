@@ -219,8 +219,8 @@ The calculations above extend easily to samples that can come out in more than t
 The hand can have cards other than hearts and spades, of course. Let $X$ be the number of those cards, which must be diamonds or clubs. Then
 
 $$
-P(H = h, S = s) ~ = ~ P(H = s, S = s, X = 5 - (h+s)) ~ = ~ 
-\frac{\binom{13}{h}\binom{13}{s}\binom{26}{5-h-s}}{\binom{52}{5}}, ~~ 0 \le h+s \le 5
+P(H = h, S = s) ~ = ~ P(H = h, S = s, X = 5 - (h+s)) ~ = ~ 
+\frac{\binom{13}{h}\binom{13}{s}\binom{26}{5-h-s}}{\binom{52}{5}}, ~~ h, s \ge 0, ~ h+s \le 5
 $$
 
 The SciPy module `special` allows you to calculate binomial coefficients, so let's import it.
