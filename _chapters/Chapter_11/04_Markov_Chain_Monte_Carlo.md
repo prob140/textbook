@@ -20,12 +20,12 @@ Suppose the distribution from which we want to generate a sample is called $\pi$
 
 - Let $X_0, X_1, \ldots $ be an irreducible aperiodic Markov Chain on a finite state space. Then the distribution of $X_n$ converges to a stationary distribution as $n$ gets large. If we can create a Markov Chain $\{X_n\}$ that has the desired distribution $\pi$ as its stationary distribution, then we can simulate draws from $\pi$ (or close enough to it) by running the chain for a long time and using the values $X_n$ for large $n$.
 
-- To create a transition matrix that results in $\pi$ as the stationary distribution, the easiest way is to try to ensure that the detailed balance equations are solved. That is, the easiest way is to try to create a reversible chain.
+- To create a transition matrix that results in $\pi$ as the stationary distribution, the easiest way is to try to ensure that the detailed balance equations are solved. 
 
-- The chain is reversible if there is detailed balance, which we can write as 
+- The detailed balance equations are equivalent to  
 
 $$
-\frac{\pi(j)}{\pi(i)} = \frac{P(i, j)}{P(j, i)}
+\frac{\pi(j)}{\pi(i)} ~ = ~  \frac{P(i, j)}{P(j, i)}, ~~ i \ne j
 $$
 
 The right hand side only involves the transition probabilities of the chain that we want to create. The left hand side only involves ratios of the terms in $\pi$, and therefore can be checked even if we don't know the constant that normalizes $\pi$.
@@ -35,7 +35,7 @@ Exactly who proposed the first algorithm to create such a Markov Chain is the su
 
 The goal is to create a transition matrix $\mathbb{P}$ so that $\pi$ and $\mathbb{P}$ together solve the detailed balance equations. 
 
-The algorithm starts with any symmetric, irreducible transition matrix $Q$ on the state space. For example, if the state space is numerical you could start with, "Wherever the chain is, it picks one of the three closest values (including itself) with probability $1/3$ each." For a pair of states $i$ and $j$, the transition probability $Q(i, j)$ is called the *proposal probability*.
+The algorithm starts with any symmetric, irreducible transition matrix $\mathbb{Q}$ on the state space. For example, if the state space is numerical you could start with, "Wherever the chain is, it picks one of the three closest values (including itself) with probability $1/3$ each." For a pair of states $i$ and $j$, the transition probability $Q(i, j)$ is called the *proposal probability*.
 
 The algorithm then introduces additional randomization to create a new chain that is irreducible and aperiodic and has $\pi$ as its stationary distribution.
 
@@ -44,6 +44,7 @@ Here are the rules that determine the transitions of the new chain.
 - Suppose the chain is at $i$ at time $n$, that is, suppose $X_n = i$. Pick a state $j$ according to the proposal probability $Q(i, j)$. This $j$ is the candidate state to which your chain might move.
 
 - Define the *acceptance ratio*
+
 $$
 r(i, j) = \frac{\pi(j)}{\pi(i)}
 $$
@@ -55,7 +56,7 @@ $$
      - If the coin lands tails, set $X_{n+1} = i$.
 - Repeat all the steps, with $X_{n+1}$ as the starting value.
 
-Thus the new chain either moves to the state picked according to $Q$, or it stays where it is. We say that it *accepts a move to a new state* based on $Q$ and $r$, and otherwise it doesn't move. 
+Thus the new chain either moves to the state picked according to $\mathbb{Q}$, or it stays where it is. We say that it *accepts a move to a new state* based on $\mathbb{Q}$ and $r$, and otherwise it doesn't move. 
 
 The new chain is irreducible because the proposal chain is irreducible. It is aperiodic because it can stay in place. So it has a steady state distribution. 
 
@@ -64,9 +65,9 @@ The alogrithm says that this steady state distribution is the same as the distri
 ### How to Think About the Algorithm
 Before we prove that the algorithm works, let's examine what it is doing in the context of decoders.
 
-First notice that we are requiring $Q$ to be symmetric as well as irreducible. The symmetry requirement makes sense as each detailed balance equation involves transitions $i \to j$ as well as $j \to i$.
+First notice that we are requiring $\mathbb{Q}$ to be symmetric as well as irreducible. The symmetry requirement makes sense as each detailed balance equation involves transitions $i \to j$ as well as $j \to i$.
 
-Fix any starting decoder and call it $i$. Now you have to decide where the chain is going to move next, that is, what the next decoder is going to be. The algorithm starts this process off by picking a decoder $j$ according to $Q$. We say that *$Q$ proposes a move to $j$*.
+Fix any starting decoder and call it $i$. Now you have to decide where the chain is going to move next, that is, what the next decoder is going to be. The algorithm starts this process off by picking a decoder $j$ according to $\mathbb{Q}$. We say that *$\mathbb{Q}$ proposes a move to $j$*.
 
 To decide whether or not the chain should move to $j$, remember that the distribution $\pi$ contains the likelihoods of all the decoders. You want to end up with decoders that have high likelihood, so it is natural to compare $\pi(i)$ and $\pi(j)$.
 
@@ -91,16 +92,19 @@ Then $r(i, j) < 1$, so
 
 $$
 P(i, j) ~=~ Q(i, j)r(i, j) 
-~=~ Q(j, i)\frac{\pi(j)}{\pi(i)} ~~~ \text{(symmetry of } Q \text{ and definition of }r) 
+~=~ Q(j, i)\frac{\pi(j)}{\pi(i)} ~~~~ \text{ by the symmetry of } Q \text{ and definition of }r 
 $$
 
 Now $r(j, i) > 1$, so the algorithm says $P(j, i) = Q(j, i)$.
 
 Therefore
+
 $$
 P(i, j) ~ = ~ P(j, i)\frac{\pi(j)}{\pi(i)}
 $$
+
 which is the same as
+
 $$
 \pi(i)P(i, j) ~ = ~ \pi(j)P(j, i)
 $$

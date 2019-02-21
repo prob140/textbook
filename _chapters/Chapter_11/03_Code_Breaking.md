@@ -37,14 +37,17 @@ As a first step, we will write down all 3! = 6 possible permutations of the lett
 To see how to do this, start by keeping the alphabet in "alphabetical" order in your head: 'a', 'd', 't'. Now look at the rows of the table.
 
 - The decoder in the first row is ['a', 'd', 't']. This decoder simply leaves the letters unchanged; atdt gets decoded as atdt. 
+
 $$
 \text{Decoder ['a', 'd', 't']: } ~~~ a \to a, ~~~ d \to d, ~~~ t \to t
 $$
 
 - The decoder in the second row is ['a', 't', 'd']. This keeps the first letter of the alphabet 'a' unchanged, but replaces the second letter 'd' by 't' and the third letter 't' by 'd'.
+
 $$
 \text{Decoder ['a', 't', 'd']: } ~~~ a \to a, ~~~ d \to t, ~~~ t \to d
 $$
+
 So atdt gets decoded as adtd.
 
 You can read the rest of the table in the same way. 
@@ -278,7 +281,7 @@ Here is the number 70!. That's a lot of decoders. Our computing system can't han
 
 {:.input_area}
 ```python
-math.factorial(70)
+int(special.factorial(70))
 ```
 
 
@@ -287,7 +290,7 @@ math.factorial(70)
 
 {:.output_data_text}
 ```
-11978571669969891796072783721689098736458938142546425857555362864628009582789845319680000000000000000
+11978571669969890269925854460558840225267029209529303278944419871214396524861374498691473966836482048
 ```
 
 
@@ -297,6 +300,7 @@ One potential solution is to sample at random from these 70! possible decoders a
 What we would really like our sampling procedure to do is to choose good decoders with high probability. A good decoder is one that generates text that has higher probability than text produced by almost all other decoders. In other words, a good decoder has higher likelihood than other decoders, given the data.
 
 You can write down this likelihood using Bayes' Rule. Let $S$ represent the space of all possible permutations; if the alphabet has $N$ characters, then $S$ has $N!$ elements. For any randomly picked permutation $j$, the likelihood of that decoder given the data is:
+
 $$
 \begin{align*}
 \text{Likelihood of } j \text{ given the encoded text}
@@ -309,6 +313,6 @@ $$
 
 For the given encoded text, the denominator is the normalizing constant that makes all the likelihoods sum to 1. It appears in the likelihood of every decoder. In our example with the three-letter alphabet, we ignored it because we could figure out the numerators for all six decoders and just compare them. The numerator was what we called the *score* of the decoder.
 
-Even when the alphabet is large, for any particular decoder $j$ we can find the numerator by multiplying transition probabilities sequentially, as we did in our example. But with a large alphabet we can't do this for all possible decoders, so we can't list all possible scores and we can't add them all up. Therefore we don't know the denominator of the likelihoods, not even upto a decent approximation.
+Even when the alphabet is large, for any particular decoder $j$ we can find the numerator by multiplying transition probabilities sequentially, as we did in our example. But with a large alphabet we can't do this for all possible decoders, so we can't list all possible scores and we can't add them all up. Therefore we don't know the denominator of the likelihoods, not even up to a decent approximation.
 
 What we need now is a method that helps us draw from a probability distribution even when we don't know the normalizing constant. That is what Markov Chain Monte Carlo helps us to do.
