@@ -85,7 +85,7 @@ Here is the distribution of $X$. You can see that there is almost no probability
 ```python
 k = np.arange(25, 75, 1)
 binom_probs = stats.binom.pmf(k, 100, 0.5)
-binom_dist = Table().values(k).probability(binom_probs)
+binom_dist = Table().values(k).probabilities(binom_probs)
 Plot(binom_dist, show_ev=True, show_sd=True)
 ```
 

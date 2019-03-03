@@ -46,14 +46,18 @@ Now suppose $X$ is a non-negative random variable, and let $c$ be a positive num
 ![png](../../images/chapters/Chapter_12/03_Bounds_5_0.png)
 
 
-The function $g$ is the identity $g(x) = x$ for all $x$. It leaves $x$ unchanged. So $E(g(X)) = E(X)$.
+The function $h$ is the indicator defined by $h(x) = I(x \ge c)$. So $h(X) = I(X \ge c)$ and $E(h(X)) = P(X \ge c)$.
 
-The function $h$ truncates $x$ at $c$ as follows: if $x < c$ then $h(x) = 0$, and if $x \ge c$ then $h(x) = c$. So $E(h(X)) = E(cI(X \ge c)) = cP(X \ge c)$.
+The function $g$ is constructed so that the graph of $g$ is a straight line that is at or above the graph of $h$ on $[0, \infty)$, with the two graphs meeting at $x = 0$ and $x = c$. The equation of the straight line is $g(x) = x/c$.
 
-Clearly $g \ge h$, and so
+Thus $g(X) = X/c$ and hence $E(g(X)) = E(X/c) = E(X)/c$.
+
+By construction, $g(x) \ge h(x)$ for $x \ge 0$. Since $X$ is a non-negative random variable, $P(g(X) \ge h(X)) = 1$.
+
+So
 
 $$
-E(X) ~ = ~ E(g(X)) ~ \ge ~ E(h(X)) ~ =  ~ cP(X \ge c)
+E(X)/c ~ = ~ E(g(X)) ~ \ge ~ E(h(X)) ~ =  ~ P(X \ge c)
 $$
 
 We have just proved
@@ -82,7 +86,7 @@ You can see that the bound is pretty crude. The gold area is clearly quite a bit
 ![png](../../images/chapters/Chapter_12/03_Bounds_7_0.png)
 
 
-Another way to think of Markov's bound is that if $X$ is a non-negative random variable then
+Another way to think of Markov's bound is that if $X$ is a non-negative random variable with expectation $\mu_X$, then
 
 $$
 P(X \ge k\mu_X) ~ \le ~ \frac{1}{k} ~~~ \text{for all } k > 0
@@ -177,3 +181,16 @@ P\big{(}|X - \mu_X| \ge c \big{)} ~ \le ~ \frac{\sigma_X^2}{c^2}
 $$
 
 This is the same as our statement but with $c$ replacing $z\sigma_X$. We will use whichever form happens to be convenient in a given setting.
+
+The figure below is analogous to the figure drawn earlier to illustrate the derivation of Markov's inequality. 
+
+The graph of the quadratic function $g(x) = (x - \mu_X)^2/c^2$ is always at or above the graph of the indicator function $h(x) = I(\vert x - \mu_X \vert \ge c)$.
+
+Thus $E(g(X)) ~ \ge ~ E(h(X)) ~ = ~ P(\vert X - \mu_X \vert \ge c)$. Chebyshev's inequality follows, because $E(g(X)) ~ = ~ E((X - \mu_X)^2)/c^2 ~ = ~ \sigma_X^2/c^2$.
+
+
+
+
+
+![png](../../images/chapters/Chapter_12/03_Bounds_16_0.png)
+
