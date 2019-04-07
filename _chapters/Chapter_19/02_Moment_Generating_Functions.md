@@ -102,7 +102,7 @@ It's time for some examples. Remember that the mgf of $X$ is the expectation of 
 $P(X = 1) = p$ and $P(X = 0) = 1 - p = q$. So
 
 $$
-M_X(t) ~ = ~ qe^{t \cdot 0} + pe^{t \cdot 1} ~ = ~ q + pe^t ~ = ~ 1 - p(e^t - 1)  ~~~ \text{for all } t 
+M_X(t) ~ = ~ qe^{t \cdot 0} + pe^{t \cdot 1} ~ = ~ q + pe^t ~ = ~ 1 + p(e^t - 1)  ~~~ \text{for all } t 
 $$
 
 #### Binomial $(n, p)$
@@ -147,3 +147,16 @@ $$
 That's the mgf of the gamma $(r+s, \lambda)$ distribution. Because the mgf identifies the distribution, $X+Y$ must have the gamma $(r+s, \lambda)$ distribution.
 
 This is what we observed in an earlier section by simulation, using numerical values of $r$ and $\lambda$.
+
+### Note on Existence
+Let $X$ be a random variable. For all $t$, the random variable $e^{tX}$ is positive, so $M_X(t)$ is either positive or $+\infty$. 
+
+The rough statements below should give you a sense of the connection between the tails of the distribution of $X$ and the existence of the mgf. We will not cover the proofs.
+
+If $t > 0$ then $e^{tX}$ is large for large positive values of $X$. So if $M_X(t)$ is finite for a positive $t$, then the right hand tail of the distribution of $X$ can't be heavy.
+
+If $t < 0$ then $e^{tX}$ is large for large negative values of $X$. So if $M_X(t)$ is finite for a negative $t$, then the left hand tail of the distribution of $X$ can't be heavy.
+
+So if $M_X(t)$ is finite for a positive value of $t$ as well as for a negative value of $t$, then both of the tails aren't heavy.
+
+It can be shown that if $M_X(t)$ is finite for some $t$, then $M_X(s)$ is finite for all $s$ between 0 and $t$. So $M_X(t)$ being finite for a positive $t$ as well as for a negative $t$ is equivalent to $M_X$ being finite on an interval around 0. The interval might be very small, but as long as it straddles 0 all the properties listed in this section hold.

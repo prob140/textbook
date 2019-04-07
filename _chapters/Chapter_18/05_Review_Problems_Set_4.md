@@ -199,7 +199,7 @@ Let $U_i$, $1 \le i \le 20$ be i.i.d. uniform $(0, 1)$ variables, and let $U_{(k
 
 (b) Without integrating the density, find the cdf of $U_{(7)}$. 
 
-[Use the idea you used to find the tail probabilities of a sample median in Lab 4. Draw a line representing the unit interval and put down crosses representing the variables. For $U_{(7)}$ to be less than $x$, how must you distribute the crosses?]
+[Use the idea you used to find the tail probabilities of a sample median (in lab). Draw a line representing the unit interval and put down crosses representing the variables. For $U_{(7)}$ to be less than $x$, how must you distribute the crosses?]
 
 (c) Find the joint density of $U_{(7)}$ and $U_{(12)}$.
 

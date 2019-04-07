@@ -112,7 +112,7 @@ Let $p \in (0, 1)$ and let $X$ be the number of spots showing on a flattened die
 Find $SD(X)$ and explain why it is an increasing function of $p$. Compare your answer with the answer you got for the mean absolute deviation in Review Set 2.
 
 **12.**
-A random variable $Y$ has expectation 20 and SD 2. Find the best upper and lower bounds you can on $P(15 < X < 30)$.
+A random variable $Y$ has expectation 20 and SD 2. Find the best upper and lower bounds you can on $P(15 < Y < 30)$.
 
 **13.** 
 For $i = 1, 2, \ldots, n$, let $X_i$ have the exponential $(\lambda_i)$ distribution, and assume that $X_1, X_2, \ldots, X_n$ are independent.
