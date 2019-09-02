@@ -1,11 +1,6 @@
 /* Put your custom CSS here */
 .left {
     margin-left: 0px;
-}
-
-img.textbook_logo {
-    width: 15em;
-    max-height: none;
-    margin-left: 0;
-    margin-bottom: 0;
+    margin-right: 5px;
+    float: left;
 }

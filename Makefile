@@ -15,10 +15,10 @@ install:
 	bundle install
 
 book:
-	python scripts/generate_book.py
+	jupyter-book build ./
 
 runall:
-	python scripts/execute_all_notebooks.py
+	jupyter-book run ./content
 
 clean:
 	python scripts/clean.py
@@ -28,6 +28,4 @@ serve:
 
 build:
 	bundle exec jekyll build
-
-test:
-	pytest scripts/tests/test_build.py
+	touch _site/.nojekyll
