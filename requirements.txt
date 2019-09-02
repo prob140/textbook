@@ -7,4 +7,6 @@ folium
 matplotlib
 nbinteract
 scipy
-jupyter-book
+
+# Master version of jupyter book
+git+https://github.com/jupyter/jupyter-book
