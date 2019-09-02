@@ -1,0 +1,157 @@
+---
+redirect_from:
+  - "/chapter-02/02-examples"
+interact_link: content/Chapter_02/02_Examples.ipynb
+kernel_name: python3
+has_widgets: false
+title: 'Examples'
+prev_page:
+  url: /Chapter_02/01_Addition.html
+  title: 'Addition'
+next_page:
+  url: /Chapter_02/03_Multiplication.html
+  title: 'Multiplication'
+comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
+---
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># HIDDEN</span>
+<span class="kn">from</span> <span class="nn">datascience</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">prob140</span> <span class="k">import</span> <span class="o">*</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;fivethirtyeight&#39;</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Examples">Examples<a class="anchor-link" href="#Examples"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let's see if we can use the results we've developed to calculate some chances. Some of the steps will be clear without calculation; others will require more work.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Example-1:-Both-Heads-and-Tails-in-$n$-Tosses">Example 1: Both Heads and Tails in $n$ Tosses<a class="anchor-link" href="#Example-1:-Both-Heads-and-Tails-in-$n$-Tosses"> </a></h3><p>A coin is tossed $n$ times so that all $2^n$ possible sequences of heads and tails are equally likely.</p>
+<p><strong>Question.</strong> What is the chance of getting at least one head and at least one tail?</p>
+<p><strong>Answer.</strong> There are many sequences in which each face appears at least once. For example, if $n=4$, such sequences include HTTT, HTHT, TTHT, and so on.</p>
+<p><strong>Method: Complement.</strong> 
+When an event can happen in many different ways, it might be a good idea to look at the ways in which it <em>doesn't</em> happen, in case there are fewer of those.</p>
+<p>For $n=4$, the only sequences in which we <em>don't</em> get at least one occurrence of each face are HHHH and TTTT. Indeed, for any $n$, there are only two sequences in which we don't get both faces: all heads, and all tails. These are the two sequences in which all the elements are the same.</p>
+<p>Let $A$ be the event that we get at least one head and at least one tail. The question asks for $P(A)$. Because $A^c$ is the event "all the elements of the sequence are the same", we have
+$$
+P(A^c) = \frac{2}{2^n} = \frac{1}{2^{n-1}}
+$$
+By the complement rule,
+$$
+P(A) = 1 - \frac{1}{2^{n-1}}
+$$
+Notice that the answer tends to 1 as $n$ gets large. With a large number of tosses, you are almost certain to see both heads and tails.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Example-2:-Maximum-of-12-Rolls-of-a-Die">Example 2: Maximum of 12 Rolls of a Die<a class="anchor-link" href="#Example-2:-Maximum-of-12-Rolls-of-a-Die"> </a></h3><p>A die is rolled 12 times so that all $6^{12}$ sequences of faces are equally likely. Define the <em>maximum</em> of the 12 rolls to be the largest of the numbers that appear on the 12 faces. For example, the maximum of the sequence "354222143351" is 5.</p>
+<p><strong>Question 1.</strong> What is the chance that the maximum is less than 5?</p>
+<p><strong>Answer 1.</strong> The key is to observe that the event "the maximum is less than 5" is the same as the event "all the 12 faces are less than 5". For this to occur, each of the 12 faces has to have one of the four values 1 through 4. So
+$$
+P(\text{maximum is less than 5}) = \frac{4^{12}}{6^{12}}
+$$
+Yes, we could simplify that further, but we're not going to, for reasons that will soon become clear.</p>
+<p><strong>Question 2.</strong> What is the chance that the maximum is less than 4?</p>
+<p><strong>Answer 2.</strong> Nothing new here, other than replacing 5 by 4 in Question 1. 
+$$
+P(\text{maximum is less than 4}) = \frac{3^{12}}{6^{12}}
+$$</p>
+<p><strong>Question 3.</strong> What is the chance that the maximum is equal to 4?</p>
+<p><strong>Answer 3.</strong> The task of writing down all the sequences in which the maximum is equal to 4 isn't pleasant. Let's see if we can use what we already know. For the maximum to be equal to 4:</p>
+<ul>
+<li>The maximum has to be less than 5,</li>
+<li>and it can't be less than 4.</li>
+</ul>
+<p>We're thinking of the set $\{4\}$ as a difference: $\{1, 2, 3, 4\} \backslash \{1, 2, 3\}$.</p>
+<p>So by the difference rule,</p>
+$$
+\begin{align*}
+P(\text{maximum is equal to 4}) &amp;= P(\text{maximum is less than 5}) - P(\text{maximum is less than 4}) \\
+&amp;= \frac{4^{12}}{6^{12}} - \frac{3^{12}}{6^{12}}
+\end{align*}
+$$<p>There is nothing special about 12 rolls. You can replace 12 by $n$ throughout, and the argument will go through just as above.</p>
+<p>The maximum is an example of an <em>extremum</em>, the other being the minimum.</p>
+<p><strong>Problem solving technique:</strong> When you work with extrema, remember the observation we used in this example: saying that the maximum is small is the same as saying that all the elements are small. Analogously, saying the minimum is large is the same as saying that all the elements are large.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Example-3:-Second-Random-Digit-Greater-than-the-First">Example 3: Second Random Digit Greater than the First<a class="anchor-link" href="#Example-3:-Second-Random-Digit-Greater-than-the-First"> </a></h3><p>A random number generator produces two digits so that all the 100 pairs of digits are equally likely.</p>
+<p><strong>Question.</strong> What is the chance that the second digit is greater than the first?</p>
+<p><strong>Answer, Method I: Partition.</strong> Make an organized list of all the ways in which the event can happen. A good way to list the pairs in which the second digit is greater than the first is to <em>partition</em> the pairs according to the value of the first digit:</p>
+<ul>
+<li>first digit 0, second 1 through 9</li>
+<li>first digit 1, second 2 through 9</li>
+<li>first digit 2, second 3 through 9</li>
+<li>and so on, down to</li>
+<li>first digit 8, second digit 9</li>
+</ul>
+<p>This partition makes it easy to count all the pairs in which the second digit is greater than the first: there are $9+8+7+6+5+4+3+2+1 = (9\times10)/2 = 45$ of them among the 100 possible pairs. So the answer is 0.45.</p>
+<p><strong>Answer, Method II: Symmetry.</strong> Convince yourself of some symmetry: the chance that the second digit is greater than the first is the same as the chance that the first digit is greater than the second. One way to do this is to partition the second event according to the value of the second digit and notice the correspondence with the partition in Method I.</p>
+<p>So if $p = P(\text{second digit is greater than the first})$, the addition rule says</p>
+$$
+\begin{align*}
+1 &amp;= P(\text{first digit greater than second}) + P(\text{the two are equal}) + P(\text{second digit greater than first}) \\ \\
+&amp;= p + \frac{10}{100} + p
+\end{align*}
+$$<p>because there are 10 pairs of equal digits: 00, 11, 22, $\ldots$, 99. Now solve for $p$:</p>
+$$
+p = \frac{1 - 0.1}{2} = 0.45
+$$<p>as before.</p>
+<p>It is a good idea to learn both methods. Partitions and symmetry will be used throughout this course.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+ 
+

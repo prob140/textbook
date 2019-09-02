@@ -1,0 +1,985 @@
+---
+redirect_from:
+  - "/chapter-03/02-distributions"
+interact_link: content/Chapter_03/02_Distributions.ipynb
+kernel_name: python3
+has_widgets: false
+title: 'Distributions'
+prev_page:
+  url: /Chapter_03/01_Functions_on_an_Outcome_Space.html
+  title: 'Functions on an Outcome Space'
+next_page:
+  url: /Chapter_03/03_Equality.html
+  title: 'Equality'
+comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
+---
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># HIDDEN</span>
+<span class="kn">from</span> <span class="nn">datascience</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">prob140</span> <span class="k">import</span> <span class="o">*</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;fivethirtyeight&#39;</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">from</span> <span class="nn">itertools</span> <span class="k">import</span> <span class="n">product</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># HIDDEN </span>
+<span class="n">die</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="n">five_rolls</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">product</span><span class="p">(</span><span class="n">die</span><span class="p">,</span> <span class="n">repeat</span><span class="o">=</span><span class="mi">5</span><span class="p">))</span>
+
+<span class="n">five_rolls_probs</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">6</span><span class="o">**</span><span class="mi">5</span><span class="p">)</span><span class="o">**</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">6</span><span class="o">**</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="n">five_rolls_space</span> <span class="o">=</span> <span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">with_columns</span><span class="p">(</span>
+   <span class="s1">&#39;omega&#39;</span><span class="p">,</span> <span class="n">five_rolls</span><span class="p">,</span>
+    <span class="s1">&#39;P(omega)&#39;</span><span class="p">,</span> <span class="n">five_rolls_probs</span>
+<span class="p">)</span>
+
+<span class="n">five_rolls_sum</span> <span class="o">=</span> <span class="n">five_rolls_space</span><span class="o">.</span><span class="n">with_column</span><span class="p">(</span>
+    <span class="s1">&#39;S(omega)&#39;</span><span class="p">,</span> <span class="n">five_rolls_space</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="nb">sum</span><span class="p">,</span> <span class="s1">&#39;omega&#39;</span><span class="p">)</span>
+<span class="p">)</span><span class="o">.</span><span class="n">move_to_end</span><span class="p">(</span><span class="s1">&#39;P(omega)&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Distributions">Distributions<a class="anchor-link" href="#Distributions"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Our space is the outcomes of five rolls of a die, and our random variable $S$ is the total number of spots on the five rolls.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">five_rolls_sum</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>omega</th> <th>S(omega)</th> <th>P(omega)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>[1 1 1 1 1]</td> <td>5       </td> <td>0.000128601</td>
+        </tr>
+        <tr>
+            <td>[1 1 1 1 2]</td> <td>6       </td> <td>0.000128601</td>
+        </tr>
+        <tr>
+            <td>[1 1 1 1 3]</td> <td>7       </td> <td>0.000128601</td>
+        </tr>
+        <tr>
+            <td>[1 1 1 1 4]</td> <td>8       </td> <td>0.000128601</td>
+        </tr>
+        <tr>
+            <td>[1 1 1 1 5]</td> <td>9       </td> <td>0.000128601</td>
+        </tr>
+        <tr>
+            <td>[1 1 1 1 6]</td> <td>10      </td> <td>0.000128601</td>
+        </tr>
+        <tr>
+            <td>[1 1 1 2 1]</td> <td>6       </td> <td>0.000128601</td>
+        </tr>
+        <tr>
+            <td>[1 1 1 2 2]</td> <td>7       </td> <td>0.000128601</td>
+        </tr>
+        <tr>
+            <td>[1 1 1 2 3]</td> <td>8       </td> <td>0.000128601</td>
+        </tr>
+        <tr>
+            <td>[1 1 1 2 4]</td> <td>9       </td> <td>0.000128601</td>
+        </tr>
+    </tbody>
+</table>
+<p>... (7766 rows omitted)</p>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In the last section we found $P(S = 10)$. We could use that same process to find $P(S = s)$ for each possible value of $s$. The <code>group</code> method allows us to do this for all $s$ at the same time.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To do this, we will start by dropping the <code>omega</code> column. Then we will <code>group</code> the table by the distinct values of <code>S(omega)</code>, and use <code>sum</code> to add up all the probabilities in each group.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dist_S</span> <span class="o">=</span> <span class="n">five_rolls_sum</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;omega&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s1">&#39;S(omega)&#39;</span><span class="p">,</span> <span class="nb">sum</span><span class="p">)</span>
+<span class="n">dist_S</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>S(omega)</th> <th>P(omega) sum</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>5       </td> <td>0.000128601 </td>
+        </tr>
+        <tr>
+            <td>6       </td> <td>0.000643004 </td>
+        </tr>
+        <tr>
+            <td>7       </td> <td>0.00192901  </td>
+        </tr>
+        <tr>
+            <td>8       </td> <td>0.00450103  </td>
+        </tr>
+        <tr>
+            <td>9       </td> <td>0.00900206  </td>
+        </tr>
+        <tr>
+            <td>10      </td> <td>0.0162037   </td>
+        </tr>
+        <tr>
+            <td>11      </td> <td>0.0263632   </td>
+        </tr>
+        <tr>
+            <td>12      </td> <td>0.0392233   </td>
+        </tr>
+        <tr>
+            <td>13      </td> <td>0.0540123   </td>
+        </tr>
+        <tr>
+            <td>14      </td> <td>0.0694444   </td>
+        </tr>
+    </tbody>
+</table>
+<p>... (16 rows omitted)</p>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This table shows all the possible values of $S$ along with all their probabilities. It is called a <em>probability distribution table</em> for $S$.</p>
+<p>The contents of the table — all the possible values of the random variable, along with all their probabilities — are called the <em>probability distribution of $S$</em>, or just <em>distribution of $S$</em> for short. The distribution shows how the total probability of 100% is distributed over all the possible values of $S$.</p>
+<p>Let's check this, to make sure that all the $\omega$'s in the outcome space have been accounted for in the column of probabilities.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dist_S</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.9999999999999991</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>That's 1 in a computing environment. This is a feature of any probability distribution:</p>
+<p><strong>Probabilities in a distribution are non-negative and sum to 1</strong>.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Visualizing-the-Distribution">Visualizing the Distribution<a class="anchor-link" href="#Visualizing-the-Distribution"> </a></h3><p>In Data 8 you used the <code>datascience</code> library to work with distributions of data. The <code>prob140</code> library builds on <code>datascience</code> to provide some convenient tools for working with probability distributions and events.</p>
+<p>First, we will construct a probability distribution object which, while it looks very much like the table above, expects a probability distribution in the second column and complains if it finds anything else.</p>
+<p>To keep the code easily readable, let's extract the possible values and probabilities separately as arrays:</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="n">dist_S</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">p_s</span> <span class="o">=</span> <span class="n">dist_S</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To turn these into a probability distribution object, start with an empty table and use the <code>values</code> and <code>probabilities</code> Table methods. The argument of <code>values</code> is a list or an array of possible values, and the argument of <code>probabilities</code> is a list or an array of the corresponding probabilities.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dist_S</span> <span class="o">=</span> <span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="o">.</span><span class="n">probabilities</span><span class="p">(</span><span class="n">p_s</span><span class="p">)</span>
+<span class="n">dist_S</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>Value</th> <th>Probability</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>5    </td> <td>0.000128601</td>
+        </tr>
+        <tr>
+            <td>6    </td> <td>0.000643004</td>
+        </tr>
+        <tr>
+            <td>7    </td> <td>0.00192901 </td>
+        </tr>
+        <tr>
+            <td>8    </td> <td>0.00450103 </td>
+        </tr>
+        <tr>
+            <td>9    </td> <td>0.00900206 </td>
+        </tr>
+        <tr>
+            <td>10   </td> <td>0.0162037  </td>
+        </tr>
+        <tr>
+            <td>11   </td> <td>0.0263632  </td>
+        </tr>
+        <tr>
+            <td>12   </td> <td>0.0392233  </td>
+        </tr>
+        <tr>
+            <td>13   </td> <td>0.0540123  </td>
+        </tr>
+        <tr>
+            <td>14   </td> <td>0.0694444  </td>
+        </tr>
+    </tbody>
+</table>
+<p>... (16 rows omitted)</p>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>That looks exactly like the table we had before except that it has more readable column labels. But now for the benefit: to visualize the distribution in a histogram, just use the <code>prob140</code> method <code>Plot</code> as follows.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Plot</span><span class="p">(</span><span class="n">dist_S</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../images/Chapter_03/02_Distributions_16_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Notes-on-Plot">Notes on <code>Plot</code><a class="anchor-link" href="#Notes-on-Plot"> </a></h4><ul>
+<li><p>Recall that <code>hist</code> in the <code>datascience</code> library displays a histogram of raw data contained in a column of a table. <code>Plot</code> in the <code>prob140</code> library displays a probability histogram based on a probability distribution as the input.</p>
+</li>
+<li><p><code>Plot</code> only works on probability distribution objects created using the <code>values</code> and <code>probabilities</code> methods. It won't work on a general member of the <code>Table</code> class.</p>
+</li>
+<li><p><code>Plot</code> works well with random variables that have integer values. Many of the random variables you will encounter in the next few chapters will be integer-valued. For displaying the distributions of other random variables, binning decisions are more complicated.</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Notes-on-the-Distribution-of-$S$">Notes on the Distribution of $S$<a class="anchor-link" href="#Notes-on-the-Distribution-of-$S$"> </a></h4><p>Here we have the bell shaped curve appearing as the distribution of the sum of five rolls of a die. Notice two differences between this histogram and the bell shaped distributions you saw in Data 8.</p>
+<ul>
+<li>This one displays an exact distribution. It was computed based on <em>all</em> the possible outcomes of the experiment. It is not an approximation nor an empirical histogram.</li>
+<li>The statement of the Central Limit Theorem in Data 8 said that the distribution of the sum of a <em>large</em> random sample is roughly normal. But here you're seeing a bell shaped distribution for the sum of only five rolls. If you start out with a uniform distribution (which is the distribution of a single roll), then you don't need a large sample before the probability distribution of the sum starts to look normal.</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Visualizing-Probabilities-of-Events">Visualizing Probabilities of Events<a class="anchor-link" href="#Visualizing-Probabilities-of-Events"> </a></h3><p>As you know from Data 8, the interval between the points of inflection of the bell curve contains about 68% of the area of the curve. Though the histogram above isn't exactly a bell curve – it is a discrete histogram with only 26 bars – it's pretty close. The points of inflection appear to be 14 and 21, roughly.</p>
+<p>The <code>event</code> argument of <code>Plot</code> lets you visualize the probability of the event, as follows.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Plot</span><span class="p">(</span><span class="n">dist_S</span><span class="p">,</span> <span class="n">event</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../images/Chapter_03/02_Distributions_20_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The gold area is the equal to $P(14 \le S \le 21)$.</p>
+<p>The <code>event</code> method takes one argument specifying the event. It displays the rows of the distribution table corresponding to <code>event</code> and also the probability of the event.</p>
+<p>To find $P(14 \le S \le 21)$, use <code>event</code> as follows.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dist_S</span><span class="o">.</span><span class="n">event</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>P(Event) = 0.6959876543209863
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>Outcome</th> <th>Probability</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>14     </td> <td>0.0694444  </td>
+        </tr>
+        <tr>
+            <td>15     </td> <td>0.0837191  </td>
+        </tr>
+        <tr>
+            <td>16     </td> <td>0.0945216  </td>
+        </tr>
+        <tr>
+            <td>17     </td> <td>0.100309   </td>
+        </tr>
+        <tr>
+            <td>18     </td> <td>0.100309   </td>
+        </tr>
+        <tr>
+            <td>19     </td> <td>0.0945216  </td>
+        </tr>
+        <tr>
+            <td>20     </td> <td>0.0837191  </td>
+        </tr>
+        <tr>
+            <td>21     </td> <td>0.0694444  </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The chance is 69.6%, not very far from 68%.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Math-and-Code-Correspondence">Math and Code Correspondence<a class="anchor-link" href="#Math-and-Code-Correspondence"> </a></h3><p>$P(14 \le S \le 21)$ can be found by partitioning the event $\{ 14 \le S \le 21 \}$ as the union of the mutually exclusive events $\{S = s\}$ for $14 \le s \le 21$, and then using the addition rule.</p>
+$$
+\{14 \le S \le 21\} ~ = ~ \bigcup_{s = 14}^{21} \{S = s \}, ~~~ \text{ so } ~~~
+P(14 \le S \le 21) ~ = ~ \sum_{s = 14}^{21} P(S = s)
+$$<p>Note carefully the use of lower case $s$ for the generic possible value, in contrast with upper case $S$ for the random variable. Not doing so leads to endless confusion about what the formulas mean.</p>
+<p>This one means:</p>
+<ul>
+<li>First extract the event $\{ S = s\}$ for each value $s$ in the range 14 through 21:</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">event_table</span> <span class="o">=</span> <span class="n">dist_S</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">are</span><span class="o">.</span><span class="n">between</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">22</span><span class="p">))</span>
+<span class="n">event_table</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>Value</th> <th>Probability</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>14   </td> <td>0.0694444  </td>
+        </tr>
+        <tr>
+            <td>15   </td> <td>0.0837191  </td>
+        </tr>
+        <tr>
+            <td>16   </td> <td>0.0945216  </td>
+        </tr>
+        <tr>
+            <td>17   </td> <td>0.100309   </td>
+        </tr>
+        <tr>
+            <td>18   </td> <td>0.100309   </td>
+        </tr>
+        <tr>
+            <td>19   </td> <td>0.0945216  </td>
+        </tr>
+        <tr>
+            <td>20   </td> <td>0.0837191  </td>
+        </tr>
+        <tr>
+            <td>21   </td> <td>0.0694444  </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Then add the probabilities of all those events:</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">event_table</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s1">&#39;Probability&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.6959876543209863</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The <code>event</code> method does all this in one step. Here it is again, for comparison.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dist_S</span><span class="o">.</span><span class="n">event</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>P(Event) = 0.6959876543209863
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>Outcome</th> <th>Probability</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>14     </td> <td>0.0694444  </td>
+        </tr>
+        <tr>
+            <td>15     </td> <td>0.0837191  </td>
+        </tr>
+        <tr>
+            <td>16     </td> <td>0.0945216  </td>
+        </tr>
+        <tr>
+            <td>17     </td> <td>0.100309   </td>
+        </tr>
+        <tr>
+            <td>18     </td> <td>0.100309   </td>
+        </tr>
+        <tr>
+            <td>19     </td> <td>0.0945216  </td>
+        </tr>
+        <tr>
+            <td>20     </td> <td>0.0837191  </td>
+        </tr>
+        <tr>
+            <td>21     </td> <td>0.0694444  </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>You can use the same basic method in various ways to find the probability of any event determined by $S$. Here are two examples.</p>
+<p><strong>Example 1.</strong>
+$$
+P(S^2 = 400) = P(S = 20) = 8.37\%
+$$
+from the table above.</p>
+<p><strong>Example 2.</strong>
+$$
+P(S \ge 20) = \sum_{s=20}^{30} P(S = s)
+$$</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To find the numerical value without displaying all the outcomes in the event, use <code>event</code> and put a semi-colon at the end of the line. This suppresses the table display.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dist_S</span><span class="o">.</span><span class="n">event</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">1</span><span class="p">));</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>P(Event) = 0.30516975308642047
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Example 3.</strong>
+$$
+P(\big{\vert} S - 10 \big{|} \le 6) ~ = ~ P(4 \le S \le 16) ~ = ~ \sum_{s=4}^{16} P(S=s)
+$$</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dist_S</span><span class="o">.</span><span class="n">event</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">1</span><span class="p">));</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>P(Event) = 0.3996913580246917
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+ 
+

@@ -1,0 +1,761 @@
+---
+redirect_from:
+  - "/chapter-03/01-functions-on-an-outcome-space"
+interact_link: content/Chapter_03/01_Functions_on_an_Outcome_Space.ipynb
+kernel_name: python3
+has_widgets: false
+title: 'Functions on an Outcome Space'
+prev_page:
+  url: /Chapter_03/00_Random_Variables.html
+  title: 'Chapter 3: Random Variables'
+next_page:
+  url: /Chapter_03/02_Distributions.html
+  title: 'Distributions'
+comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
+---
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># HIDDEN</span>
+<span class="kn">from</span> <span class="nn">datascience</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">prob140</span> <span class="k">import</span> <span class="o">*</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;fivethirtyeight&#39;</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Functions-on-an-Outcome-Space">Functions on an Outcome Space<a class="anchor-link" href="#Functions-on-an-Outcome-Space"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Random sampling can be thought of as repeated random trials, and therefore many outcome spaces consist of sequences. An outcome space representing two tosses of a coin is</p>
+$$ 
+\Omega = \{ \text{HH, HT, TH, TT} \}
+$$<p>If you were tossing 10 times, the outcome space would consist of the $2^{10}$ sequences of 10 elements where each element is H or T. The outcomes are a pain to list by hand, but computers are good at saving us that kind of pain.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Product-Spaces">Product Spaces<a class="anchor-link" href="#Product-Spaces"> </a></h3><p>The <em>product</em> of two sets $A$ and $B$ is the set of all pairs $(a, b)$ where $a \in A$ and $b \in B$. This concept is exactly what we need to describe spaces representing multiple trials.</p>
+<p>For example, the space representing the outcome of one toss of a coin is $ \Omega_1 = \{ \text{H, T}\}$. The <em>product</em> of $\Omega_1$ with itself is the set of pairs (H, H), (H, T), (T, H) and (T, T), which you will recognize as the outcomes of two tosses of a coin. The product of this new space and $\Omega_1$ is the space representing three tosses. And so on.</p>
+<p>The Python module <code>itertools</code> contains a function <code>product</code> that constructs product spaces. Let's import it.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">itertools</span> <span class="k">import</span> <span class="n">product</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To see how <code>product</code> works, we will start with the outcomes of one toss of a coin. We are creating an array using <code>make_array</code> but you could use any other way of creating an array or list.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">one_toss</span> <span class="o">=</span> <span class="n">make_array</span><span class="p">(</span><span class="s1">&#39;H&#39;</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To use <code>product</code>, we have to specify the base space and the number of repetitions, and then covert the result to a list.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">two_tosses</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">product</span><span class="p">(</span><span class="n">one_toss</span><span class="p">,</span> <span class="n">repeat</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">two_tosses</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[(&#39;H&#39;, &#39;H&#39;), (&#39;H&#39;, &#39;T&#39;), (&#39;T&#39;, &#39;H&#39;), (&#39;T&#39;, &#39;T&#39;)]</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>For three tosses, just change the number of repetitions:</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">three_tosses</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">product</span><span class="p">(</span><span class="n">one_toss</span><span class="p">,</span> <span class="n">repeat</span><span class="o">=</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">three_tosses</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[(&#39;H&#39;, &#39;H&#39;, &#39;H&#39;),
+ (&#39;H&#39;, &#39;H&#39;, &#39;T&#39;),
+ (&#39;H&#39;, &#39;T&#39;, &#39;H&#39;),
+ (&#39;H&#39;, &#39;T&#39;, &#39;T&#39;),
+ (&#39;T&#39;, &#39;H&#39;, &#39;H&#39;),
+ (&#39;T&#39;, &#39;H&#39;, &#39;T&#39;),
+ (&#39;T&#39;, &#39;T&#39;, &#39;H&#39;),
+ (&#39;T&#39;, &#39;T&#39;, &#39;T&#39;)]</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>A <em>probability space</em> is an outcome space accompanied by the probabilities of all the outcomes. If you assume all eight outcomes of three tosses are equally likely, the probabilities are all 1/8:</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">three_toss_probs</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">8</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The corresponding probability space:</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">three_toss_space</span> <span class="o">=</span> <span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">with_columns</span><span class="p">(</span>
+    <span class="s1">&#39;omega&#39;</span><span class="p">,</span> <span class="n">three_tosses</span><span class="p">,</span>
+    <span class="s1">&#39;P(omega)&#39;</span><span class="p">,</span> <span class="n">three_toss_probs</span>
+<span class="p">)</span>
+<span class="n">three_toss_space</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>omega</th> <th>P(omega)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>['H' 'H' 'H']</td> <td>0.125   </td>
+        </tr>
+        <tr>
+            <td>['H' 'H' 'T']</td> <td>0.125   </td>
+        </tr>
+        <tr>
+            <td>['H' 'T' 'H']</td> <td>0.125   </td>
+        </tr>
+        <tr>
+            <td>['H' 'T' 'T']</td> <td>0.125   </td>
+        </tr>
+        <tr>
+            <td>['T' 'H' 'H']</td> <td>0.125   </td>
+        </tr>
+        <tr>
+            <td>['T' 'H' 'T']</td> <td>0.125   </td>
+        </tr>
+        <tr>
+            <td>['T' 'T' 'H']</td> <td>0.125   </td>
+        </tr>
+        <tr>
+            <td>['T' 'T' 'T']</td> <td>0.125   </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Product spaces get large very quickly. If you roll a die 5 times, there are almost 8,000 possible outcomes:</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="mi">6</span><span class="o">**</span><span class="mi">5</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>7776</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>But we have <code>product</code> so we can still list them all! Here is a probability space representing 5 rolls of a die.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">die</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="n">five_rolls</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">product</span><span class="p">(</span><span class="n">die</span><span class="p">,</span> <span class="n">repeat</span><span class="o">=</span><span class="mi">5</span><span class="p">))</span>  <span class="c1"># All possible results of 5 rolls</span>
+
+<span class="n">five_rolls_probs</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">6</span><span class="o">**</span><span class="mi">5</span><span class="p">)</span><span class="o">**</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">6</span><span class="o">**</span><span class="mi">5</span><span class="p">)</span>  <span class="c1"># Each result has chance 1/6**5</span>
+
+<span class="n">five_rolls_space</span> <span class="o">=</span> <span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">with_columns</span><span class="p">(</span>
+   <span class="s1">&#39;omega&#39;</span><span class="p">,</span> <span class="n">five_rolls</span><span class="p">,</span>
+    <span class="s1">&#39;P(omega)&#39;</span><span class="p">,</span> <span class="n">five_rolls_probs</span>
+<span class="p">)</span>
+
+<span class="n">five_rolls_space</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>omega</th> <th>P(omega)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>[1 1 1 1 1]</td> <td>0.000128601</td>
+        </tr>
+        <tr>
+            <td>[1 1 1 1 2]</td> <td>0.000128601</td>
+        </tr>
+        <tr>
+            <td>[1 1 1 1 3]</td> <td>0.000128601</td>
+        </tr>
+        <tr>
+            <td>[1 1 1 1 4]</td> <td>0.000128601</td>
+        </tr>
+        <tr>
+            <td>[1 1 1 1 5]</td> <td>0.000128601</td>
+        </tr>
+        <tr>
+            <td>[1 1 1 1 6]</td> <td>0.000128601</td>
+        </tr>
+        <tr>
+            <td>[1 1 1 2 1]</td> <td>0.000128601</td>
+        </tr>
+        <tr>
+            <td>[1 1 1 2 2]</td> <td>0.000128601</td>
+        </tr>
+        <tr>
+            <td>[1 1 1 2 3]</td> <td>0.000128601</td>
+        </tr>
+        <tr>
+            <td>[1 1 1 2 4]</td> <td>0.000128601</td>
+        </tr>
+    </tbody>
+</table>
+<p>... (7766 rows omitted)</p>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="A-Function-on-the-Outcome-Space">A Function on the Outcome Space<a class="anchor-link" href="#A-Function-on-the-Outcome-Space"> </a></h3><p>Suppose you roll a die five times and add up the number of spots you see. If that seems artificial, be patient for a moment and you'll soon see why it's interesting.</p>
+<p>The sum of the rolls is a numerical function on the outcome space $\Omega$ of five rolls. The sum is thus a <em>random variable</em>. Let's call it $S$. Then, formally,
+$$
+S: \Omega \rightarrow \{ 5, 6, \ldots, 30 \}
+$$
+The range of $S$ is the integers 5 through 30, because each die shows at least one spot and at most six spots. We can also use the equivalent notation</p>
+$$
+\Omega \stackrel{S}{\rightarrow} \{ 5, 6, \ldots, 30 \}
+$$
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>From a computational perspective, the elements of $\Omega$ are in the column <code>omega</code> of <code>five_roll_space</code>. Let's apply this function and create a larger table.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">five_rolls_sum</span> <span class="o">=</span> <span class="n">five_rolls_space</span><span class="o">.</span><span class="n">with_column</span><span class="p">(</span>
+    <span class="s1">&#39;S(omega)&#39;</span><span class="p">,</span> <span class="n">five_rolls_space</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="nb">sum</span><span class="p">,</span> <span class="s1">&#39;omega&#39;</span><span class="p">)</span>
+<span class="p">)</span><span class="o">.</span><span class="n">move_to_end</span><span class="p">(</span><span class="s1">&#39;P(omega)&#39;</span><span class="p">)</span>
+
+<span class="n">five_rolls_sum</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>omega</th> <th>S(omega)</th> <th>P(omega)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>[1 1 1 1 1]</td> <td>5       </td> <td>0.000128601</td>
+        </tr>
+        <tr>
+            <td>[1 1 1 1 2]</td> <td>6       </td> <td>0.000128601</td>
+        </tr>
+        <tr>
+            <td>[1 1 1 1 3]</td> <td>7       </td> <td>0.000128601</td>
+        </tr>
+        <tr>
+            <td>[1 1 1 1 4]</td> <td>8       </td> <td>0.000128601</td>
+        </tr>
+        <tr>
+            <td>[1 1 1 1 5]</td> <td>9       </td> <td>0.000128601</td>
+        </tr>
+        <tr>
+            <td>[1 1 1 1 6]</td> <td>10      </td> <td>0.000128601</td>
+        </tr>
+        <tr>
+            <td>[1 1 1 2 1]</td> <td>6       </td> <td>0.000128601</td>
+        </tr>
+        <tr>
+            <td>[1 1 1 2 2]</td> <td>7       </td> <td>0.000128601</td>
+        </tr>
+        <tr>
+            <td>[1 1 1 2 3]</td> <td>8       </td> <td>0.000128601</td>
+        </tr>
+        <tr>
+            <td>[1 1 1 2 4]</td> <td>9       </td> <td>0.000128601</td>
+        </tr>
+    </tbody>
+</table>
+<p>... (7766 rows omitted)</p>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We now have every possible outcome of five rolls of a die, along with its total number of spots. You can see that the first row of the table shows the smallest possible number of spots, corresponding to all the rolls showing 1 spot. The 7776th row shows the largest:</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">five_rolls_sum</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="mi">7775</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>omega</th> <th>S(omega)</th> <th>P(omega)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>[6 6 6 6 6]</td> <td>30      </td> <td>0.000128601</td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>All the other values of $S$ are between these two extremes.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Functions-of-Random-Variables">Functions of Random Variables<a class="anchor-link" href="#Functions-of-Random-Variables"> </a></h4><p>A random variable is a numerical function on $\Omega$. Therefore by composition, a numerical function of a random variable is also a random variable.</p>
+<p>For example, $S^2$ is a random variable, calculated as follows:</p>
+$$
+S^2(\omega) = \big{(} S(\omega)\big{)}^2
+$$<p>Thus for example $S^2(\text{[6 6 6 6 6]}) = 30^2 = 900$.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Events-Determined-by-$S$">Events Determined by $S$<a class="anchor-link" href="#Events-Determined-by-$S$"> </a></h3><p>From the table <code>five_rolls_sum</code> it is hard to tell how many rows show a sum of 6, or 10, or any other value. To better understand the properties of $S$, we have to organize the information in <code>five_rolls_sum</code>.</p>
+<p>For any subset $A$ of the range of $S$, define the event $\{S \in A\}$ as</p>
+$$
+\{S \in A \} = \{\omega: S(\omega) \in A \}
+$$<p>That is, $\{ S \in A\}$ is the collection of all $\omega$ for which $S(\omega)$ is in $A$. In terms of the table, the set consists of the values of $\omega$ in all the rows in which the sum is in $A$.</p>
+<p>Try out the definition in a special case. Take $A = \{5, 30\}$. Then $\{S \in A\}$ if and only if either all the rolls show 1 spot or all the rolls show 6 spots. So 
+$$
+\{S \in A\} = \{\text{[1 1 1 1 1], [6 6 6 6 6]}\}
+$$</p>
+<p>It is natural to ask about the chance the sum is a particular value, say 10. That's not easy to read off the table, but we can access the corresponding rows:</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">five_rolls_sum</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s1">&#39;S(omega)&#39;</span><span class="p">,</span> <span class="n">are</span><span class="o">.</span><span class="n">equal_to</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>omega</th> <th>S(omega)</th> <th>P(omega)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>[1 1 1 1 6]</td> <td>10      </td> <td>0.000128601</td>
+        </tr>
+        <tr>
+            <td>[1 1 1 2 5]</td> <td>10      </td> <td>0.000128601</td>
+        </tr>
+        <tr>
+            <td>[1 1 1 3 4]</td> <td>10      </td> <td>0.000128601</td>
+        </tr>
+        <tr>
+            <td>[1 1 1 4 3]</td> <td>10      </td> <td>0.000128601</td>
+        </tr>
+        <tr>
+            <td>[1 1 1 5 2]</td> <td>10      </td> <td>0.000128601</td>
+        </tr>
+        <tr>
+            <td>[1 1 1 6 1]</td> <td>10      </td> <td>0.000128601</td>
+        </tr>
+        <tr>
+            <td>[1 1 2 1 5]</td> <td>10      </td> <td>0.000128601</td>
+        </tr>
+        <tr>
+            <td>[1 1 2 2 4]</td> <td>10      </td> <td>0.000128601</td>
+        </tr>
+        <tr>
+            <td>[1 1 2 3 3]</td> <td>10      </td> <td>0.000128601</td>
+        </tr>
+        <tr>
+            <td>[1 1 2 4 2]</td> <td>10      </td> <td>0.000128601</td>
+        </tr>
+    </tbody>
+</table>
+<p>... (116 rows omitted)</p>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>There are 126 values of $\omega$ for which $S(\omega) = 10$. Since all the $\omega$ are equally likely, the chance that $S$ has the value 10 is 126/7776.</p>
+<p>We will usually be informal with notation and write $\{ S = 10 \}$ instead of $\{ S \in \{10\} \}$:
+$$
+P(S = 10) = \frac{126}{7776} = 1.62\%
+$$</p>
+
+</div>
+</div>
+</div>
+</div>
+
+ 
+

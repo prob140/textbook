@@ -1,0 +1,78 @@
+---
+redirect_from:
+  - "/chapter-02/00-calculating-chances"
+interact_link: content/Chapter_02/00_Calculating_Chances.ipynb
+kernel_name: Python [Root]
+has_widgets: false
+title: 'Chapter 2: Calculating Chances'
+prev_page:
+  url: /Chapter_01/05_An_Exponential_Approximation.html
+  title: 'An Exponential Approximation'
+next_page:
+  url: /Chapter_02/01_Addition.html
+  title: 'Addition'
+comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
+---
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># HIDDEN</span>
+<span class="kn">from</span> <span class="nn">datascience</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">prob140</span> <span class="k">import</span> <span class="o">*</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;fivethirtyeight&#39;</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Calculating-Chances">Calculating Chances<a class="anchor-link" href="#Calculating-Chances"> </a></h1>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Once you start working with probabilities, you quickly realize that the assumption of all possible outcomes being equally likely isn't always reasonable. For example, if you think a coin is biased then you won't want to assume that it lands heads with the same chance as tails.</p>
+<p>To deal with settings in which some outcomes have a higher chance than others, a more general theory is needed. In the 1930's, the Russian mathematician <a href="https://en.wikipedia.org/wiki/Andrey_Kolmogorov">Andrey Kolmogorov</a> (1903-1987) formulated some ground rules, known as <em>axioms</em>, that covered a rich array of settings and became the foundation of modern probability theory.</p>
+<p>The axioms start out with an outcome space $\Omega$. We will assume $\Omega$ to be finite for now. Probability is a function $P$ defined on events, which as you know are subsets of $\Omega$. The first two axioms just set the scale of measurement: they define probabilites to be numbers between 0 and 1.</p>
+<ul>
+<li>Probabilities are non-negative: for each event $A$, $P(A) \ge 0$.</li>
+<li>The probability of the whole space is 1: $P(\Omega ) = 1$.</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The third and final axiom is the key to probability being a "measure" of an event. We will study it after we have developed some relevant terminology.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+ 
+

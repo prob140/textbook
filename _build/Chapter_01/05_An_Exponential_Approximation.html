@@ -1,0 +1,361 @@
+---
+redirect_from:
+  - "/chapter-01/05-an-exponential-approximation"
+interact_link: content/Chapter_01/05_An_Exponential_Approximation.ipynb
+kernel_name: python3
+has_widgets: false
+title: 'An Exponential Approximation'
+prev_page:
+  url: /Chapter_01/04_Birthday_Problem.html
+  title: 'The Birthday Problem'
+next_page:
+  url: /Chapter_02/00_Calculating_Chances.html
+  title: 'Chapter 2: Calculating Chances'
+comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
+---
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># HIDDEN</span>
+<span class="kn">from</span> <span class="nn">datascience</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">prob140</span> <span class="k">import</span> <span class="o">*</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;fivethirtyeight&#39;</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="An-Exponential-Approximation">An Exponential Approximation<a class="anchor-link" href="#An-Exponential-Approximation"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The goal of this section is to understand how the chance of at least one collision behaves as a function of the number of individuals $n$, when there are $N$ hash values and $N$ is large compared to $n$.</p>
+<p>We know that chance is</p>
+$$
+P(\text{at least one collision}) ~=~ 1 ~-~ \prod_{i=0}^{n-1} \frac{N-i}{N}
+$$
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>While this gives an exact formula for the chance, it doesn't give us a sense of how the function grows. Let's see if we can develop an approximation that has a simpler form and is therefore easier to study.</p>
+<p>The main steps in the approximation will be used repeatedly in this course, so we will set them out in some detail here.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Step-1.-Only-Approximate-Terms-that-Need-Approximation">Step 1. Only Approximate Terms that Need Approximation<a class="anchor-link" href="#Step-1.-Only-Approximate-Terms-that-Need-Approximation"> </a></h3><p>While this might seem obvious, it's worth noting as it can save a lot of unnecessary fiddling. We are trying to approximate</p>
+$$
+1 ~-~ \prod_{i=0}^{n-1} \frac{N-i}{N}
+$$<p>so all we need to approximate is</p>
+$$
+\prod_{i=0}^{n-1} \frac{N-i}{N}
+$$<p>We can subtract the approximation from 1 at the end.</p>
+<p>In other words, we'll approximate $P(\text{no collision})$ instead.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Step-2.-Use-$\log$-to-Convert-Products-to-Sums">Step 2. Use $\log$ to Convert Products to Sums<a class="anchor-link" href="#Step-2.-Use-$\log$-to-Convert-Products-to-Sums"> </a></h3><p>Our formula is a product, but we are much better at working with sums. The <code>log</code> function helps us turn the product into a sum:</p>
+$$
+\log (P(\text{no collision})) ~=~ \sum_{i=0}^{n-1} \log(\frac{N-i}{N})
+$$<p>Once we have an approximation to $\log (P(\text{no collision}))$, we can use exponentiation to convert it to an approximation for what we want, which is $P(\text{no collision})$.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Step-3.-Use-Properties-of-$\log$">Step 3. Use Properties of $\log$<a class="anchor-link" href="#Step-3.-Use-Properties-of-$\log$"> </a></h3><p>This is usually the step where the main calculation happens. Remember that $\log(1+x) \sim x$ for small $x$, where the symbol $\sim$ here means that the ratio of the two sides goes to 1 as $x$ goes to 0. The approximation might not be great for larger $x$ but let's try it out anyway.</p>
+$$
+\begin{align*}
+\log(P(\text{no collision})) ~ &amp;=~ \sum_{i=0}^{n-1} \log(\frac{N-i}{N}) \\
+&amp;=~ \sum_{i=0}^{n-1} \log(1 - \frac{i}{N}) \\
+&amp;\sim ~ \sum_{i=0}^{n-1} (- \frac{i}{N}) \\
+&amp;=~ -\frac{1}{N} \sum_{i=0}^{n-1} i \\ \\
+&amp;= - \frac{1}{N} \cdot \frac{(n-1)n}{2}
+\end{align*}
+$$
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>by the formula for the sum of the first $n-1$ positive integers.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Step-4.-Invert-as-Needed-to-Complete-the-Approximation">Step 4. Invert as Needed to Complete the Approximation<a class="anchor-link" href="#Step-4.-Invert-as-Needed-to-Complete-the-Approximation"> </a></h3><p>The hard work has been done, and now we just have to clean things up. Step 3 gave us</p>
+$$
+\log(P(\text{no collision})) ~\sim ~ - \frac{1}{N} \cdot \frac{(n-1)n}{2}
+$$<p>and so by exponentiation on both sides we get</p>
+$$
+P(\text{no collision}) ~\sim ~ 
+e^{- (n-1)n/2N } ~ \sim ~ e^{-n^2/2N}
+$$<p>Finally,
+$$
+P(\text{at least one collision}) ~\sim ~ 1 - e^{- (n-1)n/2N }
+~ \sim ~ 1 - e^{-n^2/2N}
+$$</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now you can see why the $P(\text{at least one collision})$ rises sharply as a function of the number of people. Remember that $N$ is fixed and $n$ varies between 1 and $N$. As $n$ increases, $(n-1)n$ increases fast, essentially like $n^2$. So $-n^2/2N$ decreases fast, which makes $e^{-n^2/2N}$ drop sharply; and that makes $1 - e^{-n^2/2N}$ shoot up.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>It's worth noting that there is only one approxmation in the entire calculation: it's in the line in the middle of Step 3, where we use $\log(1+x) \sim x$ for small $x$. We will encounter this approximation several times in the course.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="How-Good-is-the-Approximation?">How Good is the Approximation?<a class="anchor-link" href="#How-Good-is-the-Approximation?"> </a></h3><p>To see how the exponential approximation compares with the exact probabilities, let's work in the context of birthdays; you can change $N$ in the code if you prefer a different setting.</p>
+<p>To see the entire sequence of steps, we will redo our exact calculations and augment them with a column of approximations. We'll use the somewhat more careful approximation of the two above.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">365</span> 
+
+<span class="k">def</span> <span class="nf">p_no_match</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">individuals_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">((</span><span class="n">N</span> <span class="o">-</span> <span class="n">individuals_array</span><span class="p">)</span><span class="o">/</span><span class="n">N</span><span class="p">)</span>
+
+<span class="n">trials</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">with_column</span><span class="p">(</span><span class="s1">&#39;Trials&#39;</span><span class="p">,</span> <span class="n">trials</span><span class="p">)</span>
+<span class="n">different</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">p_no_match</span><span class="p">,</span> <span class="s1">&#39;Trials&#39;</span><span class="p">)</span>
+
+<span class="n">results</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">with_column</span><span class="p">(</span>
+    <span class="s1">&#39;P(at least one match)&#39;</span><span class="p">,</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">different</span><span class="p">,</span>
+    <span class="s1">&#39;Exponential Approximation&#39;</span><span class="p">,</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">e</span><span class="o">**</span><span class="p">(</span> <span class="o">-</span><span class="p">(</span><span class="n">trials</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">trials</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">N</span><span class="p">)</span> <span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">results</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>Trials</th> <th>P(at least one match)</th> <th>Exponential Approximation</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1     </td> <td>0                    </td> <td>0                        </td>
+        </tr>
+    </tbody>
+        <tr>
+            <td>2     </td> <td>0.00273973           </td> <td>0.00273598               </td>
+        </tr>
+    </tbody>
+        <tr>
+            <td>3     </td> <td>0.00820417           </td> <td>0.00818549               </td>
+        </tr>
+    </tbody>
+        <tr>
+            <td>4     </td> <td>0.0163559            </td> <td>0.016304                 </td>
+        </tr>
+    </tbody>
+        <tr>
+            <td>5     </td> <td>0.0271356            </td> <td>0.0270254                </td>
+        </tr>
+    </tbody>
+        <tr>
+            <td>6     </td> <td>0.0404625            </td> <td>0.0402629                </td>
+        </tr>
+    </tbody>
+        <tr>
+            <td>7     </td> <td>0.0562357            </td> <td>0.0559104                </td>
+        </tr>
+    </tbody>
+        <tr>
+            <td>8     </td> <td>0.0743353            </td> <td>0.0738438                </td>
+        </tr>
+    </tbody>
+        <tr>
+            <td>9     </td> <td>0.0946238            </td> <td>0.0939222                </td>
+        </tr>
+    </tbody>
+        <tr>
+            <td>10    </td> <td>0.116948             </td> <td>0.115991                 </td>
+        </tr>
+    </tbody>
+</table>
+<p>... (355 rows omitted)</p>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The first 10 approximations look pretty good. Let's take a look at some more.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">results</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="s1">&#39;Trials&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">N</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../images/Chapter_01/05_An_Exponential_Approximation_14_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>On the scale of this graph, the blue dots (the exact values) are almost indistinguishable from the gold (our exponential approximation). You can run the code again with the less careful approximation that replaces $(n-1)n$ by $n^2$ and see that the approximation is still excellent.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>What we learn from the second form of the approximation is that the chance that there is at least one collision among the $n$ assigned values is essentially $1 - e^{-cn^2}$ where $c$ is a positive constant.</p>
+<p>We will encounter the function $1 - e^{-cx^2}$ again when we study the <em>Rayleigh distribution</em> later in the course.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+ 
+

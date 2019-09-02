@@ -1,0 +1,587 @@
+---
+redirect_from:
+  - "/chapter-04/01-joint-distributions"
+interact_link: content/Chapter_04/01_Joint_Distributions.ipynb
+kernel_name: python3
+has_widgets: false
+title: 'Joint Distributions'
+prev_page:
+  url: /Chapter_04/00_Relations_Between_Variables.html
+  title: 'Chapter 4: Relations Between Variables'
+next_page:
+  url: /Chapter_04/02_Marginal_Distributions.html
+  title: 'Marginal Distributions'
+comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
+---
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># HIDDEN</span>
+<span class="kn">from</span> <span class="nn">datascience</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">prob140</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;fivethirtyeight&#39;</span><span class="p">)</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Joint-Distributions">Joint Distributions<a class="anchor-link" href="#Joint-Distributions"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Suppose $X$ and $Y$ are two random variables defined on the same outcome space. We will use the notation $P(X = x, Y = y)$ for the probability that $X$ has the value $x$ and $Y$ has the value $y$.</p>
+<p>The <em>joint distribution of $X$ and $Y$</em> consists of all the probabilities $P(X=x, Y=y)$ where $(x, y)$ ranges over all the possible values of $(X, Y)$.</p>
+<h4 id="Example">Example<a class="anchor-link" href="#Example"> </a></h4><p>In three tosses of a coin, let $X$ be the number of heads in the first two tosses and $Y$ the number of heads in the last two tosses. Then</p>
+$$
+P(X = 0, Y = 2) = 0 = P(X = 2, Y = 0)
+$$$$
+P(X = 1, Y = 1) = P(\text{THT or HTH}) = \frac{2}{8}
+$$<p>All the other probabilities are $1/8$, as you can see by examining the six remaining outcomes of three tosses. For example,</p>
+$$
+P(X = 1, Y = 2) = P(\text{THH}) = \frac{1}{8}
+$$<p>The constraints on $x$ and $y$ are that each must be in the range $\{0, 1, 2\}$ and $\vert x - y \vert &lt; 2$.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Joint-Distribution-Table">Joint Distribution Table<a class="anchor-link" href="#Joint-Distribution-Table"> </a></h3><p>The <code>prob140</code> library contains a method for displaying the joint distribution of two random variables. As a first step, you need the possible values of each of the two variables. In our example, both $X$ and $Y$ have values $\{0, 1, 2\}$ and so the same list or array will serve for both.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now let's define a function that takes $x$ and $y$ as its arguments and returns $P(X = x, Y = y)$. We found the probabilities by counting, above.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">joint_probability</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">1</span> <span class="o">&amp;</span> <span class="n">y</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">2</span><span class="o">/</span><span class="mi">8</span>
+    <span class="k">elif</span> <span class="nb">abs</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span><span class="o">/</span><span class="mi">8</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The syntax for constructing a joint distribution object is analogous to that for constructing a univariate distribution, with some modifications due to the higher dimension.</p>
+<p>We have to specify the name of each of the two variables as well as its possible values, and then we will specify the function that we have defined to find the joint probabilities. The call is</p>
+<p><code>Table().values(variable_name_1, values_1, variable_name_2, values_2).probability_function(function_name)</code></p>
+<p>where <code>function_name</code> is a function that takes $x$ and $y$ as arguments and returns $P(X = x, Y = y)$.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">joint_dist</span> <span class="o">=</span> <span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span><span class="o">.</span><span class="n">probability_function</span><span class="p">(</span><span class="n">joint_probability</span><span class="p">)</span>
+<span class="n">joint_dist</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>X=0</th>
+      <th>X=1</th>
+      <th>X=2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Y=2</th>
+      <td>0.000</td>
+      <td>0.125</td>
+      <td>0.125</td>
+    </tr>
+    <tr>
+      <th>Y=1</th>
+      <td>0.125</td>
+      <td>0.250</td>
+      <td>0.125</td>
+    </tr>
+    <tr>
+      <th>Y=0</th>
+      <td>0.125</td>
+      <td>0.125</td>
+      <td>0.000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This display of the joint distribution object <code>joint_dist</code> is called a <em>joint distribution table</em> for $X$ and $Y$.</p>
+<p>Each cell corresponds to a pair $(x, y)$, where $x$ is a value of $X$ and $y$ a value of $Y$. In the cell you see $P(X = x, Y = y)$, the probability of the pair $(x, y)$.</p>
+<p>Joint distribution tables are analogous to the contingency tables you saw in Data 8 when you were analyzing the relation between two categorical variables. In contingency tables, each cell contains the number of individuals in one particular pair of categories. In joint distribution tables, such as the one above, each cell contains the probability of one particular pair of values.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To check that we do indeed have a distribution over all the possible values of the pair $(X, Y)$, we can add up all the probabilities. The sum is 1, as it should be for a distribution.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">joint_dist</span><span class="o">.</span><span class="n">total_probability</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>1.0</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In fact this is a double check, as the the method for constructing the joint distribution object returns an error if all the probabilities don't sum to 1.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Finding-Probabilities">Finding Probabilities<a class="anchor-link" href="#Finding-Probabilities"> </a></h3><p>The table contains complete information about the relation between $X$ and $Y$. To find the probabiilty of any event determined by $X$ and $Y$, simply identify the cells that make the event happen, and add up their chances. This is an application of the fundamental method of finding probabilities by partitioning an event.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>For example, consider the event $\{ X = Y \}$ for $X$ and $Y$ as defined in our example above. The event can happen in three ways: if $X$ and $Y$ are both 0, or both 1, or both 2. So</p>
+$$
+\begin{align*}
+P(X = Y) &amp;= P(X = 0, Y = 0) + P(X = 1, Y = 1) + P(X = 2 , Y = 2) \\
+&amp;= 0.125 + 0.25 + 0.125 \\
+&amp;= 0.5
+\end{align*}
+$$
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let's visualize this using the joint distribution table of $X$ and $Y$. To do this, we need a way of specifying the event $\{ X = Y \}$.</p>
+<p>We will use a method that is of fundamental importance to everything that follows in this course: we will define a function called the <em>indicator of the event</em>. The function just returns a Boolean: 1 if the event occurs, and 0 otherwise. In this example, for any pair $(i, j)$ it returns 1 if $i = j$ and 0 otherwise.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">indicator_equal</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">i</span> <span class="o">==</span> <span class="n">j</span>         <span class="c1"># Note the == sign. This is a comparison that results in a Boolean.</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The <code>event</code> method applied to a joint distribution object allows us to visualize the event and also displays the probability of the event. The arguments are:</p>
+<ul>
+<li>The name of a function that is the indicator of the event; it takes two arguments, say <code>a</code> and <code>b</code>, and returns the Boolean corresponding to whether or not the pair (<code>a</code>, <code>b</code>) is in the event</li>
+<li>The name of the random variable whose value is the first co-ordinate <code>a</code></li>
+<li>The name of the random variable whose value is the second co-ordinate <code>b</code></li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">joint_dist</span><span class="o">.</span><span class="n">event</span><span class="p">(</span><span class="n">indicator_equal</span><span class="p">,</span> <span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="s1">&#39;Y&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>P(Event) = 0.5
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>X=0</th>
+      <th>X=1</th>
+      <th>X=2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Y=2</th>
+      <td></td>
+      <td></td>
+      <td>0.125</td>
+    </tr>
+    <tr>
+      <th>Y=1</th>
+      <td></td>
+      <td>0.25</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Y=0</th>
+      <td>0.125</td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The display <code>P(event) = 0.5</code> is consistent with our earlier answer $P(X = Y) = 0.5$. In the table, probabilities are displayed only in the cells that are in the event, that is, only the cells $(x, y)$ for which $x = y$.</p>
+<p>You can see that these cells all lie along the $x = y$ diagonal line. The coordinate geometry will be visible again when we calculate $P(Y \ge X)$, for example.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">indicator_y_at_least_x</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">j</span> <span class="o">&gt;=</span> <span class="n">i</span>
+
+<span class="n">joint_dist</span><span class="o">.</span><span class="n">event</span><span class="p">(</span><span class="n">indicator_y_at_least_x</span><span class="p">,</span> <span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="s1">&#39;Y&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>P(Event) = 0.75
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>X=0</th>
+      <th>X=1</th>
+      <th>X=2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Y=2</th>
+      <td>0.000</td>
+      <td>0.125</td>
+      <td>0.125</td>
+    </tr>
+    <tr>
+      <th>Y=1</th>
+      <td>0.125</td>
+      <td>0.25</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Y=0</th>
+      <td>0.125</td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The visible cells form the upper triangle corresponding to points whose coordinates $(x, y)$ satisfy the the inequality $y \ge x$. The chance of the event is $P(Y \ge X) = 0.75$.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="The-General-Calculation">The General Calculation<a class="anchor-link" href="#The-General-Calculation"> </a></h3><p>As we have seen in these examples, saying that random variables $X$ and $Y$ satisfy a specified condition is the same as saying that the random point $(X, Y)$ falls in a particular region of the plane. In general, an <em>event determined by $X$ and $Y$</em> has the form "the point $(X, Y)$ is in a specified region $B$ of the plane".</p>
+<p>In the case of the event $\{ X = Y \}$ the region $B$ is the diagonal formed by points whose coordinates satisfy $x = y$.</p>
+<p>In the case of the event $\{ Y \ge X \}$ the region $B$ is the upper triangle formed by the points whose coordinates satisfy $y \ge x$.</p>
+<p>The probability of the event is $P((X,Y) \in B)$, which is obtained in two steps:</p>
+<ul>
+<li>Identify all pairs of possible values $(x, y)$ such that $(x, y) \in B$.</li>
+<li>Add the probabilities $P(X = x, Y = y)$ of all those pairs.</li>
+</ul>
+<p>Expressed more compactly,</p>
+$$
+P((X, Y) \in B) ~ = ~ \mathop{\sum \sum}_{(x,y) \in B} P(X = x, Y = y)
+$$
+</div>
+</div>
+</div>
+</div>
+
+ 
+
