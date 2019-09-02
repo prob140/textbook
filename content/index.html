@@ -7,16 +7,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width,minimum-scale=1">
 
-  <title>Standard Normal: The Basics</title>
-  <meta name="description" content="">
+  <title>Prob 140</title>
+  <meta name="description" content="This is an example book built with Jupyter Books.">
 
-  <link rel="canonical" href="http://predictablynoisy.com/textbook-prob140/Chapter_18/01_Standard_Normal_Basics.html">
+  <link rel="canonical" href="http://predictablynoisy.com/textbook-prob140/content/">
   <link rel="alternate" type="application/rss+xml" title="Prob 140 Textbook" href="http://predictablynoisy.com/textbook-prob140/feed.xml">
 
-  <meta property="og:url"         content="http://predictablynoisy.com/textbook-prob140/Chapter_18/01_Standard_Normal_Basics.html" />
+  <meta property="og:url"         content="http://predictablynoisy.com/textbook-prob140/content/" />
 <meta property="og:type"        content="article" />
-<meta property="og:title"       content="Standard Normal: The Basics" />
-<meta property="og:description" content="" />
+<meta property="og:title"       content="Prob 140" />
+<meta property="og:description" content="This is an example book built with Jupyter Books." />
 <meta property="og:image"       content="http://predictablynoisy.com/textbook-prob140/content/images/logo/logo.png" />
 
 <meta name="twitter:card" content="summary">
@@ -27,15 +27,15 @@
   "@context": "http://schema.org",
   "@type": "NewsArticle",
   "mainEntityOfPage":
-    "http://predictablynoisy.com/textbook-prob140/Chapter_18/01_Standard_Normal_Basics.html",
+    "http://predictablynoisy.com/textbook-prob140/content/",
   "headline":
-    "Standard Normal: The Basics",
+    "Prob 140",
   "datePublished":
     "2019-09-02T11:37:22-07:00",
   "dateModified":
     "2019-09-02T11:37:22-07:00",
   "description":
-    "",
+    "This is an example book built with Jupyter Books.",
   "author": {
     "@type": "Person",
     "name": "Ani Adhikari"
@@ -2727,13 +2727,13 @@ initFunction(initPrint)
 
           
 
-          <ul class="c-sidebar__sections ">
+          <ul class="c-sidebar__sections u-hidden-visually">
             
               
               
 
               <li class="c-sidebar__section">
-                <a class="c-sidebar__entry c-sidebar__entry--active"
+                <a class="c-sidebar__entry "
                   href="/textbook-prob140/Chapter_18/01_Standard_Normal_Basics.html"
                 >
                   
@@ -3612,27 +3612,9 @@ initFunction(initPrint)
 <div class="download-buttons-dropdown">
     <button id="dropdown-button-trigger" class="interact-button"><i class="fa fa-download"></i></button>
     <div class="download-buttons">
-        <a href="/textbook-prob140/content/Chapter_18/01_Standard_Normal_Basics.ipynb" download>
-        <button id="interact-button-download" class="interact-button">ORIG</button>
-        </a>
         
         <a id="interact-button-print"><button id="interact-button-download" class="interact-button">PDF</button></a>
     </div>
-</div>
-
-
-
-
-
-
-
-
-
-
-<a href="https://prob140.datahub.berkeley.edu/hub/user-redirect/git-pull?repo=https://github.com//prob140/textbook&amp;branch=gh-pages&amp;subPath=content%2FChapter_18%2F01_Standard_Normal_Basics.ipynb&amp;app=notebook"><button class="interact-button" id="interact-button-jupyterhub"><img class="interact-button-logo" src="/textbook-prob140/assets/images/logo_jupyterhub.svg" alt="Interact" />JupyterHub</button></a>
-
-
-
 </div>
 
 
@@ -3648,237 +3630,21 @@ initFunction(initPrint)
 
       <main class="c-textbook__page" tabindex="-1">
             <div class="c-textbook__content" id="textbook_content">
-              <div class="jb_cell">
+              <h1 id="prob-140">Prob 140</h1>
 
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Standard-Normal:-The-Basics">Standard Normal: The Basics<a class="anchor-link" href="#Standard-Normal:-The-Basics"> </a></h2>
-</div>
-</div>
-</div>
-</div>
+<h2 id="probability-for-data-science">Probability for Data Science</h2>
 
-<div class="jb_cell">
+<p><strong>By <a href="http://statistics.berkeley.edu/people/ani-adhikari">Ani Adhikari</a> and <a href="http://www.stat.berkeley.edu/~pitman/">Jim Pitman</a></strong></p>
 
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Though we have accepted the formula for the standard normal density function since Data 8, we have never proved that it is indeed a density – that it integrates to 1. We have also not checked that its expectation exists, nor that its SD is 1.</p>
-<p>It's time to do all that and thereby ensure that our calculations involving normal densities are legitimate.</p>
-<p>We will start by recalling some facts about the apparently unrelated Rayleigh distribution, which we encountered as the distribution of the square root of an exponential variable.</p>
+<p>This is the textbook for the <a href="http://prob140.org/">Probability for Data Science</a> class at UC Berkeley.</p>
 
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Let $T$ have the exponential $(1/2)$ distribution. Then we will say that $R = \sqrt{T}$ has the Rayleigh distribution, with cdf given by</p>
-$$
-F_R(r) = 1 - e^{-\frac{1}{2}r^2}, ~~~~ r &gt; 0
-$$<p>and density given by</p>
-$$
-f_R(r) = re^{-\frac{1}{2}r^2}, ~~~~ r &gt; 0
-$$<p>In fact, there is a family of Rayleigh distributions, each of whose members has the distribution of $cR$ for some positive constant $c$. But let us define $R$ to have "the" Rayleigh distribution, and let's see what $R$ has to do with standard normal variables.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="The-Constant-of-Integration">The Constant of Integration<a class="anchor-link" href="#The-Constant-of-Integration"> </a></h3><p>Let $X$ and $Y$ be independent standard normal variables. Since we haven't yet proved that the constant of integration in the standard normal density should be $1/\sqrt{2\pi}$, let's just call it $c$ for now. Then the joint density of $X$ and $Y$ is</p>
-$$
-f(x, y) ~ = ~ c e^{-\frac{1}{2}x^2} \cdot c e^{-\frac{1}{2}y^2} 
-~ = ~ c^2 e^{-\frac{1}{2}(x^2 + y^2)},
-~~~~ -\infty &lt; x, y &lt; \infty
-$$<p>Regardless of the value of the constant, the joint density has <em>circular symmetry</em>: if two points on the plane are at the same radial distance from the origin, then the joint density is the same at those two points. Let's make this more clear in our notation.</p>
-$$
-f(x, y) ~ = ~ c^2 e^{-\frac{1}{2}r^2} ~~~~ \text{where } x^2 + y^2 = r^2
-$$<p>Now let $R = \sqrt{X^2 + Y^2}$. To find the density of $R$, let's try to calculate $P(R \in dr)$. The event is shown in the graph below.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell tag_remove_input">
-
-<div class="cell border-box-sizing code_cell rendered">
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-
-
-<div class="output_png output_subarea ">
-<img src="../images/Chapter_18/01_Standard_Normal_Basics_4_0.png"
->
-</div>
-
-</div>
-</div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>To find the corresponding volume under the joint density surface, two observations will help.</p>
-<ul>
-<li>Because of circular symmetry, the joint density surface is essentially at a constant height over the entire gold ring. The height is $c^2e^{-\frac{1}{2}r^2}$. </li>
-<li>The area of the ring is essentially that of a rectangle with width $dr$ and length equal to the circumference $2\pi r$.</li>
-</ul>
-<p>Hence</p>
-$$
-P(R \in dr) ~ \sim ~ 2\pi r \cdot dr \cdot c^2e^{-\frac{1}{2}r^2}, ~~~~ r &gt; 0
-$$<p>So the density of $R$ is</p>
-$$
-f_R(r) ~ = ~ 2\pi c^2 r e^{-\frac{1}{2}r^2}, ~~~~ r &gt; 0
-$$<p>Compare this with the Rayleigh density. The two are exactly the same except that the constants look different. The constant is 1 for the Rayleigh and $2\pi c^2$ for our new $R$. But as both functions are densities, the constants must be equal. Hence $ 1 = 2\pi c^2$, which means</p>
-$$
-c = \frac{1}{\sqrt{2\pi}}
-$$<p>Now we know that the standard normal density $\phi$ is indeed a density.</p>
-$$
-\phi(z) ~ = ~ \frac{1}{\sqrt{2\pi}} e^{-\frac{1}{2}z^2}, ~~~~ -\infty &lt; z &lt; \infty
-$$
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell tag_remove_input">
-
-<div class="cell border-box-sizing code_cell rendered">
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-
-
-<div class="output_png output_subarea ">
-<img src="../images/Chapter_18/01_Standard_Normal_Basics_6_0.png"
->
-</div>
-
-</div>
-</div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">indep_standard_normals</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
-    <span class="k">return</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
-
-<span class="n">Plot_3d</span><span class="p">((</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">indep_standard_normals</span><span class="p">,</span> <span class="n">rstride</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">cstride</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Joint Density of $X$ and $Y$&#39;</span><span class="p">);</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-
-
-<div class="output_png output_subarea ">
-<img src="../images/Chapter_18/01_Standard_Normal_Basics_7_0.png"
->
-</div>
-
-</div>
-</div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Expectation">Expectation<a class="anchor-link" href="#Expectation"> </a></h3><p>If $Z$ is standard normal and $E(Z)$ exists, then $E(Z)$ has to be 0 by symmetry. But you have seen in exercises that not all symmetric distributions have expectations; the Cauchy is an example. To be sure that $E(Z) = 0$ we should first check that $E(\lvert Z \rvert)$ is finite. Let's do that.</p>
-$$
-\begin{align*}
-E(\lvert Z \rvert) &amp;= \int_{-\infty}^\infty \lvert z \rvert \phi(z)dz \\ \\
-&amp;= 2 \int_0^\infty z \phi(z)dz ~~~~ \text{(symmetry)} \\ \\
-&amp;= \frac{2}{\sqrt{2\pi}} \int_0^\infty z e^{-\frac{1}{2}z^2} dz \\ \\
-&amp;= \frac{2}{\sqrt{2\pi}} ~~~~~~ \text{(Rayleigh density integrates to 1)} \\ \\
-&amp;= \sqrt{\frac{2}{\pi}}
-\end{align*}
-$$<p>Not only have we shown that $E(\lvert Z \rvert)$ is finite and hence $E(Z) = 0$, but we have also found the value of $E(\lvert Z \rvert)$.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Variance">Variance<a class="anchor-link" href="#Variance"> </a></h3><p>If $X$ and $Y$ are independent standard normal variables, then we have shown that $R = \sqrt{X^2 + Y^2}$ has the Rayleigh distribution.</p>
-<p>You also know that the Rayleigh distribution arises as the distribution of the square root of an exponential $(1/2)$ random variable.</p>
-<p>It follows that if $X$ and $Y$ are independent standard normal, then $X^2 + Y^2$ has the exponential $(1/2)$ distribution.</p>
-<p>We will study this more closely in a later section. For now, let's make two observations about expectation.</p>
-<ul>
-<li>$X^2 + Y^2$ has the exponential $(1/2)$ distribution, so $E(X^2 + Y^2) = 2$.</li>
-<li>$X$ and $Y$ are identically distributed, so $E(X^2) = E(Y^2)$.</li>
-</ul>
-<p>Therefore $E(X^2) = 1$. We know that $E(X) = 0$. So $Var(X) = 1$ and hence $SD(X) = 1$.</p>
-
-</div>
-</div>
-</div>
-</div>
-
- 
-
+<p>The contents of this book are licensed for free consumption under the following license:
+<a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)</a></p>
 
             </div>
             <nav class="c-page__nav">
   
-    
-    <a id="js-page__nav__prev" class="c-page__nav__prev" href="/textbook-prob140/Chapter_18/00_The_Normal_and_Gamma_Families.html">
-      〈 <span class="u-margin-right-tiny"></span> Chapter 18: The Normal and Gamma F...
-    </a>
-  
 
-  
-    
-    <a id="js-page__nav__next" class="c-page__nav__next" href="/textbook-prob140/Chapter_18/02_Sums_of_Independent_Normal_Variables.html">
-      Sums of Independent Normal Variables <span class="u-margin-right-tiny"></span> 〉
-    </a>
   
 </nav>
 

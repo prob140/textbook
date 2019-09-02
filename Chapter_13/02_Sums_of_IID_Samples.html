@@ -10,14 +10,14 @@
   <title>Sums of IID Samples</title>
   <meta name="description" content="">
 
-  <link rel="canonical" href="http://prob140.org/textbook/Chapter_13/02_Sums_of_IID_Samples.html">
-  <link rel="alternate" type="application/rss+xml" title="Prob 140 Textbook" href="http://prob140.org/textbook/feed.xml">
+  <link rel="canonical" href="http://predictablynoisy.com/textbook-prob140/Chapter_13/02_Sums_of_IID_Samples.html">
+  <link rel="alternate" type="application/rss+xml" title="Prob 140 Textbook" href="http://predictablynoisy.com/textbook-prob140/feed.xml">
 
-  <meta property="og:url"         content="http://prob140.org/textbook/Chapter_13/02_Sums_of_IID_Samples.html" />
+  <meta property="og:url"         content="http://predictablynoisy.com/textbook-prob140/Chapter_13/02_Sums_of_IID_Samples.html" />
 <meta property="og:type"        content="article" />
 <meta property="og:title"       content="Sums of IID Samples" />
 <meta property="og:description" content="" />
-<meta property="og:image"       content="http://prob140.org/textbook/content/images/logo/logo.png" />
+<meta property="og:image"       content="http://predictablynoisy.com/textbook-prob140/content/images/logo/logo.png" />
 
 <meta name="twitter:card" content="summary">
 
@@ -27,13 +27,13 @@
   "@context": "http://schema.org",
   "@type": "NewsArticle",
   "mainEntityOfPage":
-    "http://prob140.org/textbook/Chapter_13/02_Sums_of_IID_Samples.html",
+    "http://predictablynoisy.com/textbook-prob140/Chapter_13/02_Sums_of_IID_Samples.html",
   "headline":
     "Sums of IID Samples",
   "datePublished":
-    "2019-09-02T11:27:06-07:00",
+    "2019-09-02T11:37:22-07:00",
   "dateModified":
-    "2019-09-02T11:27:06-07:00",
+    "2019-09-02T11:37:22-07:00",
   "description":
     "",
   "author": {
@@ -45,21 +45,21 @@
     "name": "Data 100 at UC Berkeley",
     "logo": {
       "@type": "ImageObject",
-      "url": "http://prob140.org/textbook",
+      "url": "http://predictablynoisy.com/textbook-prob140",
       "width": 60,
       "height": 60
     }
   },
   "image": {
     "@type": "ImageObject",
-    "url": "http://prob140.org/textbook",
+    "url": "http://predictablynoisy.com/textbook-prob140",
     "height": 60,
     "width": 60
   }
 }
 
   </script>
-  <link rel="stylesheet" href="/textbook/assets/css/styles.css">
+  <link rel="stylesheet" href="/textbook-prob140/assets/css/styles.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css ">
 
   <!-- <link rel="manifest" href="/manifest.json"> -->
@@ -69,7 +69,7 @@
   <meta name="theme-color" content="#233947">
 
   <!-- Favicon -->
-  <link rel="shortcut icon" type="image/x-icon" href="/textbook/images/logo/favicon.ico">
+  <link rel="shortcut icon" type="image/x-icon" href="/textbook-prob140/images/logo/favicon.ico">
 
   <!-- MathJax Config -->
   <!-- Allow inline math using $ and automatically break long math lines -->
@@ -117,11 +117,11 @@ initFunction = function(myfunc) {
 
   <!-- Define some javascript variables that will be useful in other javascript -->
   <script>
-    const site_basename = '/textbook';
+    const site_basename = '/textbook-prob140';
   </script>
 
   <!-- Add AnchorJS to let headers be linked -->
-  <script src="/textbook/assets/js/anchor.min.js"  type="text/javascript"></script>
+  <script src="/textbook-prob140/assets/js/anchor.min.js"  type="text/javascript"></script>
   <script>
 
 initFunction(function () {
@@ -132,7 +132,7 @@ initFunction(function () {
 
   <!-- Include Turbolinks to make page loads fast -->
   <!-- https://github.com/turbolinks/turbolinks -->
-  <script src="/textbook/assets/js/turbolinks.js" async></script>
+  <script src="/textbook-prob140/assets/js/turbolinks.js" async></script>
   <meta name="turbolinks-cache-control" content="no-cache">
 
   <!-- Selectors for elements on the page -->
@@ -183,7 +183,7 @@ initFunction(findInputCells);
 
 
   <!-- Load the auto-generating TOC -->
-  <script src="/textbook/assets/js/tocbot.min.js"  type="text/javascript"></script>
+  <script src="/textbook-prob140/assets/js/tocbot.min.js"  type="text/javascript"></script>
 <script>
 var initToc = function () {
   tocbot.init({
@@ -202,17 +202,17 @@ initFunction(initToc);
 </script>
 
   <!-- Google analytics -->
-  <script src="/textbook/assets/js/ga.js" async></script>
+  <script src="/textbook-prob140/assets/js/ga.js" async></script>
 
   <!-- Clipboard copy button -->
   <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" async></script>
 
   <!-- Load custom website scripts -->
-  <script src="/textbook/assets/js/scripts.js" async></script>
+  <script src="/textbook-prob140/assets/js/scripts.js" async></script>
 
   <!-- Load custom user CSS and JS  -->
-  <script src="/textbook/assets/custom/custom.js" async></script>
-  <link rel="stylesheet" href="/textbook/assets/custom/custom.css">
+  <script src="/textbook-prob140/assets/custom/custom.js" async></script>
+  <link rel="stylesheet" href="/textbook-prob140/assets/custom/custom.css">
 
   <!-- Update interact links w/ REST param, is defined in includes so we can use templates -->
   
@@ -276,7 +276,7 @@ function addParamToInternalLinks(hub) {
   var links = document.querySelectorAll("a").forEach(function(link) {
     var href = link.href;
     // If the link is an internal link...
-    if (href.search("http://prob140.org") !== -1 || href.startsWith('/') || href.search("127.0.0.1:") !== -1) {
+    if (href.search("http://predictablynoisy.com") !== -1 || href.startsWith('/') || href.search("127.0.0.1:") !== -1) {
       // Assume we're an internal link, add the hub param to it
       var params = getJsonFromUrl(href);
       if (params !== false) {
@@ -359,7 +359,7 @@ document.addEventListener('turbolinks:load', updateInteractLink)
 
 
   <!-- Lunr search code - will only be executed on the /search page -->
-  <script src="/textbook/assets/js/lunr/lunr.min.js" type="text/javascript"></script>
+  <script src="/textbook-prob140/assets/js/lunr/lunr.min.js" type="text/javascript"></script>
   <script>var initQuery = function() {
   // See if we have a search box
   var searchInput = document.querySelector('input#lunr_search');
@@ -453,7 +453,7 @@ initFunction(initQuery);
  */
 const clipboardButton = id =>
   `<a id="copy-button-${id}" class="btn copybtn o-tooltip--left" data-tooltip="Copy" data-clipboard-target="#${id}">
-    <img src="/textbook/assets/images/copy-button.svg" alt="Copy to clipboard">
+    <img src="/textbook-prob140/assets/images/copy-button.svg" alt="Copy to clipboard">
   </a>`
 
 // Clears selected text since ClipboardJS will select the text when copying
@@ -591,7 +591,7 @@ initFunction(addCopyButtonToCodeCells);
 
   <!-- Printing the screen -->
   <!-- Include nbinteract for interactive widgets -->
-<script src="/textbook/assets/js/print.min.js"  type="text/javascript"></script>
+<script src="/textbook-prob140/assets/js/print.min.js"  type="text/javascript"></script>
 <script>
 printContent = () => {
     // MathJax displays a second version of any math for assistive devices etc.
@@ -607,7 +607,7 @@ printContent = () => {
     printJS({
         printable: 'textbook_content',
         type: 'html',
-        css: "/textbook/assets/css/styles.css",
+        css: "/textbook-prob140/assets/css/styles.css",
         scanStyles: false,
         targetStyles: ["*"],
         ignoreElements: ignoreAssistList
@@ -631,7 +631,7 @@ initFunction(initPrint)
 
 
 <nav id="js-sidebar" class="c-textbook__sidebar">
-  <a href="http://prob140.org/textbook/README.html"><img src="/textbook/content/images/logo/logo.png" class="textbook_logo" id="sidebar-logo" data-turbolinks-permanent/></a>
+  <a href="http://prob140.org/textbook/README.html"><img src="/textbook-prob140/content/images/logo/logo.png" class="textbook_logo" id="sidebar-logo" data-turbolinks-permanent/></a>
   <h2 class="c-sidebar__title">Prob 140 Textbook</h2>
   <ul class="c-sidebar__chapters">
     
@@ -666,7 +666,7 @@ initFunction(initPrint)
       
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/textbook/README.html"
+          href="/textbook-prob140/README.html"
         >
           
           Authors and License
@@ -687,7 +687,7 @@ initFunction(initPrint)
       
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/textbook/To_the_Student.html"
+          href="/textbook-prob140/To_the_Student.html"
         >
           
           To the Student
@@ -739,7 +739,7 @@ initFunction(initPrint)
       
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/textbook/Chapter_01/00_Fundamentals.html"
+          href="/textbook-prob140/Chapter_01/00_Fundamentals.html"
         >
           
             2.
@@ -763,7 +763,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_01/01_Outcome_Space_and_Events.html"
+                  href="/textbook-prob140/Chapter_01/01_Outcome_Space_and_Events.html"
                 >
                   
                     2.1
@@ -782,7 +782,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_01/02_Equally_Likely_Outcomes.html"
+                  href="/textbook-prob140/Chapter_01/02_Equally_Likely_Outcomes.html"
                 >
                   
                     2.2
@@ -801,7 +801,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_01/03_Collisions_in_Hashing.html"
+                  href="/textbook-prob140/Chapter_01/03_Collisions_in_Hashing.html"
                 >
                   
                     2.3
@@ -820,7 +820,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_01/04_Birthday_Problem.html"
+                  href="/textbook-prob140/Chapter_01/04_Birthday_Problem.html"
                 >
                   
                     2.4
@@ -839,7 +839,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_01/05_An_Exponential_Approximation.html"
+                  href="/textbook-prob140/Chapter_01/05_An_Exponential_Approximation.html"
                 >
                   
                     2.5
@@ -869,7 +869,7 @@ initFunction(initPrint)
       
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/textbook/Chapter_02/00_Calculating_Chances.html"
+          href="/textbook-prob140/Chapter_02/00_Calculating_Chances.html"
         >
           
             3.
@@ -893,7 +893,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_02/01_Addition.html"
+                  href="/textbook-prob140/Chapter_02/01_Addition.html"
                 >
                   
                     3.1
@@ -912,7 +912,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_02/02_Examples.html"
+                  href="/textbook-prob140/Chapter_02/02_Examples.html"
                 >
                   
                     3.2
@@ -931,7 +931,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_02/03_Multiplication.html"
+                  href="/textbook-prob140/Chapter_02/03_Multiplication.html"
                 >
                   
                     3.3
@@ -950,7 +950,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_02/04_More_Examples.html"
+                  href="/textbook-prob140/Chapter_02/04_More_Examples.html"
                 >
                   
                     3.4
@@ -969,7 +969,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_02/05_Updating_Probabilities.html"
+                  href="/textbook-prob140/Chapter_02/05_Updating_Probabilities.html"
                 >
                   
                     3.5
@@ -999,7 +999,7 @@ initFunction(initPrint)
       
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/textbook/Chapter_03/00_Random_Variables.html"
+          href="/textbook-prob140/Chapter_03/00_Random_Variables.html"
         >
           
             4.
@@ -1023,7 +1023,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_03/01_Functions_on_an_Outcome_Space.html"
+                  href="/textbook-prob140/Chapter_03/01_Functions_on_an_Outcome_Space.html"
                 >
                   
                     4.1
@@ -1042,7 +1042,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_03/02_Distributions.html"
+                  href="/textbook-prob140/Chapter_03/02_Distributions.html"
                 >
                   
                     4.2
@@ -1061,7 +1061,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_03/03_Equality.html"
+                  href="/textbook-prob140/Chapter_03/03_Equality.html"
                 >
                   
                     4.3
@@ -1091,7 +1091,7 @@ initFunction(initPrint)
       
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/textbook/Chapter_04/00_Relations_Between_Variables.html"
+          href="/textbook-prob140/Chapter_04/00_Relations_Between_Variables.html"
         >
           
             5.
@@ -1115,7 +1115,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_04/01_Joint_Distributions.html"
+                  href="/textbook-prob140/Chapter_04/01_Joint_Distributions.html"
                 >
                   
                     5.1
@@ -1134,7 +1134,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_04/02_Examples.html"
+                  href="/textbook-prob140/Chapter_04/02_Examples.html"
                 >
                   
                     5.2
@@ -1153,7 +1153,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_04/03_Marginal_Distributions.html"
+                  href="/textbook-prob140/Chapter_04/03_Marginal_Distributions.html"
                 >
                   
                     5.3
@@ -1172,7 +1172,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_04/04_Conditional_Distributions.html"
+                  href="/textbook-prob140/Chapter_04/04_Conditional_Distributions.html"
                 >
                   
                     5.4
@@ -1191,7 +1191,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_04/05_Dependence_and_Independence.html"
+                  href="/textbook-prob140/Chapter_04/05_Dependence_and_Independence.html"
                 >
                   
                     5.5
@@ -1221,7 +1221,7 @@ initFunction(initPrint)
       
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/textbook/Chapter_05/00_Collections_of_Events.html"
+          href="/textbook-prob140/Chapter_05/00_Collections_of_Events.html"
         >
           
             6.
@@ -1245,7 +1245,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_05/01_Bounding_the_Chance_of_a_Union.html"
+                  href="/textbook-prob140/Chapter_05/01_Bounding_the_Chance_of_a_Union.html"
                 >
                   
                     6.1
@@ -1264,7 +1264,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_05/02_Inclusion_Exclusion.html"
+                  href="/textbook-prob140/Chapter_05/02_Inclusion_Exclusion.html"
                 >
                   
                     6.2
@@ -1283,7 +1283,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_05/03_The_Matching_Problem.html"
+                  href="/textbook-prob140/Chapter_05/03_The_Matching_Problem.html"
                 >
                   
                     6.3
@@ -1302,7 +1302,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_05/04_Sampling_Without_Replacement.html"
+                  href="/textbook-prob140/Chapter_05/04_Sampling_Without_Replacement.html"
                 >
                   
                     6.4
@@ -1332,7 +1332,7 @@ initFunction(initPrint)
       
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/textbook/Chapter_05/05_Review_Problems_Set_1.html"
+          href="/textbook-prob140/Chapter_05/05_Review_Problems_Set_1.html"
         >
           
           Review Problem Set 1
@@ -1353,7 +1353,7 @@ initFunction(initPrint)
       
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/textbook/Chapter_06/00_Random_Counts.html"
+          href="/textbook-prob140/Chapter_06/00_Random_Counts.html"
         >
           
             7.
@@ -1377,7 +1377,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_06/01_Binomial_Distribution.html"
+                  href="/textbook-prob140/Chapter_06/01_Binomial_Distribution.html"
                 >
                   
                     7.1
@@ -1396,7 +1396,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_06/02_Examples.html"
+                  href="/textbook-prob140/Chapter_06/02_Examples.html"
                 >
                   
                     7.2
@@ -1415,7 +1415,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_06/03_Hypergeometric_Distribution.html"
+                  href="/textbook-prob140/Chapter_06/03_Hypergeometric_Distribution.html"
                 >
                   
                     7.3
@@ -1434,7 +1434,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_06/04_Odds_Ratios.html"
+                  href="/textbook-prob140/Chapter_06/04_Odds_Ratios.html"
                 >
                   
                     7.4
@@ -1453,7 +1453,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_06/05_Law_of_Small_Numbers.html"
+                  href="/textbook-prob140/Chapter_06/05_Law_of_Small_Numbers.html"
                 >
                   
                     7.5
@@ -1483,7 +1483,7 @@ initFunction(initPrint)
       
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/textbook/Chapter_07/00_Poissonization.html"
+          href="/textbook-prob140/Chapter_07/00_Poissonization.html"
         >
           
             8.
@@ -1507,7 +1507,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_07/01_Poissonizing_the_Binomial.html"
+                  href="/textbook-prob140/Chapter_07/01_Poissonizing_the_Binomial.html"
                 >
                   
                     8.1
@@ -1526,7 +1526,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_07/02_Poissonizing_the_Multinomial.html"
+                  href="/textbook-prob140/Chapter_07/02_Poissonizing_the_Multinomial.html"
                 >
                   
                     8.2
@@ -1556,7 +1556,7 @@ initFunction(initPrint)
       
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/textbook/Chapter_08/00_Expectation.html"
+          href="/textbook-prob140/Chapter_08/00_Expectation.html"
         >
           
             9.
@@ -1580,7 +1580,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_08/01_Definition.html"
+                  href="/textbook-prob140/Chapter_08/01_Definition.html"
                 >
                   
                     9.1
@@ -1599,7 +1599,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_08/02_Additivity.html"
+                  href="/textbook-prob140/Chapter_08/02_Additivity.html"
                 >
                   
                     9.2
@@ -1618,7 +1618,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_08/03_Expectations_of_Functions.html"
+                  href="/textbook-prob140/Chapter_08/03_Expectations_of_Functions.html"
                 >
                   
                     9.3
@@ -1648,7 +1648,7 @@ initFunction(initPrint)
       
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/textbook/Chapter_08/04_Review_Problems_Set_2.html"
+          href="/textbook-prob140/Chapter_08/04_Review_Problems_Set_2.html"
         >
           
           Review Problems: Set 2
@@ -1669,7 +1669,7 @@ initFunction(initPrint)
       
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/textbook/Chapter_09/00_Conditioning_Revisited.html"
+          href="/textbook-prob140/Chapter_09/00_Conditioning_Revisited.html"
         >
           
             10.
@@ -1693,7 +1693,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_09/01_Probability_by_Conditioning.html"
+                  href="/textbook-prob140/Chapter_09/01_Probability_by_Conditioning.html"
                 >
                   
                     10.1
@@ -1712,7 +1712,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_09/02_Expectation_by_Conditioning.html"
+                  href="/textbook-prob140/Chapter_09/02_Expectation_by_Conditioning.html"
                 >
                   
                     10.2
@@ -1731,7 +1731,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_09/03_Expected_Waiting_Times.html"
+                  href="/textbook-prob140/Chapter_09/03_Expected_Waiting_Times.html"
                 >
                   
                     10.3
@@ -1761,7 +1761,7 @@ initFunction(initPrint)
       
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/textbook/Chapter_10/00_Markov_Chains.html"
+          href="/textbook-prob140/Chapter_10/00_Markov_Chains.html"
         >
           
             11.
@@ -1785,7 +1785,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_10/01_Transitions.html"
+                  href="/textbook-prob140/Chapter_10/01_Transitions.html"
                 >
                   
                     11.1
@@ -1804,7 +1804,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_10/02_Deconstructing_Chains.html"
+                  href="/textbook-prob140/Chapter_10/02_Deconstructing_Chains.html"
                 >
                   
                     11.2
@@ -1823,7 +1823,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_10/03_Long_Run_Behavior.html"
+                  href="/textbook-prob140/Chapter_10/03_Long_Run_Behavior.html"
                 >
                   
                     11.3
@@ -1842,7 +1842,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_10/04_Examples.html"
+                  href="/textbook-prob140/Chapter_10/04_Examples.html"
                 >
                   
                     11.4
@@ -1872,7 +1872,7 @@ initFunction(initPrint)
       
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/textbook/Chapter_11/00_Reversing_Markov_Chains.html"
+          href="/textbook-prob140/Chapter_11/00_Reversing_Markov_Chains.html"
         >
           
             12.
@@ -1896,7 +1896,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_11/01_Detailed_Balance.html"
+                  href="/textbook-prob140/Chapter_11/01_Detailed_Balance.html"
                 >
                   
                     12.1
@@ -1915,7 +1915,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_11/02_Reversibility.html"
+                  href="/textbook-prob140/Chapter_11/02_Reversibility.html"
                 >
                   
                     12.2
@@ -1934,7 +1934,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_11/03_Code_Breaking.html"
+                  href="/textbook-prob140/Chapter_11/03_Code_Breaking.html"
                 >
                   
                     12.3
@@ -1953,7 +1953,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_11/04_Markov_Chain_Monte_Carlo.html"
+                  href="/textbook-prob140/Chapter_11/04_Markov_Chain_Monte_Carlo.html"
                 >
                   
                     12.4
@@ -1983,7 +1983,7 @@ initFunction(initPrint)
       
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/textbook/Chapter_11/05_Review_Conditioning_and_MC.html"
+          href="/textbook-prob140/Chapter_11/05_Review_Conditioning_and_MC.html"
         >
           
           Review Set on Conditioning and Markov Chains
@@ -2004,7 +2004,7 @@ initFunction(initPrint)
       
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/textbook/Chapter_12/00_Standard_Deviation.html"
+          href="/textbook-prob140/Chapter_12/00_Standard_Deviation.html"
         >
           
             13.
@@ -2028,7 +2028,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_12/01_Definition.html"
+                  href="/textbook-prob140/Chapter_12/01_Definition.html"
                 >
                   
                     13.1
@@ -2047,7 +2047,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_12/02_Prediction_and_Estimation.html"
+                  href="/textbook-prob140/Chapter_12/02_Prediction_and_Estimation.html"
                 >
                   
                     13.2
@@ -2066,7 +2066,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_12/03_Bounds.html"
+                  href="/textbook-prob140/Chapter_12/03_Bounds.html"
                 >
                   
                     13.3
@@ -2085,7 +2085,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_12/04_Heavy_Tails.html"
+                  href="/textbook-prob140/Chapter_12/04_Heavy_Tails.html"
                 >
                   
                     13.4
@@ -2115,7 +2115,7 @@ initFunction(initPrint)
       
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/textbook/Chapter_13/00_Variance_Via_Covariance.html"
+          href="/textbook-prob140/Chapter_13/00_Variance_Via_Covariance.html"
         >
           
             14.
@@ -2139,7 +2139,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_13/01_Properties_of_Covariance.html"
+                  href="/textbook-prob140/Chapter_13/01_Properties_of_Covariance.html"
                 >
                   
                     14.1
@@ -2158,7 +2158,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry c-sidebar__entry--active"
-                  href="/textbook/Chapter_13/02_Sums_of_IID_Samples.html"
+                  href="/textbook-prob140/Chapter_13/02_Sums_of_IID_Samples.html"
                 >
                   
                     14.2
@@ -2177,7 +2177,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_13/03_Sums_of_Simple_Random_Samples.html"
+                  href="/textbook-prob140/Chapter_13/03_Sums_of_Simple_Random_Samples.html"
                 >
                   
                     14.3
@@ -2196,7 +2196,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_13/04_Finite_Population_Correction.html"
+                  href="/textbook-prob140/Chapter_13/04_Finite_Population_Correction.html"
                 >
                   
                     14.4
@@ -2226,7 +2226,7 @@ initFunction(initPrint)
       
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/textbook/Chapter_14/00_The_Central_Limit_Theorem.html"
+          href="/textbook-prob140/Chapter_14/00_The_Central_Limit_Theorem.html"
         >
           
             15.
@@ -2250,7 +2250,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_14/01_Exact_Distribution.html"
+                  href="/textbook-prob140/Chapter_14/01_Exact_Distribution.html"
                 >
                   
                     15.1
@@ -2269,7 +2269,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_14/02_PGFs_in_NumPy.html"
+                  href="/textbook-prob140/Chapter_14/02_PGFs_in_NumPy.html"
                 >
                   
                     15.2
@@ -2288,7 +2288,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_14/03_Central_Limit_Theorem.html"
+                  href="/textbook-prob140/Chapter_14/03_Central_Limit_Theorem.html"
                 >
                   
                     15.3
@@ -2307,7 +2307,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_14/04_The_Sample_Mean.html"
+                  href="/textbook-prob140/Chapter_14/04_The_Sample_Mean.html"
                 >
                   
                     15.4
@@ -2326,7 +2326,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_14/05_Confidence_Intervals.html"
+                  href="/textbook-prob140/Chapter_14/05_Confidence_Intervals.html"
                 >
                   
                     15.5
@@ -2356,7 +2356,7 @@ initFunction(initPrint)
       
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/textbook/Chapter_15/00_Continuous_Distributions.html"
+          href="/textbook-prob140/Chapter_15/00_Continuous_Distributions.html"
         >
           
             16.
@@ -2380,7 +2380,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_15/01_Density_and_CDF.html"
+                  href="/textbook-prob140/Chapter_15/01_Density_and_CDF.html"
                 >
                   
                     16.1
@@ -2399,7 +2399,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_15/02_The_Meaning_of_Density.html"
+                  href="/textbook-prob140/Chapter_15/02_The_Meaning_of_Density.html"
                 >
                   
                     16.2
@@ -2418,7 +2418,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_15/03_Expectation.html"
+                  href="/textbook-prob140/Chapter_15/03_Expectation.html"
                 >
                   
                     16.3
@@ -2437,7 +2437,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_15/04_Exponential_Distribution.html"
+                  href="/textbook-prob140/Chapter_15/04_Exponential_Distribution.html"
                 >
                   
                     16.4
@@ -2456,7 +2456,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_15/05_Calculus_in_SymPy.html"
+                  href="/textbook-prob140/Chapter_15/05_Calculus_in_SymPy.html"
                 >
                   
                     16.5
@@ -2486,7 +2486,7 @@ initFunction(initPrint)
       
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/textbook/Chapter_15/06_Review_Problems_Set_3.html"
+          href="/textbook-prob140/Chapter_15/06_Review_Problems_Set_3.html"
         >
           
           Review Problems: Set 3
@@ -2507,7 +2507,7 @@ initFunction(initPrint)
       
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/textbook/Chapter_16/00_Transformations.html"
+          href="/textbook-prob140/Chapter_16/00_Transformations.html"
         >
           
             17.
@@ -2531,7 +2531,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_16/01_Linear_Transformations.html"
+                  href="/textbook-prob140/Chapter_16/01_Linear_Transformations.html"
                 >
                   
                     17.1
@@ -2550,7 +2550,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_16/02_Monotone_Functions.html"
+                  href="/textbook-prob140/Chapter_16/02_Monotone_Functions.html"
                 >
                   
                     17.2
@@ -2569,7 +2569,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_16/03_Two_to_One_Functions.html"
+                  href="/textbook-prob140/Chapter_16/03_Two_to_One_Functions.html"
                 >
                   
                     17.3
@@ -2599,7 +2599,7 @@ initFunction(initPrint)
       
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/textbook/Chapter_17/00_Joint_Densities.html"
+          href="/textbook-prob140/Chapter_17/00_Joint_Densities.html"
         >
           
             18.
@@ -2623,7 +2623,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_17/01_Probabilities_and_Expectations.html"
+                  href="/textbook-prob140/Chapter_17/01_Probabilities_and_Expectations.html"
                 >
                   
                     18.1
@@ -2642,7 +2642,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_17/02_Independence.html"
+                  href="/textbook-prob140/Chapter_17/02_Independence.html"
                 >
                   
                     18.2
@@ -2661,7 +2661,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_17/03_Marginal_and_Conditional_Densities.html"
+                  href="/textbook-prob140/Chapter_17/03_Marginal_and_Conditional_Densities.html"
                 >
                   
                     18.3
@@ -2680,7 +2680,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_17/04_Beta_Densities_with_Integer_Parameters.html"
+                  href="/textbook-prob140/Chapter_17/04_Beta_Densities_with_Integer_Parameters.html"
                 >
                   
                     18.4
@@ -2710,7 +2710,7 @@ initFunction(initPrint)
       
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/textbook/Chapter_18/00_The_Normal_and_Gamma_Families.html"
+          href="/textbook-prob140/Chapter_18/00_The_Normal_and_Gamma_Families.html"
         >
           
             19.
@@ -2734,7 +2734,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_18/01_Standard_Normal_Basics.html"
+                  href="/textbook-prob140/Chapter_18/01_Standard_Normal_Basics.html"
                 >
                   
                     19.1
@@ -2753,7 +2753,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_18/02_Sums_of_Independent_Normal_Variables.html"
+                  href="/textbook-prob140/Chapter_18/02_Sums_of_Independent_Normal_Variables.html"
                 >
                   
                     19.2
@@ -2772,7 +2772,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_18/03_The_Gamma_Family.html"
+                  href="/textbook-prob140/Chapter_18/03_The_Gamma_Family.html"
                 >
                   
                     19.3
@@ -2791,7 +2791,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_18/04_Chi_Squared_Distributions.html"
+                  href="/textbook-prob140/Chapter_18/04_Chi_Squared_Distributions.html"
                 >
                   
                     19.4
@@ -2821,7 +2821,7 @@ initFunction(initPrint)
       
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/textbook/Chapter_18/05_Review_Problems_Set_4.html"
+          href="/textbook-prob140/Chapter_18/05_Review_Problems_Set_4.html"
         >
           
           Review Problems: Set 4
@@ -2842,7 +2842,7 @@ initFunction(initPrint)
       
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/textbook/Chapter_19/00_Distributions_of_Sums.html"
+          href="/textbook-prob140/Chapter_19/00_Distributions_of_Sums.html"
         >
           
             20.
@@ -2866,7 +2866,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_19/01_Convolution_Formula.html"
+                  href="/textbook-prob140/Chapter_19/01_Convolution_Formula.html"
                 >
                   
                     20.1
@@ -2885,7 +2885,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_19/02_Moment_Generating_Functions.html"
+                  href="/textbook-prob140/Chapter_19/02_Moment_Generating_Functions.html"
                 >
                   
                     20.2
@@ -2904,7 +2904,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_19/03_MGFs_Normal_and_the_CLT.html"
+                  href="/textbook-prob140/Chapter_19/03_MGFs_Normal_and_the_CLT.html"
                 >
                   
                     20.3
@@ -2923,7 +2923,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_19/04_Chernoff_Bound.html"
+                  href="/textbook-prob140/Chapter_19/04_Chernoff_Bound.html"
                 >
                   
                     20.4
@@ -2953,7 +2953,7 @@ initFunction(initPrint)
       
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/textbook/Chapter_20/00_Approaches_to_Estimation.html"
+          href="/textbook-prob140/Chapter_20/00_Approaches_to_Estimation.html"
         >
           
             21.
@@ -2977,7 +2977,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_20/01_Maximum_Likelihood.html"
+                  href="/textbook-prob140/Chapter_20/01_Maximum_Likelihood.html"
                 >
                   
                     21.1
@@ -2996,7 +2996,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_20/02_Prior_and_Posterior.html"
+                  href="/textbook-prob140/Chapter_20/02_Prior_and_Posterior.html"
                 >
                   
                     21.2
@@ -3015,7 +3015,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_20/03_Independence_Revisited.html"
+                  href="/textbook-prob140/Chapter_20/03_Independence_Revisited.html"
                 >
                   
                     21.3
@@ -3045,7 +3045,7 @@ initFunction(initPrint)
       
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/textbook/Chapter_21/00_The_Beta_and_the_Binomial.html"
+          href="/textbook-prob140/Chapter_21/00_The_Beta_and_the_Binomial.html"
         >
           
             22.
@@ -3069,7 +3069,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_21/01_Updating_and_Prediction.html"
+                  href="/textbook-prob140/Chapter_21/01_Updating_and_Prediction.html"
                 >
                   
                     22.1
@@ -3088,7 +3088,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_21/02_Beta_Binomial_Distribution.html"
+                  href="/textbook-prob140/Chapter_21/02_Beta_Binomial_Distribution.html"
                 >
                   
                     22.2
@@ -3107,7 +3107,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_21/03_Long_Run_Proportion_of_Heads.html"
+                  href="/textbook-prob140/Chapter_21/03_Long_Run_Proportion_of_Heads.html"
                 >
                   
                     22.3
@@ -3137,7 +3137,7 @@ initFunction(initPrint)
       
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/textbook/Chapter_22/00_Prediction.html"
+          href="/textbook-prob140/Chapter_22/00_Prediction.html"
         >
           
             23.
@@ -3161,7 +3161,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_22/01_Conditional_Expectation_Projection.html"
+                  href="/textbook-prob140/Chapter_22/01_Conditional_Expectation_Projection.html"
                 >
                   
                     23.1
@@ -3180,7 +3180,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_22/02_Variance_by_Conditioning.html"
+                  href="/textbook-prob140/Chapter_22/02_Variance_by_Conditioning.html"
                 >
                   
                     23.2
@@ -3199,7 +3199,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_22/03_Examples.html"
+                  href="/textbook-prob140/Chapter_22/03_Examples.html"
                 >
                   
                     23.3
@@ -3218,7 +3218,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_22/04_Least_Squares_Predictor.html"
+                  href="/textbook-prob140/Chapter_22/04_Least_Squares_Predictor.html"
                 >
                   
                     23.4
@@ -3248,7 +3248,7 @@ initFunction(initPrint)
       
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/textbook/Chapter_23/00_Multivariate_Normal_RVs.html"
+          href="/textbook-prob140/Chapter_23/00_Multivariate_Normal_RVs.html"
         >
           
             24.
@@ -3272,7 +3272,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_23/01_Random_Vectors.html"
+                  href="/textbook-prob140/Chapter_23/01_Random_Vectors.html"
                 >
                   
                     24.1
@@ -3291,7 +3291,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_23/02_Multivariate_Normal_Distribution.html"
+                  href="/textbook-prob140/Chapter_23/02_Multivariate_Normal_Distribution.html"
                 >
                   
                     24.2
@@ -3310,7 +3310,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_23/03_Linear_Combinations.html"
+                  href="/textbook-prob140/Chapter_23/03_Linear_Combinations.html"
                 >
                   
                     24.3
@@ -3329,7 +3329,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_23/04_Independence.html"
+                  href="/textbook-prob140/Chapter_23/04_Independence.html"
                 >
                   
                     24.4
@@ -3359,7 +3359,7 @@ initFunction(initPrint)
       
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/textbook/Chapter_24/00_Simple_Linear_Regression.html"
+          href="/textbook-prob140/Chapter_24/00_Simple_Linear_Regression.html"
         >
           
             25.
@@ -3383,7 +3383,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_24/01_Bivariate_Normal_Distribution.html"
+                  href="/textbook-prob140/Chapter_24/01_Bivariate_Normal_Distribution.html"
                 >
                   
                     25.1
@@ -3402,7 +3402,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_24/02_Linear_Least_Squares.html"
+                  href="/textbook-prob140/Chapter_24/02_Linear_Least_Squares.html"
                 >
                   
                     25.2
@@ -3421,7 +3421,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_24/03_Regression_and_Bivariate_Normal.html"
+                  href="/textbook-prob140/Chapter_24/03_Regression_and_Bivariate_Normal.html"
                 >
                   
                     25.3
@@ -3440,7 +3440,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_24/04_Regression_Equation.html"
+                  href="/textbook-prob140/Chapter_24/04_Regression_Equation.html"
                 >
                   
                     25.4
@@ -3470,7 +3470,7 @@ initFunction(initPrint)
       
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/textbook/Chapter_25/00_Multiple_Regression.html"
+          href="/textbook-prob140/Chapter_25/00_Multiple_Regression.html"
         >
           
             26.
@@ -3494,7 +3494,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_25/01_Bilinearity_in_Matrix_Notation.html"
+                  href="/textbook-prob140/Chapter_25/01_Bilinearity_in_Matrix_Notation.html"
                 >
                   
                     26.1
@@ -3513,7 +3513,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_25/02_Best_Linear_Predictor.html"
+                  href="/textbook-prob140/Chapter_25/02_Best_Linear_Predictor.html"
                 >
                   
                     26.2
@@ -3532,7 +3532,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_25/03_Multivariate_Normal_Conditioning.html"
+                  href="/textbook-prob140/Chapter_25/03_Multivariate_Normal_Conditioning.html"
                 >
                   
                     26.3
@@ -3551,7 +3551,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_25/04_Multiple_Regression.html"
+                  href="/textbook-prob140/Chapter_25/04_Multiple_Regression.html"
                 >
                   
                     26.4
@@ -3581,7 +3581,7 @@ initFunction(initPrint)
       
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/textbook/Chapter_25/05_Further_Review_Exercises.html"
+          href="/textbook-prob140/Chapter_25/05_Further_Review_Exercises.html"
         >
           
           Further Review Exercises
@@ -3612,7 +3612,7 @@ initFunction(initPrint)
 <div class="download-buttons-dropdown">
     <button id="dropdown-button-trigger" class="interact-button"><i class="fa fa-download"></i></button>
     <div class="download-buttons">
-        <a href="/textbook/content/Chapter_13/02_Sums_of_IID_Samples.ipynb" download>
+        <a href="/textbook-prob140/content/Chapter_13/02_Sums_of_IID_Samples.ipynb" download>
         <button id="interact-button-download" class="interact-button">ORIG</button>
         </a>
         
@@ -3629,7 +3629,7 @@ initFunction(initPrint)
 
 
 
-<a href="https://prob140.datahub.berkeley.edu/hub/user-redirect/git-pull?repo=https://github.com//prob140/textbook&amp;branch=gh-pages&amp;subPath=content%2FChapter_13%2F02_Sums_of_IID_Samples.ipynb&amp;app=notebook"><button class="interact-button" id="interact-button-jupyterhub"><img class="interact-button-logo" src="/textbook/assets/images/logo_jupyterhub.svg" alt="Interact" />JupyterHub</button></a>
+<a href="https://prob140.datahub.berkeley.edu/hub/user-redirect/git-pull?repo=https://github.com//prob140/textbook&amp;branch=gh-pages&amp;subPath=content%2FChapter_13%2F02_Sums_of_IID_Samples.ipynb&amp;app=notebook"><button class="interact-button" id="interact-button-jupyterhub"><img class="interact-button-logo" src="/textbook-prob140/assets/images/logo_jupyterhub.svg" alt="Interact" />JupyterHub</button></a>
 
 
 
@@ -3643,7 +3643,7 @@ initFunction(initPrint)
     <nav class="onthispage">
     </nav>
   </aside>
-  <a href="/textbook/search.html" class="topbar-right-button" id="search-button"><i class="fa fa-search"></i></a>
+  <a href="/textbook-prob140/search.html" class="topbar-right-button" id="search-button"><i class="fa fa-search"></i></a>
 </div>
 
       <main class="c-textbook__page" tabindex="-1">
@@ -3772,14 +3772,14 @@ $$<p>Here is the distribution of $X$. You can see that there is almost no probab
             <nav class="c-page__nav">
   
     
-    <a id="js-page__nav__prev" class="c-page__nav__prev" href="/textbook/Chapter_13/01_Properties_of_Covariance.html">
+    <a id="js-page__nav__prev" class="c-page__nav__prev" href="/textbook-prob140/Chapter_13/01_Properties_of_Covariance.html">
       〈 <span class="u-margin-right-tiny"></span> Properties of Covariance
     </a>
   
 
   
     
-    <a id="js-page__nav__next" class="c-page__nav__next" href="/textbook/Chapter_13/03_Sums_of_Simple_Random_Samples.html">
+    <a id="js-page__nav__next" class="c-page__nav__next" href="/textbook-prob140/Chapter_13/03_Sums_of_Simple_Random_Samples.html">
       Sums of Simple Random Samples <span class="u-margin-right-tiny"></span> 〉
     </a>
   

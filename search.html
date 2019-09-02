@@ -10,14 +10,14 @@
   <title>Search the site</title>
   <meta name="description" content="This is an example book built with Jupyter Books.">
 
-  <link rel="canonical" href="http://prob140.org/textbook/search">
-  <link rel="alternate" type="application/rss+xml" title="Prob 140 Textbook" href="http://prob140.org/textbook/feed.xml">
+  <link rel="canonical" href="http://predictablynoisy.com/textbook-prob140/search">
+  <link rel="alternate" type="application/rss+xml" title="Prob 140 Textbook" href="http://predictablynoisy.com/textbook-prob140/feed.xml">
 
-  <meta property="og:url"         content="http://prob140.org/textbook/search" />
+  <meta property="og:url"         content="http://predictablynoisy.com/textbook-prob140/search" />
 <meta property="og:type"        content="article" />
 <meta property="og:title"       content="Search the site" />
 <meta property="og:description" content="This is an example book built with Jupyter Books." />
-<meta property="og:image"       content="http://prob140.org/textbook/content/images/logo/logo.png" />
+<meta property="og:image"       content="http://predictablynoisy.com/textbook-prob140/content/images/logo/logo.png" />
 
 <meta name="twitter:card" content="summary">
 
@@ -27,13 +27,13 @@
   "@context": "http://schema.org",
   "@type": "NewsArticle",
   "mainEntityOfPage":
-    "http://prob140.org/textbook/search",
+    "http://predictablynoisy.com/textbook-prob140/search",
   "headline":
     "Search the site",
   "datePublished":
-    "2019-09-02T11:27:06-07:00",
+    "2019-09-02T11:37:22-07:00",
   "dateModified":
-    "2019-09-02T11:27:06-07:00",
+    "2019-09-02T11:37:22-07:00",
   "description":
     "This is an example book built with Jupyter Books.",
   "author": {
@@ -45,21 +45,21 @@
     "name": "Data 100 at UC Berkeley",
     "logo": {
       "@type": "ImageObject",
-      "url": "http://prob140.org/textbook",
+      "url": "http://predictablynoisy.com/textbook-prob140",
       "width": 60,
       "height": 60
     }
   },
   "image": {
     "@type": "ImageObject",
-    "url": "http://prob140.org/textbook",
+    "url": "http://predictablynoisy.com/textbook-prob140",
     "height": 60,
     "width": 60
   }
 }
 
   </script>
-  <link rel="stylesheet" href="/textbook/assets/css/styles.css">
+  <link rel="stylesheet" href="/textbook-prob140/assets/css/styles.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css ">
 
   <!-- <link rel="manifest" href="/manifest.json"> -->
@@ -69,7 +69,7 @@
   <meta name="theme-color" content="#233947">
 
   <!-- Favicon -->
-  <link rel="shortcut icon" type="image/x-icon" href="/textbook/images/logo/favicon.ico">
+  <link rel="shortcut icon" type="image/x-icon" href="/textbook-prob140/images/logo/favicon.ico">
 
   <!-- MathJax Config -->
   <!-- Allow inline math using $ and automatically break long math lines -->
@@ -117,11 +117,11 @@ initFunction = function(myfunc) {
 
   <!-- Define some javascript variables that will be useful in other javascript -->
   <script>
-    const site_basename = '/textbook';
+    const site_basename = '/textbook-prob140';
   </script>
 
   <!-- Add AnchorJS to let headers be linked -->
-  <script src="/textbook/assets/js/anchor.min.js"  type="text/javascript"></script>
+  <script src="/textbook-prob140/assets/js/anchor.min.js"  type="text/javascript"></script>
   <script>
 
 initFunction(function () {
@@ -132,7 +132,7 @@ initFunction(function () {
 
   <!-- Include Turbolinks to make page loads fast -->
   <!-- https://github.com/turbolinks/turbolinks -->
-  <script src="/textbook/assets/js/turbolinks.js" async></script>
+  <script src="/textbook-prob140/assets/js/turbolinks.js" async></script>
   <meta name="turbolinks-cache-control" content="no-cache">
 
   <!-- Selectors for elements on the page -->
@@ -183,7 +183,7 @@ initFunction(findInputCells);
 
 
   <!-- Load the auto-generating TOC -->
-  <script src="/textbook/assets/js/tocbot.min.js"  type="text/javascript"></script>
+  <script src="/textbook-prob140/assets/js/tocbot.min.js"  type="text/javascript"></script>
 <script>
 var initToc = function () {
   tocbot.init({
@@ -202,17 +202,17 @@ initFunction(initToc);
 </script>
 
   <!-- Google analytics -->
-  <script src="/textbook/assets/js/ga.js" async></script>
+  <script src="/textbook-prob140/assets/js/ga.js" async></script>
 
   <!-- Clipboard copy button -->
   <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" async></script>
 
   <!-- Load custom website scripts -->
-  <script src="/textbook/assets/js/scripts.js" async></script>
+  <script src="/textbook-prob140/assets/js/scripts.js" async></script>
 
   <!-- Load custom user CSS and JS  -->
-  <script src="/textbook/assets/custom/custom.js" async></script>
-  <link rel="stylesheet" href="/textbook/assets/custom/custom.css">
+  <script src="/textbook-prob140/assets/custom/custom.js" async></script>
+  <link rel="stylesheet" href="/textbook-prob140/assets/custom/custom.css">
 
   <!-- Update interact links w/ REST param, is defined in includes so we can use templates -->
   
@@ -276,7 +276,7 @@ function addParamToInternalLinks(hub) {
   var links = document.querySelectorAll("a").forEach(function(link) {
     var href = link.href;
     // If the link is an internal link...
-    if (href.search("http://prob140.org") !== -1 || href.startsWith('/') || href.search("127.0.0.1:") !== -1) {
+    if (href.search("http://predictablynoisy.com") !== -1 || href.startsWith('/') || href.search("127.0.0.1:") !== -1) {
       // Assume we're an internal link, add the hub param to it
       var params = getJsonFromUrl(href);
       if (params !== false) {
@@ -359,7 +359,7 @@ document.addEventListener('turbolinks:load', updateInteractLink)
 
 
   <!-- Lunr search code - will only be executed on the /search page -->
-  <script src="/textbook/assets/js/lunr/lunr.min.js" type="text/javascript"></script>
+  <script src="/textbook-prob140/assets/js/lunr/lunr.min.js" type="text/javascript"></script>
   <script>var initQuery = function() {
   // See if we have a search box
   var searchInput = document.querySelector('input#lunr_search');
@@ -453,7 +453,7 @@ initFunction(initQuery);
  */
 const clipboardButton = id =>
   `<a id="copy-button-${id}" class="btn copybtn o-tooltip--left" data-tooltip="Copy" data-clipboard-target="#${id}">
-    <img src="/textbook/assets/images/copy-button.svg" alt="Copy to clipboard">
+    <img src="/textbook-prob140/assets/images/copy-button.svg" alt="Copy to clipboard">
   </a>`
 
 // Clears selected text since ClipboardJS will select the text when copying
@@ -591,7 +591,7 @@ initFunction(addCopyButtonToCodeCells);
 
   <!-- Printing the screen -->
   <!-- Include nbinteract for interactive widgets -->
-<script src="/textbook/assets/js/print.min.js"  type="text/javascript"></script>
+<script src="/textbook-prob140/assets/js/print.min.js"  type="text/javascript"></script>
 <script>
 printContent = () => {
     // MathJax displays a second version of any math for assistive devices etc.
@@ -607,7 +607,7 @@ printContent = () => {
     printJS({
         printable: 'textbook_content',
         type: 'html',
-        css: "/textbook/assets/css/styles.css",
+        css: "/textbook-prob140/assets/css/styles.css",
         scanStyles: false,
         targetStyles: ["*"],
         ignoreElements: ignoreAssistList
@@ -631,7 +631,7 @@ initFunction(initPrint)
 
 
 <nav id="js-sidebar" class="c-textbook__sidebar">
-  <a href="http://prob140.org/textbook/README.html"><img src="/textbook/content/images/logo/logo.png" class="textbook_logo" id="sidebar-logo" data-turbolinks-permanent/></a>
+  <a href="http://prob140.org/textbook/README.html"><img src="/textbook-prob140/content/images/logo/logo.png" class="textbook_logo" id="sidebar-logo" data-turbolinks-permanent/></a>
   <h2 class="c-sidebar__title">Prob 140 Textbook</h2>
   <ul class="c-sidebar__chapters">
     
@@ -666,7 +666,7 @@ initFunction(initPrint)
       
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/textbook/README.html"
+          href="/textbook-prob140/README.html"
         >
           
           Authors and License
@@ -687,7 +687,7 @@ initFunction(initPrint)
       
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/textbook/To_the_Student.html"
+          href="/textbook-prob140/To_the_Student.html"
         >
           
           To the Student
@@ -739,7 +739,7 @@ initFunction(initPrint)
       
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/textbook/Chapter_01/00_Fundamentals.html"
+          href="/textbook-prob140/Chapter_01/00_Fundamentals.html"
         >
           
             2.
@@ -763,7 +763,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_01/01_Outcome_Space_and_Events.html"
+                  href="/textbook-prob140/Chapter_01/01_Outcome_Space_and_Events.html"
                 >
                   
                     2.1
@@ -782,7 +782,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_01/02_Equally_Likely_Outcomes.html"
+                  href="/textbook-prob140/Chapter_01/02_Equally_Likely_Outcomes.html"
                 >
                   
                     2.2
@@ -801,7 +801,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_01/03_Collisions_in_Hashing.html"
+                  href="/textbook-prob140/Chapter_01/03_Collisions_in_Hashing.html"
                 >
                   
                     2.3
@@ -820,7 +820,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_01/04_Birthday_Problem.html"
+                  href="/textbook-prob140/Chapter_01/04_Birthday_Problem.html"
                 >
                   
                     2.4
@@ -839,7 +839,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_01/05_An_Exponential_Approximation.html"
+                  href="/textbook-prob140/Chapter_01/05_An_Exponential_Approximation.html"
                 >
                   
                     2.5
@@ -869,7 +869,7 @@ initFunction(initPrint)
       
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/textbook/Chapter_02/00_Calculating_Chances.html"
+          href="/textbook-prob140/Chapter_02/00_Calculating_Chances.html"
         >
           
             3.
@@ -893,7 +893,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_02/01_Addition.html"
+                  href="/textbook-prob140/Chapter_02/01_Addition.html"
                 >
                   
                     3.1
@@ -912,7 +912,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_02/02_Examples.html"
+                  href="/textbook-prob140/Chapter_02/02_Examples.html"
                 >
                   
                     3.2
@@ -931,7 +931,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_02/03_Multiplication.html"
+                  href="/textbook-prob140/Chapter_02/03_Multiplication.html"
                 >
                   
                     3.3
@@ -950,7 +950,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_02/04_More_Examples.html"
+                  href="/textbook-prob140/Chapter_02/04_More_Examples.html"
                 >
                   
                     3.4
@@ -969,7 +969,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_02/05_Updating_Probabilities.html"
+                  href="/textbook-prob140/Chapter_02/05_Updating_Probabilities.html"
                 >
                   
                     3.5
@@ -999,7 +999,7 @@ initFunction(initPrint)
       
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/textbook/Chapter_03/00_Random_Variables.html"
+          href="/textbook-prob140/Chapter_03/00_Random_Variables.html"
         >
           
             4.
@@ -1023,7 +1023,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_03/01_Functions_on_an_Outcome_Space.html"
+                  href="/textbook-prob140/Chapter_03/01_Functions_on_an_Outcome_Space.html"
                 >
                   
                     4.1
@@ -1042,7 +1042,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_03/02_Distributions.html"
+                  href="/textbook-prob140/Chapter_03/02_Distributions.html"
                 >
                   
                     4.2
@@ -1061,7 +1061,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_03/03_Equality.html"
+                  href="/textbook-prob140/Chapter_03/03_Equality.html"
                 >
                   
                     4.3
@@ -1091,7 +1091,7 @@ initFunction(initPrint)
       
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/textbook/Chapter_04/00_Relations_Between_Variables.html"
+          href="/textbook-prob140/Chapter_04/00_Relations_Between_Variables.html"
         >
           
             5.
@@ -1115,7 +1115,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_04/01_Joint_Distributions.html"
+                  href="/textbook-prob140/Chapter_04/01_Joint_Distributions.html"
                 >
                   
                     5.1
@@ -1134,7 +1134,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_04/02_Examples.html"
+                  href="/textbook-prob140/Chapter_04/02_Examples.html"
                 >
                   
                     5.2
@@ -1153,7 +1153,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_04/03_Marginal_Distributions.html"
+                  href="/textbook-prob140/Chapter_04/03_Marginal_Distributions.html"
                 >
                   
                     5.3
@@ -1172,7 +1172,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_04/04_Conditional_Distributions.html"
+                  href="/textbook-prob140/Chapter_04/04_Conditional_Distributions.html"
                 >
                   
                     5.4
@@ -1191,7 +1191,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_04/05_Dependence_and_Independence.html"
+                  href="/textbook-prob140/Chapter_04/05_Dependence_and_Independence.html"
                 >
                   
                     5.5
@@ -1221,7 +1221,7 @@ initFunction(initPrint)
       
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/textbook/Chapter_05/00_Collections_of_Events.html"
+          href="/textbook-prob140/Chapter_05/00_Collections_of_Events.html"
         >
           
             6.
@@ -1245,7 +1245,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_05/01_Bounding_the_Chance_of_a_Union.html"
+                  href="/textbook-prob140/Chapter_05/01_Bounding_the_Chance_of_a_Union.html"
                 >
                   
                     6.1
@@ -1264,7 +1264,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_05/02_Inclusion_Exclusion.html"
+                  href="/textbook-prob140/Chapter_05/02_Inclusion_Exclusion.html"
                 >
                   
                     6.2
@@ -1283,7 +1283,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_05/03_The_Matching_Problem.html"
+                  href="/textbook-prob140/Chapter_05/03_The_Matching_Problem.html"
                 >
                   
                     6.3
@@ -1302,7 +1302,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_05/04_Sampling_Without_Replacement.html"
+                  href="/textbook-prob140/Chapter_05/04_Sampling_Without_Replacement.html"
                 >
                   
                     6.4
@@ -1332,7 +1332,7 @@ initFunction(initPrint)
       
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/textbook/Chapter_05/05_Review_Problems_Set_1.html"
+          href="/textbook-prob140/Chapter_05/05_Review_Problems_Set_1.html"
         >
           
           Review Problem Set 1
@@ -1353,7 +1353,7 @@ initFunction(initPrint)
       
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/textbook/Chapter_06/00_Random_Counts.html"
+          href="/textbook-prob140/Chapter_06/00_Random_Counts.html"
         >
           
             7.
@@ -1377,7 +1377,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_06/01_Binomial_Distribution.html"
+                  href="/textbook-prob140/Chapter_06/01_Binomial_Distribution.html"
                 >
                   
                     7.1
@@ -1396,7 +1396,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_06/02_Examples.html"
+                  href="/textbook-prob140/Chapter_06/02_Examples.html"
                 >
                   
                     7.2
@@ -1415,7 +1415,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_06/03_Hypergeometric_Distribution.html"
+                  href="/textbook-prob140/Chapter_06/03_Hypergeometric_Distribution.html"
                 >
                   
                     7.3
@@ -1434,7 +1434,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_06/04_Odds_Ratios.html"
+                  href="/textbook-prob140/Chapter_06/04_Odds_Ratios.html"
                 >
                   
                     7.4
@@ -1453,7 +1453,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_06/05_Law_of_Small_Numbers.html"
+                  href="/textbook-prob140/Chapter_06/05_Law_of_Small_Numbers.html"
                 >
                   
                     7.5
@@ -1483,7 +1483,7 @@ initFunction(initPrint)
       
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/textbook/Chapter_07/00_Poissonization.html"
+          href="/textbook-prob140/Chapter_07/00_Poissonization.html"
         >
           
             8.
@@ -1507,7 +1507,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_07/01_Poissonizing_the_Binomial.html"
+                  href="/textbook-prob140/Chapter_07/01_Poissonizing_the_Binomial.html"
                 >
                   
                     8.1
@@ -1526,7 +1526,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_07/02_Poissonizing_the_Multinomial.html"
+                  href="/textbook-prob140/Chapter_07/02_Poissonizing_the_Multinomial.html"
                 >
                   
                     8.2
@@ -1556,7 +1556,7 @@ initFunction(initPrint)
       
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/textbook/Chapter_08/00_Expectation.html"
+          href="/textbook-prob140/Chapter_08/00_Expectation.html"
         >
           
             9.
@@ -1580,7 +1580,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_08/01_Definition.html"
+                  href="/textbook-prob140/Chapter_08/01_Definition.html"
                 >
                   
                     9.1
@@ -1599,7 +1599,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_08/02_Additivity.html"
+                  href="/textbook-prob140/Chapter_08/02_Additivity.html"
                 >
                   
                     9.2
@@ -1618,7 +1618,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_08/03_Expectations_of_Functions.html"
+                  href="/textbook-prob140/Chapter_08/03_Expectations_of_Functions.html"
                 >
                   
                     9.3
@@ -1648,7 +1648,7 @@ initFunction(initPrint)
       
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/textbook/Chapter_08/04_Review_Problems_Set_2.html"
+          href="/textbook-prob140/Chapter_08/04_Review_Problems_Set_2.html"
         >
           
           Review Problems: Set 2
@@ -1669,7 +1669,7 @@ initFunction(initPrint)
       
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/textbook/Chapter_09/00_Conditioning_Revisited.html"
+          href="/textbook-prob140/Chapter_09/00_Conditioning_Revisited.html"
         >
           
             10.
@@ -1693,7 +1693,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_09/01_Probability_by_Conditioning.html"
+                  href="/textbook-prob140/Chapter_09/01_Probability_by_Conditioning.html"
                 >
                   
                     10.1
@@ -1712,7 +1712,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_09/02_Expectation_by_Conditioning.html"
+                  href="/textbook-prob140/Chapter_09/02_Expectation_by_Conditioning.html"
                 >
                   
                     10.2
@@ -1731,7 +1731,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_09/03_Expected_Waiting_Times.html"
+                  href="/textbook-prob140/Chapter_09/03_Expected_Waiting_Times.html"
                 >
                   
                     10.3
@@ -1761,7 +1761,7 @@ initFunction(initPrint)
       
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/textbook/Chapter_10/00_Markov_Chains.html"
+          href="/textbook-prob140/Chapter_10/00_Markov_Chains.html"
         >
           
             11.
@@ -1785,7 +1785,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_10/01_Transitions.html"
+                  href="/textbook-prob140/Chapter_10/01_Transitions.html"
                 >
                   
                     11.1
@@ -1804,7 +1804,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_10/02_Deconstructing_Chains.html"
+                  href="/textbook-prob140/Chapter_10/02_Deconstructing_Chains.html"
                 >
                   
                     11.2
@@ -1823,7 +1823,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_10/03_Long_Run_Behavior.html"
+                  href="/textbook-prob140/Chapter_10/03_Long_Run_Behavior.html"
                 >
                   
                     11.3
@@ -1842,7 +1842,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_10/04_Examples.html"
+                  href="/textbook-prob140/Chapter_10/04_Examples.html"
                 >
                   
                     11.4
@@ -1872,7 +1872,7 @@ initFunction(initPrint)
       
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/textbook/Chapter_11/00_Reversing_Markov_Chains.html"
+          href="/textbook-prob140/Chapter_11/00_Reversing_Markov_Chains.html"
         >
           
             12.
@@ -1896,7 +1896,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_11/01_Detailed_Balance.html"
+                  href="/textbook-prob140/Chapter_11/01_Detailed_Balance.html"
                 >
                   
                     12.1
@@ -1915,7 +1915,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_11/02_Reversibility.html"
+                  href="/textbook-prob140/Chapter_11/02_Reversibility.html"
                 >
                   
                     12.2
@@ -1934,7 +1934,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_11/03_Code_Breaking.html"
+                  href="/textbook-prob140/Chapter_11/03_Code_Breaking.html"
                 >
                   
                     12.3
@@ -1953,7 +1953,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_11/04_Markov_Chain_Monte_Carlo.html"
+                  href="/textbook-prob140/Chapter_11/04_Markov_Chain_Monte_Carlo.html"
                 >
                   
                     12.4
@@ -1983,7 +1983,7 @@ initFunction(initPrint)
       
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/textbook/Chapter_11/05_Review_Conditioning_and_MC.html"
+          href="/textbook-prob140/Chapter_11/05_Review_Conditioning_and_MC.html"
         >
           
           Review Set on Conditioning and Markov Chains
@@ -2004,7 +2004,7 @@ initFunction(initPrint)
       
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/textbook/Chapter_12/00_Standard_Deviation.html"
+          href="/textbook-prob140/Chapter_12/00_Standard_Deviation.html"
         >
           
             13.
@@ -2028,7 +2028,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_12/01_Definition.html"
+                  href="/textbook-prob140/Chapter_12/01_Definition.html"
                 >
                   
                     13.1
@@ -2047,7 +2047,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_12/02_Prediction_and_Estimation.html"
+                  href="/textbook-prob140/Chapter_12/02_Prediction_and_Estimation.html"
                 >
                   
                     13.2
@@ -2066,7 +2066,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_12/03_Bounds.html"
+                  href="/textbook-prob140/Chapter_12/03_Bounds.html"
                 >
                   
                     13.3
@@ -2085,7 +2085,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_12/04_Heavy_Tails.html"
+                  href="/textbook-prob140/Chapter_12/04_Heavy_Tails.html"
                 >
                   
                     13.4
@@ -2115,7 +2115,7 @@ initFunction(initPrint)
       
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/textbook/Chapter_13/00_Variance_Via_Covariance.html"
+          href="/textbook-prob140/Chapter_13/00_Variance_Via_Covariance.html"
         >
           
             14.
@@ -2139,7 +2139,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_13/01_Properties_of_Covariance.html"
+                  href="/textbook-prob140/Chapter_13/01_Properties_of_Covariance.html"
                 >
                   
                     14.1
@@ -2158,7 +2158,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_13/02_Sums_of_IID_Samples.html"
+                  href="/textbook-prob140/Chapter_13/02_Sums_of_IID_Samples.html"
                 >
                   
                     14.2
@@ -2177,7 +2177,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_13/03_Sums_of_Simple_Random_Samples.html"
+                  href="/textbook-prob140/Chapter_13/03_Sums_of_Simple_Random_Samples.html"
                 >
                   
                     14.3
@@ -2196,7 +2196,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_13/04_Finite_Population_Correction.html"
+                  href="/textbook-prob140/Chapter_13/04_Finite_Population_Correction.html"
                 >
                   
                     14.4
@@ -2226,7 +2226,7 @@ initFunction(initPrint)
       
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/textbook/Chapter_14/00_The_Central_Limit_Theorem.html"
+          href="/textbook-prob140/Chapter_14/00_The_Central_Limit_Theorem.html"
         >
           
             15.
@@ -2250,7 +2250,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_14/01_Exact_Distribution.html"
+                  href="/textbook-prob140/Chapter_14/01_Exact_Distribution.html"
                 >
                   
                     15.1
@@ -2269,7 +2269,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_14/02_PGFs_in_NumPy.html"
+                  href="/textbook-prob140/Chapter_14/02_PGFs_in_NumPy.html"
                 >
                   
                     15.2
@@ -2288,7 +2288,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_14/03_Central_Limit_Theorem.html"
+                  href="/textbook-prob140/Chapter_14/03_Central_Limit_Theorem.html"
                 >
                   
                     15.3
@@ -2307,7 +2307,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_14/04_The_Sample_Mean.html"
+                  href="/textbook-prob140/Chapter_14/04_The_Sample_Mean.html"
                 >
                   
                     15.4
@@ -2326,7 +2326,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_14/05_Confidence_Intervals.html"
+                  href="/textbook-prob140/Chapter_14/05_Confidence_Intervals.html"
                 >
                   
                     15.5
@@ -2356,7 +2356,7 @@ initFunction(initPrint)
       
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/textbook/Chapter_15/00_Continuous_Distributions.html"
+          href="/textbook-prob140/Chapter_15/00_Continuous_Distributions.html"
         >
           
             16.
@@ -2380,7 +2380,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_15/01_Density_and_CDF.html"
+                  href="/textbook-prob140/Chapter_15/01_Density_and_CDF.html"
                 >
                   
                     16.1
@@ -2399,7 +2399,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_15/02_The_Meaning_of_Density.html"
+                  href="/textbook-prob140/Chapter_15/02_The_Meaning_of_Density.html"
                 >
                   
                     16.2
@@ -2418,7 +2418,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_15/03_Expectation.html"
+                  href="/textbook-prob140/Chapter_15/03_Expectation.html"
                 >
                   
                     16.3
@@ -2437,7 +2437,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_15/04_Exponential_Distribution.html"
+                  href="/textbook-prob140/Chapter_15/04_Exponential_Distribution.html"
                 >
                   
                     16.4
@@ -2456,7 +2456,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_15/05_Calculus_in_SymPy.html"
+                  href="/textbook-prob140/Chapter_15/05_Calculus_in_SymPy.html"
                 >
                   
                     16.5
@@ -2486,7 +2486,7 @@ initFunction(initPrint)
       
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/textbook/Chapter_15/06_Review_Problems_Set_3.html"
+          href="/textbook-prob140/Chapter_15/06_Review_Problems_Set_3.html"
         >
           
           Review Problems: Set 3
@@ -2507,7 +2507,7 @@ initFunction(initPrint)
       
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/textbook/Chapter_16/00_Transformations.html"
+          href="/textbook-prob140/Chapter_16/00_Transformations.html"
         >
           
             17.
@@ -2531,7 +2531,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_16/01_Linear_Transformations.html"
+                  href="/textbook-prob140/Chapter_16/01_Linear_Transformations.html"
                 >
                   
                     17.1
@@ -2550,7 +2550,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_16/02_Monotone_Functions.html"
+                  href="/textbook-prob140/Chapter_16/02_Monotone_Functions.html"
                 >
                   
                     17.2
@@ -2569,7 +2569,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_16/03_Two_to_One_Functions.html"
+                  href="/textbook-prob140/Chapter_16/03_Two_to_One_Functions.html"
                 >
                   
                     17.3
@@ -2599,7 +2599,7 @@ initFunction(initPrint)
       
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/textbook/Chapter_17/00_Joint_Densities.html"
+          href="/textbook-prob140/Chapter_17/00_Joint_Densities.html"
         >
           
             18.
@@ -2623,7 +2623,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_17/01_Probabilities_and_Expectations.html"
+                  href="/textbook-prob140/Chapter_17/01_Probabilities_and_Expectations.html"
                 >
                   
                     18.1
@@ -2642,7 +2642,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_17/02_Independence.html"
+                  href="/textbook-prob140/Chapter_17/02_Independence.html"
                 >
                   
                     18.2
@@ -2661,7 +2661,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_17/03_Marginal_and_Conditional_Densities.html"
+                  href="/textbook-prob140/Chapter_17/03_Marginal_and_Conditional_Densities.html"
                 >
                   
                     18.3
@@ -2680,7 +2680,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_17/04_Beta_Densities_with_Integer_Parameters.html"
+                  href="/textbook-prob140/Chapter_17/04_Beta_Densities_with_Integer_Parameters.html"
                 >
                   
                     18.4
@@ -2710,7 +2710,7 @@ initFunction(initPrint)
       
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/textbook/Chapter_18/00_The_Normal_and_Gamma_Families.html"
+          href="/textbook-prob140/Chapter_18/00_The_Normal_and_Gamma_Families.html"
         >
           
             19.
@@ -2734,7 +2734,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_18/01_Standard_Normal_Basics.html"
+                  href="/textbook-prob140/Chapter_18/01_Standard_Normal_Basics.html"
                 >
                   
                     19.1
@@ -2753,7 +2753,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_18/02_Sums_of_Independent_Normal_Variables.html"
+                  href="/textbook-prob140/Chapter_18/02_Sums_of_Independent_Normal_Variables.html"
                 >
                   
                     19.2
@@ -2772,7 +2772,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_18/03_The_Gamma_Family.html"
+                  href="/textbook-prob140/Chapter_18/03_The_Gamma_Family.html"
                 >
                   
                     19.3
@@ -2791,7 +2791,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_18/04_Chi_Squared_Distributions.html"
+                  href="/textbook-prob140/Chapter_18/04_Chi_Squared_Distributions.html"
                 >
                   
                     19.4
@@ -2821,7 +2821,7 @@ initFunction(initPrint)
       
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/textbook/Chapter_18/05_Review_Problems_Set_4.html"
+          href="/textbook-prob140/Chapter_18/05_Review_Problems_Set_4.html"
         >
           
           Review Problems: Set 4
@@ -2842,7 +2842,7 @@ initFunction(initPrint)
       
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/textbook/Chapter_19/00_Distributions_of_Sums.html"
+          href="/textbook-prob140/Chapter_19/00_Distributions_of_Sums.html"
         >
           
             20.
@@ -2866,7 +2866,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_19/01_Convolution_Formula.html"
+                  href="/textbook-prob140/Chapter_19/01_Convolution_Formula.html"
                 >
                   
                     20.1
@@ -2885,7 +2885,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_19/02_Moment_Generating_Functions.html"
+                  href="/textbook-prob140/Chapter_19/02_Moment_Generating_Functions.html"
                 >
                   
                     20.2
@@ -2904,7 +2904,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_19/03_MGFs_Normal_and_the_CLT.html"
+                  href="/textbook-prob140/Chapter_19/03_MGFs_Normal_and_the_CLT.html"
                 >
                   
                     20.3
@@ -2923,7 +2923,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_19/04_Chernoff_Bound.html"
+                  href="/textbook-prob140/Chapter_19/04_Chernoff_Bound.html"
                 >
                   
                     20.4
@@ -2953,7 +2953,7 @@ initFunction(initPrint)
       
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/textbook/Chapter_20/00_Approaches_to_Estimation.html"
+          href="/textbook-prob140/Chapter_20/00_Approaches_to_Estimation.html"
         >
           
             21.
@@ -2977,7 +2977,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_20/01_Maximum_Likelihood.html"
+                  href="/textbook-prob140/Chapter_20/01_Maximum_Likelihood.html"
                 >
                   
                     21.1
@@ -2996,7 +2996,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_20/02_Prior_and_Posterior.html"
+                  href="/textbook-prob140/Chapter_20/02_Prior_and_Posterior.html"
                 >
                   
                     21.2
@@ -3015,7 +3015,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_20/03_Independence_Revisited.html"
+                  href="/textbook-prob140/Chapter_20/03_Independence_Revisited.html"
                 >
                   
                     21.3
@@ -3045,7 +3045,7 @@ initFunction(initPrint)
       
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/textbook/Chapter_21/00_The_Beta_and_the_Binomial.html"
+          href="/textbook-prob140/Chapter_21/00_The_Beta_and_the_Binomial.html"
         >
           
             22.
@@ -3069,7 +3069,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_21/01_Updating_and_Prediction.html"
+                  href="/textbook-prob140/Chapter_21/01_Updating_and_Prediction.html"
                 >
                   
                     22.1
@@ -3088,7 +3088,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_21/02_Beta_Binomial_Distribution.html"
+                  href="/textbook-prob140/Chapter_21/02_Beta_Binomial_Distribution.html"
                 >
                   
                     22.2
@@ -3107,7 +3107,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_21/03_Long_Run_Proportion_of_Heads.html"
+                  href="/textbook-prob140/Chapter_21/03_Long_Run_Proportion_of_Heads.html"
                 >
                   
                     22.3
@@ -3137,7 +3137,7 @@ initFunction(initPrint)
       
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/textbook/Chapter_22/00_Prediction.html"
+          href="/textbook-prob140/Chapter_22/00_Prediction.html"
         >
           
             23.
@@ -3161,7 +3161,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_22/01_Conditional_Expectation_Projection.html"
+                  href="/textbook-prob140/Chapter_22/01_Conditional_Expectation_Projection.html"
                 >
                   
                     23.1
@@ -3180,7 +3180,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_22/02_Variance_by_Conditioning.html"
+                  href="/textbook-prob140/Chapter_22/02_Variance_by_Conditioning.html"
                 >
                   
                     23.2
@@ -3199,7 +3199,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_22/03_Examples.html"
+                  href="/textbook-prob140/Chapter_22/03_Examples.html"
                 >
                   
                     23.3
@@ -3218,7 +3218,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_22/04_Least_Squares_Predictor.html"
+                  href="/textbook-prob140/Chapter_22/04_Least_Squares_Predictor.html"
                 >
                   
                     23.4
@@ -3248,7 +3248,7 @@ initFunction(initPrint)
       
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/textbook/Chapter_23/00_Multivariate_Normal_RVs.html"
+          href="/textbook-prob140/Chapter_23/00_Multivariate_Normal_RVs.html"
         >
           
             24.
@@ -3272,7 +3272,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_23/01_Random_Vectors.html"
+                  href="/textbook-prob140/Chapter_23/01_Random_Vectors.html"
                 >
                   
                     24.1
@@ -3291,7 +3291,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_23/02_Multivariate_Normal_Distribution.html"
+                  href="/textbook-prob140/Chapter_23/02_Multivariate_Normal_Distribution.html"
                 >
                   
                     24.2
@@ -3310,7 +3310,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_23/03_Linear_Combinations.html"
+                  href="/textbook-prob140/Chapter_23/03_Linear_Combinations.html"
                 >
                   
                     24.3
@@ -3329,7 +3329,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_23/04_Independence.html"
+                  href="/textbook-prob140/Chapter_23/04_Independence.html"
                 >
                   
                     24.4
@@ -3359,7 +3359,7 @@ initFunction(initPrint)
       
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/textbook/Chapter_24/00_Simple_Linear_Regression.html"
+          href="/textbook-prob140/Chapter_24/00_Simple_Linear_Regression.html"
         >
           
             25.
@@ -3383,7 +3383,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_24/01_Bivariate_Normal_Distribution.html"
+                  href="/textbook-prob140/Chapter_24/01_Bivariate_Normal_Distribution.html"
                 >
                   
                     25.1
@@ -3402,7 +3402,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_24/02_Linear_Least_Squares.html"
+                  href="/textbook-prob140/Chapter_24/02_Linear_Least_Squares.html"
                 >
                   
                     25.2
@@ -3421,7 +3421,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_24/03_Regression_and_Bivariate_Normal.html"
+                  href="/textbook-prob140/Chapter_24/03_Regression_and_Bivariate_Normal.html"
                 >
                   
                     25.3
@@ -3440,7 +3440,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_24/04_Regression_Equation.html"
+                  href="/textbook-prob140/Chapter_24/04_Regression_Equation.html"
                 >
                   
                     25.4
@@ -3470,7 +3470,7 @@ initFunction(initPrint)
       
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/textbook/Chapter_25/00_Multiple_Regression.html"
+          href="/textbook-prob140/Chapter_25/00_Multiple_Regression.html"
         >
           
             26.
@@ -3494,7 +3494,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_25/01_Bilinearity_in_Matrix_Notation.html"
+                  href="/textbook-prob140/Chapter_25/01_Bilinearity_in_Matrix_Notation.html"
                 >
                   
                     26.1
@@ -3513,7 +3513,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_25/02_Best_Linear_Predictor.html"
+                  href="/textbook-prob140/Chapter_25/02_Best_Linear_Predictor.html"
                 >
                   
                     26.2
@@ -3532,7 +3532,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_25/03_Multivariate_Normal_Conditioning.html"
+                  href="/textbook-prob140/Chapter_25/03_Multivariate_Normal_Conditioning.html"
                 >
                   
                     26.3
@@ -3551,7 +3551,7 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/Chapter_25/04_Multiple_Regression.html"
+                  href="/textbook-prob140/Chapter_25/04_Multiple_Regression.html"
                 >
                   
                     26.4
@@ -3581,7 +3581,7 @@ initFunction(initPrint)
       
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/textbook/Chapter_25/05_Further_Review_Exercises.html"
+          href="/textbook-prob140/Chapter_25/05_Further_Review_Exercises.html"
         >
           
           Further Review Exercises
@@ -3625,7 +3625,7 @@ initFunction(initPrint)
     <nav class="onthispage">
     </nav>
   </aside>
-  <a href="/textbook/search.html" class="topbar-right-button" id="search-button"><i class="fa fa-search"></i></a>
+  <a href="/textbook-prob140/search.html" class="topbar-right-button" id="search-button"><i class="fa fa-search"></i></a>
 </div>
 
       <main class="c-textbook__page" tabindex="-1">
@@ -3644,7 +3644,7 @@ initFunction(initPrint)
             "Fundamentals Exactly what probabilities are has been the subject of contentious debate. Some people think that probabilities are long-run frequencies that only apply to events that can happen over and over again under identical conditions. Others think that probabilities quantify an individual's subjective degree of uncertainty about events of any kind and can vary across individuals. Still others don't fall rigidly into either of those groups. Arguments about the meaning of probability led the great probabilist Jimmie Savage (1917-1971) to observe caustically that \"[A]s to what probability is ... there has seldom been such complete disagreement and breakdown of communication...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_01/00_Fundamentals.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_01/00_Fundamentals.html",
         "teaser":null},{
         "title": "Outcome Space and Events",
         
@@ -3652,7 +3652,7 @@ initFunction(initPrint)
             "Outcome Space and Events Any experiment involving randomness results in one of a number of possible outcomes. The outcome space is the collection of all such outcomes. Formally, an outcome space is just a set, usually denoted by $\\Omega$. That's the upper case Greek letter Omega. We will assume for now that $\\Omega$ is finite. In a sense this is not restrictive, as even the largest data sets are finite and the most powerful computers perform finitely many operations per task. However, we will soon see that allowing infinitely many possible outcomes not only results in a rich and elegant...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_01/01_Outcome_Space_and_Events.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_01/01_Outcome_Space_and_Events.html",
         "teaser":null},{
         "title": "Equally Likely Outcomes",
         
@@ -3660,7 +3660,7 @@ initFunction(initPrint)
             "Equally Likely Outcomes \"If a coin is tossed, what is the chance that it lands heads?\" Ask this question and the most common answer that you will get is $1/2$. If you press for a reason, don't be surprised to hear, \"Because the coin has two faces.\" A coin does indeed have two faces, but notice an assumption hidden inside the \"reasoning\" you have been given: that each of the two faces has the same chance as the other. The assumption of equally likely outcomes is a simple and ancient model of randomness. It defines probabilities as proportions. The assumption...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_01/02_Equally_Likely_Outcomes.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_01/02_Equally_Likely_Outcomes.html",
         "teaser":null},{
         "title": "Collisions in Hashing",
         
@@ -3668,7 +3668,7 @@ initFunction(initPrint)
             "Collisions in Hashing In computer science, hash functions assign a code called a hash value to each member of a set of individuals. It's important that each individual be assigned a unique value. If two individuals are assigned the same value, there is a collision, and this causes trouble in identification. Yet it is cumbersome to keep track of which hash values have and have not been assigned, as the numbers of hash values and individuals can be very large. What if the hash values were just assigned at random, without taking into account which of them have already been...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_01/03_Collisions_in_Hashing.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_01/03_Collisions_in_Hashing.html",
         "teaser":null},{
         "title": "The Birthday Problem",
         
@@ -3676,7 +3676,7 @@ initFunction(initPrint)
             "The Birthday Problem A classical problem in probability is about \"collisions\" of birthdays. This birthday problem was posed by Richard von Mises and other mathematicians – its origin has not been well established. The main question is, \"If there are $n$ people in a room, what is the chance that some pair among them have the same birthday?\" Assumptions of Randomness The problem is commonly solved under the assumptions that each year consists of 365 days and that each person is equally likely to be born on any of the 365 days regardless of the birthdays of others. You can...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_01/04_Birthday_Problem.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_01/04_Birthday_Problem.html",
         "teaser":null},{
         "title": "An Exponential Approximation",
         
@@ -3684,7 +3684,7 @@ initFunction(initPrint)
             "An Exponential Approximation The goal of this section is to understand how the chance of at least one collision behaves as a function of the number of individuals $n$, when there are $N$ hash values and $N$ is large compared to $n$. We know that chance is $$ P(\\text{at least one collision}) ~=~ 1 ~-~ \\prod_{i=0}^{n-1} \\frac{N-i}{N} $$ While this gives an exact formula for the chance, it doesn't give us a sense of how the function grows. Let's see if we can develop an approximation that has a simpler form and is therefore easier to study. The main steps...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_01/05_An_Exponential_Approximation.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_01/05_An_Exponential_Approximation.html",
         "teaser":null},{
         "title": "Chapter 2: Calculating Chances",
         
@@ -3692,7 +3692,7 @@ initFunction(initPrint)
             "Calculating Chances Once you start working with probabilities, you quickly realize that the assumption of all possible outcomes being equally likely isn't always reasonable. For example, if you think a coin is biased then you won't want to assume that it lands heads with the same chance as tails. To deal with settings in which some outcomes have a higher chance than others, a more general theory is needed. In the 1930's, the Russian mathematician Andrey Kolmogorov (1903-1987) formulated some ground rules, known as axioms, that covered a rich array of settings and became the foundation of modern probability theory....",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_02/00_Calculating_Chances.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_02/00_Calculating_Chances.html",
         "teaser":null},{
         "title": "Addition",
         
@@ -3700,7 +3700,7 @@ initFunction(initPrint)
             "Addition The third axiom is about events that are mutually exclusive. Two events $A$ and $B$ are mutually exclusive if at most one of them can happen; in other words, they can't both happen. For example, suppose you are selecting one student at random from a class in which 40% of the students are freshmen and 20% are sophomores. Each student is either a freshman or a sophomore or neither; but no student is both a freshman and a sophomore. So if $A$ is the event \"the student selected is a freshman\" and $B$ is the event \"the student selected...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_02/01_Addition.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_02/01_Addition.html",
         "teaser":null},{
         "title": "Examples",
         
@@ -3708,7 +3708,7 @@ initFunction(initPrint)
             "Examples Let's see if we can use the results we've developed to calculate some chances. Some of the steps will be clear without calculation; others will require more work. Example 1: Both Heads and Tails in $n$ Tosses A coin is tossed $n$ times so that all $2^n$ possible sequences of heads and tails are equally likely. Question. What is the chance of getting at least one head and at least one tail? Answer. There are many sequences in which each face appears at least once. For example, if $n=4$, such sequences include HTTT, HTHT, TTHT, and so on. Method:...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_02/02_Examples.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_02/02_Examples.html",
         "teaser":null},{
         "title": "Multiplication",
         
@@ -3716,7 +3716,7 @@ initFunction(initPrint)
             "Multiplication The main axiom of probability is about mutually exclusive events, and it turns out that we don't need any further axioms to deal with events that intersect. Let $A$ and $B$ be two events. The intersection $A \\cap B$ is the event that both $A$ and $B$ occur, and is shown in bright blue in the Venn diagram on the right. Because we will encounter intersections all the time, we'll be a little lazy in our notation: we will use $AB$ to denote the intersection and not bother writing the intersection symbol $\\cap$. You will have to keep in...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_02/03_Multiplication.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_02/03_Multiplication.html",
         "teaser":null},{
         "title": "More Examples",
         
@@ -3724,7 +3724,7 @@ initFunction(initPrint)
             "More Examples Just a plus rule and a times rule – that's all it takes to get going. Here are some examples of standard problem solving techniques. Example 1: A Fundamental Method &#8211; Start by Partitioning A box contains 6 dark chocolates and 4 milk chocolates. I pick two at random without replacement. Question. What is the chance that I get one of each kind? Answer. You will have noticed that the problem doesn't specify whether the dark has to come first, or the milk. Either could happen. So list the distinct ways the event can happen, that is, partition...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_02/04_More_Examples.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_02/04_More_Examples.html",
         "teaser":null},{
         "title": "Updating Probabilities",
         
@@ -3732,7 +3732,7 @@ initFunction(initPrint)
             "Updating Probabilities Data changes minds. We might start out with a set of assumptions about how the world works, but as we gather more data, we may have to update our opinions based on what we see in the data. Opinions can be reflected by probabilities, and these too can be updated as information comes in. In this section we will set up a method of updating probabilities given some data. We will start with an example and then we will state the method in greater generality. Example: True Positives In a population there is a rare disease: only 0.4%...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_02/05_Updating_Probabilities.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_02/05_Updating_Probabilities.html",
         "teaser":null},{
         "title": "Chapter 3: Random Variables",
         
@@ -3740,7 +3740,7 @@ initFunction(initPrint)
             "Random Variables Much of data science involves numerical variables whose observed values depend on chance. The predicted value of one variable given the values of others, the number of different classes of individuals observed in a random sample, and the median of a bootstrapped sample are just a few examples. You saw many more in Data 8. In probability theory, a random variable is a numerical function defined on an outcome space. That is, the domain of the function is $\\Omega$ and its range is the real number line. Random variables are typically denoted by late letters of the alphabet,...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_03/00_Random_Variables.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_03/00_Random_Variables.html",
         "teaser":null},{
         "title": "Functions on an Outcome Space",
         
@@ -3748,7 +3748,7 @@ initFunction(initPrint)
             "Functions on an Outcome Space Random sampling can be thought of as repeated random trials, and therefore many outcome spaces consist of sequences. An outcome space representing two tosses of a coin is $$ \\Omega = \\{ \\text{HH, HT, TH, TT} \\} $$If you were tossing 10 times, the outcome space would consist of the $2^{10}$ sequences of 10 elements where each element is H or T. The outcomes are a pain to list by hand, but computers are good at saving us that kind of pain. Product Spaces The product of two sets $A$ and $B$ is the set...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_03/01_Functions_on_an_Outcome_Space.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_03/01_Functions_on_an_Outcome_Space.html",
         "teaser":null},{
         "title": "Distributions",
         
@@ -3756,7 +3756,7 @@ initFunction(initPrint)
             "Distributions Our space is the outcomes of five rolls of a die, and our random variable $S$ is the total number of spots on the five rolls. five_rolls_sum omega S(omega) P(omega) [1 1 1 1 1] 5 0.000128601 [1 1 1 1 2] 6 0.000128601 [1 1 1 1 3] 7 0.000128601 [1 1 1 1 4] 8 0.000128601 [1 1 1 1 5] 9 0.000128601 [1 1 1 1 6] 10 0.000128601 [1 1 1 2 1] 6 0.000128601 [1 1 1 2 2] 7 0.000128601 [1 1 1 2 3] 8 0.000128601 [1 1 1 2 4] 9...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_03/02_Distributions.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_03/02_Distributions.html",
         "teaser":null},{
         "title": "Equality",
         
@@ -3764,7 +3764,7 @@ initFunction(initPrint)
             "Equality We know what it means for two numbers to be equal: they are at the same spot on the number line. Equality of random variables, however, can be of more than one kind. Equal Two random variables $X$ and $Y$ defined on the same outcome space are equal if their values are the same for every outcome in the space. The notation is $X = Y$ and it means that $$ X(\\omega) = Y(\\omega) \\text{ for all } \\omega \\in \\Omega $$Informally, this says that no matter what the outcome, if $X$ is 10 then $Y$ must be 10...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_03/03_Equality.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_03/03_Equality.html",
         "teaser":null},{
         "title": "Chapter 4: Relations Between Variables",
         
@@ -3772,7 +3772,7 @@ initFunction(initPrint)
             "Relations Between Variables Many questions in data science have at their center a question about the relation between variables. How can attributes be used to tell whether or not a cell is cancerous? What is the relation between average income and water usage in Californian counties? Do car buyers pay more for good mileage or for rapid acceleration? You encountered these and many other such questions in Data 8. Probability theory helps us pose and answer precise questions about the relation between random variables. In particular, it helps us understand the conditional behavior of one set of random variables given...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_04/00_Relations_Between_Variables.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_04/00_Relations_Between_Variables.html",
         "teaser":null},{
         "title": "Joint Distributions",
         
@@ -3780,7 +3780,7 @@ initFunction(initPrint)
             "Joint Distributions Suppose $X$ and $Y$ are two random variables defined on the same outcome space. We will use the notation $P(X = x, Y = y)$ for the probability that $X$ has the value $x$ and $Y$ has the value $y$. The joint distribution of $X$ and $Y$ consists of all the probabilities $P(X=x, Y=y)$ where $(x, y)$ ranges over all the possible values of $(X, Y)$. Example In three tosses of a coin, let $X$ be the number of heads in the first two tosses and $Y$ the number of heads in the last two tosses. Then $$...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_04/01_Joint_Distributions.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_04/01_Joint_Distributions.html",
         "teaser":null},{
         "title": "Examples",
         
@@ -3788,7 +3788,7 @@ initFunction(initPrint)
             "Examples This section is a workout in finding probabilities of events determined by two jointly distributed random variables. We will apply the computational methods of the previous section and also the mathematical framework for finding probabilities that was developed there. In some of the examples you may find yourself wondering why we are bothering to write out math notation for numerical answers that we have already obtained using Python. It is because the Python visualizations help us understand the math. That understanding then helps us answer questions in generality, not just in particular numerical settings, as you will see in...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_04/02_Examples.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_04/02_Examples.html",
         "teaser":null},{
         "title": "Marginal Distributions",
         
@@ -3796,7 +3796,7 @@ initFunction(initPrint)
             "Marginal Distributions What does the joint distribution of $X$ and $Y$ tell us about the distribution of $X$ alone? Everything, of course. Let's see how. Here is the joint distribution table of two random variables $X$ and $Y$. joint_table X=0 X=1 X=2 Y=5 0.00000 0.0000 0.03125 Y=4 0.00000 0.0625 0.09375 Y=3 0.03125 0.1875 0.09375 Y=2 0.09375 0.1875 0.03125 Y=1 0.09375 0.0625 0.00000 Y=0 0.03125 0.0000 0.00000 To find the distribution of $X$ we need the possible values of $X$ and all their probabilities. At a glance, you can see that the possible values of $X$ are 0, 1, and 2....",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_04/03_Marginal_Distributions.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_04/03_Marginal_Distributions.html",
         "teaser":null},{
         "title": "Conditional Distributions",
         
@@ -3804,7 +3804,7 @@ initFunction(initPrint)
             "Conditional Distributions To understand the relation between two variables we must examine the conditional behavior of each of them given the value of the other. Towards this goal, we will start by examining the example of the previous section and then develop the general theory. In our example, the joint distribution of $X$ and $Y$ is given by joint_table. Here we also display the marginal distribution of $X$. joint_table.marginal(&#39;X&#39;) X=0 X=1 X=2 Y=5 0.00000 0.0000 0.03125 Y=4 0.00000 0.0625 0.09375 Y=3 0.03125 0.1875 0.09375 Y=2 0.09375 0.1875 0.03125 Y=1 0.09375 0.0625 0.00000 Y=0 0.03125 0.0000 0.00000 Sum: Marginal of X...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_04/04_Conditional_Distributions.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_04/04_Conditional_Distributions.html",
         "teaser":null},{
         "title": "Dependence and Independence",
         
@@ -3812,7 +3812,7 @@ initFunction(initPrint)
             "Dependence and Independence Conditional distributions help us formalize our intuitive ideas about whether two random variables are independent of each other. Let $X$ and $Y$ be two random variables, and suppose we are given the value of $X$. Does that change our opinion about $Y$? If the answer is yes, then we will say that $X$ and $Y$ are dependent. If the answer is no regardless of the given value of $X$, then we will say that $X$ and $Y$ are independent. Let's start with some examples and then move to precise definitions and results. Dependence Here is the joint...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_04/05_Dependence_and_Independence.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_04/05_Dependence_and_Independence.html",
         "teaser":null},{
         "title": "Chapter 5: Collections of Events",
         
@@ -3820,7 +3820,7 @@ initFunction(initPrint)
             "    Collections of Events            Most questions in data science involve multiple variables and events. Random variables and their joint distributions give us a way to set up probabilistic models for how our data originate. Some techniques are particularly useful for working with large collections of variables and events. These include:   Using bounds when exact values are difficult to calculate Noticing patterns when working with small collections and then generalizing to larger ones Using symmetry, both for insight and for simplifying calculation  In this chapter we will study powerful examples of all these techniques.           ",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_05/00_Collections_of_Events.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_05/00_Collections_of_Events.html",
         "teaser":null},{
         "title": "Bounding the Chance of a Union",
         
@@ -3828,7 +3828,7 @@ initFunction(initPrint)
             "Bounding the Chance of a Union Before we get to larger collections of events, let's consider the union of two events that are not mutually exclusive. The diagram below shows two such events. The union is the entire colored region: the blue, the gold, as well as the intersection. show_intersection() We can find $P(A \\cup B)$ by partitioning. A partition of $A \\cup B$ is \"all of $A$ union the part of $B$ that is not also in $A$\": $$ A \\cup B = A \\cup (B \\backslash AB) $$Therefore $$ \\begin{align*} P(A \\cup B) &amp;= P(A) + P(B \\backslash...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_05/01_Bounding_the_Chance_of_a_Union.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_05/01_Bounding_the_Chance_of_a_Union.html",
         "teaser":null},{
         "title": "Inclusion-Exclusion",
         
@@ -3836,7 +3836,7 @@ initFunction(initPrint)
             "Inclusion-Exclusion While we have bounds on the probability of the union of $n$ events, we don't yet have a formula for the exact chance except in the case $n = 2$. For $n = 2$ we have $$ P(A \\cup B) = P(A) + P(B) - P(AB) $$ Union of $n$ Events Let's see if we can guess the formula for larger $n$, by applying what we know about the union of two events. For $n = 3$, the event $A_1 \\cup A_2 \\cup A_3$ can be written as $B \\cup A_3$ where $B = A_1 \\cup A_2$. So by...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_05/02_Inclusion_Exclusion.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_05/02_Inclusion_Exclusion.html",
         "teaser":null},{
         "title": "The Matching Problem",
         
@@ -3844,7 +3844,7 @@ initFunction(initPrint)
             "The Matching Problem This famous problem has been stated variously in terms of hats and people, letters and envelopes, tea cups and saucers – indeed, any situation in which you might want to match two kinds of items seems to have appeared somewhere as a setting for the matching problem. In the letter-envelope setting there are $n$ letters labeled 1 through $n$ and also $n$ envelopes labeled 1 through $n$. The letters are permuted randomly into the envelopes, one letter per envelope (a mishap usually blamed on an unfortunate hypothetical secretary), so that all permutations are equally likely. The main...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_05/03_The_Matching_Problem.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_05/03_The_Matching_Problem.html",
         "teaser":null},{
         "title": "Sampling Without Replacement",
         
@@ -3852,7 +3852,7 @@ initFunction(initPrint)
             "Sampling Without Replacement Consider a set of $n$ individuals labeled $1, 2 \\ldots , n$. The results of $n$ draws made at random without replacement is a random permutation of all the elements. You used random permutations in Data 8 when you were trying to assess whether two samples came from the same underlying distribution. Let's call such a permutation $(X_1, X_2, \\ldots , X_n)$. For any permutation $i_1, i_2, \\ldots , i_n$ of the integers 1 through $n$, $$ P(X_1 = i_1, X_2 = i_2, \\ldots, X_n = i_n) = \\frac{1}{n!} $$Notice that the right hand side doesn't depend...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_05/04_Sampling_Without_Replacement.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_05/04_Sampling_Without_Replacement.html",
         "teaser":null},{
         "title": "Review Problem Set 1",
         
@@ -3860,7 +3860,7 @@ initFunction(initPrint)
             "Review Problems: Set 1 These problems can be solved using the main ideas of Chapters 1 through 5. It is divided into two parts: The Basics, and Additional Practice. The first part will remind you of the fundamental concepts and some typical calculations. The rest are for you to further develop your problem solving skills and your fluency with the notation and ideas. The Basics 1. A procedure for estimating a parameter is based on random sampling and has a 95% chance of producing a good estimate. Suppose I run this procedure $n$ times such that the results of all...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_05/05_Review_Problems_Set_1.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_05/05_Review_Problems_Set_1.html",
         "teaser":null},{
         "title": "Chapter 6: Random Counts",
         
@@ -3868,7 +3868,7 @@ initFunction(initPrint)
             "Random Counts These form a class of random variables that are of fundamental importance in probability theory. You have seen some examples already: the number of matches (fixed points) in a random permutation of $n$ elements is an example of a \"random count\", as is the number of good elements in a simple random sample. The general setting is that there are a number of trials, each of which can be a success or a failure. The random count is the number of successes among all the trials. The distribution of the number of successes depends on the underlying assumptions...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_06/00_Random_Counts.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_06/00_Random_Counts.html",
         "teaser":null},{
         "title": "The Binomial Distribution",
         
@@ -3876,7 +3876,7 @@ initFunction(initPrint)
             "The Binomial Distribution Let $X_1, X_2, \\ldots , X_n$ be i.i.d. Bernoulli $(p)$ random variables and let $S_n = X_1 + X_2 \\ldots + X_n$. That's a formal way of saying: Suppose you have a fixed number $n$ of success/failure trials; and the trials are independent; and on each trial, the probability of success is $p$. Let $S_n$ be the total number of successes. The first goal of this section is to find the distribution of $S_n$. In the example that we fixed our minds on earlier, we are counting the number of sixes in 7 rolls of a die....",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_06/01_Binomial_Distribution.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_06/01_Binomial_Distribution.html",
         "teaser":null},{
         "title": "Examples",
         
@@ -3884,7 +3884,7 @@ initFunction(initPrint)
             "Examples In this section we will work with the binomial distribution in a variety of settings. The formula and code are straightforward enough. What you have to keep in mind are the conditions under which the binomial distribution is valid. It is the distribution of: the number of successes in a known number of independent trials with the same probability of success on each trial. So don't use it for the number of aces in a hand of cards dealt without replacement. Example 1: Random Number Generator A random number generator draws repeatedly at random with replacement from the 10...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_06/02_Examples.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_06/02_Examples.html",
         "teaser":null},{
         "title": "The Hypergeometric Distribution",
         
@@ -3892,7 +3892,7 @@ initFunction(initPrint)
             "The Hypergeometric Distribution You have seen the hypergeometric probabilities earlier. In this section we will use them to define the distribution of a random count, and study the relation with the binomial distribution. As a review of the hypergeometric setting, suppose you have a population of a fixed size $N$, and suppose you are interested in a particular group of those $N$ individuals. Let's call them \"successes\" or \"good elements\". For example, you might be interested in: a population of voters, and among them the group who will vote for a particular candidate a population of households, and among them...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_06/03_Hypergeometric_Distribution.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_06/03_Hypergeometric_Distribution.html",
         "teaser":null},{
         "title": "Odds Ratios",
         
@@ -3900,7 +3900,7 @@ initFunction(initPrint)
             "Odds Ratios Binomial $(n, p)$ probabilities involve powers and factorials, both of which are difficult to compute when $n$ is large. This section is about simplifying the computation of the entire distribution. The result also helps us understand the shape of binomial histograms. Consecutive Odds Ratios Fix $n$ and $p$, and let $P(k)$ be the binomial $(n, p)$ probability of $k$. That is, let $P(k)$ be the chance of getting $k$ successes in $n$ independent trials with probability $p$ of success on each trial. For $k \\ge 1$, define the $k$th consecutive odds ratio $$ R(k) = \\frac{P(k)}{P(k-1)} $$To see...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_06/04_Odds_Ratios.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_06/04_Odds_Ratios.html",
         "teaser":null},{
         "title": "The Law of Small Numbers",
         
@@ -3908,7 +3908,7 @@ initFunction(initPrint)
             "The Law of Small Numbers The consecutive odds ratios of the binomial $(n, p)$ distribution help us derive an approximation for the distribution when $n$ is large and $p$ is small. The approximation is sometimes called \"the law of small numbers\" because it approximates the distribution of the number of successes when the chance of success is small: you only expect a small number of successes. As an example, here is the binomial $(1000, 2/1000)$ distribution. Note that $1000$ is large, $2/1000$ is pretty small, and $1000 \\times (2/1000) = 2$ is the natural number of successes to be thinking...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_06/05_Law_of_Small_Numbers.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_06/05_Law_of_Small_Numbers.html",
         "teaser":null},{
         "title": "Chapter 7: Poissonization",
         
@@ -3916,7 +3916,7 @@ initFunction(initPrint)
             "Poissonization A binomial $(n, p)$ random variable has a finite number of values: it can only be between 0 and $n$. But now that we are studying the behavior of binomial probabilities as $n$ gets large, it is time to move from finite outcome spaces to spaces that are infinite. Our first example of a probability distribution on infinitely many values is motivated by the approximation we have developed for the binomial $(n, p)$ distribution when $n$ is large and $p$ is small. Under those assumptions we saw that the chance of $k$ successes in $n$ i.i.d. Bernoulli $(p)$ trials...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_07/00_Poissonization.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_07/00_Poissonization.html",
         "teaser":null},{
         "title": "Poissonizing the Binomial",
         
@@ -3924,7 +3924,7 @@ initFunction(initPrint)
             "Poissonizing the Binomial The families of distributions that data scientists tend to use most are those that arise out of natural assumptions about the randomness in the data. These distribution families also have mathematical properties that give rise to illuminating answers to questions about the data. The binomial and Poisson families are among these. In this section we will study some more properties of the Poisson family, including another remarkable connection that it has with the binomial family. Sums of Independent Poisson Variables Let $X$ have the Poisson ($\\mu$) distribution, and let $Y$ independent of $X$ have the Poisson ($\\lambda$)...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_07/01_Poissonizing_the_Binomial.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_07/01_Poissonizing_the_Binomial.html",
         "teaser":null},{
         "title": "Poissonizing the Multinomial",
         
@@ -3932,7 +3932,7 @@ initFunction(initPrint)
             "Poissonizing the Multinomial Bernoulli trials come out in one of two ways. But many trials come out in multiple different ways, all of which we might want to track. A die can land six different ways. A jury member can have one of several different educational levels. In general, an individual might belong to one of several classes. The multinomial distribution is an extension of the binomial to the case where each repeated trial has more than two possible outcomes. Let's look at it first in an example, and then we will define it in general. A box contains 2...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_07/02_Poissonizing_the_Multinomial.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_07/02_Poissonizing_the_Multinomial.html",
         "teaser":null},{
         "title": "Chapter 8: Expectation",
         
@@ -3940,7 +3940,7 @@ initFunction(initPrint)
             "    Expectation            The distribution of a random variable gives us detailed information about how probability is distributed over all the possible values of the variable. But often we would just like a sense of roughly where the distribution is situated on the number line. In other words, we would like some idea of where the center of the distribution is.  As any student who has taken multiple \"midterm\" exams in a class knows, words like \"middle\" and \"center\" don't have a unique meaning. This chapter is about a particular kind of \"center\" of the distribution of a random variable.           ",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_08/00_Expectation.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_08/00_Expectation.html",
         "teaser":null},{
         "title": "Definition",
         
@@ -3948,7 +3948,7 @@ initFunction(initPrint)
             "Definition The expectation of a random variable $X$, denoted $E(X)$, is the average of the possible values of $X$ weighted by their probabilities. This can be calculated in two equivalent ways. On the domain of $X$: $$ E(X) = \\sum_{\\omega \\in \\Omega} X(\\omega)P(\\omega) $$On the range of $X$: $$ E(X) = \\sum_{\\text{all }x} xP(X=x) $$Technical Note: If $X$ has finitely many possible values, the sums above are always well defined and finite. If $X$ can have countably many values (that is, values indexed by 1, 2, 3, $\\ldots$), then more care is needed to make sure that the formulas result...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_08/01_Definition.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_08/01_Definition.html",
         "teaser":null},{
         "title": "Additivity",
         
@@ -3956,7 +3956,7 @@ initFunction(initPrint)
             "Additivity Calculating expectation by plugging into the definition works in simple cases, but often it can be cumbersome or lack insight. The most powerful result for calculating expectation turns out not to be the definition. It looks rather innocuous: Additivity of Expectation Let $X$ and $Y$ be two random variables defined on the same probability space. Then $$ E(X+Y) = E(X) + E(Y) $$Before we look more closely at this result, note that we are assuming that all the expectations exist; we will do this throughout in this course. And now note that there are no assumptions about the relation...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_08/02_Additivity.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_08/02_Additivity.html",
         "teaser":null},{
         "title": "Expectations of Functions",
         
@@ -3964,7 +3964,7 @@ initFunction(initPrint)
             "Expectations of Functions Once we start using random variables as estimators, we will want to see how far the estimate is from a desired value. For example, we might want to see how far a random variable $X$ is from the number 10. That's a function of $X$. Let's call it $Y$. Then $$ Y = |X - 10| $$which is not a linear function. To find $E(Y)$, we need a bit more technique. Throughout, we will assume that all the expectations that we are discussing are well defined. This section is about finding the expectation of a function of...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_08/03_Expectations_of_Functions.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_08/03_Expectations_of_Functions.html",
         "teaser":null},{
         "title": "Review Problems: Set 2",
         
@@ -3972,7 +3972,7 @@ initFunction(initPrint)
             "Review Problems: Set 2 These problems can be solved using the main ideas of Chapters 6 through 8. The material in those chapters of course relies on all the previous chapters. The set of exercises is divided into two parts: The Basics, and Additional Practice. The first part will remind you of the fundamental concepts and some typical calculations. The rest are for you to further develop your problem solving skills and your fluency with the notation and ideas. The Basics 1. A coin is tossed 12 times. Find the chance that (a) there are six heads (b) there are...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_08/04_Review_Problems_Set_2.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_08/04_Review_Problems_Set_2.html",
         "teaser":null},{
         "title": "Chapter 9: Conditioning, Revisited",
         
@@ -3980,7 +3980,7 @@ initFunction(initPrint)
             "    Conditioning, Revisited            In the next couple of chapters we are going to study random processes indexed by time. We have looked at some of these already – for example, a sequence of trials can be thought of as a random process indexed by time.  Naturally, we will be interested in what we can predict about a process in the future given that we know its present value. Techniques involving conditioning are going to be useful. We know some of these techniques already, and in this chapter we will develop them further.           ",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_09/00_Conditioning_Revisited.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_09/00_Conditioning_Revisited.html",
         "teaser":null},{
         "title": "Probability by Conditioning",
         
@@ -3988,7 +3988,7 @@ initFunction(initPrint)
             "Probability by Conditioning The theory in this section isn't new. It's the old familiar multiplication rule. We are just going to use it in the context of processes indexed by time, in a method that we are going to call conditioning on early moves. Winning a Game of Dice Suppose Jo and Bo play the following game. Jo rolls a die, then Bo rolls it, then Jo rolls again, and so on, until the first time one of them gets the face with six spots. That person is the winner. Question. What is the chance that Jo wins? Answer. Before...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_09/01_Probability_by_Conditioning.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_09/01_Probability_by_Conditioning.html",
         "teaser":null},{
         "title": "Expectation by Conditioning",
         
@@ -3996,7 +3996,7 @@ initFunction(initPrint)
             "Expectation by Conditioning Let $T$ be a random variable, and let $S$ be a random variable defined on the same space as $T$. As we have seen, conditioning on $S$ might be a good way to find probabilities for $T$ if $S$ and $T$ are related. In this section we will see that conditioning on $S$ can also be a good way to find the expectation of $T$. We will start with a simple example to illustrate the ideas. Let the joint distribution of $T$ and $S$ be as in the table below. t = [3, 4] s = [5,...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_09/02_Expectation_by_Conditioning.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_09/02_Expectation_by_Conditioning.html",
         "teaser":null},{
         "title": "Expected Waiting Times",
         
@@ -4004,7 +4004,7 @@ initFunction(initPrint)
             "Expected Waiting Times Let's find some expectations by conditioning. All of the calculations below involve conditioning on early moves of a random process. Waiting till H A coin lands heads with chance $p$. Let's call it a $p$-coin for short. Let $W_H$ be the number of tosses of a $p$-coin till the first head appears. The use of $W$ in the notation is because the random variable is often called the waiting time till the first head. If as usual we write $q = 1-p$, the distribution of $W_H$ is given by $$ P(W_H = k) ~ = ~ q^{k-1}p,...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_09/03_Expected_Waiting_Times.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_09/03_Expected_Waiting_Times.html",
         "teaser":null},{
         "title": "Chapter 10: Markov Chains",
         
@@ -4012,7 +4012,7 @@ initFunction(initPrint)
             "Markov Chains A stochastic process is a collection of random variables on a probability space. We will study a kind of process that evolves over discrete time, that is, random variables $X_0, X_1, X_2, \\ldots $. Our image is that the process starts with value $X_0$ at time 0, and then takes steps at times 1, 2, and so on, with $X_n$ representing the value at time $n$. We have already seen examples of such processes. For example, an i.i.d. sequence of Bernoulli $(p)$ trials forms such a process, going back and forth between the two values 0 and 1,...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_10/00_Markov_Chains.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_10/00_Markov_Chains.html",
         "teaser":null},{
         "title": "Transitions",
         
@@ -4020,7 +4020,7 @@ initFunction(initPrint)
             "Transitions Let $X_0, X_1, X_2, \\ldots $ be a Markov chain with state space $S$. By the Markov property, the probability of a trajectory or path of finite length is $$ \\begin{align*} &amp; P(X_0 = i_0, X_1 = i_1, X_2 = i_2, \\ldots, X_n = i_n) \\\\ &amp; = ~ P(X_0 = i_0)P(X_1 = i_1 \\mid X_0 = i_0)P(X_2 = i_2 \\mid X_1 = i_1) \\cdots P(X_n = i_n \\mid X_{n-1} = i_{n-1}) \\end{align*} $$The distribution of $X_0$ is called the initial distribution of the chain. The conditional probabilities in the product are called transition probabilities. For states $i$ and...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_10/01_Transitions.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_10/01_Transitions.html",
         "teaser":null},{
         "title": "Deconstructing Chains",
         
@@ -4028,7 +4028,7 @@ initFunction(initPrint)
             "Deconstructing Chains Let $S$ be a finite or countably infinite set of states. Any stochastic matrix with rows and columns indexed by $S$ is the transition matrix of some Markov chain with state space $S$. The transition behaviors of Markov chains are thus as varied as the matrices. It is helpful to set up terminology to discuss some of these behaviors. Communication If it is possible for the chain to get from state $i$ to state $j$, we say that $i$ leads to $j$ and we write $i \\rightarrow j$. Usually you can decide whether $i$ leads to $j$ just...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_10/02_Deconstructing_Chains.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_10/02_Deconstructing_Chains.html",
         "teaser":null},{
         "title": "Long Run Behavior",
         
@@ -4036,7 +4036,7 @@ initFunction(initPrint)
             "Long Run Behavior Every irreducible and aperiodic Markov Chain on a finite state space exhibits astonishing regularity after it has run for a while. The proof of the convergence theorem below is beyond the scope of this course, but in examples you have seen the result by computation. All the results are true in greater generality for some classes of Markov Chains on infinitely many states. Convergence to Stationarity Let $X_0, X_1, \\ldots$ be an irreducible, aperiodic Markov chain on a finite state space $S$. Then for all states $i$ and $j$, $$ P_n(i, j) \\to \\pi(j) ~~~ \\text{as }...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_10/03_Long_Run_Behavior.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_10/03_Long_Run_Behavior.html",
         "teaser":null},{
         "title": "Examples",
         
@@ -4044,7 +4044,7 @@ initFunction(initPrint)
             "Examples Here are two examples to illustrate how to find the stationary distribution and how to use it. A Diffusion Model by Ehrenfest Paul Ehrenfest proposed a number of models for the diffusion of gas particles, one of which we will study here. The model says that there are two containers containing a total of $N$ particles. At each instant, a container is selected at random and a particle is selected at random independently of the container. Then the selected particle is placed in the selected container; if it was already in that container, it stays there. Let $X_n$ be...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_10/04_Examples.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_10/04_Examples.html",
         "teaser":null},{
         "title": "Chapter 11: Reversing Markov Chains",
         
@@ -4052,7 +4052,7 @@ initFunction(initPrint)
             "Reversing Markov Chains What do stock markets, mutating viruses, and computer search engines have in common? They have all been analyzed using Markov Chain models. Understanding the long run behavior of Markov Chains helps us understand many different random phenomena. In data science, Markov Chains are also used for quite a different purpose. Markov Chains help data scientists draw random samples from distributions that are too complicated for standard sampling methods to handle. Markov Chains can also be used to approximate expectations of random quantities whose distributions are either very complicated or involve unknown quantities that are too difficult to...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_11/00_Reversing_Markov_Chains.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_11/00_Reversing_Markov_Chains.html",
         "teaser":null},{
         "title": "Detailed Balance",
         
@@ -4060,7 +4060,7 @@ initFunction(initPrint)
             "Detailed Balance The Markov Chains that we have been studying have stationary distributions that contain much information about the behavior of the chain. The stationary distribution of a chain is a probability distribution that solves the balance equations. For some chains it is easy to identify a distribution that solves the balance equations. But for other chains, the solution can be complicated or tedious. Let's see if we can find a simple way to solve the balance equations. Recall our earlier image of what is being balanced in the equations. Imagine a large number of independent replications of the chain....",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_11/01_Detailed_Balance.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_11/01_Detailed_Balance.html",
         "teaser":null},{
         "title": "Reversibility",
         
@@ -4068,7 +4068,7 @@ initFunction(initPrint)
             "Reversibility The reflecting random walk of the previous section has states 0, 1, 2, 3, 4 arranged in sequence clockwise on a circle. At each step the chain stays in place with probability $s$, moves to its clockwise neighbor with probability $r$ and to its counterclockwise neighbor with probability $p$. The stationary distribution of the chain assigns chance 0.2 to each state. If $r &gt; p$, then the chain is more likely to be moving clockwise than counterclockwise. For example, in steady state, the probability of the path $0, 1, 2, 3$ is $$ P(X_0 = 0)P(0, 1)P(1, 2)P(2, 3)...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_11/02_Reversibility.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_11/02_Reversibility.html",
         "teaser":null},{
         "title": "Code Breaking",
         
@@ -4076,7 +4076,7 @@ initFunction(initPrint)
             "Code Breaking While it is interesting that many Markov Chains are reversible, the examples that we have seen so far haven't explained what we get by reversing a chain. After all, if it looks the same running forwards as it does backwards, why not just run it forwards? Why bother with reversibility? It turns out that reversing Markov Chains can help solve a class of problems that are intractable by other methods. In this section we present an example of how such problems arise. In the next section we discuss a solution. Assumptions People have long been fascinated by encryption...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_11/03_Code_Breaking.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_11/03_Code_Breaking.html",
         "teaser":null},{
         "title": "Markov Chain Monte Carlo",
         
@@ -4084,7 +4084,7 @@ initFunction(initPrint)
             "Markov Chain Monte Carlo The goal of Markov Chain Monte Carlo (MCMC) is to generate random samples from complicated high dimensional distributions about which we have incomplete information. For example, it might be that we don't know the normalizing constant of the distribution, as we saw in the code breaking example of the previous section. Suppose the distribution from which we want to generate a sample is called $\\pi$. We are going to assume that $\\pi$ is a probability distribution on a finite set, and you should imagine the set to be large. MCMC relies on a few observations. Let...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_11/04_Markov_Chain_Monte_Carlo.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_11/04_Markov_Chain_Monte_Carlo.html",
         "teaser":null},{
         "title": "Review Set on Conditioning and Markov Chains",
         
@@ -4092,7 +4092,7 @@ initFunction(initPrint)
             "Review Set on Conditioning and Markov Chains David Aldous' former student Takis Konstantopoulos created a great resource of exercises on Markov Chains. Selected problems are listed below along with some others. Resist the impulse to read the answers to the Konstantopoulos exercises before you try the exercises yourself. 1. Bridge Hands My bridge partner and I are playing a game of bridge against two other people. In the game, four hands of 13 cards each are dealt to the four players, at random without replacement from a standard deck. Let $X$ be the number of hearts in my hand and...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_11/05_Review_Conditioning_and_MC.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_11/05_Review_Conditioning_and_MC.html",
         "teaser":null},{
         "title": "Chapter 12: Standard Deviation",
         
@@ -4100,7 +4100,7 @@ initFunction(initPrint)
             "Standard Deviation The expected value $\\mu_X$ of a random variable $X$ is a measure of the center of the distribution of $X$. But we know that $X$ need not be equal to $\\mu_X$; indeed, $\\mu_X$ need not even be a possible value of $X$. How far from $\\mu_X$ can $X$ be? This chapter develops an answer to that question. As a starting point, it is natural to look at the deviation from the mean $$ X - \\mu_X $$and try to get a sense of what we expect that to be. By the linear function rule, $$ E(X - \\mu_X)...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_12/00_Standard_Deviation.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_12/00_Standard_Deviation.html",
         "teaser":null},{
         "title": "Definition",
         
@@ -4108,7 +4108,7 @@ initFunction(initPrint)
             "Definition Measuring the rough size of the squared deviations has the advantage that it avoids cancellation between positive and negative errors. The disadvantage is that squared deviations have units that are difficult to understand. The measure of spread that we are about to define takes care of this problem. Root Mean Squared Deviation from the Mean Let $X$ be a random variable with expectation $\\mu_X$. The standard deviation of $X$, denoted $SD(X)$ or $\\sigma_X$, is the root mean square of deviations from the mean: $$ SD(X) = \\sigma_X = \\sqrt{ E\\big{(} (X-\\mu_X)^2 \\big{)} } $$$SD(X)$ has the same units as...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_12/01_Definition.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_12/01_Definition.html",
         "teaser":null},{
         "title": "Prediction and Estimation",
         
@@ -4116,7 +4116,7 @@ initFunction(initPrint)
             "Prediction and Estimation One way to think about the SD is in terms of errors in prediction. Suppose I am going to generate a value of the random variable $X$, and I ask you to predict the value I am going to get. What should you use as your predictor? A natural choice is $\\mu_X$, the expectation of $X$. But you could choose any number $c$. The error that you will make is $X - c$. About how big is that? For most reasonable choices of $c$, the error will sometimes be positive and sometimes negative. To find the rough...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_12/02_Prediction_and_Estimation.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_12/02_Prediction_and_Estimation.html",
         "teaser":null},{
         "title": "Tail Bounds",
         
@@ -4124,7 +4124,7 @@ initFunction(initPrint)
             "Tail Bounds If you know $E(X)$ and $SD(X)$ you can get some idea of how much probability there is in the tails of the distribution of $X$. In this section we are going to get upper bounds on probabilities such as the gold area in the graph below. That's $P(X \\ge 20)$ for the random variable $X$ whose distribution is displayed in the histogram. Monotonicity To do this, we will start with an observation about expectations of functions of $X$. Suppose $g$ and $h$ are functions such that $g(X) \\ge h(X)$, that is, $P(g(X) \\ge h(X)) = 1$. Then $E(g(X))...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_12/03_Bounds.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_12/03_Bounds.html",
         "teaser":null},{
         "title": "Heavy Tails",
         
@@ -4132,7 +4132,7 @@ initFunction(initPrint)
             "Heavy Tails This short section shows an example of how expectations and SDs, though very useful in many situations, aren't quite adequate when distributions have long, fat tails. Here is one such distribution. N = 1000 n = np.arange(1, N+1, 1) probs = (1/n)*(1/np.sum(1/n)) dist = Table().values(n).probability(probs) Plot(dist) plt.xlim(0, N/10); You can see that the tail stretches out quite far. If we sample independently from this population, how does the sample average behave? Averages are affected by values out in the tails. Let's simulate the distribution of the average of a random sample of size 500 from this distribution. We'll...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_12/04_Heavy_Tails.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_12/04_Heavy_Tails.html",
         "teaser":null},{
         "title": "Chapter 13: Variance Via Covariance",
         
@@ -4140,7 +4140,7 @@ initFunction(initPrint)
             "Variance Via Covariance In this chapter we return to random sampling and study the variability in the sum of a random sample. It is worth taking some time to understand how sample sums behave, because many interesting random variables like counts of successes can be written as sums. Binomial and hypergeometric random variables are such sums. Also, the mean of a random sample is a straightforward function of the sample sum. Let $X$ be a random variable. We will use some familiar shorthand: $\\mu_X = E(X)$ $\\sigma_X = SD(X)$ Let $D_X = X - \\mu_X$ denote the deviation of $X$...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_13/00_Variance_Via_Covariance.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_13/00_Variance_Via_Covariance.html",
         "teaser":null},{
         "title": "Properties of Covariance",
         
@@ -4148,7 +4148,7 @@ initFunction(initPrint)
             "Properties of Covariance Let's examine how covariance behaves. In the next two sections we will use our observations to calculate variances of sample sums. Establishing properties of covariance involves simple observations and routine algebra. We have done some of it below, and we expect that you can fill in the rest. Recall that the covariance of $X$ and $Y$ is $$ Cov(X, Y) ~ = ~ E(D_XD_Y) ~ = ~ E[(X - \\mu_X)(Y - \\mu_Y)] $$ Constants Don't Vary That title has a \"duh\" quality. But it's still worth noting that for any constant $c$, $$ Cov(X, c) = 0...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_13/01_Properties_of_Covariance.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_13/01_Properties_of_Covariance.html",
         "teaser":null},{
         "title": "Sums of IID Samples",
         
@@ -4156,7 +4156,7 @@ initFunction(initPrint)
             "Sums of IID Samples After the dry, algebraic discussion of the previous section it is a relief to finally be able to compute some variances. Let $X_1, X_2, \\ldots X_n$ be random variables with sum $$ S_n = \\sum_{i=1}^n X_i $$ The variance of the sum is $$ \\begin{align*} Var(S_n) &amp;= Cov(S_n, S_n) \\\\ &amp;= \\sum_{i=1}^n\\sum_{j=1}^n Cov(X_i, X_j) ~~~~ \\text{(bilinearity)} \\\\ &amp;= \\sum_{i=1}^n Var(X_i) + \\mathop{\\sum \\sum}_{1 \\le i \\ne j \\le n} Cov(X_i, X_j) \\end{align*} $$We say that the variance of the sum is the sum of all the variances and all the covariances. If $X_1, X_2 \\ldots ,...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_13/02_Sums_of_IID_Samples.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_13/02_Sums_of_IID_Samples.html",
         "teaser":null},{
         "title": "Sums of Simple Random Samples",
         
@@ -4164,7 +4164,7 @@ initFunction(initPrint)
             "Sums of Simple Random Samples When the random variables that are being added are not independent, finding the variance of the sum does involve finding covariances. As before, let $X_1, X_2, \\ldots X_n$ be random variables with sum $$ S_n = \\sum_{i=1}^n X_i $$The variance of the sum is $$ Var(S_n) ~ = ~ \\sum_{i=1}^n Var(X_i) + \\mathop{\\sum \\sum}_{1 \\le i \\ne j \\le n} Cov(X_i, X_j) $$ Before we apply this formula, let's start out by finding a simple covariance. Indicators Let $A$ and $B$ be two events. Let $I_A$ be the indicator of $A$ and let $I_B$ be...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_13/03_Sums_of_Simple_Random_Samples.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_13/03_Sums_of_Simple_Random_Samples.html",
         "teaser":null},{
         "title": "Finite Population Correction",
         
@@ -4172,7 +4172,7 @@ initFunction(initPrint)
             "Finite Population Correction Data scientists often have to work with a relatively small sample from an enormous population. So suppose we are drawing at random $n$ times from a population of size $N$ where $N$ is large and $n$ is small relative to $N$. Just go with the flow for now – all of this will become more precise as this section develops. Suppose the population mean is $\\mu$ and the population SD is $\\sigma$. Let $S_n$ be the sample sum. Then, regardless of whether the sample is drawn with replacement or without, $$ E(S_n) = n\\mu $$ The variance...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_13/04_Finite_Population_Correction.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_13/04_Finite_Population_Correction.html",
         "teaser":null},{
         "title": "Chapter 14: The Central Limit Theorem",
         
@@ -4180,7 +4180,7 @@ initFunction(initPrint)
             "The Central Limit Theorem The standard deviation is one measure of spread, but you can imagine many others. Why choose the SD over all of them? The main reason is the connection between the SD and the normal curve. Why is the normal curve so important? This chapter contains an answer to that question. We will start by looking at the exact distribution of the sum of an i.i.d. sample. We already know its mean and SD. In this chapter, we will study the shape of the distribution: the exact shape if we can calculate it, and a remarkable approximation...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_14/00_The_Central_Limit_Theorem.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_14/00_The_Central_Limit_Theorem.html",
         "teaser":null},{
         "title": "Exact Distribution",
         
@@ -4188,7 +4188,7 @@ initFunction(initPrint)
             "Exact Distribution We already know how to find the distribution of the sum of any two discrete random variables. $$ P(X+Y = k) = \\sum_j P(X=j, Y=k-j) $$If $X$ and $Y$ are independent, this simplifies to become the discrete convolution formula: $$ P(X+Y = k) = \\sum_j P(X=j)P(Y=k-j) $$By induction, we can extend this to the sum of any finite number of independent variables. So in principle, we know how to find the distribution of the sum of $n$ independent random variables for $n &gt; 1$. However, this method can be hard to put into practice for large $n$. In...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_14/01_Exact_Distribution.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_14/01_Exact_Distribution.html",
         "teaser":null},{
         "title": "PGFs in NumPy",
         
@@ -4196,7 +4196,7 @@ initFunction(initPrint)
             "PGFs in NumPy Recall our algorithm to find the distribution of $S_n$, the sum of $n$ i.i.d. copies of a random variable $X_1$ that has values in a finite set of non-negative integers. Start with the pgf of $X_1$. Raise it to the power $n$. That's the pgf of $S_n$. Read the distribution of $S_n$ off the pgf. In this section we will use NumPy to carry out this algorithm. Let's start with an example. Suppose the distribution of $X_1$ is given by $p_0 = 0.1$, $p_1 = 0.5$, $p_2 = 0.4$. Let probs_X1 be an array containing the probabilities...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_14/02_PGFs_in_NumPy.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_14/02_PGFs_in_NumPy.html",
         "teaser":null},{
         "title": "Central Limit Theorem",
         
@@ -4204,7 +4204,7 @@ initFunction(initPrint)
             "Central Limit Theorem As its name implies, this theorem is central to the fields of probability, statistics, and data science. It explains the normal curve that kept appearing in the previous section. Before we get to the theorem let's recall some facts from Data 8 and from earlier in this course. Standard Units As we have seen earlier, a random variable $X$ converted to standard units becomes $$ Z = \\frac{X - \\mu_X}{\\sigma_X} $$$Z$ measures how far $X$ is from the mean, in units of the SD. In other words $Z$ measures how many SDs above average the value of...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_14/03_Central_Limit_Theorem.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_14/03_Central_Limit_Theorem.html",
         "teaser":null},{
         "title": "The Sample Mean",
         
@@ -4212,7 +4212,7 @@ initFunction(initPrint)
             "The Sample Mean What's central about the Central Limit Theorem? One answer is that it allows us to make inferences based on random samples when we don't know much about the distribution of the population. For data scientists, that's very valuable. In Data 8 you saw that if we want estimate the mean of a population, we can construct confidence intervals for the parameter based on the mean of a large random sample. In that course you used the bootstrap to generate an empirical distribution of the sample mean, and then used the empirical distribution to create the confidence interval....",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_14/04_The_Sample_Mean.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_14/04_The_Sample_Mean.html",
         "teaser":null},{
         "title": "Confidence Intervals",
         
@@ -4220,7 +4220,7 @@ initFunction(initPrint)
             "Confidence Intervals Suppose you have a large i.i.d. sample $X_1, X_2, \\ldots, X_n$, and let $\\bar{X}_n$ be the sample mean. The CLT implies that with chance about 95%, the sample mean is within 2 SDs of the population mean: $$ P\\big{(}\\bar{X}_n \\in (\\mu - 2\\frac{\\sigma}{\\sqrt{n}}, ~~~ \\mu + 2\\frac{\\sigma}{\\sqrt{n}}) \\big{)} ~ \\approx ~~ 0.95 $$ This can be expressed in a different way: $$ P\\big{(}\\vert \\bar{X}_n - \\mu \\vert &lt; 2\\frac{\\sigma}{\\sqrt{n}}\\big{)} ~ \\approx ~~ 0.95 $$Distance is symmetric, so this is the same as saying: $$ P\\big{(}\\mu \\in (\\bar{X}_n - 2\\frac{\\sigma}{\\sqrt{n}}, ~~~ \\bar{X}_n + 2\\frac{\\sigma}{\\sqrt{n}})\\big{)} ~ \\approx ~~ 0.95 $$That...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_14/05_Confidence_Intervals.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_14/05_Confidence_Intervals.html",
         "teaser":null},{
         "title": "Chapter 15: Continuous Distributions",
         
@@ -4228,7 +4228,7 @@ initFunction(initPrint)
             "Continuous Distributions The normal curve, used by us as an approximation to discrete distributions, can be thought of as a distribution in its own right provided we allow the possible values to be the entire real line. In this chapter we will develop methods for working with random variables whose possible values are an interval of numbers. The interval of possible values might be bounded or unbounded, but even a bounded interval has uncountably many numbers in it. So we will use calculus to find probabilities and expectations. You will see that almost all the results we developed for discrete...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_15/00_Continuous_Distributions.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_15/00_Continuous_Distributions.html",
         "teaser":null},{
         "title": "Density and CDF",
         
@@ -4236,7 +4236,7 @@ initFunction(initPrint)
             "Density and CDF Let $f$ be a non-negative function on the real number line and suppose $$ \\int_{-\\infty}^\\infty f(x)dx ~ = 1 $$Then $f$ is called a probability density function or just density for short. In the next section we will discuss the reason behind the name. For now, imagine the graph of $f$ as a kind of continuous probability histogram. We will soon make that precise. As an example, the function $f$ defined by $$ f(x) = \\begin{cases} 0 ~~~~~~~~~~~~~~~~~~ \\text{if } x \\le 0 \\\\ 6x(1-x) ~~~~~ \\text{if } 0 &lt; x &lt; 1 \\\\ 0 ~~~~~~~~~~~~~~~~~~ \\text{if...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_15/01_Density_and_CDF.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_15/01_Density_and_CDF.html",
         "teaser":null},{
         "title": "The Meaning of Density",
         
@@ -4244,7 +4244,7 @@ initFunction(initPrint)
             "The Meaning of Density When we work with a discrete random variable $X$, a natural component of our calculations is the chance that $X$ has a particular value $k$. That's the probability we denote by $P(X = k)$. What is the analog of $P(X = k)$ when $X$ has a density? If your answer is $P(X = x)$ for any number $x$, prepare to be disconcerted by the next paragraph. If $X$ Has a Density, Each Individual Value Has Probability 0 If $X$ has a density, then probabilities are defined as areas under the density curve. The area of a...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_15/02_The_Meaning_of_Density.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_15/02_The_Meaning_of_Density.html",
         "teaser":null},{
         "title": "Expectation",
         
@@ -4252,7 +4252,7 @@ initFunction(initPrint)
             "Expectation Let $X$ have density $f$. Let $g$ be a real valued function on the real line, and suppose you want to find $E(g(X))$. Then you can follow a procedure analogous to the non-linear function rule we developed for finding expectations of functions of discrete random variables. Write a generic value of $X$: that's $x$. Apply the function $g$ to get $g(x)$. Weight $g(x)$ by the chance that $X$ is just around $x$, resulting in the product $g(x) \\cdot f(x)dx$. \"Sum\" over all $x$, that is, integrate. The expectation is $$ E(g(X)) ~ = ~ \\int_{-\\infty}^{\\infty} g(x)\\cdot f(x)dx $$ Technical...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_15/03_Expectation.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_15/03_Expectation.html",
         "teaser":null},{
         "title": "Exponential Distribution",
         
@@ -4260,7 +4260,7 @@ initFunction(initPrint)
             "Exponential Distribution A random variable $T$ has the exponential distribution with parameter $\\lambda$ if the density of $T$ is given by $$ f_T(t) ~ = \\lambda e^{-\\lambda t}, ~~~ t \\ge 0 $$The graph below shows the density $f_T$ for $\\lambda = 5$. CDF and Survival Function The exponential distribution is often used as a model for random lifetimes, in settings that we will study in greater detail below. For now, just think of $T$ as the lifetime of an object like a lightbulb, and note that the cdf at time $t$ can be thought of as the chance that...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_15/04_Exponential_Distribution.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_15/04_Exponential_Distribution.html",
         "teaser":null},{
         "title": "Calculus in SymPy",
         
@@ -4268,7 +4268,7 @@ initFunction(initPrint)
             "Calculus in SymPy Working with densities involves calculus which can sometimes be time-consuming. This course gives you two ways of reducing the amount of calculus involved. Probabilistic methods can help reduce algebra and calculus. You've seen this with algebra in the discrete case. You'll see it with calculus as we learn more about densities. Python has a symbolic math module called SymPy that does algebra, calculus, and much other symbolic math. In this section we will show you how to do calculus using SymPy. We will demonstrate the methods in the context of an example. Suppose $X$ has density given...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_15/05_Calculus_in_SymPy.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_15/05_Calculus_in_SymPy.html",
         "teaser":null},{
         "title": "Review Problems: Set 3",
         
@@ -4276,7 +4276,7 @@ initFunction(initPrint)
             "Review Problems: Set 3 These problems can be solved using the main ideas of Chapters 12 through 15. The Basics set will remind you of the fundamental concepts and some typical calculations. The rest are for you to further develop your problem solving skills and your fluency with the notation and ideas. The Basics 1. Let $X$ have the distribution given by $~~~~~~~~~~~~~~~~~~~~~~~~~x$ 1 2 3 $P(X=x)$ 0.2 0.5 0.3 Find $E(X)$ and $SD(X)$. 2. For random variables $X$ and $Y$, suppose $E(X) = 5$, $Var(X) = 2$ $E(Y) = -3$, $Var(Y) = 7$ Let $W = 8X - 9Y...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_15/06_Review_Problems_Set_3.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_15/06_Review_Problems_Set_3.html",
         "teaser":null},{
         "title": "Chapter 16: Transformations",
         
@@ -4284,7 +4284,7 @@ initFunction(initPrint)
             "Transformations Let $X$ have a continuous distribution and let $Y = g(X)$ be a function of $X$. We know how to find $E(Y)$, assuming the expectation exists. In this chapter we will develop a method for finding the density of $Y$ in terms of $g$ and the density of $X$. The method is only valid for \"well behaved\" functions $g$. We will define what \"well behaved\" means in this context. It turns out that the class of well behaved functions is rich enough to cover a large set of interesting random variables. We will start by studying properties of the...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_16/00_Transformations.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_16/00_Transformations.html",
         "teaser":null},{
         "title": "Linear Transformations",
         
@@ -4292,7 +4292,7 @@ initFunction(initPrint)
             "Linear Transformations Let $T$ have the exponential $(\\lambda)$ distribution and let $T_1 = \\lambda T$. Then $T_1$ is a linear transformation of $T$. Therefore $$ E(T_1) = \\lambda E(T) = 1 ~~~ \\text{and} ~~~ SD(T_1) = \\lambda SD(T) = 1 $$The parameter $\\lambda$ has disappeared in these results. Let's see how that follows from the distribution of $T_1$. The cdf of $T_1$ is $$ F_{T_1}(t) = P(T_1 \\le t) = P(T \\le t/\\lambda) = 1 - e^{-\\lambda (t/\\lambda)} = 1 - e^{-t} $$That's the cdf of the exponential $(1)$ distribution, consistent with the expectation and SD we found above. To...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_16/01_Linear_Transformations.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_16/01_Linear_Transformations.html",
         "teaser":null},{
         "title": "Monotone Functions",
         
@@ -4300,7 +4300,7 @@ initFunction(initPrint)
             "Monotone Functions The method we have developed for finding the density of a linear function of a random variable can be extended to non-linear functions. We will start with a setting in which you have seen that applying non-linear functions to a random variable can have useful results. Simulation via the CDF In exercises, you have seen by simulation that you can generate a value of a random variable with a specified distribution by using the cdf of the distribution and a uniform (0, 1) random number. We will now establish the theory that underlies what you discovered by computation....",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_16/02_Monotone_Functions.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_16/02_Monotone_Functions.html",
         "teaser":null},{
         "title": "Two-to-One Functions",
         
@@ -4308,7 +4308,7 @@ initFunction(initPrint)
             "Two-to-One Functions Let $X$ have density $f_X$. As you have seen, the random variable $Y = X^2$ comes up frequently in calculations. Thus far, all we have needed is $E(Y)$ which can be found by the formula for the expectation of a non-linear function of $X$. To find the density of $Y$, we can't directly use the change of variable formula of the previous section because the function $g(x) = x^2$ is not monotone. It is two-to-one because both $\\sqrt{x}$ and $-\\sqrt{x}$ have the same square. In this section we will find the density of $Y$ by developing a modification...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_16/03_Two_to_One_Functions.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_16/03_Two_to_One_Functions.html",
         "teaser":null},{
         "title": "Chapter 17: Joint Densities",
         
@@ -4316,7 +4316,7 @@ initFunction(initPrint)
             "    Joint Densities            We turn now to probability densities on the plane, that is, to joint distributions of two continuous random variables. The methods extend our calculations with densities of single variables, and are analogous to methods involving joint distribution tables in the discrete case.           ",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_17/00_Joint_Densities.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_17/00_Joint_Densities.html",
         "teaser":null},{
         "title": "Probabilities and Expectations",
         
@@ -4324,7 +4324,7 @@ initFunction(initPrint)
             "Probabilities and Expectations A function $f$ on the plane is called a joint density if: $f(x, y) \\ge 0$ for all $x$, $y$ $\\int_x \\int_y f(x, y)dydx = 1$ If you think of $f$ as a surface, then the first condition says that the surface is on or above the plane. The second condition says that the total volume under the surface is 1. Think of probabilities as volumes under the surface, and define $f$ to be the joint density of random variables $X$ and $Y$ if $$ P((X, Y) \\in A) ~ = ~ \\mathop{\\int \\int}_A f(x,y)dydx ~~~~~ \\text{for...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_17/01_Probabilities_and_Expectations.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_17/01_Probabilities_and_Expectations.html",
         "teaser":null},{
         "title": "Independence",
         
@@ -4332,7 +4332,7 @@ initFunction(initPrint)
             "Independence Jointly distributed random variables $X$ and $Y$ are independent if $$ P(X \\in A, Y \\in B) = P(X \\in A)P(Y \\in B) $$ for all intervals $A$ and $B$. Let $X$ have density $f_X$, let $Y$ have density $f_Y$, and suppose $X$ and $Y$ are independent. Then if $f$ is the joint density of $X$ and $Y$, $$ \\begin{align*} f(x, y)dxdy &amp;\\sim P(X \\in dx, Y \\in dy) \\\\ &amp;= P(X \\in dx)P(Y \\in dy) ~~~~~ \\text{(independence)} \\\\ &amp;= f_X(x)dx f_Y(y)dy \\\\ &amp;= f_X(x)f_Y(y)dxdy \\end{align*} $$Thus if $X$ and $Y$ are independent then their joint density is given...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_17/02_Independence.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_17/02_Independence.html",
         "teaser":null},{
         "title": "Marginal and Conditional Densities",
         
@@ -4340,7 +4340,7 @@ initFunction(initPrint)
             "Marginal and Conditional Densities Let random variables $X$ and $Y$ have the joint density defined by $$ f(x, y) ~ = ~ \\begin{cases} 30(y-x)^4, ~~~ 0 &lt; x &lt; y &lt; 1 \\\\ 0 ~~~~~~~~ \\text{otherwise} \\end{cases} $$ def jt_dens(x,y): if y &lt; x: return 0 else: return 30 * (y-x)**4 Plot_3d(x_limits=(0,1), y_limits=(0,1), f=jt_dens, cstride=4, rstride=4) Then the possible values of $(X, Y)$ are in the upper right hand triangle of the unit square. Here is a quick check by SymPy to see that the function $f$ is indeed a joint density. x = Symbol(&#39;x&#39;, positive=True) y = Symbol(&#39;y&#39;, positive=True)...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_17/03_Marginal_and_Conditional_Densities.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_17/03_Marginal_and_Conditional_Densities.html",
         "teaser":null},{
         "title": "Beta Densities with Integer Parameters",
         
@@ -4348,7 +4348,7 @@ initFunction(initPrint)
             "Beta Densities with Integer Parameters In the previous section we learned how to work with joint densities, but many of the joint density functions seemed to appear out of nowhere. For example, we checked that the function $$ f(x, y) = 120x(y-x)(1-y), ~~~~ 0 &lt; x &lt; y &lt; 1 $$is a joint density, but there was no clue where it came from. In this section we will find its origin and go on to develop an important family of densities on the unit interval. Order Statistics of IID Uniform $(0, 1)$ Variables Let $U_1, U_2, \\ldots, U_n$ be i.i.d....",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_17/04_Beta_Densities_with_Integer_Parameters.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_17/04_Beta_Densities_with_Integer_Parameters.html",
         "teaser":null},{
         "title": "Chapter 18: The Normal and Gamma Families",
         
@@ -4356,7 +4356,7 @@ initFunction(initPrint)
             "The Normal and Gamma Families The family of normal distributions has a uniquely important place in probability theory and data science. You started working with normal distributions in Data 8 long before you understood much formal probability theory. So you have taken several basic facts for granted without proof. We will start by establishing those facts and then study sums of independent normal variables. The gamma family of distributions, properties of which you have established in exercises, arises in numerous contexts. For example, you have seen that the exponential distribution is a member of the gamma family, as is the...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_18/00_The_Normal_and_Gamma_Families.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_18/00_The_Normal_and_Gamma_Families.html",
         "teaser":null},{
         "title": "Standard Normal: The Basics",
         
@@ -4364,7 +4364,7 @@ initFunction(initPrint)
             "Standard Normal: The Basics Though we have accepted the formula for the standard normal density function since Data 8, we have never proved that it is indeed a density – that it integrates to 1. We have also not checked that its expectation exists, nor that its SD is 1. It's time to do all that and thereby ensure that our calculations involving normal densities are legitimate. We will start by recalling some facts about the apparently unrelated Rayleigh distribution, which we encountered as the distribution of the square root of an exponential variable. Let $T$ have the exponential $(1/2)$...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_18/01_Standard_Normal_Basics.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_18/01_Standard_Normal_Basics.html",
         "teaser":null},{
         "title": "Sums of Independent Normal Variables",
         
@@ -4372,7 +4372,7 @@ initFunction(initPrint)
             "Sums of Independent Normal Variables This section consists of examples based on one important fact: The sum of independent normal variables is normal. We will prove the fact in a later section using moment generating functions. For now, we will just run a quick simulation and then see how to use the fact in examples. mu_X = 10 sigma_X = 2 mu_Y = 15 sigma_Y = 3 x = stats.norm.rvs(mu_X, sigma_X, size=10000) y = stats.norm.rvs(mu_Y, sigma_Y, size=10000) s = x+y Table().with_column(&#39;S = X+Y&#39;, s).hist(bins=20) plt.title(&#39;$X$ is normal (10, $2^2$); $Y$ is normal (15, $3^2$) independent of $X$&#39;); The simulation above...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_18/02_Sums_of_Independent_Normal_Variables.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_18/02_Sums_of_Independent_Normal_Variables.html",
         "teaser":null},{
         "title": "The Gamma Family",
         
@@ -4380,7 +4380,7 @@ initFunction(initPrint)
             "The Gamma Family You have seen in exercises that a non-negative random variable $X$ has the gamma $(r, \\lambda)$ distribution for two positive parameters $r$ and $\\lambda$ if the density of $X$ is given by $$ f_X(x) ~ = ~ \\frac{\\lambda^r}{\\Gamma(r)} x^{r-1}e^{-\\lambda x}, ~~~~~ x \\ge 0 $$Here $$ \\Gamma(r) ~ = ~ \\int_0^\\infty x^{r-1}e^{-x} dx $$is the Gamma function applied to $r$, and is part of the constant that makes the density integrate to 1. As you have shown, the key fact about the Gamma function is the recursion $$ \\Gamma(r+1) ~ = ~ r\\Gamma (r), ~~~~ r &gt;...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_18/03_The_Gamma_Family.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_18/03_The_Gamma_Family.html",
         "teaser":null},{
         "title": "Chi-Squared Distributions",
         
@@ -4388,7 +4388,7 @@ initFunction(initPrint)
             "Chi-Squared Distributions Let $Z$ be a standard normal random variable and let $V = Z^2$. By the change of variable formula for densities, we found the density of $V$ to be $$ f_V(v) ~ = ~ \\frac{1}{\\sqrt{2\\pi}} v^{-\\frac{1}{2}} e^{-\\frac{1}{2} v}, ~~~~ v &gt; 0 $$That's the gamma $(1/2, 1/2)$ density. It is also called the chi-squared density with 1 degree of freedom, which we will abbreviate to chi-squared (1). From Chi-Squared $(1)$ to Chi-Squared $(n)$ When we were establishing the properties of the standard normal density, we discovered that if $Z_1$ and $Z_2$ are independent standard normal then $Z_1^2 +...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_18/04_Chi_Squared_Distributions.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_18/04_Chi_Squared_Distributions.html",
         "teaser":null},{
         "title": "Review Problems: Set 4",
         
@@ -4396,7 +4396,7 @@ initFunction(initPrint)
             "Review Problems: Set 4 These problems can be solved using the main ideas of Chapters 16 through 18. The Basics set will remind you of the fundamental concepts and some typical calculations. The rest are for you to further develop your problem solving skills and your fluency with the notation and ideas. You can leave answers in terms of the standard normal cdf $\\Phi$. You can also leave answers in terms of the Gamma function $\\Gamma$ unless you are asked for a simplification. The Basics 1. Let $X$ have density $f_X(x) = 2x$ for $0 &lt; x &lt; 1$. Find...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_18/05_Review_Problems_Set_4.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_18/05_Review_Problems_Set_4.html",
         "teaser":null},{
         "title": "Chapter 19: Distributions of Sums",
         
@@ -4404,7 +4404,7 @@ initFunction(initPrint)
             "    Distributions of Sums            This chapter provides some general methods for working with sums of random variables, whether discrete or continuous.  We will start with the continuous analog of the convolution formula for the distribution of a sum of two independent discrete random variables.  We will then develop a more powerful version of the probability generating function that we defined earlier to study sums of independent random variables with finitely many non-negative integer values. The new version, called the moment generating function, will apply to discrete as well as continuous random variables, with finite or infinite sets of possible values.           ",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_19/00_Distributions_of_Sums.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_19/00_Distributions_of_Sums.html",
         "teaser":null},{
         "title": "The Convolution Formula",
         
@@ -4412,7 +4412,7 @@ initFunction(initPrint)
             "The Convolution Formula Let $X$ and $Y$ be discrete random variables and let $S = X+Y$. We know that a good way to find the distribution of $S$ is to partition the event $\\{ S = s\\}$ according to values of $X$. That is, $$ P(S = s) ~ = ~ \\sum_{\\text{all }x} P(X = x, Y = s-x) $$If $X$ and $Y$ are independent, this becomes the discrete convolution formula: $$ P(S = s) ~ = ~ \\sum_{\\text{all }x} P(X = x)P(Y = s-x) $$This formula has a straightforward continuous analog. Let $X$ and $Y$ be continuous random variables...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_19/01_Convolution_Formula.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_19/01_Convolution_Formula.html",
         "teaser":null},{
         "title": "Moment Generating Functions",
         
@@ -4420,7 +4420,7 @@ initFunction(initPrint)
             "Moment Generating Functions The probability mass function and probability density, cdf, and survival functions are all ways of specifying the probability distribution of a random variable. They are all defined as probabilities or as probability per unit length, and thus have natural interpretations and visualizations. But there are also more abstract ways of describing distributions. One that you have encountered is the probability generating function (pgf), which we defined for random variables with finitely many non-negative integer values. We now define another such transform of a distribution. More general than the pgf, it is a powerful tool for studying distributions....",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_19/02_Moment_Generating_Functions.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_19/02_Moment_Generating_Functions.html",
         "teaser":null},{
         "title": "MGFs, the Normal, and the CLT",
         
@@ -4428,7 +4428,7 @@ initFunction(initPrint)
             "MGFs, the Normal, and the CLT Let $Z$ be standard normal. Then the mgf of $Z$ is given by $$ M_Z(t) ~ = ~ e^{t^2/2} ~~~ \\text{for all } t $$To see this, just work out the integral: $$ \\begin{align*} M_Z(t) ~ &amp;= ~ \\int_{-\\infty}^\\infty e^{tz} \\frac{1}{\\sqrt{2\\pi}} e^{-\\frac{1}{2}z^2} dz \\\\ \\\\ &amp;= ~ \\int_{-\\infty}^\\infty \\frac{1}{\\sqrt{2\\pi}} e^{-\\frac{1}{2}(z^2 - 2tz)} dz \\\\ \\\\ &amp;= ~ e^{t^2/2} \\int_{-\\infty}^\\infty \\frac{1}{\\sqrt{2\\pi}} e^{-\\frac{1}{2}(z^2 - 2tz + t^2)} dz \\\\ \\\\ &amp;= ~ e^{t^2/2} \\int_{-\\infty}^\\infty \\frac{1}{\\sqrt{2\\pi}} e^{-\\frac{1}{2}(z- t)^2} dz \\\\ \\\\ &amp;= ~ e^{t^2/2} \\end{align*} $$because the integral is 1. It is the normal $(t, 1)$ density...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_19/03_MGFs_Normal_and_the_CLT.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_19/03_MGFs_Normal_and_the_CLT.html",
         "teaser":null},{
         "title": "Chernoff Bound",
         
@@ -4436,7 +4436,7 @@ initFunction(initPrint)
             "Chernoff Bound If the form of a distribution is intractable in that it is difficult to find exact probabilities by integration, then good estimates and bounds become important. Bounds on the tails of the distribution of a random variable help us quantify roughly how close to the mean the random variable is likely to be. We already know two such bounds. Let $X$ be a random variable with expectation $\\mu$ and SD $\\sigma$. Markov's Bound on the Right Hand Tail If $X$ is non-negative, $$ P(X \\ge c) ~ \\le ~ \\frac{\\mu}{c} $$Chebychev's Bound on Two Tails $$ P(\\lvert X...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_19/04_Chernoff_Bound.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_19/04_Chernoff_Bound.html",
         "teaser":null},{
         "title": "Chapter 20: Approaches to Estimation",
         
@@ -4444,7 +4444,7 @@ initFunction(initPrint)
             "Approaches to Estimation In Data 8 we defined a parameter to be a number associated with a population or with a distribution in a model. In all of the inference we have done so far, we have assumed that a parameter is a fixed number, possibly unknown. We have developed methods of estimation that attempt to capture an unknown fixed parameter in a confidence interval based on the data in random draws from the population. We will start this chapter by developing a general method that allows us to come up with good estimates of fixed parameters. Essentially, it looks...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_20/00_Approaches_to_Estimation.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_20/00_Approaches_to_Estimation.html",
         "teaser":null},{
         "title": "Maximum Likelihood",
         
@@ -4452,7 +4452,7 @@ initFunction(initPrint)
             "Maximum Likelihood Suppose you have an i.i.d. sample $X_1, X_2, \\ldots, X_n$ where the density of each $X_i$ depends on a parameter $\\theta$. Assume that $\\theta$ is fixed but unknown. The method of maximum likelihood estimates $\\theta$ by answering the following question: Among all the possible values of the parameter $\\theta$, which one maximizes the likeihood of getting our sample? That maximizing value of the parameter is called the maximum likelihood estimate or MLE for short. In this section we will develop a method for finding MLEs. Let's look at an example to illustrate the main idea. Suppose you know...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_20/01_Maximum_Likelihood.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_20/01_Maximum_Likelihood.html",
         "teaser":null},{
         "title": "Prior and Posterior",
         
@@ -4460,7 +4460,7 @@ initFunction(initPrint)
             "Prior and Posterior You are used to thinking of coin tosses as a sequence of i.i.d. Bernoulli $(p)$ variables for some fixed $p$. In an earlier section we showed that the sample proportion of successes $\\hat{p}$ is the MLE of the fixed but unknown $p$. Instead, suppose we think of $p$ as the result of a random draw from a distribution on the unit interval. That is, we assume the probability that the coin lands heads is a random variable $X$ with some density $f_X$ on $(0, 1)$. This is called the prior density of $X$. The prior density reflects...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_20/02_Prior_and_Posterior.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_20/02_Prior_and_Posterior.html",
         "teaser":null},{
         "title": "Independence, Revisited",
         
@@ -4468,7 +4468,7 @@ initFunction(initPrint)
             "Independence, Revisited In this section we will remind ourselves about what can happen to independence when parameters are randomized. First, let's go over some basics. Average Conditional Probabilities Let $X$ have density $f_X$ and let $A$ be an event. Then $$ P(A, X \\in dx) ~ = ~ P(X \\in dx)P(A \\mid X = x) ~ \\sim ~ f_X(x)dxP(A \\mid X = x) $$So $$ P(A) ~ = ~ \\int_{\\text{all x}} P(A, X \\in dx) ~ = ~ \\int_{\\text{all x}} P(A \\mid X = x)f_X(x)dx $$In more compact notation, $P(A) = E(P(A \\mid X))$. This is an example of finding...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_20/03_Independence_Revisited.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_20/03_Independence_Revisited.html",
         "teaser":null},{
         "title": "Chapter 21: The Beta and the Binomial",
         
@@ -4476,7 +4476,7 @@ initFunction(initPrint)
             "The Beta and the Binomial Connections between the beta and binomial families have acquired fundamental importance in machine learning. In the previous chapter, you began to see some of these connections. In this chapter we will generalize those observations. The experiment that we will study has two stages. Pick a value of $p$ according to a beta distribution Toss a coin that lands heads with the chosen probability $p$ We will see how the posterior distribution of the chance of heads is affected by the prior and by the data. After observing the results of $n$ tosses, we will make...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_21/00_The_Beta_and_the_Binomial.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_21/00_The_Beta_and_the_Binomial.html",
         "teaser":null},{
         "title": "Updating and Prediction",
         
@@ -4484,7 +4484,7 @@ initFunction(initPrint)
             "Updating and Prediction Let $X$ be a random variable with a beta density. Given $X=p$, toss a $p$-coin $n$ times and observe the number of heads. Based on the number of heads, we are going to: Identify the posterior distribution of $X$ Predict the chance of heads on the $(n+1)$st toss Beta Prior For positive integers $r$ and $s$, we derived the beta $(r, s)$ density $$ f(x) = \\frac{(r+s-1)!}{(r-1)!(s-1)!} x^{r-1}(1-x)^{s-1}, ~~~ 0 &lt; x &lt; 1 $$by studying order statistics of i.i.d. uniform $(0, 1)$ random variables. The beta family can be extended to include parameters $r$ and $s$...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_21/01_Updating_and_Prediction.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_21/01_Updating_and_Prediction.html",
         "teaser":null},{
         "title": "The Beta-Binomial Distribution",
         
@@ -4492,7 +4492,7 @@ initFunction(initPrint)
             "The Beta-Binomial Distribution As in the previous section, let $X$ have the beta $(r, s)$ prior, and given $X = p$ let the $S_n$ be the number of heads in the first $n$ tosses of a $p$-coin. All the calculations we carried out in the previous section were under the condition that $S_n = k$, but we never needed to find the probability of this event. It was part of the constant that made the posterior density of $X$ integrate to 1. We can now find $P(S_n = k)$ by writing the posterior density in two ways: By recalling that...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_21/02_Beta_Binomial_Distribution.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_21/02_Beta_Binomial_Distribution.html",
         "teaser":null},{
         "title": "Long Run Proportion of Heads",
         
@@ -4500,7 +4500,7 @@ initFunction(initPrint)
             "Long Run Proportion of Heads Fix $p$ for now, and consider a sequence of i.i.d. Bernoulli $(p)$ trials $I_1, I_2, \\ldots$. By the Weak Law of Large Numbers, the proportion of successes is likely to be close to $p$ in the number of trials is large. But something even stronger is true, and is known as the Strong Law: with probability 1, the sample proportion converges to $p$. Establishing the Strong Law is beyond the scope of this course, but we can easily visualize the result by simulation. We will start with the function binomial_proportion that takes $p$ and $n$...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_21/03_Long_Run_Proportion_of_Heads.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_21/03_Long_Run_Proportion_of_Heads.html",
         "teaser":null},{
         "title": "Chapter 22: Prediction",
         
@@ -4508,7 +4508,7 @@ initFunction(initPrint)
             "    Prediction            This chapter is about predicting the value of one variable based on information about another. Our main predictor will be conditional expectation, which we defined earlier but will now examine as a guess for one variable given the value of another.  We will define a criterion for comparing predictions, and identify the best predictor using that criterion. In the process we will define a quantity called conditional variance and use it to find variance.           ",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_22/00_Prediction.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_22/00_Prediction.html",
         "teaser":null},{
         "title": "Conditional Expectation As a Projection",
         
@@ -4516,7 +4516,7 @@ initFunction(initPrint)
             "Conditional Expectation As a Projection Suppose we are trying to predict the value of a random variable $Y$ based on a related random variable $X$. As you saw in Data 8, a natural method of prediction is to use the \"center of the vertical strip\" at the given value of $X$. Formally, given $X=x$, we are proposing to predict $Y$ by $E(Y \\mid X=x)$. The conditional expectation $E(Y \\mid X)$ is the function of $X$ defined by $$ b(x) ~ = ~ E(Y \\mid X = x) $$We are using the letter $b$ to signifiy the \"best guess\" of $Y$...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_22/01_Conditional_Expectation_Projection.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_22/01_Conditional_Expectation_Projection.html",
         "teaser":null},{
         "title": "Variance by Conditioning",
         
@@ -4524,7 +4524,7 @@ initFunction(initPrint)
             "Variance by Conditioning Iteration allows us to find expectation by conditioning. We now have the tools to find variance by conditioning as well. Recall the notation of the previous section: $X$ and $Y$ are jointly distributed random variables $b(X) = E(Y \\mid X)$ $D_w = Y - b(X)$ Define $D_Y = Y - E(Y)$. Then $$ D_Y ~ = ~ D_w + (b(X) - E(Y)) ~ = ~ D_w + D_b $$where $D_b = b(X) - E(Y)$ is the deviation of the random variable $b(X)$ from its expectation $E(Y)$. In the graph below, the black line is at the level...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_22/02_Variance_by_Conditioning.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_22/02_Variance_by_Conditioning.html",
         "teaser":null},{
         "title": "Examples",
         
@@ -4532,7 +4532,7 @@ initFunction(initPrint)
             "Examples This section is a workout in finding expectation and variance by conditioning. As before, if you are trying to find a probability, expectation, or variance, and you think, \"If only I knew the value of this other random variable, I'd have the answer,\" then that's a sign that you should consider conditioning on that other random variable. Mixture of Two Distributions Let $X$ have mean $\\mu_X$ and SD $\\sigma_X$. Let $Y$ have mean $\\mu_Y$ and SD $\\sigma_Y$. Now let $p$ be a number between 0 and 1, and define the random variable $M$ as follows. $$ M = \\begin{cases}...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_22/03_Examples.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_22/03_Examples.html",
         "teaser":null},{
         "title": "Least Squares Predictor",
         
@@ -4540,7 +4540,7 @@ initFunction(initPrint)
             "Least Squares Predictor As the function that picks off the \"centers of vertical strips,\" the conditional expectation $b(X) = E(Y \\mid X)$ is a natural estimate or predictor of $Y$ given the value of $X$. We will now see how good $b(X)$ is if we use mean squared error as our criterion. Minimizing the MSE Let $h(X)$ be any function of $X$, and consider using $h(X)$ to predict $Y$. Define the mean squared error of the predictor $h(X)$ to be $$ MSE(h) ~ = ~ E\\Big{(}\\big{(}Y - h(X)\\big{)}^2\\Big{)} $$We will show that $b(X)$ is the best predictor of $Y$ based...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_22/04_Least_Squares_Predictor.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_22/04_Least_Squares_Predictor.html",
         "teaser":null},{
         "title": "Chapter 23: Jointly Normal Random Variables",
         
@@ -4548,7 +4548,7 @@ initFunction(initPrint)
             "Jointly Normal Random Variables Galton's observations about oval scatter plots became the foundation of multiple regression, one of most commonly used methods in data analysis. Inference in multiple regression and its modern variants is often based on multivariate normal models. In this chapter we will study what it means for a collection of random variables to be jointly normally distributed. We will introduce matrix notation for linear combinations of random variables and then study the main properties of the multivariate normal distribution. This is the necessary groundwork for using multivariate normal models in prediction, which we will do in the...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_23/00_Multivariate_Normal_RVs.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_23/00_Multivariate_Normal_RVs.html",
         "teaser":null},{
         "title": "Random Vectors",
         
@@ -4556,7 +4556,7 @@ initFunction(initPrint)
             "Random Vectors A vector valued random variable, or more simply, a random vector, is a list of random variables defined on the same space. We will think of it as a column. $$ \\mathbf{X} ~ = ~ \\begin{bmatrix} X_1 \\\\ X_2 \\\\ \\vdots \\\\ X_n \\end{bmatrix} $$ For ease of display, we will sometimes write $\\mathbf{X} = [X_1 X_2 \\ldots X_n]^T$ where $\\mathbf{M}^T$ is notation for the transpose of the matrix $\\mathbf{M}$. The mean vector of $\\mathbf{X}$ is $\\boldsymbol{\\mu} = [\\mu_1 ~ \\mu_2 ~ \\ldots ~ \\mu_n]^T$ where $\\mu_i = E(X_i)$. The covariance matrix of $\\mathbf{X}$ is the $n \\times...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_23/01_Random_Vectors.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_23/01_Random_Vectors.html",
         "teaser":null},{
         "title": "Multivariate Normal Distribution",
         
@@ -4564,7 +4564,7 @@ initFunction(initPrint)
             "Multivariate Normal Distribution Let $\\boldsymbol{\\Sigma}$ be a positive definite matrix. An $n$-dimensional random vector $\\mathbf{X}$ has the multivariate normal distribution with mean vector $\\boldsymbol{\\mu}$ and covariance matrix $\\boldsymbol{\\Sigma}$ if the joint density of the elements of $\\mathbf{X}$ is given by $$ f_\\mathbf{X}(\\mathbf{x}) ~ = ~ \\frac{1}{(\\sqrt{2\\pi})^n \\sqrt{\\det(\\boldsymbol{\\Sigma})} } \\exp\\big{(}-\\frac{1}{2}(\\mathbf{x} - \\boldsymbol{\\mu})^T\\boldsymbol{\\Sigma}^{-1}(\\mathbf{x} - \\boldsymbol{\\mu})\\big{)} $$We will say that the elements of $\\mathbf{X}$ are jointly normal or jointly Gaussian. You should check that the formula is correct when $n = 1$. In this case $\\boldsymbol{\\Sigma} = [\\sigma^2]$ is just a scalar. It is a number, not a larger matrix; its determinant is...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_23/02_Multivariate_Normal_Distribution.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_23/02_Multivariate_Normal_Distribution.html",
         "teaser":null},{
         "title": "Linear Combinations",
         
@@ -4572,7 +4572,7 @@ initFunction(initPrint)
             "Linear Combinations Let $\\mathbf{X}$ be multivariate normal with mean vector $\\boldsymbol{\\mu}$ and covariance matrix $\\boldsymbol{\\Sigma}$. Definition 3 says that all linear combinations of elements of $\\mathbf{X}$ are normal too. This makes many calculations straightforward. Here is an example in two dimensions. Sum and Difference Let $\\mathbf{X} = [X_1 ~ X_2]^T$ have bivariate normal distribution mean vector $\\boldsymbol{\\mu} = [\\mu_1 ~ \\mu_2]^T$ and covariance matrix $\\boldsymbol{\\Sigma}$. Then the sum $S = X_1 + X_2$ has the normal distribution with mean $\\mu_1 + \\mu_2$ and variance $$ Var(S) ~ = ~ Var(X_1) + Var(X_2) + 2Cov(X_1, X_2) $$which you can calculate based...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_23/03_Linear_Combinations.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_23/03_Linear_Combinations.html",
         "teaser":null},{
         "title": "Independence",
         
@@ -4580,7 +4580,7 @@ initFunction(initPrint)
             "Independence If the elements of $\\mathbf{X}$ are mutually independent then $Cov(X_i, X_j) = 0$ for all $i \\ne j$ and hence the covariance matrix $\\boldsymbol{\\Sigma}$ is a diagonal matrix and the $i$th diagonal element is $Var(X_i)$. In the other direction, zero covariance doesn't imply independence, and pairwise independence doesn't imply mutual independence. But the multivariate normal is a wonderful distribution: If $\\mathbf{X}$ is multivariate normal and its elements are pairwise uncorrelated – that is, $Cov(X_i, X_j) = 0$ for all $i \\ne j$ – then the elements of $\\mathbf{X}$ are mutually independent. That is, multivariate normal random variables are independent...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_23/04_Independence.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_23/04_Independence.html",
         "teaser":null},{
         "title": "Chapter 24: Simple Linear Regression",
         
@@ -4588,7 +4588,7 @@ initFunction(initPrint)
             "Simple Linear Regression In data science, regression models are widely used for prediction. This chapter examines linear least squares from a probabilistic perspective. The focus is on simple regression, that is, prediction based on one numerical attribute. When the joint distribution of the attribute $X$ and the response $Y$ is bivariate normal, the empirical distribution of $(X, Y)$ has the football shape so familiar from Data 8. We will start with a geometric interpretation of correlation, as that is helpful for understanding both regression and the bivariate normal. The equation of the regression line, which we will derive, can be...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_24/00_Simple_Linear_Regression.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_24/00_Simple_Linear_Regression.html",
         "teaser":null},{
         "title": "Bivariate Normal Distribution",
         
@@ -4596,7 +4596,7 @@ initFunction(initPrint)
             "Bivariate Normal Distribution The multivariate normal distribution is defined in terms of a mean vector and a covariance matrix. The units of covariance are often hard to understand, as they are the product of the units of the two variables. Normalizing the covariance so that it is easier to interpret is a good idea. As you have seen in exercises, for jointly distributed random variables $X$ and $Y$ the correlation between $X$ and $Y$ is defined as $$ r_{X,Y} ~ = ~ \\frac{Cov(X, Y)}{\\sigma_X\\sigma_Y} ~ = ~ E\\Big{(} \\frac{X-\\mu_X}{\\sigma_X} \\cdot \\frac{Y-\\mu_Y}{\\sigma_Y} \\Big{)} ~ = ~ E(X^*Y^*) $$where $X^\\*$ is $X$...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_24/01_Bivariate_Normal_Distribution.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_24/01_Bivariate_Normal_Distribution.html",
         "teaser":null},{
         "title": "Least Squares Linear Predictor",
         
@@ -4604,7 +4604,7 @@ initFunction(initPrint)
             "Least Squares Linear Predictor In this section we are going to step away from the bivariate normal distribution and see if we can identify the best among all linear predictors of one numerical variable based on another, regardless of the joint distribution of the two variables. For jointly distributed random variables $X$ and $Y$, you know that $E(Y \\mid X)$ is the least squares predictor of $Y$ based on functions of $X$. We will now restrict the allowed functions to linear functions and see if we can find the best among those. In the next section we will see the...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_24/02_Linear_Least_Squares.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_24/02_Linear_Least_Squares.html",
         "teaser":null},{
         "title": "Regression and the Bivariate Normal",
         
@@ -4612,7 +4612,7 @@ initFunction(initPrint)
             "Regression and the Bivariate Normal Let $X$ and $Y$ be standard bivariate normal with correlatin $\\rho$. The relation $$ Y ~ = ~ \\rho X + \\sqrt{1 - \\rho^2}Z $$where $X$ and $Z$ are independent standard normal variables leads directly the best predictor of $Y$ based on all functions of $X$. You know that the best predictor is the conditional expectation $E(Y \\mid X)$, and clearly, $$ E(Y \\mid X) ~ = ~ \\rho X $$because $Z$ is independent of $X$ and $E(Z) = 0$. Because $E(Y \\mid X)$ is a linear function of $X$, we have shown: If $X$...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_24/03_Regression_and_Bivariate_Normal.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_24/03_Regression_and_Bivariate_Normal.html",
         "teaser":null},{
         "title": "The Regression Equation",
         
@@ -4620,7 +4620,7 @@ initFunction(initPrint)
             "The Regression Equation The equation of the regression line for predicting $Y$ based on $X$ can be written in several equivalent ways. The regression equation, and the error in the regression estimate, are best understood in standard units. All the other representations follow by straightforward algebra. Let $X$ and $Y$ be bivariate normal with parameters $(\\mu_X, \\mu_Y, \\sigma_X^2, \\sigma_Y^2, \\rho)$. Then, as we have seen, the best predictor $E(Y \\mid X)$ is a linear function of $X$ and hence the formula for $E(Y \\mid X)$ is also the equation of the regression line. In Standard Units Let $X^\\*$ be $X$...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_24/04_Regression_Equation.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_24/04_Regression_Equation.html",
         "teaser":null},{
         "title": "Chapter 25: Multiple Regression",
         
@@ -4628,7 +4628,7 @@ initFunction(initPrint)
             "Multiple Regression The most common use of regression is to predict the value of a numerical variable based on the values of several other variables. In our probabilistic setting, we have a finite number of jointly distributed random variables and the goal is to predict one of them based on all the others. In the previous chapters we did this in the case where there was just one predcitor variable. In particular, we developed the theory of simple linear regression. In this chapter we will extend our calculations for simple regression to the case of multiple regression. Indeed, we will...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_25/00_Multiple_Regression.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_25/00_Multiple_Regression.html",
         "teaser":null},{
         "title": "Bilinearity in Matrix Notation",
         
@@ -4636,7 +4636,7 @@ initFunction(initPrint)
             "Bilinearity in Matrix Notation As a preliminary to regression, we will express bilinearity in a compact form using matrix notation. The results of this section are not new. They are simply restatements of familiar results about variances and covariances, using new notation and matrix representations. Let $\\mathbf{X}$ be a $p \\times 1$ vector of predictor variables. We know that for an $m \\times p$ matrix $\\mathbf{A}$ and an $m \\times 1$ vector $\\mathbf{b}$, $$ Var(\\mathbf{AX} + \\mathbf{b}) ~ = ~ \\mathbf{A}\\boldsymbol{\\Sigma}_\\mathbf{X} \\mathbf{A}^T $$The results below are special cases of this. Linear Combinations To define two generic linear combinations of elements...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_25/01_Bilinearity_in_Matrix_Notation.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_25/01_Bilinearity_in_Matrix_Notation.html",
         "teaser":null},{
         "title": "Best Linear Predictor",
         
@@ -4644,7 +4644,7 @@ initFunction(initPrint)
             "Best Linear Predictor Let $Y$ and the $p \\times 1$ vector $\\mathbf{X}$ be jointly distributed, and suppose you are trying to predict $Y$ based on a linear function of $\\mathbf{X}$. For the predictor $$ \\hat{Y}_{\\mathbf{c}, d} ~ = \\mathbf{c}^T\\mathbf{X} + d $$the mean squared error of prediction is $$ MSE(\\hat{Y}_{\\mathbf{c}, d}) ~ = ~ E\\big{(} (Y - \\hat{Y}_{\\mathbf{c}, d})^2 \\big{)} $$In this section we will identify the linear predictor that minimizes the mean squared error. We will also find the variance of the error made by this best predictor. A Linear Predictor In the case of simple regression, we found...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_25/02_Best_Linear_Predictor.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_25/02_Best_Linear_Predictor.html",
         "teaser":null},{
         "title": "Conditioning and the Multivariate Normal",
         
@@ -4652,7 +4652,7 @@ initFunction(initPrint)
             "Conditioning and the Multivariate Normal Whe $Y$ and $\\mathbf{X}$ have a multivariate normal distribution with positive definite covariance matrix, then best linear predictor derived in the previous section is the best among all predictors of $Y$ based on $\\mathbf{X}$. That is, $$ ~E(Y \\mid \\mathbf{X}) = \\boldsymbol{\\Sigma}_{Y, \\mathbf{X}}\\boldsymbol{\\Sigma}_\\mathbf{X}^{-1} (\\mathbf{X} - \\boldsymbol{\\mu}_\\mathbf{X}) + \\mu_Y $$$$ Var(Y \\mid \\mathbf{X}) = \\sigma_Y^2 - \\boldsymbol{\\Sigma}_{Y, \\mathbf{X}}\\boldsymbol{\\Sigma}_\\mathbf{X}^{-1} \\boldsymbol{\\Sigma}_{\\mathbf{X}, Y} $$Also, the conditional distribution of $Y$ given $\\mathbf{X}$ is normal. These results are extensions of those in the case where $Y$ was predicted based on just one predictor $X$. To prove them, you need some linear...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_25/03_Multivariate_Normal_Conditioning.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_25/03_Multivariate_Normal_Conditioning.html",
         "teaser":null},{
         "title": "Multiple Regression",
         
@@ -4660,7 +4660,7 @@ initFunction(initPrint)
             "Multiple Regression Regression provides one way of predicting a numerical variable, called a response, based on other variables called predictor variables. The multiple regression model says in essence that $$ \\text{response} ~ = ~ \\text{linear combination of predictor variables} + \\text{ random noise } $$You can think of the first term on the right hand side as a signal. The problem is that we don't get to observe the signal. The observed response is the sum of the signal and the noise. The data scientist's task is to use the observations to extract the signal as accurately as possible. It...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_25/04_Multiple_Regression.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_25/04_Multiple_Regression.html",
         "teaser":null},{
         "title": "Further Review Exercises",
         
@@ -4668,7 +4668,7 @@ initFunction(initPrint)
             "Further Review Exercises Many of these exercises require the material of Chapter 19 onwards, which of course relies on the material of the previous chapters. However, some of them can be solved using earlier material alone. According to students and alumni, some of the exercises have appeared as questions in \"quant\" interviews. 1. A coin lands heads with probability $p$. Let $X$ be the number of tosses till the first head appears and let $Y$ be the number of tails before the first head. (a) Find the moment generating function of $X$. (b) Use the answer to (a) to find...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/Chapter_25/05_Further_Review_Exercises.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/Chapter_25/05_Further_Review_Exercises.html",
         "teaser":null},{
         "title": "Authors and License",
         
@@ -4676,7 +4676,7 @@ initFunction(initPrint)
             "    Prob 140  Probability for Data Science  By Ani Adhikari and Jim Pitman  This is the textbook for the Probability for Data Science class at UC Berkeley.  The contents of this book are licensed for free consumption under the following license: Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)           ",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/README.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/README.html",
         "teaser":null},{
         "title": "To the Student",
         
@@ -4684,7 +4684,7 @@ initFunction(initPrint)
             "To the Student Data science is about making conclusions based on large amounts of data of diverse forms. But most data sets, no matter how large or complex, provide only incomplete information about the questions that interest us. When data scientists make conclusions, they often have to account for uncertainty. Probability theory studies the nature of randomness and gives us ways to quantify uncertainty. For example, it helps explain a phenomenon familiar to you from Data 8: that large random samples can hold rich stores of information about unknown quantities. Data scientists can use this to make valid conclusions about...",
         "categories": [],
         "tags": [],
-        "url": "http://prob140.org/textbook/To_the_Student.html",
+        "url": "http://predictablynoisy.com/textbook-prob140/To_the_Student.html",
         "teaser":null},]
 </script>
             </div>
