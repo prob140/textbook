@@ -1,0 +1,367 @@
+---
+redirect_from:
+  - "/chapter-17/04-beta-densities-with-integer-parameters"
+interact_link: content/Chapter_17/04_Beta_Densities_with_Integer_Parameters.ipynb
+kernel_name: python3
+has_widgets: false
+title: 'Beta Densities with Integer Parameters'
+prev_page:
+  url: /Chapter_17/03_Marginal_and_Conditional_Densities.html
+  title: 'Marginal and Conditional Densities'
+next_page:
+  url: /Chapter_18/00_The_Normal_and_Gamma_Families.html
+  title: 'Chapter 18: The Normal and Gamma Families'
+comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
+---
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Beta-Densities-with-Integer-Parameters">Beta Densities with Integer Parameters<a class="anchor-link" href="#Beta-Densities-with-Integer-Parameters"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In the previous section we learned how to work with joint densities, but many of the joint density functions seemed to appear out of nowhere. For example, we checked that the function</p>
+$$
+f(x, y) = 120x(y-x)(1-y), ~~~~ 0 &lt; x &lt; y &lt; 1
+$$<p>is a joint density, but there was no clue where it came from. In this section we will find its origin and go on to develop an important family of densities on the unit interval.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Order-Statistics-of-IID-Uniform-$(0,-1)$-Variables">Order Statistics of IID Uniform $(0, 1)$ Variables<a class="anchor-link" href="#Order-Statistics-of-IID-Uniform-$(0,-1)$-Variables"> </a></h3><p>Let $U_1, U_2, \ldots, U_n$ be i.i.d. uniform on $(0, 1)$. Imagine each $U_i$ as the position of a dart thrown at the unit interval. The graph below shows the positions of five such darts, each shown as a star.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell tag_remove_input">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../images/Chapter_17/04_Beta_Densities_with_Integer_Parameters_3_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Based on the graph above, can you tell which star corresponds to $U_1$? You can't, because $U_1$ could be any of the five stars. So also you can't identify any of the five variables $U_1, U_2, U_3, U_4, U_5$.</p>
+<p>What you <em>can</em> see, however, is the list of $U_i$'s <em>sorted in increasing order</em>. You can see the value of the minimum, the second on the sorted list, the third, the fourth, and finally the fifth which is the maximum.</p>
+<p>These are called the <em>order statistics</em> of $U_1, U_2, U_3, U_4, U_5$, and are denoted $U_{(1)}, U_{(2)}, U_{(3)}, U_{(4)}, U_{(5)}$.</p>
+<p>Remember that because the $U_i$'s are independent random variables with densities, there can't be ties: the chance that two of them are equal is 0.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell tag_remove_input">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../images/Chapter_17/04_Beta_Densities_with_Integer_Parameters_5_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In general for $1 \le k \le n$, the <em>$k$th order statistic</em> of $U_1, U_2, \ldots, U_n$ is the $k$th value when the $U_i$'s are sorted in increasing order. This can also be thought of as the $k$th <em>ranked</em> value when the minimum has rank 1. It is denoted $U_{(k)}$.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Joint-Density-of-Two-Order-Statistics">Joint Density of Two Order Statistics<a class="anchor-link" href="#Joint-Density-of-Two-Order-Statistics"> </a></h3><p>Let $n = 5$ as above and let's try to work out the joint density of $U_{(2)}$ and $U_{(4)}$. That's the joint density of the second and fourth values on the sorted list.</p>
+<p>The graph below shows the event $\{U_{(2)} \in dx, U_{(4)} \in dy\}$ for values $x$ and $y$ such that $0 &lt; x &lt; y &lt; 1$.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell tag_remove_input">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../images/Chapter_17/04_Beta_Densities_with_Integer_Parameters_8_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To find $P(U_{(2)} \in dx, U_{(4)} \in dy)$, notice that for this event to occur:</p>
+<ul>
+<li>one of $U_1, U_2, U_3, U_4, U_5$ must be in $(0, x)$</li>
+<li>one must be in $dx$</li>
+<li>one must be in $(x, y)$</li>
+<li>one must be in $dy$</li>
+<li>one must be in $(y, 1)$</li>
+</ul>
+<p>You can think of each of the five independent uniform $(0, 1)$ variables as a multinomial trial. It can land in any of the five intervals above, independently of the others and with the same chance as the others.</p>
+<p>The chances are given by</p>
+$$
+\begin{align*}
+&amp;P(U \in (0, x)) = x, ~~ P(U \in dx) \sim 1dx, ~~ P(U \in (x, y)) = (y-x)\\
+&amp;P(U \in dy) \sim 1dy, ~~ P(U \in (y, 1)) = 1-y
+\end{align*}
+$$<p>where $U$ is any uniform $(0, 1)$ random variable.</p>
+<p>Apply the multinomial formula to get</p>
+$$
+\begin{align*}
+P(U_{(2)} \in dx, U_{(4)} \in dy) ~ &amp;\sim ~ 
+\frac{5!}{1!1!1!1!1!} x^1 (1dx)^1 (y-x)^1 (1dy)^1 (1-y)^1 \\
+&amp;\sim ~ 120x(y-x)(1-y)dxdy
+\end{align*}
+$$<p>and therefore the joint density of $U_{(2)}$ and $U_{(4)}$ is given by</p>
+$$
+f(x, y) = 120x(y-x)(1-y), ~~~ 0 &lt; x &lt; y &lt; 1
+$$<p>This solves the mystery of how the formula arises.</p>
+<p>But it also does much more. The <em>marginal</em> densities of the order statistics of i.i.d. uniform $(0, 1)$ variables form a family that is important in data science.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="The-Density-of-$U_{(k)}$">The Density of $U_{(k)}$<a class="anchor-link" href="#The-Density-of-$U_{(k)}$"> </a></h3><p>Let $U_{(k)}$ be the $k$th order statistic of $U_1, U_2, \ldots, U_n$. We will find the density of $U_{(k)}$ by following the same general process that we followed to find the joint density above.</p>
+<p>The graph below displays the event $\{ U_{(k)} \in dx \}$. For the event to occur,</p>
+<ul>
+<li>One of the variables $U_1, U_2, \ldots, U_n$ has to be in $dx$.</li>
+<li>Of the remaining $n-1$ variables, $k-1$ must have values in $(0, x)$ and the rest in $(x, 1)$.</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell tag_remove_input">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../images/Chapter_17/04_Beta_Densities_with_Integer_Parameters_11_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Apply the multinomial formula again.</p>
+$$
+P(U_{(k)} \in dx) ~ \sim ~
+\frac{n!}{(k-1)! 1! (n-k)!} x^{k-1} (1dx)^1 (1-x)^{n-k}
+$$<p>Therefore the density of $U_{(k)}$ is given by</p>
+$$
+f_{U_{(k)}} (x) = \frac{n!}{(k-1)!(n-k)!} x^{k-1}(1-x)^{n-k}, ~~~ 0 &lt; x &lt; 1
+$$<p>For consistency, let's rewrite the exponents slightly so that each ends with $-1$:</p>
+$$
+f_{U_{(k)}} (x) = \frac{n!}{(k-1)!((n-k+1)-1)!} x^{k-1}(1-x)^{(n-k+1)-1}, ~~~ 0 &lt; x &lt; 1
+$$<p>Because $1 \le k \le n$, we know that $n-k+1$ is a positive integer. Since $n$ is an arbitrary positive integer, so is $n-k+1$.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Beta-Densities">Beta Densities<a class="anchor-link" href="#Beta-Densities"> </a></h3><p>We have shown that if $r$ and $s$ are any two positive integers, then the function</p>
+$$
+f(x) ~ = ~ \frac{(r+s-1)!}{(r-1)!(s-1)!} x^{r-1}(1-x)^{s-1}, ~~~ 0 &lt; x &lt; 1
+$$<p>is a probability density function. This is called the <em>beta density with parameters $r$ and $s$</em>.</p>
+<p>By the derivation above, <strong>the $k$th order statistic $U_{(k)}$ of $n$ i.i.d. uniform $(0, 1)$ random variables has the beta density with parameters $k$ and $n-k+1$.</strong></p>
+<p>The shape of the density is determined by the two factors that involve $x$. All the factorials are just parts of the constant that make the density integrate to 1.</p>
+<p>Notice that the uniform $(0, 1)$ density is the same as the beta density with parameters $r = 1$ and $s = 1$. The uniform $(0, 1)$ density is a member of the <em>beta family</em>.</p>
+<p>The graph below shows some beta density curves. As you would expect, the beta $(3, 3)$ density is symmetric about 0.5.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.01</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">stats</span><span class="o">.</span><span class="n">beta</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="mi">6</span><span class="o">-</span><span class="n">i</span><span class="p">),</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Beta $(i, 6-i)$ densities for $1 \leq i \leq 5$&#39;</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../images/Chapter_17/04_Beta_Densities_with_Integer_Parameters_14_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>By choosing the parameters appropriately, you can create beta densities that put much of their mass near a prescribed value. That is one of the reasons beta densities are used to model <em>random proportions</em>. For example, if you think that the probability that an email is spam is most likely in the 60% to 90% range, but might be lower, you might model your belief by choosing the density that peaks at around 0.75 in the graph above.</p>
+<p>The calculation below shows you how to get started on the process of picking parameters so that the beta density with those parameters has properties that reflect your beliefs.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="The-Beta-Integral">The Beta Integral<a class="anchor-link" href="#The-Beta-Integral"> </a></h3><p>The beta density integrates to 1, and hence for all positive integers $r$ and $s$ we have</p>
+$$
+\int_0^1 x^{r-1}(1-x)^{s-1}dx ~ = ~ \frac{(r-1)!(s-1)!}{(r+s-1)!}
+$$<p>Thus probability theory makes short work of an otherwise laborious integral. Also, we can now find the expectation of a random variable with a beta density.</p>
+<p>Let $X$ have the beta $(r, s)$ density for two positive integer parameters $r$ and $s$. Then</p>
+$$
+\begin{align*}
+E(X) &amp;= \int_0^1 x \frac{(r+s-1)!}{(r-1)!(s-1)!} x^{r-1}(1-x)^{s-1}dx \\ \\
+&amp;= \frac{(r+s-1)!}{(r-1)!(s-1)!} \int_0^1 x^r(1-x)^{s-1}dx \\ \\
+&amp;= \frac{(r+s-1)!}{(r-1)!(s-1)!} \cdot \frac{r!(s-1)!}{(r+s)!} ~~~~~~~ \text{(beta integral for parameters } r+1 \text{and } s\text{)}\\ \\
+&amp;= \frac{r}{r+s}
+\end{align*}
+$$<p>You can follow the same method to find $E(X^2)$ and hence $Var(X)$.</p>
+<p>The formula for the expectation allows you to pick parameters corresponding to your belief about the random proportion being modeled by $X$. For example, if you think the proportion is likely to be somewhere around 0.4, you might start by trying out a beta prior with $r = 2$ and $s = 3$.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>You will have noticed that the form of the beta density looks rather like the binomial formula. Indeed, we used the binomial formula to derive the beta density. Later in the course you will see another close relation between the beta and the binomial. These properties make the beta family one of the most widely used families of densities in machine learning.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+ 
+

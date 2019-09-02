@@ -1,0 +1,250 @@
+---
+redirect_from:
+  - "/chapter-12/02-prediction-and-estimation"
+interact_link: content/Chapter_12/02_Prediction_and_Estimation.ipynb
+kernel_name: python3
+has_widgets: false
+title: 'Prediction and Estimation'
+prev_page:
+  url: /Chapter_12/01_Definition.html
+  title: 'Definition'
+next_page:
+  url: /Chapter_12/03_Bounds.html
+  title: 'Tail Bounds'
+comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
+---
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Prediction-and-Estimation">Prediction and Estimation<a class="anchor-link" href="#Prediction-and-Estimation"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>One way to think about the SD is in terms of errors in prediction. Suppose I am going to generate a value of the random variable $X$, and I ask you to predict the value I am going to get. What should you use as your predictor?</p>
+<p>A natural choice is $\mu_X$, the expectation of $X$. But you could choose any number $c$. The error that you will make is $X - c$. About how big is that? For most reasonable choices of $c$, the error will sometimes be positive and sometimes negative. To find the rough size of this error, we will avoid cancellation as before, and start by calculating the <em>mean squared error</em> $E[(X-c)^2]$.</p>
+<p>Because we have guessed that $\mu_X$ might be a good choice, we will organize the algebra around that value. The mean squared error using $c$ as your predictor is</p>
+$$
+\begin{align*}
+E\big{[}(X - c)^2\big{]} &amp;= E\big{[} \big{(} (X - \mu_X) + (\mu_X - c) \big{)}^2 \big{]} \\
+&amp;= E\big{[} (X - \mu_X)^2 \big{]} +2(\mu_X - c)E\big{[} (X-\mu_X) \big{]} + (\mu_X -c)^2 \\
+&amp;= \sigma_X^2 + 0 + (\mu_X -c)^2 \\
+&amp;\ge \sigma_X^2
+\end{align*}
+$$<p>with equality if and only if $c = \mu_X$.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="The-Mean-as-a-Least-Squares-Predictor">The Mean as a Least Squares Predictor<a class="anchor-link" href="#The-Mean-as-a-Least-Squares-Predictor"> </a></h3><p>What we have shown is the predictor $\mu_X$ has the smallest mean squared error among all choices $c$. That smallest mean squared error is the variance of $X$, and hence the smallest root mean squared error is the SD $\sigma_X$.</p>
+<p>This is why a common approach to prediction is, "My guess is the mean, and I'll be off by about an SD."</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Comparing-Estimates">Comparing Estimates<a class="anchor-link" href="#Comparing-Estimates"> </a></h3><p>If we have two competing estimators of a parameter, we can use expected values and SDs to compare them.</p>
+<p>As an example, recall the German warplanes example of Data 8. The model was that we were observing $X_1, X_2, \ldots , X_n$, which are $n$ draws made at random with replacement from $1, 2, \ldots , N$. The goal was to estimate $N$, the total number of warplanes.</p>
+<p>One natural estimate is $M = \max(X_1, X_2, \ldots , X_n)$. The other, developed more carefully earlier in this text than in Data 8, is $2A - 1$
+where</p>
+$$
+A = \frac{X_1 + X_2 + \ldots + X_n}{n}
+$$<p></p>
+<p>is the sample average.</p>
+<p>Here is the simulation we did in Data 8, using a sample of size 30 to estimate $N$ which we had taken to be 300.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">300</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="n">serial_nos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">repetitions</span> <span class="o">=</span> <span class="mi">10000</span>
+<span class="n">maxes</span> <span class="o">=</span> <span class="n">make_array</span><span class="p">()</span>
+<span class="n">double_means</span> <span class="o">=</span> <span class="n">make_array</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">repetitions</span><span class="p">):</span>
+    <span class="n">sample</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">serial_nos</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">maxes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">maxes</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">sample</span><span class="p">))</span>
+    <span class="n">double_means</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">double_means</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">results</span> <span class="o">=</span> <span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">with_columns</span><span class="p">(</span>
+    <span class="s1">&#39;M&#39;</span><span class="p">,</span> <span class="n">maxes</span><span class="p">,</span>
+    <span class="s1">&#39;2A - 1&#39;</span><span class="p">,</span> <span class="n">double_means</span>
+<span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">every_ten</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="o">+</span><span class="mi">101</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">results</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="n">every_ten</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>/Users/dominiccroce/anaconda3/envs/textbook/lib/python3.6/site-packages/matplotlib/axes/_axes.py:6462: UserWarning: The &#39;normed&#39; kwarg is deprecated, and has been replaced by the &#39;density&#39; kwarg.
+  warnings.warn(&#34;The &#39;normed&#39; kwarg is deprecated, and has been &#34;
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../images/Chapter_12/02_Prediction_and_Estimation_5_1.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We constructed the estimator $2A - 1$ to be unbiased, and indeed its empirical distribution is symmetric around the parameter 300. The estimator $M$ is clearly biased: it can never be larger than $N$ but it can be smaller. If we just compare expectations, then $E(2A-1) = 300$ while $E(M) \ne 300$, so it seems as though $2A-1$ is the better estimate.</p>
+<p>But the graph tells a different story, because the graph also shows the spread in each of the two distributions. The distribution of $2A-1$ is much more spread out than the distribution of $M$. The two empirical SDs differ by a factor of around 3.5:</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">maxes</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>9.3922573298435559</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">double_means</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>32.007300134643586</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This tells us that though $M$ is typically going to be below 300, it won't be below by much, whereas $2A-1$ can be quite far away from 300, underestimating about as often as it overestimates.</p>
+<p>Perhaps now you'd prefer to use $M$ instead of $2A-1$.</p>
+<p>This is an example of the <em>bias-variance tradeoff</em> that is common in estimation. Both expectation and SD are important in choosing one estimator over another. As in this example, the choice isn't always clear. But if the estimator with the lower SD also happens to be unbiased, then you can declare it the winner.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+ 
+

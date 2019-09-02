@@ -1,0 +1,420 @@
+---
+redirect_from:
+  - "/chapter-08/03-expectations-of-functions"
+interact_link: content/Chapter_08/03_Expectations_of_Functions.ipynb
+kernel_name: python3
+has_widgets: false
+title: 'Expectations of Functions'
+prev_page:
+  url: /Chapter_08/02_Additivity.html
+  title: 'Additivity'
+next_page:
+  url: /Chapter_08/04_Review_Problems_Set_2.html
+  title: 'Review Problems: Set 2'
+comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
+---
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Expectations-of-Functions">Expectations of Functions<a class="anchor-link" href="#Expectations-of-Functions"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Once we start using random variables as estimators, we will want to see how far the estimate is from a desired value. For example, we might want to see how far a random variable $X$ is from the number 10. That's a function of $X$. Let's call it $Y$. Then</p>
+$$
+Y = |X - 10|
+$$<p>which is not a linear function. To find $E(Y)$, we need a bit more technique. Throughout, we will assume that all the expectations that we are discussing are well defined.</p>
+<p>This section is about finding the expectation of a function of a random variable whose distribution you know.</p>
+<p>In what follows, let $X$ be a random variable whose distribution (and hence also expectation) are known.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Linear-Function-Rule">Linear Function Rule<a class="anchor-link" href="#Linear-Function-Rule"> </a></h3><p>Let $Y = aX + b$ for some constants $a$ and $b$. In an earlier section we showed that</p>
+$$
+E(Y) = aE(X) + b
+$$<p>This includes the case where $a=0$ and thus $Y$ is just the constant $b$ and thus has expectation $b$.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Non-linear-Function-Rule">Non-linear Function Rule<a class="anchor-link" href="#Non-linear-Function-Rule"> </a></h3><p>Now let $Y = g(X)$ where $g$ is any numerical function. Remember that $X$ is a function on $\Omega$. So the function that defines the random variable $Y$ is a <em>composition</em>:</p>
+$$
+Y(\omega) = (g \circ X) (\omega) ~~~~~~~~~ \text{for } \omega \in \Omega
+$$<p>This allows us to write $E(Y)$ in three equivalent ways:</p>
+<h4 id="On-the-range-of-$Y$">On the range of $Y$<a class="anchor-link" href="#On-the-range-of-$Y$"> </a></h4>$$
+E(Y) =  \sum_{\text{all }y} yP(Y=y)
+$$<h4 id="On-the-domain-$\Omega$">On the domain $\Omega$<a class="anchor-link" href="#On-the-domain-$\Omega$"> </a></h4>$$
+E(Y) = E(g(X)) = \sum_{\omega \in \Omega} (g \circ X) (\omega) P(\omega)
+$$<h4 id="On-the-range-of-$X$">On the range of $X$<a class="anchor-link" href="#On-the-range-of-$X$"> </a></h4>$$
+E(Y) = E(g(X)) = \sum_{\text{all }x} g(x)P(X=x)
+$$<p>As before, it is a straightforward matter of grouping to show that all the forms are equivalent.</p>
+<p>The first form looks the simplest, but there's a catch: you need to first find $P(Y=y)$. The second form involves an unnecessarily high level of detail.</p>
+<p>The third form is the one to use. It uses the known distribution of $X$. It says that to find $E(Y)$ where $Y = g(X)$ for some function $g$:</p>
+<ul>
+<li>Take a generic value $x$ of $X$.</li>
+<li>Apply $g$ to $x$; this $g(x)$ is a generic value of $Y$.</li>
+<li>Weight $g(x)$ by $P(X=x)$, which is known.</li>
+<li>Do this for all $x$ and add. The sum is $E(Y)$.</li>
+</ul>
+<p>The crucial thing to note about this method is that <strong>we didn't have to first find the distribution of $Y$</strong>. That saves us a lot of work. Let's see how our method works in some examples.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Example-1:-$Y-=-\vert-X-3-\vert$">Example 1: $Y = \vert X-3 \vert$<a class="anchor-link" href="#Example-1:-$Y-=-\vert-X-3-\vert$"> </a></h3><p>Let $X$ have a distribution we worked with earlier:</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="n">probs</span> <span class="o">=</span> <span class="n">make_array</span><span class="p">(</span><span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
+<span class="n">dist</span> <span class="o">=</span> <span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">probability</span><span class="p">(</span><span class="n">probs</span><span class="p">)</span>
+<span class="n">dist</span> <span class="o">=</span> <span class="n">dist</span><span class="o">.</span><span class="n">relabel</span><span class="p">(</span><span class="s1">&#39;Value&#39;</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">relabel</span><span class="p">(</span><span class="s1">&#39;Probability&#39;</span><span class="p">,</span> <span class="s1">&#39;P(X=x)&#39;</span><span class="p">)</span>
+<span class="n">dist</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>x</th> <th>P(X=x)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1   </td> <td>0.15  </td>
+        </tr>
+        <tr>
+            <td>2   </td> <td>0.25  </td>
+        </tr>
+        <tr>
+            <td>3   </td> <td>0.3   </td>
+        </tr>
+        <tr>
+            <td>4   </td> <td>0.2   </td>
+        </tr>
+        <tr>
+            <td>5   </td> <td>0.1   </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let $g$ be the function defined by $g(x) = \vert x-3 \vert$, and let $Y = g(X)$. In other words, $Y = \vert X - 3 \vert$.</p>
+<p>To calculate $E(Y)$, we first have to create a column that transforms the values of $X$ into values of $Y$:</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dist_with_Y</span> <span class="o">=</span> <span class="n">dist</span><span class="o">.</span><span class="n">with_column</span><span class="p">(</span><span class="s1">&#39;g(x)&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">dist</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span><span class="o">-</span><span class="mi">3</span><span class="p">))</span><span class="o">.</span><span class="n">move_to_end</span><span class="p">(</span><span class="s1">&#39;P(X=x)&#39;</span><span class="p">)</span>
+
+<span class="n">dist_with_Y</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>x</th> <th>g(x)</th> <th>P(X=x)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1   </td> <td>2   </td> <td>0.15  </td>
+        </tr>
+        <tr>
+            <td>2   </td> <td>1   </td> <td>0.25  </td>
+        </tr>
+        <tr>
+            <td>3   </td> <td>0   </td> <td>0.3   </td>
+        </tr>
+        <tr>
+            <td>4   </td> <td>1   </td> <td>0.2   </td>
+        </tr>
+        <tr>
+            <td>5   </td> <td>2   </td> <td>0.1   </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To get $E(Y)$, find the appropriate weighed average: multiply the <code>g(x)</code> and <code>P(X=x)</code> columns, and add. The calculation shows that $E(Y) = 0.95$.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ev_Y</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">dist_with_Y</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s1">&#39;g(x)&#39;</span><span class="p">)</span> <span class="o">*</span> <span class="n">dist_with_Y</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s1">&#39;P(X=x)&#39;</span><span class="p">))</span>
+<span class="n">ev_Y</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.94999999999999996</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Example-2:-$Y-=-\min(X,-3)$">Example 2: $Y = \min(X, 3)$<a class="anchor-link" href="#Example-2:-$Y-=-\min(X,-3)$"> </a></h3><p>Let $X$ be as above, but now let $Y = \min(X, 3)$. We want $E(Y)$. What we know is the distribution of $X$:</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dist</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>x</th> <th>P(X=x)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1   </td> <td>0.15  </td>
+        </tr>
+        <tr>
+            <td>2   </td> <td>0.25  </td>
+        </tr>
+        <tr>
+            <td>3   </td> <td>0.3   </td>
+        </tr>
+        <tr>
+            <td>4   </td> <td>0.2   </td>
+        </tr>
+        <tr>
+            <td>5   </td> <td>0.1   </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To find $E(Y)$ we can just go row by row and replace the value of $x$ by the value of $\min(x, 3)$, and then find the weighted average:</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ev_Y</span> <span class="o">=</span> <span class="mi">1</span><span class="o">*</span><span class="mf">0.15</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="mf">0.25</span> <span class="o">+</span> <span class="mi">3</span><span class="o">*</span><span class="mf">0.3</span> <span class="o">+</span> <span class="mi">3</span><span class="o">*</span><span class="mf">0.2</span> <span class="o">+</span> <span class="mi">3</span><span class="o">*</span><span class="mf">0.1</span>
+<span class="n">ev_Y</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>2.45</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Example-3:-$E(X^2)$-for-a-Poisson-Variable-$X$">Example 3: $E(X^2)$ for a Poisson Variable $X$<a class="anchor-link" href="#Example-3:-$E(X^2)$-for-a-Poisson-Variable-$X$"> </a></h3><p>Let $X$ have the Poisson $(\mu)$ distribution. You will see in the next chapter that it will be useful to know the value of $E(X^2)$. By our non-linear function rule,</p>
+$$
+E(X^2) = \sum_{k=0}^\infty k^2 e^{-\mu} \frac{\mu^k}{k!}
+$$<p>This sum turns out to be hard to simplify. The term for $k=0$ is 0. In each term for $k \ge 1$, one of the $k$'s in the numerator cancels a $k$ in the denominator but the other factor of $k$ in the numerator remains. It would be so nice if that factor $k$ were $k-1$ instead, so it could cancel $k-1$ in the denominator.</p>
+<p>This motivates the following calculation. No matter what $X$ is, if we know $E(X)$ and can find $E(X(X-1))$, then we can use additivity to find $E(X^2)$ as follows:</p>
+$$
+E(X(X-1)) = E(X^2 - X) = E(X^2) - E(X) 
+$$<p>so</p>
+$$
+E(X^2) = E(X(X-1)) + E(X)
+$$<p>Let's see if we can find $E(X(X-1))$ by applying the non-linear function rule.</p>
+$$
+\begin{align*}
+E(X(X-1)) &amp;= \sum_{k=0}^\infty k(k-1) e^{-\mu} \frac{\mu^k}{k!} \\ \\
+&amp;= e^{-\mu} \mu^2 \sum_{k=2}^\infty \frac{\mu^{k-2}}{(k-2)!} \\ \\
+&amp;= e^{-\mu}\mu^2 e^\mu \\ \\
+&amp;= \mu^2
+\end{align*}
+$$<p>We know that $E(X) = \mu$, so</p>
+$$
+E(X^2) = \mu^2 + \mu
+$$<p>Notice that $E(X^2) &gt; (E(X))^2$. This is an instance of a general fact. Later in the course we will see why it matters.</p>
+<p>For now, as an exercise, see if you can find $E(X(X-1)(X-2))$ and hence $E(X^3)$.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+ 
+

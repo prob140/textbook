@@ -1,0 +1,185 @@
+---
+redirect_from:
+  - "/chapter-22/03-examples"
+interact_link: content/Chapter_22/03_Examples.ipynb
+kernel_name: python3
+has_widgets: false
+title: 'Examples'
+prev_page:
+  url: /Chapter_22/02_Variance_by_Conditioning.html
+  title: 'Variance by Conditioning'
+next_page:
+  url: /Chapter_22/04_Least_Squares_Predictor.html
+  title: 'Least Squares Predictor'
+comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
+---
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Examples">Examples<a class="anchor-link" href="#Examples"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This section is a workout in finding expectation and variance by conditioning. As before, if you are trying to find a probability, expectation, or variance, and you think, "If only I knew the value of this other random variable, I'd have the answer," then that's a sign that you should consider conditioning on that other random variable.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Mixture-of-Two-Distributions">Mixture of Two Distributions<a class="anchor-link" href="#Mixture-of-Two-Distributions"> </a></h3><p>Let $X$ have mean $\mu_X$ and SD $\sigma_X$. Let $Y$ have mean $\mu_Y$ and SD $\sigma_Y$. Now let $p$ be a number between 0 and 1, and define the random variable $M$ as follows.</p>
+$$
+M = 
+\begin{cases}
+X ~~ \text{with probability } p \\
+Y ~~ \text{with probability } q = 1 - p \\
+\end{cases}
+$$<p>The distribution of $M$ is called a <em>mixture</em> of the distributions of $X$ and $Y$.</p>
+<p>One way to express the definition of $M$ compactly is to let $I_H$ be the indicator of heads in one toss of a $p$-coin; then</p>
+$$
+M = XI_H + Y(1 - I_H)
+$$<p>To find the expectation of $M$ we can use the expression above, but here we will condition on $I_H$ because we can continue with that method to find $Var(M)$.</p>
+<p>The distribution table of the random variable $E(M \mid I_H)$ is</p>
+<table>
+<thead><tr>
+<th><strong>Value</strong></th>
+<th>$\mu_X$</th>
+<th>$\mu_Y$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Probability</strong></td>
+<td>$p$</td>
+<td>$q$</td>
+</tr>
+</tbody>
+</table>
+<p>The distribution table of the random variable $Var(M \mid I_H)$ is</p>
+<table>
+<thead><tr>
+<th><strong>Value</strong></th>
+<th>$\sigma_X^2$</th>
+<th>$\sigma_Y^2$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Probability</strong></td>
+<td>$p$</td>
+<td>$q$</td>
+</tr>
+</tbody>
+</table>
+<p>So</p>
+$$
+E(M) ~ = ~ E(E(M \mid I_H)) ~ = ~ \mu_Xp + \mu_Yq
+$$<p>and</p>
+$$
+\begin{align*}
+Var(M) ~ &amp;= ~ E(Var(M \mid I_H)) + Var(E(M \mid I_H)) \\
+&amp;= ~ \sigma_X^2p + \sigma_Y^2q + \big{(} \mu_X^2p + \mu_Y^2q - (E(M))^2 \big{)}
+\end{align*}
+$$<p>This is true no matter what the distributions of $X$ and $Y$ are.</p>
+<p>Notice also that the answer for the variance can be written as</p>
+$$
+Var(M) ~ = ~ (\mu_X^2 + \sigma_X^2)p + (\mu_Y^2 + \sigma_Y^2)q - (E(M))^2
+$$<p>That's what you would have got had you first found $E(M^2)$ by conditioning on $I_H$.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Variance-of-the-Geometric-Distribution">Variance of the Geometric Distribution<a class="anchor-link" href="#Variance-of-the-Geometric-Distribution"> </a></h3><p>We have managed to come quite far into the course without deriving the variance of the geometric distribution. Let's find it now by using the results about mixtures derived above.</p>
+<p>Toss a coin that lands heads with probability $p$ and stop when you see a head. The number of tosses $X$ has the geometric $(p)$ distribution on $\{ 1, 2, \ldots \}$. Let $E(X) = \mu$ and $Var(X) = \sigma^2$. We will use conditioning to confirm that $E(X) = 1/p$ and also to find $Var(X)$.</p>
+<p>Now</p>
+$$
+X = 
+\begin{cases} 
+1 ~~~ \text{with probability } p \\
+1 + X^* ~~~ \text{with probability } q = 1-p
+\end{cases}
+$$<p>where $X^*$ is an independent copy of $X$. By the previous example,</p>
+$$
+\mu ~ = ~ E(X) ~ = ~ 1p + (1+\mu)q
+$$<p>So $\mu = 1/p$ as we have known for some time.</p>
+<p>By the variance formula of the previous example,</p>
+$$
+\sigma^2 = Var(X) = 0^2p + \sigma^2q + \big{(}1^2p + (1+\frac{1}{p})^2q - \frac{1}{p^2}\big{)}
+$$<p>So</p>
+$$
+\sigma^2p ~ = ~ \frac{p^3 + (p+1)^2q - 1}{p^2} ~ = ~ \frac{p^3 + (1+p)(1-p^2) - 1}{p^2}
+~ = ~ \frac{p(1-p)}{p^2}
+$$<p>and so $Var(X) = \sigma^2 = q/p^2$.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Normal-with-a-Normal-Mean">Normal with a Normal Mean<a class="anchor-link" href="#Normal-with-a-Normal-Mean"> </a></h3><p>Let $M$ be normal $(\mu, \sigma_M^2)$, and given $M = m$, let $X$ be normal $(m, \sigma_X^2)$.</p>
+<p>Then</p>
+$$
+E(X \mid M) ~ = ~ M, ~~~~~~ Var(X \mid M) ~ = ~ \sigma_X^2
+$$<p>Notice that the conditional variance is a constant; it is the same no matter what the value of $M$ turns out to be.</p>
+<p>So $E(X) = E(M) = \mu$ and</p>
+$$
+Var(X) ~ = ~ E(\sigma_X^2) + Var(M) ~ = ~ \sigma_X^2 + \sigma_M^2
+$$
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Random-Sum">Random Sum<a class="anchor-link" href="#Random-Sum"> </a></h3><p>Let $N$ be a random variable with values $0, 1, 2, \ldots$, mean $\mu_N$, and SD $\sigma_N$. Let $X_1, X_2, \ldots $ be i.i.d. with mean $\mu_X$ and SD $\sigma_X$, independent of $N$.</p>
+<p>Define the <em>random sum</em> $S_N$ as</p>
+$$
+S_N = 
+\begin{cases}
+0 ~~ \text{if } N = 0 \\
+X_1 + X_2 + \cdots + X_n ~~ \text{if } N = n &gt; 0
+\end{cases}
+$$<p>Then as we have seen before, $E(S_N \mid N = n) = n\mu_X$ for all $n$ (including $n = 0$) and so</p>
+$$
+E(S_N \mid N) ~ = ~ N\mu_X
+$$<p>Also</p>
+$$
+Var(S_N \mid N) ~ = ~ N\sigma_X^2
+$$<p>So</p>
+$$
+E(S_N) ~ = ~ E(N\mu_X) ~ = ~ \mu_XE(N) ~ = ~ \mu_N\mu_X
+$$<p>This is consistent with intuition: you expect to be adding $\mu_N$ i.i.d. random variables, each with mean $\mu_X$. For the variance, intuition needs some guidance, which is provided by our variance decomposition formula.</p>
+$$
+Var(S_N) ~ = ~ E(N\sigma_X^2) + Var(N\mu_X) ~ = ~ \mu_N\sigma_X^2 + \mu_X^2\sigma_N^2
+$$
+</div>
+</div>
+</div>
+</div>
+
+ 
+

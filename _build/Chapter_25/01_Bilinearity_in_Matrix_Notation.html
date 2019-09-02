@@ -1,0 +1,139 @@
+---
+redirect_from:
+  - "/chapter-25/01-bilinearity-in-matrix-notation"
+interact_link: content/Chapter_25/01_Bilinearity_in_Matrix_Notation.ipynb
+kernel_name: python3
+has_widgets: false
+title: 'Bilinearity in Matrix Notation'
+prev_page:
+  url: /Chapter_25/00_Multiple_Regression.html
+  title: 'Chapter 25: Multiple Regression'
+next_page:
+  url: /Chapter_25/02_Best_Linear_Predictor.html
+  title: 'Best Linear Predictor'
+comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
+---
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Bilinearity-in-Matrix-Notation">Bilinearity in Matrix Notation<a class="anchor-link" href="#Bilinearity-in-Matrix-Notation"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>As a preliminary to regression, we will express bilinearity in a compact form using matrix notation. The results of this section are not new. They are simply restatements of familiar results about variances and covariances, using new notation and matrix representations.</p>
+<p>Let $\mathbf{X}$ be a $p \times 1$ vector of predictor variables. We know that for an $m \times p$ matrix $\mathbf{A}$ and an $m \times 1$ vector $\mathbf{b}$,</p>
+$$
+Var(\mathbf{AX} + \mathbf{b}) ~ = ~ \mathbf{A}\boldsymbol{\Sigma}_\mathbf{X} \mathbf{A}^T
+$$<p>The results below are special cases of this.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Linear-Combinations">Linear Combinations<a class="anchor-link" href="#Linear-Combinations"> </a></h3><p>To define two generic linear combinations of elements of $\mathbf{X}$, let</p>
+$$
+\mathbf{A} ~ = ~ 
+\begin{bmatrix}
+a_1 &amp; a_2 &amp; \cdots &amp; a_p \\
+c_1 &amp; c_2 &amp; \cdots &amp; c_p 
+\end{bmatrix}
+~ = ~ 
+\begin{bmatrix}
+\mathbf{a}^T \\
+\mathbf{c}^T
+\end{bmatrix}
+~~~~~~ \text{and} ~~~~~~
+\mathbf{b} ~ = ~
+\begin{bmatrix}
+b \\
+d
+\end{bmatrix}
+$$<p>Then</p>
+$$
+\mathbf{AX} + \mathbf{b} ~ = ~ 
+\begin{bmatrix}
+a_1X_1 + a_2X_2 + \cdots + a_pX_p + b \\
+c_1X_1 + c_2X_2 + \cdots + c_pX_p + d
+\end{bmatrix}
+~ = ~ 
+\begin{bmatrix}
+\mathbf{a}^T\mathbf{X} + b \\
+\mathbf{c}^T\mathbf{X} + d
+\end{bmatrix}
+$$
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Covariance-of-Two-Linear-Combinations">Covariance of Two Linear Combinations<a class="anchor-link" href="#Covariance-of-Two-Linear-Combinations"> </a></h3><p>The covariance of the two linear combinations is the $(1, 2)$ element of the covariance matrix of $\mathbf{AX} + \mathbf{b}$, which is the $(1, 2)$ element of $\mathbf{A}\boldsymbol{\Sigma}_\mathbf{X}\mathbf{A}^T$.</p>
+$$
+Cov(\mathbf{a}^T\mathbf{X} + b, \mathbf{c}^T\mathbf{X} + d) 
+~ = ~ \mathbf{a}^T \boldsymbol{\Sigma}_\mathbf{X} \mathbf{c}
+$$
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Variance-of-a-Linear-Combination">Variance of a Linear Combination<a class="anchor-link" href="#Variance-of-a-Linear-Combination"> </a></h3><p>The variance of the first linear combination is the $(1, 1)$ element of $\mathbf{A}\boldsymbol{\Sigma}_\mathbf{X}\mathbf{A}^T$.</p>
+$$
+Var(\mathbf{a}^T\mathbf{X} + b) ~ = ~ 
+\mathbf{a}^T \boldsymbol{\Sigma}_\mathbf{X} \mathbf{a}
+$$
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Covariance-Vector">Covariance Vector<a class="anchor-link" href="#Covariance-Vector"> </a></h3><p>To predict $Y$ based on $\mathbf{X}$ we will need to work with the covariance of $Y$ and each of the elements of $\mathbf{X}$. Let</p>
+$$
+\sigma_{X_i, Y} ~ = ~ Cov(X_i, Y) 
+$$<p>and define the <em>covariance vector</em> of $\mathbf{X}$ and $Y$ to be</p>
+$$
+\boldsymbol{\Sigma}_{\mathbf{X}, Y} ~ = ~ 
+\begin{bmatrix}
+\sigma_{X_1, Y} \\
+\sigma_{X_2, Y} \\
+\vdots \\
+\sigma_{X_p, Y}
+\end{bmatrix}
+$$<p>It will be convenient to also have a notation for the transpose of the covariance vector:</p>
+$$
+\boldsymbol{\Sigma}_\mathbf{Y, X} ~ = ~ \boldsymbol{\Sigma}_\mathbf{X, Y}^T ~ = ~
+[\sigma_{X_1, Y} ~ \sigma_{X_2, Y} ~ \ldots ~ \sigma_{X_p, Y}]
+$$<p>By the linearity of covariance,</p>
+$$
+Cov(\mathbf{a}^T\mathbf{X}, Y) ~ = ~ \mathbf{a}^T \boldsymbol{\Sigma}_{\mathbf{X}, Y}
+$$
+</div>
+</div>
+</div>
+</div>
+
+ 
+

@@ -1,0 +1,129 @@
+---
+redirect_from:
+  - "/chapter-24/02-linear-least-squares"
+interact_link: content/Chapter_24/02_Linear_Least_Squares.ipynb
+kernel_name: python3
+has_widgets: false
+title: 'Least Squares Linear Predictor'
+prev_page:
+  url: /Chapter_24/01_Bivariate_Normal_Distribution.html
+  title: 'Bivariate Normal Distribution'
+next_page:
+  url: /Chapter_24/03_Regression_and_Bivariate_Normal.html
+  title: 'Regression and the Bivariate Normal'
+comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
+---
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Least-Squares-Linear-Predictor">Least Squares Linear Predictor<a class="anchor-link" href="#Least-Squares-Linear-Predictor"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In this section we are going to step away from the bivariate normal distribution and see if we can identify the best among all linear predictors of one numerical variable based on another, regardless of the joint distribution of the two variables.</p>
+<p>For jointly distributed random variables $X$ and $Y$, you know that $E(Y \mid X)$ is the least squares predictor of $Y$ based on functions of $X$. We will now restrict the allowed functions to linear functions and see if we can find the best among those. In the next section we will see the connection between this best linear predictor, the best among all predictors, and the bivariate normal distribution.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Minimizing-Mean-Squared-Error">Minimizing Mean Squared Error<a class="anchor-link" href="#Minimizing-Mean-Squared-Error"> </a></h3><p>Let $h(X) = aX + b$ for constants $a$ and $b$, and let $MSE(a, b)$ denote $MSE(h)$.</p>
+$$
+MSE(a, b) ~ = ~ E\big{(} (Y - (aX + b))^2 \big{)} 
+$$<p>To find the <em>least squares linear predictor</em>, we have to minimize this MSE over all $a$ and $b$. We will do this using calculus, in two steps:</p>
+<ul>
+<li>Fix $a$ and find the value $b_a^\*$ that minimizes $MSE(a, b)$ for that fixed value of $a$.</li>
+<li>Then plug in the minimizing value $b_a^\*$ in place of $b$ and minimize $MSE(a, b_a^\*)$ with respect to $a$.</li>
+</ul>
+<h4 id="Step-1">Step 1<a class="anchor-link" href="#Step-1"> </a></h4><p>Fix $a$ and minimize $MSE(a, b)$ with respect to $b$.</p>
+$$
+\begin{align*}
+MSE(a, b) ~ &amp;= ~ E\big{(} ((Y-aX) - b)^2\big{)}\\
+&amp;= ~ E((Y-aX)^2) -2bE(Y-aX) + b^2
+\end{align*}
+$$<p>Differentiate this with respect to $b$.</p>
+$$
+\frac{d}{db} MSE(a, b) ~ = ~ -2E(Y-aX) + 2b
+$$<p>Set this equal to 0 and solve to see that the minimizing value of $b$ for the fixed value of $a$ is</p>
+$$
+b_a^* ~ = ~ E(Y-aX) ~ = ~ E(Y) - aE(X)
+$$<h4 id="Step-2">Step 2<a class="anchor-link" href="#Step-2"> </a></h4><p>Now we have to minimize the following function with respect to $a$:</p>
+$$
+\begin{align*}
+E\big{(} (Y - (aX + b_a^*))^2 \big{)} ~ &amp;= ~
+E\big{(} (Y - (aX + E(Y) - aE(X)))^2 \big{)} \\
+&amp;= ~ E\Big{(} \big{(} (Y - E(Y)) - a(X - E(X))\big{)}^2 \Big{)} \\
+&amp;= ~ E\big{(} (Y - E(Y))^2 \big{)} - 2aE\big{(} (Y - E(Y))(X - E(X)) \big{)} + a^2E\big{(} (X - E(X))^2 \big{)} \\
+&amp;= ~ Var(Y) - 2aCov(X, Y) + a^2Var(X)
+\end{align*}
+$$<p>The derivative with respect to $a$ is $-2Cov(X, Y) + 2aVar(X)$. Thus the minimizing value of $a$ is</p>
+$$
+a^* ~ = ~ \frac{Cov(X, Y)}{Var(X)} 
+$$<p>At this point we should check that what we have is a minimum, not a maximum, but based on your experience with prediction you might just be willing to accept that we have a minimum. If you're not, then differentiate again and look at the sign of the resulting function.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Slope-and-Intercept-of-the-Regression-Line">Slope and Intercept of the Regression Line<a class="anchor-link" href="#Slope-and-Intercept-of-the-Regression-Line"> </a></h3><p>The least squares straight line is called the <em>regression line</em>.You now have a proof of its equation, familiar to you from Data 8. Let $r_{X,Y}$ be the correlation between $X$ and $Y$. Then the slope and intercept are given by</p>
+$$
+\begin{align*} 
+\text{slope of regression line} ~ &amp;= ~ \frac{Cov(X,Y)}{Var(X)} ~ = ~ r_{X,Y} \frac{\sigma_Y}{\sigma_X} \\ \\
+\text{intercept of regression line} ~ &amp;= ~ E(Y) - \text{slope} \cdot E(X)
+\end{align*}
+$$
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Regression-in-Standard-Units">Regression in Standard Units<a class="anchor-link" href="#Regression-in-Standard-Units"> </a></h3><p>If both $X$ and $Y$ are measured in standard units, then the slope of the regression line is the correlation $r_{X,Y}$ and the intercept is 0.</p>
+<p>In other words, given that $X = x$ standard units, the predicted value of $Y$ is $r_{X,Y}x$ standard units. When $r_{X,Y}$ is positive but not 1, this result is called the <em>regression effect</em>: the predicted value of $Y$ is closer to 0 than the given value of $X$.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="The-Line-and-the-Shape-of-the-Scatter-Diagram">The Line and the Shape of the Scatter Diagram<a class="anchor-link" href="#The-Line-and-the-Shape-of-the-Scatter-Diagram"> </a></h3><p>The calculations above show that:</p>
+<ul>
+<li><p>The regression line goes through the point $(E(X), E(Y))$.</p>
+</li>
+<li><p>The equation of the regression line holds regardless of the joint distribution of $X$ and $Y$.</p>
+</li>
+<li><p>There is always a best straight line predictor among all straight lines, regardless of the relation between $X$ and $Y$. If the relation isn't roughly linear you won't want to use the best straight line for predictions, because the best straight line is only best among a bad class of predictors. But it exists.</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+
+ 
+

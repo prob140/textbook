@@ -1,0 +1,315 @@
+---
+redirect_from:
+  - "/chapter-10/04-examples"
+interact_link: content/Chapter_10/04_Examples.ipynb
+kernel_name: python3
+has_widgets: false
+title: 'Examples'
+prev_page:
+  url: /Chapter_10/03_Long_Run_Behavior.html
+  title: 'Long Run Behavior'
+next_page:
+  url: /Chapter_11/00_Reversing_Markov_Chains.html
+  title: 'Chapter 11: Reversing Markov Chains'
+comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
+---
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Examples">Examples<a class="anchor-link" href="#Examples"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Here are two examples to illustrate how to find the stationary distribution and how to use it.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="A-Diffusion-Model-by-Ehrenfest">A Diffusion Model by Ehrenfest<a class="anchor-link" href="#A-Diffusion-Model-by-Ehrenfest"> </a></h3><p><a href="https://en.wikipedia.org/wiki/Paul_Ehrenfest">Paul Ehrenfest</a> proposed a number of models for the diffusion of gas particles, one of which we will study here.</p>
+<p>The model says that there are two containers containing a total of $N$ particles. At each instant, a container is selected at random and a particle is selected at random independently of the container. Then the selected particle is placed in the selected container; if it was already in that container, it stays there.</p>
+<p>Let $X_n$ be the number of particles in Container 1 at time $n$. Then $X_0, X_1, \ldots$ is a Markov chain with transition probabilities given by:</p>
+$$
+\begin{equation}
+P(i, j) = 
+ \begin{cases} 
+      \frac{N-i}{2N} &amp; \text{if } j = i+1 \\
+      \frac{1}{2} &amp; \text{if } j = i \\
+      \frac{i}{2N} &amp; \text{if } j = i-1 \\
+      0 &amp; \text{otherwise}
+   \end{cases}
+\end{equation}
+$$<p>The chain is clearly irreducible. It is aperiodic because $P(i, i) &gt; 0$.</p>
+<p><strong>Question.</strong> What is the stationary distribution of the chain?</p>
+<p><strong>Answer.</strong> We have computers. So let's first find the stationary distribution for $N=100$ particles, and then see if we can identify it for general $N$.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">100</span>
+
+<span class="n">states</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">transition_probs</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">j</span> <span class="o">==</span> <span class="n">i</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span>
+    <span class="k">elif</span> <span class="n">j</span> <span class="o">==</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="n">i</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">N</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">j</span> <span class="o">==</span> <span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">i</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">N</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span>
+
+<span class="n">ehrenfest</span> <span class="o">=</span> <span class="n">MarkovChain</span><span class="o">.</span><span class="n">from_transition_function</span><span class="p">(</span><span class="n">states</span><span class="p">,</span> <span class="n">transition_probs</span><span class="p">)</span>
+<span class="n">Plot</span><span class="p">(</span><span class="n">ehrenfest</span><span class="o">.</span><span class="n">steady_state</span><span class="p">(),</span> <span class="n">edges</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../images/Chapter_10/04_Examples_3_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>That looks suspiciously like the binomial (100, 1/2) distribution. In fact it <em>is</em> the binomial (100, 1/2) distribution. Since you've guessed it, all you have to do is plug it into the balance equations and check that they work out.</p>
+<p>The balance equations are:</p>
+$$
+\begin{align*}
+\pi(0) &amp;= \frac{1}{2}\pi(0) + \frac{1}{2N}\pi(1) \\
+\pi(j) &amp;= \frac{N-(j-1)}{2N}\pi(j-1) + \frac{1}{2}\pi(j) + \frac{j+1}{2N}\pi(j+1), ~~~ 1 \le j \le N-1 \\
+\pi(N) &amp;= \frac{1}{2N}\pi(N-1) + \frac{1}{2}\pi(N)
+\end{align*}
+$$<p>You have already guessed the solution by looking at the answer calculated for $N=100$. But if you want to start from scratch, you'll have to simplify the balance equations.</p>
+<p>To do this, <strong>it's a great idea to write all the elements of $\pi$ in terms of one of the elements</strong>.</p>
+<p>Try writing all the elements of $\pi$ in terms of $\pi(0)$. You will get:</p>
+$$
+\begin{align*}
+\pi(1) &amp;= N\pi(0) \\ \\
+\pi(2) &amp;= \frac{N(N-1)}{2} \pi0 = \binom{N}{2} \pi(0)
+\end{align*}
+$$<p>and so on by induction:</p>
+$$
+\pi(j) = \binom{N}{j} \pi(0)
+$$<p>In other words, the stationary distribution is proportional to the binomial coefficients. So $\pi(0) = 1/2^N$ to make all the elements sum to 1, and the distribution is binomial $(N, 1/2)$.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Expected-Reward">Expected Reward<a class="anchor-link" href="#Expected-Reward"> </a></h3><p>Suppose I run the sticky reflecting random walk from the previous section for a long time. As a reminder, here is its stationary distribution.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">stationary</span> <span class="o">=</span> <span class="n">reflecting_walk</span><span class="o">.</span><span class="n">steady_state</span><span class="p">()</span>
+<span class="n">stationary</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>Value</th> <th>Probability</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1    </td> <td>0.125      </td>
+        </tr>
+        <tr>
+            <td>2    </td> <td>0.25       </td>
+        </tr>
+        <tr>
+            <td>3    </td> <td>0.25       </td>
+        </tr>
+        <tr>
+            <td>4    </td> <td>0.25       </td>
+        </tr>
+        <tr>
+            <td>5    </td> <td>0.125      </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Question 1.</strong> Suppose that every time the chain is in state 4, I win 4 dollars; every time it's in state 5, I win 5 dollars; otherwise I win nothing. What is my expected long run average reward?</p>
+<p><strong>Answer 1.</strong> In the long run, the chain is in steady state. So I expect that on 62.5% of the moves I will win nothing; on 25% of the moves I will win 4 dollars; and on 12.5% of the moves I will win 5 dollars. My expected long run average reward per move is 1.65 dollars.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="mi">0</span><span class="o">*</span><span class="mf">0.625</span> <span class="o">+</span> <span class="mi">4</span><span class="o">*</span><span class="mf">0.25</span> <span class="o">+</span> <span class="mi">5</span><span class="o">*.</span><span class="mi">125</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>1.625</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Question 2.</strong> Suppose that every time the chain is in state $i$, I toss $i$ coins and record the number of heads. In the long run, how many heads do I expect to get on average per move?</p>
+<p><strong>Answer 2.</strong> Each time the chain is in state $i$, I expect to get $i/2$ heads. When the chain is in steady state, the expected number of coins I toss at any given move is 3. So, by iterated expectations, the long run average number of heads I expect to get is 1.5.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">stationary</span><span class="o">.</span><span class="n">ev</span><span class="p">()</span><span class="o">/</span><span class="mi">2</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>1.5000000000000013</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>If that seems artificial, consider this: Suppose I play the game above, and on every move I tell you the number of heads that I get <em>but I don't tell you which state the chain is in.</em> I <em>hide</em> the underlying Markov Chain. If you try to recreate the sequence of steps that the Markov Chain took, you are working with a Hidden Markov Model. These are much used in pattern recognition, bioinformatics, and other fields.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+ 
+

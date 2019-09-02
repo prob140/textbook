@@ -1,0 +1,164 @@
+---
+redirect_from:
+  - "/chapter-16/01-linear-transformations"
+interact_link: content/Chapter_16/01_Linear_Transformations.ipynb
+kernel_name: python3
+has_widgets: false
+title: 'Linear Transformations'
+prev_page:
+  url: /Chapter_16/00_Transformations.html
+  title: 'Chapter 16: Transformations'
+next_page:
+  url: /Chapter_16/02_Monotone_Functions.html
+  title: 'Monotone Functions'
+comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
+---
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Linear-Transformations">Linear Transformations<a class="anchor-link" href="#Linear-Transformations"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let $T$ have the exponential $(\lambda)$ distribution and let $T_1 = \lambda T$. Then $T_1$ is a linear transformation of $T$. Therefore</p>
+$$
+E(T_1) = \lambda E(T) = 1 ~~~ \text{and} ~~~ SD(T_1) = \lambda SD(T) = 1
+$$<p>The parameter $\lambda$ has disappeared in these results. Let's see how that follows from the distribution of $T_1$. The cdf of $T_1$ is</p>
+$$
+F_{T_1}(t) = P(T_1 \le t) = P(T \le t/\lambda) = 1 - e^{-\lambda (t/\lambda)}
+= 1 - e^{-t}
+$$<p>That's the cdf of the exponential $(1)$ distribution, consistent with the expectation and SD we found above.</p>
+<p>To summarize, if $T$ has the exponential $(\lambda)$ distribution then the distribution of $T_1 = \lambda T$ is exponential $(1)$.</p>
+<p>You can think of the exponential $(1)$ distribution as the fundamental member of the family of exponential distributions. All others in the family can be found by changing the scale of measurement, that is, by multiplying by a constant.</p>
+<h3 id="Scale-Parameter">Scale Parameter<a class="anchor-link" href="#Scale-Parameter"> </a></h3><p>Conversely if $T_1$ has the exponential $(1)$ distribution, then $T = \frac{1}{\lambda}T_1$ has the exponential $(\lambda)$ distribution. The factor $1/\lambda$ is called the <em>scale parameter</em>.</p>
+<p>Here are graphs of the densities of $T_1$ and $T = \frac{1}{2}T_1$. We know that $T$ has the exponential $(2)$ distribution.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell tag_remove_input">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../images/Chapter_16/01_Linear_Transformations_2_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The formulas for the two densities are</p>
+$$
+f_{T_1} (s) = e^{-s} ~~~~~~~~~~~~~~ f_T(t) = 2e^{-2t}
+$$<p>Let's try to understand the relation between these two densities in a way that will help us generalize what we are seeing in this example.</p>
+<p>The relation between the two random variables is $T = \frac{1}{2}T_1$.</p>
+<ul>
+<li>For any $t$, the chance that $T$ is near $t$ is the same as the chance that $T_1$ is near $s = 2t$. This explains the factor $e^{-2t}$ in the density of $T$.</li>
+<li>If we think of $T_1$ as a point on the horizontal axis, then to create $T$ you have to divide $T_1$ by 2. So the transformation consists of halving all distances on the horizontal axis. The total area under the density of $T$ must equal 1, so we have to compensate by doubling all distances on the vertical axis. This explains the factor 2 in the density of $T$.</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Linear-Change-of-Variable-Formula-for-Densities">Linear Change of Variable Formula for Densities<a class="anchor-link" href="#Linear-Change-of-Variable-Formula-for-Densities"> </a></h3><p>We use the same idea to find the density of a linear transformation of a random variable.</p>
+<p>Let $X$ be a random variable with density $f_X$, and let $Y = aX + b$ for constants $a \ne 0$ and $b$. Let $f_Y$ be the density of $Y$. Then</p>
+$$
+f_Y(y) ~ = ~ f_X\big{(} \frac{y-b}{a}\big{)} \frac{1}{\lvert a \rvert} 
+$$<p>Let's take this formula in two pieces, as in the exponential example.</p>
+<ul>
+<li>For $Y$ to be $y$, $X$ has to be $(y-b)/a$.</li>
+<li>The linear function $y = ax+b$ involves multiplying distances along the horizontal axis by $\lvert a \rvert$; the sign of $a$ doesn't affect distances. To get a density, we have to compensate by dividing all vertical distances by $\lvert a \rvert$.</li>
+</ul>
+<p>This is a good way to understand the formula, and will help you understand the corresponding formula for non-linear transformations.</p>
+<p>For a formal proof, start with the case $a &gt; 0$.</p>
+$$
+F_Y(y) = P(aX+b \le y) = P\big{(}X \le \frac{y-b}{a}\big{)} = F_X\big{(}\frac{y-b}{a}\big{)}
+$$<p>By the chain rule of differentiation,</p>
+$$
+f_Y(y) = f_X\big{(}\frac{y-b}{a}\big{)} \cdot \frac{1}{a}
+$$<p>If $a &lt; 0$ then division by $a$ causes the direction of the inequality to switch:</p>
+$$
+F_Y(y) = P(aX+b \le y) = P\big{(}X \ge \frac{y-b}{a}\big{)} = 1 - F_X\big{(}\frac{y-b}{a}\big{)}
+$$<p>Now the chain rule yields</p>
+$$
+f_Y(y) ~ = ~ -f_X\big{(}\frac{y-b}{a}\big{)} \cdot \frac{1}{a}
+~ = ~ f_X\big{(}\frac{y-b}{a}\big{)} \cdot \frac{1}{\lvert a \rvert}
+$$
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="The-Normal-Densities">The Normal Densities<a class="anchor-link" href="#The-Normal-Densities"> </a></h3><p>Let $Z$ have the standard normal density</p>
+$$
+\phi(z) ~ = ~ \frac{1}{\sqrt{2\pi}} e^{-\frac{1}{2}z^2}, ~~~ -\infty &lt; z &lt; 
+\infty
+$$<p>Let $X = \sigma Z + \mu$ for constants $\mu$ and $\sigma$ with $\sigma &gt; 0$. Then for any real number $x$, the density of $X$ is</p>
+$$
+\begin{align*}
+f_X(x) ~ &amp;= ~ \phi\big{(} \frac{x-\mu}{\sigma} \big{)} \frac{1}{\sigma} \\ \\
+&amp;= ~ \frac{1}{\sqrt{2\pi}\sigma} e^{-\frac{1}{2} \big{(} \frac{x-\mu}{\sigma} \big{)}^2} 
+\end{align*}
+$$<p>Thus every normal random variable is a linear transformation of a standard normal variable.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="The-Uniform-Densities,-Revisited">The Uniform Densities, Revisited<a class="anchor-link" href="#The-Uniform-Densities,-Revisited"> </a></h3><p>Let the distribution of $U$ be uniform on $(0, 1)$ and for constants $b &gt; a$ let $V = (b-a)U + a$. In an earlier section we saw that $V$ has the uniform distribution on $(a, b)$. But let's see what's involved in confirming that result using our new formula.</p>
+<p>First it is a good idea to be clear about the possible values of $V$. Since the possible values of $U$ are in $(0, 1)$, the possible values of $V$ are in $(a, b)$.</p>
+<p>At $v \in (a, b)$, the density of $V$ is</p>
+$$
+f_V(v) ~ = ~ f_U\big{(} \frac{v - a}{b-a} \big{)} \frac{1}{b-a} ~ = ~
+1 \cdot \frac{1}{b-a} ~ = ~ \frac{1}{b-a}
+$$<p>That's the uniform density on $(a, b)$.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+ 
+

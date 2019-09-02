@@ -1,0 +1,183 @@
+---
+redirect_from:
+  - "/chapter-25/02-best-linear-predictor"
+interact_link: content/Chapter_25/02_Best_Linear_Predictor.ipynb
+kernel_name: python3
+has_widgets: false
+title: 'Best Linear Predictor'
+prev_page:
+  url: /Chapter_25/01_Bilinearity_in_Matrix_Notation.html
+  title: 'Bilinearity in Matrix Notation'
+next_page:
+  url: /Chapter_25/03_Multivariate_Normal_Conditioning.html
+  title: 'Conditioning and the Multivariate Normal'
+comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
+---
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Best-Linear-Predictor">Best Linear Predictor<a class="anchor-link" href="#Best-Linear-Predictor"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let $Y$ and the $p \times 1$ vector $\mathbf{X}$ be jointly distributed, and suppose you are trying to predict $Y$ based on a linear function of $\mathbf{X}$. For the predictor</p>
+$$
+\hat{Y}_{\mathbf{c}, d} ~ = \mathbf{c}^T\mathbf{X} + d
+$$<p>the mean squared error of prediction is</p>
+$$
+MSE(\hat{Y}_{\mathbf{c}, d}) ~ = ~ E\big{(} (Y - \hat{Y}_{\mathbf{c}, d})^2 \big{)}
+$$<p>In this section we will identify the linear predictor that minimizes the mean squared error. We will also find the variance of the error made by this best predictor.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="A-Linear-Predictor">A Linear Predictor<a class="anchor-link" href="#A-Linear-Predictor"> </a></h3><p>In the case of simple regression, we found the best linear predictor by using calculus to minimize the mean squared error over all slopes and intercepts. We could do the multivariable version of that calculation here. But because of the work we did in the case of one predictor, we will take a different approach.</p>
+<p>We will guess the answer based on the answer in the case of simple regression, and then establish that our guess is correct.</p>
+<p>In the case of simple regression, we wrote the regression equation in the form</p>
+$$
+\hat{Y} ~ = ~ \sigma_{Y,X}(\sigma_X^2)^{-1}(X - \mu_X) + \mu_Y
+$$<p>Now define</p>
+$$
+\hat{Y}_\mathbf{b} ~ = ~ \boldsymbol{\Sigma}_{Y, \mathbf{X}}\boldsymbol{\Sigma}_\mathbf{X}^{-1} (\mathbf{X} - \boldsymbol{\mu}_\mathbf{X}) + \mu_Y
+~ = ~ \mathbf{b}^T(\mathbf{X} - \boldsymbol{\mu}_\mathbf{X}) + \mu_Y
+$$<p>where</p>
+$$
+\mathbf{b} ~ = ~ \boldsymbol{\Sigma}_\mathbf{X}^{-1} \boldsymbol{\Sigma}_{\mathbf{X}, Y}
+$$<p>is the $p \times 1$ vector of the coefficients of the linear function.</p>
+<p>Clearly $\hat{Y}_\mathbf{b}$ is a linear predictor of $Y$ based on $\mathbf{X}$. We will show that it is the least squares linear predictor. The steps will follow those that we used to show that conditional expectation is the least squares predictor among all predictors.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Projection">Projection<a class="anchor-link" href="#Projection"> </a></h3><p>Notice that $E(\hat{Y}_\mathbf{b}) ~ = ~ \mu_Y$. The predictor has the same mean as the variable being predicted.</p>
+<p>Define the error in the prediction to be</p>
+$$
+W ~ = ~ Y - \hat{Y}_\mathbf{b}
+$$<p>Then</p>
+$$
+E(W) ~ = ~ 0
+$$<p>We will now show that $W$ is uncorrelated with all linear combinations of elements of $\mathbf{X}$.</p>
+$$
+\begin{align*}
+Cov(W, \mathbf{a}^T\mathbf{X}) ~ &amp;= ~ Cov(Y - \hat{Y}_\mathbf{b}, \mathbf{a}^T\mathbf{X}) \\
+&amp;= ~ Cov(Y, \mathbf{a}^T\mathbf{X}) - Cov(\hat{Y}_\mathbf{b}, \mathbf{a}^T\mathbf{X}) \\
+&amp;= ~ Cov(Y, \mathbf{a}^T\mathbf{X}) - Cov(\mathbf{b}^T\mathbf{X}, \mathbf{a}^T\mathbf{X}) \\
+&amp;= ~ \mathbf{a}^T\boldsymbol{\Sigma}_{\mathbf{X}, Y} - \mathbf{a}^T\boldsymbol{\Sigma}_\mathbf{X} \mathbf{b} \\
+&amp;= ~ \mathbf{a}^T\boldsymbol{\Sigma}_{\mathbf{X}, Y} - \mathbf{a}^T\boldsymbol{\Sigma}_\mathbf{X} \boldsymbol{\Sigma}_\mathbf{X}^{-1}\boldsymbol{\Sigma}_{\mathbf{X}, Y} \\
+&amp;= ~ 0
+\end{align*}
+$$<p>Because $E(W) = 0$, we also have $E(W\mathbf{a}^T\mathbf{X}) = Cov(W, \mathbf{a}^T\mathbf{X}) = 0$ for all $\mathbf{a}$.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Least-Squares">Least Squares<a class="anchor-link" href="#Least-Squares"> </a></h3><p>To show that $\hat{Y}_\mathbf{b}$ minimizes the mean squared error, start with an exercise: show that the best linear predictor must have the same mean as the variable being predicted. That is, show that the best linear predictor must have mean $\mu_Y$.</p>
+<p>Once you have done that, you can restrict the search for the best linear predictor to all unbiased linear predictors. Define the generic one of these by</p>
+$$
+\hat{Y}_\mathbf{h} ~ = ~ \mathbf{h}^T(\mathbf{X} - \boldsymbol{\mu}_\mathbf{X}) + \mu_Y
+$$<p>where $\mathbf{h}$ is some $p \times 1$ vector of coefficients. Then</p>
+$$
+\begin{align*}
+MSE(\hat{Y}_\mathbf{h}) ~ &amp;= ~ E\big{(} (Y - \hat{Y}_\mathbf{h})^2 \big{)}\\
+&amp;= ~ E\big{(} \big{(} (Y - \hat{Y}_\mathbf{b}) + (\hat{Y}_\mathbf{b} - \hat{Y}_\mathbf{h}) \big{)}^2 \big{)} \\
+&amp;= ~ E\big{(} (Y - \hat{Y}_\mathbf{b})^2 \big{)} + E\big{(} (\hat{Y}_\mathbf{b} - \hat{Y}_\mathbf{h})^2 \big{)} + 2E\big{(}(Y - \hat{Y}_\mathbf{b})(\hat{Y}_\mathbf{b} - \hat{Y}_\mathbf{h})\big{)} \\
+&amp;= ~ MSE(\hat{Y}_\mathbf{b}) + E\big{(} (\hat{Y}_\mathbf{b} - \hat{Y}_\mathbf{h})^2 \big{)} + 2E\big{(} W(\mathbf{b} - \mathbf{h})^T(\mathbf{X} - \boldsymbol{\mu}_\mathbf{X}) \big{)} \\
+&amp;= ~ MSE(\hat{Y}_\mathbf{b}) + E\big{(} (\hat{Y}_\mathbf{b} - \hat{Y}_\mathbf{h})^2 \big{)} \\
+&amp;\ge ~ MSE(\hat{Y}_\mathbf{b})
+\end{align*}
+$$
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Regression-Equation-and-Predicted-Values">Regression Equation and Predicted Values<a class="anchor-link" href="#Regression-Equation-and-Predicted-Values"> </a></h3><p>The least squares linear predictor is given by</p>
+$$
+\hat{Y} ~ = ~ \mathbf{b}^T(\mathbf{X} - \boldsymbol{\mu}_\mathbf{X}) + \mu_Y ~ = ~ \boldsymbol{\Sigma}_{Y, \mathbf{X}}\boldsymbol{\Sigma}_\mathbf{X}^{-1} (\mathbf{X} - \boldsymbol{\mu}_\mathbf{X}) + \mu_Y
+$$<p>This is the same as $\hat{Y}_\mathbf{b}$. We are just dropping the subscript for convenience, now that we have established that it is the best linear predictor.</p>
+<p>As we have seen above, the predictor is unbiased:</p>
+$$
+E(\hat{Y}) ~ = ~ E(Y)
+$$<p>The variance of the predicted values is</p>
+$$
+\begin{align*}
+Var(\hat{Y}) ~ &amp;= ~ \mathbf{b}^T \boldsymbol{\Sigma}_\mathbf{X} \mathbf{b} \\
+&amp;= ~ \boldsymbol{\Sigma}_{Y, \mathbf{X}}\boldsymbol{\Sigma}_\mathbf{X}^{-1} \boldsymbol{\Sigma}_\mathbf{X} \boldsymbol{\Sigma}_\mathbf{X}^{-1} \boldsymbol{\Sigma}_{\mathbf{X}, Y} \\
+&amp;= ~ \boldsymbol{\Sigma}_{Y, \mathbf{X}}\boldsymbol{\Sigma}_\mathbf{X}^{-1} \boldsymbol{\Sigma}_{\mathbf{X}, Y}
+\end{align*}
+$$
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Error-Variance">Error Variance<a class="anchor-link" href="#Error-Variance"> </a></h3><p>The error in the prediction is $W = Y - \hat{Y}$. Because $\hat{Y}$ is a linear function of $\mathbf{X}$, we have</p>
+$$
+0 ~ = ~ Cov(W, \hat{Y}) ~ = ~ Cov(Y - \hat{Y}, \hat{Y}) ~ = ~ Cov(Y, \hat{Y}) - Var(\hat{Y})
+$$<p>Therefore</p>
+$$
+Cov(Y, \hat{Y}) ~ = ~ Var(\hat{Y})
+$$<p>The variance of the error is</p>
+$$
+\begin{align*}
+Var(W) ~ &amp;= ~ Cov(Y - \hat{Y}, Y - \hat{Y}) \\
+&amp;= ~ Var(Y) - 2Cov(Y, \hat{Y}) + Var(\hat{Y}) \\
+&amp;= ~ Var(Y) - Var(\hat{Y}) \\
+&amp;= ~ \sigma_Y^2 - \boldsymbol{\Sigma}_{Y, \mathbf{X}}\boldsymbol{\Sigma}_\mathbf{X}^{-1} \boldsymbol{\Sigma}_{\mathbf{X}, Y}
+\end{align*}
+$$<p>In the case of simple regression under the bivariate normal model, we saw that the error variance was</p>
+$$
+\sigma_Y^2 - \sigma_{Y,X}(\sigma_X^2)^{-1}\sigma_{X,Y}
+$$<p>This is a special case of the more general formula that we have established here. The bivariate normal assumption isn't needed.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>As in the case of simple regression, we have made no assumption about the joint distribution of $Y$ and $\mathbf{X}$ other than to say that $\boldsymbol{\Sigma}_\mathbf{X}$ is positive definite. Regardless, there is a unique best linear predictor of $Y$ based on $\mathbf{X}$.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+ 
+

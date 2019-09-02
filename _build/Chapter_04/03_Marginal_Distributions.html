@@ -1,0 +1,654 @@
+---
+redirect_from:
+  - "/chapter-04/03-marginal-distributions"
+interact_link: content/Chapter_04/03_Marginal_Distributions.ipynb
+kernel_name: python3
+has_widgets: false
+title: 'Marginal Distributions'
+prev_page:
+  url: /Chapter_04/02_Examples.html
+  title: 'Examples'
+next_page:
+  url: /Chapter_04/04_Conditional_Distributions.html
+  title: 'Conditional Distributions'
+comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
+---
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Marginal-Distributions">Marginal Distributions<a class="anchor-link" href="#Marginal-Distributions"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>What does the joint distribution of $X$ and $Y$ tell us about the distribution of $X$ alone?</p>
+<p>Everything, of course. Let's see how.</p>
+<p>Here is the joint distribution table of two random variables $X$ and $Y$.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">joint_table</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>X=0</th>
+      <th>X=1</th>
+      <th>X=2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Y=5</th>
+      <td>0.00000</td>
+      <td>0.0000</td>
+      <td>0.03125</td>
+    </tr>
+    <tr>
+      <th>Y=4</th>
+      <td>0.00000</td>
+      <td>0.0625</td>
+      <td>0.09375</td>
+    </tr>
+    <tr>
+      <th>Y=3</th>
+      <td>0.03125</td>
+      <td>0.1875</td>
+      <td>0.09375</td>
+    </tr>
+    <tr>
+      <th>Y=2</th>
+      <td>0.09375</td>
+      <td>0.1875</td>
+      <td>0.03125</td>
+    </tr>
+    <tr>
+      <th>Y=1</th>
+      <td>0.09375</td>
+      <td>0.0625</td>
+      <td>0.00000</td>
+    </tr>
+    <tr>
+      <th>Y=0</th>
+      <td>0.03125</td>
+      <td>0.0000</td>
+      <td>0.00000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To find the distribution of $X$ we need the possible values of $X$ and all their probabilities.</p>
+<p>At a glance, you can see that the possible values of $X$ are 0, 1, and 2.</p>
+<p>Let's look at the event $\{ X = 0 \}$.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">indicator_X_equals_0</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span>
+
+<span class="n">joint_table</span><span class="o">.</span><span class="n">event</span><span class="p">(</span><span class="n">indicator_X_equals_0</span><span class="p">,</span> <span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="s1">&#39;Y&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>P(Event) = 0.25
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>X=0</th>
+      <th>X=1</th>
+      <th>X=2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Y=5</th>
+      <td>0.00000</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Y=4</th>
+      <td>0.00000</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Y=3</th>
+      <td>0.03125</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Y=2</th>
+      <td>0.09375</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Y=1</th>
+      <td>0.09375</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Y=0</th>
+      <td>0.03125</td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>These are the cells in the column labeled <code>X=0</code>. The sum of the probabilities in those cells is $P(X = 0) = 0.25$.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Partitioning-$\{X-=-x-\}$-According-to-$Y$">Partitioning $\{X = x \}$ According to $Y$<a class="anchor-link" href="#Partitioning-$\{X-=-x-\}$-According-to-$Y$"> </a></h3><p>In every cell of the column labeled <code>X=0</code>, the value of $X$ is 0 and the value of $Y$ is some possible value of $Y$. So the column <code>X=0</code> partitions the event $\{X = 0\}$ according to the value of $Y$, and displays the probability of each piece of the partition.</p>
+<p>In other words, for every $x$ we have
+$$
+\{X = x \} = \bigcup_{\text{all } y} \{X = x, Y = y\}
+$$
+and this is a disjoint union. So by the addition rule,</p>
+$$
+P(X = x) = \sum_{\text{all } y} P(X = x, Y = y)
+$$<p>That is, $P(X = x)$ is the sum of the probabilities in the column <code>X=x</code>. Because $P(X = x)$ is the generic term in the distribution of $X$, we have learned that we can derive the distribution of $X$ from the joint distribution of $X$ and $Y$.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Marginal-Distribution-of-$X$">Marginal Distribution of $X$<a class="anchor-link" href="#Marginal-Distribution-of-$X$"> </a></h3><p>To find the numerical values of the distribution of $X$, we will use a method called <code>marginal</code> that operates on a joint distribution object and takes the variable name as its argument. The reason for using the word "marginal" will become clear as soon as we see the output.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">joint_table</span><span class="o">.</span><span class="n">marginal</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>X=0</th>
+      <th>X=1</th>
+      <th>X=2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Y=5</th>
+      <td>0.00000</td>
+      <td>0.0000</td>
+      <td>0.03125</td>
+    </tr>
+    <tr>
+      <th>Y=4</th>
+      <td>0.00000</td>
+      <td>0.0625</td>
+      <td>0.09375</td>
+    </tr>
+    <tr>
+      <th>Y=3</th>
+      <td>0.03125</td>
+      <td>0.1875</td>
+      <td>0.09375</td>
+    </tr>
+    <tr>
+      <th>Y=2</th>
+      <td>0.09375</td>
+      <td>0.1875</td>
+      <td>0.03125</td>
+    </tr>
+    <tr>
+      <th>Y=1</th>
+      <td>0.09375</td>
+      <td>0.0625</td>
+      <td>0.00000</td>
+    </tr>
+    <tr>
+      <th>Y=0</th>
+      <td>0.03125</td>
+      <td>0.0000</td>
+      <td>0.00000</td>
+    </tr>
+    <tr>
+      <th>Sum: Marginal of X</th>
+      <td>0.25000</td>
+      <td>0.5000</td>
+      <td>0.25000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now at the bottom of the table you have all the column sums, which constitute the probabilities in the distribution of $X$.</p>
+<p>Because the sums appear in the margin of the table, the distribution is called <em>marginal</em>. It's a bit silly. But "marginal" is a commonly used term for the probability distribution of $X$ when the distribution has been derived from a joint distribution.</p>
+<p>You should recognize that $X$ has the same distribution as the number of heads in two tosses of a coin.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Both-Marginals">Both Marginals<a class="anchor-link" href="#Both-Marginals"> </a></h3><p>What you can do for $X$, you can do as well for $Y$ by looking along the rows.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">joint_table</span><span class="o">.</span><span class="n">marginal</span><span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>X=0</th>
+      <th>X=1</th>
+      <th>X=2</th>
+      <th>Sum: Marginal of Y</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Y=5</th>
+      <td>0.00000</td>
+      <td>0.0000</td>
+      <td>0.03125</td>
+      <td>0.03125</td>
+    </tr>
+    <tr>
+      <th>Y=4</th>
+      <td>0.00000</td>
+      <td>0.0625</td>
+      <td>0.09375</td>
+      <td>0.15625</td>
+    </tr>
+    <tr>
+      <th>Y=3</th>
+      <td>0.03125</td>
+      <td>0.1875</td>
+      <td>0.09375</td>
+      <td>0.31250</td>
+    </tr>
+    <tr>
+      <th>Y=2</th>
+      <td>0.09375</td>
+      <td>0.1875</td>
+      <td>0.03125</td>
+      <td>0.31250</td>
+    </tr>
+    <tr>
+      <th>Y=1</th>
+      <td>0.09375</td>
+      <td>0.0625</td>
+      <td>0.00000</td>
+      <td>0.15625</td>
+    </tr>
+    <tr>
+      <th>Y=0</th>
+      <td>0.03125</td>
+      <td>0.0000</td>
+      <td>0.00000</td>
+      <td>0.03125</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>You can also get both marginals at once:</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">joint_table</span><span class="o">.</span><span class="n">both_marginals</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>X=0</th>
+      <th>X=1</th>
+      <th>X=2</th>
+      <th>Sum: Marginal of Y</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Y=5</th>
+      <td>0.00000</td>
+      <td>0.0000</td>
+      <td>0.03125</td>
+      <td>0.03125</td>
+    </tr>
+    <tr>
+      <th>Y=4</th>
+      <td>0.00000</td>
+      <td>0.0625</td>
+      <td>0.09375</td>
+      <td>0.15625</td>
+    </tr>
+    <tr>
+      <th>Y=3</th>
+      <td>0.03125</td>
+      <td>0.1875</td>
+      <td>0.09375</td>
+      <td>0.31250</td>
+    </tr>
+    <tr>
+      <th>Y=2</th>
+      <td>0.09375</td>
+      <td>0.1875</td>
+      <td>0.03125</td>
+      <td>0.31250</td>
+    </tr>
+    <tr>
+      <th>Y=1</th>
+      <td>0.09375</td>
+      <td>0.0625</td>
+      <td>0.00000</td>
+      <td>0.15625</td>
+    </tr>
+    <tr>
+      <th>Y=0</th>
+      <td>0.03125</td>
+      <td>0.0000</td>
+      <td>0.00000</td>
+      <td>0.03125</td>
+    </tr>
+    <tr>
+      <th>Sum: Marginal of X</th>
+      <td>0.25000</td>
+      <td>0.5000</td>
+      <td>0.25000</td>
+      <td>1.00000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The bottom right corner cell is the sum of all the probabilities in the table, and also the sum of all the probabilities in each of the margins. Reassuringly, it's 1.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+ 
+

@@ -73,12 +73,12 @@
   sections:
   - title: Joint Distributions
     url: /Chapter_04/01_Joint_Distributions
+  - title: Examples
+    url: /Chapter_04/02_Examples
   - title: Marginal Distributions
-    url: /Chapter_04/02_Marginal_Distributions
+    url: /Chapter_04/03_Marginal_Distributions
   - title: Conditional Distributions
-    url: /Chapter_04/03_Conditional_Distributions
-  - title: Updating Distributions
-    url: /Chapter_04/04_Updating_Distributions
+    url: /Chapter_04/04_Conditional_Distributions
   - title: Dependence and Independence
     url: /Chapter_04/05_Dependence_and_Independence
 
