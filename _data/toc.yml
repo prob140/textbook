@@ -29,7 +29,7 @@
 
 - header: Textbook
 
-- title: 'Chapter 1: Fundamentals'
+- title: 'Fundamentals'
   url: /Chapter_01/00_Fundamentals
   sections:
   - title: Outcome Space and Events
@@ -42,7 +42,8 @@
     url: /Chapter_01/04_Birthday_Problem
   - title: An Exponential Approximation
     url: /Chapter_01/05_An_Exponential_Approximation
-- title: 'Chapter 2: Calculating Chances'
+
+- title: 'Calculating Chances'
   url: /Chapter_02/00_Calculating_Chances
   sections:
   - title: Addition
@@ -56,7 +57,7 @@
   - title: Updating Probabilities
     url: /Chapter_02/05_Updating_Probabilities
 
-- title: 'Chapter 3: Random Variables'
+- title: 'Random Variables'
   url: /Chapter_03/00_Random_Variables
   sections:
   - title: Functions on an Outcome Space
@@ -66,7 +67,7 @@
   - title: Equality
     url: /Chapter_03/03_Equality
 
-- title: 'Chapter 4: Relations Between Variables'
+- title: 'Relations Between Variables'
   url: /Chapter_04/00_Relations_Between_Variables
   sections:
   - title: Joint Distributions
@@ -80,7 +81,7 @@
   - title: Dependence and Independence
     url: /Chapter_04/05_Dependence_and_Independence
 
-- title: 'Chapter 5: Collections of Events'
+- title: 'Collections of Events'
   url: /Chapter_05/00_Collections_of_Events
   sections:
   - title: Bounding the Chance of a Union
@@ -96,7 +97,7 @@
   url: /Chapter_05/05_Review_Problems_Set_1
   not_numbered: true
 
-- title: 'Chapter 6: Random Counts'
+- title: 'Random Counts'
   url: /Chapter_06/00_Random_Counts
   sections:
   - title: The Binomial Distribution
@@ -109,7 +110,8 @@
     url: /Chapter_06/04_Odds_Ratios
   - title: The Law of Small Numbers
     url: /Chapter_06/05_Law_of_Small_Numbers
-- title: 'Chapter 7: Poissonization'
+
+- title: 'Poissonization'
   url: /Chapter_07/00_Poissonization
   sections:
   - title: Poissonizing the Binomial
@@ -117,7 +119,7 @@
   - title: Poissonizing the Multinomial
     url: /Chapter_07/02_Poissonizing_the_Multinomial
 
-- title: 'Chapter 8: Expectation'
+- title: 'Expectation'
   url: /Chapter_08/00_Expectation
   sections:
   - title: Definition
@@ -131,7 +133,7 @@
   url: /Chapter_08/04_Review_Problems_Set_2
   not_numbered: true
 
-- title: 'Chapter 9: Conditioning, Revisited'
+- title: 'Conditioning, Revisited'
   url: /Chapter_09/00_Conditioning_Revisited
   sections:
   - title: Probability by Conditioning
@@ -141,7 +143,7 @@
   - title: Expected Waiting Times
     url: /Chapter_09/03_Expected_Waiting_Times
 
-- title: 'Chapter 10: Markov Chains'
+- title: 'Markov Chains'
   url: /Chapter_10/00_Markov_Chains
   sections:
   - title: Transitions
@@ -153,7 +155,7 @@
   - title: Examples
     url: /Chapter_10/04_Examples
 
-- title: 'Chapter 11: Reversing Markov Chains'
+- title: 'Reversing Markov Chains'
   url: /Chapter_11/00_Reversing_Markov_Chains
   sections:
   - title: Detailed Balance
@@ -169,7 +171,7 @@
   url: /Chapter_11/05_Review_Conditioning_and_MC
   not_numbered: true
 
-- title: 'Chapter 12: Standard Deviation'
+- title: 'Standard Deviation'
   url: /Chapter_12/00_Standard_Deviation
   sections:
   - title: Definition
@@ -181,7 +183,7 @@
   - title: Heavy Tails
     url: /Chapter_12/04_Heavy_Tails
 
-- title: 'Chapter 13: Variance Via Covariance'
+- title: 'Variance Via Covariance'
   url: /Chapter_13/00_Variance_Via_Covariance
   sections:
   - title: Properties of Covariance
@@ -193,7 +195,7 @@
   - title: Finite Population Correction
     url: /Chapter_13/04_Finite_Population_Correction
 
-- title: 'Chapter 14: The Central Limit Theorem'
+- title: 'The Central Limit Theorem'
   url: /Chapter_14/00_The_Central_Limit_Theorem
   sections:
   - title: Exact Distribution
@@ -207,7 +209,7 @@
   - title: Confidence Intervals
     url: /Chapter_14/05_Confidence_Intervals
 
-- title: 'Chapter 15: Continuous Distributions'
+- title: 'Continuous Distributions'
   url: /Chapter_15/00_Continuous_Distributions
   sections:
   - title: Density and CDF
@@ -225,7 +227,7 @@
   url: /Chapter_15/06_Review_Problems_Set_3
   not_numbered: true
 
-- title: 'Chapter 16: Transformations'
+- title: 'Transformations'
   url: /Chapter_16/00_Transformations
   sections:
   - title: Linear Transformations
@@ -235,7 +237,7 @@
   - title: Two-to-One Functions
     url: /Chapter_16/03_Two_to_One_Functions
 
-- title: 'Chapter 17: Joint Densities'
+- title: 'Joint Densities'
   url: /Chapter_17/00_Joint_Densities
   sections:
   - title: Probabilities and Expectations
@@ -247,7 +249,7 @@
   - title: Beta Densities with Integer Parameters
     url: /Chapter_17/04_Beta_Densities_with_Integer_Parameters
 
-- title: 'Chapter 18: The Normal and Gamma Families'
+- title: 'The Normal and Gamma Families'
   url: /Chapter_18/00_The_Normal_and_Gamma_Families
   sections:
   - title: 'Standard Normal: The Basics'
@@ -263,7 +265,7 @@
   url: /Chapter_18/05_Review_Problems_Set_4
   not_numbered: true
 
-- title: 'Chapter 19: Distributions of Sums'
+- title: 'Distributions of Sums'
   url: /Chapter_19/00_Distributions_of_Sums
   sections:
   - title: The Convolution Formula
@@ -275,7 +277,7 @@
   - title: Chernoff Bound
     url: /Chapter_19/04_Chernoff_Bound
 
-- title: 'Chapter 20: Approaches to Estimation'
+- title: 'Approaches to Estimation'
   url: /Chapter_20/00_Approaches_to_Estimation
   sections:
   - title: Maximum Likelihood
@@ -285,7 +287,7 @@
   - title: Independence, Revisited
     url: /Chapter_20/03_Independence_Revisited
 
-- title: 'Chapter 21: The Beta and the Binomial'
+- title: 'The Beta and the Binomial'
   url: /Chapter_21/00_The_Beta_and_the_Binomial
   sections:
   - title: Updating and Prediction
@@ -295,7 +297,7 @@
   - title: Long Run Proportion of Heads
     url: /Chapter_21/03_Long_Run_Proportion_of_Heads
 
-- title: 'Chapter 22: Prediction'
+- title: 'Prediction'
   url: /Chapter_22/00_Prediction
   sections:
   - title: Conditional Expectation As a Projection
@@ -307,7 +309,7 @@
   - title: Least Squares Predictor
     url: /Chapter_22/04_Least_Squares_Predictor
 
-- title: 'Chapter 23: Jointly Normal Random Variables'
+- title: 'Jointly Normal Random Variables'
   url: /Chapter_23/00_Multivariate_Normal_RVs
   sections:
   - title: Random Vectors
@@ -319,7 +321,7 @@
   - title: Independence
     url: /Chapter_23/04_Independence
 
-- title: 'Chapter 24: Simple Linear Regression'
+- title: 'Simple Linear Regression'
   url: /Chapter_24/00_Simple_Linear_Regression
   sections:
   - title: Bivariate Normal Distribution
@@ -331,7 +333,7 @@
   - title: The Regression Equation
     url: /Chapter_24/04_Regression_Equation
 
-- title: 'Chapter 25: Multiple Regression'
+- title: 'Multiple Regression'
   url: /Chapter_25/00_Multiple_Regression
   sections:
   - title: Bilinearity in Matrix Notation
