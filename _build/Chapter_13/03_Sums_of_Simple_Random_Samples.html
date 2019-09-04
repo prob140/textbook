@@ -1,0 +1,150 @@
+---
+redirect_from:
+  - "/chapter-13/03-sums-of-simple-random-samples"
+interact_link: content/Chapter_13/03_Sums_of_Simple_Random_Samples.ipynb
+kernel_name: python3
+has_widgets: false
+title: 'Sums of Simple Random Samples'
+prev_page:
+  url: /Chapter_13/02_Sums_of_IID_Samples.html
+  title: 'Sums of IID Samples'
+next_page:
+  url: /Chapter_13/04_Finite_Population_Correction.html
+  title: 'Finite Population Correction'
+comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
+---
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Sums-of-Simple-Random-Samples">Sums of Simple Random Samples<a class="anchor-link" href="#Sums-of-Simple-Random-Samples"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>When the random variables that are being added are not independent, finding the variance of the sum does involve finding covariances. As before, let $X_1, X_2, \ldots X_n$ be random variables with sum</p>
+$$
+S_n = \sum_{i=1}^n X_i
+$$<p>The variance of the sum is</p>
+$$
+Var(S_n) ~ = ~ \sum_{i=1}^n Var(X_i) + \mathop{\sum \sum}_{1 \le i \ne j \le n} Cov(X_i, X_j)
+$$
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Before we apply this formula, let's start out by finding a simple covariance.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Indicators">Indicators<a class="anchor-link" href="#Indicators"> </a></h3><p>Let $A$ and $B$ be two events. Let $I_A$ be the indicator of $A$ and let $I_B$ be the indicator of  $B$. This is going to be one of the rare instances where we use an expected product to find a covariance. That's because we know that products of indicators are themselves indicators.</p>
+$$
+Cov(I_A, I_B) = E(I_AI_B) - E(I_A)E(I_B) = P(AB) - P(A)P(B)
+$$<p>You can see that the covariance is 0 if $A$ and $B$ are independent, consistent with the more general result of the previous section. When $A$ and $B$ are not independent, covariance helps us understand the nature of the dependence. For example, if $Cov(I_A, I_B)$ is positive, then</p>
+$$
+P(AB) &gt; P(A)P(B) ~~~ \implies ~~~ P(A)P(B \mid A) &gt; P(A)P(B)
+~~~ \implies ~~~ P(B \mid A) &gt; P(B)
+$$<p>That is, given that $A$ has occurred, the chance of $B$ is higher than it is overall. This is called <em>positive association</em> or <em>positive dependence</em> of $A$ and $B$.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Variance-of-the-Hypergeometric">Variance of the Hypergeometric<a class="anchor-link" href="#Variance-of-the-Hypergeometric"> </a></h3><p>Suppose you have a population of $N$ elements of which $G$ are good. Let $X$ be the number of good elements in simple random sample of $n$ elements drawn from the population. Remember that simple random samples are drawn without replacement.</p>
+<p>We know that</p>
+$$
+X = \sum_{j=1}^n I_j
+$$<p>where $I_j$ is the indicator that draw $j$ yields a good element.</p>
+<p>By symmetry, we know that $E(I_j) = \frac{G}{N}$ for each $j$. That is why</p>
+$$
+E(X) ~ = ~ n \frac{G}{N} ~ = ~ np ~~~~ \text{where } p = \frac{G}{N}
+$$<p>That's the same formula as for the binomial.</p>
+<p>We also know that $Var(I_j) = \frac{G}{N} \cdot \frac{B}{N}$ where $B = N-G$ is the number of bad elements in the population.</p>
+<p>Also by symmetry, $Cov(I_j, I_k)$ is the same for each pair $j, k$ where $j \ne k$. The example above tells us how to calculate this common value.</p>
+$$
+Cov(I_j, I_k) = \frac{G}{N} \cdot \frac{G-1}{N-1} - \frac{G}{N} \cdot \frac{G}{N}
+$$<p>Therefore</p>
+$$
+\begin{align*}
+Var(X) &amp;= \sum_{j=1}^n Var(I_j) + \mathop{\sum \sum}_{1 \le j \ne k \le n} Cov(I_j, I_k) \\ \\
+&amp;= n \frac{G}{N} \cdot \frac{B}{N} ~ + ~ n(n-1) \Big{(} \frac{G}{N} \cdot \frac{G-1}{N-1} - \frac{G}{N} \cdot \frac{G}{N} \Big{)} \\ \\
+&amp;= n \frac{G}{N} \cdot \frac{B}{N} ~ + ~ n(n-1) \frac{G}{N} \Big{(} \frac{G-1}{N-1} - \frac{G}{N} \Big{)} \\ \\
+&amp;= n \frac{G}{N} \cdot \frac{B}{N} ~ - ~ n(n-1) \frac{G}{N} \cdot \frac{N-G}{N(N-1)} \\ \\
+&amp;= n \frac{G}{N} \cdot \frac{B}{N} \cdot \Big{(} 1 - \frac{n-1}{N-1} \Big{)} \\ \\
+&amp;= n \frac{G}{N} \cdot \frac{B}{N} \cdot \Big{(} \frac{N-n}{N-1} \Big{)} \\ \\
+&amp;= npq \cdot \frac{N-n}{N-1}
+\end{align*}
+$$<p>where $p = \frac{G}{N}$ and $q = 1-p$.</p>
+<p>Notice that the formula is the same as the formula for the variance of the binomial, apart from the factor of $\frac{N-n}{N-1}$.</p>
+<p>We can generalize this result to the case where the population isn't binary.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Variance-of-a-Simple-Random-Sample-Sum">Variance of a Simple Random Sample Sum<a class="anchor-link" href="#Variance-of-a-Simple-Random-Sample-Sum"> </a></h3><p>Suppose we have a population of $N$ numbers which need not be only zeros and ones. Suppose the population has mean $\mu$ and standard deviation $\sigma$. Draw a simple random sample of size $n$ from the population. For $j$ in the range 1 through $n$, let $X_j$ be the $j$th value drawn.</p>
+<p>Let $S_n = X_1 + X_2 + \cdots + X_n$. Then $E(S_n) = n\mu$, and</p>
+$$
+Var(S_n) ~ = ~ \sum_{i=1}^n Var(X_i) + \mathop{\sum \sum}_{1 \le i \ne j \le n} Cov(X_i, X_j) ~ = ~ n\sigma^2 + n(n-1)Cov(X_1, X_2)
+$$<p>by symmetry.</p>
+<p>How can we find $Cov(X_1, X_2)$? It's not a good idea to try and multiply the two variables, as they are dependent and their distributions might be unpleasant. The expected product will be hard to find.</p>
+<p>What we can use is the observation that the equation we derived above for $Var(S_n)$ is valid for any sample size. In particular, it is valid in the case when we take a census, that is, when we sample all the elements of the population. In that case $n = N$ and the equation is</p>
+$$
+Var(S_N) = N\sigma^2 + N(N-1)Cov(X_1, X_2)
+$$<p>Why is helpful? To answer this, think about the variability in $S_N$. We have sampled the entire population without replacement. Therefore $S_N$ is just the total of the entire population. There is no sampling variability in $S_N$, because there is only one possible sample of size $N$.</p>
+<p>That means $Var(S_N) = 0$. We can use this to solve for $Cov(X_1, X_2)$.</p>
+$$
+0 = N\sigma^2 + N(N-1)Cov(X_1, X_2) ~~~~~ \implies ~~~~~
+Cov(X_1, X_2) = -\frac{\sigma^2}{N-1}
+$$<p>Now plug this into the formula for $Var(S_n)$ for any smaller sample size $n$.</p>
+$$
+Var(S_n) ~ = ~ n\sigma^2 - n(n-1)\frac{\sigma^2}{N-1} ~ = ~
+n\sigma^2 \Big{(} 1 - \frac{n-1}{N-1} \Big{)} ~ = ~
+n\sigma^2 \frac{N-n}{N-1}
+$$
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Recall that the variance of the sample sum is $n\sigma^2$ when the sample is drawn with replacement. When the sample is drawn without replacement, the formula is the same apart from the factor of $\frac{N-n}{N-1}$.</p>
+<p>That is exactly what we saw in the special case of the binary population. In the final section of this chapter we will investigate this relation between sampling with and without replacement.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+ 
+

@@ -1,0 +1,576 @@
+---
+redirect_from:
+  - "/chapter-10/03-long-run-behavior"
+interact_link: content/Chapter_10/03_Long_Run_Behavior.ipynb
+kernel_name: python3
+has_widgets: false
+title: 'Long Run Behavior'
+prev_page:
+  url: /Chapter_10/02_Deconstructing_Chains.html
+  title: 'Deconstructing Chains'
+next_page:
+  url: /Chapter_10/04_Examples.html
+  title: 'Examples'
+comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
+---
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Long-Run-Behavior">Long Run Behavior<a class="anchor-link" href="#Long-Run-Behavior"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Every irreducible and aperiodic Markov Chain on a finite state space exhibits astonishing regularity after it has run for a while. The proof of the convergence theorem below is beyond the scope of this course, but in examples you have seen the result by computation. All the results are true in greater generality for some classes of Markov Chains on infinitely many states.</p>
+<h3 id="Convergence-to-Stationarity">Convergence to Stationarity<a class="anchor-link" href="#Convergence-to-Stationarity"> </a></h3><p>Let $X_0, X_1, \ldots$ be an irreducible, aperiodic Markov chain on a finite state space $S$. Then for all states $i$ and $j$,</p>
+$$
+P_n(i, j) \to \pi(j) ~~~ \text{as } n \to \infty
+$$<p>In other words, for every $i$ and $j$ in $S$, the $n$-step transition probability from $i$ to $j$ converges to a limit that does not depend on $i$. Moreover,</p>
+<ul>
+<li><p>$\pi(j) &gt; 0$ for all states $j$, and</p>
+</li>
+<li><p>$\sum_{j \in S} \pi(j) = 1$</p>
+</li>
+</ul>
+<p>That is, as $n \to \infty$, every row of the $n$-step transition matrix $\mathbb{P}^n$ converges to the same vector $\pi$ which is a probability distribution in which all the terms are positive.</p>
+<h3 id="Properties-of-the-Limit">Properties of the Limit<a class="anchor-link" href="#Properties-of-the-Limit"> </a></h3><p><strong>(i)</strong> The vector $\pi$ is the unique probability distribution that solves the <em>balance equations</em> $\pi \mathbb{P} = \pi$. Every other solution has the form $c\pi$ for some constant $c$.</p>
+<p><strong>(ii)</strong> If for some $n$ the distribution of $X_n$ is $\pi$, then the distribution of $X_m$ is also $\pi$ for all $m &gt; n$. Thus $\pi$ is called the <em>stationary</em> or <em>steady state</em> distribution of the chain.</p>
+<p><strong>(iii)</strong> For each state $j$, the $j$th entry of the $\pi$ vector $\pi(j)$ is the expected long run proportion of time the chain spends at $j$.</p>
+<p>We will assume that the convergence theorem is true; you have observed in numerically in examples. The other properties follow rather easily. In the remainder of this section we will establish the properties and see how they are used.</p>
+<h3 id="Balance-Equations">Balance Equations<a class="anchor-link" href="#Balance-Equations"> </a></h3><p>Let $n \ge 0$ and let $i$ and $j$ be two states. Then</p>
+$$
+P_{n+1}(i, j) = \sum_{k \in S} P_n(i, k)P(k, j)
+$$<p>Therefore</p>
+$$
+\begin{align*}
+\lim_{n \to \infty} P_{n+1}(i, j) &amp;= \lim_{n \to \infty} \sum_{k \in S} P_n(i, k)P(k, j) \\ \\
+&amp;= \sum_{k \in S} \big{(} \lim_{n \to \infty} P_n(i, k) \big{)} P(k, j)
+\end{align*}
+$$<p>We can exchange the limit and the sum because $S$ is finite. Now apply the theorem on convergence to stationarity:</p>
+$$
+\pi(j) = \sum_{k \in S} \pi(k)P(k, j)
+$$<p>These are called the balance equations.</p>
+<p>In matrix notation, if you think of $\pi$ as a row vector, these equations become</p>
+$$
+\pi = \pi \mathbb{P} ~~~~~ \text{or, as we will usually write it,} ~~~~~ \pi\mathbb{P} = \pi
+$$<p>This helps us compute $\pi$ without taking limits.</p>
+<p><strong>Note:</strong> The steady state isn't an element of the state space $S$. It's the condition of the chain after it has been run for a long time. Let's examine this further.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Balance-and-Steady-State">Balance and Steady State<a class="anchor-link" href="#Balance-and-Steady-State"> </a></h3><p>To see what is being "balanced" in these equations, imagine a large number of independent replications of this chain. For example, imagine a large number of particles that are moving among the states 1 through 5 according to the transition probabilities of the sticky reflecting walk, and suppose all the particles are moving at instants 1, 2, 3, $\ldots$ independently of each other.</p>
+<p>Then at any instant and for any state $j$, there is some proportion of particles that is leaving $j$, and another proportion that is entering $j$. The balance equations say that those two proportions are equal.</p>
+<p>Let's check this by looking at the equations again. For any state $j$,</p>
+$$
+\pi(j) = \sum_{k \in S} \pi(k)P(k, j)
+$$<p>For every $k \in S$ (including $k=j$), think of $\pi(k)$ as the proportion of particles leaving state $k$ after the chain has been run a long time. Then the left hand side is the proportion leaving $j$. The generic term in the sum on the right is the proportion that left $k$ at the previous instant and are moving to $j$. The sum is all the particles entering $j$. When the two sides are equal, the chain is <em>balanced</em>.</p>
+<p>The theorem on convergence to stationarity says that the chain approaches balance as $n$ gets large. If it actually achieves balance, that is, if the distribution of $X_n$ is equal to $\pi$ for some $n$, then it stays balanced. The reason:</p>
+$$
+P(X_{n+1} = j) = \sum_{i \in S} P(X_n = i)P(i, j) = \sum_{i \in S} \pi(i)P(i, j) = \pi(j)
+$$<p>by the balance equations. Now use induction.</p>
+<p>In particular, if you start the chain with its stationary distribution $\pi$, then the distribution of $X_n$ is $\pi$ for every $n$.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Uniqueness">Uniqueness<a class="anchor-link" href="#Uniqueness"> </a></h3><p>It's not very hard to show that if a probability distribution solves the balance equations, then it has to be $\pi$, the limit of the marginal distributions of $X_n$. We won't do the proof; it essentially repeats the steps we took to derive the balance equations. You should just be aware that an irreducible, aperiodic, finite state Markov Chain has exactly one stationary distribution.</p>
+<p>This is particularly helpful if you happen to guess a solution to the balance equations. If the solution that you have guessed is a probability distribution, you have found the stationary distribution of the chain.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Expected-Long-Run-Proportion-of-Time">Expected Long Run Proportion of Time<a class="anchor-link" href="#Expected-Long-Run-Proportion-of-Time"> </a></h3><p>Let $j$ be a state, and let $I_m(j)$ be the indicator of the event $\{X_m = j\}$. The <em>proportion of time the chain spends at $j$</em>, from time 1 through time $n$, is</p>
+$$
+\frac{1}{n} \sum_{m=1}^n I_m(j)
+$$<p>Therefore, the <em>expected proportion of time the chain spends at $j$</em>, given that it started at $i$, is</p>
+$$
+\frac{1}{n} \sum_{m=1}^n E(I_m(j) \mid X_0 = i) 
+= \frac{1}{n} \sum_{m=1}^n P(X_m = j \mid X_0 = i) 
+= \frac{1}{n} \sum_{m=1}^n P_m(i, j)
+$$<p>Now recall a property of convergent sequences of real numbers:</p>
+<ul>
+<li>If $x_n \to x$ as $n \to \infty$, then the sequence of averages also converges to $x$. That is,</li>
+</ul>
+$$
+\frac{1}{n} \sum_{m=1}^n x_m \to x ~~~ \text{as } n \to \infty
+$$<p>Take $x_n = P_n(i, j)$. Then by the theorem on convergence to stationarity,</p>
+$$
+P_n(i, j) \to \pi(j) ~~~ \text{as } n \to \infty
+$$<p>and hence the averages also converge:</p>
+$$
+\frac{1}{n} \sum_{m=1}^n P_m(i, j) \to \pi(j) ~~~ \text{as } n \to \infty
+$$<p>Thus the long run expected proportion of time the chain spends in state $j$ is $\pi(j)$, where $\pi$ is the stationary distribution of the chain.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Stationary-Distribution-of-Sticky-Reflecting-Walk">Stationary Distribution of Sticky Reflecting Walk<a class="anchor-link" href="#Stationary-Distribution-of-Sticky-Reflecting-Walk"> </a></h3><p>We studied this in an earlier section. The transition diagram is</p>
+<p><img src="trans_refl.png" alt="Lazy Circle Walk"></p>
+<p>Here is the transition matrix $\mathbb{P}$.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">reflecting_walk</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>0.50</td>
+      <td>0.50</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.25</td>
+      <td>0.50</td>
+      <td>0.25</td>
+      <td>0.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.00</td>
+      <td>0.25</td>
+      <td>0.50</td>
+      <td>0.25</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.25</td>
+      <td>0.50</td>
+      <td>0.25</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.50</td>
+      <td>0.50</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The <code>MarkovChain</code> method <code>steady_state</code> returns the stationary distribution $\pi$. You saw earlier that this is the limit of the rows of $\mathbb{P}$.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">reflecting_walk</span><span class="o">.</span><span class="n">steady_state</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>Value</th> <th>Probability</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1    </td> <td>0.125      </td>
+        </tr>
+        <tr>
+            <td>2    </td> <td>0.25       </td>
+        </tr>
+        <tr>
+            <td>3    </td> <td>0.25       </td>
+        </tr>
+        <tr>
+            <td>4    </td> <td>0.25       </td>
+        </tr>
+        <tr>
+            <td>5    </td> <td>0.125      </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We could also solve for $\pi$ using the balance equations. While this might seem superfluous given that Python has already given us $\pi$, it is good practice for when transition matrices are larger and not numerical.</p>
+<p>According to the balance equations,</p>
+$$
+\pi(1) = \sum_{k=1}^s \pi(k)P(k, 1)
+$$<p>That is, we're multiplying $\pi$ by the <code>1</code> column of $\mathbb{P}$ and adding. So</p>
+$$
+\pi(1) = \pi(1)\cdot 0.5 ~ + ~ \pi(2) \cdot 0.25 = 0.5\pi(1) + 0.25\pi(2)
+$$<p>Follow the same process to get all five balance equations:</p>
+$$
+\begin{align*}
+\pi(1) &amp;= 0.5\pi(1) + 0.25\pi(2) \\
+\pi(2) &amp;= 0.5\pi(1) + 0.5\pi(2) + 0.25\pi(3) \\
+\pi(3) &amp;= 0.25\pi(2) + 0.5\pi(3) + 0.25\pi(4) \\
+\pi(4) &amp;= 0.25\pi(3) + 0.5\pi(4) + 0.5\pi(5) \\
+\pi(5) &amp;= 0.25\pi(4) + 0.5\pi(5)
+\end{align*}
+$$<p>Some observations make the system easy to solve.</p>
+<ul>
+<li>By rearranging the first equation, we get $\pi(2) = 2\pi(1)$.</li>
+<li>By symmetry, $\pi(1) = \pi(5)$ and $\pi(2) = \pi (4)$.</li>
+<li>Because $\pi(2) = \pi(4)$, the equation for $\pi(3)$ shows that $\pi(3) = \pi(2) = \pi(4)$.</li>
+</ul>
+<p>So the distribution $\pi$ is</p>
+$$
+\big{(} \pi(1), 2\pi(1), 2\pi(1), 2\pi(1), \pi(1) \big{)}
+$$<p>As $\pi$ is a probability distribution, it sums to 1. Its total is $8\pi(1)$, so we have</p>
+$$
+\pi = \big{(} \frac{1}{8}, \frac{2}{8}, \frac{2}{8}, \frac{2}{8}, \frac{1}{8} \big{)}
+$$
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This implies that in the long run, the lazy reflecting random walk of this section is expected to spend about 12.5% of its time at state 1, 25% of its time at each of states 2, 3, and 4, and the remaining 12.5% of its time at state 5.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Sticky-Random-Walk-on-a-Circle">Sticky Random Walk on a Circle<a class="anchor-link" href="#Sticky-Random-Walk-on-a-Circle"> </a></h3><p>Now let the state space be five points arranged on a circle. Suppose the process starts at Point 1, and at each step either stays in place with probability 0.5 (and thus is sticky), or moves to one of the two neighboring points with chance 0.25 each, regardless of the other moves.</p>
+<p>In other words, this walk is just the same as the sticky reflecting walk, except that $1 \rightarrow 5$ and $5 \rightarrow 1$ transitions are both possible. This transition behavior can be summed up in a transition diagram. Notice that the transition behavior is the same for all the states.</p>
+<p><img src="trans_circle.png" alt="Lazy Circle Walk"></p>
+<p>At every step, the next move is determined by a random choice from among three options and by the chain's current location, not on how it got to that location. So the process is a Markov chain. Let's call it $X_0, X_1, X_2, \ldots $ and define its transition matrix.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">circle_walk_probs</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">i</span><span class="o">-</span><span class="n">j</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mf">0.5</span>
+        <span class="k">elif</span> <span class="nb">abs</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="n">j</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mf">0.25</span>
+        <span class="k">elif</span> <span class="nb">abs</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="n">j</span><span class="p">)</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mf">0.25</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">0</span>   
+        
+<span class="n">circle_walk</span> <span class="o">=</span> <span class="n">MarkovChain</span><span class="o">.</span><span class="n">from_transition_function</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">circle_walk_probs</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">circle_walk</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>0.50</td>
+      <td>0.25</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.25</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.25</td>
+      <td>0.50</td>
+      <td>0.25</td>
+      <td>0.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.00</td>
+      <td>0.25</td>
+      <td>0.50</td>
+      <td>0.25</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.25</td>
+      <td>0.50</td>
+      <td>0.25</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>0.25</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.25</td>
+      <td>0.50</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Because of the symmetry of the transition behavior, no state should be occupied more than any other state, and hence all the $\pi(j)$'s should be equal. This is confirmed by <code>steady_state</code>.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">circle_walk</span><span class="o">.</span><span class="n">steady_state</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>Value</th> <th>Probability</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1    </td> <td>0.2        </td>
+        </tr>
+        <tr>
+            <td>2    </td> <td>0.2        </td>
+        </tr>
+        <tr>
+            <td>3    </td> <td>0.2        </td>
+        </tr>
+        <tr>
+            <td>4    </td> <td>0.2        </td>
+        </tr>
+        <tr>
+            <td>5    </td> <td>0.2        </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+ 
+

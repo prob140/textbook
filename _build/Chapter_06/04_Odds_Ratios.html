@@ -1,0 +1,275 @@
+---
+redirect_from:
+  - "/chapter-06/04-odds-ratios"
+interact_link: content/Chapter_06/04_Odds_Ratios.ipynb
+kernel_name: python3
+has_widgets: false
+title: 'Odds Ratios'
+prev_page:
+  url: /Chapter_06/03_Hypergeometric_Distribution.html
+  title: 'The Hypergeometric Distribution'
+next_page:
+  url: /Chapter_06/05_Law_of_Small_Numbers.html
+  title: 'The Law of Small Numbers'
+comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
+---
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Odds-Ratios">Odds Ratios<a class="anchor-link" href="#Odds-Ratios"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Binomial $(n, p)$ probabilities involve powers and factorials, both of which are difficult to compute when $n$ is large. This section is about simplifying the computation of the entire distribution. The result also helps us understand the shape of binomial histograms.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Consecutive-Odds-Ratios">Consecutive Odds Ratios<a class="anchor-link" href="#Consecutive-Odds-Ratios"> </a></h3><p>Fix $n$ and $p$, and let $P(k)$ be the binomial $(n, p)$ probability of $k$. That is, let $P(k)$ be the chance of getting $k$ successes in $n$ independent trials with probability $p$ of success on each trial.</p>
+<p>For $k \ge 1$, define the <em>$k$th consecutive odds ratio</em></p>
+$$
+R(k) = \frac{P(k)}{P(k-1)}
+$$<p>To see how this helps us calculate each $P(k)$ without having to calculate factorials and powers each time, notice that</p>
+$$
+\begin{align*}
+P(0) &amp;= (1-p)^n \\ \\
+P(1) &amp;= P(0) \cdot \frac{P(1)}{P(0)} = P(0)R(1) \\
+P(2) &amp;= P(0)R(1)R(2)
+\end{align*}
+$$<p>and so on.</p>
+<p>How is this more illuminating than plugging into the binomial formula? To see this, fix $k \ge 1$ and calculate the ratio $R(k)$.</p>
+$$
+\begin{align*}
+R(k) &amp;= \frac{\binom{n}{k}p^k(1-p)^{n-k}}
+{\binom{n}{k-1}p^{k-1}(1-p)^{n-k+1}} \\ \\
+&amp;= \frac{n-k+1}{k} \cdot \frac{p}{1-p} ~~~
+\text{(after cancellation)} \\ \\
+&amp;= \big{(} \frac{n+1}{k} - 1 \big{)} \cdot \frac{p}{1-p}
+\end{align*}
+$$<p>First, notice that the formulas for $R(k)$ are simple. For example, if $n \ge 3$, it is easy to calculate $P(3)$ as</p>
+$$
+P(3) = (1-p)^n \cdot \frac{n - 1 + 1}{1} \cdot \frac{p}{1-p} \cdot
+\frac{n - 2 + 1}{2} \cdot \frac{p}{1-p} \cdot
+\frac{n - 3 + 1}{3} \cdot \frac{p}{1-p} \cdot
+$$<p>No factorials involved.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Shapes-of-Binomial-Histograms">Shapes of Binomial Histograms<a class="anchor-link" href="#Shapes-of-Binomial-Histograms"> </a></h3><p>Now observe that comparing $R(k)$ to 1 tells us whether the histogram is going up, staying level, or going down at $k$.</p>
+$$
+\begin{align*}
+R(k) &gt; 1 &amp;\iff P(k) &gt; P(k-1) \\
+R(k) = 1 &amp;\iff P(k) = P(k-1) \\
+R(k) &lt; 1 &amp;\iff P(k) &lt; P(k-1) 
+\end{align*}
+$$<p>Note also that the form</p>
+$$
+R(k) = \big{(} \frac{n+1}{k} - 1 \big{)} \cdot \frac{p}{1-p}
+$$<p>tells us the the ratios are a <em>decreasing function of $k$</em>. In the formula, $n$ and $p$ are the parameters of the distribution and hence constant. It is $k$ that varies, and $k$ appears in the denominator.</p>
+<p>This implies that once $R(k) &lt; 1$ for some $k$, it will remain less than 1 for all larger $k$. In other words, once the histogram starts going down, it will keep going down. It cannot come back up again.</p>
+<p>That is why binomial histograms are either non-increasing or non-decreasing, or they go up and come down. But they can't look like waves on the seashore. They can't go up, come down, and go up again.</p>
+<p>Let's visualize this for a $n = 23$ and $p = 0.7$, two parameters that have no significance other than being our choice to use in this example.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">23</span>
+<span class="n">p</span> <span class="o">=</span> <span class="mf">0.7</span>
+<span class="n">k</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">bin_23_7</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">binom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+<span class="n">bin_dist</span> <span class="o">=</span> <span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">.</span><span class="n">probabilities</span><span class="p">(</span><span class="n">bin_23_7</span><span class="p">)</span>
+<span class="n">Plot</span><span class="p">(</span><span class="n">bin_dist</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../images/Chapter_06/04_Odds_Ratios_4_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># It is important to define k as an array here,</span>
+<span class="c1"># so you can do array operations</span>
+<span class="c1"># to find all the ratios at once.</span>
+<span class="n">k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="p">((</span><span class="n">n</span> <span class="o">-</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">k</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">p</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">p</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([53.66666667, 25.66666667, 16.33333333, 11.66666667,  8.86666667,
+        7.        ,  5.66666667,  4.66666667,  3.88888889,  3.26666667,
+        2.75757576,  2.33333333,  1.97435897,  1.66666667,  1.4       ,
+        1.16666667,  0.96078431,  0.77777778,  0.61403509,  0.46666667,
+        0.33333333,  0.21212121,  0.10144928])</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>What Python is helpfully telling us is that the invisible bar at 1 is 53.666... times larger than the even more invisible bar at 0. The ratios decrease after that but they are still bigger than 1 through $k = 16$. The histogram rises till it reaches its peak at $k = 16$. You can see that $R(16) = 1.1666 &gt; 1$. Then the ratios drop below one, so the histogram starts going down.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Mode-of-the-Binomial">Mode of the Binomial<a class="anchor-link" href="#Mode-of-the-Binomial"> </a></h3><p>A <em>mode</em> of a discrete distribution is a possible value that has the highest probability. There may be more than one such value, so there may be more than one mode.</p>
+<p>For all $k$ such that $R(k) \ge 1$, we will say that the binomial histogram is rising at $k$. Which values of $k$ have this property? To answer this, we have to solve an inequality.</p>
+<p>Let $q = 1-p$. Every value $k$ for which $R(k) \ge 1$ must satisfy</p>
+$$
+\big{(} \frac{n+1}{k} - 1 \big{)} \frac{p}{q} ~ \ge ~ 1
+$$<p>That is,</p>
+$$
+\frac{n+1}{k} ~ \ge ~ \frac{q}{p} + 1 ~ = ~ \frac{1}{p}
+$$<p>which is equivalent to</p>
+$$
+k ~ \le ~ (n+1)p
+$$<p>We have shown that for all $k$ in the range 0 through the integer part of $(n+1)p$, the histogram rises; for larger $k$, it falls.</p>
+<p>Therefore the peak of the histogram is at the integer part of $(n+1)p$. That's a mode of the binomial.</p>
+<p>Because the odds ratios are non-decreasing in $k$, the only way in which there can be more than one mode is if there is a $k$ such that $R(k) = 1$. In that case, $P(k) = P(k-1)$ and therefore both $k$ and $k-1$ will be modes. To summarize:</p>
+<h4 id="The-Mode">The Mode<a class="anchor-link" href="#The-Mode"> </a></h4><p>The mode of the binomial $(n, p)$ distribution is the integer part of $(n+1)p$. If $(n+1)p$ is an integer, then $(n+1)p - 1$ is also a mode.</p>
+<p>To see that this is consistent with what we observed in our numerical example above, let's calculate $(n+1)p$ in that case.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">p</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>16.799999999999997</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The integer part of $(n+1)p$ is 16, which is the mode that we observed.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>But in fact, $np$ is a more natural quantity to calculate. For example, if you are counting the number of heads in 100 tosses of a coin, then the distribution is binomial $(100, 1/2)$ and you naturally expect $np = 50$ heads. You don't want to be worrying about $101 \times (1/2)$.</p>
+<p>In fact you don't have to worry when $n$ is large, because then $np$ and $(n+1)p$ are pretty close. In a later section we will examine a situation in which you can use $np$ to get an approximation to the shape of the binomial distribution when $n$ is large.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+ 
+

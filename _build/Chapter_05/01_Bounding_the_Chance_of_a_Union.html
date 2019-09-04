@@ -1,0 +1,174 @@
+---
+redirect_from:
+  - "/chapter-05/01-bounding-the-chance-of-a-union"
+interact_link: content/Chapter_05/01_Bounding_the_Chance_of_a_Union.ipynb
+kernel_name: python3
+has_widgets: false
+title: 'Bounding the Chance of a Union'
+prev_page:
+  url: /Chapter_05/00_Collections_of_Events.html
+  title: 'Chapter 5: Collections of Events'
+next_page:
+  url: /Chapter_05/02_Inclusion_Exclusion.html
+  title: 'Inclusion-Exclusion'
+comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
+---
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Bounding-the-Chance-of-a-Union">Bounding the Chance of a Union<a class="anchor-link" href="#Bounding-the-Chance-of-a-Union"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Before we get to larger collections of events, let's consider the union of two events that are not mutually exclusive. The diagram below shows two such events. The union is the entire colored region: the blue, the gold, as well as the intersection.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">show_intersection</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../images/Chapter_05/01_Bounding_the_Chance_of_a_Union_2_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We can find $P(A \cup B)$ by partitioning. A partition of $A \cup B$ is "all of $A$ union the part of $B$ that is not also in $A$":</p>
+$$
+A \cup B = A \cup (B \backslash AB)
+$$<p>Therefore</p>
+$$
+\begin{align*}
+P(A \cup B) &amp;= P(A) + P(B \backslash AB) ~~~~~~~~~~~ \text{(addition rule)} \\
+&amp;= P(A) + P(B) - P(AB) ~~~ \text{(difference rule)}
+\end{align*}
+$$<p>We now have a formula for the case $n = 2$. It calculates the probability of the union of two events, by first <em>including</em> the chance of each event, and then <em>excluding</em> the chance of the intersection. This gives rise to its name:</p>
+<h4 id="Inclusion-Exclusion-Formula:-Union-of-Two-Events">Inclusion-Exclusion Formula: Union of Two Events<a class="anchor-link" href="#Inclusion-Exclusion-Formula:-Union-of-Two-Events"> </a></h4>$$
+P(A \cup B) = P(A) + P(B) - P(AB)
+$$
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Boole's-Inequality">Boole's Inequality<a class="anchor-link" href="#Boole's-Inequality"> </a></h3><p>For $n &gt; 2$, the Venn diagram for the union of $n$ events can be quite complicated with multiple overlaps. So the chance of the union is a little harder to find. We'll do that in the next section.</p>
+<p>For now, we'll observe something much simpler, which is that adding the probabilities of all the individual events and not dealing with the overlaps must give us an upper bound on the chance of the union.</p>
+<p>You can see that in the diagram above, for $n = 2$. If you just add $P(A)$ and $P(B)$, you double count the intersection and your answer is larger than $P(A \cup B)$. That is also apparent from the inclusion-exclusion formula above.</p>
+<p><em>Boole's Inequality</em> provides an upper bound on the chance of the union of $n$ events. Let $A_1, A_2, \ldots , A_n$ be events. Then Boole's Inequality says that</p>
+$$
+P(\bigcup_{i=1}^n A_i) \le \sum_{i=1}^n P(A_i)
+$$<p>That is, the chance that at least one of the events occurs can be no larger than the sum of the chances.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We have discussed why the inequality is true for $n = 2$. For general $n$ the inequality can be proved by induction and is left for you as an exercise.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Because $P(\cup_{i=1}^n A_i) \ge P(A_k)$ for each $k$, we have a lower bound too:</p>
+$$
+P(\bigcup_{i=1}^n A_i) \ge \max\{P(A_i): 1 \le i \le n \}
+$$<p>So</p>
+$$
+\max\{P(A_i): 1 \le i \le n \} ~ \le ~ P(\bigcup_{i=1}^n A_i)
+~ \le ~ \sum_{i=1}^n P(A_i)
+$$<p>For example, if the weather forecast says that the chance of rain on Saturday is 40% and the chance of rain on Sunday is 10%, then the chance that it rains at some point during those two days is at least 40% and at most 50%.</p>
+<p>To find the chance exactly, you would need the chance that it rains on both days, which you don't have. Assuming independence doesn't seem like a good idea in this setting. So you cannot compute an exact answer, and must be satisfied with bounds.</p>
+<p>Though bounds aren't exact answers or even approximations, they can be very useful. Here is an example of a common use of Boole's Inequality in data science. It has Bonferroni's name attached to it, because Boole and Bonferroni both have related bounds on probabilities of unions.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Bonferroni-Method">Bonferroni Method<a class="anchor-link" href="#Bonferroni-Method"> </a></h3><p>Suppose you are estimating five parameters based on a random sample, and that for each parameter you have a method that produces a good estimate with any pre-specified chance. For example, if the estimate has to be good with chance 99%, you have a way of doing that.</p>
+<p>Now suppose you want your estimates to be such that <em>all five are good</em> with chance 95%. What should you do?</p>
+<p>It is not enough to make each estimate good with chance 95%. If you do that, the chance that they are all good will be less than 95%, because the event "all are good" is a subset of each event "Estimate $i$ is good."</p>
+<p>Boole's Inequality can help you figure out what to do.</p>
+<p>Let $A_i$ be the event that Estimate $i$ is good. You want $P(A_1A_2A_3A_4A_5) = 0.95$. But now you are stuck, because all you can control are $P(A_1)$, $P(A_2)$, $P(A_3)$, $P(A_4)$, and $P(A_5)$ individually. You can make each of them as large as you want, but you don't know how they relate to the chance of the intersection, because the five estimates are dependent. They are all based on the same sample.</p>
+<p>You can get yourself out of this problem by looking at the complement of the event "all five are good". The complement is "at least one is bad", which is the union of the events "Estimate $i$ is bad". Your condition is</p>
+$$
+\begin{align*}
+0.05 &amp;= P(\text{at least one estimate is bad}) \\
+&amp;= P(A_1^c \cup A_2^c \cup A_3^c \cup A_4^c \cup A_5^c  ) \\
+&amp;\le P(A_1^c) + P(A_2^c) + P(A_3^c) + P(A_4^c) + P(A_5^c)
+~~~ \text{by Boole's Inequality}
+\end{align*}
+$$<p>Each term in the sum is the chance that the corresponding estimate is bad. You want those chances to be small. But you also want them to be large enough so that their sum is at least 0.05, because of the calculation above.</p>
+<p>One way is to make each of them equal to $0.05/5 = 0.01$, that is 1%. In other words, you have to construct each estimate so that it is good with chance 99% (for example, by constructing a 99% confidence interval). This is called the <em>Bonferroni Method</em> of simultaneous inference.</p>
+<p>The Bonferroni method shows that if you construct each of five estimates so that it is good with chance 99%, then the chance that all five estimates are good will be at least 95%.</p>
+<p>You can replace 95% by any other threshold and carry out the calculation again to see how good the individual estimates have to be so that they are simultaneously good with a chance that exceeds the threshold.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+ 
+
+<script type="application/vnd.jupyter.widget-state+json">
+{"state": {}, "version_major": 2, "version_minor": 0}
+</script>
+

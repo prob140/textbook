@@ -1,0 +1,718 @@
+---
+redirect_from:
+  - "/chapter-04/02-examples"
+interact_link: content/Chapter_04/02_Examples.ipynb
+kernel_name: python3
+has_widgets: false
+title: 'Examples'
+prev_page:
+  url: /Chapter_04/01_Joint_Distributions.html
+  title: 'Joint Distributions'
+next_page:
+  url: /Chapter_04/03_Marginal_Distributions.html
+  title: 'Marginal Distributions'
+comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
+---
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Examples">Examples<a class="anchor-link" href="#Examples"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This section is a workout in finding probabilities of events determined by two jointly distributed random variables. We will apply the computational methods of the previous section and also the mathematical framework for finding probabilities that was developed there.</p>
+<p>In some of the examples you may find yourself wondering why we are bothering to write out math notation for numerical answers that we have already obtained using Python. It is because the Python visualizations help us understand the math. That understanding then helps us answer questions in generality, not just in particular numerical settings, as you will see in the final example.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Fair-and-Loaded-Dice">Fair and Loaded Dice<a class="anchor-link" href="#Fair-and-Loaded-Dice"> </a></h3><p>I have two dice, one of which is fair. The other die is shaped so that it is biased towards larger numbers of spots. The distribution of the number of spots on one roll of this biased shape is given by</p>
+<table>
+<thead><tr>
+<th style="text-align:right">value</th>
+<th style="text-align:center">1</th>
+<th style="text-align:center">2</th>
+<th style="text-align:center">3</th>
+<th style="text-align:center">4</th>
+<th style="text-align:center">5</th>
+<th style="text-align:center">6</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right"><strong>probability</strong></td>
+<td style="text-align:center">1/16</td>
+<td style="text-align:center">1/16</td>
+<td style="text-align:center">3/16</td>
+<td style="text-align:center">3/16</td>
+<td style="text-align:center">4/16</td>
+<td style="text-align:center">4/16</td>
+</tr>
+</tbody>
+</table>
+<p>Suppose I roll each die once.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Equality">Equality<a class="anchor-link" href="#Equality"> </a></h3><p><strong>Question.</strong> What is the chance that I get the same number on both dice?</p>
+<p><strong>Answer 1, by symmetry.</strong> No matter what number appears on the biased shape, the chance that the fair die shows that number is 1/6. So the answer is 1/6.</p>
+<p>Not convinced? Then let's calculate.</p>
+<p><strong>Answer 2.</strong> Let $F$ be the number on the fair die and let $S$ be the number on the biased shape. It is reasonable to assume that the outcome of one die doesn't affect chances for the other. So for every $i$ and $j$ such that $1 \le i, j \le 6$, we have</p>
+$$
+P(F = i, S = j) ~ = ~ P(F = i)P(S = j) ~ = ~ \frac{1}{6}P(S = j)
+$$<p>We want $P(F = S)$. For this we have to add up the probabilities of the $(i, j)$ pairs that satisfy $i = j$. Those are just the pairs $(i, i)$ for $1 \le i \le 6$.</p>
+$$
+P(F = S) ~ = ~ \sum_{i=1}^6 P(F = i, S = i) ~ = ~ \sum_{i=1}^6 \frac{1}{6}P(S = i) ~ = ~ \frac{1}{6} \sum_{i=1}^6 P(S = i) ~ = ~ \frac{1}{6} \cdot 1 ~ = ~ \frac{1}{6}
+$$
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Difference">Difference<a class="anchor-link" href="#Difference"> </a></h3><p><strong>Question.</strong> What is the chance that the number on the biased shape exceeds the number on the fair die by more than 2?</p>
+<p><strong>Answer.</strong> We can visualize the event $\{ S &gt; F + 2 \}$ using the methods of the previous section.</p>
+<p>We know that the joint distribution of $F$ and $S$ is given by</p>
+$$
+P(F = i, S = j) ~ = ~
+\begin{cases} 
+\frac{1}{6} \cdot \frac{1}{16}, ~~~ 1 \le i \le 6, ~ j = 1, 2 \\
+\frac{1}{6} \cdot \frac{3}{16}, ~~~ 1 \le i \le 6, ~ j = 3, 4 \\
+\frac{1}{6} \cdot \frac{4}{16}, ~~~ 1 \le i \le 6, ~ j = 5, 6
+\end{cases}
+$$<p>We can display this in a joint distribution table.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">spots</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>                     <span class="c1"># possible values of F; same set for S</span>
+
+<span class="n">fair</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">6</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>  
+<span class="n">biased</span> <span class="o">=</span> <span class="n">make_array</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">16</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">16</span><span class="p">,</span> <span class="mi">3</span><span class="o">/</span><span class="mi">16</span><span class="p">,</span> <span class="mi">3</span><span class="o">/</span><span class="mi">16</span><span class="p">,</span> <span class="mi">4</span><span class="o">/</span><span class="mi">16</span><span class="p">,</span> <span class="mi">4</span><span class="o">/</span><span class="mi">16</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">joint_probability</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">):</span>                <span class="c1"># returns P(F = i, S = j)</span>
+    <span class="k">return</span> <span class="n">fair</span><span class="o">.</span><span class="n">item</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">biased</span><span class="o">.</span><span class="n">item</span><span class="p">(</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># joint distribution table of F and S</span>
+<span class="n">two_dice</span> <span class="o">=</span> <span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">(</span><span class="s1">&#39;F&#39;</span><span class="p">,</span> <span class="n">spots</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="n">spots</span><span class="p">)</span><span class="o">.</span><span class="n">probability_function</span><span class="p">(</span><span class="n">joint_probability</span><span class="p">)</span>
+<span class="n">two_dice</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>F=1</th>
+      <th>F=2</th>
+      <th>F=3</th>
+      <th>F=4</th>
+      <th>F=5</th>
+      <th>F=6</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>S=6</th>
+      <td>0.041667</td>
+      <td>0.041667</td>
+      <td>0.041667</td>
+      <td>0.041667</td>
+      <td>0.041667</td>
+      <td>0.041667</td>
+    </tr>
+    <tr>
+      <th>S=5</th>
+      <td>0.041667</td>
+      <td>0.041667</td>
+      <td>0.041667</td>
+      <td>0.041667</td>
+      <td>0.041667</td>
+      <td>0.041667</td>
+    </tr>
+    <tr>
+      <th>S=4</th>
+      <td>0.031250</td>
+      <td>0.031250</td>
+      <td>0.031250</td>
+      <td>0.031250</td>
+      <td>0.031250</td>
+      <td>0.031250</td>
+    </tr>
+    <tr>
+      <th>S=3</th>
+      <td>0.031250</td>
+      <td>0.031250</td>
+      <td>0.031250</td>
+      <td>0.031250</td>
+      <td>0.031250</td>
+      <td>0.031250</td>
+    </tr>
+    <tr>
+      <th>S=2</th>
+      <td>0.010417</td>
+      <td>0.010417</td>
+      <td>0.010417</td>
+      <td>0.010417</td>
+      <td>0.010417</td>
+      <td>0.010417</td>
+    </tr>
+    <tr>
+      <th>S=1</th>
+      <td>0.010417</td>
+      <td>0.010417</td>
+      <td>0.010417</td>
+      <td>0.010417</td>
+      <td>0.010417</td>
+      <td>0.010417</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Define the indicator function of the event $\{S &gt; F + 2 \}$ and then use the <code>event</code> method.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">indicator</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">j</span> <span class="o">&gt;</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">2</span>
+
+<span class="n">two_dice</span><span class="o">.</span><span class="n">event</span><span class="p">(</span><span class="n">indicator</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>P(Event) = 0.2395833333333333
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>F=1</th>
+      <th>F=2</th>
+      <th>F=3</th>
+      <th>F=4</th>
+      <th>F=5</th>
+      <th>F=6</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>S=6</th>
+      <td>0.0416667</td>
+      <td>0.0416667</td>
+      <td>0.0416667</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>S=5</th>
+      <td>0.0416667</td>
+      <td>0.0416667</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>S=4</th>
+      <td>0.03125</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>S=3</th>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>S=2</th>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>S=1</th>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The answer $P(S &gt; F + 2) \approx 0.24$ has been obtained by adding the chances of all the cells $(i, j)$ for which $j &gt; i+2$ or equivalently $i &lt; j-2$. Since $j$ can be at most 6, this implies $1 \le i \le 3$, as is visible in the display.</p>
+<p>Expressed in math notation, the calculation is</p>
+$$
+P(S &gt; F + 2) ~ = ~ \mathop{\sum \sum}_{j &gt; i+2} P(F = i, S= j)
+~ = ~ \sum_{i=1}^3\sum_{j=i+3}^6 P(F = i, S= j)
+$$<p>For each fixed value of $i$, the inner sum is the sum of the terms visible in the column labeled $F = i$. The outer sum adds up the three column sums.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Absolute-Difference">Absolute Difference<a class="anchor-link" href="#Absolute-Difference"> </a></h3><p><strong>Question.</strong> What is the chance that the numbers on the two dice differ by no more than 1?</p>
+<p><strong>Answer.</strong> The goal is to find $P(\vert F - S \vert \le 1)$. We defined <code>two_dice</code>, the joint distribution of $F$ and $S$, in the previous problem. So now our work is simple.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">indicator_absdiff_atmost_1</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">abs</span><span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="n">j</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">1</span>
+
+<span class="n">two_dice</span><span class="o">.</span><span class="n">event</span><span class="p">(</span><span class="n">indicator_absdiff_atmost_1</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>P(Event) = 0.44791666666666674
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>F=1</th>
+      <th>F=2</th>
+      <th>F=3</th>
+      <th>F=4</th>
+      <th>F=5</th>
+      <th>F=6</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>S=6</th>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>0.0416667</td>
+      <td>0.0416667</td>
+    </tr>
+    <tr>
+      <th>S=5</th>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>0.0416667</td>
+      <td>0.0416667</td>
+      <td>0.0416667</td>
+    </tr>
+    <tr>
+      <th>S=4</th>
+      <td></td>
+      <td></td>
+      <td>0.03125</td>
+      <td>0.03125</td>
+      <td>0.03125</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>S=3</th>
+      <td></td>
+      <td>0.03125</td>
+      <td>0.03125</td>
+      <td>0.03125</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>S=2</th>
+      <td>0.0104167</td>
+      <td>0.0104167</td>
+      <td>0.0104167</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>S=1</th>
+      <td>0.0104167</td>
+      <td>0.0104167</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The calculation shows that $P(\vert F - S \vert \le 1) \approx 0.448$.</p>
+<p>The event is a diagonal band of cells, bounded by the lines $j = i-1$ and $j = i+1$. That is because the condition $\vert i - j \vert \le 1$ is the same as $i-1 \le j \le i+1$.</p>
+<p>Notice the edge cases $i=1$ and $i=6$. When $i=1$, the condition $\vert i - j \vert \le 1$ is only satisfied by $j=1$ and $j=2$, because $j = -1$ is not a possible outcome of the dice. Nor is $j = 7$ when $i = 6$. So there are two terms to add in each of the columns labeled $F=1$ and $F=6$, and three in each of the other columns.</p>
+<p>Check carefully that you agree that in math notation the calculation is</p>
+$$
+P(\vert F - S \vert \le 1) ~ = ~ \sum_{j=1}^2 P(F = 1, S = j) ~ + ~ \sum_{i=2}^5\sum_{j=i-1}^{i+1} P(F = i, S = j) ~ + ~ \sum_{j=5}^6 P(F = 6, S = j)
+$$
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Sum">Sum<a class="anchor-link" href="#Sum"> </a></h3><p><strong>Question.</strong> What is the chance that the sum of the numbers on the two dice is 7?</p>
+<p><strong>Answer.</strong> This time we'll write out the math first.</p>
+<p>The event $\{ F + S = 7 \}$ consists of all possible pairs $(i, j)$ such that $i + j = 7$. For each fixed $i$, there is exactly one $j$ that satisfies $i+j = 7$, and that's $j = 7-i$. So</p>
+$$
+P(F+S = 7) ~ = ~ \sum_{i=1}^6 P(F = i, S = 7-i) ~ = ~ \sum_{i=1}^6 \frac{1}{6}P(S = 7-i)
+~ = ~ \frac{1}{6} \sum_{i=1}^6 P(S = 7-i) ~ = ~ \frac{1}{6}
+$$<p>because $\sum_{i=1}^6 P(S = 7-i) = P(S=6) + P(S=5) + \cdots + P(S=1) = 1$.</p>
+<p>Notice that the argument doesn't depend on the nature of the bias in $S$. The chance that the sum of the numbers on two dice equals 7 is 1/6 as long as one of the dice is fair.</p>
+<p>We can check the answer by computation.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">indicator_sum_7</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">i</span> <span class="o">+</span> <span class="n">j</span> <span class="o">==</span> <span class="mi">7</span>
+
+<span class="n">two_dice</span><span class="o">.</span><span class="n">event</span><span class="p">(</span><span class="n">indicator_sum_7</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>P(Event) = 0.16666666666666663
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>F=1</th>
+      <th>F=2</th>
+      <th>F=3</th>
+      <th>F=4</th>
+      <th>F=5</th>
+      <th>F=6</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>S=6</th>
+      <td>0.0416667</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>S=5</th>
+      <td></td>
+      <td>0.0416667</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>S=4</th>
+      <td></td>
+      <td></td>
+      <td>0.03125</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>S=3</th>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>0.03125</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>S=2</th>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>0.0104167</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>S=1</th>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>0.0104167</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Question.</strong> Now suppose I have two $n$-sided dice, at least one of which is fair. I roll each of them once. What is the chance that the sum of the two numbers is $n+1$?</p>
+<p><strong>Answer.</strong> We can't use our computational methods for this one because the model isn't numerical. But we know how to solve the problem mathematically.</p>
+<p>Let $F_n$ be the number on a fair die and $D_n$ the number on the other die.</p>
+$$
+\begin{align*}
+P(F_n + D_n = n+1) ~ &amp;= ~ \sum_{i=1}^n P(F_n = i, D_n = n+1-i) \\
+&amp;= ~ \sum_{i=1}^n \frac{1}{n}P(D_n = n+1-i) \\
+&amp;= ~ \frac{1}{n} \sum_{i=1}^n P(D_n = n+1-i) \\
+&amp;= ~ \frac{1}{n}
+\end{align*}
+$$
+</div>
+</div>
+</div>
+</div>
+
+ 
+

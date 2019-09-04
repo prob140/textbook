@@ -1,47 +1,22 @@
----
----
-
-<!doctype html>
-<html lang="{{ site.locale | slice: 0,2 | default: "en" }}" class="no-js">
-  <head>
-    {% include head.html %}
-    {% include head/custom.html %}
-    <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/notebook-markdown.css">
-    <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/custom.css">
-    <link rel="shortcut icon" type="image/png" href="{{ site.baseurl }}/favicon.png">
-    <script src="https://cdn.jsdelivr.net/npm/clipboard@1/dist/clipboard.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.1/anchor.min.js"></script>
-  </head>
-
-  <body class="layout--{{ page.layout | default: layout.layout }}{% if page.classes or layout.classes %}{{ page.classes | default: layout.classes | join: ' ' | prepend: ' ' }}{% endif %}">
-
-    {% include browser-upgrade.html %}
-    {% if site.masthead == true and page.masthead != false %}
-    {% include masthead.html %}
-    {% endif %}
-
-    <div class="initial-content">
-      {{ content }}
+<!DOCTYPE html>
+<html lang="en">
+  {% include google_analytics.html %}
+  {% include head.html %}
+  <body>
+    <!-- .js-show-sidebar shows sidebar by default -->
+    <div id="js-textbook" class="c-textbook {% if site.show_sidebar %}js-show-sidebar{% endif %}">
+      {% include sidebar.html %}
+      {% if page.search_page != true %}
+      {% endif %}
+      {% include topbar.html %}
+      <main class="c-textbook__page" tabindex="-1">
+            <div class="c-textbook__content" id="textbook_content">
+              {{ content }}
+            </div>
+            {% include page-nav.html %}
+            {% include footer.html %}
+        </div>
+      </main>
     </div>
-
-    <!-- Don't want search on every page
-    {% if site.search == true %}
-      <div class="search-content">
-        {% include search/search_form.html %}
-      </div>
-    {% endif %} -->
-
-    {% if site.footer == true and page.footer != false %}
-    <div class="page__footer">
-      <footer>
-        {% include footer/custom.html %}
-        {% include footer.html %}
-      </footer>
-    </div>
-    {% endif %}
-
-    {% include scripts.html %}
-    {% include custom.html %}
-    {% include textbook.html %}
   </body>
 </html>

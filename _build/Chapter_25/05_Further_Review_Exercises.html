@@ -1,0 +1,485 @@
+---
+redirect_from:
+  - "/chapter-25/05-further-review-exercises"
+interact_link: content/Chapter_25/05_Further_Review_Exercises.ipynb
+kernel_name: python3
+has_widgets: false
+title: 'Further Review Exercises'
+prev_page:
+  url: /Chapter_25/04_Multiple_Regression.html
+  title: 'Multiple Regression'
+next_page:
+  url: 
+  title: ''
+comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
+---
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Further-Review-Exercises">Further Review Exercises<a class="anchor-link" href="#Further-Review-Exercises"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Many of these exercises require the material of Chapter 19 onwards, which of course relies on the material of the previous chapters. However, some of them can be solved using earlier material alone.</p>
+<p>According to students and alumni, some of the exercises have appeared as questions in "quant" interviews.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>1.</strong>
+A coin lands heads with probability $p$. Let $X$ be the number of tosses till the first head appears and let $Y$ be the number of tails before the first head.</p>
+<p>(a) Find the moment generating function of $X$.</p>
+<p>(b) Use the answer to (a) to find $E(X)$. Note that by now you have found $E(X)$ in several ways: by the tail sum formula, by conditioning on the first toss, by the pgf, and now by the mgf.</p>
+<p>(c) Use the answer to (a) to find the moment generating function of $Y$.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>2.</strong>
+Let $X_1, X_2, \ldots, X_n$ be i.i.d. Poisson $(\mu)$ random variables. Find the maximum likelihood estimate of $\mu$.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>3.</strong>
+Let $X_1, X_2, \ldots, X_n$ be i.i.d. uniform on $(0, \theta)$.</p>
+<p>(a) Find the MLE of $\theta$. [Don't leap into a calculation. Sketch a graph of the function you are trying to maximize, and be careful about its domain.]</p>
+<p>(b) Is the MLE unbiased? If not, use the MLE to construct an unbiased estimate of $\theta$.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>4.</strong> $X$ and $Y$ are i.i.d. with moment generating function $M(t) = e^{t + t^2}$, $-\infty &lt; t &lt; \infty$. What is the distribution of $(X-Y)^2$?</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>5.</strong>
+<em>Capture-recapture</em> methods are sometimes used to estimate population sizes. A standard image is that a pond contains $N$ fish for some fixed but unknown $N$, and that $G$ of the $N$ fish have been captured, tagged, and returned alive to the pond. You can assume that $G/N$ isn't close to 0.</p>
+<p>In the recapture phase, assume that a simple random sample of $n$ fish is drawn from the $N$ fish in the pond (you might have to use some imagination to believe this assumption). We can observe $X$, the random number of tagged fish in the sample.</p>
+<p>The goal is to use the observation to estimate $N$.</p>
+<p>(a) For large $n$, the sample proportion $X/n$ is likely to be close to a constant. Identify the constant and hence construct an estimate of $N$ based on $X$.</p>
+<p>Later in this exercise you will see how your estimate is related to the MLE of $N$.</p>
+<p>(b) For $N \ge n$, find the likelihood $lik(N)$. You can assume $n &gt; G$.</p>
+<p>(c) Find the likelihood ratio $R(N) = \frac{lik(N)}{lik(N-1)}$ for $N &gt; n$. Simplify the answer as much as you can.</p>
+<p>(d) Find the maximum likelihood estimate of $N$ by comparing the likelihood ratios and 1. How does the MLE compare with your estimate in (a)?</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>6.</strong> 
+Show that if $r &gt; 1$ and $s &gt; 1$ then the mode of the beta $(r, s)$ distribution is $(r-1)/(r+s-2)$. Remember to ignore multiplicative constants and take the log before maximizing.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>7.</strong> 
+Suppose that $X$ has the beta $(r, s)$ distribution, and that given $X=p$, the conditional distribution of $H$ is binomial $(10, p)$. Find</p>
+<p>(a) the conditional distribution of $X$ given $H = 7$</p>
+<p>(b) $E(X \mid H = 7)$</p>
+<p>(c) the MAP estimate of $X$ given $H = 7$</p>
+<p>(d) $P(H = 7)$</p>
+<p>(e) $E(H)$</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>8.</strong>
+The chance of heads of a random coin is picked according to the beta $(r, s)$ distribution. The coin is tossed repeatedly.</p>
+<p>(a) What is the chance that the first three tosses are heads and the next three tosses are tails?</p>
+<p>(b) Given that the first three tosses are heads and the next three tosses are tails, what is the chance that the seventh toss is a head?</p>
+<p>(c) Given that three out of the first six tosses are heads, what is the chance that the seventh toss is a head? Compare with the answer to (b).</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>9.</strong>
+Person A creates a coin by picking its chance of heads uniformly on $(0, 1)$. In three tosses of that coin, Person A gets two heads.</p>
+<p>Independently of Person A, Person B creates a coin by picking its chance of heads uniformly on $(0, 1)$. In three tosses of that coin, Person B gets one head.</p>
+<p>(a) Given the data, what is the distribution of the chance of heads of Person A's coin?</p>
+<p>(b) Given the data, what is the distribution of the chance of heads of Person B's coin?</p>
+<p>(c) Given the data, what is the probability that Person A's coin has a higher chance of heads than Person B's coin?</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>10: Markov and Chebyshev Bounds on the Poisson-Binomial Upper Tail.</strong> 
+For $j \ge 1$ let $I_j$ be independent indicators such that $P(I_j = 1) = p_j$. Let $X = I_1 + I_2 + \ldots + I_n$. Then $X$ is the number of successes in $n$ independent trials that are not necessarily identically distributed.</p>
+<p>We say that $X$ has the Poisson-binomial distribution with parameters $p_1, p_2, \ldots, p_n$. The binomial is the special case when all the $p_j$'s are equal.</p>
+<p>You saw in lab that the number of occupied tables in a Chinese Restaurant process had a Poisson-Binomial distribution. These distributions arise in statistical learning theory, the theory of randomized algorithms, and other areas.</p>
+<p>Let $E(X) = \mu$. For $c &gt; 0$, you are going to find an upper bound on $P(X \ge (1+c)\mu)$. That's the chance that $X$ exceeds its mean by some percent.</p>
+<p>In the special case of the binomial, $\mu = np$ and so $P(X \ge (1+c)\mu)$ can be rewritten as $P(\frac{X}{n} - p \ge cp)$. That's the chance that the sample proportion exceeds $p$ by some percent.</p>
+<p>(a) Find $\mu = E(X)$ and $\sigma^2 = Var(X)$ in terms of $p_1, p_2, \ldots, p_n$.</p>
+<p>(b) Find Markov's bound on $P(X \ge (1+c)\mu)$.</p>
+<p>(c) Find Chebyshev's bound on $P(X \ge (1+c)\mu)$ in terms of $\mu$ and $\sigma$.</p>
+<p>(d) If all the $p_j$'s are equal to $p$, what is the value of the bound in (c)?</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>11: Chernoff Bound on Poisson-Binomial Upper Tail.</strong>
+This exercise continues the previous one and uses the same notation.</p>
+<p>(a) Show that the mgf of $I_j$ is given by $M_{I_j}(t) = 1 + p_j(e^t - 1)$ for all $t$.</p>
+<p>(b) Use (a) to derive an expression for $M_X(t)$, the mgf of $X$ evaluated at $t$.</p>
+<p>(c) An useful exponential bound is that $e^x \ge 1 + x$ for all $x$. You don't have to show it but please look at the <a href="http://prob140.org/resources/exponential_approximations/">graphs</a>. Use the fact to show that $M_X(t) \le \exp\big{(}\mu(e^t -1)\big{)}$ for all $t$. Notice that the right hand side is the mgf of a Poisson random variable that has the same mean as $X$.</p>
+<p>(d) Use Chernoff's method and the bound in (c) to show that</p>
+$$
+P\big{(}X \ge (1+c)\mu\big{)} 
+~ \le ~ 
+\Big{(} \frac{\exp(c)}{ (1+c)^{1+c}} \Big{)}^\mu
+$$<p>Remember that $\mu = np$ when all the $p_j$'s are equal. If $g(c) = \exp(c)/(1+c)^{1+c}$ is small then the bound above will decrease exponentially as $n$ gets large. That is the focus of the next exercise.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>12: Simplified Chernoff Bounds on Poisson-Binomial Upper Tail.</strong> This exercise continues the previous one and uses the same notation.</p>
+<p>The bound in the previous exercise is a bit complicated. Often, simpler versions are used because they are good enough even though they are weaker.</p>
+<p>(a) It is not hard to show that $\log(1+c) \ge \frac{2c}{2+c}$ for $c &gt; 0$. You don't have to show it but please look at the <a href="http://prob140.org/resources/exponential_approximations/">graphs</a>.
+Use the fact to show that $c - (1+c)\log(1+c) \le -\frac{c^2}{2+c}$ for $c &gt; 0$.</p>
+<p>(b) Show that if $X$ has a Poisson-binomial distribution with mean $\mu$ then</p>
+$$
+P\big{(} X \ge (1+c)\mu\big{)} ~ \le ~ \exp\big{(}-\frac{c^2}{2+c}\mu\big{)}, ~~~~ c &gt; 0
+$$<p>(c) A simpler but weaker version of the bound in (b) is also often used. Show that</p>
+$$
+P\big{(} X \ge (1+c)\mu\big{)} ~ \le ~ \exp\big{(}-\frac{c^2}{3}\mu\big{)}, ~~~~ c \in (0, 1)
+$$
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>13.</strong> 
+A positive random variable $V$ has expectation $\mu$ and variance $\sigma^2$.</p>
+<p>(a) For each $v &gt; 0$, the conditional distribution of $X$ given $V=v$ is Poisson $(v)$. Find $E(X)$ and $Var(X)$ in terms of $\mu$ and $\sigma$.</p>
+<p>(b) For each $v &gt; 0$, the conditional distribution of $X$ given $V=v$ is gamma $(v, \lambda)$ for some fixed $\lambda$. Find $E(X)$ and $Var(X)$ in terms of $\mu$ and $\sigma$.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>14.</strong> 
+Let $X_1, X_2, \ldots, X_n$ be i.i.d. with expectation $\mu$ and variance $\sigma^2$. Let $S = \sum_{i=1}^n X_i$.</p>
+<p>(a) Find the least squares predictor of $S$ based on $X_1$, and find the mean squared error (MSE) of the predictor.</p>
+<p>(b) Find the least squares predictor of $X_1$ based on $S$, and find the MSE of the predictor. Is the predictor a linear function of $S$? If so, it must also be the best among all linear predictors based on $S$, which is commonly known as the regression predictor.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>15.</strong> 
+A $p$-coin is tossed repeatedly. Let $W_{H}$ be the number of tosses till the first head appears, and $W_{HH}$ the number of tosses till two consecutive heads appear.</p>
+<p>(a) Describe a random variable $X$ that  depends only on the tosses after $W_H$ and satisfies $W_{HH} = W_H + X$.</p>
+<p>(b) Use Part (a) to find $E(W_{HH})$ and $Var(W_{HH})$.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>16.</strong> 
+Let $N$ be a non-negative integer valued random variable,
+and let $X, X_1, X_2, \ldots $ be i.i.d. and independent of $N$. As before, define
+the <em>random sum</em> $S$ by</p>
+$$
+\begin{align*}
+S ~~&amp;=~~0~~ \mbox{if}~N=0 \\
+&amp;=~~ X_1 + X_2 + \cdots + X_n ~~ \mbox{if}~N = n &gt; 0 
+\end{align*}
+$$<p>(a) Let $M$ be our usual notation for moment generating functions.
+By conditioning on $N$, show that</p>
+$$
+M_S(t) ~~=~~ M_N\big{(}\log M_X(t) \big{)}
+$$<p>assuming that all the quantities above are well defined. 
+[The identity $(e^a)^n = e^{an}$ might be handy.]</p>
+<p>(b) Let $N$ have the geometric $(p)$ distribution on $\{1, 2, 3, \ldots \}$. Find the mgf of $N$. This doesn't use Part (a).</p>
+<p>(c) Let $X_1, X_2, \ldots $ be i.i.d. exponential $(\lambda)$ variables and let $N$ be geometric as in Part (b). Use the results of Parts (a) and (b) to identify the distribution of $S$.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>17.</strong>
+A random vector $\mathbf{Y} = [Y_1 ~~ Y_2 ~~ \cdots ~~ Y_n]^T$ has mean vector $\boldsymbol{\mu}$ and covariance matrix $\sigma^2 \mathbf{I}_n$ where $\sigma &gt; 0$ is a number and $\mathbf{I}_n$ is the $n \times n$ identity matrix.</p>
+<p>(a) Pick one option and explain: $Y_1$ and $Y_2$ are</p>
+<p>$~~~~~ (i) ~ \text{independent.} ~~~~~~~~ (ii) ~ \text{uncorrelated but might not be independent.} ~~~~~~~~ (iii) ~ \text{not uncorrelated.}$</p>
+<p>(b) Pick one option and explain: $Var(Y_1)$ and $Var(Y_2)$ are</p>
+<p>$~~~~~ (i) ~ \text{equal.} ~~~~~~~~ (ii) ~ \text{possibly equal, but might not be.} ~~~~~~~~ (iii) ~ \text{not equal.} $</p>
+<p>(c) For $m \le n$ let $\mathbf{A}$ be an $m \times n$ matrix of real numbers, and let $\mathbf{b}$ be an $m \times 1$ vector of real numbers. Let $\mathbf{V} = \mathbf{AY} + \mathbf{b}$. Find the mean vector $\boldsymbol{\mu}\_\mathbf{V}$ and covariance matrix $\boldsymbol{\Sigma}\_\mathbf{V}$ of $\mathbf{V}$.</p>
+<p>(d) Let $\mathbf{c}$ be an $m \times 1$ vector of real numbers and let $W = \mathbf{c}^T\mathbf{V}$ for $\mathbf{V}$ defined in Part (c). In terms of $\mathbf{c}$, $\boldsymbol{\mu}\_\mathbf{V}$ and $\boldsymbol{\Sigma}\_\mathbf{V}$, find $E(W)$ and $Var(W)$.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>18.</strong> 
+Let $[X_1 ~~ X_2 ~~ X_3]^T$ be multivariate normal with mean vector $\boldsymbol{\mu}$ and covariance matrix $\boldsymbol{\Sigma}$ given by</p>
+$$
+\boldsymbol{\mu} ~ = ~
+\begin{bmatrix}
+\mu \\
+\mu \\
+\mu
+\end{bmatrix}
+~~~~~~~~~~~
+\boldsymbol{\Sigma} ~ = ~ 
+\begin{bmatrix}
+\sigma_1^2 &amp; \sigma_{12} &amp; \sigma_{13} \\
+\sigma_{21} &amp; \sigma_2^2 &amp; \sigma_{23} \\
+\sigma_{31} &amp; \sigma_{32} &amp; \sigma_3^2
+\end{bmatrix}
+$$<p>Find $P\big{(} (X_1 + X_2)/2 &lt; X_3 + 1 \big{)}$.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>19.</strong>
+Let $X$ be standard normal. Construct a random variable $Y$ as follows:</p>
+<ul>
+<li>Toss a fair coin.</li>
+<li>If the coin lands heads, let $Y = X$.</li>
+<li>If the coin lands tails, let $Y = -X$.</li>
+</ul>
+<p>(a) Find the cdf of $Y$.</p>
+<p>(b) Find $E(XY)$ by conditioning on the result of the toss.</p>
+<p>(c) Are $X$ and $Y$ uncorrelated?</p>
+<p>(d) Are $X$ and $Y$ independent?</p>
+<p>(e) Is the joint distribution of $X$ and $Y$ bivariate normal?</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>20.</strong>
+Let $X$ and $Y$ be standard bivariate normal with correlation $\rho$. Find $E(\max(X, Y))$. The easiest way is to use the fact that for any two numbers $a$ and $b$, $\max(a, b) = (a + b + \vert a - b \vert)/2$. Check the fact first, and then use it.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>21.</strong>
+Suppose that $X$ is normal $(\mu_X, \sigma_X^2$), $Y$ is normal $(\mu_Y, \sigma_Y^2)$, and the two random variables are independent. Let $S = X+Y$.</p>
+<p>(a) Find the conditional distribution of $X$ given $S=s$.</p>
+<p>(b) Find the least squares predictor of $X$ based on $S$ and provide its mean squared error.</p>
+<p>(c) Find the least squares linear predictor of $X$ based on $S$ and provide its mean squared error.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>22.</strong>
+Let $\mathbf{X}$ be a $p \times 1$ random vector and suppose we are trying to predict a random variable $Y$ by a linear function of $\mathbf{X}$. A <a href="http://prob140.org/textbook/chapters/Chapter_25/02_Best_Linear_Predictor">section</a> of the textbook identifies the least squares linear predictor by restricting the search to linear functions $h(\mathbf{X})$ for which $E(h(\mathbf{X})) = \mu_Y$. Show that this is a legitimate move.</p>
+<p>Specifically, let $\hat{Y}_1 = \mathbf{c}^T \mathbf{X} + d$ be a linear predictor such that $E(\hat{Y}_1) \ne \mu_Y$. Find a non-zero constant $k$ such that $\hat{Y}_2 = \hat{Y}_1 + k$ satisfies $E(\hat{Y}_2) = \mu_Y$. Then show that $MSE(\hat{Y}_1) \ge MSE(\hat{Y}_2)$. This will show that the least squares linear predictor has to have the same mean as $Y$.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>23.</strong>
+Let $U_1, U_2, U_3, \ldots $ be i.i.d. uniform on $(0, 1)$. For $n \ge 1$, let $S_n = \sum_{i=1}^n U_i$.</p>
+<p>Let $f_{S_n}$ be the density of $S_n$. The formula for $f_{S_n}$ is piecewise polynomial on the possible values $(0, n)$. In this problem we will just focus on the density on the interval $(0, 1)$ and discover a nice consequence.</p>
+<p>(a) For $0 &lt; x &lt; 1$, find $f_{S_2}(x)$.</p>
+<p>(b) Use Part (a) and the convolution formula to find $f_{S_3}(x)$ for $0 &lt; x &lt; 1$.</p>
+<p>(c) Guess a formula for $f_{S_n}(x)$ for $0 &lt; x &lt; 1$ and prove it by induction.</p>
+<p>(d) Find $P(S_n &lt; 1)$.</p>
+<p>(e) Let $N = \min\{n: S_n &gt; 1\}$. Use Part (d) to find $E(N)$.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>24: Normal Sample Mean and Sample Variance, Part 1.</strong>
+Let $X_1, X_2, \ldots, X_n$ be i.i.d. with mean $\mu$ and variance $\sigma^2$. Let</p>
+$$
+\bar{X} ~ = ~ \frac{1}{n} \sum_{i=1}^n X_i
+$$<p>denote the sample mean and</p>
+$$
+S^2 ~=~ \frac{1}{n-1} \sum_{i=1}^n (X_i - \bar{X})^2
+$$<p>denote the sample variance as defined earlier in the course.</p>
+<p>(a) For $1 \le i \le n$ let $D_i = X_i - \bar{X}$. Find $Cov(D_i, \bar{X})$.</p>
+<p>(b) Now assume in addition that $X_1, X_2, \ldots, X_n$ are i.i.d. normal $(\mu, \sigma^2)$. What is the joint distribution of $\bar{X}, D_1, D_2, \ldots, D_{n-1}$? Explain why $D_n$ isn't on the list.</p>
+<p>(c) True or false (justify your answer): The sample mean and sample variance of an i.i.d. normal sample are independent of each other.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>25: Normal Sample Mean and Sample Variance, Part 2</strong></p>
+<p>(a) Let $R$ have the chi-squared distribution with $n$ degrees of freedom. What is the mgf of $R$?</p>
+<p>(b)
+For $R$ as in Part (a), suppose
+$R = V + W$ where $V$ and $W$ are independent and $V$ has the chi-squared 
+distribution with $m &lt; n$ degrees of freedom. Can you identify the distribution of $W$? Justify your answer.</p>
+<p>(c) Let $X_1, X_2, \ldots , X_n$ be any sequence of random variables and let $\bar{X} = \frac{1}{n}\sum_{i=1}^n X_i$. Let $\alpha$ be
+any constant. Prove the <em>sum of squares decomposition</em></p>
+$$
+\sum_{i=1}^n (X_i - \alpha)^2 ~=~ \sum_{i=1}^n (X_i - \bar{X})^2 ~+~ n(\bar{X} - \alpha)^2
+$$<p>(d) Now let $X_1, X_2, \ldots , X_n$ be i.i.d. normal with mean $\mu$ and variance $\sigma^2 &gt; 0$. Let $S^2$ be the "sample variance" defined by</p>
+$$
+S^2 ~=~ \frac{1}{n-1} \sum_{i=1}^n (X_i - \bar{X})^2
+$$<p>Find a constant $c$ such that $cS^2$ has a chi-squared distribution. Provide the degrees of freedom.</p>
+<p>[Use Parts (b) and (c) as well as the result of the previous exercise.]</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>26.</strong>
+The heights of a population of mother-daughter pairs have the bivariate normal distribution with equal means of 67 inches, equal SDs of 2 inches, and correlation 0.5.</p>
+<p>(a) Of the mothers on the 90th percentile of heights, what proportion have daughters who are taller than the 90th percentile?</p>
+<p>(b) In what proportion of mother-daughter pairs are both women taller than average?</p>
+
+</div>
+</div>
+</div>
+</div>
+
+ 
+

@@ -1,0 +1,393 @@
+---
+redirect_from:
+  - "/chapter-01/04-birthday-problem"
+interact_link: content/Chapter_01/04_Birthday_Problem.ipynb
+kernel_name: python3
+has_widgets: false
+title: 'The Birthday Problem'
+prev_page:
+  url: /Chapter_01/03_Collisions_in_Hashing.html
+  title: 'Collisions in Hashing'
+next_page:
+  url: /Chapter_01/05_An_Exponential_Approximation.html
+  title: 'An Exponential Approximation'
+comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
+---
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="The-Birthday-Problem">The Birthday Problem<a class="anchor-link" href="#The-Birthday-Problem"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>A classical problem in probability is about "collisions" of birthdays. This <em>birthday problem</em> was posed by <a href="https://en.wikipedia.org/wiki/Richard_von_Mises">Richard von Mises</a> and other mathematicians – its origin has not been well established. The main question is, "If there are $n$ people in a room, what is the chance that some pair among them have the same birthday?"</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Assumptions-of-Randomness">Assumptions of Randomness<a class="anchor-link" href="#Assumptions-of-Randomness"> </a></h3><p>The problem is commonly solved under the assumptions that each year consists of 365 days and that each person is equally likely to be born on any of the 365 days regardless of the birthdays of others.</p>
+<p>You can see that assumptions ignore leap years as well as multiple births (twins, for example) and any lack of uniformity in the distribution of births during the year. These assumptions make calculations simpler but might not reflect the reality of birthdays in every population. Data scientists have to be careful about their assumptions – if the assumptions don't reflect the truth, then the conclusions won't either.</p>
+<p>So let's note that we are working under simplifying assumptions that we should check before making conclusions about specific groups. Ignoring leap years and multiple births should not make a big difference to the conclusions in any case. If births are more likely to happen at some times of year than others, then it has been proved that the chance of matching birthdays will be larger than the answer we get under our assumptions.</p>
+<p>There are many <a href="http://onlinelibrary.wiley.com/store/10.1111/j.1740-9713.2013.00705.x/asset/sign705.pdf;jsessionid=491D7D4A673C963B34E14B5AE6197321.f02t01?v=1&amp;t=iy0wn3y5&amp;s=199ae2fb587c25b7cde75105b0f11d2f25016108">variations</a> of the birthday problem, but we will stick with the classic.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="The-Chance-of-a-Match">The Chance of a Match<a class="anchor-link" href="#The-Chance-of-a-Match"> </a></h3><p>We will state our assumptions succinctly as "all $365^n$ sequences of birthdays are equally likely". You can see that this makes the birthday problem the same as the collision problem of the previous section, with $N = 365$. As before, the only interesting cases are when $n \le N$, for which</p>
+$$
+P(\text{no match}) ~=~
+P(\text{all $n$ birthdays are different}) ~=~ \prod_{i=0}^{n-1} \frac{N-i}{N}
+$$
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Computing-the-Chance">Computing the Chance<a class="anchor-link" href="#Computing-the-Chance"> </a></h3><p>With $N$ fixed at 365, the function <code>p_no_match</code> takes $n$ as its argument and returns the probability that there is no match among $n$ birthdays.</p>
+<p>The rest of the code displays all the results in a table. The table also includes a column containing the chance that there <em>is</em> a collision:</p>
+$$
+P(\text{at least one matching pair}) ~=~ 
+1 - P(\text{no match})
+~=~ 1 ~-~ \prod_{i=0}^{n-1} \frac{N-i}{N}
+$$
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">365</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">p_no_match</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">individuals_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span> <span class="p">(</span><span class="n">N</span> <span class="o">-</span> <span class="n">individuals_array</span><span class="p">)</span><span class="o">/</span><span class="n">N</span> <span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">with_column</span><span class="p">(</span><span class="s1">&#39;Trials&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">different</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">p_no_match</span><span class="p">,</span> <span class="s1">&#39;Trials&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">with_column</span><span class="p">(</span>
+    <span class="s1">&#39;P(all different)&#39;</span><span class="p">,</span> <span class="n">different</span><span class="p">,</span>
+    <span class="s1">&#39;P(at least one match)&#39;</span><span class="p">,</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">different</span>
+<span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">results</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>Trials</th> <th>P(all different)</th> <th>P(at least one match)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1     </td> <td>1               </td> <td>0                    </td>
+        </tr>
+    </tbody>
+        <tr>
+            <td>2     </td> <td>0.99726         </td> <td>0.00273973           </td>
+        </tr>
+    </tbody>
+        <tr>
+            <td>3     </td> <td>0.991796        </td> <td>0.00820417           </td>
+        </tr>
+    </tbody>
+        <tr>
+            <td>4     </td> <td>0.983644        </td> <td>0.0163559            </td>
+        </tr>
+    </tbody>
+        <tr>
+            <td>5     </td> <td>0.972864        </td> <td>0.0271356            </td>
+        </tr>
+    </tbody>
+        <tr>
+            <td>6     </td> <td>0.959538        </td> <td>0.0404625            </td>
+        </tr>
+    </tbody>
+        <tr>
+            <td>7     </td> <td>0.943764        </td> <td>0.0562357            </td>
+        </tr>
+    </tbody>
+        <tr>
+            <td>8     </td> <td>0.925665        </td> <td>0.0743353            </td>
+        </tr>
+    </tbody>
+        <tr>
+            <td>9     </td> <td>0.905376        </td> <td>0.0946238            </td>
+        </tr>
+    </tbody>
+        <tr>
+            <td>10    </td> <td>0.883052        </td> <td>0.116948             </td>
+        </tr>
+    </tbody>
+</table>
+<p>... (355 rows omitted)</p>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The first thing to notice in the table is the use of the label <code>Trials</code> to denote people. In probability it is common to think of random experiments as sequences of trials in which the outcome of each trial depends on chance. In the birthday problem, each person is being thought of as a trial, and we are looking to see whether there is at least one matching pair of birthdays among all the trials.</p>
+<p>Next, notice that in the boring case where there is just one person, there can't be a matching pair of birthdays, and thus $P(\text{no match})$ has been defined as 1. In many problems there are such "edge cases" that have to be handled individually.</p>
+<p>Finally, notice that when the number of people is small, the chance they all have different birthdays is large. This is consistent with our intuition that if the number of individuals is small relative to the number of available hash values, and you assign values to individuals at random, then the chance of a collision is small.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="The-Birthday-&quot;Paradox&quot;">The Birthday "Paradox"<a class="anchor-link" href="#The-Birthday-&quot;Paradox&quot;"> </a></h3><p>But the chance of a collision increases as the number of people increases. In fact, it increases rather sharply.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">results</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="s1">&#39;Trials&#39;</span><span class="p">,</span> <span class="s1">&#39;P(at least one match)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">N</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../images/Chapter_01/04_Birthday_Problem_13_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>You can see that if there are more than about 50 people, then the chance of a matching pair of birthdays is pretty close to 1.</p>
+<p>How many people must there be for the chance of a collision to be more than 50%? Let's see if we can find the smallest number of people for which this happens.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">results</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s1">&#39;P(at least one match)&#39;</span><span class="p">,</span> <span class="n">are</span><span class="o">.</span><span class="n">between</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.51</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>Trials</th> <th>P(all different)</th> <th>P(at least one match)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>23    </td> <td>0.492703        </td> <td>0.507297             </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>With just 23 people, a match is more likely than not. This surprises those who haven't done the calculation, and hence is known as the <em>birthday paradox</em>. But in fact there is nothing paradoxical or contradictory about it at all. It just has to do with the way the chance of a matching pair of birthdays grows as a function of the number of people.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We have done the calculation for $N = 365$, but how fast would the function have grown had $N$ been some other number? We need to know this if we are going to apply our results in contexts other than birthdays.</p>
+<p>To figure this out, we could redo our code for various different values of $N$ and see what the output tells us for those values. But it is altogether more efficient and insightful to use math, which is what we will do in the next section.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+ 
+

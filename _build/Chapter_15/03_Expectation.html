@@ -1,0 +1,519 @@
+---
+redirect_from:
+  - "/chapter-15/03-expectation"
+interact_link: content/Chapter_15/03_Expectation.ipynb
+kernel_name: python3
+has_widgets: false
+title: 'Expectation'
+prev_page:
+  url: /Chapter_15/02_The_Meaning_of_Density.html
+  title: 'The Meaning of Density'
+next_page:
+  url: /Chapter_15/04_Exponential_Distribution.html
+  title: 'Exponential Distribution'
+comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
+---
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Expectation">Expectation<a class="anchor-link" href="#Expectation"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let $X$ have density $f$. Let $g$ be a real valued function on the real line, and suppose you want to find $E(g(X))$. Then you can follow a procedure analogous to the non-linear function rule we developed for finding expectations of functions of discrete random variables.</p>
+<ul>
+<li>Write a generic value of $X$: that's $x$.</li>
+<li>Apply the function $g$ to get $g(x)$.</li>
+<li>Weight $g(x)$ by the chance that $X$ is <em>just around $x$</em>, resulting in the product $g(x) \cdot f(x)dx$.</li>
+<li>"Sum" over all $x$, that is, integrate.</li>
+</ul>
+<p>The expectation is
+$$
+E(g(X)) ~ = ~ \int_{-\infty}^{\infty} g(x)\cdot f(x)dx
+$$</p>
+<p><strong>Technical Note:</strong> We must be careful here as $g$ is an arbitrary function and the integral above need not exist. If $g$ is non-negative, then the integral is either finite or diverges to $+\infty$, but it doesn't oscillate. So if $g$ is non-negative, define</p>
+$$
+E(g(X)) ~ = ~ \int_{-\infty}^{\infty} g(x)\cdot f(x)dx ~~~
+\text{provided the integral is finite.}
+$$<p>For a general $g$, first check whether $E(\lvert g(X) \rvert )$ is finite, that is, whether</p>
+$$
+\int_{-\infty}^{\infty} \lvert g(x) \rvert \cdot f(x)dx ~ &lt; ~ \infty
+$$<p>If it is finite then there is a theorem that says $\int_{-\infty}^{\infty} g(x)\cdot f(x)dx $ exists, so it makes sense to define</p>
+$$
+E(g(X)) ~ = ~ \int_{-\infty}^{\infty} g(x)\cdot f(x)dx 
+$$<p><strong>Non-technical Note:</strong> In almost all of our examples, we will not be faced with questions about the existence of integrals. For example, if the set of possible values of $g(X)$ is bounded, then its expectation exists. But we will see a few examples of random variables that don't have expectations. Such random variables have "heavy tails" and are important in many applications.</p>
+<p>All the properties of means, variances, and covariances that we proved for discrete variables are still true. The proofs need to be rewritten for random variables with densities, but we won't take the time to do that. Just use the properties as you did before. The Central Limit Theorem holds as well.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Uniform-$(0,-1)$">Uniform $(0, 1)$<a class="anchor-link" href="#Uniform-$(0,-1)$"> </a></h3><p>The random variable $U$ is <em>uniform on the unit interval</em> if its density is flat over that interval and zero everywhere else:</p>
+$$
+f_U(u) =
+\begin{cases}
+1 ~~~~~~ \text{if } 0 &lt; u &lt; 1 \\
+0 ~~~~~~ \text{otherwise}
+\end{cases}
+$$
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell tag_remove_input">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../images/Chapter_15/03_Expectation_3_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The area under $f_U$ over an interval is a rectangle. So it follows easily that the probability of an interval is its length relative to the total length of the unit interval, which is 1. For example, for every pair $u_1$ and $u_2$ with $u_1 &lt; u_2$,</p>
+$$
+P(u_1 &lt; U &lt; u_2) ~ = ~ u_2 - u_1
+$$<p>Equivalently, the cdf of $U$ is</p>
+$$
+F_U(u) = 
+\begin{cases}
+0 ~~~ \text{if } u \le 0 \\
+u ~~~ \text{if } 0 &lt; u &lt; 1 \\
+1 ~~~ \text{if } u \ge 1
+\end{cases}
+$$
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell tag_remove_input">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../images/Chapter_15/03_Expectation_5_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The expectation $E(U)$ doesn't require an integral either. It's the balance point of the density "curve", which is 1/2. But if you insist, you can integrate:</p>
+$$
+E(U) ~ = ~ \int_0^1 u\cdot 1du ~ = ~ \frac{1}{2}
+$$<p>For the variance, you do have to integrate. By the formula for expectation given at the start of this section,</p>
+$$
+E(U^2) ~ = ~ \int_0^1 u^2\cdot 1du ~ = ~ \frac{1}{3}
+~~~~~~~~~~~~~~~
+Var(U) ~ = ~ \frac{1}{3} - \big{(}\frac{1}{2}\big{)}^2 ~ = ~ \frac{1}{12}
+$$
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Uniform-$(a,-b)$">Uniform $(a, b)$<a class="anchor-link" href="#Uniform-$(a,-b)$"> </a></h3><p>Fix $a &lt; b$. The uniform distribution on $(a, b)$ is flat over the interval $(a, b)$ and 0 elsewhere. Since its graph is a rectangle and the total area must be 1, the height of the rectangle is $\frac{1}{b-a}$.</p>
+<p>So if $X$ has the uniform $(a, b)$ distribution, then the density of $X$ is</p>
+$$
+f_X(x) ~ = ~ \frac{1}{b-a}, ~~~~ a &lt; x &lt; b
+$$<p>and 0 elsewhere. Probabilities are still relative lengths, so the cdf of $X$ is</p>
+$$
+F_X(x) ~ = ~ \frac{x - a}{b - a}, ~~~~ a &lt; x &lt; b
+$$<p>The expectation and variance of $X$ can be derived with little calculation once you notice that $X$ can be created by starting with a uniform $(0, 1)$ random variabe $U$.</p>
+<ul>
+<li><strong>Step 1:</strong> $U$ is uniform on $(0, 1)$</li>
+<li><strong>Step 2:</strong> $(b-a)U$ is uniform on $(0, (b-a))$</li>
+<li><strong>Step 3:</strong> $X = a + (b-a)U$ is uniform on $(a, b)$.</li>
+</ul>
+<p>Now $X$ is a linear transformation of $U$, so</p>
+$$
+E(X) ~ = ~ a + (b-a)E(U) ~ = ~ a + \frac{b-a}{2} ~ = ~ \frac{a+b}{2}
+$$<p>which is the midpoint of $(a, b)$. Also,</p>
+$$
+Var(X) ~ = ~ \frac{(b-a)^2}{12} 
+$$
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Example:-Random-Discs">Example: Random Discs<a class="anchor-link" href="#Example:-Random-Discs"> </a></h3><p>A screen saver chooses a random radius uniformly in the interval $(0, 2)$ centimeters and draws a disc with that radius. Then it chooses another radius in the same way, independently of the first, and draws another disc. And so on.</p>
+<p><strong>Question 1.</strong> Let $S$ be the area of the first disc. Find $E(S)$.</p>
+<p><strong>Answer.</strong> Let $R$ be the radius of the first disc. Then $S = \pi R^2$. So</p>
+$$
+E(S) ~ = ~ \pi E(R^2) ~ = ~ \pi\big{(}Var(R) + (E(R))^2\big{)} ~ = ~ 
+\pi\big{(} \frac{4}{12} + 1^2\big{)} ~ = ~ 4.19 ~ cm^2
+$$
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="p">(</span><span class="mi">4</span><span class="o">/</span><span class="mi">12</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>4.1887902047863905</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Question 2.</strong> Let $\bar{R}$ be the average radius of the first 100 discs. Find a number $c$ so that $P(\lvert \bar{R} - 1 \rvert &lt; c) \approx 99\%$.</p>
+<p><strong>Answer.</strong> Let $R_1, R_2, \ldots , R_{100}$ be the first 100 radii. These are i.i.d. random variables, each with mean 1 and variance $4/12$. So $E(\bar{R}) = 1$ and</p>
+$$
+SD(\bar{R}) = \frac{\sqrt{4/12}}{\sqrt{100}} ~ = ~ 0.0577 ~ \mbox{cm}
+$$<p></p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sd_rbar</span> <span class="o">=</span> <span class="p">((</span><span class="mi">4</span><span class="o">/</span><span class="mi">12</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">100</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">sd_rbar</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.057735026918962574</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>By the Central Limit Theorem, the distribution of $\bar{R}$ is approximately normal. Let's draw it using <code>Plot_norm</code>.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Plot_norm</span><span class="p">((</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">sd_rbar</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Radius in Centimeters&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Approximate Distribution of Sample Mean Radius&#39;</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../images/Chapter_15/03_Expectation_13_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We are looking for $c$ such that there is about 99% chance that $\bar{R}$ is in the interval $(1-c, 1+c)$. Therefore $1 + c$ is the 99.5th (not 99th) percent point of the curve above, from which you can find $c$.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mf">0.995</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">sd_rbar</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+<span class="n">c</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.14871557417904846</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>There is another way to find $c$. Since $c$ is a distance from the mean, $c = zSD(\bar{R})$ where $z$ is such that the area between $-z$ and $z$ under the standard normal curve is about 99%. This $z$ is the 99.5th percent point of the standard normal curve.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">z</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mf">0.995</span><span class="p">)</span>
+<span class="n">z</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>2.5758293035489004</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="n">z</span><span class="o">*</span><span class="n">sd_rbar</span>
+<span class="n">c</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.14871557417904838</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>That's the same value of $c$ that we got by the previous method. The graph below shows the corresponding area of 99%.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Plot_norm</span><span class="p">((</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">sd_rbar</span><span class="p">,</span> <span class="n">left_end</span> <span class="o">=</span> <span class="mi">1</span><span class="o">-</span><span class="n">c</span><span class="p">,</span> <span class="n">right_end</span> <span class="o">=</span> <span class="mi">1</span><span class="o">+</span><span class="n">c</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([</span><span class="mi">1</span><span class="o">-</span><span class="n">c</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="o">+</span><span class="n">c</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Radius in Centimeters&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Gold Area is Approximately 99%&#39;</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../images/Chapter_15/03_Expectation_20_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+ 
+

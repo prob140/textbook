@@ -1,0 +1,160 @@
+---
+redirect_from:
+  - "/chapter-07/02-poissonizing-the-multinomial"
+interact_link: content/Chapter_07/02_Poissonizing_the_Multinomial.ipynb
+kernel_name: python3
+has_widgets: false
+title: 'Poissonizing the Multinomial'
+prev_page:
+  url: /Chapter_07/01_Poissonizing_the_Binomial.html
+  title: 'Poissonizing the Binomial'
+next_page:
+  url: /Chapter_08/00_Expectation.html
+  title: 'Chapter 8: Expectation'
+comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
+---
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Poissonizing-the-Multinomial">Poissonizing the Multinomial<a class="anchor-link" href="#Poissonizing-the-Multinomial"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Bernoulli trials come out in one of two ways. But many trials come out in multiple different ways, all of which we might want to track. A die can land six different ways. A jury member can have one of several different educational levels. In general, an individual might belong to one of several classes.</p>
+<p>The <em>multinomial distribution</em> is an extension of the binomial to the case where each repeated trial has more than two possible outcomes. Let's look at it first in an example, and then we will define it in general.</p>
+<p>A box contains 2 blue tickets, 5 green tickets, and 3 red tickets. Fifteen draws are made at random with replacement. To find the chance that there are 4 blue, 9 green, and 2 red tickets drawn, we could start by writing all possible sequences of 4 B's, 9 G's, and 2 R's.</p>
+<p>Each such sequence has chance $0.2^4 0.5^9 0.3^2$, so all we need for completing the probability calculation is the number of sequences we could write.</p>
+<ul>
+<li>There are $\binom{15}{4}$ ways of choosing places to write the B's.</li>
+<li>For each of these ways, there are $\binom{11}{9}$ ways of choosing 9 of the remaining 11 places to write the G's.</li>
+<li>The remaining 2 places get filled with R's.</li>
+</ul>
+<p>So</p>
+$$
+\begin{align*}
+P(\text{4 blue, 9 green, 2 red}) 
+&amp;= \binom{15}{4} \cdot \binom{11}{9} 0.2^4 0.5^9 0.3^2 \\ \\
+&amp;= \frac{15!}{4!11!} \cdot \frac{11!}{9!2!} 0.2^4 0.5^9 0.3^2 \\ \\
+&amp;= \frac{15!}{4!9!2!} 0.2^4 0.5^9 0.3^2
+\end{align*}
+$$<p>Notice how this simply extends the binomial probability formula by including a third category.</p>
+<p>Analogously, or formally by induction, you can extend the formula to any finite number of categories or classes.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Multinomial-Distribution">Multinomial Distribution<a class="anchor-link" href="#Multinomial-Distribution"> </a></h3><p>Fix a positive integer $n$. Suppose we are running $n$ i.i.d. trials where each trial can result in one of $k$ classes. For each $i = 1, 2, \ldots, k$, let the chance of getting Class $i$ on a single trial be $p_i$, so that $\sum_{i=1}^k p_i = 1$.</p>
+<p>For each $i = 1, 2, \ldots , k$, let $N_i$ be the number of trials that result in Class $i$, so that $\sum_{i=1}^k N_i = n$.</p>
+<p>Then the <em>joint</em> distribution of $N_1, N_2, \ldots , N_k$ is
+given by</p>
+$$
+P(N_1 = n_1, N_2 = n_2, \ldots , N_k = n_k)
+~ = ~ \frac{n!}{n_1!n_2! \ldots n_k!}p_1^{n_1}p_2^{n_2} \cdots p_k^{n_k}
+$$<p>where $n_i \ge 0$ for $1 \le i \le k$ and $\sum_{i=1}^k n_i = n$.</p>
+<p>When there just two classes, then $k = 2$ and the formula reduces to the familiar binomial formula written as the joint distribution of the number of successes and the number of failures:</p>
+$$
+P(N_1 = n_1, N_2 = n_2) = \frac{n!}{n_1!n_2!} p_1^{n_1}p_2^{n_2} ~~ \text{where } p_1+p_2=1 \text{ and }
+n_1+n_2=n
+$$
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Binomial-Marginals">Binomial Marginals<a class="anchor-link" href="#Binomial-Marginals"> </a></h3><p>No matter how many classes there are, the marginal distribution of each $N_i$ is binomial $(n, p_i)$. You don't have to sum the joint distributions to work this out. $N_i$ is the number of Class $i$ individuals in the sample; each sampled individual is in Class $i$ with probability $p_i$; and there are $n$ independent draws. That's the binomial setting.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Poissonization">Poissonization<a class="anchor-link" href="#Poissonization"> </a></h3><p>If you replace the fixed number $n$ of trials by a Poisson $(\mu)$ random number of trials, then the multinomial gets Poissonized as follows:</p>
+<ul>
+<li>For each $i = 1, 2, \ldots , k$, the distribution of $N_i$ is Poisson $(\mu p_i)$.</li>
+<li>The counts $N_1, N_2, \ldots , N_k$ in the $k$ different categories are mutually independent.</li>
+</ul>
+<p>We won't go through the proof which is a straightforward extension of the proof in the case $k=2$ given in an earlier section. Rather, we will look at why the result matters.</p>
+<p>When the number of trials is fixed, $N_1, N_2, \ldots , N_k$ are all dependent on each other in complicated ways. But when you let the sample size be a Poisson random variable, then the independence of the counts $N_1, N_2, \ldots , N_k$ lets you quickly calculate the chance of any particular configuration of classes in the sample.</p>
+<p>For example, suppose that in your population the distribution of classes is as follows:</p>
+<ul>
+<li>Class 1: 20%</li>
+<li>Class 2: 30%</li>
+<li>Class 3: 50%</li>
+</ul>
+<p>Now suppose you draw $N$ independent times where $N$ has the Poisson $(20)$ distribution, then the chance that you will get at least 3 individuals in each class is about 71.27%.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">stats</span><span class="o">.</span><span class="n">poisson</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">stats</span><span class="o">.</span><span class="n">poisson</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">stats</span><span class="o">.</span><span class="n">poisson</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.71270362753222372</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The number of factors in the answer is equal to the number of classes, unlike the inclusion-exclusion formula in which the amount of work increases much more with each additional class, as you have seen in exercises.</p>
+<p>This helps data scientists tackle questions like, "How many times must I sample so that my chance of seeing at least one individual of each class exceeds a given threshold?" The answer depends on the distribution of classes in the population, of course, but allowing the sample size be a Poisson random variable can make calculations much more tractable. For applications, see for example the Abstract and References of this <a href="http://people.csail.mit.edu/jayadev/papers/psn_unv_cmp.pdf">paper</a>.</p>
+<p><strong>Note.</strong> If there are a large number of classes, then even with a fixed large sample size the sample counts in the different classes are almost independent. If you know some of the counts, the information doesn't have much effect on the distributions of the other counts. In such situations, you won't go very far wrong if you treat the counts as independent even though the sample size is fixed.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+ 
+

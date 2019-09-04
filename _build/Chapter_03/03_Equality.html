@@ -1,0 +1,402 @@
+---
+redirect_from:
+  - "/chapter-03/03-equality"
+interact_link: content/Chapter_03/03_Equality.ipynb
+kernel_name: python3
+has_widgets: false
+title: 'Equality'
+prev_page:
+  url: /Chapter_03/02_Distributions.html
+  title: 'Distributions'
+next_page:
+  url: /Chapter_04/00_Relations_Between_Variables.html
+  title: 'Chapter 4: Relations Between Variables'
+comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
+---
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Equality">Equality<a class="anchor-link" href="#Equality"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We know what it means for two numbers to be equal: they are at the same spot on the number line. Equality of random variables, however, can be of more than one kind.</p>
+<h3 id="Equal">Equal<a class="anchor-link" href="#Equal"> </a></h3><p>Two random variables $X$ and $Y$ defined on the same outcome space are <em>equal</em> if their values are the same for every outcome in the space. The notation is $X = Y$ and it means that</p>
+$$
+X(\omega) = Y(\omega) \text{ for all } \omega \in \Omega
+$$<p>Informally, this says that no matter what the outcome, if $X$ is 10 then $Y$ must be 10 too; if $X$ is 11, $Y$ must be 11, and so on.</p>
+<p>An example will make this clear. Let $N_H$ be the number of heads in three tosses of a coin, and let $N_T$ be the number of tails in the same three tosses.</p>
+<p>Now consider the new random variable $M = 3 - N_T$. The two random variables $N_H$ and $M$ are equal. For every possible outcome of the three tosses, the value of $N_H$ is equal to the value of $M$.</p>
+<p>We write this simply as $N_H = M$. Equivalently, $N_H = 3 - N_T$.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Equal-in-Distribution">Equal in Distribution<a class="anchor-link" href="#Equal-in-Distribution"> </a></h3><p>$N_H$ and $N_T$, as defined above, are not equal. For example,</p>
+$$
+N_H(\text{TTT}) = 0 ~~~ \text{but} ~~~ N_T(\text{TTT}) = 3
+$$<p></p>
+<p>However, there is a sense in which the number of heads "behaves in the same way" as the number of tails. The two random variables have the same probability distribution.</p>
+<p>The outcome space is <code>three_tosses</code>:</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">coin</span> <span class="o">=</span> <span class="n">make_array</span><span class="p">(</span><span class="s1">&#39;H&#39;</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">)</span>
+<span class="n">three_tosses</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">product</span><span class="p">(</span><span class="n">coin</span><span class="p">,</span> <span class="n">repeat</span><span class="o">=</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">three_tosses</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[(&#39;H&#39;, &#39;H&#39;, &#39;H&#39;),
+ (&#39;H&#39;, &#39;H&#39;, &#39;T&#39;),
+ (&#39;H&#39;, &#39;T&#39;, &#39;H&#39;),
+ (&#39;H&#39;, &#39;T&#39;, &#39;T&#39;),
+ (&#39;T&#39;, &#39;H&#39;, &#39;H&#39;),
+ (&#39;T&#39;, &#39;H&#39;, &#39;T&#39;),
+ (&#39;T&#39;, &#39;T&#39;, &#39;H&#39;),
+ (&#39;T&#39;, &#39;T&#39;, &#39;T&#39;)]</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>There are only eight outcomes, so it is easy to inspect the table and write the distributions of $N_H$ and $N_T$. Both take the values 0, 1, 2, and 3, with probabilities 1/8, 3/8, 3/8, and 1/8 respectively. This distribution is shown in the table below.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dist</span> <span class="o">=</span> <span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span><span class="o">.</span><span class="n">probabilities</span><span class="p">(</span><span class="n">make_array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">8</span><span class="p">)</span>
+<span class="n">dist</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>Value</th> <th>Probability</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>0    </td> <td>0.125      </td>
+        </tr>
+        <tr>
+            <td>1    </td> <td>0.375      </td>
+        </tr>
+        <tr>
+            <td>2    </td> <td>0.375      </td>
+        </tr>
+        <tr>
+            <td>3    </td> <td>0.125      </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We say that $N_H$ and $N_T$ are <em>equal in distribution</em>.</p>
+<p>In general, two random variables $X$ and $Y$ are equal in distribution if they have the same probability distribution.</p>
+<p>That is, they have the same set of possible values and the same probabilities for all those values.</p>
+<p>Equality in distribution is denoted as</p>
+$$
+X \stackrel{d}{=} Y
+$$
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Relation-between-the-Equalities">Relation between the Equalities<a class="anchor-link" href="#Relation-between-the-Equalities"> </a></h3><p>Equality is stronger than equality in distribution. If two random variables are the same, outcome by outcome, then they must have the same distribution because they are the same function on the outcome space.</p>
+<p>That is, for any two random variables $X$ and $Y$,</p>
+$$
+X = Y \implies X \stackrel{d}{=} Y
+$$<p>But as the example of heads and tails in three tosses shows, the converse need not be true.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Example:-Two-Cards-Dealt-from-a-Small-Deck">Example: Two Cards Dealt from a Small Deck<a class="anchor-link" href="#Example:-Two-Cards-Dealt-from-a-Small-Deck"> </a></h3><p>A deck contains 10 cards, labeled 1, 2, 2, 3, 3, 3, 4, 4, 4, 4. Two cards are dealt at random without replacement. Let $X_1$ be the label on the first card and $X_2$ be the label on the second card.</p>
+<p><strong>Question 1.</strong> Are $X_1$ and $X_2$ equal?</p>
+<p><strong>Answer 1.</strong> No, because the outcome could be 31 in which case $X_1 = 3$ and $X_2 = 1$.</p>
+<p><strong>Question 2.</strong> Are $X_1$ and $X_2$ equal in distribution?</p>
+<p><strong>Answer 2.</strong> Let's find the two distributions and compare. Clearly the possible values are 1, 2, 3, and 4 in each case. The distribution of $X_1$ is easy:</p>
+$$
+P(X_1 = i ) = \frac{i}{10} , ~~ i = 1, 2, 3, 4
+$$<p>When a distribution is defined by a formula like this, you can define a function that does what the formula says:</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">prob1</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">i</span><span class="o">/</span><span class="mi">10</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>You can create a probability distribution object for $X_1$ using <code>values</code> as before but now with the <code>probability_function</code> method.</p>
+<p>The argument to <code>probability_function</code> is the name of the function that takes $i$ as its argument and returns $P(X_1 = i)$.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">possible_i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">dist_X1</span> <span class="o">=</span> <span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">(</span><span class="n">possible_i</span><span class="p">)</span><span class="o">.</span><span class="n">probability_function</span><span class="p">(</span><span class="n">prob1</span><span class="p">)</span>
+<span class="n">dist_X1</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>Value</th> <th>Probability</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1    </td> <td>0.1        </td>
+        </tr>
+        <tr>
+            <td>2    </td> <td>0.2        </td>
+        </tr>
+        <tr>
+            <td>3    </td> <td>0.3        </td>
+        </tr>
+        <tr>
+            <td>4    </td> <td>0.4        </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Convince yourself that the function <code>prob2</code> below returns $P(X_2 = i)$ for each $i$. The event has been partitioned according to the value of $X_1$.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">prob2</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="mi">9</span><span class="o">/</span><span class="mi">10</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">9</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">i</span><span class="o">/</span><span class="mi">10</span><span class="p">)</span><span class="o">*</span><span class="p">((</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">9</span><span class="p">)</span> <span class="o">+</span> <span class="p">((</span><span class="mi">10</span><span class="o">-</span><span class="n">i</span><span class="p">)</span><span class="o">/</span><span class="mi">10</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">i</span><span class="o">/</span><span class="mi">9</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dist_X2</span> <span class="o">=</span> <span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">(</span><span class="n">possible_i</span><span class="p">)</span><span class="o">.</span><span class="n">probability_function</span><span class="p">(</span><span class="n">prob2</span><span class="p">)</span>
+<span class="n">dist_X2</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>Value</th> <th>Probability</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1    </td> <td>0.1        </td>
+        </tr>
+        <tr>
+            <td>2    </td> <td>0.2        </td>
+        </tr>
+        <tr>
+            <td>3    </td> <td>0.3        </td>
+        </tr>
+        <tr>
+            <td>4    </td> <td>0.4        </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The two distributions are the same! Here is yet another example of symmetry in sampling without replacement. The conclusion is</p>
+$$
+X_1 \stackrel{d}{=} X_2
+$$
+</div>
+</div>
+</div>
+</div>
+
+ 
+

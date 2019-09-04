@@ -1,0 +1,977 @@
+---
+redirect_from:
+  - "/chapter-06/03-hypergeometric-distribution"
+interact_link: content/Chapter_06/03_Hypergeometric_Distribution.ipynb
+kernel_name: python3
+has_widgets: false
+title: 'The Hypergeometric Distribution'
+prev_page:
+  url: /Chapter_06/02_Examples.html
+  title: 'Examples'
+next_page:
+  url: /Chapter_06/04_Odds_Ratios.html
+  title: 'Odds Ratios'
+comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
+---
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="The-Hypergeometric-Distribution">The Hypergeometric Distribution<a class="anchor-link" href="#The-Hypergeometric-Distribution"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>You have seen the hypergeometric probabilities earlier. In this section we will use them to define the distribution of a random count, and study the relation with the binomial distribution.</p>
+<p>As a review of the hypergeometric setting, suppose you have a population of a fixed size $N$, and suppose you are interested in a particular group of those $N$ individuals. Let's call them "successes" or "good elements". For example, you might be interested in:</p>
+<ul>
+<li>a population of voters, and among them the group who will vote for a particular candidate</li>
+<li>a population of households, and among them the group that have annual incomes below $50,000</li>
+<li>a deck of cards, and the suit of diamonds</li>
+</ul>
+<p>Let $N = G+B$ where $G$ is the number of good elements and $B$ the remaining number of elements which we will unkindly describe as "bad".</p>
+<p>Now suppose you take a simple random sample (SRS) of $n$ elements from the population.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Number-of-Good-Elements-in-a-SRS">Number of Good Elements in a SRS<a class="anchor-link" href="#Number-of-Good-Elements-in-a-SRS"> </a></h3><p>Let $X$ be the number of good elements in the sample. What is the distribution of $X$?</p>
+<p>The largest $X$ can be is $\min(G, n)$. We'll say the smallest $X$ can be is 0, though if we are very careful we will see that in fact $X$ can't be any smaller than $\max(0, n-B)$.</p>
+<p>Let $g$ be a possible value of $X$. Then, since all $\binom{N}{n}$ samples are equally likely,</p>
+$$
+P(X = g) ~ = ~ \frac{\binom{G}{g} \binom{B}{b}}{\binom{N}{n}}, ~~~
+g+b=n
+$$<p>This is called the <em>hypergeometric distribution</em> with population size $N$, number of good elements or "successes" $G$, and sample size $n$. The name comes from the fact that the terms are the coefficients in a <a href="https://en.wikipedia.org/wiki/Hypergeometric_function#The_hypergeometric_series"><em>hypergeometric series</em></a>, which is a piece of mathematics that we won't go into in this course.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Example:-Aces-in-a-Five-Card-Poker-Hand">Example: Aces in a Five-Card Poker Hand<a class="anchor-link" href="#Example:-Aces-in-a-Five-Card-Poker-Hand"> </a></h3><p>The number of aces $N_a$ in a five-card poker hand has the hypergeometric distribution with population size 52, four good elements in the population, and a simple random sample size of 5.</p>
+$$
+P(N_a = k) = \frac{\binom{4}{k} \binom{48}{5-k}}{\binom{52}{5}}, ~~ k = 0, 1, 2, 3, 4
+$$<p>The <code>stats.hypergeom.pmf</code> function allows us to calculate hypergeometric probabilities. The first argument is the set of possible values for which we want the probabilities. Then come the parameters, in the order population size, number of good elements, sample size.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">52</span> <span class="c1"># population size</span>
+<span class="n">G</span> <span class="o">=</span> <span class="mi">4</span>  <span class="c1"># number of good elements in population</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">5</span>  <span class="c1"># simple random sample size</span>
+<span class="n">stats</span><span class="o">.</span><span class="n">hypergeom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">G</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([6.58841998e-01, 2.99473636e-01, 3.99298181e-02, 1.73607905e-03,
+       1.84689260e-05])</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Those are the chances of all the different possible numbers of aces in a poker hand. They are rather hard to read, so let's try rounding them.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">hypergeom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">G</span><span class="p">,</span> <span class="n">n</span><span class="p">),</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([0.659, 0.299, 0.04 , 0.002, 0.   ])</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The number of aces among 5 cards is overwhelmingly likely to be 0 or 1. The histogram of the distribution can be drawn using <code>Plot</code>.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ace_probs</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">hypergeom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">G</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+<span class="n">ace_dist</span> <span class="o">=</span> <span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">.</span><span class="n">probabilities</span><span class="p">(</span><span class="n">ace_probs</span><span class="p">)</span>
+<span class="n">Plot</span><span class="p">(</span><span class="n">ace_dist</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Number of Aces in a 5-Card Hand&#39;</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../images/Chapter_06/03_Hypergeometric_Distribution_8_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Red-Cards-in-a-Bridge-Hand">Red Cards in a Bridge Hand<a class="anchor-link" href="#Red-Cards-in-a-Bridge-Hand"> </a></h3><p>Here is the distribution of the number of red cards in a bridge hand of 13 cards:</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">52</span>
+<span class="n">G</span> <span class="o">=</span> <span class="mi">26</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">13</span>
+<span class="n">bridge_probs</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">hypergeom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">G</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+<span class="n">bridge_dist</span> <span class="o">=</span> <span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">.</span><span class="n">probabilities</span><span class="p">(</span><span class="n">bridge_probs</span><span class="p">)</span>
+
+<span class="n">Plot</span><span class="p">(</span><span class="n">bridge_dist</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Number of Red Cards in a 13-Card Hand&#39;</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../images/Chapter_06/03_Hypergeometric_Distribution_10_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This one looks rather binomial. And indeed, there is a close relation between the binomial and the hypergeometric distributions.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Relation-with-the-Binomial">Relation with the Binomial<a class="anchor-link" href="#Relation-with-the-Binomial"> </a></h3><p>Suppose you have a population of $N = G+B$ elements as above, and suppose you sample $n$ times <em>with</em> replacement. Then the number of good elements in the sample has the binomial distribution with parameters $n$ and $G/N$.</p>
+<p>If you sample <em>without</em> replacement, then the distribution of the number of good elements is hypergeometric $(N, G, n)$.</p>
+<p>The only difference between the two settings is the randomization: sampling with or without replacement.</p>
+<p>If the population size $N$ is large relative to the sample size $n$, then it doesn't make much difference whether you are sampling with or without replacement. If you only take out a very small proportion of the population as you sample, you make no noticeable difference to the proportions in the population.</p>
+<p>To see whether this intuition can be confirmed by calculation, let's visualize some hypergeometric distributions and the corresponding binomial approximations. You can change the parameters in the code below. Just make sure that $n$ is small relative to $N$.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">G</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">hyp_probs</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">hypergeom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">G</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+<span class="n">bin_probs</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">binom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">G</span><span class="o">/</span><span class="n">N</span><span class="p">)</span>
+<span class="n">hyp_dist</span> <span class="o">=</span> <span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">.</span><span class="n">probabilities</span><span class="p">(</span><span class="n">hyp_probs</span><span class="p">)</span>
+<span class="n">bin_dist</span> <span class="o">=</span> <span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">.</span><span class="n">probabilities</span><span class="p">(</span><span class="n">bin_probs</span><span class="p">)</span>
+<span class="n">Plots</span><span class="p">(</span><span class="s1">&#39;Hypergeometric (100, 30, 10)&#39;</span><span class="p">,</span> <span class="n">hyp_dist</span><span class="p">,</span> <span class="s1">&#39;Binomial (10, 0.3)&#39;</span><span class="p">,</span> <span class="n">bin_dist</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../images/Chapter_06/03_Hypergeometric_Distribution_13_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>They are pretty close, though you can see that the hypergeometric distribution is a bit taller and narrower. In a later chapter we will quantify this difference in spread.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Fisher's-Exact-Test">Fisher's Exact Test<a class="anchor-link" href="#Fisher's-Exact-Test"> </a></h3><p>Recall a <a href="https://www.ncbi.nlm.nih.gov/pubmed/11376175">randomized controlled experiment</a> that was analyzed in Data 8. The treatment was the botulinum toxin A, a very potent toxin, used as medication for patients who had chronic back pain.</p>
+<p>A total of 31 patients participated in the study. Of these, 15 were randomly assigned to the treatment group and the remaining 16 to the control group. Eight weeks after treatment, 11 of the 15 in the treatment group had pain relief compared to 2 out of 16 in the control group.</p>
+<p>In other words, of the 13 patients who had pain relief, 11 were in the treatment group and 2 in the control group. Is this evidence in favor of the treatment?</p>
+<p>The null hypothesis says that the treatment does nothing; any difference between the two groups is due to the random assignment of patients to treatment and control.</p>
+<p>The alternative hypothesis says that the treatment was beneficial.</p>
+<p>Under the null hypothesis, the treatment did nothing, so among the 31 patients in the study, <em>13 would have had pain relief anyway</em>, regardless of the assignment to groups.</p>
+<p>To see which of the hypotheses is better supported by the data, we can find a P-value. This is the chance, under the null hypothesis, of getting data like the data that were observed or even more in the direction of the alternative. That is, the P-value is the chance of getting 11 or more of the "pain relief" patients in the treatment group, just by chance.</p>
+<p>To find the chance that 11 or more of the "pain relief" group would have ended up in the treatment group, we just need a hypergeometric probability:</p>
+<ul>
+<li>N = 31, the population size</li>
+<li>G = 13, the total number of "pain relief" patients</li>
+<li>n = 15, the size of the treatment group</li>
+<li>g = 11 or more</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">sum</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">hypergeom</span><span class="o">.</span><span class="n">pmf</span><span class="p">([</span><span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">],</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">15</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.0008299755046076295</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>That's a very small P-value, which implies that the data support the alternative hypothesis more than they support the null. The treatment helped. This is consistent with the conclusion of the researchers and also with our own analysis in Data 8 – but all three analyses are different.</p>
+<p>In Data 8 we simulated the difference between the two group proportions under the null hypothesis, by pooling the two groups and randomly permuting the pooled sample. Our conclusion was based on an empirical, approximate P-value.</p>
+<p>The calculation here does not require simulation and produces an exact P-value.</p>
+<p>This method is called Fisher's exact test. That's the same Sir Ronald Fisher who formalized tests of hypotheses, suggested cutoffs for P-values, and so on. The method can be used for any sample size and any randomized controlled experiment with a binary response.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Joint,-Marginal,-and-Conditional-Distributions">Joint, Marginal, and Conditional Distributions<a class="anchor-link" href="#Joint,-Marginal,-and-Conditional-Distributions"> </a></h3><p>The calculations above extend easily to samples that can come out in more than two categories. Consider a five-card poker hand dealt from a well-shuffled deck. Let $H$ be the number of hearts and $S$ the number of spaces in the hand. Let us find the joint distribution of $H$ and $S$.</p>
+<p>The hand can have cards other than hearts and spades, of course. Let $X$ be the number of those cards, which must be diamonds or clubs. Then</p>
+$$
+P(H = h, S = s) ~ = ~ P(H = h, S = s, X = 5 - (h+s)) ~ = ~ 
+\frac{\binom{13}{h}\binom{13}{s}\binom{26}{5-h-s}}{\binom{52}{5}}, ~~ h, s \ge 0, ~ h+s \le 5
+$$<p>The SciPy module <code>special</code> allows you to calculate binomial coefficients, so let's import it.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="k">import</span> <span class="n">special</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The expression <code>special.comb(n, k)</code> evaluates to $\binom{n}{k}$. This allows us to calculate the joint distribution of $H$ and $S$.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">joint_prob</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">h</span><span class="o">+</span><span class="n">s</span> <span class="o">&gt;=</span><span class="mi">0</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">h</span><span class="o">+</span><span class="n">s</span> <span class="o">&lt;=</span><span class="mi">5</span><span class="p">):</span>
+        <span class="n">numerator</span> <span class="o">=</span> <span class="n">special</span><span class="o">.</span><span class="n">comb</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span> <span class="o">*</span> <span class="n">special</span><span class="o">.</span><span class="n">comb</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span> <span class="o">*</span> <span class="n">special</span><span class="o">.</span><span class="n">comb</span><span class="p">(</span><span class="mi">26</span><span class="p">,</span> <span class="mi">5</span> <span class="o">-</span> <span class="n">h</span> <span class="o">-</span><span class="n">s</span><span class="p">)</span>
+        <span class="n">denominator</span> <span class="o">=</span> <span class="n">special</span><span class="o">.</span><span class="n">comb</span><span class="p">(</span><span class="mi">52</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">numerator</span> <span class="o">/</span> <span class="n">denominator</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span>
+    
+<span class="n">k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">joint_dist</span> <span class="o">=</span> <span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">(</span><span class="s1">&#39;H&#39;</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span><span class="o">.</span><span class="n">probability_function</span><span class="p">(</span><span class="n">joint_prob</span><span class="p">)</span>
+<span class="n">joint_dist</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>H=0</th>
+      <th>H=1</th>
+      <th>H=2</th>
+      <th>H=3</th>
+      <th>H=4</th>
+      <th>H=5</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>S=5</th>
+      <td>0.000495</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>S=4</th>
+      <td>0.007153</td>
+      <td>0.003576</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>S=3</th>
+      <td>0.035764</td>
+      <td>0.037195</td>
+      <td>0.008583</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>S=2</th>
+      <td>0.078031</td>
+      <td>0.126801</td>
+      <td>0.060864</td>
+      <td>0.008583</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>S=1</th>
+      <td>0.074780</td>
+      <td>0.169068</td>
+      <td>0.126801</td>
+      <td>0.037195</td>
+      <td>0.003576</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>S=0</th>
+      <td>0.025310</td>
+      <td>0.074780</td>
+      <td>0.078031</td>
+      <td>0.035764</td>
+      <td>0.007153</td>
+      <td>0.000495</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The distribution of $H$ can be obtained by summing along the columns, or by using the <code>marginal</code> method:</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">joint_dist</span><span class="o">.</span><span class="n">marginal</span><span class="p">(</span><span class="s1">&#39;H&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>H=0</th>
+      <th>H=1</th>
+      <th>H=2</th>
+      <th>H=3</th>
+      <th>H=4</th>
+      <th>H=5</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>S=5</th>
+      <td>0.000495</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>S=4</th>
+      <td>0.007153</td>
+      <td>0.003576</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>S=3</th>
+      <td>0.035764</td>
+      <td>0.037195</td>
+      <td>0.008583</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>S=2</th>
+      <td>0.078031</td>
+      <td>0.126801</td>
+      <td>0.060864</td>
+      <td>0.008583</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>S=1</th>
+      <td>0.074780</td>
+      <td>0.169068</td>
+      <td>0.126801</td>
+      <td>0.037195</td>
+      <td>0.003576</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>S=0</th>
+      <td>0.025310</td>
+      <td>0.074780</td>
+      <td>0.078031</td>
+      <td>0.035764</td>
+      <td>0.007153</td>
+      <td>0.000495</td>
+    </tr>
+    <tr>
+      <th>Sum: Marginal of H</th>
+      <td>0.221534</td>
+      <td>0.411420</td>
+      <td>0.274280</td>
+      <td>0.081543</td>
+      <td>0.010729</td>
+      <td>0.000495</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>But $H$ is the number of hearts in a five-card hand, so we already know that $H$ has the hypergeometric $(52, 13, 5)$ distribution. Let's confirm that this is the same as the marginal distribution above.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">stats</span><span class="o">.</span><span class="n">hypergeom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="mi">52</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([0.22153361, 0.41141957, 0.27427971, 0.08154262, 0.01072929,
+       0.0004952 ])</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>If you know how many spades are in the hand, then what is the conditional distribution of $H$?</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">joint_dist</span><span class="o">.</span><span class="n">conditional_dist</span><span class="p">(</span><span class="s1">&#39;H&#39;</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>H=0</th>
+      <th>H=1</th>
+      <th>H=2</th>
+      <th>H=3</th>
+      <th>H=4</th>
+      <th>H=5</th>
+      <th>Sum</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Dist. of H | S=5</th>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Dist. of H | S=4</th>
+      <td>0.666667</td>
+      <td>0.333333</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Dist. of H | S=3</th>
+      <td>0.438596</td>
+      <td>0.456140</td>
+      <td>0.105263</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Dist. of H | S=2</th>
+      <td>0.284495</td>
+      <td>0.462304</td>
+      <td>0.221906</td>
+      <td>0.031294</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Dist. of H | S=1</th>
+      <td>0.181761</td>
+      <td>0.410937</td>
+      <td>0.308203</td>
+      <td>0.090406</td>
+      <td>0.008693</td>
+      <td>0.000000</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Dist. of H | S=0</th>
+      <td>0.114250</td>
+      <td>0.337556</td>
+      <td>0.352232</td>
+      <td>0.161440</td>
+      <td>0.032288</td>
+      <td>0.002235</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Marginal of H</th>
+      <td>0.221534</td>
+      <td>0.411420</td>
+      <td>0.274280</td>
+      <td>0.081543</td>
+      <td>0.010729</td>
+      <td>0.000495</td>
+      <td>1.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let's see if we recognize these numbers. Remember that the $(h, s)$ cell of the table contains $P(H = h \mid S =s )$.</p>
+<p>For an extreme case, look at the top row. Given that there are five spades in the hand, there can't be any hearts. That is why the table says $P(H = 0 \mid S = 5) = 1$.</p>
+<p>Now suppose we are given that $S = 1$. Then $H$ can have values 0 through 4, and for any integer $h$ in this range we have</p>
+$$
+P(H = h \mid S = 1) ~ = ~ \frac{P(H = h, S = 1)}{P(S = 1)} ~ = ~ 
+\frac{\binom{13}{h}\binom{13}{1}\binom{26}{5 - h - 1}}{\binom{13}{1}\binom{39}{4}}
+$$<p>by canceling factors of $1/\binom{52}{5}$ in the numerator and denominator. After canceling $\binom{13}{1}$ as well, we have</p>
+$$
+P(H = h \mid S = 1) ~ = ~ \frac{\binom{13}{h}\binom{26}{4 - h}}{\binom{39}{4}}, ~~ 0 \le h \le 4
+$$<p>This is the hypergeometric $(39, 13, 4)$ distribution: given that there is one spade in the hand, the other four cards are like a simple random sample drawn from the 39 hearts, diamonds, and clubs.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">stats</span><span class="o">.</span><span class="n">hypergeom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span> <span class="mi">39</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([0.18176071, 0.41093725, 0.30820294, 0.0904062 , 0.0086929 ])</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>These are the probabilities in the row corresponding to the given condition $S=1$ in the table of conditional distributions above.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+ 
+

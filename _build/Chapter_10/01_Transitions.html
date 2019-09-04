@@ -1,0 +1,1158 @@
+---
+redirect_from:
+  - "/chapter-10/01-transitions"
+interact_link: content/Chapter_10/01_Transitions.ipynb
+kernel_name: python3
+has_widgets: false
+title: 'Transitions'
+prev_page:
+  url: /Chapter_10/00_Markov_Chains.html
+  title: 'Chapter 10: Markov Chains'
+next_page:
+  url: /Chapter_10/02_Deconstructing_Chains.html
+  title: 'Deconstructing Chains'
+comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
+---
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Transitions">Transitions<a class="anchor-link" href="#Transitions"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let $X_0, X_1, X_2, \ldots $ be a Markov chain with state space $S$. By the Markov property, the probability of a <em>trajectory</em> or <em>path</em> of finite length is</p>
+$$
+\begin{align*}
+&amp; P(X_0 = i_0, X_1 = i_1, X_2 = i_2, \ldots, X_n = i_n) \\
+&amp; = ~ 
+P(X_0 = i_0)P(X_1 = i_1 \mid X_0 = i_0)P(X_2 = i_2 \mid X_1 = i_1) \cdots
+P(X_n = i_n \mid X_{n-1} = i_{n-1})
+\end{align*}
+$$<p>The distribution of $X_0$ is called the <em>initial distribution</em> of the chain.</p>
+<p>The conditional probabilities in the product are called <em>transition probabilities</em>. For states $i$ and $j$, the conditional probability $P(X_{n+1} = j \mid X_n = i)$ is called a <em>one-step transition probability at time $n$</em>.</p>
+<h3 id="Stationary-Transition-Probabilities">Stationary Transition Probabilities<a class="anchor-link" href="#Stationary-Transition-Probabilities"> </a></h3><p>For many chains such as the random walk, the one-step transition probabilities depend only on the states $i$ and $j$, not on the time $n$. For example, for the random walk,</p>
+$$
+\begin{equation}
+P(X_{n+1} = j \mid X_n = i) = 
+ \begin{cases} 
+      \frac{1}{2} &amp; \text{if } j = i-1 \text{ or } j = i+1 \\
+      0 &amp; \text{ otherwise}
+   \end{cases}
+\end{equation}
+$$<p>for every $n$. 
+When one-step transition probabilites don't depend on $n$, they are called <em>stationary</em> or <em>time-homogenous</em>. All the Markov chains that we will study in this course have time-homogenous transition probabilities.</p>
+<p>For such a chain, define the <em>one-step transition probability</em></p>
+$$
+P(i, j) ~ = ~ P(X_{n+1} = j \mid X_n = i) ~ = ~ P(X_1 = j \mid X_0 = i)
+$$<p>Then the probability of every path of finite length is the product of a term from the initial distribution and a sequence of one-step transition probabilities:</p>
+$$
+P(X_0 = i_0, X_1 = i_1, X_2 = i_2, \ldots, X_n = i_n)
+~ = ~ P(X_0 = i_0)P(i_0, i_1)P(i_1, i_2) \cdots P(i_{n-1}, i_n)
+$$<h3 id="One-Step-Transition-Matrix">One-Step Transition Matrix<a class="anchor-link" href="#One-Step-Transition-Matrix"> </a></h3><p>The one-step transition probabilities can be represented as elements of a matrix. This isn't just for compactness of notation – it leads to a powerful theory.</p>
+<p>The <em>one-step transition matrix</em> of the chain is the matrix $\mathbb{P}$ whose $(i, j)$th element is $P(i, j) = P(X_1 = j \mid X_0 = i)$.</p>
+<p>Often, $\mathbb{P}$ is just called <em>the transition matrix</em> for short. Note two important properties:</p>
+<ul>
+<li>$\mathbb{P}$ is a square matrix: its rows as well as its columns are indexed by the state space.</li>
+<li>Each row of $\mathbb{P}$ is a distribution: for each state $i$, and each $n$, Row $i$ of the transition matrix is the conditional distribution of $X_{n+1}$ given that $X_n = i$. Because each of its rows adds up to 1, $\mathbb{P}$ is called a <em>stochastic matrix</em>.</li>
+</ul>
+<p>Let's see what the transition matrix looks like in an example.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Sticky-Reflecting-Random-Walk">Sticky Reflecting Random Walk<a class="anchor-link" href="#Sticky-Reflecting-Random-Walk"> </a></h3><p>Often, the transition behavior of a Markov chain is easier to describe in a <em>transition diagram</em> instead of a matrix. Here is such a diagram for a chain on the states 1, 2, 3, 4, and 5. The diagram shows the one-step transition probabilities.</p>
+<ul>
+<li>No matter at which state the chain is, it stays there with chance 0.5.</li>
+<li>If the chain is at states 2 through 4, it moves to each of its two adjacent state with chance 0.25.</li>
+<li>If the chain is at states 1 or 5, it moves to its adjacent state with chance 0.5.</li>
+</ul>
+<p><img src="trans_refl.png" alt="Reflecting Lazy Walk"></p>
+<p>We say that there is <em>reflection</em> at states 1 and 5. The walk is <em>sticky</em> because of the positive chance of staying in place.</p>
+<p>Transition diagrams are great for understanding the rules by which a chain moves. For calculations, however, the transition matrix is more helpful.</p>
+<p>To start constructing the matrix, we set the array <code>s</code> to be the set of states and the transition function <code>refl_walk_probs</code> to take arguments $i$ and $j$ and return $P(i, j)$.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">refl_walk_probs</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">):</span>
+    <span class="c1"># staying in the same state</span>
+    <span class="k">if</span> <span class="n">i</span><span class="o">-</span><span class="n">j</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mf">0.5</span>
+    
+    <span class="c1"># moving left or right</span>
+    <span class="k">elif</span> <span class="mi">2</span> <span class="o">&lt;=</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">4</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="n">j</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mf">0.25</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">0</span>
+        
+    <span class="c1"># moving right from 1</span>
+    <span class="k">elif</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">j</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mf">0.5</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">0</span>
+    
+    <span class="c1"># moving left from 5</span>
+    <span class="k">elif</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">5</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">j</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mf">0.5</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">0</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>You can use the <code>prob140</code> library to construct <code>MarkovChain</code> objects. The <code>from_transition_function</code> method takes two arguments:</p>
+<ul>
+<li>an array of the states</li>
+<li>a transition function</li>
+</ul>
+<p>and displays the one-step transition matrix of a <code>MarkovChain</code> object.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">reflecting_walk</span> <span class="o">=</span> <span class="n">MarkovChain</span><span class="o">.</span><span class="n">from_transition_function</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">refl_walk_probs</span><span class="p">)</span>
+<span class="n">reflecting_walk</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>0.50</td>
+      <td>0.50</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.25</td>
+      <td>0.50</td>
+      <td>0.25</td>
+      <td>0.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.00</td>
+      <td>0.25</td>
+      <td>0.50</td>
+      <td>0.25</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.25</td>
+      <td>0.50</td>
+      <td>0.25</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.50</td>
+      <td>0.50</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Compare the transition matrix $\mathbb{P}$ with the transition diagram, and confirm that they contain the same information about transition probabilities.</p>
+<p>To find the chance that the chain moves to $j$ given that it is at $i$, go to Row $i$ and pick out the probability in Column $j$.</p>
+<p>If you know the starting state, you can use $\mathbb{P}$ to find the probability of any finite path. For example, given that the walk starts at 1, the probability that it then has the path [2, 2, 3, 4, 3] is</p>
+$$
+P(1, 2)P(2, 2)P(2, 3)P(3, 4)P(4, 3) \approx 0.4\%
+$$
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="mf">0.5</span> <span class="o">*</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="mf">0.25</span> <span class="o">*</span> <span class="mf">0.25</span> <span class="o">*</span> <span class="mf">0.25</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.00390625</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The <code>MarkovChain</code> method <code>prob_of_path</code> saves you the trouble of doing the multiplication. It takes as its arguments the starting state and the rest of the path (in a list or array), and returns the probability of the path given the starting state.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">reflecting_walk</span><span class="o">.</span><span class="n">prob_of_path</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.00390625</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">reflecting_walk</span><span class="o">.</span><span class="n">prob_of_path</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.0</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>You can simulate paths of the chain using the <code>simulate_path</code> method. It takes two arguments: the starting state and the number of steps of the path. By default it returns an array consisting of the sequence of states in the path. The optional argument <code>plot_path=True</code> plots the simulated path. Run the cells below a few times and see how the output changes.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">reflecting_walk</span><span class="o">.</span><span class="n">simulate_path</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([1, 1, 1, 1, 1, 2, 1, 1])</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">reflecting_walk</span><span class="o">.</span><span class="n">simulate_path</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">plot_path</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../images/Chapter_10/01_Transitions_13_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="$n$-Step-Transition-Matrix">$n$-Step Transition Matrix<a class="anchor-link" href="#$n$-Step-Transition-Matrix"> </a></h3><p>For states $i$ and $j$, the chance of getting from $i$ to $j$ in $n$ steps is called the $n$-step transition probability from $i$ to $j$. Formally, the $n$-step transition probability is</p>
+$$
+P_n(i, j) ~ = ~ P(X_n = j \mid X_0 = i)
+$$<p>In this notation, the one-step transition probability $P(i, j)$ can also be written as $P_1(i, j)$.</p>
+<p>The $n$-step transition probability $P_n(i, j)$ can be represented as the $(i, j)$th element of a matrix called the $n$-step transition matrix. For each state $i$, Row $i$ of the $n$-step transition matrix contains the distribution of $X_n$ given that the chain starts at $i$.</p>
+<p>The <code>MarkovChain</code> method <code>transition_matrix</code> takes $n$ as its argument and displays the $n$-step transition matrix. Here is the 2-step transition matrix of the reflecting walk defined earlier in this section.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">reflecting_walk</span><span class="o">.</span><span class="n">transition_matrix</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>0.3750</td>
+      <td>0.5000</td>
+      <td>0.125</td>
+      <td>0.0000</td>
+      <td>0.0000</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.2500</td>
+      <td>0.4375</td>
+      <td>0.250</td>
+      <td>0.0625</td>
+      <td>0.0000</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.0625</td>
+      <td>0.2500</td>
+      <td>0.375</td>
+      <td>0.2500</td>
+      <td>0.0625</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.0000</td>
+      <td>0.0625</td>
+      <td>0.250</td>
+      <td>0.4375</td>
+      <td>0.2500</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>0.0000</td>
+      <td>0.0000</td>
+      <td>0.125</td>
+      <td>0.5000</td>
+      <td>0.3750</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>You can calculate the individual entries easily by hand. For example, the $(1, 1)$ entry is the chance of going from state 1 to state 1 in 2 steps. There are two paths that make this happen:</p>
+<ul>
+<li>[1, 1, 1]</li>
+<li>[1, 2, 1]</li>
+</ul>
+<p>Given that 1 is the starting state, the total chance of the two paths is $(0.5 \times 0.5) + (0.5 \times 0.25) = 0.375$.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Because of the Markov property, the one-step transition probabilities are all you need to find the 2-step transition probabilities.</p>
+<p>In general, we can find $P_2(i, j)$ by conditioning on where the chain was at time 1.</p>
+$$
+\begin{align*}
+P_2(i, j) ~ &amp;= ~ P(X_2 = j \mid X_0 = i) \\
+&amp;= ~ \sum_k P(X_1 = k, X_2 = j \mid X_0 = i) \\
+&amp;= ~ \sum_k P(X_1 = k \mid X_0 = i)P(X_2 = j \mid X_1 = k) \\
+&amp;= ~ \sum_k P(i, k)P(k, j)
+\end{align*}
+$$<p>That's the $(i, j)$th element of the matrix product $\mathbb{P} \times \mathbb{P} = \mathbb{P}^2$. Thus the 2-step transition matrix of the chain is $\mathbb{P}^2$.</p>
+<p>By induction, you can show that the $n$-step transition matrix of the chain is $\mathbb{P}^n$.</p>
+<p>Here is a display of the 5-step transition matrix of the reflecting walk.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">reflecting_walk</span><span class="o">.</span><span class="n">transition_matrix</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>0.246094</td>
+      <td>0.410156</td>
+      <td>0.234375</td>
+      <td>0.089844</td>
+      <td>0.019531</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.205078</td>
+      <td>0.363281</td>
+      <td>0.250000</td>
+      <td>0.136719</td>
+      <td>0.044922</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.117188</td>
+      <td>0.250000</td>
+      <td>0.265625</td>
+      <td>0.250000</td>
+      <td>0.117188</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.044922</td>
+      <td>0.136719</td>
+      <td>0.250000</td>
+      <td>0.363281</td>
+      <td>0.205078</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>0.019531</td>
+      <td>0.089844</td>
+      <td>0.234375</td>
+      <td>0.410156</td>
+      <td>0.246094</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This is a display, but to work with the matrix we have to represent it in a form that Python recognizes as a matrix. The method <code>get_transition_matrix</code> does this for us. It take the number of steps $n$ as its argument and returns the $n$-step transition matrix as a NumPy matrix.</p>
+<p>For the reflecting walk, we will start by extracting $\mathbb{P}$ as the matrix <code>refl_walk_P</code>.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">refl_walk_P</span> <span class="o">=</span> <span class="n">reflecting_walk</span><span class="o">.</span><span class="n">get_transition_matrix</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">refl_walk_P</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([[ 0.5 ,  0.5 ,  0.  ,  0.  ,  0.  ],
+       [ 0.25,  0.5 ,  0.25,  0.  ,  0.  ],
+       [ 0.  ,  0.25,  0.5 ,  0.25,  0.  ],
+       [ 0.  ,  0.  ,  0.25,  0.5 ,  0.25],
+       [ 0.  ,  0.  ,  0.  ,  0.5 ,  0.5 ]])</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let's check that the 5-step transition matrix displayed earlier is the same as $\mathbb{P}^5$. You can use <code>np.linalg.matrix_power</code> to raise a matrix to a non-negative integer power. The first argument is the matrix, the second is the power.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">matrix_power</span><span class="p">(</span><span class="n">refl_walk_P</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([[ 0.24609375,  0.41015625,  0.234375  ,  0.08984375,  0.01953125],
+       [ 0.20507812,  0.36328125,  0.25      ,  0.13671875,  0.04492188],
+       [ 0.1171875 ,  0.25      ,  0.265625  ,  0.25      ,  0.1171875 ],
+       [ 0.04492188,  0.13671875,  0.25      ,  0.36328125,  0.20507812],
+       [ 0.01953125,  0.08984375,  0.234375  ,  0.41015625,  0.24609375]])</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This is indeed the same as the matrix displayed by <code>transition_matrix</code>, though it is harder to read.</p>
+<p>When we want to use $\mathbb{P}$ in computations, we will use this matrix representation. For displays, <code>transition_matrix</code> is better.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="The-Long-Run">The Long Run<a class="anchor-link" href="#The-Long-Run"> </a></h3><p>To understand the long run behavior of the chain, let $n$ be large and let's examine the distribution of $X_n$ for each value of the starting state. That's contained in the $n$-step transition matrix $\mathbb{P}^n$.</p>
+<p>Here is the display of $\mathbb{P}^n$ for the reflecting walk, for $n = 25, 50$, and $100$.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">reflecting_walk</span><span class="o">.</span><span class="n">transition_matrix</span><span class="p">(</span><span class="mi">25</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>0.129772</td>
+      <td>0.256749</td>
+      <td>0.25</td>
+      <td>0.243251</td>
+      <td>0.120228</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.128374</td>
+      <td>0.254772</td>
+      <td>0.25</td>
+      <td>0.245228</td>
+      <td>0.121626</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.125000</td>
+      <td>0.250000</td>
+      <td>0.25</td>
+      <td>0.250000</td>
+      <td>0.125000</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.121626</td>
+      <td>0.245228</td>
+      <td>0.25</td>
+      <td>0.254772</td>
+      <td>0.128374</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>0.120228</td>
+      <td>0.243251</td>
+      <td>0.25</td>
+      <td>0.256749</td>
+      <td>0.129772</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">reflecting_walk</span><span class="o">.</span><span class="n">transition_matrix</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>0.125091</td>
+      <td>0.250129</td>
+      <td>0.25</td>
+      <td>0.249871</td>
+      <td>0.124909</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.125064</td>
+      <td>0.250091</td>
+      <td>0.25</td>
+      <td>0.249909</td>
+      <td>0.124936</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.125000</td>
+      <td>0.250000</td>
+      <td>0.25</td>
+      <td>0.250000</td>
+      <td>0.125000</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.124936</td>
+      <td>0.249909</td>
+      <td>0.25</td>
+      <td>0.250091</td>
+      <td>0.125064</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>0.124909</td>
+      <td>0.249871</td>
+      <td>0.25</td>
+      <td>0.250129</td>
+      <td>0.125091</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">reflecting_walk</span><span class="o">.</span><span class="n">transition_matrix</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>0.125</td>
+      <td>0.25</td>
+      <td>0.25</td>
+      <td>0.25</td>
+      <td>0.125</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.125</td>
+      <td>0.25</td>
+      <td>0.25</td>
+      <td>0.25</td>
+      <td>0.125</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.125</td>
+      <td>0.25</td>
+      <td>0.25</td>
+      <td>0.25</td>
+      <td>0.125</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.125</td>
+      <td>0.25</td>
+      <td>0.25</td>
+      <td>0.25</td>
+      <td>0.125</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>0.125</td>
+      <td>0.25</td>
+      <td>0.25</td>
+      <td>0.25</td>
+      <td>0.125</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The rows of $\mathbb{P}^{100}$ are all the same! That means that for the reflecting walk, the distribution at time 100 doesn't depend on the starting state. <em>The chain has forgotten where it started.</em></p>
+<p>You can increase $n$ and see that the $n$-step transition matrix stays the same. By time 100, this chain has <em>reached stationarity</em>.</p>
+<p>Stationarity is a remarkable property of many Markov chains, and is the main topic of this chapter.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+ 
+

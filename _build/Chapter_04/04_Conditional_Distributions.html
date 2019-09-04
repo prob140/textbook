@@ -1,0 +1,483 @@
+---
+redirect_from:
+  - "/chapter-04/04-conditional-distributions"
+interact_link: content/Chapter_04/04_Conditional_Distributions.ipynb
+kernel_name: python3
+has_widgets: false
+title: 'Conditional Distributions'
+prev_page:
+  url: /Chapter_04/03_Marginal_Distributions.html
+  title: 'Marginal Distributions'
+next_page:
+  url: /Chapter_04/05_Dependence_and_Independence.html
+  title: 'Dependence and Independence'
+comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
+---
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Conditional-Distributions">Conditional Distributions<a class="anchor-link" href="#Conditional-Distributions"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To understand the relation between two variables we must examine the conditional behavior of each of them given the value of the other. Towards this goal, we will start by examining the example of the previous section and then develop the general theory.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In our example, the joint distribution of $X$ and $Y$ is given by <code>joint_table</code>. Here we also display the marginal distribution of $X$.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">joint_table</span><span class="o">.</span><span class="n">marginal</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>X=0</th>
+      <th>X=1</th>
+      <th>X=2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Y=5</th>
+      <td>0.00000</td>
+      <td>0.0000</td>
+      <td>0.03125</td>
+    </tr>
+    <tr>
+      <th>Y=4</th>
+      <td>0.00000</td>
+      <td>0.0625</td>
+      <td>0.09375</td>
+    </tr>
+    <tr>
+      <th>Y=3</th>
+      <td>0.03125</td>
+      <td>0.1875</td>
+      <td>0.09375</td>
+    </tr>
+    <tr>
+      <th>Y=2</th>
+      <td>0.09375</td>
+      <td>0.1875</td>
+      <td>0.03125</td>
+    </tr>
+    <tr>
+      <th>Y=1</th>
+      <td>0.09375</td>
+      <td>0.0625</td>
+      <td>0.00000</td>
+    </tr>
+    <tr>
+      <th>Y=0</th>
+      <td>0.03125</td>
+      <td>0.0000</td>
+      <td>0.00000</td>
+    </tr>
+    <tr>
+      <th>Sum: Marginal of X</th>
+      <td>0.25000</td>
+      <td>0.5000</td>
+      <td>0.25000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now suppose we know that $Y = 3$. Then the outcome space is reduced to just the cells in the row labeled <code>Y=3</code>.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">indicator_Y_equals_3</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">j</span> <span class="o">==</span> <span class="mi">3</span>
+
+<span class="n">joint_table</span><span class="o">.</span><span class="n">event</span><span class="p">(</span><span class="n">indicator_Y_equals_3</span><span class="p">,</span> <span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="s1">&#39;Y&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>P(Event) = 0.3125
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>X=0</th>
+      <th>X=1</th>
+      <th>X=2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Y=5</th>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Y=4</th>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Y=3</th>
+      <td>0.03125</td>
+      <td>0.1875</td>
+      <td>0.09375</td>
+    </tr>
+    <tr>
+      <th>Y=2</th>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Y=1</th>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Y=0</th>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Of course, the probabilities along this row don't sum to 1. Their sum is $P(Y = 3) = 0.3125$.</p>
+<p>By the division rule, for each $x = 0, 1, 2$ we have</p>
+$$
+P(X = x \mid Y = 3) ~ = ~ \frac{P(X = x, Y = 3)}{P(Y = 3)}
+$$<p>By <em>normalizing</em> all the probabilities in the row by their sum, we get the <em>conditional distribution of $X$ given $Y=3$</em>.</p>
+$$
+\begin{align*}
+P(X = 0 \mid Y = 3) ~ &amp;= ~ \frac{0.03125}{0.3125} = 0.1 \\ \\
+P(X = 1 \mid Y = 3) ~ &amp;= ~ \frac{0.1875}{0.3125} = 0.6 \\ \\
+P(X = 2 \mid Y = 3) ~ &amp;= ~ \frac{0.09375}{0.3125} = 0.3
+\end{align*}
+$$
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Compare this conditional distribution to the unconditional distribution of $X$:</p>
+$$
+P(X = 0) ~ = ~ 0.25, ~~~~~ P(X = 1) ~ = ~ 0.5, ~~~~~ P(X = 2) ~ = ~ 0.25
+$$<p>The two distributions are different. Given $Y = 3$, the chance that $X$ is large is higher than it is if we don't have that condition.</p>
+<p>This shows that $X$ and $Y$ are <em>dependent</em>. We will define dependence and independence formally in the next section.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Conditional-Distribution-of-$X$-given-$Y-=-y$">Conditional Distribution of $X$ given $Y = y$<a class="anchor-link" href="#Conditional-Distribution-of-$X$-given-$Y-=-y$"> </a></h3><p>The <code>conditional_dist</code> method operates on a joint distribution object and displays conditional distributions, as follows.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># conditional distribution of X given each different value of Y</span>
+
+<span class="n">joint_table</span><span class="o">.</span><span class="n">conditional_dist</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="s1">&#39;Y&#39;</span><span class="p">)</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>X=0</th>
+      <th>X=1</th>
+      <th>X=2</th>
+      <th>Sum</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Dist. of X | Y=5</th>
+      <td>0.00</td>
+      <td>0.0</td>
+      <td>1.00</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Dist. of X | Y=4</th>
+      <td>0.00</td>
+      <td>0.4</td>
+      <td>0.60</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Dist. of X | Y=3</th>
+      <td>0.10</td>
+      <td>0.6</td>
+      <td>0.30</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Dist. of X | Y=2</th>
+      <td>0.30</td>
+      <td>0.6</td>
+      <td>0.10</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Dist. of X | Y=1</th>
+      <td>0.60</td>
+      <td>0.4</td>
+      <td>0.00</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Dist. of X | Y=0</th>
+      <td>1.00</td>
+      <td>0.0</td>
+      <td>0.00</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Marginal of X</th>
+      <td>0.25</td>
+      <td>0.5</td>
+      <td>0.25</td>
+      <td>1.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To understand this table, start with the row labeled <code>Y=3</code>. The entries are the probabilities in the conditional distribution of $X$ given $Y=3$.</p>
+<p>In the row labeled <code>Y=1</code>, the entries are the probabilities in the conditional distribution of $X$ given $Y=1$. Notice that if $Y=1$ then $X$ can't be 2. You can go back and confirm that in the joint distribution table, $P(X = 2, Y = 1) = 0$.</p>
+<p>All the other rows can be understood in the same way. In row $y$, the given condition is $Y=y$, and the entries are the probabilities in the conditional distribution of $X$ given $Y=y$.</p>
+<p>It is easy to see why each row in the table of conditional distributions sums to 1. The value in each cell in the row is obtained from the joint distribution table by taking the corresponding cell in that table and dividing its entry by the sum of the entries in the row.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="The-Theory">The Theory<a class="anchor-link" href="#The-Theory"> </a></h3><p>We can now generalize the calculations we did in the example above.</p>
+<p>Let $X$ and $Y$ be two random variables defined on the same space. If $x$ is a possible value of $X$, and $y$ and possible value of $Y$, then</p>
+$$
+P(X = x \mid Y = y) = \frac{P(X = x, Y = y)}{P(Y = y)}
+$$<p>The conditional probability $P(X = x \mid Y = y)$ is displayed in the $(x, y)$ cell of the table of conditional distributions above.</p>
+<p>For a fixed value $y^\*$ of $Y$, the <em>conditional distribution</em> of $X$ given $Y = y^\*$ is the collection of probabilities</p>
+$$
+P(X = x \mid Y = y^*) = \frac{P(X = x, Y = y^*)}{P(Y = y^*)}
+$$<p>where $x$ ranges over all the values of $X$. Keep in mind that $x$ represents the values of the variable here. The value $y^\*$ is the particular value of $Y$ that was observed, so it is a constant.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="The-Probabilities-in-a-Conditional-Distribution-Sum-to-1">The Probabilities in a Conditional Distribution Sum to 1<a class="anchor-link" href="#The-Probabilities-in-a-Conditional-Distribution-Sum-to-1"> </a></h3><p>In a distribution, the probabilities have to sum to 1. To see that this is true for the conditional distribution defined above, start by using the fundamental rule.</p>
+<p>Find $P(Y = y^\*)$ by partitioning the event $\{ Y = y^\* \}$ according to the values of $X$:</p>
+$$
+P(Y = y^*) = \sum_{\text{all }x} P(X = x, Y = y^*)
+$$<p>Now sum the probabilities in the conditional distribution of $X$ given $Y = y^\*$:</p>
+$$
+\begin{align*}
+\sum_{\text{all }x} P(X = x \mid Y = y^*) ~ &amp;= ~
+\sum_{\text{all }x} \frac{P(X = x, Y = y^*)}{P(Y = y^*)} \\ \\
+&amp;= ~ \frac{1}{P(Y = y^*)} \sum_{\text{all }x} P(X = x, Y = y^*) \\
+&amp;= ~ \frac{1}{P(Y = y^*)} \cdot P(Y = y^*) \\ \\
+&amp;= ~ 1
+\end{align*}
+$$<p>Thus the conditional distribution is just an ordinary probability distribution: a set of values with probabilities that sum to 1.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+ 
+

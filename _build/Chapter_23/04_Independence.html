@@ -1,0 +1,66 @@
+---
+redirect_from:
+  - "/chapter-23/04-independence"
+interact_link: content/Chapter_23/04_Independence.ipynb
+kernel_name: python3
+has_widgets: false
+title: 'Independence'
+prev_page:
+  url: /Chapter_23/03_Linear_Combinations.html
+  title: 'Linear Combinations'
+next_page:
+  url: /Chapter_24/00_Simple_Linear_Regression.html
+  title: 'Chapter 24: Simple Linear Regression'
+comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
+---
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Independence">Independence<a class="anchor-link" href="#Independence"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>If the elements of $\mathbf{X}$ are mutually independent then $Cov(X_i, X_j) = 0$ for all $i \ne j$ and hence the covariance matrix $\boldsymbol{\Sigma}$ is a diagonal matrix and the $i$th diagonal element is $Var(X_i)$.</p>
+<p>In the other direction, zero covariance doesn't imply independence, and pairwise independence doesn't imply mutual independence. But the multivariate normal is a wonderful distribution:</p>
+<p>If $\mathbf{X}$ is multivariate normal and its elements are pairwise uncorrelated – that is, $Cov(X_i, X_j) = 0$ for all 
+$i \ne j$ – then the elements of $\mathbf{X}$ are mutually independent.</p>
+<p>That is, <strong>multivariate normal random variables are independent if and only if they are uncorrelated.</strong></p>
+<p>This is easy to see from the form of the density of $\mathbf{X}$. If $\boldsymbol{\Sigma}$ is a diagonal matrix then so is $\boldsymbol{\Sigma}^{-1}$. The $i$th diagonal element of $\boldsymbol{\Sigma}^{-1}$ is $1/\sigma_i^2$ where $\sigma_i^2 = Var(X_i)$. So</p>
+$$
+(\mathbf{x} - \boldsymbol{\mu})\boldsymbol{\Sigma}^{-1} (\mathbf{x} - \boldsymbol{\mu}) ~ = ~ \sum_{i=1}^n \frac{(x_i - \boldsymbol{\mu}(i))^2}{\sigma_i^2}
+$$<p>and therefore</p>
+$$
+\exp\big{(} -\frac{1}{2} (\mathbf{x} - \boldsymbol{\mu})\boldsymbol{\Sigma}^{-1} (\mathbf{x} - \boldsymbol{\mu}) \big{)} ~ = ~ \prod_{i=1}^n \exp\big{(}-\frac{1}{2} \big{(}\frac{x_i - \boldsymbol{\mu}(i)}{\sigma_i}\big{)}^2\big{)}
+$$<p>In the constant of integration, $\det(\boldsymbol{\Sigma}) = \sigma_1^2 \sigma_2^2 \cdots \sigma_n^2$.</p>
+<p>Therefore the density of $\mathbf{X}$ is the product of the marginal normal densities.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Sum-and-Difference,-Revisited">Sum and Difference, Revisited<a class="anchor-link" href="#Sum-and-Difference,-Revisited"> </a></h3><p>Let $\mathbf{X} = [X_1, X_2]^T$ have a bivariate normal distribution. Let $S = X_1 + X_2$ and $D = X_1 - X_2$. We know that $S$ and $D$ have a bivariate normal distribution and that</p>
+$$
+Cov(S, D) ~ = ~ Var(X_1) - Var(X_2)
+$$<p>If $X_1$ and $X_2$ have the same variance then $S$ and $D$ are uncorrelated, and hence also independent by what we have just proved.</p>
+<p>Thus for example the sum and difference of two i.i.d. normal random variables are independent.</p>
+<p>You have shown in exercises that the sum and differences of any two i.i.d. random variables are uncorrelated. If in addition the two variables are normal, then their sum and difference are independent, not just uncorrelated.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+ 
+
