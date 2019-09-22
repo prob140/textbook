@@ -61,7 +61,7 @@ $$<p><strong>Technical Note:</strong> If $X$ has finitely many possible values, 
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
 <span class="n">probs</span> <span class="o">=</span> <span class="n">make_array</span><span class="p">(</span><span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
-<span class="n">example_dist</span> <span class="o">=</span> <span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">probability</span><span class="p">(</span><span class="n">probs</span><span class="p">)</span>
+<span class="n">example_dist</span> <span class="o">=</span> <span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">probabilities</span><span class="p">(</span><span class="n">probs</span><span class="p">)</span>
 <span class="n">Plot</span><span class="p">(</span><span class="n">example_dist</span><span class="p">)</span>
 </pre></div>
 
@@ -398,7 +398,7 @@ $$<p>by our calculation above. Thus every probability is an expectation. We will
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
 <span class="n">qp</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.75</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">]</span>
-<span class="n">bern_1_3</span> <span class="o">=</span> <span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">probability</span><span class="p">(</span><span class="n">qp</span><span class="p">)</span>
+<span class="n">bern_1_3</span> <span class="o">=</span> <span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">probabilities</span><span class="p">(</span><span class="n">qp</span><span class="p">)</span>
 <span class="n">Plot</span><span class="p">(</span><span class="n">bern_1_3</span><span class="p">,</span> <span class="n">show_ev</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Bernoulli (0.25)&#39;</span><span class="p">);</span>
 </pre></div>
@@ -457,7 +457,7 @@ $$
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 <span class="n">probs</span> <span class="o">=</span> <span class="mf">0.1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">unif_10</span> <span class="o">=</span> <span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">probability</span><span class="p">(</span><span class="n">probs</span><span class="p">)</span>
+<span class="n">unif_10</span> <span class="o">=</span> <span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">probabilities</span><span class="p">(</span><span class="n">probs</span><span class="p">)</span>
 <span class="n">Plot</span><span class="p">(</span><span class="n">unif_10</span><span class="p">,</span> <span class="n">show_ev</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Uniform on Integers 0, 1, 2, ..., 9&#39;</span><span class="p">);</span>
 </pre></div>
@@ -516,7 +516,7 @@ $$<p><strong>We now have an important new interpretation of the parameter of the
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
 <span class="n">poi_2_probs</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">poisson</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="n">dist_poi_2</span> <span class="o">=</span> <span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">.</span><span class="n">probability</span><span class="p">(</span><span class="n">poi_2_probs</span><span class="p">)</span>
+<span class="n">dist_poi_2</span> <span class="o">=</span> <span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">.</span><span class="n">probabilities</span><span class="p">(</span><span class="n">poi_2_probs</span><span class="p">)</span>
 <span class="n">Plot</span><span class="p">(</span><span class="n">dist_poi_2</span><span class="p">,</span> <span class="n">show_ev</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Poisson (2)&#39;</span><span class="p">);</span>
 </pre></div>
@@ -571,6 +571,55 @@ $$<p>Now suppose the random variable $X$ has values $2, 4, 8, 16 \ldots$ so that
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>This problem with expectation happens when the distribution has "mass drifting off to infinity" at a rate that makes it impossible to balance the probability histogram anywhere on the horizontal axis.</p>
 
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Tail-Sum-Formula">Tail Sum Formula<a class="anchor-link" href="#Tail-Sum-Formula"> </a></h3><p>To find the expectation of a non-negative integer valued random variable it is sometimes quicker to use a formula that uses only the <em>right hand tail</em> probabilities $P(X &gt; k) = 1 - F(k)$ where $F$ is the cdf of $X$ and $k \ge 0$.</p>
+<p>For non-negative integer valued $X$,</p>
+$$
+E(X) = P(X=1) + 2P(X=2) + 3P(X=3) + \cdots
+$$<p>Rewrite this as</p>
+$$
+\begin{align*}
+E(X) ~ = ~ &amp;P(X=1)\\
++ ~ &amp;P(X=2) + P(X=2)\\
++ ~ &amp;P(X=3) + P(X=3) + P(X=3)\\
++ ~ &amp;P(X=4) + P(X=4) + P(X=4) + P(X=4)\\
++ ~ &amp; ~~~~~~~~ \vdots ~~~~~ + ~~~~~~~~ \vdots ~~~~~ + ~~~~~~~~ \vdots ~~~~~ + ~~~~~~~~ \vdots ~~~~~~
+\end{align*}
+$$<p>Add the terms along each column on the right hand side to get the <em>tail sum formula</em> for the expectation of a non-negative integer valued random variable.</p>
+$$
+E(X) = P(X &gt; 0) + P(X &gt; 1) + P(X &gt; 2) + \cdots ~ = ~ \sum_{k=0}^\infty P(X &gt; k)
+$$<p>This formula comes in handy if a random variable has tail probabilities that are easy to find and also easy to sum.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Geometric">Geometric<a class="anchor-link" href="#Geometric"> </a></h3><p>In a sequence of i.i.d. Bernoulli $(p)$ trials, let $X$ be the number of trials till the first success. We will use the word "till" to mean "up to and including".</p>
+<p>Let $q = 1-p$. The distribution of $X$ is given by</p>
+$$
+P(X = k) ~ = ~ P(k-1 \text{ failures followed by a success}) ~ = ~ q^{k-1}p, ~~ k = 1, 2, 3, \ldots
+$$<p>This is called the <em>geometric</em> $(p)$ distribution on $\{1, 2, 3, \ldots \}$ because the probabilities are terms in a geometric series.</p>
+<p>The right tails of $X$ are simple because for each $k \ge 1$,</p>
+$$
+P(X &gt; k) ~ = ~ P(\text{first } k \text{ trials are failures}) ~ = ~ q^k
+$$<p>The formula is also true for $k = 0$ because $P(X &gt; 0) = 1 = q^0$.</p>
+<p>By the tail sum formula,</p>
+$$
+E(X) ~ = ~ \sum_{k=0}^\infty q^k ~ = ~ \frac{1}{1-q} ~ = ~ \frac{1}{p}
+$$
 </div>
 </div>
 </div>
