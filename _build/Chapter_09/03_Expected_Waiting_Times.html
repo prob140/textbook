@@ -48,7 +48,7 @@ $$<p>This is called the geometric $(p)$ distribution on $1, 2, 3, \ldots $, beca
 <ul>
 <li>With probability 1, at least one toss has to be made. So $W_H = 1 + R$ where $R$ is the random number of tosses required after the first one.</li>
 <li>With probability $p$ the first toss is a head, so $R = 0$.</li>
-<li>With the remaining probability $q$ the first toss is a tail, and then <em>the process starts over</em> independently of what has happened before. That is, with probability $q$, $R = W^\*$ where $W^\*$ is an independent copy of $W_H$.</li>
+<li>With the remaining probability $q$ the first toss is a tail, and then <em>the process starts over</em> independently of what has happened before. That is, with probability $q$, $R = W^*$ where $W^*$ is an independent copy of $W_H$.</li>
 </ul>
 <p>Let $x = E(W_H)$. By additivity and averaging conditional expectations,</p>
 $$
@@ -100,9 +100,9 @@ $$
 <p><strong>Question.</strong> What is $E(W_{HH})$?</p>
 <p><strong>Answer 1.</strong> We can find this is several ways. One way is by conditioning on the first two tosses.</p>
 <ul>
-<li>With probability $q$, the first toss is a tail, so $W_{HH} = 1 + W^\*$ where $W^\*$ is an independent copy of $W_{HH}$.</li>
-<li>With probability $pq$ the first two tosses are HT, and $W_{HH} = 2 + W^{\*\*}$
-where $W^{\*\*}$ is an independent copy of $W_{HH}$.</li>
+<li>With probability $q$, the first toss is a tail, so $W_{HH} = 1 + W^*$ where $W^*$ is an independent copy of $W_{HH}$.</li>
+<li>With probability $pq$ the first two tosses are HT, and $W_{HH} = 2 + W^{**}$
+where $W^{**}$ is an independent copy of $W_{HH}$.</li>
 <li>With probability $p^2$, the first two tosses are heads, and $W_{HH} = 2$.</li>
 </ul>
 <p>So if $x = E(W_{HH})$ then</p>
@@ -117,7 +117,7 @@ $$<p>by repeatedly using $p + q = 1$.</p>
 <p>Notice that $W_{HH} = W_H + V$ where $V$ is the additional number of tosses needed after $W_H$.</p>
 <ul>
 <li>With probability $p$, the toss after $W_H$ is a head, so $V = 1$.</li>
-<li>With probability $q$, the toss after $W_H$ is a tail, so $V = 1 + W^\*$ where $W^\*$ is an independent copy of $W_{HH}$.</li>
+<li>With probability $q$, the toss after $W_H$ is a tail, so $V = 1 + W^*$ where $W^*$ is an independent copy of $W_{HH}$.</li>
 </ul>
 <p>So if $x = E(W_{HH})$ then</p>
 $$

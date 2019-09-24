@@ -74,7 +74,7 @@ use_show_widgets_button: true                # If 'true', display a button to al
 
 # Download settings
 use_download_button: false               # If 'true', display a button to download a zip file for the notebook
-download_button_text: Download                # The text that download buttons will contain
+download_button_text: ''                # The text that download buttons will contain
 
 #######################################################################################
 # Jupyter book extensions and additional features
