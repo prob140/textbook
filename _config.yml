@@ -34,7 +34,7 @@ footer_text: ''
 
 # Sidebar settings
 show_sidebar: true                # Show the sidebar. Only set to false if your only wish to host a single page.
-collapse_inactive_chapters: false  # Whether to collapse the inactive chapters in the sidebar
+collapse_inactive_chapters: false # Whether to collapse the inactive chapters in the sidebar
 textbook_logo: content/images/logo/logo.png       # A logo to be displayed at the top of your textbook sidebar. Should be square
 textbook_logo_link: http://prob140.org/textbook/README.html              # A link for the logo.
 sidebar_footer_text: Powered by <a href="https://github.com/jupyter/jupyter-book">Jupyter
@@ -73,9 +73,9 @@ codemirror_theme: abcdef                     # Theme for codemirror cells, for o
 use_show_widgets_button: true                # If 'true', display a button to allow in-page running code cells with nbinteract
 
 # Download settings
-use_download_button: false               # If 'true', display a button to download a zip file for the notebook
-download_button_text: ''                # The text that download buttons will contain
-
+use_download_button: true               # If 'true', display a button to download a zip file for the notebook
+download_button_text: ''        # The text that download buttons will contain
+download_page_header: "Authorship: Ani Adhikari and Jim Pitman; This book is licensed for free consumption under the following license: (CC BY-NC-ND 4.0)" # A header that will be displayed at the top of and PDF-printed page
 #######################################################################################
 # Jupyter book extensions and additional features
 
