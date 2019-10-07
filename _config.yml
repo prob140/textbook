@@ -75,7 +75,7 @@ use_show_widgets_button: true                # If 'true', display a button to al
 # Download settings
 use_download_button: true               # If 'true', display a button to download a zip file for the notebook
 download_button_text: ''        # The text that download buttons will contain
-download_page_header: "Authorship: Ani Adhikari and Jim Pitman; This book is licensed for free consumption under the following license: (CC BY-NC-ND 4.0)" # A header that will be displayed at the top of and PDF-printed page
+download_page_header: "This is a section from Probability for Data Science by Ani Adhikari and Jim Pitman, provided under the license (CC BY-NC-ND 4.0)" # A header that will be displayed at the top of and PDF-printed page
 #######################################################################################
 # Jupyter book extensions and additional features
 
