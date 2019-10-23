@@ -424,7 +424,7 @@ $$<p>The method <code>np.flipud</code> reverses the array of probabilities to be
     <span class="n">coeffs_Sn</span> <span class="o">=</span> <span class="n">pgf_Sn</span><span class="o">.</span><span class="n">c</span>
     <span class="n">probs_Sn</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">flipud</span><span class="p">(</span><span class="n">coeffs_Sn</span><span class="p">)</span>
     
-    <span class="n">t</span> <span class="o">=</span> <span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">(</span><span class="n">values_Sn</span><span class="p">)</span><span class="o">.</span><span class="n">probability</span><span class="p">(</span><span class="n">probs_Sn</span><span class="p">)</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">(</span><span class="n">values_Sn</span><span class="p">)</span><span class="o">.</span><span class="n">probabilities</span><span class="p">(</span><span class="n">probs_Sn</span><span class="p">)</span>
     
     <span class="k">return</span> <span class="n">t</span>
 </pre></div>
