@@ -143,7 +143,7 @@ initScrollFunc = function() {
     // This is the function that does all the stuff when scrolling happens
 
     var position = content.scrollTop; // Because we use this differently for sidebar
-    
+
     // Decide to show the navbar
     var currentScrollPos = content.scrollTop;
     var delta = 10;
@@ -161,20 +161,16 @@ initScrollFunc = function() {
 
     // Highlight the right sidebar section
     position = position + (window.innerHeight / 4);  // + Manual offset
-  
+
     content.querySelectorAll('h2, h3').forEach((header, index) => {
-        if (header.offsetParent.classList.contains('jb_cell')) {
-          // If we're a page made from a notebook, there will be a parent called jb_cell
-          var target = header.offsetParent.offsetTop;
-        } else {
-          var target = header.offsetTop;
-        }
-        
-        var id = header.id;
-        if (position >= target) {
-          var query = 'ul.toc__menu a[href="#' + id + '"]';
-          document.querySelectorAll('ul.toc__menu li').forEach((item) => {item.classList.remove('active')});
-          document.querySelectorAll(query).forEach((item) => {item.parentElement.classList.add('active')});
+      // Highlight based on location from the top of the screen
+      var target = header.getBoundingClientRect().top
+      var pixelOffset = 300;  // Number of pixels from top to be highlighted
+      var id = header.id;
+      if (target < pixelOffset) {
+        var query = 'ul.toc__menu a[href="#' + id + '"]';
+        document.querySelectorAll('ul.toc__menu li').forEach((item) => {item.classList.remove('active')});
+        document.querySelectorAll(query).forEach((item) => {item.parentElement.classList.add('active')});
       }
     });
   }
