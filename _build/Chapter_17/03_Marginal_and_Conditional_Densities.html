@@ -402,10 +402,10 @@ $$
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>In our example, let $x = 0.2$ and consider finding the conditional density of $Y$ given $X = 0.4$. Under that condition, the possible values of $Y$ are in the range 0.4 to 1, and therefore</p>
+<p>In our example, let $x = 0.4$ and consider finding the conditional density of $Y$ given $X = 0.4$. Under that condition, the possible values of $Y$ are in the range 0.4 to 1, and therefore</p>
 $$
-f_{Y \mid X=0.4} (y) ~ = ~ \frac{30(y - 0.4)^4}{6(1 - 0.4)^5} ~ = ~ 
-\frac{5}{0.6^5} (y - 0.4)^4 ~~~~ y \in (0.4, 1)
+f_{Y \mid X=0.4} (y) = \frac{30(y - 0.4)^4}{6(1 - 0.4)^5} = 
+\frac{5}{0.6^5} (y - 0.4)^4  \;\;\;   y \in (0.4, 1)
 $$<p>This is a density on $(0.4, 1)$:</p>
 
 </div>
@@ -588,7 +588,7 @@ $$0.899999999999998$$
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>You can condition $X$ on $Y$ in the same way. By analogous arguments, for any fixed value of $y$ the conditional density of $X$ given $Y = y$ is</p>
 $$
-f_{X \mid Y=y} (x) ~ = ~ \frac{f(x, y)}{f_Y(y)} ~~~~~ \text{for all } x
+f_{X \mid Y=y} (x) = \frac{f(x, y)}{f_Y(y)} \;\;\; \text{for all } x
 $$
 </div>
 </div>
