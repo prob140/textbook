@@ -22,8 +22,8 @@ email: choldgraf@berkeley.edu
 description: >-
   This is an example book built with Jupyter Books.
 
-baseurl: /textbook       # the subpath of your site, e.g. /blog. If there is no subpath for your site, use an empty string ""
-url: http://prob140.org    # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: /textbook # the subpath of your site, e.g. /blog. If there is no subpath for your site, use an empty string ""
+url: http://prob140.org        # the base hostname & protocol for your site, e.g. http://example.com
 
 
 #######################################################################################
@@ -35,14 +35,23 @@ footer_text: ''
 # Sidebar settings
 show_sidebar: true                # Show the sidebar. Only set to false if your only wish to host a single page.
 collapse_inactive_chapters: false # Whether to collapse the inactive chapters in the sidebar
+collapse_inactive_sections: true  # Whether to collapse the sub-sections within a non-active section in the sidebar
 textbook_logo: content/images/logo/logo.png       # A logo to be displayed at the top of your textbook sidebar. Should be square
-textbook_logo_link: http://prob140.org/textbook/README.html              # A link for the logo.
+textbook_logo_link: http://prob140.org/textbook/README.html     # A link for the logo.
 sidebar_footer_text: Powered by <a href="https://github.com/jupyter/jupyter-book">Jupyter
   Book</a>
 number_toc_chapters: true         # Whether to add numbers to chapterse in your Table of Contents. If true, you can control this at the Chapter level in _data/toc.yml
 
 # Search settings
 search_max_words_in_content: 100   # In the search function, use at most this many words (too many words will make search slow)
+
+# Controlling page information
+page_titles: infer                      # Either `None`, `infer`, or `toc`
+page_authors: None                     # Either `None` or `infer`
+filename_title_split_character: _     # If inferring titles based on filename, splt on this character.
+
+# Math settings
+number_equations: false                 # Whether to automatically number all block equations with MathJax
 
 #######################################################################################
 # Interact link settings
@@ -73,9 +82,11 @@ codemirror_theme: abcdef                     # Theme for codemirror cells, for o
 use_show_widgets_button: true                # If 'true', display a button to allow in-page running code cells with nbinteract
 
 # Download settings
-use_download_button: true               # If 'true', display a button to download a zip file for the notebook
-download_button_text: ''        # The text that download buttons will contain
-download_page_header: "This is a section from Probability for Data Science by Ani Adhikari and Jim Pitman, provided under the license (CC BY-NC-ND 4.0)" # A header that will be displayed at the top of and PDF-printed page
+use_download_button: true                # If 'true', display a button to download a zip file for the notebook
+download_button_text: ''                      # The text that download buttons will contain
+download_page_header: This is a section from Probability for Data Science by Ani Adhikari
+  and Jim Pitman, provided under the license (CC BY-NC-ND 4.0) # A header that will be displayed at the top of and PDF-printed page
+
 #######################################################################################
 # Jupyter book extensions and additional features
 
@@ -89,7 +100,6 @@ scholar:
 # Navigate to https://analytics.google.com, add a new property for your jupyter book and copy the tracking id here.
 google_analytics:
   mytrackingcode:
-
 #######################################################################################
 # Jupyter book settings you probably don't need to change
 
@@ -147,4 +157,4 @@ plugins:
 - jekyll-scholar
 
 # Jupyter Book version - DO NOT CHANGE THIS. It is generated when a new book is created
-jupyter_book_version: 0.5.3dev0
+jupyter_book_version: 0.6.4
