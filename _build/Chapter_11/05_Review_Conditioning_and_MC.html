@@ -13,7 +13,7 @@ prev_page:
 next_page:
   url: /Chapter_12/00_Standard_Deviation.html
 suffix: .ipynb
-search: p n let balls urn random x b chain before ball markov e distribution exercises ldots sample just xn run q conditioning aldous konstantopoulos bridge draw blue black bn nth drawn category generator irreducible lambda set chains www stat berkeley edu takisexercises pdf along try hands game four without replacement hearts hand y k mid simple contains r red another model example its d proportion consider trials three chance appears happens followed aperiodic finite state mathbb transition le review david former student takis created great resource selected problems listed below others resist impulse read answers yourself partner playing against cards
+search: p n let balls urn random x b before ball chain distribution markov e exercises ldots sample just xn run q conditioning aldous konstantopoulos bridge draw blue black bn nth drawn category generator irreducible lambda set chains www stat berkeley edu takisexercises pdf along try hands game four without replacement hearts hand y k mid simple contains r red another model example its probability d proportion consider trials three chance appears happens followed aperiodic finite state mathbb transition le review david former student takis created great resource selected problems listed below others resist impulse read answers yourself partner playing against
 
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
@@ -46,7 +46,8 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="1.-Bridge-Hands">1. Bridge Hands<a class="anchor-link" href="#1.-Bridge-Hands"> </a></h3><p>My bridge partner and I are playing a game of bridge against two other people. In the game, four hands of 13 cards each are dealt to the four players, at random without replacement from a standard deck. Let $X$ be the number of hearts in my hand and let $Y$ be the number of hearts in my partner's hand. For $k = 0, 1, 2, \ldots, 13$, find $E(Y \mid X=k)$.</p>
+<p><strong>1.</strong> <strong>Bridge Hands</strong></p>
+<p>My bridge partner and I are playing a game of bridge against two other people. In the game, four hands of 13 cards each are dealt to the four players, at random without replacement from a standard deck. Let $X$ be the number of hearts in my hand and let $Y$ be the number of hearts in my partner's hand. For $k = 0, 1, 2, \ldots, 13$, find $E(Y \mid X=k)$.</p>
 
 </div>
 </div>
@@ -57,7 +58,8 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="2.-Random-Urn">2. Random Urn<a class="anchor-link" href="#2.-Random-Urn"> </a></h3><p>I draw a simple random sample of $n_0$ balls from an urn that contains $b_0$ blue balls and $r_0$ red balls. I put the balls in my sample in another urn that already contains $b_1$ blue balls and $r_1$ red balls. I then draw a simple random sample of $n_1$ balls from the second urn. Find the expected number of blue balls in this sample.</p>
+<p><strong>2.</strong> <strong>Random Urn</strong></p>
+<p>I draw a simple random sample of $n_0$ balls from an urn that contains $b_0$ blue balls and $r_0$ red balls. I put the balls in my sample in another urn that already contains $b_1$ blue balls and $r_1$ red balls. I then draw a simple random sample of $n_1$ balls from the second urn. Find the expected number of blue balls in this sample.</p>
 
 </div>
 </div>
@@ -68,7 +70,8 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="3.-Polya's-Urn">3. Polya's Urn<a class="anchor-link" href="#3.-Polya's-Urn"> </a></h3><p>You have seen this model before; it is used in many contexts, for example to model contagion. Start with one white and one black ball. Draw one ball at random, then replace it in the urn along with another ball of its color. Keep doing this.</p>
+<p><strong>3.</strong> <strong>Polya's Urn</strong></p>
+<p>You have seen this model before; it is used in many contexts, for example to model contagion. Start with one white and one black ball. Draw one ball at random, then replace it in the urn along with another ball of its color. Keep doing this.</p>
 <p>Let $B_n$ be the number of black balls in the urn just before the $n$th ball is drawn. So $B_1 = 1$ with probability 1.</p>
 <p><strong>(a)</strong> Just before the $n$th ball is drawn, how many balls are there in the urn?</p>
 <p><strong>(b)</strong> For each $n$, find $E(B_{n+1} \mid B_n)$.</p>
@@ -84,7 +87,8 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="4.-Craps-Principle">4. Craps Principle<a class="anchor-link" href="#4.-Craps-Principle"> </a></h3><p>This gambling observation can be formalized as follows. Consider a sequence of i.i.d. trials, each of which results in one of three categories of outcomes. On each trial, let the chance of Category $i$ be $p_i &gt; 0$ with $p_1 + p_2 + p_3 = 1$.</p>
+<p><strong>4.</strong> <strong>Craps Principle</strong></p>
+<p>This gambling observation can be formalized as follows. Consider a sequence of i.i.d. trials, each of which results in one of three categories of outcomes. On each trial, let the chance of Category $i$ be $p_i &gt; 0$ with $p_1 + p_2 + p_3 = 1$.</p>
 <p>Show that the chance that Category 1 appears before Category 2 is $p_1/(p_1 + p_2)$.</p>
 <p>[The goal is for you to practice conditioning, so don't use geometric sums. Just condition on the first couple of trials. Either the event happens right away, or $\ldots$ what?]</p>
 
@@ -97,7 +101,8 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="5.-Waiting-for-00">5. Waiting for 00<a class="anchor-link" href="#5.-Waiting-for-00"> </a></h3><p>A random number generator draws repeatedly at random with replacement from the 10 digits $\{0, 1, 2, \ldots, 9\}$. Run the generator till the pattern 00 appears. Let $X$ be the number of times the generator has to be run. Thus for example if the first three runs produce 7 followed by 0 followed by 0, then $X = 3$. Find $E(X)$ by conditioning on the first run.</p>
+<p><strong>5.</strong> <strong>Waiting for 00</strong></p>
+<p>A random number generator draws repeatedly at random with replacement from the 10 digits $\{0, 1, 2, \ldots, 9\}$. Run the generator till the pattern 00 appears. Let $X$ be the number of times the generator has to be run. Thus for example if the first three runs produce 7 followed by 0 followed by 0, then $X = 3$. Find $E(X)$ by conditioning on the first run.</p>
 
 </div>
 </div>
@@ -108,7 +113,8 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="6.-Markov-Chain-Fundamentals">6. Markov Chain Fundamentals<a class="anchor-link" href="#6.-Markov-Chain-Fundamentals"> </a></h3><p>Let $X_0, X_1, \ldots $ be an irreducible, aperiodic Markov Chain on a finite state space $S$. Let $\mathbb{P}$ be the transition matrix of the chain. Let $\lambda$ be the initial distribution of the chain. That is, let $\lambda$ be a vector containing the distribution of $X_0$.</p>
+<p><strong>6.</strong> <strong>Markov Chain Fundamentals</strong></p>
+<p>Let $X_0, X_1, \ldots $ be an irreducible, aperiodic Markov Chain on a finite state space $S$. Let $\mathbb{P}$ be the transition matrix of the chain. Let $\lambda$ be the initial distribution of the chain. That is, let $\lambda$ be a vector containing the distribution of $X_0$.</p>
 <p><strong>(a)</strong> Find the distribution of $X_n$ in terms of $\lambda$, $\mathbb{P}$, and $n$.</p>
 <p><strong>(b)</strong> What happens to the distribution of $X_n$ as $n \to \infty$? Prove your answer.</p>
 
@@ -121,14 +127,15 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="7.-Reflecting-Random-Walk-on-a-Finite-Set">7. Reflecting Random Walk on a Finite Set<a class="anchor-link" href="#7.-Reflecting-Random-Walk-on-a-Finite-Set"> </a></h3><p>Fix $p \in (0, 1)$ and a positive integer $N$, and let $q = 1-p$. Consider the Markov Chain with transition probabilities given by:</p>
+<p><strong>7.</strong> <strong>Reflecting Random Walk on a Finite Set</strong></p>
+<p>Fix $p \in (0, 1)$ and a positive integer $N$, and let $q = 1-p$. Consider the Markov Chain with transition probabilities given by:</p>
 <ul>
 <li>$P(0, 1) ~ = ~ p$ and $P(0, 0) = q$.</li>
 <li>$P(N, N) = p$ and $P(N, N-1) = q$.</li>
 <li>For $1 \le i \le N-1$, $P(i, i+1) ~ = ~ p$ and $P(i, i-1) = q$</li>
 </ul>
-<p><strong>(a)</strong> Find the stationary distribution of the chain.</p>
-<p><strong>(b)</strong> Is the chain reversible?</p>
+<p><strong>(a)</strong> Is there a probability distribution that satisfies the detailed balance equations?</p>
+<p><strong>(b)</strong> Find the stationary distribution of the chain.</p>
 
 </div>
 </div>
