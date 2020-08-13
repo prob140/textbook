@@ -1,0 +1,192 @@
+- file: content/README
+  title: Authors and License
+
+- part: Introduction
+  chapters:
+  - url: http://prob140.org
+    title: Course Home
+  - file: content/To_the_Student
+  
+- part: Chapters 
+  numbered: true
+  chapters:
+  - file: content/Chapter_01/00_Fundamentals
+    expand_sections: true
+    sections:
+    - file: content/Chapter_01/01_Outcome_Space_and_Events
+    - file: content/Chapter_01/02_Equally_Likely_Outcomes
+    - file: content/Chapter_01/03_Collisions_in_Hashing
+    - file: content/Chapter_01/04_Birthday_Problem
+    - file: content/Chapter_01/05_An_Exponential_Approximation
+  - file: content/Chapter_02/00_Calculating_Chances
+    expand_sections: true
+    sections:
+    - file: content/Chapter_02/01_Addition
+    - file: content/Chapter_02/02_Examples
+    - file: content/Chapter_02/03_Multiplication
+    - file: content/Chapter_02/04_More_Examples
+    - file: content/Chapter_02/05_Updating_Probabilities
+  - file: content/Chapter_03/00_Random_Variables
+    expand_sections: true
+    sections:
+    - file: content/Chapter_03/01_Functions_on_an_Outcome_Space
+    - file: content/Chapter_03/02_Distributions
+    - file: content/Chapter_03/03_Equality
+  - file: content/Chapter_04/00_Relations_Between_Variables
+    expand_sections: true
+    sections:
+    - file: content/Chapter_04/01_Joint_Distributions
+    - file: content/Chapter_04/02_Examples
+    - file: content/Chapter_04/03_Marginal_Distributions
+    - file: content/Chapter_04/04_Conditional_Distributions
+    - file: content/Chapter_04/05_Dependence_and_Independence
+  - file: content/Chapter_05/00_Collections_of_Events
+    expand_sections: true
+    sections:
+    - file: content/Chapter_05/01_Bounding_the_Chance_of_a_Union
+    - file: content/Chapter_05/02_Inclusion_Exclusion
+    - file: content/Chapter_05/03_The_Matching_Problem
+    - file: content/Chapter_05/04_Sampling_Without_Replacement
+    - file: content/Chapter_05/05_Review_Problems_Set_1
+  - file: content/Chapter_06/00_Random_Counts
+    expand_sections: true
+    sections:
+    - file: content/Chapter_06/01_Binomial_Distribution
+    - file: content/Chapter_06/02_Examples
+    - file: content/Chapter_06/03_Hypergeometric_Distribution
+    - file: content/Chapter_06/04_Odds_Ratios
+    - file: content/Chapter_06/05_Law_of_Small_Numbers
+  - file: content/Chapter_07/00_Poissonization
+    expand_sections: true
+    sections:
+    - file: content/Chapter_07/01_Poissonizing_the_Binomial
+    - file: content/Chapter_07/02_Poissonizing_the_Multinomial
+  - file: content/Chapter_08/00_Expectation
+    expand_sections: true
+    sections:
+    - file: content/Chapter_08/01_Definition
+    - file: content/Chapter_08/02_Additivity
+    - file: content/Chapter_08/03_Expectations_of_Functions
+    - file: content/Chapter_08/04_Review_Problems_Set_2
+  - file: content/Chapter_09/00_Conditioning_Revisited
+    expand_sections: true
+    sections:
+    - file: content/Chapter_09/01_Probability_by_Conditioning
+    - file: content/Chapter_09/02_Expectation_by_Conditioning
+    - file: content/Chapter_09/03_Expected_Waiting_Times
+  - file: content/Chapter_10/00_Markov_Chains
+    expand_sections: true
+    sections:
+    - file: content/Chapter_10/01_Transitions
+    - file: content/Chapter_10/02_Deconstructing_Chains
+    - file: content/Chapter_10/03_Long_Run_Behavior
+    - file: content/Chapter_10/04_Examples
+  - file: content/Chapter_11/00_Reversing_Markov_Chains
+    expand_sections: true
+    sections:
+    - file: content/Chapter_11/01_Detailed_Balance
+    - file: content/Chapter_11/02_Reversibility
+    - file: content/Chapter_11/03_Code_Breaking
+    - file: content/Chapter_11/04_Markov_Chain_Monte_Carlo
+    - file: content/Chapter_11/05_Review_Conditioning_and_MC
+  - file: content/Chapter_12/00_Standard_Deviation
+    expand_sections: true
+    sections:
+    - file: content/Chapter_12/01_Definition
+    - file: content/Chapter_12/02_Prediction_and_Estimation
+    - file: content/Chapter_12/03_Bounds
+    - file: content/Chapter_12/04_Heavy_Tails
+  - file: content/Chapter_13/00_Variance_Via_Covariance
+    expand_sections: true
+    sections:
+    - file: content/Chapter_13/01_Properties_of_Covariance
+    - file: content/Chapter_13/02_Sums_of_IID_Samples
+    - file: content/Chapter_13/03_Sums_of_Simple_Random_Samples
+    - file: content/Chapter_13/04_Finite_Population_Correction
+  - file: content/Chapter_14/00_The_Central_Limit_Theorem
+    expand_sections: true
+    sections:
+    - file: content/Chapter_14/01_Exact_Distribution
+    - file: content/Chapter_14/02_PGFs_in_NumPy
+    - file: content/Chapter_14/03_Central_Limit_Theorem
+    - file: content/Chapter_14/04_The_Sample_Mean
+    - file: content/Chapter_14/05_Confidence_Intervals
+  - file: content/Chapter_15/00_Continuous_Distributions
+    expand_sections: true
+    sections:
+    - file: content/Chapter_15/01_Density_and_CDF
+    - file: content/Chapter_15/02_The_Meaning_of_Density
+    - file: content/Chapter_15/03_Expectation
+    - file: content/Chapter_15/04_Exponential_Distribution
+    - file: content/Chapter_15/05_Calculus_in_SymPy
+    - file: content/Chapter_15/06_Review_Problems_Set_3
+  - file: content/Chapter_16/00_Transformations
+    expand_sections: true
+    sections:
+    - file: content/Chapter_16/01_Linear_Transformations
+    - file: content/Chapter_16/02_Monotone_Functions
+    - file: content/Chapter_16/03_Two_to_One_Functions
+  - file: content/Chapter_17/00_Joint_Densities
+    expand_sections: true
+    sections:
+    - file: content/Chapter_17/01_Probabilities_and_Expectations
+    - file: content/Chapter_17/02_Independence
+    - file: content/Chapter_17/03_Marginal_and_Conditional_Densities
+    - file: content/Chapter_17/04_Beta_Densities_with_Integer_Parameters
+  - file: content/Chapter_18/00_The_Normal_and_Gamma_Families
+    expand_sections: true
+    sections:
+    - file: content/Chapter_18/01_Standard_Normal_Basics
+    - file: content/Chapter_18/02_Sums_of_Independent_Normal_Variables
+    - file: content/Chapter_18/03_The_Gamma_Family
+    - file: content/Chapter_18/04_Chi_Squared_Distributions
+    - file: content/Chapter_18/05_Review_Problems_Set_4
+  - file: content/Chapter_19/00_Distributions_of_Sums
+    expand_sections: true
+    sections:
+    - file: content/Chapter_19/01_Convolution_Formula
+    - file: content/Chapter_19/02_Moment_Generating_Functions
+    - file: content/Chapter_19/03_MGFs_Normal_and_the_CLT
+    - file: content/Chapter_19/04_Chernoff_Bound
+  - file: content/Chapter_20/00_Approaches_to_Estimation
+    expand_sections: true
+    sections:
+    - file: content/Chapter_20/01_Maximum_Likelihood
+    - file: content/Chapter_20/02_Prior_and_Posterior
+    - file: content/Chapter_20/03_Independence_Revisited
+  - file: content/Chapter_21/00_The_Beta_and_the_Binomial
+    expand_sections: true
+    sections:
+    - file: content/Chapter_21/01_Updating_and_Prediction
+    - file: content/Chapter_21/02_Beta_Binomial_Distribution
+    - file: content/Chapter_21/03_Long_Run_Proportion_of_Heads
+  - file: content/Chapter_22/00_Prediction
+    expand_sections: true
+    sections:
+    - file: content/Chapter_22/01_Conditional_Expectation_Projection
+    - file: content/Chapter_22/02_Variance_by_Conditioning
+    - file: content/Chapter_22/03_Examples
+    - file: content/Chapter_22/04_Least_Squares_Predictor
+  - file: content/Chapter_23/00_Multivariate_Normal_RVs
+    expand_sections: true
+    sections:
+    - file: content/Chapter_23/01_Random_Vectors
+    - file: content/Chapter_23/02_Multivariate_Normal_Distribution
+    - file: content/Chapter_23/03_Linear_Combinations
+    - file: content/Chapter_23/04_Independence
+  - file: content/Chapter_24/00_Simple_Linear_Regression
+    expand_sections: true
+    sections:
+    - file: content/Chapter_24/01_Bivariate_Normal_Distribution
+    - file: content/Chapter_24/02_Linear_Least_Squares
+    - file: content/Chapter_24/03_Regression_and_Bivariate_Normal
+    - file: content/Chapter_24/04_Regression_Equation
+  - file: content/Chapter_25/00_Multiple_Regression
+    expand_sections: true
+    sections:
+    - file: content/Chapter_25/01_Bilinearity_in_Matrix_Notation
+    - file: content/Chapter_25/02_Best_Linear_Predictor
+    - file: content/Chapter_25/03_Multivariate_Normal_Conditioning
+    - file: content/Chapter_25/04_Multiple_Regression
+    - file: content/Chapter_25/05_Further_Review_Exercises
+  # - file: content/introduction/notebooks

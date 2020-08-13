@@ -1,0 +1,1289 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>11.1. Detailed Balance &#8212; Prob 140 Textbook</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/modification.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/mystnb.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="11.2. Reversibility" href="02_Reversibility.html" />
+    <link rel="prev" title="11. Reversing Markov Chains" href="00_Reversing_Markov_Chains.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Prob 140 Textbook</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <p class="caption">
+ <span class="caption-text">
+  Introduction
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference external" href="http://prob140.org">
+   Course Home
+   <i class="fas fa-external-link-alt">
+   </i>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../To_the_Student.html">
+   To the  Student
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Chapters
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Chapter_01/00_Fundamentals.html">
+   1. Fundamentals
+  </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_01/01_Outcome_Space_and_Events.html">
+     1.1. Outcome Space and Events
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_01/02_Equally_Likely_Outcomes.html">
+     1.2. Equally Likely Outcomes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_01/03_Collisions_in_Hashing.html">
+     1.3. Collisions in Hashing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_01/04_Birthday_Problem.html">
+     1.4. The Birthday Problem
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_01/05_An_Exponential_Approximation.html">
+     1.5. An Exponential Approximation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Chapter_02/00_Calculating_Chances.html">
+   2. Calculating Chances
+  </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_02/01_Addition.html">
+     2.1. Addition
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_02/02_Examples.html">
+     2.2. Examples
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_02/03_Multiplication.html">
+     2.3. Multiplication
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_02/04_More_Examples.html">
+     2.4. More Examples
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_02/05_Updating_Probabilities.html">
+     2.5. Updating Probabilities
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Chapter_03/00_Random_Variables.html">
+   3. Random Variables
+  </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_03/01_Functions_on_an_Outcome_Space.html">
+     3.1. Functions on an Outcome Space
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_03/02_Distributions.html">
+     3.2. Distributions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_03/03_Equality.html">
+     3.3. Equality
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Chapter_04/00_Relations_Between_Variables.html">
+   4. Relations Between Variables
+  </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_04/01_Joint_Distributions.html">
+     4.1. Joint Distributions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_04/02_Examples.html">
+     4.2. Examples
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_04/03_Marginal_Distributions.html">
+     4.3. Marginal Distributions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_04/04_Conditional_Distributions.html">
+     4.4. Conditional Distributions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_04/05_Dependence_and_Independence.html">
+     4.5. Dependence and Independence
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Chapter_05/00_Collections_of_Events.html">
+   5. Collections of Events
+  </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_05/01_Bounding_the_Chance_of_a_Union.html">
+     5.1. Bounding the Chance of a Union
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_05/02_Inclusion_Exclusion.html">
+     5.2. Inclusion-Exclusion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_05/03_The_Matching_Problem.html">
+     5.3. The Matching Problem
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_05/04_Sampling_Without_Replacement.html">
+     5.4. Sampling Without Replacement
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_05/05_Review_Problems_Set_1.html">
+     5.5. Review Problems: Set 1
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Chapter_06/00_Random_Counts.html">
+   6. Random Counts
+  </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_06/01_Binomial_Distribution.html">
+     6.1. The Binomial Distribution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_06/02_Examples.html">
+     6.2. Examples
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_06/03_Hypergeometric_Distribution.html">
+     6.3. The Hypergeometric Distribution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_06/04_Odds_Ratios.html">
+     6.4. Odds Ratios
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_06/05_Law_of_Small_Numbers.html">
+     6.5. The Law of Small Numbers
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Chapter_07/00_Poissonization.html">
+   7. Poissonization
+  </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_07/01_Poissonizing_the_Binomial.html">
+     7.3.1. Poissonizing the Binomial
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_07/02_Poissonizing_the_Multinomial.html">
+     7.3.2. Poissonizing the Multinomial
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Chapter_08/00_Expectation.html">
+   8. Expectation
+  </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_08/01_Definition.html">
+     8.1. Definition
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_08/02_Additivity.html">
+     8.2. Additivity
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_08/03_Expectations_of_Functions.html">
+     8.3. Expectations of Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_08/04_Review_Problems_Set_2.html">
+     8.4. Review Problems: Set 2
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Chapter_09/00_Conditioning_Revisited.html">
+   9. Conditioning, Revisited
+  </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_09/01_Probability_by_Conditioning.html">
+     9.1. Probability by Conditioning
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_09/02_Expectation_by_Conditioning.html">
+     9.2. Expectation by Conditioning
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_09/03_Expected_Waiting_Times.html">
+     9.3. Expected Waiting Times
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Chapter_10/00_Markov_Chains.html">
+   10. Markov Chains
+  </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_10/01_Transitions.html">
+     10.1. Transitions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_10/02_Deconstructing_Chains.html">
+     10.2. Deconstructing Chains
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_10/03_Long_Run_Behavior.html">
+     10.3. Long Run Behavior
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_10/04_Examples.html">
+     10.4. Examples
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="00_Reversing_Markov_Chains.html">
+   11. Reversing Markov Chains
+  </a>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     11.1. Detailed Balance
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02_Reversibility.html">
+     11.2. Reversibility
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03_Code_Breaking.html">
+     11.3. Code Breaking
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04_Markov_Chain_Monte_Carlo.html">
+     11.4. Markov Chain Monte Carlo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05_Review_Conditioning_and_MC.html">
+     11.5. Review Set on Conditioning and Markov Chains
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Chapter_12/00_Standard_Deviation.html">
+   12. Standard Deviation
+  </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_12/01_Definition.html">
+     12.1. Definition
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_12/02_Prediction_and_Estimation.html">
+     12.2. Prediction and Estimation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_12/03_Bounds.html">
+     12.3. Tail Bounds
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_12/04_Heavy_Tails.html">
+     12.4. Heavy Tails
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Chapter_13/00_Variance_Via_Covariance.html">
+   13. Variance Via Covariance
+  </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_13/01_Properties_of_Covariance.html">
+     13.1. Properties of Covariance
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_13/02_Sums_of_IID_Samples.html">
+     13.2. Sums of IID Samples
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_13/03_Sums_of_Simple_Random_Samples.html">
+     13.3. Sums of Simple Random Samples
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_13/04_Finite_Population_Correction.html">
+     13.4. Finite Population Correction
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Chapter_14/00_The_Central_Limit_Theorem.html">
+   14. The Central Limit Theorem
+  </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_14/01_Exact_Distribution.html">
+     14.1. Exact Distribution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_14/02_PGFs_in_NumPy.html">
+     14.2. PGFs in NumPy
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_14/03_Central_Limit_Theorem.html">
+     14.3. Central Limit Theorem
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_14/04_The_Sample_Mean.html">
+     14.4. The Sample Mean
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_14/05_Confidence_Intervals.html">
+     14.5. Confidence Intervals
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Chapter_15/00_Continuous_Distributions.html">
+   15. Continuous Distributions
+  </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_15/01_Density_and_CDF.html">
+     15.1. Density and CDF
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_15/02_The_Meaning_of_Density.html">
+     15.2. The Meaning of Density
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_15/03_Expectation.html">
+     15.3. Expectation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_15/04_Exponential_Distribution.html">
+     15.4. Exponential Distribution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_15/05_Calculus_in_SymPy.html">
+     15.5. Calculus in SymPy
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_15/06_Review_Problems_Set_3.html">
+     15.6. Review Problems: Set 3
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Chapter_16/00_Transformations.html">
+   16. Transformations
+  </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_16/01_Linear_Transformations.html">
+     16.1. Linear Transformations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_16/02_Monotone_Functions.html">
+     16.2. Monotone Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_16/03_Two_to_One_Functions.html">
+     16.3. Two-to-One Functions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Chapter_17/00_Joint_Densities.html">
+   17. Joint Densities
+  </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_17/01_Probabilities_and_Expectations.html">
+     17.1. Probabilities and Expectations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_17/02_Independence.html">
+     17.2. Independence
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_17/03_Marginal_and_Conditional_Densities.html">
+     17.3. Marginal and Conditional Densities
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_17/04_Beta_Densities_with_Integer_Parameters.html">
+     17.4. Beta Densities with Integer Parameters
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Chapter_18/00_The_Normal_and_Gamma_Families.html">
+   18. The Normal and Gamma Families
+  </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_18/01_Standard_Normal_Basics.html">
+     18.1. Standard Normal: The Basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_18/02_Sums_of_Independent_Normal_Variables.html">
+     18.2. Sums of Independent Normal Variables
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_18/03_The_Gamma_Family.html">
+     18.3. The Gamma Family
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_18/04_Chi_Squared_Distributions.html">
+     18.4. Chi-Squared Distributions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_18/05_Review_Problems_Set_4.html">
+     18.5. Review Problems: Set 4
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Chapter_19/00_Distributions_of_Sums.html">
+   19. Distributions of Sums
+  </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_19/01_Convolution_Formula.html">
+     19.1. The Convolution Formula
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_19/02_Moment_Generating_Functions.html">
+     19.2. Moment Generating Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_19/03_MGFs_Normal_and_the_CLT.html">
+     19.3. MGFs, the Normal, and the CLT
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_19/04_Chernoff_Bound.html">
+     19.4. Chernoff Bound
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Chapter_20/00_Approaches_to_Estimation.html">
+   20. Approaches to Estimation
+  </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_20/01_Maximum_Likelihood.html">
+     20.1. Maximum Likelihood##
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_20/02_Prior_and_Posterior.html">
+     20.2. Prior and Posterior
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_20/03_Independence_Revisited.html">
+     20.3. Independence, Revisited
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Chapter_21/00_The_Beta_and_the_Binomial.html">
+   21. The Beta and the Binomial
+  </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_21/01_Updating_and_Prediction.html">
+     21.1. Updating and Prediction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_21/02_Beta_Binomial_Distribution.html">
+     21.2. The Beta-Binomial Distribution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_21/03_Long_Run_Proportion_of_Heads.html">
+     21.3. Long Run Proportion of Heads
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Chapter_22/00_Prediction.html">
+   22. Prediction
+  </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_22/01_Conditional_Expectation_Projection.html">
+     22.1. Conditional Expectation As a Projection
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_22/02_Variance_by_Conditioning.html">
+     22.2. Variance by Conditioning
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_22/03_Examples.html">
+     22.3. Examples
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_22/04_Least_Squares_Predictor.html">
+     22.4. Least Squares Predictor
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Chapter_23/00_Multivariate_Normal_RVs.html">
+   23. Jointly Normal Random Variables
+  </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_23/01_Random_Vectors.html">
+     23.1. Random Vectors
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_23/02_Multivariate_Normal_Distribution.html">
+     23.2. Multivariate Normal Distribution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_23/03_Linear_Combinations.html">
+     23.3. Linear Combinations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_23/04_Independence.html">
+     23.4. Independence
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Chapter_24/00_Simple_Linear_Regression.html">
+   24. Simple Linear Regression
+  </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_24/01_Bivariate_Normal_Distribution.html">
+     24.1. Bivariate Normal Distribution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_24/02_Linear_Least_Squares.html">
+     24.2. Least Squares Linear Predictor
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_24/03_Regression_and_Bivariate_Normal.html">
+     24.3. Regression and the Bivariate Normal
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_24/04_Regression_Equation.html">
+     24.4. The Regression Equation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Chapter_25/00_Multiple_Regression.html">
+   25. Multiple Regression
+  </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_25/01_Bilinearity_in_Matrix_Notation.html">
+     25.1. Bilinearity in Matrix Notation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_25/02_Best_Linear_Predictor.html">
+     25.2. Best Linear Predictor
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_25/03_Multivariate_Normal_Conditioning.html">
+     25.3. Conditioning and the Multivariate Normal
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_25/04_Multiple_Regression.html">
+     25.4. Multiple Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_25/05_Further_Review_Exercises.html">
+     25.5. Further Review Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/content/Chapter_11/01_Detailed_Balance.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        
+        <a class="jupyterhub-button" href="https://prob140.datahub.berkeley.edu/hub/user-redirect/git-pull?repo=https://github.com/prob140/textbook&urlpath=tree/textbook/content/Chapter_11/01_Detailed_Balance.ipynb&branch=gh-pages"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="../../_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> On this page
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#detailed-balance-implies-balance">
+   11.1.1. Detailed Balance Implies Balance
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ehrenfest-chain">
+   11.1.2. Ehrenfest Chain
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sticky-random-walk-on-a-circle">
+   11.1.3. Sticky Random Walk on a Circle
+  </a>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="detailed-balance">
+<h1><span class="section-number">11.1. </span>Detailed Balance<a class="headerlink" href="#detailed-balance" title="Permalink to this headline">¶</a></h1>
+<p>The Markov Chains that we have been studying have stationary distributions that contain much information about the behavior of the chain. The stationary distribution of a chain is a probability distribution that solves the balance equations. For some chains it is easy to identify a distribution that solves the balance equations. But for other chains, the solution can be complicated or tedious. Let’s see if we can find a simple way to solve the balance equations.</p>
+<p>Recall our earlier image of what is being balanced in the equations. Imagine a large number of independent replications of the chain. For example, suppose a large number of particles are moving among the states according to the transition probabilities of the chain, all moving at instants 1, 2, 3, <span class="math notranslate nohighlight">\(\ldots\)</span> independently of each other.</p>
+<p>Suppose the chain is in steady state. As we said earlier, if you think of <span class="math notranslate nohighlight">\(\pi(k)\)</span> as the proportion of particles leaving state <span class="math notranslate nohighlight">\(k\)</span> at any instant, then the balance equations</p>
+<div class="math notranslate nohighlight">
+\[
+\pi(j) = \sum_{k \in S} \pi(k)P(k, j)
+\]</div>
+<p>say that the proportion of particles leaving state <span class="math notranslate nohighlight">\(j\)</span> is the same as the number of particles entering it. Hence the chain is balanced.</p>
+<p>Notice that the left hand side is just the proportion of particles leaving <span class="math notranslate nohighlight">\(j\)</span>; there is no information about where the particles are going.</p>
+<p>Now suppose there is <em>detailed balance</em>, given by</p>
+<div class="math notranslate nohighlight">
+\[
+\pi(i)P(i, j) = \pi(j)P(j, i) ~~~ \text{for all states } i \ne j
+\]</div>
+<p>These are called the <em>detailed balance equations</em>. They say that for every pair of states <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(j\)</span>, the proportion of particles that leave <span class="math notranslate nohighlight">\(i\)</span> and move directly to <span class="math notranslate nohighlight">\(j\)</span> is the same as the proportion that leave <span class="math notranslate nohighlight">\(j\)</span> and move directly to <span class="math notranslate nohighlight">\(i\)</span>. In the case <span class="math notranslate nohighlight">\(i = j\)</span> the equations carry no information and hence are left out.</p>
+<p>That turns out to be a stronger condition than balance.</p>
+<div class="section" id="detailed-balance-implies-balance">
+<h2><span class="section-number">11.1.1. </span>Detailed Balance Implies Balance<a class="headerlink" href="#detailed-balance-implies-balance" title="Permalink to this headline">¶</a></h2>
+<p>Suppose there is a probability distribution <span class="math notranslate nohighlight">\(\pi\)</span> that solves the detailed balance equations. Then <span class="math notranslate nohighlight">\(\pi\)</span> also solves the balance equations.
+<span class="math notranslate nohighlight">\($
+\begin{align*}
+\sum_{k \in S} \pi(k)P(k, j) &amp;= \sum_{k \in S} \pi(j)P(j, k) ~~~ \text{(detailed balance)} \\
+&amp;= \pi(j) \sum_{k \in S} P(j, k) \\
+&amp;= \pi(j) \cdot 1 ~~~~~~~~~~~~~~ \text{(sum of }j\text{th row of transition matrix)} \\
+&amp;= \pi(j)
+\end{align*}
+$\)</span></p>
+<p>What we learn from this is that if we can find a solution to the detailed balance equations, we will also have solved the balance equations.</p>
+<p>This is helpful for two reasons:</p>
+<ul class="simple">
+<li><p>The detailed balance equations are simple.</p></li>
+<li><p>There are lots of them; indeed if there are <span class="math notranslate nohighlight">\(s\)</span> states then there are <span class="math notranslate nohighlight">\(\binom{s}{2}\)</span> detailed balance equations in <span class="math notranslate nohighlight">\(s\)</span> unknowns. This gives us lots of ways to try to solve them.</p></li>
+</ul>
+<p>Of course all the <span class="math notranslate nohighlight">\(\binom{s}{2}\)</span> equations need not be consistent, in which case there will not be a solution to the detailed balance equations. In such situations we’ll have to slog our way through solving the balance equations directly. But here is an example that shows that if the detailed balance equations do have a solution, we have an easy way at arriving at the stationary distribution of the chain.</p>
+</div>
+<div class="section" id="ehrenfest-chain">
+<h2><span class="section-number">11.1.2. </span>Ehrenfest Chain<a class="headerlink" href="#ehrenfest-chain" title="Permalink to this headline">¶</a></h2>
+<p>We have returned to this example because it is one where solving the balance equations involves some labor. We will show that for this chain and others like it, the detailed balance equations can easily be solved, giving us a quick route to the stationary distribution.</p>
+<p>The state space is the integers 0 through <span class="math notranslate nohighlight">\(N\)</span>. Recall how the transitions work: at each step, the chain either goes up by 1, stays the same, or goes down by 1. Such chains are called <em>birth and death</em> chains and are used to model many different random quantities such as gamblers’ fortunes or population sizes. In our example, we are modeling the size of the population of gas particles in a container.</p>
+<p>For such chains, most of the transition probabilities are 0 because in one step the chain can only move to the two neighboring states. So most of the detailed balance equations are trivially true. For the ones the involve positive tranistion probabilities, the states <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(j\)</span> have to be separated by 1 (remember that the detailed balance equations specify <span class="math notranslate nohighlight">\(i \ne j\)</span>). And in that case both <span class="math notranslate nohighlight">\(P(i, j)\)</span> and <span class="math notranslate nohighlight">\(P(j, i)\)</span> are positive, as the chain is irreducible.</p>
+<p>This allows us to solve the detailed balance equations, for example by starting at the lowest state and moving up. Remember the transition rules:</p>
+<ul class="simple">
+<li><p>At each step, select one of the <span class="math notranslate nohighlight">\(N\)</span> particles at random and place it into one of the two containers at random; the chain counts the number of particles in Container 1.</p></li>
+</ul>
+<p>The detailed balance equations are easy to solve sequentially:
+<span class="math notranslate nohighlight">\($
+\begin{align*}
+\pi(0)\frac{1}{2} &amp;= \pi(1)\frac{1}{2N} ~~ \implies ~~ \pi(1) = N\pi(0)
+= \binom{N}{1}\pi(0) \\ \\
+\pi(1)\frac{N-1}{2N} &amp;= \pi(2)\frac{2}{2N} ~~ \implies ~~ \pi(2) = \frac{N-1}{2}\pi(1) = \frac{N(N-1)}{2}\pi(0) = \binom{N}{2}\pi(0) \\ \\
+\pi(2)\frac{N-2}{2N} &amp;= \pi(3)\frac{3}{2N} ~~ \implies ~~ \pi(3) = \frac{N-2}{3}\pi(2) = \frac{N(N-1)(N-2)}{3\cdot 2} \pi(0) = \binom{N}{3}\pi(0)
+\end{align*}
+$\)</span></p>
+<p>and so on, so that for <span class="math notranslate nohighlight">\(1 \le k \le N\)</span>,
+<span class="math notranslate nohighlight">\($
+\pi(k) = \binom{N}{k} \pi(0)
+$\)</span>
+by a far easier induction than the one needed to solve the balance equations. The sum of the terms in the solution is</p>
+<div class="math notranslate nohighlight">
+\[
+\pi(0)\big{(} 1 + \sum_{k=1}^N \binom{N}{k} \big{)}
+= \pi(0)\sum_{k=0}^N \binom{N}{k}
+= \pi(0)2^N
+\]</div>
+<p>by the binomial theorem. So <span class="math notranslate nohighlight">\(\pi(0) = 2^{-N}\)</span> and the stationary distribution is binomial <span class="math notranslate nohighlight">\((N, 1/2)\)</span>.</p>
+<p>At this point it is worth remembering that for numerical value of <span class="math notranslate nohighlight">\(N\)</span> you can just use <code class="docutils literal notranslate"><span class="pre">steady_state</span></code> to find the stationary distribution, relying on Python to do all the work for you. This has some clear advantages but also some disadvantages:</p>
+<ul class="simple">
+<li><p>Python will not be able to handle the computation when <span class="math notranslate nohighlight">\(N\)</span> is very large.</p></li>
+<li><p>You will either not see that the distribution is just binomial or will see it and not know why.</p></li>
+</ul>
+<p>These are reasons why, even in the age of powerful personal computers, it is still important to find good ways of solving problems using math.</p>
+</div>
+<div class="section" id="sticky-random-walk-on-a-circle">
+<h2><span class="section-number">11.1.3. </span>Sticky Random Walk on a Circle<a class="headerlink" href="#sticky-random-walk-on-a-circle" title="Permalink to this headline">¶</a></h2>
+<p>Suppose a chain has states 0, 1, 2, 3, 4 arranged in sequence clockwise on a circle. Suppose that at each step the chain stays in place with probability <span class="math notranslate nohighlight">\(s\)</span>, moves to its counterclockwise neighbor with probability <span class="math notranslate nohighlight">\(p\)</span>, and to its clockwise neighbor with probability <span class="math notranslate nohighlight">\(r\)</span>. Here <span class="math notranslate nohighlight">\(s\)</span>, <span class="math notranslate nohighlight">\(p\)</span>, and <span class="math notranslate nohighlight">\(r\)</span> are strictly positive and sum to 1.</p>
+<p>It is clear that the behavior of the chain is symmetric in the five states, and therefore in the long run it is expected to spend the same proportion of time in each state. The stationary distribution is uniform on the states. You can also check this by solving the balance equations.</p>
+<p>Let’s see whether the detailed balance equations are satisfied. Unlike the Ehrenfest chain above, this chain can “loop back around.” So it’s not clear that the detailed balance equations are consistent.</p>
+<p>The detailed balance equations are:
+<span class="math notranslate nohighlight">\($
+\begin{align*}
+\pi(0)r = \pi(1)p ~~~~ \implies \pi(1) = \frac{r}{p}\pi(0) \\ 
+\pi(1)r = \pi(2)p ~~~~ \implies \pi(2) = \frac{r^2}{p^2}\pi(0) \\ 
+\pi(2)r = \pi(3)p ~~~~ \implies \pi(3) = \frac{r^3}{p^3}\pi(0) \\ 
+\pi(3)r = \pi(4)p ~~~~ \implies \pi(4) = \frac{r^4}{p^4}\pi(0) 
+\end{align*}
+$\)</span>
+So far so good, but now for the moment of truth:</p>
+<div class="math notranslate nohighlight">
+\[
+\pi(4)r = \pi(0)p ~~~~ \implies \pi(4) = \frac{p}{r}\pi(0)
+\]</div>
+<p>For this system of equations to be consistent and have a positive solution, the two expressions for <span class="math notranslate nohighlight">\(\pi(4)\)</span> must be equal, which is equivalent to</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{r^4}{p^4} = \frac{p}{r}, ~~~ \text{that is, } ~r^5 = p^5
+\]</div>
+<p>This can only happen if <span class="math notranslate nohighlight">\(r = p\)</span>, and in that case the detailed balance equations say that all the entries of <span class="math notranslate nohighlight">\(\pi\)</span> are equal, which we already knew.</p>
+<p>To summarize:</p>
+<ul class="simple">
+<li><p>The stationary distribution of the chain is uniform on all the states. The uniform distribution satisfies the balance equations.</p></li>
+<li><p>When <span class="math notranslate nohighlight">\(r = p\)</span>, the detailed balance equations have a positive solution which is the stationary distribution.</p></li>
+<li><p>When <span class="math notranslate nohighlight">\(r \ne p\)</span> the detailed balance equations have no solution that is a probability distribution.</p></li>
+</ul>
+<p>Clearly, <span class="math notranslate nohighlight">\(r = p\)</span> has a special status. What exactly does that mean for the behavior of this chain? That’s the topic of the next section. For now, here are simulated paths of the chain, for two sets of parameters:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">circle_walk_1</span></code>: <span class="math notranslate nohighlight">\(s = 0.1\)</span>, <span class="math notranslate nohighlight">\(r = 0.6\)</span>, <span class="math notranslate nohighlight">\(p = 0.3\)</span></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">circle_walk_2</span></code>: <span class="math notranslate nohighlight">\(s = 0.1\)</span>, <span class="math notranslate nohighlight">\(r = 0.3\)</span>, <span class="math notranslate nohighlight">\(p = 0.6\)</span></p></li>
+</ul>
+<p>The chance of staying in place is the same for both, but the chances of clockwise and counterclockwise moves have been switched. Here are simulated paths of the two chains. In the plot, “clockwise” is shown as a move up and “counterclockwise” as a move down.</p>
+<p>Look at the paths (simulate some more if you like) and answer the following questions:</p>
+<ul class="simple">
+<li><p>Which one has more “up” transitions than “down”?</p></li>
+<li><p>If someone showed you the path of one of these two processes but didn’t say which of the two it was, could you identify the process?</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">states</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="n">s</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="n">r</span> <span class="o">=</span> <span class="mf">0.6</span>
+<span class="n">p</span> <span class="o">=</span> <span class="mf">0.3</span>
+
+<span class="k">def</span> <span class="nf">transition_prob</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="n">j</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">s</span>
+    <span class="k">elif</span> <span class="n">j</span> <span class="o">==</span> <span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">5</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">r</span>
+    <span class="k">elif</span> <span class="n">j</span> <span class="o">==</span> <span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">5</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">p</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span>
+    
+<span class="n">circle_walk_1</span> <span class="o">=</span> <span class="n">MarkovChain</span><span class="o">.</span><span class="n">from_transition_function</span><span class="p">(</span><span class="n">states</span><span class="p">,</span> <span class="n">transition_prob</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">circle_walk_1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.1</td>
+      <td>0.6</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.3</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.3</td>
+      <td>0.1</td>
+      <td>0.6</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.0</td>
+      <td>0.3</td>
+      <td>0.1</td>
+      <td>0.6</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.3</td>
+      <td>0.1</td>
+      <td>0.6</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.6</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.3</td>
+      <td>0.1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">circle_walk_1</span><span class="o">.</span><span class="n">simulate_path</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="n">plot_path</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/01_Detailed_Balance_8_0.png" src="../../_images/01_Detailed_Balance_8_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="n">r</span> <span class="o">=</span> <span class="mf">0.3</span>
+<span class="n">p</span> <span class="o">=</span> <span class="mf">0.6</span>
+
+<span class="n">circle_walk_2</span> <span class="o">=</span> <span class="n">MarkovChain</span><span class="o">.</span><span class="n">from_transition_function</span><span class="p">(</span><span class="n">states</span><span class="p">,</span> <span class="n">transition_prob</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">circle_walk_2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.1</td>
+      <td>0.3</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.6</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.6</td>
+      <td>0.1</td>
+      <td>0.3</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.0</td>
+      <td>0.6</td>
+      <td>0.1</td>
+      <td>0.3</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.6</td>
+      <td>0.1</td>
+      <td>0.3</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.3</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.6</td>
+      <td>0.1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">circle_walk_2</span><span class="o">.</span><span class="n">simulate_path</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="n">plot_path</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/01_Detailed_Balance_11_0.png" src="../../_images/01_Detailed_Balance_11_0.png" />
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content/Chapter_11"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="00_Reversing_Markov_Chains.html" title="previous page"><span class="section-number">11. </span>Reversing Markov Chains</a>
+    <a class='right-next' id="next-link" href="02_Reversibility.html" title="next page"><span class="section-number">11.2. </span>Reversibility</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Ani Adhikari<br/>
+        
+            &copy; Copyright 2020.<br/>
+          <div class="extra_footer">
+            <p>
+License: CC BY-NC-ND 4.0
+</p>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../../_static/js/index.js"></script>
+    
+  </body>
+</html>

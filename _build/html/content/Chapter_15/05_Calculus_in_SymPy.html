@@ -1,0 +1,1297 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>15.5. Calculus in SymPy &#8212; Prob 140 Textbook</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/modification.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/mystnb.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="15.6. Review Problems: Set 3" href="06_Review_Problems_Set_3.html" />
+    <link rel="prev" title="15.4. Exponential Distribution" href="04_Exponential_Distribution.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Prob 140 Textbook</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <p class="caption">
+ <span class="caption-text">
+  Introduction
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference external" href="http://prob140.org">
+   Course Home
+   <i class="fas fa-external-link-alt">
+   </i>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../To_the_Student.html">
+   To the  Student
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Chapters
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Chapter_01/00_Fundamentals.html">
+   1. Fundamentals
+  </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_01/01_Outcome_Space_and_Events.html">
+     1.1. Outcome Space and Events
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_01/02_Equally_Likely_Outcomes.html">
+     1.2. Equally Likely Outcomes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_01/03_Collisions_in_Hashing.html">
+     1.3. Collisions in Hashing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_01/04_Birthday_Problem.html">
+     1.4. The Birthday Problem
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_01/05_An_Exponential_Approximation.html">
+     1.5. An Exponential Approximation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Chapter_02/00_Calculating_Chances.html">
+   2. Calculating Chances
+  </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_02/01_Addition.html">
+     2.1. Addition
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_02/02_Examples.html">
+     2.2. Examples
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_02/03_Multiplication.html">
+     2.3. Multiplication
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_02/04_More_Examples.html">
+     2.4. More Examples
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_02/05_Updating_Probabilities.html">
+     2.5. Updating Probabilities
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Chapter_03/00_Random_Variables.html">
+   3. Random Variables
+  </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_03/01_Functions_on_an_Outcome_Space.html">
+     3.1. Functions on an Outcome Space
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_03/02_Distributions.html">
+     3.2. Distributions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_03/03_Equality.html">
+     3.3. Equality
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Chapter_04/00_Relations_Between_Variables.html">
+   4. Relations Between Variables
+  </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_04/01_Joint_Distributions.html">
+     4.1. Joint Distributions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_04/02_Examples.html">
+     4.2. Examples
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_04/03_Marginal_Distributions.html">
+     4.3. Marginal Distributions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_04/04_Conditional_Distributions.html">
+     4.4. Conditional Distributions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_04/05_Dependence_and_Independence.html">
+     4.5. Dependence and Independence
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Chapter_05/00_Collections_of_Events.html">
+   5. Collections of Events
+  </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_05/01_Bounding_the_Chance_of_a_Union.html">
+     5.1. Bounding the Chance of a Union
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_05/02_Inclusion_Exclusion.html">
+     5.2. Inclusion-Exclusion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_05/03_The_Matching_Problem.html">
+     5.3. The Matching Problem
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_05/04_Sampling_Without_Replacement.html">
+     5.4. Sampling Without Replacement
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_05/05_Review_Problems_Set_1.html">
+     5.5. Review Problems: Set 1
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Chapter_06/00_Random_Counts.html">
+   6. Random Counts
+  </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_06/01_Binomial_Distribution.html">
+     6.1. The Binomial Distribution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_06/02_Examples.html">
+     6.2. Examples
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_06/03_Hypergeometric_Distribution.html">
+     6.3. The Hypergeometric Distribution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_06/04_Odds_Ratios.html">
+     6.4. Odds Ratios
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_06/05_Law_of_Small_Numbers.html">
+     6.5. The Law of Small Numbers
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Chapter_07/00_Poissonization.html">
+   7. Poissonization
+  </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_07/01_Poissonizing_the_Binomial.html">
+     7.3.1. Poissonizing the Binomial
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_07/02_Poissonizing_the_Multinomial.html">
+     7.3.2. Poissonizing the Multinomial
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Chapter_08/00_Expectation.html">
+   8. Expectation
+  </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_08/01_Definition.html">
+     8.1. Definition
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_08/02_Additivity.html">
+     8.2. Additivity
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_08/03_Expectations_of_Functions.html">
+     8.3. Expectations of Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_08/04_Review_Problems_Set_2.html">
+     8.4. Review Problems: Set 2
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Chapter_09/00_Conditioning_Revisited.html">
+   9. Conditioning, Revisited
+  </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_09/01_Probability_by_Conditioning.html">
+     9.1. Probability by Conditioning
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_09/02_Expectation_by_Conditioning.html">
+     9.2. Expectation by Conditioning
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_09/03_Expected_Waiting_Times.html">
+     9.3. Expected Waiting Times
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Chapter_10/00_Markov_Chains.html">
+   10. Markov Chains
+  </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_10/01_Transitions.html">
+     10.1. Transitions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_10/02_Deconstructing_Chains.html">
+     10.2. Deconstructing Chains
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_10/03_Long_Run_Behavior.html">
+     10.3. Long Run Behavior
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_10/04_Examples.html">
+     10.4. Examples
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Chapter_11/00_Reversing_Markov_Chains.html">
+   11. Reversing Markov Chains
+  </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_11/01_Detailed_Balance.html">
+     11.1. Detailed Balance
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_11/02_Reversibility.html">
+     11.2. Reversibility
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_11/03_Code_Breaking.html">
+     11.3. Code Breaking
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_11/04_Markov_Chain_Monte_Carlo.html">
+     11.4. Markov Chain Monte Carlo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_11/05_Review_Conditioning_and_MC.html">
+     11.5. Review Set on Conditioning and Markov Chains
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Chapter_12/00_Standard_Deviation.html">
+   12. Standard Deviation
+  </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_12/01_Definition.html">
+     12.1. Definition
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_12/02_Prediction_and_Estimation.html">
+     12.2. Prediction and Estimation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_12/03_Bounds.html">
+     12.3. Tail Bounds
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_12/04_Heavy_Tails.html">
+     12.4. Heavy Tails
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Chapter_13/00_Variance_Via_Covariance.html">
+   13. Variance Via Covariance
+  </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_13/01_Properties_of_Covariance.html">
+     13.1. Properties of Covariance
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_13/02_Sums_of_IID_Samples.html">
+     13.2. Sums of IID Samples
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_13/03_Sums_of_Simple_Random_Samples.html">
+     13.3. Sums of Simple Random Samples
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_13/04_Finite_Population_Correction.html">
+     13.4. Finite Population Correction
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Chapter_14/00_The_Central_Limit_Theorem.html">
+   14. The Central Limit Theorem
+  </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_14/01_Exact_Distribution.html">
+     14.1. Exact Distribution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_14/02_PGFs_in_NumPy.html">
+     14.2. PGFs in NumPy
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_14/03_Central_Limit_Theorem.html">
+     14.3. Central Limit Theorem
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_14/04_The_Sample_Mean.html">
+     14.4. The Sample Mean
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_14/05_Confidence_Intervals.html">
+     14.5. Confidence Intervals
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="00_Continuous_Distributions.html">
+   15. Continuous Distributions
+  </a>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="01_Density_and_CDF.html">
+     15.1. Density and CDF
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02_The_Meaning_of_Density.html">
+     15.2. The Meaning of Density
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03_Expectation.html">
+     15.3. Expectation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04_Exponential_Distribution.html">
+     15.4. Exponential Distribution
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     15.5. Calculus in SymPy
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="06_Review_Problems_Set_3.html">
+     15.6. Review Problems: Set 3
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Chapter_16/00_Transformations.html">
+   16. Transformations
+  </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_16/01_Linear_Transformations.html">
+     16.1. Linear Transformations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_16/02_Monotone_Functions.html">
+     16.2. Monotone Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_16/03_Two_to_One_Functions.html">
+     16.3. Two-to-One Functions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Chapter_17/00_Joint_Densities.html">
+   17. Joint Densities
+  </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_17/01_Probabilities_and_Expectations.html">
+     17.1. Probabilities and Expectations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_17/02_Independence.html">
+     17.2. Independence
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_17/03_Marginal_and_Conditional_Densities.html">
+     17.3. Marginal and Conditional Densities
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_17/04_Beta_Densities_with_Integer_Parameters.html">
+     17.4. Beta Densities with Integer Parameters
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Chapter_18/00_The_Normal_and_Gamma_Families.html">
+   18. The Normal and Gamma Families
+  </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_18/01_Standard_Normal_Basics.html">
+     18.1. Standard Normal: The Basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_18/02_Sums_of_Independent_Normal_Variables.html">
+     18.2. Sums of Independent Normal Variables
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_18/03_The_Gamma_Family.html">
+     18.3. The Gamma Family
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_18/04_Chi_Squared_Distributions.html">
+     18.4. Chi-Squared Distributions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_18/05_Review_Problems_Set_4.html">
+     18.5. Review Problems: Set 4
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Chapter_19/00_Distributions_of_Sums.html">
+   19. Distributions of Sums
+  </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_19/01_Convolution_Formula.html">
+     19.1. The Convolution Formula
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_19/02_Moment_Generating_Functions.html">
+     19.2. Moment Generating Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_19/03_MGFs_Normal_and_the_CLT.html">
+     19.3. MGFs, the Normal, and the CLT
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_19/04_Chernoff_Bound.html">
+     19.4. Chernoff Bound
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Chapter_20/00_Approaches_to_Estimation.html">
+   20. Approaches to Estimation
+  </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_20/01_Maximum_Likelihood.html">
+     20.1. Maximum Likelihood##
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_20/02_Prior_and_Posterior.html">
+     20.2. Prior and Posterior
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_20/03_Independence_Revisited.html">
+     20.3. Independence, Revisited
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Chapter_21/00_The_Beta_and_the_Binomial.html">
+   21. The Beta and the Binomial
+  </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_21/01_Updating_and_Prediction.html">
+     21.1. Updating and Prediction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_21/02_Beta_Binomial_Distribution.html">
+     21.2. The Beta-Binomial Distribution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_21/03_Long_Run_Proportion_of_Heads.html">
+     21.3. Long Run Proportion of Heads
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Chapter_22/00_Prediction.html">
+   22. Prediction
+  </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_22/01_Conditional_Expectation_Projection.html">
+     22.1. Conditional Expectation As a Projection
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_22/02_Variance_by_Conditioning.html">
+     22.2. Variance by Conditioning
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_22/03_Examples.html">
+     22.3. Examples
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_22/04_Least_Squares_Predictor.html">
+     22.4. Least Squares Predictor
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Chapter_23/00_Multivariate_Normal_RVs.html">
+   23. Jointly Normal Random Variables
+  </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_23/01_Random_Vectors.html">
+     23.1. Random Vectors
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_23/02_Multivariate_Normal_Distribution.html">
+     23.2. Multivariate Normal Distribution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_23/03_Linear_Combinations.html">
+     23.3. Linear Combinations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_23/04_Independence.html">
+     23.4. Independence
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Chapter_24/00_Simple_Linear_Regression.html">
+   24. Simple Linear Regression
+  </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_24/01_Bivariate_Normal_Distribution.html">
+     24.1. Bivariate Normal Distribution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_24/02_Linear_Least_Squares.html">
+     24.2. Least Squares Linear Predictor
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_24/03_Regression_and_Bivariate_Normal.html">
+     24.3. Regression and the Bivariate Normal
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_24/04_Regression_Equation.html">
+     24.4. The Regression Equation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Chapter_25/00_Multiple_Regression.html">
+   25. Multiple Regression
+  </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_25/01_Bilinearity_in_Matrix_Notation.html">
+     25.1. Bilinearity in Matrix Notation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_25/02_Best_Linear_Predictor.html">
+     25.2. Best Linear Predictor
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_25/03_Multivariate_Normal_Conditioning.html">
+     25.3. Conditioning and the Multivariate Normal
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_25/04_Multiple_Regression.html">
+     25.4. Multiple Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_25/05_Further_Review_Exercises.html">
+     25.5. Further Review Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/content/Chapter_15/05_Calculus_in_SymPy.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        
+        <a class="jupyterhub-button" href="https://prob140.datahub.berkeley.edu/hub/user-redirect/git-pull?repo=https://github.com/prob140/textbook&urlpath=tree/textbook/content/Chapter_15/05_Calculus_in_SymPy.ipynb&branch=gh-pages"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="../../_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> On this page
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sympy-and-the-exponential-density">
+   15.5.1. SymPy and the Exponential Density
+  </a>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="calculus-in-sympy">
+<h1><span class="section-number">15.5. </span>Calculus in SymPy<a class="headerlink" href="#calculus-in-sympy" title="Permalink to this headline">¶</a></h1>
+<p>Working with densities involves calculus which can sometimes be time-consuming. This course gives you two ways of reducing the amount of calculus involved.</p>
+<ul class="simple">
+<li><p>Probabilistic methods can help reduce algebra and calculus. You’ve seen this with algebra in the discrete case. You’ll see it with calculus as we learn more about densities.</p></li>
+<li><p>Python has a symbolic math module called <code class="docutils literal notranslate"><span class="pre">SymPy</span></code> that does algebra, calculus, and much other symbolic math. In this section we will show you how to do calculus using <code class="docutils literal notranslate"><span class="pre">SymPy</span></code>.</p></li>
+</ul>
+<p>We will demonstrate the methods in the context of an example. Suppose <span class="math notranslate nohighlight">\(X\)</span> has density given by</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+f(x) = 
+\begin{cases}
+105x^2(1-x)^4 ~~~ \text{if } 0 \le x \le 1 \\
+0 ~~~~~~~~~ \text{otherwise}
+\end{cases}
+\end{split}\]</div>
+<p>As you can see from its graph below, <span class="math notranslate nohighlight">\(f\)</span> could be used to model the distribution of a random proportion that you think is likely to be somewhere between 0.2 and 0.4.</p>
+<div class="cell tag_remove_input docutils container">
+<div class="cell_output docutils container">
+<img alt="../../_images/05_Calculus_in_SymPy_4_0.png" src="../../_images/05_Calculus_in_SymPy_4_0.png" />
+</div>
+</div>
+<p>The density <span class="math notranslate nohighlight">\(f\)</span> is a polynomial on the unit interval, and in principle the algebra and calculus involved in integrating it are straightforward. But they are tedious. So let’s get <code class="docutils literal notranslate"><span class="pre">SymPy</span></code> to do the work.</p>
+<p>First, we will import all the functions in <code class="docutils literal notranslate"><span class="pre">SymPy</span></code> and set up some printing methods that make the output look nicer than the retro typewritten pgf output you saw in a previous section. In future sections of this text, you can assume that this importing and initialization will have been done at the start.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="n">init_printing</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next, we have to create tell Python that an object is symbolic. In our example, the variable <span class="math notranslate nohighlight">\(x\)</span> is the natural candidate to be a symbol. You can use <code class="docutils literal notranslate"><span class="pre">Symbol</span></code> for this, by using the argument <code class="docutils literal notranslate"><span class="pre">'x'</span></code>. We have assinged the symbol to the name <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">Symbol</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we will assign the name <code class="docutils literal notranslate"><span class="pre">density</span></code> to the expression that defines <span class="math notranslate nohighlight">\(f\)</span>. The expression looks just like a numerical calculation, but the output is algebraic!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">density</span> <span class="o">=</span> <span class="mi">105</span> <span class="o">*</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">4</span>
+<span class="n">density</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/05_Calculus_in_SymPy_10_0.png" src="../../_images/05_Calculus_in_SymPy_10_0.png" />
+</div>
+</div>
+<p>That’s the expression for <span class="math notranslate nohighlight">\(f(x)\)</span> defined by the equation at the start of the section. Notice that what we naturally think of as <span class="math notranslate nohighlight">\(1 - x\)</span> is expressed as <span class="math notranslate nohighlight">\(-x + 1\)</span>. That’s because <code class="docutils literal notranslate"><span class="pre">SymPy</span></code> is writing the polynomial leading with the term of highest degree.</p>
+<p>Let’s not simply accept that this function is a density. Let’s check that it is a density by integrating it from 0 to 1. To display this, we use the method <code class="docutils literal notranslate"><span class="pre">Integral</span></code> that takes the name of a function and a <em>tuple</em> (a sequence in parentheses) consisting of the variable of integration and the lower and upper limits of integration. We have assigned this integral to the name <code class="docutils literal notranslate"><span class="pre">total_area</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">total_area</span> <span class="o">=</span> <span class="n">Integral</span><span class="p">(</span><span class="n">density</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">total_area</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/05_Calculus_in_SymPy_12_0.png" src="../../_images/05_Calculus_in_SymPy_12_0.png" />
+</div>
+</div>
+<p>The output of displays the integral, which is nice, but what we really want is its numerical value. In <code class="docutils literal notranslate"><span class="pre">SymPy</span></code>, this is achieved by abruptly instructing the method to <code class="docutils literal notranslate"><span class="pre">doit()</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">total_area</span><span class="o">.</span><span class="n">doit</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/05_Calculus_in_SymPy_14_0.png" src="../../_images/05_Calculus_in_SymPy_14_0.png" />
+</div>
+</div>
+<p>This confirms that the function <span class="math notranslate nohighlight">\(f\)</span> is a density.</p>
+<p>We can use <code class="docutils literal notranslate"><span class="pre">Integral</span></code> to find the chance that <span class="math notranslate nohighlight">\(X\)</span> is in any interval. Here is <span class="math notranslate nohighlight">\(P(0.2 &lt; X &lt; 0.4)\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">prob_02_04</span> <span class="o">=</span> <span class="n">Integral</span><span class="p">(</span><span class="n">density</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">))</span><span class="o">.</span><span class="n">doit</span><span class="p">()</span>
+<span class="n">prob_02_04</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/05_Calculus_in_SymPy_16_0.png" src="../../_images/05_Calculus_in_SymPy_16_0.png" />
+</div>
+</div>
+<p>For <span class="math notranslate nohighlight">\(x\)</span> in the unit interval, the cdf of <span class="math notranslate nohighlight">\(X\)</span> is</p>
+<div class="math notranslate nohighlight">
+\[
+F(x) ~ = ~ P(X \le x) ~ = ~ \int_0^x f(s)ds ~ = ~ I(s)~ \Big{\rvert}_0^x ~ = ~ I(x) - I(0)
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(I\)</span> is the indefinite integral of <span class="math notranslate nohighlight">\(f\)</span>.</p>
+<p>To get the indefinite integral, simply ask <code class="docutils literal notranslate"><span class="pre">SymPy</span></code> to integrate the density; there are no limits of integration.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">indefinite</span> <span class="o">=</span> <span class="n">Integral</span><span class="p">(</span><span class="n">density</span><span class="p">)</span><span class="o">.</span><span class="n">doit</span><span class="p">()</span>
+<span class="n">indefinite</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/05_Calculus_in_SymPy_18_0.png" src="../../_images/05_Calculus_in_SymPy_18_0.png" />
+</div>
+</div>
+<p>Now <span class="math notranslate nohighlight">\(F(x) = I(x) - I(0)\)</span>. You can see at a glance that <span class="math notranslate nohighlight">\(I(0) = 0\)</span> but here is how <code class="docutils literal notranslate"><span class="pre">SymPy</span></code> would figure that out.</p>
+<p>To evaluate <span class="math notranslate nohighlight">\(I(0)\)</span>, <code class="docutils literal notranslate"><span class="pre">SymPy</span></code> must substitute <span class="math notranslate nohighlight">\(x\)</span> with 0 in the expression for <span class="math notranslate nohighlight">\(I\)</span>. This is achieved by the method <code class="docutils literal notranslate"><span class="pre">subs</span></code> that takes the variable as its first argument and the specified value as the second.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">I_0</span> <span class="o">=</span> <span class="n">indefinite</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">I_0</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/05_Calculus_in_SymPy_20_0.png" src="../../_images/05_Calculus_in_SymPy_20_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cdf</span> <span class="o">=</span> <span class="n">indefinite</span> <span class="o">-</span> <span class="n">I_0</span>
+<span class="n">cdf</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/05_Calculus_in_SymPy_21_0.png" src="../../_images/05_Calculus_in_SymPy_21_0.png" />
+</div>
+</div>
+<p>To find the value of the cdf at a specified point, say 0.4, we have to substitute <span class="math notranslate nohighlight">\(x\)</span> with 0.4 in the formula for the cdf.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cdf_at_04</span> <span class="o">=</span> <span class="n">cdf</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">)</span>
+<span class="n">cdf_at_04</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/05_Calculus_in_SymPy_23_0.png" src="../../_images/05_Calculus_in_SymPy_23_0.png" />
+</div>
+</div>
+<p>Thus <span class="math notranslate nohighlight">\(P(X \le 0.4)\)</span> is roughly 58%. Earlier we calulated <span class="math notranslate nohighlight">\(P(0.2 &lt; X &lt; 0.4) = 43.2\%\)</span>, which we can confirm by using the cdf:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cdf_at_02</span> <span class="o">=</span> <span class="n">cdf</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">)</span>
+<span class="n">cdf_at_04</span> <span class="o">-</span> <span class="n">cdf_at_02</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/05_Calculus_in_SymPy_25_0.png" src="../../_images/05_Calculus_in_SymPy_25_0.png" />
+</div>
+</div>
+<p>The expectation <span class="math notranslate nohighlight">\(E(X)\)</span> is a definite integral from 0 to 1:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">expectation</span> <span class="o">=</span> <span class="n">Integral</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">density</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">doit</span><span class="p">()</span>
+<span class="n">expectation</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/05_Calculus_in_SymPy_27_0.png" src="../../_images/05_Calculus_in_SymPy_27_0.png" />
+</div>
+</div>
+<p>Notice how simple the answer is. Later in the course, you will see why.</p>
+<p>Here is <span class="math notranslate nohighlight">\(E(X^2)\)</span>, which turns out to be another simple fraction. Clearly, the density <span class="math notranslate nohighlight">\(f\)</span> has interesting properties. We will study them later. For now, let’s just get the numerical answers.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">expected_square</span> <span class="o">=</span> <span class="n">Integral</span><span class="p">((</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">density</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">doit</span><span class="p">()</span>
+<span class="n">expected_square</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/05_Calculus_in_SymPy_29_0.png" src="../../_images/05_Calculus_in_SymPy_29_0.png" />
+</div>
+</div>
+<p>Now you can find <span class="math notranslate nohighlight">\(SD(X)\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sd</span> <span class="o">=</span> <span class="p">(</span><span class="n">expected_square</span> <span class="o">-</span> <span class="n">expectation</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span>
+<span class="n">sd</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/05_Calculus_in_SymPy_31_0.png" src="../../_images/05_Calculus_in_SymPy_31_0.png" />
+</div>
+</div>
+<div class="section" id="sympy-and-the-exponential-density">
+<h2><span class="section-number">15.5.1. </span>SymPy and the Exponential Density<a class="headerlink" href="#sympy-and-the-exponential-density" title="Permalink to this headline">¶</a></h2>
+<p>One of the primary distributions in probability theory, the exponential distribution has a positive parameter <span class="math notranslate nohighlight">\(\lambda\)</span> known as the “rate”, and density given by</p>
+<div class="math notranslate nohighlight">
+\[
+f(t) ~ = \lambda e^{-\lambda t}, ~~~ t \ge 0
+\]</div>
+<p>The density is 0 on the negative numbers. Here is its graph when <span class="math notranslate nohighlight">\(\lambda = 3\)</span>.</p>
+<div class="cell tag_remove_input docutils container">
+<div class="cell_output docutils container">
+<img alt="../../_images/05_Calculus_in_SymPy_33_0.png" src="../../_images/05_Calculus_in_SymPy_33_0.png" />
+</div>
+</div>
+<p>To check that <span class="math notranslate nohighlight">\(f\)</span> is a density, we have to confirm that its integral is 1. We will start by constructing two symbols, <code class="docutils literal notranslate"><span class="pre">t</span></code> and <code class="docutils literal notranslate"><span class="pre">lamda</span></code>. Notice the incorrectly spelled <code class="docutils literal notranslate"><span class="pre">lamda</span></code> instead of <code class="docutils literal notranslate"><span class="pre">lambda</span></code>. That is because <code class="docutils literal notranslate"><span class="pre">lambda</span></code> has another meaning in Python, as some of you might know.</p>
+<p>Note the use of <code class="docutils literal notranslate"><span class="pre">positive=True</span></code> to specify that the symbol can take on only positive values.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">Symbol</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">,</span> <span class="n">positive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">lamda</span> <span class="o">=</span> <span class="n">Symbol</span><span class="p">(</span><span class="s1">&#39;lamda&#39;</span><span class="p">,</span> <span class="n">positive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next we construct the expression for the density. Notice the use of <code class="docutils literal notranslate"><span class="pre">exp</span></code> for the exponential function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">expon_density</span> <span class="o">=</span> <span class="n">lamda</span> <span class="o">*</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">lamda</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span>
+<span class="n">expon_density</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/05_Calculus_in_SymPy_37_0.png" src="../../_images/05_Calculus_in_SymPy_37_0.png" />
+</div>
+</div>
+<p>To see that the function is a density, we can check that its integral from 0 to <span class="math notranslate nohighlight">\(\infty\)</span> is 1. The symbol that <code class="docutils literal notranslate"><span class="pre">SymPy</span></code> uses for <span class="math notranslate nohighlight">\(\infty\)</span> is <code class="docutils literal notranslate"><span class="pre">oo</span></code>, a double lower case o. It looks very much like <span class="math notranslate nohighlight">\(\infty\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Integral</span><span class="p">(</span><span class="n">expon_density</span><span class="p">,</span> <span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">oo</span><span class="p">))</span><span class="o">.</span><span class="n">doit</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/05_Calculus_in_SymPy_39_0.png" src="../../_images/05_Calculus_in_SymPy_39_0.png" />
+</div>
+</div>
+<p>Suppose <span class="math notranslate nohighlight">\(T\)</span> has the exponential <span class="math notranslate nohighlight">\((\lambda)\)</span> density. Then for <span class="math notranslate nohighlight">\(t \ge 0\)</span> the cdf of <span class="math notranslate nohighlight">\(T\)</span> is</p>
+<div class="math notranslate nohighlight">
+\[
+F_T(t) ~ = ~ P(T \le t) ~ = ~ \int_0^t \lambda e^{-\lambda s}ds
+\]</div>
+<p>This is a straightforward integral that you can probably do in your head. However, let’s get some more practice using <code class="docutils literal notranslate"><span class="pre">SymPy</span></code> to find cdf’s.
+We will use the same method that we used to find the cdf in the previous example.</p>
+<div class="math notranslate nohighlight">
+\[
+\int_0^t \lambda e^{-\lambda s}ds ~ = ~ I(t) - I(0)
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(I\)</span> is the indefinite integral of the density. To get this indefinite integral we will use <code class="docutils literal notranslate"><span class="pre">Integral</span></code> as before, except that this time we must specify <code class="docutils literal notranslate"><span class="pre">t</span></code> as the variable of integration. That is because <code class="docutils literal notranslate"><span class="pre">SymPy</span></code> sees two symbols <code class="docutils literal notranslate"><span class="pre">t</span></code> and <code class="docutils literal notranslate"><span class="pre">lamda</span></code> in the density, and doesn’t know which one is the variable unless we tell it.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">indefinite</span> <span class="o">=</span> <span class="n">Integral</span><span class="p">(</span><span class="n">expon_density</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span><span class="o">.</span><span class="n">doit</span><span class="p">()</span>
+<span class="n">indefinite</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/05_Calculus_in_SymPy_41_0.png" src="../../_images/05_Calculus_in_SymPy_41_0.png" />
+</div>
+</div>
+<p>Now use <span class="math notranslate nohighlight">\(F_T(t) = I(t) - I(0)\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">I_0</span> <span class="o">=</span> <span class="n">indefinite</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">I_0</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/05_Calculus_in_SymPy_43_0.png" src="../../_images/05_Calculus_in_SymPy_43_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cdf</span> <span class="o">=</span> <span class="n">indefinite</span> <span class="o">-</span> <span class="n">I_0</span>
+<span class="n">cdf</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/05_Calculus_in_SymPy_44_0.png" src="../../_images/05_Calculus_in_SymPy_44_0.png" />
+</div>
+</div>
+<p>Thus the cdf of <span class="math notranslate nohighlight">\(T\)</span> is</p>
+<div class="math notranslate nohighlight">
+\[
+F_T(t) ~ = ~ 1 - e^{-\lambda t}
+\]</div>
+<p>The expectation of <span class="math notranslate nohighlight">\(T\)</span> is</p>
+<div class="math notranslate nohighlight">
+\[
+E(T) ~ = ~ \int_0^\infty t \lambda e^{-\lambda t} dt ~ = ~ \frac{1}{\lambda}
+\]</div>
+<p>which you can check by integration by parts. But <code class="docutils literal notranslate"><span class="pre">SymPy</span></code> is faster:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">expectation</span> <span class="o">=</span> <span class="n">Integral</span><span class="p">(</span><span class="n">t</span><span class="o">*</span><span class="n">expon_density</span><span class="p">,</span> <span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">oo</span><span class="p">))</span><span class="o">.</span><span class="n">doit</span><span class="p">()</span>
+<span class="n">expectation</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/05_Calculus_in_SymPy_46_0.png" src="../../_images/05_Calculus_in_SymPy_46_0.png" />
+</div>
+</div>
+<p>Calculating <span class="math notranslate nohighlight">\(E(T^2)\)</span> is just as easy.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">expected_square</span> <span class="o">=</span> <span class="n">Integral</span><span class="p">(</span><span class="n">t</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">expon_density</span><span class="p">,</span> <span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">oo</span><span class="p">))</span><span class="o">.</span><span class="n">doit</span><span class="p">()</span>
+<span class="n">expected_square</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/05_Calculus_in_SymPy_48_0.png" src="../../_images/05_Calculus_in_SymPy_48_0.png" />
+</div>
+</div>
+<p>The variance and SD follow directly.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">variance</span> <span class="o">=</span> <span class="n">expected_square</span> <span class="o">-</span> <span class="p">(</span><span class="n">expectation</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">variance</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/05_Calculus_in_SymPy_50_0.png" src="../../_images/05_Calculus_in_SymPy_50_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sd</span> <span class="o">=</span> <span class="n">variance</span> <span class="o">**</span> <span class="mf">0.5</span>
+<span class="n">sd</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/05_Calculus_in_SymPy_51_0.png" src="../../_images/05_Calculus_in_SymPy_51_0.png" />
+</div>
+</div>
+<p>That’s a pretty funny way of writing <span class="math notranslate nohighlight">\(\frac{1}{\lambda}\)</span> but we’ll take it. It’s a small price to pay for not having to do all the integrals by hand.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content/Chapter_15"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="04_Exponential_Distribution.html" title="previous page"><span class="section-number">15.4. </span>Exponential Distribution</a>
+    <a class='right-next' id="next-link" href="06_Review_Problems_Set_3.html" title="next page"><span class="section-number">15.6. </span>Review Problems: Set 3</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Ani Adhikari<br/>
+        
+            &copy; Copyright 2020.<br/>
+          <div class="extra_footer">
+            <p>
+License: CC BY-NC-ND 4.0
+</p>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../../_static/js/index.js"></script>
+    
+  </body>
+</html>
