@@ -8,7 +8,7 @@ plt.style.use('fivethirtyeight')
 import math
 from scipy import stats
 
-## Maximum Likelihood##
+## Maximum Likelihood ##
 
 Suppose you have an i.i.d. sample $X_1, X_2, \ldots, X_n$ where the density of each $X_i$ depends on a parameter $\theta$. 
 
