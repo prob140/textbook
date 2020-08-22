@@ -47,7 +47,6 @@
     - file: content/Chapter_05/02_Inclusion_Exclusion
     - file: content/Chapter_05/03_The_Matching_Problem
     - file: content/Chapter_05/04_Sampling_Without_Replacement
-    - file: content/Chapter_05/05_Review_Problems_Set_1
   - file: content/Chapter_06/00_Random_Counts
     expand_sections: true
     sections:
