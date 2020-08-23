@@ -14,6 +14,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/headers.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
@@ -128,6 +129,11 @@
      1.5. An Exponential Approximation
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="06_Exercises.html">
+     1.6. Exercises
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1">
@@ -239,11 +245,6 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_05/04_Sampling_Without_Replacement.html">
      5.4. Sampling Without Replacement
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_05/05_Review_Problems_Set_1.html">
-     5.5. Review Problems: Set 1
     </a>
    </li>
   </ul>
@@ -897,33 +898,34 @@
 <p>Formally, an <strong>outcome space</strong> is just a set, usually denoted by <span class="math notranslate nohighlight">\(\Omega\)</span>. That’s the upper case Greek letter Omega.</p>
 <p>We will assume for now that <span class="math notranslate nohighlight">\(\Omega\)</span> is finite. In a sense this is not restrictive, as even the largest data sets are finite and the most powerful computers perform finitely many operations per task. However, we will soon see that allowing infinitely many possible outcomes not only results in a rich and elegant theory but also gives us deeper insights into problems involving finite outcome spaces. So the assumption that <span class="math notranslate nohighlight">\(\Omega\)</span> is finite will be lifted in later chapters, once we have acquired some fluency with working in the finite case.</p>
 <p>An <strong>outcome</strong> <span class="math notranslate nohighlight">\(\omega\)</span> is an element of the outcome space <span class="math notranslate nohighlight">\(\Omega\)</span>. Though <span class="math notranslate nohighlight">\(\omega\)</span> looks like the letter w, it’s the lower case Greek omega and is usually more rounded in appearance than w.</p>
-<p>An <strong>event</strong> is a subset of <span class="math notranslate nohighlight">\(\Omega\)</span>. The empty set <span class="math notranslate nohighlight">\(\phi\)</span> and the entire space <span class="math notranslate nohighlight">\(\Omega\)</span> are allowed as subsets. By convention, early letters of the alphabet like <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are commonly used as notation for events.</p>
+<p>An <strong>event</strong> is a subset of <span class="math notranslate nohighlight">\(\Omega\)</span>. The empty set <span class="math notranslate nohighlight">\(\phi\)</span> and the entire space <span class="math notranslate nohighlight">\(\Omega\)</span> are allowed as subsets. By convention, early letters of the alphabet like <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are commonly used as notation for events. Also by convention, we will denote sets by enclosing their elements in braces <span class="math notranslate nohighlight">\(\{ \}\)</span>.</p>
 <div class="section" id="example-permutations">
 <h2><span class="section-number">1.1.1. </span>Example: Permutations<a class="headerlink" href="#example-permutations" title="Permalink to this headline">¶</a></h2>
-<p>Suppose you are shuffling three cards labeled <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(b\)</span>, and <span class="math notranslate nohighlight">\(c\)</span>. Then the space of all possible outcomes is
-<span class="math notranslate nohighlight">\($
+<p>Suppose you are shuffling three cards labeled <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(b\)</span>, and <span class="math notranslate nohighlight">\(c\)</span>. Then the space of all possible outcomes is</p>
+<div class="math notranslate nohighlight">
+\[
 \Omega ~=~ \{ abc, ~acb, ~bac, ~bca, ~cab, ~cba \}
-$\)</span>
-The event <span class="math notranslate nohighlight">\(\\{abc, ~ acb \\}\)</span>  can be described as “<span class="math notranslate nohighlight">\(a\)</span> appears first”. Such verbal descriptions of events are made formal by defining the events as subsets. This is the first step in developing a theory that is precise and consistent while also capable of being expressed in language that is natural for applications.</p>
+\]</div>
+<p>The event <span class="math notranslate nohighlight">\(\{abc, ~ acb \}\)</span>  can be described as “<span class="math notranslate nohighlight">\(a\)</span> appears first”. Such verbal descriptions of events are made formal by defining the events as subsets. This is the first step in developing a theory that is precise and consistent while also capable of being expressed in language that is natural for applications.</p>
 <table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="text-align:center head"><p>Event</p></th>
 <th class="text-align:left head"><p>Verbal Description</p></th>
-<th class="text-align:left head"><p>Subset <span class="math notranslate nohighlight">\(~~~~~~~~~~~~\)</span></p></th>
+<th class="text-align:left head"><p>Subset</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td class="text-align:center"><p><span class="math notranslate nohighlight">\(A\)</span></p></td>
 <td class="text-align:left"><p><span class="math notranslate nohighlight">\(a\)</span> appears first</p></td>
-<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\\{abc, ~acb\\}\)</span></p></td>
+<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\{abc, acb\}\)</span></p></td>
 </tr>
 <tr class="row-odd"><td class="text-align:center"><p><span class="math notranslate nohighlight">\(B\)</span></p></td>
 <td class="text-align:left"><p><span class="math notranslate nohighlight">\(b\)</span> and <span class="math notranslate nohighlight">\(c\)</span> are not next to each other</p></td>
-<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\\{bac, ~cab\\}\)</span></p></td>
+<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\{bac, cab\}\)</span></p></td>
 </tr>
 <tr class="row-even"><td class="text-align:center"><p><span class="math notranslate nohighlight">\(C\)</span></p></td>
 <td class="text-align:left"><p>the letters are in alphabetical order</p></td>
-<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\\{abc\\}\)</span></p></td>
+<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\{abc\}\)</span></p></td>
 </tr>
 <tr class="row-odd"><td class="text-align:center"><p><span class="math notranslate nohighlight">\(D\)</span></p></td>
 <td class="text-align:left"><p><span class="math notranslate nohighlight">\(a\)</span> appears first, <span class="math notranslate nohighlight">\(b\)</span> next, but <span class="math notranslate nohighlight">\(c\)</span> isn’t third</p></td>
@@ -935,13 +937,21 @@ The event <span class="math notranslate nohighlight">\(\\{abc, ~ acb \\}\)</span
 </tr>
 <tr class="row-odd"><td class="text-align:center"><p><span class="math notranslate nohighlight">\(F\)</span></p></td>
 <td class="text-align:left"><p>the letters form a word that means “taxi”</p></td>
-<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\\{ cab \\}\)</span></p></td>
+<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\{ cab \}\)</span></p></td>
 </tr>
 </tbody>
 </table>
-<p><strong>A note about “types”:</strong> The outcome <span class="math notranslate nohighlight">\(\omega = cab\)</span> is different from the event <span class="math notranslate nohighlight">\(F = \\{ cab \\}\)</span>. The outcome is an element of the outcome space, and the event is a subset of the outcome space. This subset happens to consist of just one outcome, but it’s still a subset, not an element. You can think of this as analogous to different types in Python: <code class="docutils literal notranslate"><span class="pre">'cab'</span></code> is a string whereas <code class="docutils literal notranslate"><span class="pre">['cab']</span></code> is a list.</p>
+<p><strong>A note about “types”:</strong> The outcome <span class="math notranslate nohighlight">\(\omega = cab\)</span> is different from the event <span class="math notranslate nohighlight">\(F = \{ cab \}\)</span>. The outcome is an element of the outcome space, and the event is a subset of the outcome space. This subset happens to consist of just one outcome, but it’s still a subset, not an element. You can think of this as analogous to different types in Python: <code class="docutils literal notranslate"><span class="pre">'cab'</span></code> is a string whereas <code class="docutils literal notranslate"><span class="pre">['cab']</span></code> is a list.</p>
 <p>The table contains six events and you can come up with many more. For each one, see if you can give an interesting verbal description.</p>
-<p>When you shuffle cards for a game, the goal is to make the order of the cards “random”. Preferably, you’d like any permutation to be just as likely as any other. So let’s start working with equally likely outcomes.</p>
+<span style="color: #114466">
+    <b>Quick Check:</b> A natural outcome space for three tosses of a coin is $\Omega = \{HHH, HHT, HTH, HTT, THH, THT, THH, TTT\}$. 
+<p><strong>a)</strong> What is the event that corresponds to the description “no two consecutive tosses land the same way”?</p>
+<p><strong>b)</strong> Give a verbal description of the event <span class="math notranslate nohighlight">\(\{HTT, THT, TTH, TTT\}\)</span>.</p>
+<details>
+    <summary>Answer </summary>
+    (a) $\{HTH, THT\}~~$ (b) One way to describe it is "at most one head"
+</details> 
+</span><p>When you shuffle cards for a game, the goal is to make the order of the cards “random”. Preferably, you’d like any permutation to be just as likely as any other. So let’s start working with equally likely outcomes.</p>
 </div>
 </div>
 

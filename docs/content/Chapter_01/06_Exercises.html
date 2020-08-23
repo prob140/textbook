@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>5.5. Review Problems: Set 1 &#8212; Prob 140 Textbook</title>
+    <title>1.6. Exercises &#8212; Prob 140 Textbook</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
@@ -14,6 +14,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/headers.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
@@ -39,8 +40,8 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="6. Random Counts" href="../Chapter_06/00_Random_Counts.html" />
-    <link rel="prev" title="5.4. Sampling Without Replacement" href="04_Sampling_Without_Replacement.html" />
+    <link rel="next" title="2. Calculating Chances" href="../Chapter_02/00_Calculating_Chances.html" />
+    <link rel="prev" title="1.5. An Exponential Approximation" href="05_An_Exponential_Approximation.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -98,34 +99,39 @@
  </span>
 </p>
 <ul class="current nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="../Chapter_01/00_Fundamentals.html">
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="00_Fundamentals.html">
    1. Fundamentals
   </a>
-  <ul>
+  <ul class="current">
    <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_01/01_Outcome_Space_and_Events.html">
+    <a class="reference internal" href="01_Outcome_Space_and_Events.html">
      1.1. Outcome Space and Events
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_01/02_Equally_Likely_Outcomes.html">
+    <a class="reference internal" href="02_Equally_Likely_Outcomes.html">
      1.2. Equally Likely Outcomes
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_01/03_Collisions_in_Hashing.html">
+    <a class="reference internal" href="03_Collisions_in_Hashing.html">
      1.3. Collisions in Hashing
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_01/04_Birthday_Problem.html">
+    <a class="reference internal" href="04_Birthday_Problem.html">
      1.4. The Birthday Problem
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_01/05_An_Exponential_Approximation.html">
+    <a class="reference internal" href="05_An_Exponential_Approximation.html">
      1.5. An Exponential Approximation
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     1.6. Exercises
     </a>
    </li>
   </ul>
@@ -216,34 +222,29 @@
    </li>
   </ul>
  </li>
- <li class="toctree-l1 current active">
-  <a class="reference internal" href="00_Collections_of_Events.html">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Chapter_05/00_Collections_of_Events.html">
    5. Collections of Events
   </a>
-  <ul class="current">
+  <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="01_Bounding_the_Chance_of_a_Union.html">
+    <a class="reference internal" href="../Chapter_05/01_Bounding_the_Chance_of_a_Union.html">
      5.1. Bounding the Chance of a Union
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="02_Inclusion_Exclusion.html">
+    <a class="reference internal" href="../Chapter_05/02_Inclusion_Exclusion.html">
      5.2. Inclusion-Exclusion
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="03_The_Matching_Problem.html">
+    <a class="reference internal" href="../Chapter_05/03_The_Matching_Problem.html">
      5.3. The Matching Problem
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="04_Sampling_Without_Replacement.html">
+    <a class="reference internal" href="../Chapter_05/04_Sampling_Without_Replacement.html">
      5.4. Sampling Without Replacement
-    </a>
-   </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     5.5. Review Problems: Set 1
     </a>
    </li>
   </ul>
@@ -831,7 +832,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/content/Chapter_05/05_Review_Problems_Set_1.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/content/Chapter_01/06_Exercises.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -856,7 +857,7 @@
     <div class="dropdown-buttons">
         
         
-        <a class="jupyterhub-button" href="https://prob140.datahub.berkeley.edu/hub/user-redirect/git-pull?repo=https://github.com/prob140/textbook&urlpath=tree/textbook/content/Chapter_05/05_Review_Problems_Set_1.ipynb&branch=gh-pages"><button type="button"
+        <a class="jupyterhub-button" href="https://prob140.datahub.berkeley.edu/hub/user-redirect/git-pull?repo=https://github.com/prob140/textbook&urlpath=tree/textbook/content/Chapter_01/06_Exercises.ipynb&branch=gh-pages"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
                 data-placement="left"><img class="jupyterhub-button-logo"
                     src="../../_static/images/logo_jupyterhub.svg"
@@ -875,19 +876,7 @@
             <i class="fas fa-list"></i> On this page
         </div>
         <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-basics">
-   5.5.1. The Basics
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#additional-practice">
-   5.5.2. Additional Practice
-  </a>
- </li>
-</ul>
-
+            
         </nav>
     </div>
 </div>
@@ -896,202 +885,68 @@
         
               <div>
                 
-  <div class="section" id="review-problems-set-1">
-<h1><span class="section-number">5.5. </span>Review Problems: Set 1<a class="headerlink" href="#review-problems-set-1" title="Permalink to this headline">¶</a></h1>
-<p>These problems can be solved using the main ideas of Chapters 1 through 5. It is divided into two parts: The Basics, and Additional Practice. The first part will remind you of the fundamental concepts and some typical calculations. The rest are for you to further develop your problem solving skills and your fluency with the notation and ideas.</p>
-<div class="section" id="the-basics">
-<h2><span class="section-number">5.5.1. </span>The Basics<a class="headerlink" href="#the-basics" title="Permalink to this headline">¶</a></h2>
-<p><strong>1.</strong> A procedure for estimating a parameter is based on random sampling and has a 95% chance of producing a good estimate. Suppose I run this procedure n times such that the results of all the different runs have no effect on each other. What is the chance that at least one of the  𝑛  estimates is not good?</p>
-<p><strong>2.</strong> A die is rolled 8 times. Say whether each of the following statements is
+  <div class="section" id="exercises">
+<h1><span class="section-number">1.6. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h1>
+<p><strong>Course conventions:</strong> You can assume the following unless otherwise stated.</p>
+<ul class="simple">
+<li><p>A coin is equally likely to land heads or tails, regardless of the results of other tosses.</p></li>
+<li><p>A die is equally likely to show any of its six sides, regardless of the results of other rolls.</p></li>
+<li><p>Choosing at random means that all elements in the set of choices are equally likely.</p></li>
+</ul>
+<p>We will make more formal statements about these assumptions in the next chapter.</p>
+<p><strong>1.</strong> A die is rolled 8 times. Say whether each of the following statements is
 true or false. If you say it is false, provide the correct chance.</p>
-<p>a.  The chance that all 8 rolls show the face with four spots is
-<span class="math notranslate nohighlight">\(\frac{1}{6}^8\)</span>.</p>
-<p>b.  The chance that all 8 rolls show the same face is <span class="math notranslate nohighlight">\(\frac{1}{6}^8\)</span>.</p>
-<p><strong>3.</strong> Box A contains 1 black and 3 white marbles, and box B contains 2 black and 4 white marbles. A box is selected at random, then a marble is drawn at random from the selected box. Given that the marble is black, find the probability that Box A was chosen.</p>
+<p>(a)  The chance that all 8 rolls show the face with four spots is
+<span class="math notranslate nohighlight">\(\frac{1}{6^8}\)</span>.</p>
+<p>(b)  The chance that all 8 rolls show the same face is <span class="math notranslate nohighlight">\(\frac{1}{6^8}\)</span>.</p>
+<p><strong>2.</strong> Ryan rolls a die six times. Find the chance that Ryan sees all the faces of the die.</p>
+<p><strong>3.</strong> Huiyi, Xinran, and Ewen arrive for a meeting in a random order. Letting <span class="math notranslate nohighlight">\(H\)</span>, <span class="math notranslate nohighlight">\(X\)</span>, and <span class="math notranslate nohighlight">\(E\)</span> represent Huiyi, Xinran, and Ewen, respectively, all permutations of <span class="math notranslate nohighlight">\(H\)</span>, <span class="math notranslate nohighlight">\(X\)</span>, and <span class="math notranslate nohighlight">\(E\)</span> are equally likely.</p>
+<p>(a) For each event below, write the subset of permutations and probability for that event.</p>
+<p><span class="math notranslate nohighlight">\(A_1\)</span>: Huiyi arrives first</p>
+<p><span class="math notranslate nohighlight">\(A_2\)</span>: Huiyi arrives second</p>
+<p><span class="math notranslate nohighlight">\(A_3\)</span>: Huiyi arrives third</p>
+<p>(b) What is the probability that Ewen arrives before Xinran?</p>
 <p><strong>4.</strong> There are 30 students enrolled in a lab. Find the chance that at least
 one student has the same birthday as the instructor’s, assuming that the
 instructor’s birthday is a fixed day and every student’s birthday is
 equally likely to be any of 365 days of the year regardless of everyone
 else’s birthday.</p>
-<p><strong>5.</strong> A die is rolled six times. Find the chance that all six faces appear.</p>
-<p><strong>6.</strong> A bag contains <span class="math notranslate nohighlight">\(m\)</span> M&amp;M’s, of which <span class="math notranslate nohighlight">\(g\)</span> are green, <span class="math notranslate nohighlight">\(r\)</span> red, and <span class="math notranslate nohighlight">\(b\)</span>
-brown. There are no other colors, so <span class="math notranslate nohighlight">\(m=g+r+b\)</span>. Assume <span class="math notranslate nohighlight">\(m\geq10\)</span>. I pick
-<span class="math notranslate nohighlight">\(10\)</span> M&amp;M’s at random without replacement.</p>
-<p>(a) What is the chance that the tenth M&amp;M I pick is green?</p>
-<p>(b) What is the chance that second M&amp;M I pick is red and the tenth is
-green?</p>
-<p><strong>7.</strong> A coin that lands heads with chance 1/1000 is tossed 2500 times. Find
-the chance that all the tosses show tails. Find an approximation to this
-chance in terms of e.</p>
-<p><strong>8.</strong> A population consists of 20 people, of whom 8 are women and 12 are men.
-A simple random sample of 5 people will be drawn from the population.
-Which of the following is the chance that the sample contains exactly 3
-women? Why?</p>
-<p>(i) <span class="math notranslate nohighlight">\($\frac{\binom{8}{3}}{\binom{20}{5}}\)</span>$ (ii)
-<span class="math notranslate nohighlight">\($\frac{\binom{8}{3} \binom{12}{2}}{\binom{20}{5}}\)</span>$</p>
-<p><strong>9.</strong> A standard deck consists of 52 cards. There are 13 cards in each of four
-suits. Cards are dealt one by one at random without replacement from the
-deck. Let X be the number of cards dealt till the first time any suit
-appears more than once. For example, if the sequence of suits is Clubs,
-Diamonds, Hearts, Diamonds then <span class="math notranslate nohighlight">\(X=4\)</span>. Find the distribution of <span class="math notranslate nohighlight">\(X\)</span>.</p>
-<p><strong>10.</strong> In a box of numbered tickets, 20% of the tickets are numbered 0, 30% are
-numbered 1, and 50% are numbered 2. Two tickets are drawn from the box
-at random with replacement. Let <span class="math notranslate nohighlight">\(M\)</span> be the maximum and <span class="math notranslate nohighlight">\(S\)</span> the sum of
-the two numbers drawn. (a) Find the joint distribution of <span class="math notranslate nohighlight">\(M\)</span> and <span class="math notranslate nohighlight">\(S\)</span>.
-(b) Find the conditional distribution of <span class="math notranslate nohighlight">\(S\)</span> given <span class="math notranslate nohighlight">\(M=1\)</span>.</p>
-<p><strong>11.</strong> Two draws are made at random from a box containing four tickets numbered
-1, 2, 2, and 3. Let <span class="math notranslate nohighlight">\(X_1\)</span> be the number on the first ticket drawn and
-<span class="math notranslate nohighlight">\(X_2\)</span> the number on the second. In each part below, say whether the
-statement is true or false and justify your reasoning.</p>
-<p>(a) If the draws are made with replacement, then <span class="math notranslate nohighlight">\(X_1\)</span> and <span class="math notranslate nohighlight">\(X_2\)</span> are
-independent.</p>
-<p>(b) If the draws are made without replacement, then <span class="math notranslate nohighlight">\(X_1\)</span> and <span class="math notranslate nohighlight">\(X_2\)</span> are
-independent.</p>
-<p>(c) If the draws are made with replacement, then <span class="math notranslate nohighlight">\(X_1\)</span> and <span class="math notranslate nohighlight">\(X_2\)</span> are
-have the same distribution.</p>
-<p>(d) If the draws are made without replacement, then <span class="math notranslate nohighlight">\(X_1\)</span> and <span class="math notranslate nohighlight">\(X_2\)</span> have
-the same distribution.</p>
-</div>
-<div class="section" id="additional-practice">
-<h2><span class="section-number">5.5.2. </span>Additional Practice<a class="headerlink" href="#additional-practice" title="Permalink to this headline">¶</a></h2>
-<p><strong>12.</strong> A monkey hits the keys of a typewriter at random, picking each of the 26
+<p><strong>5.</strong> A monkey hits the keys of a typewriter at random, picking each of the 26
 letters of the English alphabet uniformly each time regardless of what
 it has picked at all other times.</p>
-<p>a.  What is the chance that the first six letters are ORANGE, in that
-order?</p>
-<p>b.  What is the chance that the first six letters can form the word
-ORANGE, by rearrangement if necessary?</p>
-<p><strong>13.</strong> A roulette wheel has 38 pockets. Of these, 18 are red, 18 black, and 2
-green. The wheel is spun 20 times. Assume that on each spin, each pocket
-is equally likely to appear; and assume that the spins are independent
-of each other.
-Find the probability that all three colors appear.</p>
-<p><strong>14.</strong> A deck consists of 52 cards. A poker hand is 5 cards dealt at random
-without replacement.</p>
-<p>(a) How many 5-card poker hands are there?</p>
-<p>(b) I play poker two times. What is the chance I get the same hand both
-times?</p>
-<p><strong>15.</strong> A population consists of 10 children, 15 women, and 20 men. I sample 5
-people at random without replacement. In the sample, let <span class="math notranslate nohighlight">\(K\)</span> be the
-number of children, <span class="math notranslate nohighlight">\(W\)</span> the number of women, and <span class="math notranslate nohighlight">\(M\)</span> the number of men.</p>
-<p>a.  Find the joint distribution of <span class="math notranslate nohighlight">\(K\)</span> and <span class="math notranslate nohighlight">\(W\)</span>.</p>
-<p>b.  Find the distribution of <span class="math notranslate nohighlight">\(W\)</span>.</p>
-<p>c.  Find the conditional distribution of <span class="math notranslate nohighlight">\(W\)</span> given that <span class="math notranslate nohighlight">\(K=2\)</span>.</p>
-<p><strong>16.</strong> There are three boxes, each with two drawers. Box 1 has a gold coin in
-each drawer and box 2 has a silver coin in each drawer. Box 3 has a
-silver coin in one drawer and a gold coin in the other. One box is
-chosen at random, and then a drawer is chosen at random from the box.
-Find the probability that box 1 is chosen, given that the chosen drawer
-yields a gold coin.</p>
-<p><strong>17.</strong> Let <span class="math notranslate nohighlight">\(X\)</span> be the minimum of <span class="math notranslate nohighlight">\(n\)</span> integers drawn at random with replacement
-from the set <span class="math notranslate nohighlight">\(1,2,3,…,N\)</span>.</p>
-<p>(a) For each <span class="math notranslate nohighlight">\(k\)</span> in the range <span class="math notranslate nohighlight">\(1\)</span> through <span class="math notranslate nohighlight">\(N\)</span>, find <span class="math notranslate nohighlight">\(P(X\geq k)\)</span>.</p>
-<p>(b) For each <span class="math notranslate nohighlight">\(k\)</span> in the range <span class="math notranslate nohighlight">\(1\)</span> through <span class="math notranslate nohighlight">\(N\)</span>, use Part (a) to find
-<span class="math notranslate nohighlight">\(P(X=k)\)</span>.</p>
-<p><strong>18.</strong> A hat contains n coins, f of which are fair, and b of which are biased
-to land heads with probability 2/3. A coin is drawn at random from the
-hat and tossed twice. The first time it lands heads, and the second time
-it lands tails. Given this information, what is the probability that it
-is a fair coin?</p>
-<p><strong>19.</strong> A mail room has n empty mail slots, for some fixed positive integer n.
-The slots are labeled 1 through n. I have 2n letters. For each letter, I
-pick a mail slot uniformly at random and put the letter in it. Assume
-that my choices for the 2n letters are independent of each other.</p>
-<p>(a) Find the chance that Slot 1 is empty after I have deposited all 2n
-letters.</p>
-<p>(b) Assuming that n is very large, find an exponential approximation for
-the probability in Part (a).</p>
-<p><strong>20.</strong> A population has three classes of individuals, in the proportions 0.6,
-0.3, and 0.1. If you sample n individuals at random with replacement,
-what is the chance that all three classes appear in the sample?</p>
-<p><strong>21.</strong> A deck of five cards contains two aces and three queens. The five cards
-are shuffled and dealt one by one. This problem is about the number of
-cards dealt till the aces appear. For example, if the order of the cards
-dealt was QAQQA, then the number of cards dealt until the first ace is
-<span class="math notranslate nohighlight">\(2\)</span>, and until the second ace is <span class="math notranslate nohighlight">\(5\)</span>.</p>
-<p>(a) Draw a table that displays the distribution of the number of cards
-dealt until the first ace.</p>
-<p>(b) Draw a table that displays the distribution of the number of cards
-dealt until the second ace.</p>
-<p>(c) Explain why the probabilities in the second table are just those in
-the first in a different order. [Hint: think about dealing off the
-bottom of the deck!]</p>
-<p><strong>22.</strong> Cards are dealt from a well-shuffled standard deck until the first heart
-appears. Let D be the number of cards dealt.</p>
-<p>(a) Find <span class="math notranslate nohighlight">\(P(D=5)\)</span></p>
-<p>(b) Find <span class="math notranslate nohighlight">\(P(D\leq5)\)</span></p>
-<p>(c) Find <span class="math notranslate nohighlight">\(P(D=3\vert D\leq5)\)</span></p>
-<p><strong>23.</strong> In a raffle with 100 tickets, 10 people buy 10 tickets each. Three
-winning tickets are drawn at random from this pool of 100 tickets. Let
-<span class="math notranslate nohighlight">\(W\)</span> be the number of people with at least one winning ticket. Find:</p>
-<p>a.  <span class="math notranslate nohighlight">\(P(W&gt;1)\)</span></p>
-<p>b.  <span class="math notranslate nohighlight">\(P(W=3)\)</span></p>
-<p><strong>24.</strong> Consider a 5 card hand dealt from a standard card deck. Assume that all
-<span class="math notranslate nohighlight">\(\binom{52}{5}\)</span>hands are equally likely. Find the probability of being
-dealt:</p>
-<p>(a) four of a kind (ranks a,a,a,a,b)</p>
-<p>(b) one pair (ranks a,a,b,c,d)</p>
-<p><strong>25.</strong> Independent random variables <span class="math notranslate nohighlight">\(R\)</span> and <span class="math notranslate nohighlight">\(S\)</span> have possible values <span class="math notranslate nohighlight">\(0, 1, 2, \ldots, N\)</span> for an integer <span class="math notranslate nohighlight">\(N &gt; 3\)</span>. For <span class="math notranslate nohighlight">\(0 \le k \le N\)</span> let <span class="math notranslate nohighlight">\(r_k = P(R = k)\)</span> and let <span class="math notranslate nohighlight">\(s_k = P(S = k)\)</span>.</p>
-<p>Write expressions for the following probabilities in terms of <span class="math notranslate nohighlight">\(r_0, r_1, \ldots, r_N\)</span> and <span class="math notranslate nohighlight">\(s_1, s_2, \ldots, s_N\)</span>.</p>
-<p>(a) <span class="math notranslate nohighlight">\(P(S = R+3)\)</span></p>
-<p>(b) <span class="math notranslate nohighlight">\(P(S &gt; R+3)\)</span></p>
-<p>(c) <span class="math notranslate nohighlight">\(P(\max(R, S) \le n)\)</span> for <span class="math notranslate nohighlight">\(0 \le n \le N\)</span></p>
-<p>(d) <span class="math notranslate nohighlight">\(P(\min(R, S) \le n)\)</span> for <span class="math notranslate nohighlight">\(0 \le n \le N\)</span></p>
-<p><strong>26.</strong> Seven dice are rolled. Write an expression for P(three of one face and
-four of another).</p>
-<p><strong>27.</strong> In a hand of 13 cards drawn randomly from a pack of 52, find the chance
-that at most one of the following ranks appears: Jack, Queen, King, Ace.</p>
-<p><strong>28.</strong> Let <span class="math notranslate nohighlight">\(U_1\)</span> and <span class="math notranslate nohighlight">\(U_2\)</span> be independent, each uniformly distributed on
-<span class="math notranslate nohighlight">\(1,2,…,n\)</span>. Let <span class="math notranslate nohighlight">\(S=U_1+U_2\)</span>.</p>
-<p>(a) Find <span class="math notranslate nohighlight">\(P(U_1=U_2)\)</span></p>
-<p>(b) Use Part (a) and symmetry to find <span class="math notranslate nohighlight">\(P(U_1&lt;U_2)\)</span> and <span class="math notranslate nohighlight">\(P(U_1&gt;U_2)\)</span>.</p>
-<p>(c) Find the distribution of <span class="math notranslate nohighlight">\(S\)</span></p>
-<p><strong>29.</strong> The Statistics Department used to have a “birthday cake” tradition: once
-a month, there would be a cake to celebrate the birthdays of all
-department members whose birthdays were in that month. Suppose this
-tradition continues and suppose the department has n members. Assume
-that each member’s birthday is equally likely to be one of the 12 months
-of the year, independently of all others.</p>
-<p>Consider one calendar year (January through December), starting in
-January.</p>
-<p>(a) What is the probability that no birthday cake will be needed after
-September?</p>
-<p>(b) What is the probability that there will be birthday cake in
-September but not after that?</p>
-<p><strong>30.</strong> A standard deck of 52 cards contains 4 kings. Cards are drawn at random
-without replacement till there are none left in the deck. Find the
-chance that the last king appears on the 40th draw.</p>
-<p><strong>31.</strong> There are 100 men and 100 women who have agreed to participate in a
-randomized controlled experiment. The researchers are going to pick 100
-participants at random without replacement to form the treatment group.
-Write an expression for the chance that the treatment group contains at
-least 45 people of each of the two genders.</p>
-<p><strong>32.</strong> There are n GSIs and m different slots for office hours. Assume
-<span class="math notranslate nohighlight">\(n\geq m\)</span>. Suppose each GSI selects a slot uniformly at random,
-independently of all the other GSIs. What is the chance there is an unselected slot?</p>
-<p><strong>33.</strong> Polya’s urn scheme is a model for contagion and is used in many
-different contexts. At the start, the urn has w white balls and b blue
-balls. Every minute, one ball is drawn at random from the urn and then
-replaced in the urn along with d additional balls of its color. Let
-<span class="math notranslate nohighlight">\(B_n\)</span> be the event that the ball drawn at the nth minute is blue. Let’s
-define the 0th minute to be the start, so that <span class="math notranslate nohighlight">\(P(B_1)=\frac{b}{w+b}\)</span>.</p>
-<p>(a) Find <span class="math notranslate nohighlight">\(P(B_2)\)</span>. Make sure you simplify the answer as much as
-possible; you will see why.</p>
-<p>(b) Guess a formula for <span class="math notranslate nohighlight">\(P(B_n)\)</span> and prove it by induction.</p>
-<p><strong>34.</strong> Assume as usual that if events <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> in a probability space are mutually exclusive, then <span class="math notranslate nohighlight">\(P(A \cup B) = P(A) + P(B)\)</span>. Show by the method of induction that</p>
+<p>(a)  What is the chance that the first six letters are ORANGE, in that order?</p>
+<p>(b)  What is the chance that the first six letters can form the word ORANGE, by rearrangement if necessary?</p>
+<p><strong>6.</strong> A class has <span class="math notranslate nohighlight">\(n\)</span> GSIs and <span class="math notranslate nohighlight">\(m\)</span> slots for office hours. Suppose each GSI chooses an office hour slot at random, regardless of the choices of the other GSIs. What is the chance that all the GSIs choose the same slot?</p>
+<p><strong>7.</strong> A mail room has <span class="math notranslate nohighlight">\(n\)</span> empty mail slots, for some fixed positive integer <span class="math notranslate nohighlight">\(n\)</span>.
+The slots are labeled 1 through <span class="math notranslate nohighlight">\(n\)</span>.</p>
+<p>I have <span class="math notranslate nohighlight">\(2n\)</span> letters. For each letter, I pick a mail slot at random and put the letter in it, regardless of my choices for the the other letters.</p>
+<p>(a) Find the chance that Slot 1 is empty after I have deposited all <span class="math notranslate nohighlight">\(2n\)</span> letters.</p>
+<p>(b) Assuming that <span class="math notranslate nohighlight">\(n\)</span> is very large, find an exponential approximation for the probability in Part (a).</p>
+<p><strong>8.</strong> A data scientist has a sample that consists of <span class="math notranslate nohighlight">\(n\)</span> people. As you know from Data 8, a bootstrap sample consists of <span class="math notranslate nohighlight">\(n\)</span> people drawn at random with replacement from the original sample. That means each person drawn is put back in the sample before the next person is drawn.</p>
+<p>(a) Find the chance that the bootstrap sample is exactly the same as the original sample.</p>
+<p>(b) A Prob 140 student is in the original sample. Find the chance that this student is not selected in the bootstrap sample.</p>
+<p>(c) Assume that <span class="math notranslate nohighlight">\(n\)</span> is large, and find an exponential approximation to the chance in Part (b).</p>
+<p><strong>9.</strong> You will need a code cell to get numerical answers to some parts of this question. But you shouldn’t need to import any libraries.</p>
+<p>At the end of <a class="reference external" href="http://prob140.org/textbook/content/Chapter_01/05_An_Exponential_Approximation.html">Section 1.5</a>, there is an approximate value of the chance of a collison in <span class="math notranslate nohighlight">\(n\)</span> trials involving <span class="math notranslate nohighlight">\(N\)</span> available codes.</p>
+<p>Let’s call it Approximation 1:</p>
 <div class="math notranslate nohighlight">
 \[
-P(\bigcup_{i=1}^n A_i) ~ = ~ \sum_{i=1}^n P(A_i) ~~~~~ \mbox{if } A_1, A_2, \ldots, A_n \mbox{ are mutually exclusive}
+P(\text{collision}) ~ \sim ~ 1 - e^{-\frac{n^2}{2N}}
 \]</div>
-<p><strong>35.</strong> The multiplication rule says that <span class="math notranslate nohighlight">\(P(A_1A_2)=P(A_1)P(A_2|A_1)\)</span>. Use
-induction to show that for events <span class="math notranslate nohighlight">\(A_1,A_2,\ldots,A_n,\)</span></p>
+<p>A simpler approximation is often used is Approximation 2:</p>
 <div class="math notranslate nohighlight">
-\[P(A_1,A_2,\ldots,A_n) = P(A_1)P(A_2|A_1)P(A_3|A_1A_2)\cdots P(A_n|A_1A_2\ldots,A_{n-1})\]</div>
-<p><strong>36.</strong> Eight rooks are placed at positions sampled randomly without replacement
-on an 8x8 chessboard. What is the probability that none of them attacks
-any of the others? (Two rooks attack each other if they are in the same
-row or in the same column.)</p>
-</div>
+\[
+P(\text{collision}) ~ \approx ~ \frac{n^2}{2N}
+\]</div>
+<p>See <a class="reference external" href="https://en.wikipedia.org/wiki/Birthday_attack#Simple_approximation">Wikipedia</a>, for example, and keep in mind that their <span class="math notranslate nohighlight">\(H\)</span> is our <span class="math notranslate nohighlight">\(N\)</span>.</p>
+<p>(a) Derive Approximation 2 from Approximation 1. Refer to <a class="reference external" href="http://prob140.org/resources/exponential_approximations/">properties of the exponential function</a> if you need to.</p>
+<p>(b) As you have seen, for <span class="math notranslate nohighlight">\(N = 365\)</span> the chance of a collision is just over 0.5 when <span class="math notranslate nohighlight">\(n = 23\)</span>. Use Approximation 2 to find an approximate value of <span class="math notranslate nohighlight">\(n\)</span> by setting <span class="math notranslate nohighlight">\(P(\text{collision})\)</span> to be 0.5 and <span class="math notranslate nohighlight">\(N\)</span> to be 365.</p>
+<p>(c) The answer to Part (b) is not great as an approximation to 23, but it’s not terrible either. The simple approximation is a great way to get a rough sense of how many trials you need to for a specified collision probability when <span class="math notranslate nohighlight">\(N\)</span> is too large for exact calculations.</p>
+<p>For example, suppose you use a 64-bit hash. Then there are <span class="math notranslate nohighlight">\(N = 2^{64} \approx 1.8 \times 10^{19}\)</span> hash values. Use Approximation 2 to find an approximate number of trials <span class="math notranslate nohighlight">\(n\)</span> so that the probability of a collision is about 0.25. Use the code cell below to write an expression that evaluates to the numerical value of the <span class="math notranslate nohighlight">\(n\)</span> that you found.</p>
+<p><strong>10.</strong> Ophelia is forming a committee of 6 students. There are 40 students from whom she can choose. Of these, 15 are first-year students, 10 are second-year students, 6 are third-year students, 4 are fourth-year students, and 5 are graduate students.</p>
+<p>(a) How many different committees of 6 students can be formed from a group of 40 students?</p>
+<p>(b) Assume that Ophelia chooses at random from all the different possible committees. What is the chance that she picks a committee that has no second-year students?</p>
+<p>(c) As in Part (b), assume that Ophelia chooses at random from all the different possible committees. What is the chance that she picks a committee that consists of equal numbers of first-year students and graduate students?</p>
 </div>
 
     <script type="text/x-thebe-config">
@@ -1107,7 +962,7 @@ row or in the same column.)</p>
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./content/Chapter_05"
+            path: "./content/Chapter_01"
         },
         predefinedOutput: true
     }
@@ -1122,8 +977,8 @@ row or in the same column.)</p>
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="04_Sampling_Without_Replacement.html" title="previous page"><span class="section-number">5.4. </span>Sampling Without Replacement</a>
-    <a class='right-next' id="next-link" href="../Chapter_06/00_Random_Counts.html" title="next page"><span class="section-number">6. </span>Random Counts</a>
+    <a class='left-prev' id="prev-link" href="05_An_Exponential_Approximation.html" title="previous page"><span class="section-number">1.5. </span>An Exponential Approximation</a>
+    <a class='right-next' id="next-link" href="../Chapter_02/00_Calculating_Chances.html" title="next page"><span class="section-number">2. </span>Calculating Chances</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

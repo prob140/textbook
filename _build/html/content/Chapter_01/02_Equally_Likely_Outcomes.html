@@ -14,6 +14,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/headers.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
@@ -128,6 +129,11 @@
      1.5. An Exponential Approximation
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="06_Exercises.html">
+     1.6. Exercises
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1">
@@ -239,11 +245,6 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_05/04_Sampling_Without_Replacement.html">
      5.4. Sampling Without Replacement
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_05/05_Review_Problems_Set_1.html">
-     5.5. Review Problems: Set 1
     </a>
    </li>
   </ul>
@@ -924,29 +925,29 @@ P(A) ~=~ \frac{\#(A)}{\#(\Omega )} ~=~ \frac{\#(A)}{n}
 \[
 \Omega ~=~ \{ abc, ~acb, ~bac, ~bca, ~cab, ~cba \}
 \]</div>
-<p>If we assume that all six permutations are equally likely, we are working with what are called <em>random permutations</em> of the three letters. Under this assumption, we can augment our table of events with a column of chances.</p>
+<p>If we assume that all six permutations are equally likely, we have what are called <em>random permutations</em> of the three letters. Under this assumption, we can augment our table of events with a column of chances.</p>
 <table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="text-align:center head"><p>Event</p></th>
 <th class="text-align:left head"><p>Verbal Description</p></th>
-<th class="text-align:left head"><p>Subset <span class="math notranslate nohighlight">\(~~~~~~~~~~~~\)</span></p></th>
+<th class="text-align:left head"><p>Subset</p></th>
 <th class="text-align:center head"><p>Probability</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td class="text-align:center"><p><span class="math notranslate nohighlight">\(A\)</span></p></td>
 <td class="text-align:left"><p><span class="math notranslate nohighlight">\(a\)</span> appears first</p></td>
-<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\\{abc, ~acb\\}\)</span></p></td>
+<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\{abc, ~acb\}\)</span></p></td>
 <td class="text-align:center"><p><span class="math notranslate nohighlight">\(\frac{2}{6} = \frac{1}{3}\)</span></p></td>
 </tr>
 <tr class="row-odd"><td class="text-align:center"><p><span class="math notranslate nohighlight">\(B\)</span></p></td>
 <td class="text-align:left"><p><span class="math notranslate nohighlight">\(b\)</span> and <span class="math notranslate nohighlight">\(c\)</span> are not next to each other</p></td>
-<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\\{bac, ~cab\\}\)</span></p></td>
+<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\{bac, ~cab\}\)</span></p></td>
 <td class="text-align:center"><p><span class="math notranslate nohighlight">\(\frac{1}{3}\)</span></p></td>
 </tr>
 <tr class="row-even"><td class="text-align:center"><p><span class="math notranslate nohighlight">\(C\)</span></p></td>
 <td class="text-align:left"><p>the letters are in alphabetical order</p></td>
-<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\\{abc\\}\)</span></p></td>
+<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\{abc\}\)</span></p></td>
 <td class="text-align:center"><p><span class="math notranslate nohighlight">\(\frac{1}{6}\)</span></p></td>
 </tr>
 <tr class="row-odd"><td class="text-align:center"><p><span class="math notranslate nohighlight">\(D\)</span></p></td>
@@ -961,18 +962,25 @@ P(A) ~=~ \frac{\#(A)}{\#(\Omega )} ~=~ \frac{\#(A)}{n}
 </tr>
 <tr class="row-odd"><td class="text-align:center"><p><span class="math notranslate nohighlight">\(F\)</span></p></td>
 <td class="text-align:left"><p>the letters form a word that means “taxi”</p></td>
-<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\\{ cab \\}\)</span></p></td>
+<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\{ cab \}\)</span></p></td>
 <td class="text-align:center"><p><span class="math notranslate nohighlight">\(\frac{1}{6}\)</span></p></td>
 </tr>
 </tbody>
 </table>
-<p>Notice that
-<span class="math notranslate nohighlight">\($
+<p>Notice that</p>
+<div class="math notranslate nohighlight">
+\[
 P(a \text{ appears last}) = \frac{\#\{ bca, ~cba \}}{6} ~=~ \frac{1}{3}
 ~=~ \frac{\#\{ bac, ~cab \}}{6} ~=~ P(a \text{ appears second})
-$\)</span></p>
+\]</div>
 <p>Thus the assumption that all the permutations are equally likely makes all three positions of <span class="math notranslate nohighlight">\(a\)</span> equally likely as well. The same is true of the positions of <span class="math notranslate nohighlight">\(b\)</span> and <span class="math notranslate nohighlight">\(c\)</span>, as you should check.</p>
-</div>
+<span style="color: #114466">
+    <b>Quick Check:</b> Suppose you toss a coin three times. Assuming that all the outcomes in the space $\{HHH, HHT, HTH, HTT, THH, THT, THH, TTT\}$ are equally likely, find the chance that one of the tosses lands differently from the other two.
+<details>
+    <summary>Answer </summary>
+    $6/8$
+</details> 
+</span></div>
 <div class="section" id="example-2-random-number-generator">
 <h2><span class="section-number">1.2.3. </span>Example 2: Random Number Generator<a class="headerlink" href="#example-2-random-number-generator" title="Permalink to this headline">¶</a></h2>
 <p>Suppose a random number generator returns a pair of digits from among the 100 pairs 00, 01, 02, <span class="math notranslate nohighlight">\(\ldots\)</span>, 98, 99, in a way that makes all the pairs equally likely to be returned.</p>
@@ -985,10 +993,11 @@ $\)</span></p>
 <p>Here a “pair” is an sequence of two digits, one following the other. The pair 27 is different from the pair 72. These are sometimes called “ordered pairs”. In this text, all sequences are ordered.</p>
 <p>Now let’s compute the probabilities of a few events. By assumption, all pairs are equally likely. So each answer will consist of counting the number of pairs in the event, and then dividing by the total number of pairs, which is 100.</p>
 <p><strong>(i)</strong> What is the probability that the pair consists of two different digits?</p>
-<p>We have to count the number of pairs <span class="math notranslate nohighlight">\(ab\)</span> where <span class="math notranslate nohighlight">\(a \ne b\)</span>. The digit <span class="math notranslate nohighlight">\(a\)</span> can be chosen in 10 ways; for each of those ways, there are only 9 ways of choosing <span class="math notranslate nohighlight">\(b\)</span> because <span class="math notranslate nohighlight">\(b\)</span> has to be different from <span class="math notranslate nohighlight">\(a\)</span>. So the answer is
-<span class="math notranslate nohighlight">\($
+<p>We have to count the number of pairs <span class="math notranslate nohighlight">\(ab\)</span> where <span class="math notranslate nohighlight">\(a \ne b\)</span>. The digit <span class="math notranslate nohighlight">\(a\)</span> can be chosen in 10 ways; for each of those ways, there are only 9 ways of choosing <span class="math notranslate nohighlight">\(b\)</span> because <span class="math notranslate nohighlight">\(b\)</span> has to be different from <span class="math notranslate nohighlight">\(a\)</span>. So the answer is</p>
+<div class="math notranslate nohighlight">
+\[
 P(\text{the pair consists of two different digits}) ~=~ \frac{90}{100} ~=~ 0.9
-$\)</span></p>
+\]</div>
 <p><strong>(ii)</strong> What is the chance that the two digits are the same?</p>
 <p>Let’s try to use our answer to (i). In every one of the 100 pairs, either the two digits are the same or they are different. No pair can be in both categories, so by rules of proportion we have</p>
 <div class="math notranslate nohighlight">

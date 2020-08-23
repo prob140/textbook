@@ -14,6 +14,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/headers.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
@@ -39,7 +40,7 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="2. Calculating Chances" href="../Chapter_02/00_Calculating_Chances.html" />
+    <link rel="next" title="1.6. Exercises" href="06_Exercises.html" />
     <link rel="prev" title="1.4. The Birthday Problem" href="04_Birthday_Problem.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -126,6 +127,11 @@
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
      1.5. An Exponential Approximation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="06_Exercises.html">
+     1.6. Exercises
     </a>
    </li>
   </ul>
@@ -239,11 +245,6 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_05/04_Sampling_Without_Replacement.html">
      5.4. Sampling Without Replacement
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_05/05_Review_Problems_Set_1.html">
-     5.5. Review Problems: Set 1
     </a>
    </li>
   </ul>
@@ -878,12 +879,12 @@
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#step-1-only-approximate-terms-that-need-approximation">
-   1.5.1. Step 1. Only Approximate Terms that Need Approximation
+   1.5.1. Step 1: Only Approximate Terms that Need Approximation
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#step-2-use-log-to-convert-products-to-sums">
-   1.5.2. Step 2. Use
+   1.5.2. Step 2: Use
    <span class="math notranslate nohighlight">
     \(\log\)
    </span>
@@ -892,7 +893,7 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#step-3-use-properties-of-log">
-   1.5.3. Step 3. Use Properties of
+   1.5.3. Step 3: Use Properties of
    <span class="math notranslate nohighlight">
     \(\log\)
    </span>
@@ -900,7 +901,7 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#step-4-invert-as-needed-to-complete-the-approximation">
-   1.5.4. Step 4. Invert as Needed to Complete the Approximation
+   1.5.4. Step 4: Invert as Needed to Complete the Approximation
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -928,8 +929,10 @@ P(\text{at least one collision}) ~=~ 1 ~-~ \prod_{i=0}^{n-1} \frac{N-i}{N}
 \]</div>
 <p>While this gives an exact formula for the chance, it doesn’t give us a sense of how the function grows. Let’s see if we can develop an approximation that has a simpler form and is therefore easier to study.</p>
 <p>The main steps in the approximation will be used repeatedly in this course, so we will set them out in some detail here.</p>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+</div>
 <div class="section" id="step-1-only-approximate-terms-that-need-approximation">
-<h2><span class="section-number">1.5.1. </span>Step 1. Only Approximate Terms that Need Approximation<a class="headerlink" href="#step-1-only-approximate-terms-that-need-approximation" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.5.1. </span>Step 1: Only Approximate Terms that Need Approximation<a class="headerlink" href="#step-1-only-approximate-terms-that-need-approximation" title="Permalink to this headline">¶</a></h2>
 <p>While this might seem obvious, it’s worth noting as it can save a lot of unnecessary fiddling. We are trying to approximate</p>
 <div class="math notranslate nohighlight">
 \[
@@ -944,7 +947,7 @@ P(\text{at least one collision}) ~=~ 1 ~-~ \prod_{i=0}^{n-1} \frac{N-i}{N}
 <p>In other words, we’ll approximate <span class="math notranslate nohighlight">\(P(\text{no collision})\)</span> instead.</p>
 </div>
 <div class="section" id="step-2-use-log-to-convert-products-to-sums">
-<h2><span class="section-number">1.5.2. </span>Step 2. Use <span class="math notranslate nohighlight">\(\log\)</span> to Convert Products to Sums<a class="headerlink" href="#step-2-use-log-to-convert-products-to-sums" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.5.2. </span>Step 2: Use <span class="math notranslate nohighlight">\(\log\)</span> to Convert Products to Sums<a class="headerlink" href="#step-2-use-log-to-convert-products-to-sums" title="Permalink to this headline">¶</a></h2>
 <p>Our formula is a product, but we are much better at working with sums. The <code class="docutils literal notranslate"><span class="pre">log</span></code> function helps us turn the product into a sum:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -953,7 +956,7 @@ P(\text{at least one collision}) ~=~ 1 ~-~ \prod_{i=0}^{n-1} \frac{N-i}{N}
 <p>Once we have an approximation to <span class="math notranslate nohighlight">\(\log (P(\text{no collision}))\)</span>, we can use exponentiation to convert it to an approximation for what we want, which is <span class="math notranslate nohighlight">\(P(\text{no collision})\)</span>.</p>
 </div>
 <div class="section" id="step-3-use-properties-of-log">
-<h2><span class="section-number">1.5.3. </span>Step 3. Use Properties of <span class="math notranslate nohighlight">\(\log\)</span><a class="headerlink" href="#step-3-use-properties-of-log" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.5.3. </span>Step 3: Use Properties of <span class="math notranslate nohighlight">\(\log\)</span><a class="headerlink" href="#step-3-use-properties-of-log" title="Permalink to this headline">¶</a></h2>
 <p>This is usually the step where the main calculation happens. Remember that <span class="math notranslate nohighlight">\(\log(1+x) \sim x\)</span> for small <span class="math notranslate nohighlight">\(x\)</span>, where the symbol <span class="math notranslate nohighlight">\(\sim\)</span> here means that the ratio of the two sides goes to 1 as <span class="math notranslate nohighlight">\(x\)</span> goes to 0. The approximation might not be great for larger <span class="math notranslate nohighlight">\(x\)</span> but let’s try it out anyway.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -968,7 +971,7 @@ P(\text{at least one collision}) ~=~ 1 ~-~ \prod_{i=0}^{n-1} \frac{N-i}{N}
 <p>by the formula for the sum of the first <span class="math notranslate nohighlight">\(n-1\)</span> positive integers.</p>
 </div>
 <div class="section" id="step-4-invert-as-needed-to-complete-the-approximation">
-<h2><span class="section-number">1.5.4. </span>Step 4. Invert as Needed to Complete the Approximation<a class="headerlink" href="#step-4-invert-as-needed-to-complete-the-approximation" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.5.4. </span>Step 4: Invert as Needed to Complete the Approximation<a class="headerlink" href="#step-4-invert-as-needed-to-complete-the-approximation" title="Permalink to this headline">¶</a></h2>
 <p>The hard work has been done, and now we just have to clean things up. Step 3 gave us</p>
 <div class="math notranslate nohighlight">
 \[
@@ -980,29 +983,34 @@ P(\text{at least one collision}) ~=~ 1 ~-~ \prod_{i=0}^{n-1} \frac{N-i}{N}
 P(\text{no collision}) ~\sim ~ 
 e^{- (n-1)n/2N } ~ \sim ~ e^{-n^2/2N}
 \]</div>
-<p>Finally,
-<span class="math notranslate nohighlight">\($
+<p>Finally,</p>
+<div class="math notranslate nohighlight">
+\[
 P(\text{at least one collision}) ~\sim ~ 1 - e^{- (n-1)n/2N }
 ~ \sim ~ 1 - e^{-n^2/2N}
-$\)</span></p>
+\]</div>
 <p>Now you can see why the <span class="math notranslate nohighlight">\(P(\text{at least one collision})\)</span> rises sharply as a function of the number of people. Remember that <span class="math notranslate nohighlight">\(N\)</span> is fixed and <span class="math notranslate nohighlight">\(n\)</span> varies between 1 and <span class="math notranslate nohighlight">\(N\)</span>. As <span class="math notranslate nohighlight">\(n\)</span> increases, <span class="math notranslate nohighlight">\((n-1)n\)</span> increases fast, essentially like <span class="math notranslate nohighlight">\(n^2\)</span>. So <span class="math notranslate nohighlight">\(-n^2/2N\)</span> decreases fast, which makes <span class="math notranslate nohighlight">\(e^{-n^2/2N}\)</span> drop sharply; and that makes <span class="math notranslate nohighlight">\(1 - e^{-n^2/2N}\)</span> shoot up.</p>
-<p>It’s worth noting that there is only one approxmation in the entire calculation: it’s in the line in the middle of Step 3, where we use <span class="math notranslate nohighlight">\(\log(1+x) \sim x\)</span> for small <span class="math notranslate nohighlight">\(x\)</span>. We will encounter this approximation several times in the course.</p>
+<p>It’s worth noting that the main approxmation is in the middle of Step 3, where we use <span class="math notranslate nohighlight">\(\log(1+x) \sim x\)</span> for small <span class="math notranslate nohighlight">\(x\)</span>. We will encounter this approximation several times in the course.</p>
 </div>
 <div class="section" id="how-good-is-the-approximation">
 <h2><span class="section-number">1.5.5. </span>How Good is the Approximation?<a class="headerlink" href="#how-good-is-the-approximation" title="Permalink to this headline">¶</a></h2>
-<p>To see how the exponential approximation compares with the exact probabilities, let’s work in the context of birthdays; you can change <span class="math notranslate nohighlight">\(N\)</span> in the code if you prefer a different setting.</p>
-<p>To see the entire sequence of steps, we will redo our exact calculations and augment them with a column of approximations. We’ll use the somewhat more careful approximation of the two above.</p>
+<p>To see how the exponential approximation compares with the exact probabilities, let’s work in the context of birthdays. You can change <span class="math notranslate nohighlight">\(N\)</span> in the code if you prefer a different setting.</p>
+<p>To review the entire sequence of steps, we will redo our exact calculations and augment them with a column of approximations. We’ll use the slightly more careful approximation of the two above.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">365</span> 
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># All of this code is from the previous section.</span>
+
+<span class="n">N</span> <span class="o">=</span> <span class="mi">365</span> 
 
 <span class="k">def</span> <span class="nf">p_no_match</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="n">individuals_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">((</span><span class="n">N</span> <span class="o">-</span> <span class="n">individuals_array</span><span class="p">)</span><span class="o">/</span><span class="n">N</span><span class="p">)</span>
 
 <span class="n">trials</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">results</span> <span class="o">=</span> <span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">with_column</span><span class="p">(</span><span class="s1">&#39;Trials&#39;</span><span class="p">,</span> <span class="n">trials</span><span class="p">)</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">with_columns</span><span class="p">(</span><span class="s1">&#39;Trials&#39;</span><span class="p">,</span> <span class="n">trials</span><span class="p">)</span>
 <span class="n">different</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">p_no_match</span><span class="p">,</span> <span class="s1">&#39;Trials&#39;</span><span class="p">)</span>
+
+<span class="c1"># Only the Exponential Approximation column is new</span>
 
 <span class="n">results</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">with_columns</span><span class="p">(</span>
     <span class="s1">&#39;P(at least one match)&#39;</span><span class="p">,</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">different</span><span class="p">,</span>
@@ -1065,7 +1073,7 @@ $\)</span></p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/05_An_Exponential_Approximation_14_0.png" src="../../_images/05_An_Exponential_Approximation_14_0.png" />
+<img alt="../../_images/05_An_Exponential_Approximation_15_0.png" src="../../_images/05_An_Exponential_Approximation_15_0.png" />
 </div>
 </div>
 <p>On the scale of this graph, the blue dots (the exact values) are almost indistinguishable from the gold (our exponential approximation). You can run the code again with the less careful approximation that replaces <span class="math notranslate nohighlight">\((n-1)n\)</span> by <span class="math notranslate nohighlight">\(n^2\)</span> and see that the approximation is still excellent.</p>
@@ -1103,7 +1111,7 @@ $\)</span></p>
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="04_Birthday_Problem.html" title="previous page"><span class="section-number">1.4. </span>The Birthday Problem</a>
-    <a class='right-next' id="next-link" href="../Chapter_02/00_Calculating_Chances.html" title="next page"><span class="section-number">2. </span>Calculating Chances</a>
+    <a class='right-next' id="next-link" href="06_Exercises.html" title="next page"><span class="section-number">1.6. </span>Exercises</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

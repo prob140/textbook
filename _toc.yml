@@ -18,6 +18,7 @@
     - file: content/Chapter_01/03_Collisions_in_Hashing
     - file: content/Chapter_01/04_Birthday_Problem
     - file: content/Chapter_01/05_An_Exponential_Approximation
+    - file: content/Chapter_01/06_Exercises
   - file: content/Chapter_02/00_Calculating_Chances
     expand_sections: true
     sections:

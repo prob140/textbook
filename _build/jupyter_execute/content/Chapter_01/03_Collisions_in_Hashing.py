@@ -1,16 +1,10 @@
-# HIDDEN
-from datascience import *
-from prob140 import *
-%matplotlib inline
-import matplotlib.pyplot as plt
-plt.style.use('fivethirtyeight')
-import numpy as np
-
 ## Collisions in Hashing ##
 
 In computer science, *hash functions* assign a code called a *hash value* to each member of a set of individuals. It's important that each individual be assigned a unique value. If two individuals are assigned the same value, there is a *collision*, and this causes trouble in identification. Yet it is cumbersome to keep track of which hash values have and have not been assigned, as the numbers of hash values and individuals can be very large.
 
 What if the hash values were just assigned at random, without taking into account which of them have already been assigned? If there are a large number of distinct values and a relatively small number of individuals, then it seems reasonable to think that the chance of a collision will be small. For example, if there are 1,000 available hash values and only 5 individuals, it doesn't seem likely that you'll get a collision if you just pick a random sequence of 5 values for the 5 individuals.
+
+# VIDEO: Probability Model
 
 Let's make some assumptions about randomness and find the probability that there is no collision. Assume that there are $N$ hash values and $n$ individuals, and suppose your hash function is such that all $N^n$ assignments of values to individuals are equally likely. An assignment is a sequence $a_0 a_1 \ldots a_n$ where for each $i$, individual $i$ is assigned the hash value $a_i$.
 
@@ -25,6 +19,10 @@ If the number of individuals $n$ is greater than the number of hash values $N$, 
 But we are interested in the case where $n$ is quite small, so we have no problem assuming that $n \le N$.
 
 If you look back to Part (i) in the example about random number generators in the previous section, you will find that it is the same as our current question, in the case where $N = 10$ and $n=2$. We can just follow the same process to get our solution here.
+
+# NO CODE
+
+# VIDEO: Collision Probability
 
 By assumption, all $N^n$ possible assignments are equally likely. Some of these assignments contain no collisions. Our job is to count how many.
 
@@ -46,9 +44,24 @@ P(\mbox{no collisions}) ~ &=~
 \end{align*}
 $$
 
-"Continuing the sequence" is an informal process that needs a mathematical justification. You can prove that by the method of induction.
+"Continuing the sequence" is an informal process that needs a mathematical justification. You can prove it by the method of induction.
 
-There are $n$ terms in the product in the numerator, and there are $n$ factors of $N$ in the denominator. This allows us to write the formula in a different way, as a product of $n$ fractions:
+<span style="color: #114466">
+    <b>Quick Check:</b> Suppose you roll an ordinary six-sided die four times and keep track of the sequence of faces that appear.
+
+**a)** How many possible sequences are there?
+
+**b)** Assuming that all the sequences are equally likely, what is the probability that four distinct faces appear?
+
+<details>
+    <summary>Answer </summary>
+    (a) $6^4~~$ (b) $\frac{6 \times 5 \times 4 \times 3}{6^4}$
+</details> 
+</span>
+
+### Product of Fractions ###
+
+In the chance of no collisions, there are $n$ terms in the product in the numerator, and there are $n$ factors of $N$ in the denominator. This allows us to write the formula in a different way, as a product of $n$ fractions:
 
 $$
 \begin{align*}
@@ -58,7 +71,7 @@ P(\mbox{no collisions}) ~ &=~
 \end{align*}
 $$
 
-The symbol $\prod$ stands for "product" just as $\sum$ stands for "sum".
+The symbol $\prod$ is the upper case Greek letter *pi*. It stands for "product" just as $\sum$ stands for "sum".
 
 And now the bad news:
 

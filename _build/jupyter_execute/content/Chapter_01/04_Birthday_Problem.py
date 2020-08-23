@@ -1,4 +1,7 @@
 # HIDDEN
+import warnings
+warnings.filterwarnings("ignore")
+
 from datascience import *
 from prob140 import *
 %matplotlib inline
@@ -13,6 +16,8 @@ A classical problem in probability is about "collisions" of birthdays. This *bir
 ### Assumptions of Randomness ###
 The problem is commonly solved under the assumptions that each year consists of 365 days and that each person is equally likely to be born on any of the 365 days regardless of the birthdays of others. 
 
+# VIDEO: Birthday Assumptions
+
 You can see that assumptions ignore leap years as well as multiple births (twins, for example) and any lack of uniformity in the distribution of births during the year. These assumptions make calculations simpler but might not reflect the reality of birthdays in every population. Data scientists have to be careful about their assumptions – if the assumptions don't reflect the truth, then the conclusions won't either. 
 
 So let's note that we are working under simplifying assumptions that we should check before making conclusions about specific groups. Ignoring leap years and multiple births should not make a big difference to the conclusions in any case. If births are more likely to happen at some times of year than others, then it has been proved that the chance of matching birthdays will be larger than the answer we get under our assumptions. 
@@ -24,7 +29,7 @@ We will state our assumptions succinctly as "all $365^n$ sequences of birthdays 
 
 $$
 P(\text{no match}) ~=~
-P(\text{all $n$ birthdays are different}) ~=~ \prod_{i=0}^{n-1} \frac{N-i}{N}
+P(\text{all } n \text{ birthdays are different}) ~=~ \prod_{i=0}^{n-1} \frac{N-i}{N}
 $$
 
 ### Computing the Chance ###
@@ -39,13 +44,15 @@ P(\text{at least one matching pair}) ~=~
 ~=~ 1 ~-~ \prod_{i=0}^{n-1} \frac{N-i}{N}
 $$
 
+# VIDEO: Notes on the Code
+
 N = 365
 
 def p_no_match(n):
     individuals_array = np.arange(n)
     return np.prod( (N - individuals_array)/N )
 
-results = Table().with_column('Trials', np.arange(1, N+1, 1))
+results = Table().with_columns('Trials', np.arange(1, N+1, 1))
 
 different = results.apply(p_no_match, 'Trials')
 

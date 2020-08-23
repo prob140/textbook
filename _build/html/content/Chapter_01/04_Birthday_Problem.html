@@ -14,6 +14,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/headers.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
@@ -128,6 +129,11 @@
      1.5. An Exponential Approximation
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="06_Exercises.html">
+     1.6. Exercises
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1">
@@ -239,11 +245,6 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_05/04_Sampling_Without_Replacement.html">
      5.4. Sampling Without Replacement
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_05/05_Review_Problems_Set_1.html">
-     5.5. Review Problems: Set 1
     </a>
    </li>
   </ul>
@@ -912,6 +913,8 @@
 <div class="section" id="assumptions-of-randomness">
 <h2><span class="section-number">1.4.1. </span>Assumptions of Randomness<a class="headerlink" href="#assumptions-of-randomness" title="Permalink to this headline">¶</a></h2>
 <p>The problem is commonly solved under the assumptions that each year consists of 365 days and that each person is equally likely to be born on any of the 365 days regardless of the birthdays of others.</p>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+</div>
 <p>You can see that assumptions ignore leap years as well as multiple births (twins, for example) and any lack of uniformity in the distribution of births during the year. These assumptions make calculations simpler but might not reflect the reality of birthdays in every population. Data scientists have to be careful about their assumptions – if the assumptions don’t reflect the truth, then the conclusions won’t either.</p>
 <p>So let’s note that we are working under simplifying assumptions that we should check before making conclusions about specific groups. Ignoring leap years and multiple births should not make a big difference to the conclusions in any case. If births are more likely to happen at some times of year than others, then it has been proved that the chance of matching birthdays will be larger than the answer we get under our assumptions.</p>
 <p>There are many <a class="reference external" href="http://onlinelibrary.wiley.com/store/10.1111/j.1740-9713.2013.00705.x/asset/sign705.pdf;jsessionid=491D7D4A673C963B34E14B5AE6197321.f02t01?v=1&amp;t=iy0wn3y5&amp;s=199ae2fb587c25b7cde75105b0f11d2f25016108">variations</a> of the birthday problem, but we will stick with the classic.</p>
@@ -919,10 +922,11 @@
 <div class="section" id="the-chance-of-a-match">
 <h2><span class="section-number">1.4.2. </span>The Chance of a Match<a class="headerlink" href="#the-chance-of-a-match" title="Permalink to this headline">¶</a></h2>
 <p>We will state our assumptions succinctly as “all <span class="math notranslate nohighlight">\(365^n\)</span> sequences of birthdays are equally likely”. You can see that this makes the birthday problem the same as the collision problem of the previous section, with <span class="math notranslate nohighlight">\(N = 365\)</span>. As before, the only interesting cases are when <span class="math notranslate nohighlight">\(n \le N\)</span>, for which</p>
-<p>$$
+<div class="math notranslate nohighlight">
+\[
 P(\text{no match}) ~=~
-P(\text{all <span class="math notranslate nohighlight">\(n\)</span> birthdays are different}) ~=~ \prod_{i=0}^{n-1} \frac{N-i}{N}
-$$</p>
+P(\text{all } n \text{ birthdays are different}) ~=~ \prod_{i=0}^{n-1} \frac{N-i}{N}
+\]</div>
 </div>
 <div class="section" id="computing-the-chance">
 <h2><span class="section-number">1.4.3. </span>Computing the Chance<a class="headerlink" href="#computing-the-chance" title="Permalink to this headline">¶</a></h2>
@@ -934,6 +938,8 @@ P(\text{at least one matching pair}) ~=~
 1 - P(\text{no match})
 ~=~ 1 ~-~ \prod_{i=0}^{n-1} \frac{N-i}{N}
 \]</div>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">365</span>
@@ -952,7 +958,7 @@ P(\text{at least one matching pair}) ~=~
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">with_column</span><span class="p">(</span><span class="s1">&#39;Trials&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">with_columns</span><span class="p">(</span><span class="s1">&#39;Trials&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1038,7 +1044,7 @@ P(\text{at least one matching pair}) ~=~
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/04_Birthday_Problem_14_0.png" src="../../_images/04_Birthday_Problem_14_0.png" />
+<img alt="../../_images/04_Birthday_Problem_17_0.png" src="../../_images/04_Birthday_Problem_17_0.png" />
 </div>
 </div>
 <p>You can see that if there are more than about 50 people, then the chance of a matching pair of birthdays is pretty close to 1.</p>

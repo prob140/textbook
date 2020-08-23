@@ -1,11 +1,3 @@
-# HIDDEN
-from datascience import *
-from prob140 import *
-%matplotlib inline
-import matplotlib.pyplot as plt
-plt.style.use('fivethirtyeight')
-import numpy as np
-
 ## Equally Likely Outcomes ##
 
 "If a coin is tossed, what is the chance that it lands heads?" Ask this question and the most common answer that you will get is $1/2$. If you press for a reason, don't be surprised to hear, "Because the coin has two faces." A coin does indeed have two faces, but notice an assumption hidden inside the "reasoning" you have been given: that each of the two faces has the same chance as the other. 
@@ -33,24 +25,34 @@ $$
 \Omega ~=~ \{ abc, ~acb, ~bac, ~bca, ~cab, ~cba \}
 $$
 
-If we assume that all six permutations are equally likely, we are working with what are called *random permutations* of the three letters. Under this assumption, we can augment our table of events with a column of chances.
+If we assume that all six permutations are equally likely, we have what are called *random permutations* of the three letters. Under this assumption, we can augment our table of events with a column of chances.
 
-Event | Verbal Description                               | Subset $~~~~~~~~~~~~$| Probability
+Event | Verbal Description                               | Subset | Probability
 :----:|:-------------------------------------------------|:-------------|:------:| 
-$A$   | $a$ appears first                                |$\\{abc, ~acb\\}$ | $\frac{2}{6} = \frac{1}{3}$ 
-$B$   | $b$ and $c$ are not next to each other           |$\\{bac, ~cab\\}$ | $\frac{1}{3}$
-$C$   | the letters are in alphabetical order            | $\\{abc\\}$ | $\frac{1}{6}$    
+$A$   | $a$ appears first                                |$\{abc, ~acb\}$ | $\frac{2}{6} = \frac{1}{3}$ 
+$B$   | $b$ and $c$ are not next to each other           |$\{bac, ~cab\}$ | $\frac{1}{3}$
+$C$   | the letters are in alphabetical order            | $\{abc\}$ | $\frac{1}{6}$    
 $D$   | $a$ appears first, $b$ next, but $c$ isn't third | $\phi$ | $0$       
 $E$   | $c$ is either first, second, or third            | $\Omega$ | $1$ 
-$F$   | the letters form a word that means "taxi" | $\\{ cab \\}$ | $\frac{1}{6}$
+$F$   | the letters form a word that means "taxi" | $\{ cab \}$ | $\frac{1}{6}$
 
 Notice that
+
 $$
 P(a \text{ appears last}) = \frac{\#\{ bca, ~cba \}}{6} ~=~ \frac{1}{3}
 ~=~ \frac{\#\{ bac, ~cab \}}{6} ~=~ P(a \text{ appears second})
 $$
 
 Thus the assumption that all the permutations are equally likely makes all three positions of $a$ equally likely as well. The same is true of the positions of $b$ and $c$, as you should check.
+
+<span style="color: #114466">
+    <b>Quick Check:</b> Suppose you toss a coin three times. Assuming that all the outcomes in the space $\{HHH, HHT, HTH, HTT, THH, THT, THH, TTT\}$ are equally likely, find the chance that one of the tosses lands differently from the other two.
+ 
+<details>
+    <summary>Answer </summary>
+    $6/8$
+</details> 
+</span>
 
 ### Example 2: Random Number Generator ###
 Suppose a random number generator returns a pair of digits from among the 100 pairs 00, 01, 02, $\ldots$, 98, 99, in a way that makes all the pairs equally likely to be returned. 
@@ -67,6 +69,7 @@ Now let's compute the probabilities of a few events. By assumption, all pairs ar
 **(i)** What is the probability that the pair consists of two different digits?
 
 We have to count the number of pairs $ab$ where $a \ne b$. The digit $a$ can be chosen in 10 ways; for each of those ways, there are only 9 ways of choosing $b$ because $b$ has to be different from $a$. So the answer is
+
 $$
 P(\text{the pair consists of two different digits}) ~=~ \frac{90}{100} ~=~ 0.9
 $$
