@@ -32,18 +32,20 @@ $F$   | the letters form a word that means "taxi" | $\{ cab \}$
 
 The table contains six events and you can come up with many more. For each one, see if you can give an interesting verbal description.
 
-<span style="color: #114466">
-    <b>Quick Check:</b> A natural outcome space for three tosses of a coin is $\Omega = \{HHH, HHT, HTH, HTT, THH, THT, THH, TTT\}$. 
+```{admonition} Quick Check
+A natural outcome space for three tosses of a coin is $\Omega = \{ HHH, HHT, HTH, HTT, THH, THT, THH, TTT \}$.
 
-**a)** What is the event that corresponds to the description "no two consecutive tosses land the same way"?
+**a)** What is the event that corresponds to the description "no two consecutive tosses land the same way"? 
 
-**b)** Give a verbal description of the event $\{HTT, THT, TTH, TTT\}$.
+**b)** Give a verbal description of the event $\{ HTT, THT, TTH, TTT \}$.
+```
 
-<details>
-    <summary>Answer </summary>
-    (a) $\{HTH, THT\}~~$ (b) One way to describe it is "at most one head"
-</details> 
-</span>
+```{admonition} Answer
+:class: dropdown
+(a) $\{ HTH, THT \}$      
+
+(b) One way to describe it is "at most one head"
+```
 
 When you shuffle cards for a game, the goal is to make the order of the cards "random". Preferably, you'd like any permutation to be just as likely as any other. So let's start working with equally likely outcomes.
 

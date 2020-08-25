@@ -27,6 +27,7 @@
     - file: content/Chapter_02/03_Multiplication
     - file: content/Chapter_02/04_More_Examples
     - file: content/Chapter_02/05_Updating_Probabilities
+    - file: content/Chapter_02/06_Exercises
   - file: content/Chapter_03/00_Random_Variables
     expand_sections: true
     sections:

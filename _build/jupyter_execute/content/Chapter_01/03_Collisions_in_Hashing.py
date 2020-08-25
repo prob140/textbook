@@ -46,18 +46,20 @@ $$
 
 "Continuing the sequence" is an informal process that needs a mathematical justification. You can prove it by the method of induction.
 
-<span style="color: #114466">
-    <b>Quick Check:</b> Suppose you roll an ordinary six-sided die four times and keep track of the sequence of faces that appear.
+```{admonition} Quick Check
+Suppose you roll an ordinary six-sided die four times and keep track of the sequence of faces that appear.
 
 **a)** How many possible sequences are there?
 
 **b)** Assuming that all the sequences are equally likely, what is the probability that four distinct faces appear?
+```
 
-<details>
-    <summary>Answer </summary>
-    (a) $6^4~~$ (b) $\frac{6 \times 5 \times 4 \times 3}{6^4}$
-</details> 
-</span>
+```{admonition} Answer
+:class: dropdown
+(a) $6^4$ 
+
+(b) $\frac{6 \times 5 \times 4 \times 3}{6^4}$
+```
 
 ### Product of Fractions ###
 

@@ -23,13 +23,17 @@ When an event can happen in many different ways, it might be a good idea to look
 For $n=4$, the only sequences in which we *don't* get at least one occurrence of each face are HHHH and TTTT. Indeed, for any $n$, there are only two sequences in which we don't get both faces: all heads, and all tails. These are the two sequences in which all the elements are the same.
 
 Let $A$ be the event that we get at least one head and at least one tail. The question asks for $P(A)$. Because $A^c$ is the event "all the elements of the sequence are the same", we have
+
 $$
 P(A^c) = \frac{2}{2^n} = \frac{1}{2^{n-1}}
 $$
+
 By the complement rule,
+
 $$
 P(A) = 1 - \frac{1}{2^{n-1}}
 $$
+
 Notice that the answer tends to 1 as $n$ gets large. With a large number of tosses, you are almost certain to see both heads and tails.
 
 
@@ -39,14 +43,17 @@ A die is rolled 12 times so that all $6^{12}$ sequences of faces are equally lik
 **Question 1.** What is the chance that the maximum is less than 5?
 
 **Answer 1.** The key is to observe that the event "the maximum is less than 5" is the same as the event "all the 12 faces are less than 5". For this to occur, each of the 12 faces has to have one of the four values 1 through 4. So
+
 $$
 P(\text{maximum is less than 5}) = \frac{4^{12}}{6^{12}}
 $$
+
 Yes, we could simplify that further, but we're not going to, for reasons that will soon become clear.
 
 **Question 2.** What is the chance that the maximum is less than 4?
 
 **Answer 2.** Nothing new here, other than replacing 5 by 4 in Question 1. 
+
 $$
 P(\text{maximum is less than 4}) = \frac{3^{12}}{6^{12}}
 $$

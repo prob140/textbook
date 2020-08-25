@@ -32,4 +32,5 @@ The third and final axiom is the key to probability being a "measure" of an even
 03_Multiplication
 04_More_Examples
 05_Updating_Probabilities
+06_Exercises
 ```

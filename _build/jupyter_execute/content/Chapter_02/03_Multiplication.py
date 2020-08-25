@@ -68,6 +68,7 @@ Suppose I have a little deck consisting of one red card, one green, and one blue
 A reasonable outcome space is $\Omega = \{ \text{RG, RB, GB, GR, BR, BG}\}$ in which all six elements are equally likely. 
 
 The chance that we get the green card first, followed by the red, is the chance of the single sequence GR:
+
 $$
 P(\text{GR}) = \frac{\#\{\text{GR}\}}{6} = \frac{1}{6}
 $$
@@ -77,6 +78,10 @@ This simple calculation contains something more interesting. Notice that
 $$
 P(\text{GR}) = \frac{1}{6} = \frac{1}{3} \times \frac{1}{2}
 $$
+
+# NO CODE
+
+# VIDEO: Fractions of Fractions
 
 ### Conditional Probability ###
 
@@ -119,6 +124,30 @@ The definition says: You're given that $A$ happened, so restrict your attention 
 
 We are dividing by $P(A)$, and the more careful among you might be wondering what happens if $P(A) = 0$. Well, in that case we wouldn't be given that $A$ happened, because $A$ can't happen. So that's not a case we have to worry about.
 
+# NO CODE
+
+# VIDEO: Conditional Probability
+
+<span style="color: #114466">
+    <b>Quick Check:</b> A random number generator makes one draw at random from the 10 digits $0, 1, 2, 3, 4, 5, 6, 7, 8, 9$. Pick the correct option: Given that the number drawn is greater than 5, the chance that it is a prime number is
+    
+(i) $\frac{1}{10}$ $~~~$ (ii) $\frac{1}{5}$ $~~~$ (iii) $\frac{1}{4}$
+    
+<details>
+    <summary>Answer </summary>
+    (iii)
+</details> 
+</span>
+
+<span style="color: #114466">
+    <b>Quick Check:</b> In a population of students, 75% don't own a car, 10% own a car and no bike, and 15% own a car as well as a bike. Given that a randomly picked student owns a car, what is the chance that they also own a bike?
+    
+<details>
+    <summary>Answer </summary>
+    $ 0.6 $
+</details> 
+</span>
+
 ### Multiplication Rule ###
 This is just a rearrangement of the definition of conditional probability, but it is perhaps the most commonly used rule of all.
 
@@ -148,6 +177,7 @@ A standard deck consists of 52 cards of which 4 are aces. Two cards are dealt at
 **Question 2.** What is the chance that both cards are aces?
 
 **Answer 2.** By the multiplication rule and Answer 1, the answer is
+
 $$
 \frac{4}{52} \cdot \frac{3}{51}
 $$
@@ -174,6 +204,7 @@ According to Census estimates that you saw in Data 8, the population of the Unit
 **Question.** Suppose you picked one person at random from the US population in 2014, and that person was 99 years old. Given this information, what is the chance that the person was female?
 
 **Answer.** The natural answer is the percent of women among 99-year-olds:
+
 $$
 \frac{32791}{32791 + 9037} = 78.4\%
 $$

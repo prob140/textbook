@@ -45,14 +45,14 @@ $$
 
 Thus the assumption that all the permutations are equally likely makes all three positions of $a$ equally likely as well. The same is true of the positions of $b$ and $c$, as you should check.
 
-<span style="color: #114466">
-    <b>Quick Check:</b> Suppose you toss a coin three times. Assuming that all the outcomes in the space $\{HHH, HHT, HTH, HTT, THH, THT, THH, TTT\}$ are equally likely, find the chance that one of the tosses lands differently from the other two.
- 
-<details>
-    <summary>Answer </summary>
-    $6/8$
-</details> 
-</span>
+```{admonition} Quick Check
+Suppose you toss a coin three times. Assuming that all the outcomes in the space $\{ HHH, HHT, HTH, HTT, THH, THT, THH, TTT \}$ are equally likely, find the chance that one of the tosses lands differently from the other two.
+```
+
+```{admonition} Answer
+:class: dropdown
+$6/8$
+```
 
 ### Example 2: Random Number Generator ###
 Suppose a random number generator returns a pair of digits from among the 100 pairs 00, 01, 02, $\ldots$, 98, 99, in a way that makes all the pairs equally likely to be returned. 
