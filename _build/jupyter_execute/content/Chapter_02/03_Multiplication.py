@@ -82,6 +82,9 @@ $$
 # NO CODE
 
 # VIDEO: Fractions of Fractions
+from IPython.display import YouTubeVideo
+
+YouTubeVideo("Nd_gWqoMah4")
 
 ### Conditional Probability ###
 
@@ -127,6 +130,9 @@ We are dividing by $P(A)$, and the more careful among you might be wondering wha
 # NO CODE
 
 # VIDEO: Conditional Probability
+from IPython.display import YouTubeVideo
+
+YouTubeVideo("YE9p2cprkOI")
 
 <span style="color: #114466">
     <b>Quick Check:</b> A random number generator makes one draw at random from the 10 digits $0, 1, 2, 3, 4, 5, 6, 7, 8, 9$. Pick the correct option: Given that the number drawn is greater than 5, the chance that it is a prime number is

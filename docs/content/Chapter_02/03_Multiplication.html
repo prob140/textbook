@@ -166,6 +166,11 @@
      2.5. Updating Probabilities
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="06_Exercises.html">
+     2.6. Exercises
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1">
@@ -932,15 +937,28 @@
 <h2><span class="section-number">2.3.1. </span>Random Draws Without Replacement<a class="headerlink" href="#random-draws-without-replacement" title="Permalink to this headline">¶</a></h2>
 <p>Suppose I have a little deck consisting of one red card, one green, and one blue. Suppose I shuffle the cards, draw one, shuffle the remaining two, and draw one from those. This is called <em>drawing two cards at random without replacement</em> from the deck.</p>
 <p>A reasonable outcome space is <span class="math notranslate nohighlight">\(\Omega = \{ \text{RG, RB, GB, GR, BR, BG}\}\)</span> in which all six elements are equally likely.</p>
-<p>The chance that we get the green card first, followed by the red, is the chance of the single sequence GR:
-<span class="math notranslate nohighlight">\($
+<p>The chance that we get the green card first, followed by the red, is the chance of the single sequence GR:</p>
+<div class="math notranslate nohighlight">
+\[
 P(\text{GR}) = \frac{\#\{\text{GR}\}}{6} = \frac{1}{6}
-$\)</span></p>
+\]</div>
 <p>This simple calculation contains something more interesting. Notice that</p>
 <div class="math notranslate nohighlight">
 \[
 P(\text{GR}) = \frac{1}{6} = \frac{1}{3} \times \frac{1}{2}
 \]</div>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="400"
+    height="300"
+    src="https://www.youtube.com/embed/Nd_gWqoMah4"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
 </div>
 <div class="section" id="conditional-probability">
 <h2><span class="section-number">2.3.2. </span>Conditional Probability<a class="headerlink" href="#conditional-probability" title="Permalink to this headline">¶</a></h2>
@@ -976,7 +994,32 @@ P(B \mid A) = \frac{P(AB)}{P(A)}
 <p>There is some abuse of notation here. “<span class="math notranslate nohighlight">\(B \mid A\)</span>” is not an event. But the notation is convenient. The entire left hand side should be read as “the probability that <span class="math notranslate nohighlight">\(B\)</span> happens given that <span class="math notranslate nohighlight">\(A\)</span> has happened.”</p>
 <p>The definition says: You’re given that <span class="math notranslate nohighlight">\(A\)</span> happened, so restrict your attention to the outcomes in which <span class="math notranslate nohighlight">\(A\)</span> happens. That’s your whole space now, so all chances have to be calculated relative to <span class="math notranslate nohighlight">\(P(A)\)</span>. Now what’s the chance that <span class="math notranslate nohighlight">\(B\)</span> happened as well? The answer is <span class="math notranslate nohighlight">\(\frac{P(AB)}{P(A)}\)</span>.</p>
 <p>We are dividing by <span class="math notranslate nohighlight">\(P(A)\)</span>, and the more careful among you might be wondering what happens if <span class="math notranslate nohighlight">\(P(A) = 0\)</span>. Well, in that case we wouldn’t be given that <span class="math notranslate nohighlight">\(A\)</span> happened, because <span class="math notranslate nohighlight">\(A\)</span> can’t happen. So that’s not a case we have to worry about.</p>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="400"
+    height="300"
+    src="https://www.youtube.com/embed/YE9p2cprkOI"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
 </div>
+<span style="color: #114466">
+    <b>Quick Check:</b> A random number generator makes one draw at random from the 10 digits $0, 1, 2, 3, 4, 5, 6, 7, 8, 9$. Pick the correct option: Given that the number drawn is greater than 5, the chance that it is a prime number is
+<p>(i) <span class="math notranslate nohighlight">\(\frac{1}{10}\)</span> <span class="math notranslate nohighlight">\(~~~\)</span> (ii) <span class="math notranslate nohighlight">\(\frac{1}{5}\)</span> <span class="math notranslate nohighlight">\(~~~\)</span> (iii) <span class="math notranslate nohighlight">\(\frac{1}{4}\)</span></p>
+<details>
+    <summary>Answer </summary>
+    (iii)
+</details> 
+</span><span style="color: #114466">
+    <b>Quick Check:</b> In a population of students, 75% don't own a car, 10% own a car and no bike, and 15% own a car as well as a bike. Given that a randomly picked student owns a car, what is the chance that they also own a bike?
+<details>
+    <summary>Answer </summary>
+    $ 0.6 $
+</details> 
+</span></div>
 <div class="section" id="multiplication-rule">
 <h2><span class="section-number">2.3.4. </span>Multiplication Rule<a class="headerlink" href="#multiplication-rule" title="Permalink to this headline">¶</a></h2>
 <p>This is just a rearrangement of the definition of conditional probability, but it is perhaps the most commonly used rule of all.</p>
@@ -999,10 +1042,11 @@ P(AB) = P(B) \cdot P(A \mid B)
 <p><strong>Question 1.</strong> What is the chance that the second card is an ace, given that the first card is an ace?</p>
 <p><strong>Answer 1.</strong> <span class="math notranslate nohighlight">\(\frac{3}{51}\)</span> because now your deck has 51 cards of which 3 are aces.</p>
 <p><strong>Question 2.</strong> What is the chance that both cards are aces?</p>
-<p><strong>Answer 2.</strong> By the multiplication rule and Answer 1, the answer is
-<span class="math notranslate nohighlight">\($
+<p><strong>Answer 2.</strong> By the multiplication rule and Answer 1, the answer is</p>
+<div class="math notranslate nohighlight">
+\[
 \frac{4}{52} \cdot \frac{3}{51}
-$\)</span></p>
+\]</div>
 <p><strong>Question 3.</strong> How would your answers to Questions 1 and 2 change if the cards were dealt <em>with</em> replacement instead?</p>
 <p><strong>Answer 3.</strong> (Who on earth deals cards with replacement? Only in a probability class …) You’re throwing the card back before pulling out the second one. Under this assumption you’re drawing from exactly the same deck each time, so</p>
 <div class="math notranslate nohighlight">
@@ -1020,10 +1064,11 @@ P(\text{both aces}) = \frac{4}{52} \cdot \frac{4}{52}
 <h2><span class="section-number">2.3.6. </span>Example 2: 99-Year-Olds<a class="headerlink" href="#example-2-99-year-olds" title="Permalink to this headline">¶</a></h2>
 <p>According to Census estimates that you saw in Data 8, the population of the United States in 2014 was 318,857,056. There were 9,037 99-year-old men, and 32,791 99-year-old women.</p>
 <p><strong>Question.</strong> Suppose you picked one person at random from the US population in 2014, and that person was 99 years old. Given this information, what is the chance that the person was female?</p>
-<p><strong>Answer.</strong> The natural answer is the percent of women among 99-year-olds:
-<span class="math notranslate nohighlight">\($
+<p><strong>Answer.</strong> The natural answer is the percent of women among 99-year-olds:</p>
+<div class="math notranslate nohighlight">
+\[
 \frac{32791}{32791 + 9037} = 78.4\%
-$\)</span></p>
+\]</div>
 <p>This is consistent with the definition of conditional probability, that says you should calculate</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}

@@ -17,6 +17,9 @@ A classical problem in probability is about "collisions" of birthdays. This *bir
 The problem is commonly solved under the assumptions that each year consists of 365 days and that each person is equally likely to be born on any of the 365 days regardless of the birthdays of others. 
 
 # VIDEO: Birthday Assumptions
+from IPython.display import YouTubeVideo
+
+YouTubeVideo('A88MJdZLe3A')
 
 You can see that assumptions ignore leap years as well as multiple births (twins, for example) and any lack of uniformity in the distribution of births during the year. These assumptions make calculations simpler but might not reflect the reality of birthdays in every population. Data scientists have to be careful about their assumptions – if the assumptions don't reflect the truth, then the conclusions won't either. 
 
@@ -45,6 +48,8 @@ P(\text{at least one matching pair}) ~=~
 $$
 
 # VIDEO: Notes on the Code
+from IPython.display import YouTubeVideo
+YouTubeVideo("ci7bPVOpfsk")
 
 N = 365
 

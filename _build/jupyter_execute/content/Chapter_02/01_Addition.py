@@ -146,6 +146,9 @@ This is sometimes called the axiom of *finite additivity*. Kolmogorov actually s
 # NO CODE
 
 # VIDEO: Axioms
+from IPython.display import YouTubeVideo
+
+YouTubeVideo("KaOriB3Zep8")
 
 The typical use of the addition rule is when you *list the ways* an event can occur, splitting it up into disjoint pieces whose probabilities you know how to find. This is called *partitioning* the event, a fundamentally important technique to master. 
 
@@ -190,6 +193,9 @@ What's the chance that the student is in the bright blue difference? If you answ
 # NO CODE
 
 # VIDEO: Differences
+from IPython.display import YouTubeVideo
+
+YouTubeVideo("eEoogMY8z60")
 
 ### Difference Rule ###
 Suppose $A$ and $B$ are events such that $B \subseteq A$. Then $P(A \backslash B) = P(A) - P(B)$.

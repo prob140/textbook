@@ -166,6 +166,11 @@
      2.5. Updating Probabilities
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="06_Exercises.html">
+     2.6. Exercises
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1">
@@ -925,10 +930,11 @@
 </div>
 </div>
 <p>What’s the chance that the student is a freshman or a sophomore? In the population, 40% are freshmen and 20% are sophomores, so a natural answer is 60%. That’s the percent of students who satisfy our criterion of “freshman or sophomore”. The simple addition works because the two groups are disjoint.</p>
-<p>Kolmogorov used this idea to formulate the third and most important axiom of probability. Formally, <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are mutually exclusive events if their intersection is empty:
-<span class="math notranslate nohighlight">\($
+<p>Kolmogorov used this idea to formulate the third and most important axiom of probability. Formally, <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are mutually exclusive events if their intersection is empty:</p>
+<div class="math notranslate nohighlight">
+\[
 A \cap B = \phi
-$\)</span></p>
+\]</div>
 <div class="section" id="the-third-axiom-addition-rule">
 <h2><span class="section-number">2.1.1. </span>The Third Axiom: Addition Rule<a class="headerlink" href="#the-third-axiom-addition-rule" title="Permalink to this headline">¶</a></h2>
 <p>In the context of finite outcome spaces, the axiom says:</p>
@@ -937,46 +943,100 @@ $\)</span></p>
 </ul>
 <p>You will show in an exercise that the axiom implies something more general:</p>
 <ul class="simple">
-<li><p>For any fixed <span class="math notranslate nohighlight">\(n\)</span>, if <span class="math notranslate nohighlight">\(A_1, A_2, \ldots, A_n\)</span> are mutually exclusive (that is, if <span class="math notranslate nohighlight">\(A_i \cap A_j = \phi\)</span> for all <span class="math notranslate nohighlight">\(i \ne j\)</span>), then
-<span class="math notranslate nohighlight">\($
-P\big{(} \bigcup_{i=1}^n A_i \big{)} = \sum_{i=1}^n P(A_i)
-$\)</span>
-This is sometimes called the axiom of <em>finite additivity</em>.</p></li>
+<li><p>For any fixed <span class="math notranslate nohighlight">\(n\)</span>, if <span class="math notranslate nohighlight">\(A_1, A_2, \ldots, A_n\)</span> are mutually exclusive (that is, if <span class="math notranslate nohighlight">\(A_i \cap A_j = \phi\)</span> for all <span class="math notranslate nohighlight">\(i \ne j\)</span>), then</p></li>
 </ul>
-<p>This deceptively simple axiom has tremendous power, especially when it is extended to account for infinitely many mutually exclusive events. For a start, it can be used to create some handy computational tools.</p>
+<div class="math notranslate nohighlight">
+\[
+P\big{(} \bigcup_{i=1}^n A_i \big{)} = \sum_{i=1}^n P(A_i)
+\]</div>
+<p>This is sometimes called the axiom of <em>finite additivity</em>. Kolmogorov actually specified countable additivity. We’ll come to that later.</p>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="400"
+    height="300"
+    src="https://www.youtube.com/embed/KaOriB3Zep8"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
+<p>The typical use of the addition rule is when you <em>list the ways</em> an event can occur, splitting it up into disjoint pieces whose probabilities you know how to find. This is called <em>partitioning</em> the event, a fundamentally important technique to master.</p>
+<span style="color: #114466">
+    <b>Quick Check:</b> A box contains two red tickets and one blue ticket. If you draw two tickets at random with replacement, what is the chance that the same color appears on both draws?
+<details>
+    <summary>Answer </summary>
+    $ P(RR \text{ or } BB) = \frac{2^2}{3^2} + \frac{1^2}{3^2} $
+</details> 
+</span><span style="color: #114466">
+    <b>Quick Check:</b> At a given school, 5% of students are Data Science majors and 12% of students are Economics majors. True or false: We don't need additional assumptions to conclude that 17% of students at the school are majoring in Data Science or Economics.
+<details>
+    <summary>Answer </summary>
+    False; we need to assume a student can't major in both, which isn't true in Berkeley.
+</details> 
+</span><p>The deceptively simple axiom of additivity has tremendous power, especially when it is extended to account for infinitely many mutually exclusive events. For a start, it can be used to create some handy computational tools.</p>
 </div>
 <div class="section" id="nested-events">
 <h2><span class="section-number">2.1.2. </span>Nested Events<a class="headerlink" href="#nested-events" title="Permalink to this headline">¶</a></h2>
 <p>Suppose that 50% of the students in a class have Data Science as one of their majors, and 40% are majoring in Data Science as well as Computer Science (CS). If you pick a student at random, what is the chance that the student is majoring in Data Science but not in CS?</p>
 <p>The Venn diagram below shows a dark blue circle corresponding to the event <span class="math notranslate nohighlight">\(A =\)</span> “Data Science as one of the majors”, and a gold circle (not drawn to scale) corresponding <span class="math notranslate nohighlight">\(B =\)</span> “majoring in both Data Science and CS”. The two events are <em>nested</em> because <span class="math notranslate nohighlight">\(B\)</span> is a subset of <span class="math notranslate nohighlight">\(A\)</span>: everyone in <span class="math notranslate nohighlight">\(B\)</span> has Data Science as one of their majors.</p>
-<p>So <span class="math notranslate nohighlight">\(B \subseteq A\)</span>, and those who are majoring in Data Science but not CS is the <em>difference</em> “<span class="math notranslate nohighlight">\(A\)</span> and not <span class="math notranslate nohighlight">\(B\)</span>”:
-<span class="math notranslate nohighlight">\($
+<p>So <span class="math notranslate nohighlight">\(B \subseteq A\)</span>, and those who are majoring in Data Science but not CS is the <em>difference</em> “<span class="math notranslate nohighlight">\(A\)</span> and not <span class="math notranslate nohighlight">\(B\)</span>”:</p>
+<div class="math notranslate nohighlight">
+\[
 A \backslash B = A \cap B^c
-$\)</span>
-where <span class="math notranslate nohighlight">\(B^c\)</span> is the complement of <span class="math notranslate nohighlight">\(B\)</span>. The difference is the bright blue ring on the right.</p>
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(B^c\)</span> is the complement of <span class="math notranslate nohighlight">\(B\)</span>. The difference is the bright blue ring on the right.</p>
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/01_Addition_12_0.png" src="../../_images/01_Addition_12_0.png" />
+<img alt="../../_images/01_Addition_16_0.png" src="../../_images/01_Addition_16_0.png" />
 </div>
 </div>
 <p>What’s the chance that the student is in the bright blue difference? If you answered, “50% - 40% = 10%”, you are right, and it’s great that your intuition is saying that probabilities behave just like areas. They do. In fact the calculation follows from the axiom of additivity, which we also motivated by looking at areas.</p>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="400"
+    height="300"
+    src="https://www.youtube.com/embed/eEoogMY8z60"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
 </div>
 <div class="section" id="difference-rule">
 <h2><span class="section-number">2.1.3. </span>Difference Rule<a class="headerlink" href="#difference-rule" title="Permalink to this headline">¶</a></h2>
 <p>Suppose <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are events such that <span class="math notranslate nohighlight">\(B \subseteq A\)</span>. Then <span class="math notranslate nohighlight">\(P(A \backslash B) = P(A) - P(B)\)</span>.</p>
-<p><strong>Proof.</strong> Because <span class="math notranslate nohighlight">\(B \subseteq A\)</span>,
-<span class="math notranslate nohighlight">\($
+<p><strong>Proof.</strong> Because <span class="math notranslate nohighlight">\(B \subseteq A\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[
 A = B \cup (A \backslash B)
-$\)</span>
-which is a disjoint union. By the axiom of additivity,
-<span class="math notranslate nohighlight">\($
+\]</div>
+<p>which is a disjoint union. By the axiom of additivity,</p>
+<div class="math notranslate nohighlight">
+\[
 P(A) = P(B) + P(A \backslash B)
-$\)</span>
-and so
-<span class="math notranslate nohighlight">\($
+\]</div>
+<p>and so</p>
+<div class="math notranslate nohighlight">
+\[
 P(A \backslash B) = P(A) - P(B)
-$\)</span></p>
-</div>
+\]</div>
+<span style="color: #114466">
+    <b>Quick Check:</b> In 2019, 95% of US women owned a cell phone of some kind; 81% owned a smartphone. If you picked a US woman at random in 2019, what is the chance that she owned a cell phone but it wasn't a smartphone?
+<details>
+    <summary>Answer </summary>
+    $0.14$
+</details> 
+</span><span style="color: #114466">
+    <b>Quick Check:</b> A survey organization asks respondents for their age in completed years. Of the respondents, 90% were more than 20 years old, 85% were more than 21 years old, and and 78% were more than 22 years old. What is the chance that a randomly picked respondent is 21 years old?
+<details>
+    <summary>Answer </summary>
+    $0.05$
+</details> 
+</span></div>
 <div class="section" id="the-complement">
 <h2><span class="section-number">2.1.4. </span>The Complement<a class="headerlink" href="#the-complement" title="Permalink to this headline">¶</a></h2>
 <p>If an event has chance 40%, what’s the chance that it doesn’t happen? The “obvious” answer of 60% is a special case of the difference rule.</p>
@@ -986,12 +1046,18 @@ $\)</span></p>
 <p><strong>Proof.</strong> The Venn diagram below shows what to do. Take <span class="math notranslate nohighlight">\(A = \Omega\)</span> in the formula for the difference, and remember the second axiom <span class="math notranslate nohighlight">\(P(\Omega) = 1\)</span>. Alternatively, redo the argument for the difference rule in this special case.</p>
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/01_Addition_16_0.png" src="../../_images/01_Addition_16_0.png" />
+<img alt="../../_images/01_Addition_23_0.png" src="../../_images/01_Addition_23_0.png" />
 </div>
 </div>
 <p>When you see a minus sign in a calculation of probabilities, as in the Complement Rule above, you will often find that the minus sign is due to a rearrangement of terms in an application of the addition rule.</p>
-<p>When you add or subtract probabilities, you are implicitly splitting an event into disjoint pieces. This is called <em>partitioning</em> the event, a fundamentally important technique to master. In the subsequent sections you will see numerous uses of partitioning.</p>
-</div>
+<p>When should you use the complement to find the probability of an event? The answer seems rather irritating at first: use the complement if the complement is easier to work with than the original event. For example, if the event can happen in numerous different ways, whereas its complement is more straighforward, you should try the complement as in the exercise below.</p>
+<span style="color: #114466">
+    <b>Quick Check:</b> A die is rolled three times. What is the probability that at least one of the faces that appears has more than one spot?
+<details>
+    <summary>Answer </summary>
+    $1 - \frac{1}{216}$
+</details> 
+</span></div>
 </div>
 </div>
 

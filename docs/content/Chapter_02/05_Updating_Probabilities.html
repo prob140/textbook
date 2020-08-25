@@ -40,7 +40,7 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="3. Random Variables" href="../Chapter_03/00_Random_Variables.html" />
+    <link rel="next" title="2.6. Exercises" href="06_Exercises.html" />
     <link rel="prev" title="2.4. More Examples" href="04_More_Examples.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -164,6 +164,11 @@
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
      2.5. Updating Probabilities
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="06_Exercises.html">
+     2.6. Exercises
     </a>
    </li>
   </ul>
@@ -945,7 +950,13 @@ P(A_i \mid B) &amp;= \frac{P(A_iB)}{P(B)} ~~~~ \text{(division rule)} \\ \\
 \end{align*}
 \end{split}\]</div>
 <p>This calculation, called Bayes’ Rule, is an application of the division rule in a setting where the events <span class="math notranslate nohighlight">\(A_1, A_2, \ldots , A_n\)</span> can be thought of as the results of an “earlier” stage of an experiment and <span class="math notranslate nohighlight">\(B\)</span> the result of a “later” stage. The calculation allows us to find “backwards in time” conditional chances of an earlier event given a later one, by writing the chance in terms of the “forwards in time” conditional chances of the later event given the earlier ones.</p>
-</div>
+<span style="color: #114466">
+    <b>Quick Check:</b> You have three coins in a box. One is fair. One is biased towards heads and lands heads with chance 80%. The third is biased towards tails and lands heads with chance 10%. You pick a coin from the box at random and flip it. Given that it lands heads, what is the chance the coin is fair?
+<details>
+    <summary>Answer </summary>
+    $ \frac{5}{14} $
+</details> 
+</span></div>
 <div class="section" id="the-effect-of-the-prior">
 <h2><span class="section-number">2.5.3. </span>The Effect of the Prior<a class="headerlink" href="#the-effect-of-the-prior" title="Permalink to this headline">¶</a></h2>
 <p>Let’s take a closer look at the numerical value of the answer we got in our example. It’s a bit disconcerting. It says that even though the person has tested positive, there is less than 50% chance they have the disease. That seems strange, as the accuracy rates of the test are quite high.</p>
@@ -1026,7 +1037,7 @@ P(A_i \mid B) &amp;= \frac{P(A_iB)}{P(B)} ~~~~ \text{(division rule)} \\ \\
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="04_More_Examples.html" title="previous page"><span class="section-number">2.4. </span>More Examples</a>
-    <a class='right-next' id="next-link" href="../Chapter_03/00_Random_Variables.html" title="next page"><span class="section-number">3. </span>Random Variables</a>
+    <a class='right-next' id="next-link" href="06_Exercises.html" title="next page"><span class="section-number">2.6. </span>Exercises</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

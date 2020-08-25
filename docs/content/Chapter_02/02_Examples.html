@@ -166,6 +166,11 @@
      2.5. Updating Probabilities
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="06_Exercises.html">
+     2.6. Exercises
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1">
@@ -917,30 +922,34 @@
 <p><strong>Method: Complement.</strong>
 When an event can happen in many different ways, it might be a good idea to look at the ways in which it <em>doesn’t</em> happen, in case there are fewer of those.</p>
 <p>For <span class="math notranslate nohighlight">\(n=4\)</span>, the only sequences in which we <em>don’t</em> get at least one occurrence of each face are HHHH and TTTT. Indeed, for any <span class="math notranslate nohighlight">\(n\)</span>, there are only two sequences in which we don’t get both faces: all heads, and all tails. These are the two sequences in which all the elements are the same.</p>
-<p>Let <span class="math notranslate nohighlight">\(A\)</span> be the event that we get at least one head and at least one tail. The question asks for <span class="math notranslate nohighlight">\(P(A)\)</span>. Because <span class="math notranslate nohighlight">\(A^c\)</span> is the event “all the elements of the sequence are the same”, we have
-<span class="math notranslate nohighlight">\($
+<p>Let <span class="math notranslate nohighlight">\(A\)</span> be the event that we get at least one head and at least one tail. The question asks for <span class="math notranslate nohighlight">\(P(A)\)</span>. Because <span class="math notranslate nohighlight">\(A^c\)</span> is the event “all the elements of the sequence are the same”, we have</p>
+<div class="math notranslate nohighlight">
+\[
 P(A^c) = \frac{2}{2^n} = \frac{1}{2^{n-1}}
-$\)</span>
-By the complement rule,
-<span class="math notranslate nohighlight">\($
+\]</div>
+<p>By the complement rule,</p>
+<div class="math notranslate nohighlight">
+\[
 P(A) = 1 - \frac{1}{2^{n-1}}
-$\)</span>
-Notice that the answer tends to 1 as <span class="math notranslate nohighlight">\(n\)</span> gets large. With a large number of tosses, you are almost certain to see both heads and tails.</p>
+\]</div>
+<p>Notice that the answer tends to 1 as <span class="math notranslate nohighlight">\(n\)</span> gets large. With a large number of tosses, you are almost certain to see both heads and tails.</p>
 </div>
 <div class="section" id="example-2-maximum-of-12-rolls-of-a-die">
 <h2><span class="section-number">2.2.2. </span>Example 2: Maximum of 12 Rolls of a Die<a class="headerlink" href="#example-2-maximum-of-12-rolls-of-a-die" title="Permalink to this headline">¶</a></h2>
 <p>A die is rolled 12 times so that all <span class="math notranslate nohighlight">\(6^{12}\)</span> sequences of faces are equally likely. Define the <em>maximum</em> of the 12 rolls to be the largest of the numbers that appear on the 12 faces. For example, the maximum of the sequence “354222143351” is 5.</p>
 <p><strong>Question 1.</strong> What is the chance that the maximum is less than 5?</p>
-<p><strong>Answer 1.</strong> The key is to observe that the event “the maximum is less than 5” is the same as the event “all the 12 faces are less than 5”. For this to occur, each of the 12 faces has to have one of the four values 1 through 4. So
-<span class="math notranslate nohighlight">\($
+<p><strong>Answer 1.</strong> The key is to observe that the event “the maximum is less than 5” is the same as the event “all the 12 faces are less than 5”. For this to occur, each of the 12 faces has to have one of the four values 1 through 4. So</p>
+<div class="math notranslate nohighlight">
+\[
 P(\text{maximum is less than 5}) = \frac{4^{12}}{6^{12}}
-$\)</span>
-Yes, we could simplify that further, but we’re not going to, for reasons that will soon become clear.</p>
+\]</div>
+<p>Yes, we could simplify that further, but we’re not going to, for reasons that will soon become clear.</p>
 <p><strong>Question 2.</strong> What is the chance that the maximum is less than 4?</p>
-<p><strong>Answer 2.</strong> Nothing new here, other than replacing 5 by 4 in Question 1.
-<span class="math notranslate nohighlight">\($
+<p><strong>Answer 2.</strong> Nothing new here, other than replacing 5 by 4 in Question 1.</p>
+<div class="math notranslate nohighlight">
+\[
 P(\text{maximum is less than 4}) = \frac{3^{12}}{6^{12}}
-$\)</span></p>
+\]</div>
 <p><strong>Question 3.</strong> What is the chance that the maximum is equal to 4?</p>
 <p><strong>Answer 3.</strong> The task of writing down all the sequences in which the maximum is equal to 4 isn’t pleasant. Let’s see if we can use what we already know. For the maximum to be equal to 4:</p>
 <ul class="simple">

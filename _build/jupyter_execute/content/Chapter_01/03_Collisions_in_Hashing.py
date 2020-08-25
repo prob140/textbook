@@ -5,6 +5,9 @@ In computer science, *hash functions* assign a code called a *hash value* to eac
 What if the hash values were just assigned at random, without taking into account which of them have already been assigned? If there are a large number of distinct values and a relatively small number of individuals, then it seems reasonable to think that the chance of a collision will be small. For example, if there are 1,000 available hash values and only 5 individuals, it doesn't seem likely that you'll get a collision if you just pick a random sequence of 5 values for the 5 individuals.
 
 # VIDEO: Probability Model
+from IPython.display import YouTubeVideo
+
+YouTubeVideo("uFLsmVFcHXw")
 
 Let's make some assumptions about randomness and find the probability that there is no collision. Assume that there are $N$ hash values and $n$ individuals, and suppose your hash function is such that all $N^n$ assignments of values to individuals are equally likely. An assignment is a sequence $a_0 a_1 \ldots a_n$ where for each $i$, individual $i$ is assigned the hash value $a_i$.
 
@@ -23,6 +26,8 @@ If you look back to Part (i) in the example about random number generators in th
 # NO CODE
 
 # VIDEO: Collision Probability
+from IPython.display import YouTubeVideo
+YouTubeVideo('cD26s3DW-J8')
 
 By assumption, all $N^n$ possible assignments are equally likely. Some of these assignments contain no collisions. Our job is to count how many.
 

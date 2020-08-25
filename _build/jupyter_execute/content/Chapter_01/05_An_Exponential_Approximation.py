@@ -24,6 +24,9 @@ While this gives an exact formula for the chance, it doesn't give us a sense of 
 The main steps in the approximation will be used repeatedly in this course, so we will set them out in some detail here.
 
 # VIDEO: Approximate Chance of Collision
+from IPython.display import YouTubeVideo
+
+YouTubeVideo("rUhunl890KM")
 
 ### Step 1: Only Approximate Terms that Need Approximation ###
 
