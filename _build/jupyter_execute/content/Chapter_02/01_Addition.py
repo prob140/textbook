@@ -158,7 +158,7 @@ A box contains two red tickets and one blue ticket. If you draw two tickets at r
 
 ```{admonition} Answer
 :class: dropdown
-$ P(RR \text{ or } BB) = \frac{2^2}{3^2} + \frac{1^2}{3^2} $
+$P(RR \text{ or } BB) = \frac{2^2}{3^2} + \frac{1^2}{3^2}$
 ```
 
 ```{admonition} Quick Check

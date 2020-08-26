@@ -54,7 +54,7 @@ You have three coins in a box. One is fair. One is biased towards heads and land
 
 ```{admonition} Answer
 :class: dropdown
-$ \frac{5}{14} $
+$\frac{5}{14}$
 ```
 
 ### The Effect of the Prior ###
