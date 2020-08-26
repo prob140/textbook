@@ -48,14 +48,14 @@ $$
 
 This calculation, called Bayes' Rule, is an application of the division rule in a setting where the events $A_1, A_2, \ldots , A_n$ can be thought of as the results of an "earlier" stage of an experiment and $B$ the result of a "later" stage. The calculation allows us to find "backwards in time" conditional chances of an earlier event given a later one, by writing the chance in terms of the "forwards in time" conditional chances of the later event given the earlier ones.
 
-<span style="color: #114466">
-    <b>Quick Check:</b> You have three coins in a box. One is fair. One is biased towards heads and lands heads with chance 80%. The third is biased towards tails and lands heads with chance 10%. You pick a coin from the box at random and flip it. Given that it lands heads, what is the chance the coin is fair?
-    
-<details>
-    <summary>Answer </summary>
-    $ \frac{5}{14} $
-</details> 
-</span>
+```{admonition} Quick Check
+You have three coins in a box. One is fair. One is biased towards heads and lands heads with chance 80%. The third is biased towards tails and lands heads with chance 10%. You pick a coin from the box at random and flip it. Given that it lands heads, what is the chance the coin is fair?
+```
+
+```{admonition} Answer
+:class: dropdown
+$ \frac{5}{14} $
+```
 
 ### The Effect of the Prior ###
 Let's take a closer look at the numerical value of the answer we got in our example. It's a bit disconcerting. It says that even though the person has tested positive, there is less than 50% chance they have the disease. That seems strange, as the accuracy rates of the test are quite high.

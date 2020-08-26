@@ -134,25 +134,25 @@ from IPython.display import YouTubeVideo
 
 YouTubeVideo("YE9p2cprkOI")
 
-<span style="color: #114466">
-    <b>Quick Check:</b> A random number generator makes one draw at random from the 10 digits $0, 1, 2, 3, 4, 5, 6, 7, 8, 9$. Pick the correct option: Given that the number drawn is greater than 5, the chance that it is a prime number is
+```{admonition} Quick Check
+A random number generator makes one draw at random from the 10 digits $0, 1, 2, 3, 4, 5, 6, 7, 8, 9$. Pick the correct option: Given that the number drawn is greater than 5, the chance that it is a prime number is
     
 (i) $\frac{1}{10}$ $~~~$ (ii) $\frac{1}{5}$ $~~~$ (iii) $\frac{1}{4}$
-    
-<details>
-    <summary>Answer </summary>
-    (iii)
-</details> 
-</span>
+```
 
-<span style="color: #114466">
-    <b>Quick Check:</b> In a population of students, 75% don't own a car, 10% own a car and no bike, and 15% own a car as well as a bike. Given that a randomly picked student owns a car, what is the chance that they also own a bike?
-    
-<details>
-    <summary>Answer </summary>
-    $ 0.6 $
-</details> 
-</span>
+```{admonition} Answer
+:class: dropdown
+(iii)
+```
+
+```{admonition} Quick Check
+In a population of students, 75% don't own a car, 10% own a car and no bike, and 15% own a car as well as a bike. Given that a randomly picked student owns a car, what is the chance that they also own a bike?
+```
+
+```{admonition} Answer
+:class: dropdown
+$0.6$
+```
 
 ### Multiplication Rule ###
 This is just a rearrangement of the definition of conditional probability, but it is perhaps the most commonly used rule of all.
