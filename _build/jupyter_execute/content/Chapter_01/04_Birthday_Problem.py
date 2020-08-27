@@ -25,7 +25,7 @@ You can see that assumptions ignore leap years as well as multiple births (twins
 
 So let's note that we are working under simplifying assumptions that we should check before making conclusions about specific groups. Ignoring leap years and multiple births should not make a big difference to the conclusions in any case. If births are more likely to happen at some times of year than others, then it has been proved that the chance of matching birthdays will be larger than the answer we get under our assumptions. 
 
-There are many [variations](http://onlinelibrary.wiley.com/store/10.1111/j.1740-9713.2013.00705.x/asset/sign705.pdf;jsessionid=491D7D4A673C963B34E14B5AE6197321.f02t01?v=1&t=iy0wn3y5&s=199ae2fb587c25b7cde75105b0f11d2f25016108) of the birthday problem, but we will stick with the classic.
+There are many [variations](https://www.math.ucdavis.edu/~tracy/courses/math135A/UsefullCourseMaterial/birthday.pdf) of the birthday problem, but we will stick with the classic.
 
 ### The Chance of a Match ###
 We will state our assumptions succinctly as "all $365^n$ sequences of birthdays are equally likely". You can see that this makes the birthday problem the same as the collision problem of the previous section, with $N = 365$. As before, the only interesting cases are when $n \le N$, for which

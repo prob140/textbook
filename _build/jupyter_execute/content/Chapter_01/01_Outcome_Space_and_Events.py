@@ -33,7 +33,7 @@ $F$   | the letters form a word that means "taxi" | $\{ cab \}$
 The table contains six events and you can come up with many more. For each one, see if you can give an interesting verbal description.
 
 ```{admonition} Quick Check
-A natural outcome space for three tosses of a coin is $\Omega = \{ HHH, HHT, HTH, HTT, THH, THT, THH, TTT \}$.
+A natural outcome space for three tosses of a coin is $\Omega = \{ HHH, HHT, HTH, HTT, THH, THT, TTH, TTT \}$.
 
 **a)** What is the event that corresponds to the description "no two consecutive tosses land the same way"? 
 

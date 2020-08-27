@@ -46,7 +46,7 @@ $$
 Thus the assumption that all the permutations are equally likely makes all three positions of $a$ equally likely as well. The same is true of the positions of $b$ and $c$, as you should check.
 
 ```{admonition} Quick Check
-Suppose you toss a coin three times. Assuming that all the outcomes in the space $\{ HHH, HHT, HTH, HTT, THH, THT, THH, TTT \}$ are equally likely, find the chance that one of the tosses lands differently from the other two.
+Suppose you toss a coin three times. Assuming that all the outcomes in the space $\{ HHH, HHT, HTH, HTT, THH, THT, TTH, TTT \}$ are equally likely, find the chance that one of the tosses lands differently from the other two.
 ```
 
 ```{admonition} Answer
