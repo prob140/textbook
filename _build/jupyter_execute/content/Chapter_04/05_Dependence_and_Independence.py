@@ -78,6 +78,11 @@ You could have drawn the same conclusion by conditioning $Y$ on $X$:
 
 dist3.conditional_dist('Y', 'X')
 
+# VIDEO: Independence: Formal Definition
+from IPython.display import YouTubeVideo
+
+YouTubeVideo("zjKrjQJzqQ4")
+
 ### Independence of Two Events ###
 The concept of independence seems intuitive, but it is possible to run into trouble by not being careful about its definition. So let's define it formally.
 
@@ -144,4 +149,17 @@ P(X = Y) ~ &= ~ \sum_{i=1}^n P(X = i, Y = i) ~~~ \text{(partitioning)} \\
 $$
 
 The last expression is easy to calculate if you know the numerical values of all the $p_i$.
+
+```{admonition} Quick Check
+Let $V$ have distribution $P(V = i) = p_i$ for $2 \le i \le 6$, where $\sum_{i=2}^6 p_i = 1$.
+
+If $V$ and $W$ are i.i.d., find $P(V = 2W)$.
+
+```
+
+```{admonition} Answer
+:class: dropdown
+$p_4p_2 + p_6p_3$
+
+```
 

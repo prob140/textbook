@@ -18,13 +18,18 @@ $$
 X(\omega) = Y(\omega) \text{ for all } \omega \in \Omega
 $$
 
-Informally, this says that no matter what the outcome, if $X$ is 10 then $Y$ must be 10 too; if $X$ is 11, $Y$ must be 11, and so on.
+This is the usual definition of the equality of two mathematical functions. Informally, it says that when $X$ has the value $10$ then $Y$ must be $10$ too; when $X$ is $11$, $Y$ must be $11$; and so on.
 
 An example will make this clear. Let $N_H$ be the number of heads in three tosses of a coin, and let $N_T$ be the number of tails in the same three tosses. 
 
 Now consider the new random variable $M = 3 - N_T$. The two random variables $N_H$ and $M$ are equal. For every possible outcome of the three tosses, the value of $N_H$ is equal to the value of $M$.
 
 We write this simply as $N_H = M$. Equivalently, $N_H = 3 - N_T$.
+
+# VIDEO: Two Kinds of Equality
+from IPython.display import YouTubeVideo
+
+YouTubeVideo("Z-_RSmBktHM")
 
 ### Equal in Distribution ###
 $N_H$ and $N_T$, as defined above, are not equal. For example,
@@ -41,7 +46,7 @@ coin = make_array('H', 'T')
 three_tosses = list(product(coin, repeat=3))
 three_tosses
 
-There are only eight outcomes, so it is easy to inspect the table and write the distributions of $N_H$ and $N_T$. Both take the values 0, 1, 2, and 3, with probabilities 1/8, 3/8, 3/8, and 1/8 respectively. This distribution is shown in the table below.
+There are only eight outcomes, so it is easy to inspect the table and write the distributions of $N_H$ and $N_T$. Both take the values $0, 1, 2, 3$ with probabilities $1/8, 3/8, 3/8, 1/8$ respectively. This distribution is shown in the table below.
 
 dist = Table().values(np.arange(4)).probabilities(make_array(1, 3, 3, 1)/8)
 dist
@@ -69,16 +74,46 @@ $$
 
 But as the example of heads and tails in three tosses shows, the converse need not be true.
 
+```{admonition} Quick Check
+The random variables below are defined on the probability space consisting of 16 equally likely outcomes of 4 tosses of a coin: $HHHH, HHHT, HHTH$, and so on.
+
+$X$: number of heads in the first two tosses
+
+$Y$: number of heads in the last two tosses
+
+$Z$: number of tails in the last two tosses
+
+For each of the following pairs, fill in the blank with $=$ or $\stackrel{d}{=}$, picking the stronger one if both are applicable. If neither of the symbols applies, explain why not.
+
+(i) $X ~~ \underline{~~~~~~~~~~~~~} ~~ Y$
+
+(ii) $Y ~~ \underline{~~~~~~~~~~~~~} ~~ Z$
+
+(iii) $X ~~ \underline{~~~~~~~~~~~~~} ~~ Z$
+
+(iv) $Y ~~ \underline{~~~~~~~~~~~~~} ~~ 2-Z$
+
+(v) $X ~~ \underline{~~~~~~~~~~~~~} ~~ 2-Z$
+
+```
+
+```{admonition} Answer
+:class: dropdown
+
+Fill (i), (ii), (iii), and (v) with $\stackrel{d}{=} $ and (iv) with $=$.
+
+```
+
 ### Example: Two Cards Dealt from a Small Deck ###
 A deck contains 10 cards, labeled 1, 2, 2, 3, 3, 3, 4, 4, 4, 4. Two cards are dealt at random without replacement. Let $X_1$ be the label on the first card and $X_2$ be the label on the second card.
 
-**Question 1.** Are $X_1$ and $X_2$ equal?
+**Question 1:** Are $X_1$ and $X_2$ equal?
 
-**Answer 1.** No, because the outcome could be 31 in which case $X_1 = 3$ and $X_2 = 1$.
+**Answer 1:** No, because for example the outcome could be $(3,1)$ in which case $X_1 = 3$ and $X_2 = 1$.
 
-**Question 2.** Are $X_1$ and $X_2$ equal in distribution?
+**Question 2:** Are $X_1$ and $X_2$ equal in distribution?
 
-**Answer 2.** Let's find the two distributions and compare. Clearly the possible values are 1, 2, 3, and 4 in each case. The distribution of $X_1$ is easy: 
+**Answer 2:** Let's find the two distributions and compare. Clearly the possible values are 1, 2, 3, and 4 in each case. The distribution of $X_1$ is easy: 
 
 $$
 P(X_1 = i ) = \frac{i}{10} , ~~ i = 1, 2, 3, 4
@@ -113,4 +148,19 @@ The two distributions are the same! Here is yet another example of symmetry in s
 $$
 X_1 \stackrel{d}{=} X_2
 $$
+
+```{admonition} Quick Check
+$X_1$ and $X_2$ are the results of the first and second of two draws made at random without replacement from the 10 digits $0, 1, 2, 3, 4, 5, 6, 7, 8, 9$. True or false:
+
+(i) $X_1$ has the uniform distribution on the 10 digits.
+
+(ii) $X_2$ has the uniform distribution on the 10 digits.
+
+```
+
+```{admonition} Answer
+:class: dropdown
+Both are true. For (ii), calculate $P(X_2 = 0)$ as an example to see what's going on.
+
+```
 

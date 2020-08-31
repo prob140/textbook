@@ -25,6 +25,11 @@ joint_table = Table().values('X', k_x, 'Y', k_y).probability_function(joint_prob
 
 To understand the relation between two variables we must examine the conditional behavior of each of them given the value of the other. Towards this goal, we will start by examining the example of the previous section and then develop the general theory.
 
+# VIDEO: Conditional Distribution: Example
+from IPython.display import YouTubeVideo
+
+YouTubeVideo("CnFSQPrm8Js")
+
 In our example, the joint distribution of $X$ and $Y$ is given by `joint_table`. Here we also display the marginal distribution of $X$.
 
 joint_table.marginal('X')
@@ -64,6 +69,27 @@ The two distributions are different. Given $Y = 3$, the chance that $X$ is large
 
 This shows that $X$ and $Y$ are *dependent*. We will define dependence and independence formally in the next section.
 
+```{admonition} Quick Check
+Find the following (without using Python) based on the joint distribution in the example above.
+
+(a) $P(X=0 \mid Y=1)$
+
+(b) the conditional distribution of $X$ given $Y=1$
+
+(c) the conditional distribution of $X$ given $Y=5$
+
+```
+
+```{admonition} Answer
+:class: dropdown
+(a) $0.6$ 
+
+(b) $0$ with chance 0.6, $1$ with chance 0.4 
+
+(c) $2$ with chance 1
+
+```
+
 ### Conditional Distribution of $X$ given $Y = y$ ###
 The `conditional_dist` method operates on a joint distribution object and displays conditional distributions, as follows.
 
@@ -82,6 +108,11 @@ It is easy to see why each row in the table of conditional distributions sums to
 ### The Theory ###
 We can now generalize the calculations we did in the example above.
 
+# VIDEO: Conditional Distribution: Notation and Calculation
+from IPython.display import YouTubeVideo
+
+YouTubeVideo("8Ihsh1B0Eg4")
+
 Let $X$ and $Y$ be two random variables defined on the same space. If $x$ is a possible value of $X$, and $y$ and possible value of $Y$, then
 
 $$
@@ -90,24 +121,24 @@ $$
 
 The conditional probability $P(X = x \mid Y = y)$ is displayed in the $(x, y)$ cell of the table of conditional distributions above.
 
-For a fixed value $y^\*$ of $Y$, the *conditional distribution* of $X$ given $Y = y^\*$ is the collection of probabilities
+For a fixed value $y^*$ of $Y$, the *conditional distribution* of $X$ given $Y = y^*$ is the collection of probabilities
 
 $$
 P(X = x \mid Y = y^*) = \frac{P(X = x, Y = y^*)}{P(Y = y^*)}
 $$
 
-where $x$ ranges over all the values of $X$. Keep in mind that $x$ represents the values of the variable here. The value $y^\*$ is the particular value of $Y$ that was observed, so it is a constant.
+where $x$ ranges over all the values of $X$. Keep in mind that $x$ represents the values of the variable here. The value $y^*$ is the particular value of $Y$ that was observed, so it is a constant.
 
 ### The Probabilities in a Conditional Distribution Sum to 1 ###
 In a distribution, the probabilities have to sum to 1. To see that this is true for the conditional distribution defined above, start by using the fundamental rule. 
 
-Find $P(Y = y^\*)$ by partitioning the event $\{ Y = y^\* \}$ according to the values of $X$:
+Find $P(Y = y^*)$ by partitioning the event $\{ Y = y^* \}$ according to the values of $X$:
 
 $$
 P(Y = y^*) = \sum_{\text{all }x} P(X = x, Y = y^*)
 $$
 
-Now sum the probabilities in the conditional distribution of $X$ given $Y = y^\*$:
+Now sum the probabilities in the conditional distribution of $X$ given $Y = y^*$:
 
 $$
 \begin{align*}

@@ -937,15 +937,15 @@
 <h2><span class="section-number">2.3.1. </span>Random Draws Without Replacement<a class="headerlink" href="#random-draws-without-replacement" title="Permalink to this headline">¶</a></h2>
 <p>Suppose I have a little deck consisting of one red card, one green, and one blue. Suppose I shuffle the cards, draw one, shuffle the remaining two, and draw one from those. This is called <em>drawing two cards at random without replacement</em> from the deck.</p>
 <p>A reasonable outcome space is <span class="math notranslate nohighlight">\(\Omega = \{ \text{RG, RB, GB, GR, BR, BG}\}\)</span> in which all six elements are equally likely.</p>
-<p>The chance that we get the green card first, followed by the red, is the chance of the single sequence GR:</p>
+<p>The chance that we get the green card first, followed by the red, is the chance of the event consisting of the single sequence GR:</p>
 <div class="math notranslate nohighlight">
 \[
-P(\text{GR}) = \frac{\#\{\text{GR}\}}{6} = \frac{1}{6}
+P(\{ \text{GR} \}) = \frac{\#\{\text{GR}\}}{6} = \frac{1}{6}
 \]</div>
 <p>This simple calculation contains something more interesting. Notice that</p>
 <div class="math notranslate nohighlight">
 \[
-P(\text{GR}) = \frac{1}{6} = \frac{1}{3} \times \frac{1}{2}
+P(\{ \text{GR} \}) = \frac{1}{6} = \frac{1}{3} \times \frac{1}{2}
 \]</div>
 <div class="cell tag_remove-input tag_hide-output docutils container">
 <div class="cell_output docutils container">
@@ -978,7 +978,7 @@ P(\text{G comes first}) = \frac{\#\{\text{GR, GB}\}}{6} = \frac{2}{6} = \frac{1}
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{align*}
-P(\text{GR}) &amp;= \frac{\#\{\text{GR}\}}{6} \\ \\
+P(\{ \text{GR} \}) &amp;= \frac{\#\{\text{GR}\}}{6} \\ \\
 &amp;= \frac{\#\{\text{GR, GB}\}}{6} \times \frac{\#\{\text{GR}\}}{\#\{\text{GR, GB}\}} \\ \\
 &amp;= P(\text{first card G}) \times P(\text{second card R} \mid \text{first card G})
 \end{align*}

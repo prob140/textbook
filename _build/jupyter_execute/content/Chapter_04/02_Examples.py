@@ -23,13 +23,13 @@ Suppose I roll each die once.
 
 ### Equality ###
 
-**Question.** What is the chance that I get the same number on both dice?
+**Question:** What is the chance that I get the same number on both dice?
 
-**Answer 1, by symmetry.** No matter what number appears on the biased shape, the chance that the fair die shows that number is 1/6. So the answer is 1/6.
+**Answer 1, by symmetry:** No matter what number appears on the biased shape, the chance that the fair die shows that number is 1/6. So the answer is 1/6.
 
 Not convinced? Then let's calculate.
 
-**Answer 2.** Let $F$ be the number on the fair die and let $S$ be the number on the biased shape. It is reasonable to assume that the outcome of one die doesn't affect chances for the other. So for every $i$ and $j$ such that $1 \le i, j \le 6$, we have
+**Answer 2:** Let $F$ be the number on the fair die and let $S$ be the number on the biased shape. It is reasonable to assume that the outcome of one die doesn't affect chances for the other. So for every $i$ and $j$ such that $1 \le i, j \le 6$, we have
 
 $$
 P(F = i, S = j) ~ = ~ P(F = i)P(S = j) ~ = ~ \frac{1}{6}P(S = j)
@@ -43,9 +43,9 @@ $$
 
 ### Difference ###
 
-**Question.** What is the chance that the number on the biased shape exceeds the number on the fair die by more than 2?
+**Question:** What is the chance that the number on the biased shape exceeds the number on the fair die by more than 2?
 
-**Answer.** We can visualize the event $\{ S > F + 2 \}$ using the methods of the previous section.
+**Answer:** We can visualize the event $\{ S > F + 2 \}$ using the methods of the previous section.
 
 We know that the joint distribution of $F$ and $S$ is given by 
 
@@ -92,9 +92,9 @@ For each fixed value of $i$, the inner sum is the sum of the terms visible in th
 
 ### Absolute Difference ###
 
-**Question.** What is the chance that the numbers on the two dice differ by no more than 1?
+**Question:** What is the chance that the numbers on the two dice differ by no more than 1?
 
-**Answer.** The goal is to find $P(\vert F - S \vert \le 1)$. We defined `two_dice`, the joint distribution of $F$ and $S$, in the previous problem. So now our work is simple.
+**Answer:** The goal is to find $P(\vert F - S \vert \le 1)$. We defined `two_dice`, the joint distribution of $F$ and $S$, in the previous problem. So now our work is simple.
 
 def indicator_absdiff_atmost_1(i, j):
     return abs(i - j) <= 1
@@ -115,9 +115,9 @@ $$
 
 ### Sum ###
 
-**Question.** What is the chance that the sum of the numbers on the two dice is 7?
+**Question:** What is the chance that the sum of the numbers on the two dice is 7?
 
-**Answer.** This time we'll write out the math first.
+**Answer:** This time we'll write out the math first.
 
 The event $\{ F + S = 7 \}$ consists of all possible pairs $(i, j)$ such that $i + j = 7$. For each fixed $i$, there is exactly one $j$ that satisfies $i+j = 7$, and that's $j = 7-i$. So
 
@@ -137,9 +137,9 @@ def indicator_sum_7(i, j):
 
 two_dice.event(indicator_sum_7, 'F', 'S')
 
-**Question.** Now suppose I have two $n$-sided dice, at least one of which is fair. I roll each of them once. What is the chance that the sum of the two numbers is $n+1$?
+**Question:** Now suppose I have two $n$-sided dice, at least one of which is fair. I roll each of them once. What is the chance that the sum of the two numbers is $n+1$?
 
-**Answer.** We can't use our computational methods for this one because the model isn't numerical. But we know how to solve the problem mathematically.
+**Answer:** We can't use our computational methods for this one because the model isn't numerical. But we know how to solve the problem mathematically.
 
 Let $F_n$ be the number on a fair die and $D_n$ the number on the other die.
 

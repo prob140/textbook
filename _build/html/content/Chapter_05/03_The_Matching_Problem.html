@@ -919,6 +919,18 @@
 <div class="section" id="matches-at-fixed-locations">
 <h2><span class="section-number">5.3.1. </span>Matches at Fixed Locations<a class="headerlink" href="#matches-at-fixed-locations" title="Permalink to this headline">¶</a></h2>
 <p>Consider a random permutation of <span class="math notranslate nohighlight">\(n\)</span> elements which for simplicity we will call <span class="math notranslate nohighlight">\(\{1, 2, \ldots , n\}\)</span>. For any <span class="math notranslate nohighlight">\(i\)</span> in the range 1 through <span class="math notranslate nohighlight">\(n\)</span>, what is the chance that Position <span class="math notranslate nohighlight">\(i\)</span> is a fixed point? In other words, what is the chance that letter <span class="math notranslate nohighlight">\(i\)</span> falls in envelope <span class="math notranslate nohighlight">\(i\)</span>?</p>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="400"
+    height="300"
+    src="https://www.youtube.com/embed/wM-DD_j2npE"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
 <p>We know that there are <span class="math notranslate nohighlight">\(n!\)</span> possible permutations, all of which are equally likely. To find <span class="math notranslate nohighlight">\(P(\text{match at Position }i)\)</span> all we have to do is count the number of permutations that put letter <span class="math notranslate nohighlight">\(i\)</span> in envelope <span class="math notranslate nohighlight">\(i\)</span>. Here is a good way to count these:</p>
 <ul class="simple">
 <li><p>Put letter <span class="math notranslate nohighlight">\(i\)</span> in envelope <span class="math notranslate nohighlight">\(i\)</span>.</p></li>
@@ -955,6 +967,18 @@ P(\text{matches at a specified set of } k \text{ positions})
 <div class="section" id="no-matches">
 <h2><span class="section-number">5.3.2. </span>No Matches<a class="headerlink" href="#no-matches" title="Permalink to this headline">¶</a></h2>
 <p>If letters falling in the right envelopes are good events, then the worst possible event is every letter falling in a wrong envelope. That is the event that there are no matches, and is called a <em>derangement</em>. Let’s find the chance of a derangement.</p>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="400"
+    height="300"
+    src="https://www.youtube.com/embed/PYp39ZsLxOg"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
 <p>The key is to notice that the complement is a union, and then use the inclusion-exclusion formula.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}

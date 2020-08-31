@@ -19,6 +19,11 @@ In the letter-envelope setting there are $n$ letters labeled 1 through $n$ and a
 ### Matches at Fixed Locations ###
 Consider a random permutation of $n$ elements which for simplicity we will call $\{1, 2, \ldots , n\}$. For any $i$ in the range 1 through $n$, what is the chance that Position $i$ is a fixed point? In other words, what is the chance that letter $i$ falls in envelope $i$?
 
+# VIDEO: Fixed Locations
+from IPython.display import YouTubeVideo
+
+YouTubeVideo("wM-DD_j2npE")
+
 We know that there are $n!$ possible permutations, all of which are equally likely. To find $P(\text{match at Position }i)$ all we have to do is count the number of permutations that put letter $i$ in envelope $i$. Here is a good way to count these:
 - Put letter $i$ in envelope $i$.
 - Once that is done, the remaining $n-1$ letters can be permuted in $(n-1)!$ ways.
@@ -56,6 +61,11 @@ $$
 
 ### No Matches ###
 If letters falling in the right envelopes are good events, then the worst possible event is every letter falling in a wrong envelope. That is the event that there are no matches, and is called a *derangement*. Let's find the chance of a derangement.
+
+# VIDEO: Derangement
+from IPython.display import YouTubeVideo
+
+YouTubeVideo("PYp39ZsLxOg")
 
 The key is to notice that the complement is a union, and then use the inclusion-exclusion formula.
 

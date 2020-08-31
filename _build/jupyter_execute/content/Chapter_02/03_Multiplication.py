@@ -67,16 +67,16 @@ Suppose I have a little deck consisting of one red card, one green, and one blue
 
 A reasonable outcome space is $\Omega = \{ \text{RG, RB, GB, GR, BR, BG}\}$ in which all six elements are equally likely. 
 
-The chance that we get the green card first, followed by the red, is the chance of the single sequence GR:
+The chance that we get the green card first, followed by the red, is the chance of the event consisting of the single sequence GR:
 
 $$
-P(\text{GR}) = \frac{\#\{\text{GR}\}}{6} = \frac{1}{6}
+P(\{ \text{GR} \}) = \frac{\#\{\text{GR}\}}{6} = \frac{1}{6}
 $$
 
 This simple calculation contains something more interesting. Notice that
 
 $$
-P(\text{GR}) = \frac{1}{6} = \frac{1}{3} \times \frac{1}{2}
+P(\{ \text{GR} \}) = \frac{1}{6} = \frac{1}{3} \times \frac{1}{2}
 $$
 
 # NO CODE
@@ -108,7 +108,7 @@ Now our original calculation for the pair of cards can be written one card at a 
 
 $$
 \begin{align*}
-P(\text{GR}) &= \frac{\#\{\text{GR}\}}{6} \\ \\
+P(\{ \text{GR} \}) &= \frac{\#\{\text{GR}\}}{6} \\ \\
 &= \frac{\#\{\text{GR, GB}\}}{6} \times \frac{\#\{\text{GR}\}}{\#\{\text{GR, GB}\}} \\ \\
 &= P(\text{first card G}) \times P(\text{second card R} \mid \text{first card G})
 \end{align*}

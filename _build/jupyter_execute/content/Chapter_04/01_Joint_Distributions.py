@@ -1,4 +1,7 @@
 # HIDDEN
+import warnings
+warnings.filterwarnings("ignore")
+
 from datascience import *
 from prob140 import *
 import numpy as np
@@ -8,7 +11,11 @@ plt.style.use('fivethirtyeight')
 
 ## Joint Distributions ##
 
-Suppose $X$ and $Y$ are two random variables defined on the same outcome space. We will use the notation $P(X = x, Y = y)$ for the probability that $X$ has the value $x$ and $Y$ has the value $y$. 
+Suppose $X$ and $Y$ are two random variables defined on the same outcome space. We will use the notation $P(X = x, Y = y)$ for the probability that $X$ has the value $x$ and $Y$ has the value $y$. That is,
+
+$$
+P(X = x, Y = y) ~ = ~ P(\{ X=x \} \cap \{ Y=y \})
+$$
 
 The *joint distribution of $X$ and $Y$* consists of all the probabilities $P(X=x, Y=y)$ where $(x, y)$ ranges over all the possible values of $(X, Y)$.
 
@@ -30,6 +37,11 @@ P(X = 1, Y = 2) = P(\text{THH}) = \frac{1}{8}
 $$
 
 The constraints on $x$ and $y$ are that each must be in the range $\{0, 1, 2\}$ and $\vert x - y \vert < 2$. 
+
+# VIDEO: Joint Distribution
+from IPython.display import YouTubeVideo
+
+YouTubeVideo("5utr7G2OXXA")
 
 ### Joint Distribution Table ###
 
@@ -73,6 +85,11 @@ In fact this is a double check, as the the method for constructing the joint dis
 ### Finding Probabilities ###
 The table contains complete information about the relation between $X$ and $Y$. To find the probabiilty of any event determined by $X$ and $Y$, simply identify the cells that make the event happen, and add up their chances. This is an application of the fundamental method of finding probabilities by partitioning an event.
 
+# VIDEO: Events and Probabilities
+from IPython.display import YouTubeVideo
+
+YouTubeVideo("ePADXFKYmh4")
+
 For example, consider the event $\{ X = Y \}$ for $X$ and $Y$ as defined in our example above. The event can happen in three ways: if $X$ and $Y$ are both 0, or both 1, or both 2. So
 
 $$
@@ -100,7 +117,11 @@ joint_dist.event(indicator_equal, 'X', 'Y')
 
 The display `P(event) = 0.5` is consistent with our earlier answer $P(X = Y) = 0.5$. In the table, probabilities are displayed only in the cells that are in the event, that is, only the cells $(x, y)$ for which $x = y$. 
 
-You can see that these cells all lie along the $x = y$ diagonal line. The coordinate geometry will be visible again when we calculate $P(Y \ge X)$, for example.
+You can see that these cells all lie along the $x = y$ diagonal line. The coordinate geometry will be visible again when we calculate $P(Y \ge X)$ below. 
+
+However, if you just want to see the probability of the event without the table display, add a semicolon at the end of the line. That prevents the returned table from being printed.
+
+joint_dist.event(indicator_equal, 'X', 'Y');
 
 def indicator_y_at_least_x(i, j):
     return j >= i
@@ -108,6 +129,17 @@ def indicator_y_at_least_x(i, j):
 joint_dist.event(indicator_y_at_least_x, 'X', 'Y')
 
 The visible cells form the upper triangle corresponding to points whose coordinates $(x, y)$ satisfy the the inequality $y \ge x$. The chance of the event is $P(Y \ge X) = 0.75$.
+
+```{admonition} Quick Check
+Without using Python, find $P(X+Y \ge 2)$.
+
+```
+
+```{admonition} Answer
+:class: dropdown
+$0.625$
+
+```
 
 ### The General Calculation ###
 As we have seen in these examples, saying that random variables $X$ and $Y$ satisfy a specified condition is the same as saying that the random point $(X, Y)$ falls in a particular region of the plane. In general, an *event determined by $X$ and $Y$* has the form "the point $(X, Y)$ is in a specified region $B$ of the plane". 

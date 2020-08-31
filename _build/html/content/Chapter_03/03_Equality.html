@@ -922,10 +922,22 @@
 \[
 X(\omega) = Y(\omega) \text{ for all } \omega \in \Omega
 \]</div>
-<p>Informally, this says that no matter what the outcome, if <span class="math notranslate nohighlight">\(X\)</span> is 10 then <span class="math notranslate nohighlight">\(Y\)</span> must be 10 too; if <span class="math notranslate nohighlight">\(X\)</span> is 11, <span class="math notranslate nohighlight">\(Y\)</span> must be 11, and so on.</p>
+<p>This is the usual definition of the equality of two mathematical functions. Informally, it says that when <span class="math notranslate nohighlight">\(X\)</span> has the value <span class="math notranslate nohighlight">\(10\)</span> then <span class="math notranslate nohighlight">\(Y\)</span> must be <span class="math notranslate nohighlight">\(10\)</span> too; when <span class="math notranslate nohighlight">\(X\)</span> is <span class="math notranslate nohighlight">\(11\)</span>, <span class="math notranslate nohighlight">\(Y\)</span> must be <span class="math notranslate nohighlight">\(11\)</span>; and so on.</p>
 <p>An example will make this clear. Let <span class="math notranslate nohighlight">\(N_H\)</span> be the number of heads in three tosses of a coin, and let <span class="math notranslate nohighlight">\(N_T\)</span> be the number of tails in the same three tosses.</p>
 <p>Now consider the new random variable <span class="math notranslate nohighlight">\(M = 3 - N_T\)</span>. The two random variables <span class="math notranslate nohighlight">\(N_H\)</span> and <span class="math notranslate nohighlight">\(M\)</span> are equal. For every possible outcome of the three tosses, the value of <span class="math notranslate nohighlight">\(N_H\)</span> is equal to the value of <span class="math notranslate nohighlight">\(M\)</span>.</p>
 <p>We write this simply as <span class="math notranslate nohighlight">\(N_H = M\)</span>. Equivalently, <span class="math notranslate nohighlight">\(N_H = 3 - N_T\)</span>.</p>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="400"
+    height="300"
+    src="https://www.youtube.com/embed/Z-_RSmBktHM"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
 </div>
 <div class="section" id="equal-in-distribution">
 <h2><span class="section-number">3.3.2. </span>Equal in Distribution<a class="headerlink" href="#equal-in-distribution" title="Permalink to this headline">¶</a></h2>
@@ -957,7 +969,7 @@ N_H(\text{TTT}) = 0 ~~~ \text{but} ~~~ N_T(\text{TTT}) = 3
 </div>
 </div>
 </div>
-<p>There are only eight outcomes, so it is easy to inspect the table and write the distributions of <span class="math notranslate nohighlight">\(N_H\)</span> and <span class="math notranslate nohighlight">\(N_T\)</span>. Both take the values 0, 1, 2, and 3, with probabilities 1/8, 3/8, 3/8, and 1/8 respectively. This distribution is shown in the table below.</p>
+<p>There are only eight outcomes, so it is easy to inspect the table and write the distributions of <span class="math notranslate nohighlight">\(N_H\)</span> and <span class="math notranslate nohighlight">\(N_T\)</span>. Both take the values <span class="math notranslate nohighlight">\(0, 1, 2, 3\)</span> with probabilities <span class="math notranslate nohighlight">\(1/8, 3/8, 3/8, 1/8\)</span> respectively. This distribution is shown in the table below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dist</span> <span class="o">=</span> <span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span><span class="o">.</span><span class="n">probabilities</span><span class="p">(</span><span class="n">make_array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">8</span><span class="p">)</span>
@@ -1006,14 +1018,31 @@ X \stackrel{d}{=} Y
 X = Y \implies X \stackrel{d}{=} Y
 \]</div>
 <p>But as the example of heads and tails in three tosses shows, the converse need not be true.</p>
+<div class="admonition-quick-check admonition">
+<p class="admonition-title">Quick Check</p>
+<p>The random variables below are defined on the probability space consisting of 16 equally likely outcomes of 4 tosses of a coin: <span class="math notranslate nohighlight">\(HHHH, HHHT, HHTH\)</span>, and so on.</p>
+<p><span class="math notranslate nohighlight">\(X\)</span>: number of heads in the first two tosses</p>
+<p><span class="math notranslate nohighlight">\(Y\)</span>: number of heads in the last two tosses</p>
+<p><span class="math notranslate nohighlight">\(Z\)</span>: number of tails in the last two tosses</p>
+<p>For each of the following pairs, fill in the blank with <span class="math notranslate nohighlight">\(=\)</span> or <span class="math notranslate nohighlight">\(\stackrel{d}{=}\)</span>, picking the stronger one if both are applicable. If neither of the symbols applies, explain why not.</p>
+<p>(i) <span class="math notranslate nohighlight">\(X ~~ \underline{~~~~~~~~~~~~~} ~~ Y\)</span></p>
+<p>(ii) <span class="math notranslate nohighlight">\(Y ~~ \underline{~~~~~~~~~~~~~} ~~ Z\)</span></p>
+<p>(iii) <span class="math notranslate nohighlight">\(X ~~ \underline{~~~~~~~~~~~~~} ~~ Z\)</span></p>
+<p>(iv) <span class="math notranslate nohighlight">\(Y ~~ \underline{~~~~~~~~~~~~~} ~~ 2-Z\)</span></p>
+<p>(v) <span class="math notranslate nohighlight">\(X ~~ \underline{~~~~~~~~~~~~~} ~~ 2-Z\)</span></p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Answer</p>
+<p>Fill (i), (ii), (iii), and (v) with $\stackrel{d}{=} $ and (iv) with <span class="math notranslate nohighlight">\(=\)</span>.</p>
+</div>
 </div>
 <div class="section" id="example-two-cards-dealt-from-a-small-deck">
 <h2><span class="section-number">3.3.4. </span>Example: Two Cards Dealt from a Small Deck<a class="headerlink" href="#example-two-cards-dealt-from-a-small-deck" title="Permalink to this headline">¶</a></h2>
 <p>A deck contains 10 cards, labeled 1, 2, 2, 3, 3, 3, 4, 4, 4, 4. Two cards are dealt at random without replacement. Let <span class="math notranslate nohighlight">\(X_1\)</span> be the label on the first card and <span class="math notranslate nohighlight">\(X_2\)</span> be the label on the second card.</p>
-<p><strong>Question 1.</strong> Are <span class="math notranslate nohighlight">\(X_1\)</span> and <span class="math notranslate nohighlight">\(X_2\)</span> equal?</p>
-<p><strong>Answer 1.</strong> No, because the outcome could be 31 in which case <span class="math notranslate nohighlight">\(X_1 = 3\)</span> and <span class="math notranslate nohighlight">\(X_2 = 1\)</span>.</p>
-<p><strong>Question 2.</strong> Are <span class="math notranslate nohighlight">\(X_1\)</span> and <span class="math notranslate nohighlight">\(X_2\)</span> equal in distribution?</p>
-<p><strong>Answer 2.</strong> Let’s find the two distributions and compare. Clearly the possible values are 1, 2, 3, and 4 in each case. The distribution of <span class="math notranslate nohighlight">\(X_1\)</span> is easy:</p>
+<p><strong>Question 1:</strong> Are <span class="math notranslate nohighlight">\(X_1\)</span> and <span class="math notranslate nohighlight">\(X_2\)</span> equal?</p>
+<p><strong>Answer 1:</strong> No, because for example the outcome could be <span class="math notranslate nohighlight">\((3,1)\)</span> in which case <span class="math notranslate nohighlight">\(X_1 = 3\)</span> and <span class="math notranslate nohighlight">\(X_2 = 1\)</span>.</p>
+<p><strong>Question 2:</strong> Are <span class="math notranslate nohighlight">\(X_1\)</span> and <span class="math notranslate nohighlight">\(X_2\)</span> equal in distribution?</p>
+<p><strong>Answer 2:</strong> Let’s find the two distributions and compare. Clearly the possible values are 1, 2, 3, and 4 in each case. The distribution of <span class="math notranslate nohighlight">\(X_1\)</span> is easy:</p>
 <div class="math notranslate nohighlight">
 \[
 P(X_1 = i ) = \frac{i}{10} , ~~ i = 1, 2, 3, 4
@@ -1107,6 +1136,16 @@ P(X_1 = i ) = \frac{i}{10} , ~~ i = 1, 2, 3, 4
 \[
 X_1 \stackrel{d}{=} X_2
 \]</div>
+<div class="admonition-quick-check admonition">
+<p class="admonition-title">Quick Check</p>
+<p><span class="math notranslate nohighlight">\(X_1\)</span> and <span class="math notranslate nohighlight">\(X_2\)</span> are the results of the first and second of two draws made at random without replacement from the 10 digits <span class="math notranslate nohighlight">\(0, 1, 2, 3, 4, 5, 6, 7, 8, 9\)</span>. True or false:</p>
+<p>(i) <span class="math notranslate nohighlight">\(X_1\)</span> has the uniform distribution on the 10 digits.</p>
+<p>(ii) <span class="math notranslate nohighlight">\(X_2\)</span> has the uniform distribution on the 10 digits.</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Answer</p>
+<p>Both are true. For (ii), calculate <span class="math notranslate nohighlight">\(P(X_2 = 0)\)</span> as an example to see what’s going on.</p>
+</div>
 </div>
 </div>
 

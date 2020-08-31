@@ -120,3 +120,8 @@ If you are really careful, you will have started by trying to figure out which v
 
 But you need not worry about these technical details. Just define $\binom{a}{b}$ to be 0 if it is counting impossible choices, for example $\binom{5}{10}$ or $\binom{6}{-4}$. Then the hypergeometric formula for the chance of $g$ good elements will just work out to be 0 if it is impossible to get $g$ good elements in the sample.
 
+# VIDEO: Counting Categories
+from IPython.display import YouTubeVideo
+
+YouTubeVideo("bKtovlFnwxY")
+

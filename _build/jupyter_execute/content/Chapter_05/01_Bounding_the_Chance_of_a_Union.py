@@ -44,27 +44,15 @@ Before we get to larger collections of events, let's consider the union of two e
 
 show_intersection()
 
-We can find $P(A \cup B)$ by partitioning. A partition of $A \cup B$ is "all of $A$ union the part of $B$ that is not also in $A$": 
-
-$$
-A \cup B = A \cup (B \backslash AB)
-$$
-Therefore
-
-$$
-\begin{align*}
-P(A \cup B) &= P(A) + P(B \backslash AB) ~~~~~~~~~~~ \text{(addition rule)} \\
-&= P(A) + P(B) - P(AB) ~~~ \text{(difference rule)}
-\end{align*}
-$$
-
-We now have a formula for the case $n = 2$. It calculates the probability of the union of two events, by first *including* the chance of each event, and then *excluding* the chance of the intersection. This gives rise to its name:
-
-#### Inclusion-Exclusion Formula: Union of Two Events ####
+An exercise in an early chapter asks you to use additivity to show that
 
 $$
 P(A \cup B) = P(A) + P(B) - P(AB)
 $$
+
+To use the formula, 
+
+# VIDEO: Bounds on the chance of a union
 
 ### Boole's Inequality ###
 For $n > 2$, the Venn diagram for the union of $n$ events can be quite complicated with multiple overlaps. So the chance of the union is a little harder to find. We'll do that in the next section. 

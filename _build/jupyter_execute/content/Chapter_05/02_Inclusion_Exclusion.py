@@ -20,6 +20,11 @@ $$
 P(A \cup B) = P(A) + P(B) - P(AB)
 $$
 
+# VIDEO: Inclusion-Exclusion: Three Events
+from IPython.display import YouTubeVideo
+
+YouTubeVideo("HdLtwQ1R4m8")
+
 ### Union of $n$ Events ###
 Let's see if we can guess the formula for larger $n$, by applying what we know about the union of two events. 
 
@@ -32,6 +37,11 @@ P(A_1 \cup A_2 \cup A_3) ~ = ~ P(B \cup A_3) &= ~ P(B) + P(A_3) - P(BA_3) \\
 &= ~ \sum_{i=1}^3 P(A_i) - \mathop{\sum \sum}_{1 \le i < j \le 3} P(A_iA_j) + P(A_1A_2A_3)
 \end{align*}
 $$
+
+# VIDEO: Inclusion-Exclusion Formula
+from IPython.display import YouTubeVideo
+
+YouTubeVideo("Y5CeWFc3l-c")
 
 A clear pattern is emerging. Writing it out will be easier if we have some rough-and-ready abbreviations of descriptions, so for example let "all the double-intersections" mean "all terms of the form $P(A_iA_j)$ where $i$ and $j$ are different".
 
@@ -62,6 +72,10 @@ For now, let's accept it and move on.
 
 ### The Number of Terms in Each Sum ###
 To end the section we will count the number of terms in each of the sums in the inclusion-exclusion formula, so we know the extent of the work that has to be done to apply it.
+
+# VIDEO: Number of Terms
+from IPython.display import YouTubeVideo
+YouTubeVideo("vz3BPaI0GHQ")
 
 Here is the formula again for reference:
 

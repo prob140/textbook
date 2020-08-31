@@ -27,6 +27,11 @@ What does the joint distribution of $X$ and $Y$ tell us about the distribution o
 
 Everything, of course. Let's see how.
 
+# VIDEO: Marginal Distribution
+from IPython.display import YouTubeVideo
+
+YouTubeVideo("E-m1o0bxFzo")
+
 Here is the joint distribution table of two random variables $X$ and $Y$.
 
 joint_table
@@ -58,6 +63,21 @@ P(X = x) = \sum_{\text{all } y} P(X = x, Y = y)
 $$
 
 That is, $P(X = x)$ is the sum of the probabilities in the column `X=x`. Because $P(X = x)$ is the generic term in the distribution of $X$, we have learned that we can derive the distribution of $X$ from the joint distribution of $X$ and $Y$.
+
+```{admonition} Quick Check
+In the numerical example above, consider the probabilities $P(X=2, Y=y)$ for $0 \le y \le 5$. 
+
+(a) How many of those probabilities are positive?
+
+(b) Fill in the blank with an event: The sum of the positive probabilities in Part (a) equals $P( \underline{~~~~~~~~~~~~~~~~~~~} )$.
+
+```
+
+```{admonition} Answer
+:class: dropdown
+(a) 4 $~~~~$ (b) $X=2$
+
+```
 
 ### Marginal Distribution of $X$ ###
 
