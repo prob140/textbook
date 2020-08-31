@@ -193,6 +193,11 @@
      3.3. Equality
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_03/04_Exercises.html">
+     3.4. Exercises
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1">
@@ -225,6 +230,11 @@
      4.5. Dependence and Independence
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_04/06_Exercises.html">
+     4.6. Exercises
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1 current active">
@@ -250,6 +260,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="04_Sampling_Without_Replacement.html">
      5.4. Sampling Without Replacement
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05_Exercises.html">
+     5.5. Exercises
     </a>
    </li>
   </ul>
@@ -883,12 +898,8 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#union-of-n-events">
-   5.2.1. Union of
-   <span class="math notranslate nohighlight">
-    \(n\)
-   </span>
-   Events
+  <a class="reference internal nav-link" href="#union-of-three-events">
+   5.2.1. Union of Three Events
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -913,12 +924,12 @@
                 
   <div class="section" id="inclusion-exclusion">
 <h1><span class="section-number">5.2. </span>Inclusion-Exclusion<a class="headerlink" href="#inclusion-exclusion" title="Permalink to this headline">¶</a></h1>
-<p>While we have bounds on the probability of the union of <span class="math notranslate nohighlight">\(n\)</span> events, we don’t yet have a formula for the exact chance except in the case <span class="math notranslate nohighlight">\(n = 2\)</span>. For <span class="math notranslate nohighlight">\(n = 2\)</span> we have</p>
+<p>While we have bounds on the probability of the union of <span class="math notranslate nohighlight">\(n\)</span> events, we don’t yet have a formula for the exact chance except in the case <span class="math notranslate nohighlight">\(n = 2\)</span> where</p>
 <div class="math notranslate nohighlight">
 \[
 P(A \cup B) = P(A) + P(B) - P(AB)
 \]</div>
-<div class="cell tag_remove-input tag_hide-ouput docutils container">
+<div class="cell tag_remove-input tag_hide-output docutils container">
 <div class="cell_output docutils container">
 <div class="output text_html">
 <iframe
@@ -930,8 +941,8 @@ P(A \cup B) = P(A) + P(B) - P(AB)
 ></iframe>
 </div></div>
 </div>
-<div class="section" id="union-of-n-events">
-<h2><span class="section-number">5.2.1. </span>Union of <span class="math notranslate nohighlight">\(n\)</span> Events<a class="headerlink" href="#union-of-n-events" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="union-of-three-events">
+<h2><span class="section-number">5.2.1. </span>Union of Three Events<a class="headerlink" href="#union-of-three-events" title="Permalink to this headline">¶</a></h2>
 <p>Let’s see if we can guess the formula for larger <span class="math notranslate nohighlight">\(n\)</span>, by applying what we know about the union of two events.</p>
 <p>For <span class="math notranslate nohighlight">\(n = 3\)</span>, the event <span class="math notranslate nohighlight">\(A_1 \cup A_2 \cup A_3\)</span> can be written as <span class="math notranslate nohighlight">\(B \cup A_3\)</span> where <span class="math notranslate nohighlight">\(B = A_1 \cup A_2\)</span>. So by applying the formula for the case of two events in every line, we have</p>
 <div class="math notranslate nohighlight">

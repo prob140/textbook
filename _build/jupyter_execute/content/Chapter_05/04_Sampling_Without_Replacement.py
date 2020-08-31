@@ -55,11 +55,34 @@ That's the same as the chance that the first card is an ace, or the chance that 
 
 **Answer 2.** By our calculation of the joint distribution of $X_i$ and $X_j$ above, the answer is the same as the chance that the second card is an ace given that the first card is an ace. That's 3/51.
 
+```{admonition} Quick Check
+In a class of 100 students, 30 are Data Science majors. Each student submits an assignment. If the tutor grades the submissions in random order, what is the chance that the fifth assignment she grades was submitted by a Data Science major?
+
+```
+
+```{admonition} Answer
+:class: dropdown
+$0.3$
+
+```
+
+```{admonition} Quick Check
+A playlist consists of 12 songs, two of which are by Queen. If the playlist is shuffled randomly, what is the chance that the last two songs are by Queen?
+
+```
+
+```{admonition} Answer
+:class: dropdown
+$\frac{2}{12} \cdot \frac{1}{11}$
+
+```
+
 ### Simple Random Samples ###
 A *simple random sample* is a sample drawn at random without replacement from a finite population. The sample is a random subset of the population, not a rearrangement of the entire population. If you take a simple random sample of 5 cards from a standard deck of 52, then the resulting "hand" is the subset of five cards that you get. The five cards could have appeared in your hand in any sequence, but the sequence doesn't matter. All that matters is the set of five cards.
 
 To find the chance of getting a particular subset of five cards in your hand, you have to count the number of sequences that result in that hand.
-- There are $52 \times 51 \times 50 \times 49 \times 48 $ sequences of five cards.
+
+- There are $ 52 \times 51 \times 50 \times 49 \times 48 $ sequences of five cards.
 - To get the particular set of 5 in the hand, put one of them in Position 1; you can do this in 5 ways. Then put the next in Position 4, and so on.
 
 Thus the chance of a particular hand is
@@ -77,13 +100,14 @@ from scipy import special
 
 special.comb(52, 5)
 
+### The Number of Simple Random Samples ###
+
 There are almost 2.6 million five-card poker hands. That's a lot of hands. It would be nice to have a theory that helps us work with them and with other simple random samples. In the next section we will start developing such a theory. We will end this one by counting the number of simple random samples drawn from a population.
 
 Suppose you have a population of size $N$ (a fixed integer, not a random variable), and you want to take a simple random sample of size $n \le N$. How many different samples can you draw?
 
 We will assume that the "sample" is the subset of $n$ individuals, who could have appeared in any sequence. That's just like the poker hands. 
 
-#### The Number of Simple Random Samples ####
 An analogous argument tells us that the number of different simple random samples is 
 
 $$
@@ -119,6 +143,17 @@ These are called *hypergeometric* probabilities because the formula is related t
 If you are really careful, you will have started by trying to figure out which values of $g$ should be considered here. Because it is the number of good elements in the sample, we know $g \le \min(n, G)$. By considering the number of bad elements in the sample, we have $n-g \le \min(n, N-G)$ and so $g \ge \max(0, n-N+G)$.
 
 But you need not worry about these technical details. Just define $\binom{a}{b}$ to be 0 if it is counting impossible choices, for example $\binom{5}{10}$ or $\binom{6}{-4}$. Then the hypergeometric formula for the chance of $g$ good elements will just work out to be 0 if it is impossible to get $g$ good elements in the sample.
+
+```{admonition} Quick Check
+A bridge hand is 13 cards dealt from a standard deck of 52 cards, of which 4 are aces. What is the chance that there are two aces in a bridge hand?
+
+```
+
+```{admonition} Answer
+:class: dropdown
+$\frac{\binom{4}{2}\binom{48}{11}}{\binom{52}{13}}$
+
+```
 
 # VIDEO: Counting Categories
 from IPython.display import YouTubeVideo

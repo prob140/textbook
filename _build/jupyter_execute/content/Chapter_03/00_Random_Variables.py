@@ -15,4 +15,5 @@ In probability theory, a *random variable* is a numerical function defined on an
 01_Functions_on_an_Outcome_Space
 02_Distributions
 03_Equality
+04_Exercises
 ```

@@ -50,9 +50,20 @@ $$
 P(A \cup B) = P(A) + P(B) - P(AB)
 $$
 
-To use the formula, 
+One of the pieces of the formula is the chance of the intersection. If the nature of the dependence between $A$ and $B$ is unknown, it might not be possible to find $P(AB)$. Sometimes, the best we can do is find **bounds** for the chance of the union, not the exact value.
+
+Keep in mind that bounds aren't approximations. They might be quite far off the exact value.
+
+Keep in mind also that bounds on the chance of a union can be manipulated to become bounds on the chance of an intersection.
+
+- The union of a collection of events is that event that at least one of them occurs.
+- The complement of the union is the event that none of them occurs, that is, the event that all of them don't occur.
+- If the chance of a union is at most $p$, then the chance of its complement is at least $1-p$.
 
 # VIDEO: Bounds on the chance of a union
+from IPython.display import YouTubeVideo
+
+YouTubeVideo("VqozXmsKzLE")
 
 ### Boole's Inequality ###
 For $n > 2$, the Venn diagram for the union of $n$ events can be quite complicated with multiple overlaps. So the chance of the union is a little harder to find. We'll do that in the next section. 
@@ -87,6 +98,23 @@ $$
 For example, if the weather forecast says that the chance of rain on Saturday is 40% and the chance of rain on Sunday is 10%, then the chance that it rains at some point during those two days is at least 40% and at most 50%.
 
 To find the chance exactly, you would need the chance that it rains on both days, which you don't have. Assuming independence doesn't seem like a good idea in this setting. So you cannot compute an exact answer, and must be satisfied with bounds.
+
+```{admonition} Quick Check
+In a class, 60% of the students have read <i>The Merchant of Venice</i> and 10% have read <i>Hamlet</i>. Fill in the blanks with the best bounds you can find based on the information given.
+
+(a) The chance that a randomly picked student has read at least one of the two plays is at least $\underline{~~~~~~~~~~~~~}$ and at most $\underline{~~~~~~~~~~~~~}$.
+
+(b) The chance that a randomly picked student has read neither of the two plays is at least $\underline{~~~~~~~~~~~~~}$ and at most $\underline{~~~~~~~~~~~~~}$.
+
+```
+
+```{admonition} Answer
+:class: dropdown
+(a) 60%, 70%
+
+(b) 30%, 40%
+
+```
 
 Though bounds aren't exact answers or even approximations, they can be very useful. Here is an example of a common use of Boole's Inequality in data science. It has Bonferroni's name attached to it, because Boole and Bonferroni both have related bounds on probabilities of unions.
 

@@ -193,6 +193,11 @@
      3.3. Equality
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_03/04_Exercises.html">
+     3.4. Exercises
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1 current active">
@@ -225,6 +230,11 @@
      4.5. Dependence and Independence
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="06_Exercises.html">
+     4.6. Exercises
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1">
@@ -250,6 +260,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_05/04_Sampling_Without_Replacement.html">
      5.4. Sampling Without Replacement
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_05/05_Exercises.html">
+     5.5. Exercises
     </a>
    </li>
   </ul>
@@ -950,10 +965,10 @@
 </div>
 <div class="section" id="equality">
 <h2><span class="section-number">4.2.2. </span>Equality<a class="headerlink" href="#equality" title="Permalink to this headline">¶</a></h2>
-<p><strong>Question.</strong> What is the chance that I get the same number on both dice?</p>
-<p><strong>Answer 1, by symmetry.</strong> No matter what number appears on the biased shape, the chance that the fair die shows that number is 1/6. So the answer is 1/6.</p>
+<p><strong>Question:</strong> What is the chance that I get the same number on both dice?</p>
+<p><strong>Answer 1, by symmetry:</strong> No matter what number appears on the biased shape, the chance that the fair die shows that number is 1/6. So the answer is 1/6.</p>
 <p>Not convinced? Then let’s calculate.</p>
-<p><strong>Answer 2.</strong> Let <span class="math notranslate nohighlight">\(F\)</span> be the number on the fair die and let <span class="math notranslate nohighlight">\(S\)</span> be the number on the biased shape. It is reasonable to assume that the outcome of one die doesn’t affect chances for the other. So for every <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(j\)</span> such that <span class="math notranslate nohighlight">\(1 \le i, j \le 6\)</span>, we have</p>
+<p><strong>Answer 2:</strong> Let <span class="math notranslate nohighlight">\(F\)</span> be the number on the fair die and let <span class="math notranslate nohighlight">\(S\)</span> be the number on the biased shape. It is reasonable to assume that the outcome of one die doesn’t affect chances for the other. So for every <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(j\)</span> such that <span class="math notranslate nohighlight">\(1 \le i, j \le 6\)</span>, we have</p>
 <div class="math notranslate nohighlight">
 \[
 P(F = i, S = j) ~ = ~ P(F = i)P(S = j) ~ = ~ \frac{1}{6}P(S = j)
@@ -966,8 +981,8 @@ P(F = S) ~ = ~ \sum_{i=1}^6 P(F = i, S = i) ~ = ~ \sum_{i=1}^6 \frac{1}{6}P(S = 
 </div>
 <div class="section" id="difference">
 <h2><span class="section-number">4.2.3. </span>Difference<a class="headerlink" href="#difference" title="Permalink to this headline">¶</a></h2>
-<p><strong>Question.</strong> What is the chance that the number on the biased shape exceeds the number on the fair die by more than 2?</p>
-<p><strong>Answer.</strong> We can visualize the event <span class="math notranslate nohighlight">\(\{ S &gt; F + 2 \}\)</span> using the methods of the previous section.</p>
+<p><strong>Question:</strong> What is the chance that the number on the biased shape exceeds the number on the fair die by more than 2?</p>
+<p><strong>Answer:</strong> We can visualize the event <span class="math notranslate nohighlight">\(\{ S &gt; F + 2 \}\)</span> using the methods of the previous section.</p>
 <p>We know that the joint distribution of <span class="math notranslate nohighlight">\(F\)</span> and <span class="math notranslate nohighlight">\(S\)</span> is given by</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -1191,8 +1206,8 @@ P(S &gt; F + 2) ~ = ~ \mathop{\sum \sum}_{j &gt; i+2} P(F = i, S= j)
 </div>
 <div class="section" id="absolute-difference">
 <h2><span class="section-number">4.2.4. </span>Absolute Difference<a class="headerlink" href="#absolute-difference" title="Permalink to this headline">¶</a></h2>
-<p><strong>Question.</strong> What is the chance that the numbers on the two dice differ by no more than 1?</p>
-<p><strong>Answer.</strong> The goal is to find <span class="math notranslate nohighlight">\(P(\vert F - S \vert \le 1)\)</span>. We defined <code class="docutils literal notranslate"><span class="pre">two_dice</span></code>, the joint distribution of <span class="math notranslate nohighlight">\(F\)</span> and <span class="math notranslate nohighlight">\(S\)</span>, in the previous problem. So now our work is simple.</p>
+<p><strong>Question:</strong> What is the chance that the numbers on the two dice differ by no more than 1?</p>
+<p><strong>Answer:</strong> The goal is to find <span class="math notranslate nohighlight">\(P(\vert F - S \vert \le 1)\)</span>. We defined <code class="docutils literal notranslate"><span class="pre">two_dice</span></code>, the joint distribution of <span class="math notranslate nohighlight">\(F\)</span> and <span class="math notranslate nohighlight">\(S\)</span>, in the previous problem. So now our work is simple.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">indicator_absdiff_atmost_1</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">):</span>
@@ -1302,8 +1317,8 @@ P(\vert F - S \vert \le 1) ~ = ~ \sum_{j=1}^2 P(F = 1, S = j) ~ + ~ \sum_{i=2}^5
 </div>
 <div class="section" id="sum">
 <h2><span class="section-number">4.2.5. </span>Sum<a class="headerlink" href="#sum" title="Permalink to this headline">¶</a></h2>
-<p><strong>Question.</strong> What is the chance that the sum of the numbers on the two dice is 7?</p>
-<p><strong>Answer.</strong> This time we’ll write out the math first.</p>
+<p><strong>Question:</strong> What is the chance that the sum of the numbers on the two dice is 7?</p>
+<p><strong>Answer:</strong> This time we’ll write out the math first.</p>
 <p>The event <span class="math notranslate nohighlight">\(\{ F + S = 7 \}\)</span> consists of all possible pairs <span class="math notranslate nohighlight">\((i, j)\)</span> such that <span class="math notranslate nohighlight">\(i + j = 7\)</span>. For each fixed <span class="math notranslate nohighlight">\(i\)</span>, there is exactly one <span class="math notranslate nohighlight">\(j\)</span> that satisfies <span class="math notranslate nohighlight">\(i+j = 7\)</span>, and that’s <span class="math notranslate nohighlight">\(j = 7-i\)</span>. So</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1411,8 +1426,8 @@ P(F+S = 7) ~ = ~ \sum_{i=1}^6 P(F = i, S = 7-i) ~ = ~ \sum_{i=1}^6 \frac{1}{6}P(
 </table>
 </div></div></div>
 </div>
-<p><strong>Question.</strong> Now suppose I have two <span class="math notranslate nohighlight">\(n\)</span>-sided dice, at least one of which is fair. I roll each of them once. What is the chance that the sum of the two numbers is <span class="math notranslate nohighlight">\(n+1\)</span>?</p>
-<p><strong>Answer.</strong> We can’t use our computational methods for this one because the model isn’t numerical. But we know how to solve the problem mathematically.</p>
+<p><strong>Question:</strong> Now suppose I have two <span class="math notranslate nohighlight">\(n\)</span>-sided dice, at least one of which is fair. I roll each of them once. What is the chance that the sum of the two numbers is <span class="math notranslate nohighlight">\(n+1\)</span>?</p>
+<p><strong>Answer:</strong> We can’t use our computational methods for this one because the model isn’t numerical. But we know how to solve the problem mathematically.</p>
 <p>Let <span class="math notranslate nohighlight">\(F_n\)</span> be the number on a fair die and <span class="math notranslate nohighlight">\(D_n\)</span> the number on the other die.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}

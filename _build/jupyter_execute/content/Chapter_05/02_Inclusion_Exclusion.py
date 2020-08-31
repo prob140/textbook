@@ -14,7 +14,7 @@ import descartes
 
 ## Inclusion-Exclusion ##
 
-While we have bounds on the probability of the union of $n$ events, we don't yet have a formula for the exact chance except in the case $n = 2$. For $n = 2$ we have 
+While we have bounds on the probability of the union of $n$ events, we don't yet have a formula for the exact chance except in the case $n = 2$ where 
 
 $$
 P(A \cup B) = P(A) + P(B) - P(AB)
@@ -25,7 +25,7 @@ from IPython.display import YouTubeVideo
 
 YouTubeVideo("HdLtwQ1R4m8")
 
-### Union of $n$ Events ###
+### Union of Three Events ###
 Let's see if we can guess the formula for larger $n$, by applying what we know about the union of two events. 
 
 For $n = 3$, the event $A_1 \cup A_2 \cup A_3$ can be written as $B \cup A_3$ where $B = A_1 \cup A_2$. So by applying the formula for the case of two events in every line, we have

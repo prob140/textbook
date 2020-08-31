@@ -193,6 +193,11 @@
      3.3. Equality
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_03/04_Exercises.html">
+     3.4. Exercises
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1 current active">
@@ -225,6 +230,11 @@
      4.5. Dependence and Independence
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="06_Exercises.html">
+     4.6. Exercises
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1">
@@ -250,6 +260,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_05/04_Sampling_Without_Replacement.html">
      5.4. Sampling Without Replacement
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_05/05_Exercises.html">
+     5.5. Exercises
     </a>
    </li>
   </ul>
@@ -917,6 +932,18 @@
   <div class="section" id="conditional-distributions">
 <h1><span class="section-number">4.4. </span>Conditional Distributions<a class="headerlink" href="#conditional-distributions" title="Permalink to this headline">¶</a></h1>
 <p>To understand the relation between two variables we must examine the conditional behavior of each of them given the value of the other. Towards this goal, we will start by examining the example of the previous section and then develop the general theory.</p>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="400"
+    height="300"
+    src="https://www.youtube.com/embed/CnFSQPrm8Js"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
 <p>In our example, the joint distribution of <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> is given by <code class="docutils literal notranslate"><span class="pre">joint_table</span></code>. Here we also display the marginal distribution of <span class="math notranslate nohighlight">\(X\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1095,6 +1122,19 @@ P(X = 0) ~ = ~ 0.25, ~~~~~ P(X = 1) ~ = ~ 0.5, ~~~~~ P(X = 2) ~ = ~ 0.25
 \]</div>
 <p>The two distributions are different. Given <span class="math notranslate nohighlight">\(Y = 3\)</span>, the chance that <span class="math notranslate nohighlight">\(X\)</span> is large is higher than it is if we don’t have that condition.</p>
 <p>This shows that <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> are <em>dependent</em>. We will define dependence and independence formally in the next section.</p>
+<div class="admonition-quick-check admonition">
+<p class="admonition-title">Quick Check</p>
+<p>Find the following (without using Python) based on the joint distribution in the example above.</p>
+<p>(a) <span class="math notranslate nohighlight">\(P(X=0 \mid Y=1)\)</span></p>
+<p>(b) the conditional distribution of <span class="math notranslate nohighlight">\(X\)</span> given <span class="math notranslate nohighlight">\(Y=1\)</span></p>
+<p>(c) the conditional distribution of <span class="math notranslate nohighlight">\(X\)</span> given <span class="math notranslate nohighlight">\(Y=5\)</span></p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Answer</p>
+<p>(a) <span class="math notranslate nohighlight">\(0.6\)</span></p>
+<p>(b) <span class="math notranslate nohighlight">\(0\)</span> with chance 0.6, <span class="math notranslate nohighlight">\(1\)</span> with chance 0.4</p>
+<p>(c) <span class="math notranslate nohighlight">\(2\)</span> with chance 1</p>
+</div>
 <div class="section" id="conditional-distribution-of-x-given-y-y">
 <h2><span class="section-number">4.4.1. </span>Conditional Distribution of <span class="math notranslate nohighlight">\(X\)</span> given <span class="math notranslate nohighlight">\(Y = y\)</span><a class="headerlink" href="#conditional-distribution-of-x-given-y-y" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">conditional_dist</span></code> method operates on a joint distribution object and displays conditional distributions, as follows.</p>
@@ -1193,28 +1233,40 @@ P(X = 0) ~ = ~ 0.25, ~~~~~ P(X = 1) ~ = ~ 0.5, ~~~~~ P(X = 2) ~ = ~ 0.25
 <div class="section" id="the-theory">
 <h2><span class="section-number">4.4.2. </span>The Theory<a class="headerlink" href="#the-theory" title="Permalink to this headline">¶</a></h2>
 <p>We can now generalize the calculations we did in the example above.</p>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="400"
+    height="300"
+    src="https://www.youtube.com/embed/8Ihsh1B0Eg4"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
 <p>Let <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> be two random variables defined on the same space. If <span class="math notranslate nohighlight">\(x\)</span> is a possible value of <span class="math notranslate nohighlight">\(X\)</span>, and <span class="math notranslate nohighlight">\(y\)</span> and possible value of <span class="math notranslate nohighlight">\(Y\)</span>, then</p>
 <div class="math notranslate nohighlight">
 \[
 P(X = x \mid Y = y) = \frac{P(X = x, Y = y)}{P(Y = y)}
 \]</div>
 <p>The conditional probability <span class="math notranslate nohighlight">\(P(X = x \mid Y = y)\)</span> is displayed in the <span class="math notranslate nohighlight">\((x, y)\)</span> cell of the table of conditional distributions above.</p>
-<p>For a fixed value <span class="math notranslate nohighlight">\(y^\*\)</span> of <span class="math notranslate nohighlight">\(Y\)</span>, the <em>conditional distribution</em> of <span class="math notranslate nohighlight">\(X\)</span> given <span class="math notranslate nohighlight">\(Y = y^\*\)</span> is the collection of probabilities</p>
+<p>For a fixed value <span class="math notranslate nohighlight">\(y^*\)</span> of <span class="math notranslate nohighlight">\(Y\)</span>, the <em>conditional distribution</em> of <span class="math notranslate nohighlight">\(X\)</span> given <span class="math notranslate nohighlight">\(Y = y^*\)</span> is the collection of probabilities</p>
 <div class="math notranslate nohighlight">
 \[
 P(X = x \mid Y = y^*) = \frac{P(X = x, Y = y^*)}{P(Y = y^*)}
 \]</div>
-<p>where <span class="math notranslate nohighlight">\(x\)</span> ranges over all the values of <span class="math notranslate nohighlight">\(X\)</span>. Keep in mind that <span class="math notranslate nohighlight">\(x\)</span> represents the values of the variable here. The value <span class="math notranslate nohighlight">\(y^\*\)</span> is the particular value of <span class="math notranslate nohighlight">\(Y\)</span> that was observed, so it is a constant.</p>
+<p>where <span class="math notranslate nohighlight">\(x\)</span> ranges over all the values of <span class="math notranslate nohighlight">\(X\)</span>. Keep in mind that <span class="math notranslate nohighlight">\(x\)</span> represents the values of the variable here. The value <span class="math notranslate nohighlight">\(y^*\)</span> is the particular value of <span class="math notranslate nohighlight">\(Y\)</span> that was observed, so it is a constant.</p>
 </div>
 <div class="section" id="the-probabilities-in-a-conditional-distribution-sum-to-1">
 <h2><span class="section-number">4.4.3. </span>The Probabilities in a Conditional Distribution Sum to 1<a class="headerlink" href="#the-probabilities-in-a-conditional-distribution-sum-to-1" title="Permalink to this headline">¶</a></h2>
 <p>In a distribution, the probabilities have to sum to 1. To see that this is true for the conditional distribution defined above, start by using the fundamental rule.</p>
-<p>Find <span class="math notranslate nohighlight">\(P(Y = y^\*)\)</span> by partitioning the event <span class="math notranslate nohighlight">\(\{ Y = y^\* \}\)</span> according to the values of <span class="math notranslate nohighlight">\(X\)</span>:</p>
+<p>Find <span class="math notranslate nohighlight">\(P(Y = y^*)\)</span> by partitioning the event <span class="math notranslate nohighlight">\(\{ Y = y^* \}\)</span> according to the values of <span class="math notranslate nohighlight">\(X\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[
 P(Y = y^*) = \sum_{\text{all }x} P(X = x, Y = y^*)
 \]</div>
-<p>Now sum the probabilities in the conditional distribution of <span class="math notranslate nohighlight">\(X\)</span> given <span class="math notranslate nohighlight">\(Y = y^\*\)</span>:</p>
+<p>Now sum the probabilities in the conditional distribution of <span class="math notranslate nohighlight">\(X\)</span> given <span class="math notranslate nohighlight">\(Y = y^*\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{align*}

@@ -34,6 +34,7 @@
     - file: content/Chapter_03/01_Functions_on_an_Outcome_Space
     - file: content/Chapter_03/02_Distributions
     - file: content/Chapter_03/03_Equality
+    - file: content/Chapter_03/04_Exercises
   - file: content/Chapter_04/00_Relations_Between_Variables
     expand_sections: true
     sections:
@@ -42,6 +43,7 @@
     - file: content/Chapter_04/03_Marginal_Distributions
     - file: content/Chapter_04/04_Conditional_Distributions
     - file: content/Chapter_04/05_Dependence_and_Independence
+    - file: content/Chapter_04/06_Exercises
   - file: content/Chapter_05/00_Collections_of_Events
     expand_sections: true
     sections:
@@ -49,6 +51,7 @@
     - file: content/Chapter_05/02_Inclusion_Exclusion
     - file: content/Chapter_05/03_The_Matching_Problem
     - file: content/Chapter_05/04_Sampling_Without_Replacement
+    - file: content/Chapter_05/05_Exercises
   - file: content/Chapter_06/00_Random_Counts
     expand_sections: true
     sections:

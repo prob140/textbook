@@ -27,4 +27,5 @@ In this chapter we will study powerful examples of all these techniques.
 02_Inclusion_Exclusion
 03_The_Matching_Problem
 04_Sampling_Without_Replacement
+05_Exercises
 ```

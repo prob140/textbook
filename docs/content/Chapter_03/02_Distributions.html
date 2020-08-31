@@ -193,6 +193,11 @@
      3.3. Equality
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04_Exercises.html">
+     3.4. Exercises
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1">
@@ -225,6 +230,11 @@
      4.5. Dependence and Independence
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_04/06_Exercises.html">
+     4.6. Exercises
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1">
@@ -250,6 +260,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_05/04_Sampling_Without_Replacement.html">
      5.4. Sampling Without Replacement
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_05/05_Exercises.html">
+     5.5. Exercises
     </a>
    </li>
   </ul>
@@ -883,8 +898,8 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#visualizing-the-distribution">
-   3.2.1. Visualizing the Distribution
+  <a class="reference internal nav-link" href="#probability-histogram">
+   3.2.1. Probability Histogram
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -915,6 +930,11 @@
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#math-and-code-correspondence">
    3.2.3. Math and Code Correspondence
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#named-distributions">
+   3.2.4. Named Distributions
   </a>
  </li>
 </ul>
@@ -977,6 +997,18 @@
     </tbody>
 </table>
 <p>... (7766 rows omitted)</p></div></div>
+</div>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="400"
+    height="300"
+    src="https://www.youtube.com/embed/7ZznCAYa48Q"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
 </div>
 <p>In the last section we found <span class="math notranslate nohighlight">\(P(S = 10)\)</span>. We could use that same process to find <span class="math notranslate nohighlight">\(P(S = s)\)</span> for each possible value of <span class="math notranslate nohighlight">\(s\)</span>. The <code class="docutils literal notranslate"><span class="pre">group</span></code> method allows us to do this for all <span class="math notranslate nohighlight">\(s\)</span> at the same time.</p>
 <p>To do this, we will start by dropping the <code class="docutils literal notranslate"><span class="pre">omega</span></code> column. Then we will <code class="docutils literal notranslate"><span class="pre">group</span></code> the table by the distinct values of <code class="docutils literal notranslate"><span class="pre">S(omega)</span></code>, and use <code class="docutils literal notranslate"><span class="pre">sum</span></code> to add up all the probabilities in each group.</p>
@@ -1046,9 +1078,33 @@
 </div>
 <p>That’s 1 in a computing environment. This is a feature of any probability distribution:</p>
 <p><strong>Probabilities in a distribution are non-negative and sum to 1</strong>.</p>
-<div class="section" id="visualizing-the-distribution">
-<h2><span class="section-number">3.2.1. </span>Visualizing the Distribution<a class="headerlink" href="#visualizing-the-distribution" title="Permalink to this headline">¶</a></h2>
-<p>In Data 8 you used the <code class="docutils literal notranslate"><span class="pre">datascience</span></code> library to work with distributions of data. The <code class="docutils literal notranslate"><span class="pre">prob140</span></code> library builds on <code class="docutils literal notranslate"><span class="pre">datascience</span></code> to provide some convenient tools for working with probability distributions and events.</p>
+<div class="admonition-quick-check admonition">
+<p class="admonition-title">Quick Check</p>
+<p>A random variable <span class="math notranslate nohighlight">\(Y\)</span> has the distribution given below, for some constant <span class="math notranslate nohighlight">\(c\)</span>. Find <span class="math notranslate nohighlight">\(c\)</span>.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:right head"><p><span class="math notranslate nohighlight">\(y\)</span></p></th>
+<th class="text-align:center head"><p>1</p></th>
+<th class="text-align:center head"><p>2</p></th>
+<th class="text-align:center head"><p>3</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:right"><p><span class="math notranslate nohighlight">\(P(Y=y)\)</span></p></td>
+<td class="text-align:center"><p><span class="math notranslate nohighlight">\(c\)</span></p></td>
+<td class="text-align:center"><p><span class="math notranslate nohighlight">\(3c\)</span></p></td>
+<td class="text-align:center"><p><span class="math notranslate nohighlight">\(c\)</span></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Answer</p>
+<p><span class="math notranslate nohighlight">\(1/5\)</span></p>
+</div>
+<div class="section" id="probability-histogram">
+<h2><span class="section-number">3.2.1. </span>Probability Histogram<a class="headerlink" href="#probability-histogram" title="Permalink to this headline">¶</a></h2>
+<p>In Data 8 you used the <code class="docutils literal notranslate"><span class="pre">datascience</span></code> library to work with distributions of data. The <code class="docutils literal notranslate"><span class="pre">prob140</span></code> library builds on <code class="docutils literal notranslate"><span class="pre">datascience</span></code> to provide some convenient tools for working with probability distributions and events. It is largely a library for the display of tables and graphs.</p>
 <p>First, we will construct a probability distribution object which, while it looks very much like the table above, expects a probability distribution in the second column and complains if it finds anything else.</p>
 <p>To keep the code easily readable, let’s extract the possible values and probabilities separately as arrays:</p>
 <div class="cell docutils container">
@@ -1109,7 +1165,7 @@
 </table>
 <p>... (16 rows omitted)</p></div></div>
 </div>
-<p>That looks exactly like the table we had before except that it has more readable column labels. But now for the benefit: to visualize the distribution in a histogram, just use the <code class="docutils literal notranslate"><span class="pre">prob140</span></code> method <code class="docutils literal notranslate"><span class="pre">Plot</span></code> as follows.</p>
+<p>That looks exactly like the table we had before except that it has more readable column labels. But now for the benefit: to visualize the distribution in a histogram, just use the <code class="docutils literal notranslate"><span class="pre">prob140</span></code> method <code class="docutils literal notranslate"><span class="pre">Plot</span></code> as follows. The resulting histogram is called the <em>probability histogram</em> of <span class="math notranslate nohighlight">\(S\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Plot</span><span class="p">(</span><span class="n">dist_S</span><span class="p">)</span>
@@ -1117,7 +1173,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/02_Distributions_16_0.png" src="../../_images/02_Distributions_16_0.png" />
+<img alt="../../_images/02_Distributions_19_0.png" src="../../_images/02_Distributions_19_0.png" />
 </div>
 </div>
 <div class="section" id="notes-on-plot">
@@ -1135,11 +1191,23 @@
 <li><p>This one displays an exact distribution. It was computed based on <em>all</em> the possible outcomes of the experiment. It is not an approximation nor an empirical histogram.</p></li>
 <li><p>The statement of the Central Limit Theorem in Data 8 said that the distribution of the sum of a <em>large</em> random sample is roughly normal. But here you’re seeing a bell shaped distribution for the sum of only five rolls. If you start out with a uniform distribution (which is the distribution of a single roll), then you don’t need a large sample before the probability distribution of the sum starts to look normal.</p></li>
 </ul>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="400"
+    height="300"
+    src="https://www.youtube.com/embed/jOLQGfccbhs"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
 </div>
 </div>
 <div class="section" id="visualizing-probabilities-of-events">
 <h2><span class="section-number">3.2.2. </span>Visualizing Probabilities of Events<a class="headerlink" href="#visualizing-probabilities-of-events" title="Permalink to this headline">¶</a></h2>
-<p>As you know from Data 8, the interval between the points of inflection of the bell curve contains about 68% of the area of the curve. Though the histogram above isn’t exactly a bell curve – it is a discrete histogram with only 26 bars – it’s pretty close. The points of inflection appear to be 14 and 21, roughly.</p>
+<p>As you know from Data 8, the interval between the points of inflection of the bell curve contains about 68% of the area of the curve. Though the histogram above isn’t exactly a bell curve – it is a discrete histogram with only 26 bars – it’s pretty close. If you imagine a smoothe curve over it, the points of inflection appear to be at 14 and 21, roughly.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">event</span></code> argument of <code class="docutils literal notranslate"><span class="pre">Plot</span></code> lets you visualize the probability of the event, as follows.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1148,7 +1216,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/02_Distributions_20_0.png" src="../../_images/02_Distributions_20_0.png" />
+<img alt="../../_images/02_Distributions_24_0.png" src="../../_images/02_Distributions_24_0.png" />
 </div>
 </div>
 <p>The gold area is the equal to <span class="math notranslate nohighlight">\(P(14 \le S \le 21)\)</span>.</p>
@@ -1198,7 +1266,32 @@
     </tbody>
 </table></div></div>
 </div>
-<p>The chance is 69.6%, not very far from 68%.</p>
+<p>The chance is 69.6%, not very far from our estimate of around 68%.</p>
+<p>To find the numerical value of the probability without displaying all the outcomes in the event, use <code class="docutils literal notranslate"><span class="pre">event</span></code> as above and put a semi-colon at the end of the line. This suppresses the table display.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dist_S</span><span class="o">.</span><span class="n">event</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">1</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>P(Event) = 0.6959876543209863
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="400"
+    height="300"
+    src="https://www.youtube.com/embed/QiTc-HKnlFc"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
 </div>
 <div class="section" id="math-and-code-correspondence">
 <h2><span class="section-number">3.2.3. </span>Math and Code Correspondence<a class="headerlink" href="#math-and-code-correspondence" title="Permalink to this headline">¶</a></h2>
@@ -1316,16 +1409,17 @@ P(14 \le S \le 21) ~ = ~ \sum_{s = 14}^{21} P(S = s)
 </table></div></div>
 </div>
 <p>You can use the same basic method in various ways to find the probability of any event determined by <span class="math notranslate nohighlight">\(S\)</span>. Here are two examples.</p>
-<p><strong>Example 1.</strong>
-<span class="math notranslate nohighlight">\($
+<p><strong>Example 1.</strong></p>
+<div class="math notranslate nohighlight">
+\[
 P(S^2 = 400) = P(S = 20) = 8.37\%
-$\)</span>
-from the table above.</p>
-<p><strong>Example 2.</strong>
-<span class="math notranslate nohighlight">\($
+\]</div>
+<p>from the table above.</p>
+<p><strong>Example 2.</strong></p>
+<div class="math notranslate nohighlight">
+\[
 P(S \ge 20) = \sum_{s=20}^{30} P(S = s)
-$\)</span></p>
-<p>To find the numerical value without displaying all the outcomes in the event, use <code class="docutils literal notranslate"><span class="pre">event</span></code> and put a semi-colon at the end of the line. This suppresses the table display.</p>
+\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dist_S</span><span class="o">.</span><span class="n">event</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">1</span><span class="p">));</span>
@@ -1339,9 +1433,11 @@ $\)</span></p>
 </div>
 </div>
 <p><strong>Example 3.</strong>
-<span class="math notranslate nohighlight">\($
+Remember the math fact that for numbers <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(a\)</span>, and <span class="math notranslate nohighlight">\(b &gt; 0\)</span>, saying that <span class="math notranslate nohighlight">\(\vert x - a \vert \le b\)</span> is the same as saying that <span class="math notranslate nohighlight">\(x\)</span> is in the range <span class="math notranslate nohighlight">\(a \pm b\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[
 P(\big{\vert} S - 10 \big{|} \le 6) ~ = ~ P(4 \le S \le 16) ~ = ~ \sum_{s=4}^{16} P(S=s)
-$\)</span></p>
+\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dist_S</span><span class="o">.</span><span class="n">event</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">1</span><span class="p">));</span>
@@ -1354,6 +1450,33 @@ $\)</span></p>
 </div>
 </div>
 </div>
+</div>
+<div class="section" id="named-distributions">
+<h2><span class="section-number">3.2.4. </span>Named Distributions<a class="headerlink" href="#named-distributions" title="Permalink to this headline">¶</a></h2>
+<p>Some distributions are used so often that they have special names. Usually they also have <em>parameters</em>, which are constants associated with the distribution.</p>
+<p><strong>Bernoulli <span class="math notranslate nohighlight">\((p)\)</span>:</strong> This is the distribution of a Boolean random variable, that is, a random variable that has possible values <span class="math notranslate nohighlight">\(0\)</span> and <span class="math notranslate nohighlight">\(1\)</span>. The parameter <span class="math notranslate nohighlight">\(p\)</span> is the chance of <span class="math notranslate nohighlight">\(1\)</span>, as in the distribution table below.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:right head"><p>value</p></th>
+<th class="text-align:center head"><p><span class="math notranslate nohighlight">\(0\)</span></p></th>
+<th class="text-align:center head"><p><span class="math notranslate nohighlight">\(1\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:right"><p><strong>probability</strong></p></td>
+<td class="text-align:center"><p><span class="math notranslate nohighlight">\(1-p\)</span></p></td>
+<td class="text-align:center"><p><span class="math notranslate nohighlight">\(p\)</span></p></td>
+</tr>
+</tbody>
+</table>
+<p>Examples of random variables that have this distribution:</p>
+<ul class="simple">
+<li><p>The number of heads in one toss of a coin that lands heads with chance <span class="math notranslate nohighlight">\(p\)</span></p></li>
+<li><p>The <em>indicator</em> of an event that has chance <span class="math notranslate nohighlight">\(p\)</span>, that is, a random variable that has value <span class="math notranslate nohighlight">\(1\)</span> if the event occurs and <span class="math notranslate nohighlight">\(0\)</span> otherwise.</p></li>
+</ul>
+<p>The distribution is named after <a class="reference external" href="https://en.wikipedia.org/wiki/Jacob_Bernoulli">Jacob Bernoulli</a>, the Swiss mathematician who discovered the constant <span class="math notranslate nohighlight">\(e\)</span> and wrote the book <a class="reference external" href="https://en.wikipedia.org/wiki/Ars_Conjectandi">Ars Conjectandi</a> (The Art of Conjecturing) on combinatorics and probability in which he analyzed “success-failure” or <span class="math notranslate nohighlight">\(\text{1/0}\)</span> trials.</p>
+<p><strong>Uniform</strong> on a finite set: This is the distribution that makes all elements of the set of outcomes equally likely.
+For example, the number of spots on one roll of a die has the uniform distribution on <span class="math notranslate nohighlight">\(\{ 1, 2, 3, 4, 5, 6 \}\)</span>.</p>
 </div>
 </div>
 

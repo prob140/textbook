@@ -193,6 +193,11 @@
      3.3. Equality
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_03/04_Exercises.html">
+     3.4. Exercises
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1">
@@ -225,6 +230,11 @@
      4.5. Dependence and Independence
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_04/06_Exercises.html">
+     4.6. Exercises
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1 current active">
@@ -250,6 +260,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="04_Sampling_Without_Replacement.html">
      5.4. Sampling Without Replacement
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05_Exercises.html">
+     5.5. Exercises
     </a>
    </li>
   </ul>
@@ -915,8 +930,25 @@
 \[
 P(A \cup B) = P(A) + P(B) - P(AB)
 \]</div>
-<p>To use the formula,</p>
+<p>One of the pieces of the formula is the chance of the intersection. If the nature of the dependence between <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> is unknown, it might not be possible to find <span class="math notranslate nohighlight">\(P(AB)\)</span>. Sometimes, the best we can do is find <strong>bounds</strong> for the chance of the union, not the exact value.</p>
+<p>Keep in mind that bounds aren’t approximations. They might be quite far off the exact value.</p>
+<p>Keep in mind also that bounds on the chance of a union can be manipulated to become bounds on the chance of an intersection.</p>
+<ul class="simple">
+<li><p>The union of a collection of events is that event that at least one of them occurs.</p></li>
+<li><p>The complement of the union is the event that none of them occurs, that is, the event that all of them don’t occur.</p></li>
+<li><p>If the chance of a union is at most <span class="math notranslate nohighlight">\(p\)</span>, then the chance of its complement is at least <span class="math notranslate nohighlight">\(1-p\)</span>.</p></li>
+</ul>
 <div class="cell tag_remove-input tag_hide-output docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="400"
+    height="300"
+    src="https://www.youtube.com/embed/VqozXmsKzLE"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
 </div>
 <div class="section" id="boole-s-inequality">
 <h2><span class="section-number">5.1.1. </span>Boole’s Inequality<a class="headerlink" href="#boole-s-inequality" title="Permalink to this headline">¶</a></h2>
@@ -943,6 +975,17 @@ P(\bigcup_{i=1}^n A_i) \ge \max\{P(A_i): 1 \le i \le n \}
 \]</div>
 <p>For example, if the weather forecast says that the chance of rain on Saturday is 40% and the chance of rain on Sunday is 10%, then the chance that it rains at some point during those two days is at least 40% and at most 50%.</p>
 <p>To find the chance exactly, you would need the chance that it rains on both days, which you don’t have. Assuming independence doesn’t seem like a good idea in this setting. So you cannot compute an exact answer, and must be satisfied with bounds.</p>
+<div class="admonition-quick-check admonition">
+<p class="admonition-title">Quick Check</p>
+<p>In a class, 60% of the students have read <i>The Merchant of Venice</i> and 10% have read <i>Hamlet</i>. Fill in the blanks with the best bounds you can find based on the information given.</p>
+<p>(a) The chance that a randomly picked student has read at least one of the two plays is at least <span class="math notranslate nohighlight">\(\underline{~~~~~~~~~~~~~}\)</span> and at most <span class="math notranslate nohighlight">\(\underline{~~~~~~~~~~~~~}\)</span>.</p>
+<p>(b) The chance that a randomly picked student has read neither of the two plays is at least <span class="math notranslate nohighlight">\(\underline{~~~~~~~~~~~~~}\)</span> and at most <span class="math notranslate nohighlight">\(\underline{~~~~~~~~~~~~~}\)</span>.</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Answer</p>
+<p>(a) 60%, 70%</p>
+<p>(b) 30%, 40%</p>
+</div>
 <p>Though bounds aren’t exact answers or even approximations, they can be very useful. Here is an example of a common use of Boole’s Inequality in data science. It has Bonferroni’s name attached to it, because Boole and Bonferroni both have related bounds on probabilities of unions.</p>
 </div>
 <div class="section" id="bonferroni-method">

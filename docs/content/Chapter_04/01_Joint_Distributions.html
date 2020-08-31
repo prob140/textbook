@@ -193,6 +193,11 @@
      3.3. Equality
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_03/04_Exercises.html">
+     3.4. Exercises
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1 current active">
@@ -225,6 +230,11 @@
      4.5. Dependence and Independence
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="06_Exercises.html">
+     4.6. Exercises
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1">
@@ -250,6 +260,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_05/04_Sampling_Without_Replacement.html">
      5.4. Sampling Without Replacement
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_05/05_Exercises.html">
+     5.5. Exercises
     </a>
    </li>
   </ul>
@@ -914,7 +929,11 @@
                 
   <div class="section" id="joint-distributions">
 <h1><span class="section-number">4.1. </span>Joint Distributions<a class="headerlink" href="#joint-distributions" title="Permalink to this headline">¶</a></h1>
-<p>Suppose <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> are two random variables defined on the same outcome space. We will use the notation <span class="math notranslate nohighlight">\(P(X = x, Y = y)\)</span> for the probability that <span class="math notranslate nohighlight">\(X\)</span> has the value <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> has the value <span class="math notranslate nohighlight">\(y\)</span>.</p>
+<p>Suppose <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> are two random variables defined on the same outcome space. We will use the notation <span class="math notranslate nohighlight">\(P(X = x, Y = y)\)</span> for the probability that <span class="math notranslate nohighlight">\(X\)</span> has the value <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> has the value <span class="math notranslate nohighlight">\(y\)</span>. That is,</p>
+<div class="math notranslate nohighlight">
+\[
+P(X = x, Y = y) ~ = ~ P(\{ X=x \} \cap \{ Y=y \})
+\]</div>
 <p>The <em>joint distribution of <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span></em> consists of all the probabilities <span class="math notranslate nohighlight">\(P(X=x, Y=y)\)</span> where <span class="math notranslate nohighlight">\((x, y)\)</span> ranges over all the possible values of <span class="math notranslate nohighlight">\((X, Y)\)</span>.</p>
 <div class="section" id="example">
 <h2><span class="section-number">4.1.1. </span>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
@@ -933,6 +952,18 @@ P(X = 1, Y = 1) = P(\text{THT or HTH}) = \frac{2}{8}
 P(X = 1, Y = 2) = P(\text{THH}) = \frac{1}{8}
 \]</div>
 <p>The constraints on <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> are that each must be in the range <span class="math notranslate nohighlight">\(\{0, 1, 2\}\)</span> and <span class="math notranslate nohighlight">\(\vert x - y \vert &lt; 2\)</span>.</p>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="400"
+    height="300"
+    src="https://www.youtube.com/embed/5utr7G2OXXA"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
 </div>
 <div class="section" id="joint-distribution-table">
 <h2><span class="section-number">4.1.2. </span>Joint Distribution Table<a class="headerlink" href="#joint-distribution-table" title="Permalink to this headline">¶</a></h2>
@@ -1037,6 +1068,18 @@ P(X = 1, Y = 2) = P(\text{THH}) = \frac{1}{8}
 <div class="section" id="finding-probabilities">
 <h2><span class="section-number">4.1.3. </span>Finding Probabilities<a class="headerlink" href="#finding-probabilities" title="Permalink to this headline">¶</a></h2>
 <p>The table contains complete information about the relation between <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span>. To find the probabiilty of any event determined by <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span>, simply identify the cells that make the event happen, and add up their chances. This is an application of the fundamental method of finding probabilities by partitioning an event.</p>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="400"
+    height="300"
+    src="https://www.youtube.com/embed/ePADXFKYmh4"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
 <p>For example, consider the event <span class="math notranslate nohighlight">\(\{ X = Y \}\)</span> for <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> as defined in our example above. The event can happen in three ways: if <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> are both 0, or both 1, or both 2. So</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -1119,7 +1162,20 @@ P(X = Y) &amp;= P(X = 0, Y = 0) + P(X = 1, Y = 1) + P(X = 2 , Y = 2) \\
 </div></div></div>
 </div>
 <p>The display <code class="docutils literal notranslate"><span class="pre">P(event)</span> <span class="pre">=</span> <span class="pre">0.5</span></code> is consistent with our earlier answer <span class="math notranslate nohighlight">\(P(X = Y) = 0.5\)</span>. In the table, probabilities are displayed only in the cells that are in the event, that is, only the cells <span class="math notranslate nohighlight">\((x, y)\)</span> for which <span class="math notranslate nohighlight">\(x = y\)</span>.</p>
-<p>You can see that these cells all lie along the <span class="math notranslate nohighlight">\(x = y\)</span> diagonal line. The coordinate geometry will be visible again when we calculate <span class="math notranslate nohighlight">\(P(Y \ge X)\)</span>, for example.</p>
+<p>You can see that these cells all lie along the <span class="math notranslate nohighlight">\(x = y\)</span> diagonal line. The coordinate geometry will be visible again when we calculate <span class="math notranslate nohighlight">\(P(Y \ge X)\)</span> below.</p>
+<p>However, if you just want to see the probability of the event without the table display, add a semicolon at the end of the line. That prevents the returned table from being printed.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">joint_dist</span><span class="o">.</span><span class="n">event</span><span class="p">(</span><span class="n">indicator_equal</span><span class="p">,</span> <span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="s1">&#39;Y&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>P(Event) = 0.5
+</pre></div>
+</div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">indicator_y_at_least_x</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">):</span>
@@ -1180,6 +1236,14 @@ P(X = Y) &amp;= P(X = 0, Y = 0) + P(X = 1, Y = 1) + P(X = 2 , Y = 2) \\
 </div></div></div>
 </div>
 <p>The visible cells form the upper triangle corresponding to points whose coordinates <span class="math notranslate nohighlight">\((x, y)\)</span> satisfy the the inequality <span class="math notranslate nohighlight">\(y \ge x\)</span>. The chance of the event is <span class="math notranslate nohighlight">\(P(Y \ge X) = 0.75\)</span>.</p>
+<div class="admonition-quick-check admonition">
+<p class="admonition-title">Quick Check</p>
+<p>Without using Python, find <span class="math notranslate nohighlight">\(P(X+Y \ge 2)\)</span>.</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Answer</p>
+<p><span class="math notranslate nohighlight">\(0.625\)</span></p>
+</div>
 </div>
 <div class="section" id="the-general-calculation">
 <h2><span class="section-number">4.1.4. </span>The General Calculation<a class="headerlink" href="#the-general-calculation" title="Permalink to this headline">¶</a></h2>

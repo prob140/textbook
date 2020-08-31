@@ -193,6 +193,11 @@
      3.3. Equality
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04_Exercises.html">
+     3.4. Exercises
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1">
@@ -225,6 +230,11 @@
      4.5. Dependence and Independence
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_04/06_Exercises.html">
+     4.6. Exercises
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1">
@@ -250,6 +260,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_05/04_Sampling_Without_Replacement.html">
      5.4. Sampling Without Replacement
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_05/05_Exercises.html">
+     5.5. Exercises
     </a>
    </li>
   </ul>
@@ -888,20 +903,25 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#probability-space">
+   3.1.2. Probability Space
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#a-function-on-the-outcome-space">
-   3.1.2. A Function on the Outcome Space
+   3.1.3. A Function on the Outcome Space
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#functions-of-random-variables">
-     3.1.2.1. Functions of Random Variables
+     3.1.3.1. Functions of Random Variables
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#events-determined-by-s">
-   3.1.3. Events Determined by
+   3.1.4. Events Determined by
    <span class="math notranslate nohighlight">
     \(S\)
    </span>
@@ -922,13 +942,13 @@
 <p>Random sampling can be thought of as repeated random trials, and therefore many outcome spaces consist of sequences. An outcome space representing two tosses of a coin is</p>
 <div class="math notranslate nohighlight">
 \[ 
-\Omega = \{ \text{HH, HT, TH, TT} \}
+\Omega = \{ HH, HT, TH, TT \}
 \]</div>
 <p>If you were tossing 10 times, the outcome space would consist of the <span class="math notranslate nohighlight">\(2^{10}\)</span> sequences of 10 elements where each element is H or T. The outcomes are a pain to list by hand, but computers are good at saving us that kind of pain.</p>
 <div class="section" id="product-spaces">
 <h2><span class="section-number">3.1.1. </span>Product Spaces<a class="headerlink" href="#product-spaces" title="Permalink to this headline">¶</a></h2>
 <p>The <em>product</em> of two sets <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> is the set of all pairs <span class="math notranslate nohighlight">\((a, b)\)</span> where <span class="math notranslate nohighlight">\(a \in A\)</span> and <span class="math notranslate nohighlight">\(b \in B\)</span>. This concept is exactly what we need to describe spaces representing multiple trials.</p>
-<p>For example, the space representing the outcome of one toss of a coin is $ \Omega_1 = { \text{H, T}}$. The <em>product</em> of <span class="math notranslate nohighlight">\(\Omega_1\)</span> with itself is the set of pairs (H, H), (H, T), (T, H) and (T, T), which you will recognize as the outcomes of two tosses of a coin. The product of this new space and <span class="math notranslate nohighlight">\(\Omega_1\)</span> is the space representing three tosses. And so on.</p>
+<p>For example, the space representing the outcome of one toss of a coin is $ \Omega_1 = { H, T }$. The <em>product</em> of <span class="math notranslate nohighlight">\(\Omega_1\)</span> with itself is the set of pairs <span class="math notranslate nohighlight">\((H, H)\)</span>, <span class="math notranslate nohighlight">\((H, T)\)</span>, <span class="math notranslate nohighlight">\((T, H)\)</span>, and <span class="math notranslate nohighlight">\((T, T)\)</span>, which you will recognize as the outcomes of two tosses of a coin. The product of this new space and <span class="math notranslate nohighlight">\(\Omega_1\)</span> is the space representing three tosses. And so on.</p>
 <p>The Python module <code class="docutils literal notranslate"><span class="pre">itertools</span></code> contains a function <code class="docutils literal notranslate"><span class="pre">product</span></code> that constructs product spaces. Let’s import it.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -980,6 +1000,9 @@
 </div>
 </div>
 </div>
+</div>
+<div class="section" id="probability-space">
+<h2><span class="section-number">3.1.2. </span>Probability Space<a class="headerlink" href="#probability-space" title="Permalink to this headline">¶</a></h2>
 <p>A <em>probability space</em> is an outcome space accompanied by the probabilities of all the outcomes. If you assume all eight outcomes of three tosses are equally likely, the probabilities are all 1/8:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1107,15 +1130,28 @@
 </table>
 <p>... (7766 rows omitted)</p></div></div>
 </div>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="400"
+    height="300"
+    src="https://www.youtube.com/embed/h8k0M1ubIxk"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
 </div>
 <div class="section" id="a-function-on-the-outcome-space">
-<h2><span class="section-number">3.1.2. </span>A Function on the Outcome Space<a class="headerlink" href="#a-function-on-the-outcome-space" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.1.3. </span>A Function on the Outcome Space<a class="headerlink" href="#a-function-on-the-outcome-space" title="Permalink to this headline">¶</a></h2>
 <p>Suppose you roll a die five times and add up the number of spots you see. If that seems artificial, be patient for a moment and you’ll soon see why it’s interesting.</p>
-<p>The sum of the rolls is a numerical function on the outcome space <span class="math notranslate nohighlight">\(\Omega\)</span> of five rolls. The sum is thus a <em>random variable</em>. Let’s call it <span class="math notranslate nohighlight">\(S\)</span>. Then, formally,
-<span class="math notranslate nohighlight">\($
+<p>The sum of the rolls is a numerical function on the outcome space <span class="math notranslate nohighlight">\(\Omega\)</span> of five rolls. The sum is thus a <em>random variable</em>. Let’s call it <span class="math notranslate nohighlight">\(S\)</span>. Then, formally,</p>
+<div class="math notranslate nohighlight">
+\[
 S: \Omega \rightarrow \{ 5, 6, \ldots, 30 \}
-$\)</span>
-The range of <span class="math notranslate nohighlight">\(S\)</span> is the integers 5 through 30, because each die shows at least one spot and at most six spots. We can also use the equivalent notation</p>
+\]</div>
+<p>The range of <span class="math notranslate nohighlight">\(S\)</span> is the integers 5 through 30, because each die shows at least one spot and at most six spots. We can also use the equivalent notation</p>
 <div class="math notranslate nohighlight">
 \[
 \Omega \stackrel{S}{\rightarrow} \{ 5, 6, \ldots, 30 \}
@@ -1123,7 +1159,7 @@ The range of <span class="math notranslate nohighlight">\(S\)</span> is the inte
 <p>From a computational perspective, the elements of <span class="math notranslate nohighlight">\(\Omega\)</span> are in the column <code class="docutils literal notranslate"><span class="pre">omega</span></code> of <code class="docutils literal notranslate"><span class="pre">five_roll_space</span></code>. Let’s apply this function and create a larger table.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">five_rolls_sum</span> <span class="o">=</span> <span class="n">five_rolls_space</span><span class="o">.</span><span class="n">with_column</span><span class="p">(</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">five_rolls_sum</span> <span class="o">=</span> <span class="n">five_rolls_space</span><span class="o">.</span><span class="n">with_columns</span><span class="p">(</span>
     <span class="s1">&#39;S(omega)&#39;</span><span class="p">,</span> <span class="n">five_rolls_space</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="nb">sum</span><span class="p">,</span> <span class="s1">&#39;omega&#39;</span><span class="p">)</span>
 <span class="p">)</span><span class="o">.</span><span class="n">move_to_end</span><span class="p">(</span><span class="s1">&#39;P(omega)&#39;</span><span class="p">)</span>
 
@@ -1195,8 +1231,19 @@ The range of <span class="math notranslate nohighlight">\(S\)</span> is the inte
 </table></div></div>
 </div>
 <p>All the other values of <span class="math notranslate nohighlight">\(S\)</span> are between these two extremes.</p>
+<div class="admonition-quick-check admonition">
+<p class="admonition-title">Quick Check</p>
+<p>A standard probability space for three tosses of a coin consists of the outcome space <span class="math notranslate nohighlight">\(\Omega = \{ HHH, HHT, HTH, THH, HTT, THT, TTH, TTT \}\)</span> with equally likely outcomes. For each of the following descriptions, say whether or not it results in a random variable defined on <span class="math notranslate nohighlight">\(\Omega\)</span>.</p>
+<p>(i) Count <span class="math notranslate nohighlight">\(1\)</span> if the outcome in <span class="math notranslate nohighlight">\(HHH\)</span>, <span class="math notranslate nohighlight">\(0\)</span> otherwise</p>
+<p>(ii) Note the index of the final toss on which <span class="math notranslate nohighlight">\(H\)</span> appears</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Answer</p>
+<p>(i) Yes.</p>
+<p>(ii) No. The description gets stuck at the outcome <span class="math notranslate nohighlight">\(TTT\)</span>. It doesn’t say what to do in this case. Even if you decide to use <span class="math notranslate nohighlight">\(\infty\)</span> for this outcome, you don’t get a random variable because <span class="math notranslate nohighlight">\(\infty\)</span> isn’t a real number.</p>
+</div>
 <div class="section" id="functions-of-random-variables">
-<h3><span class="section-number">3.1.2.1. </span>Functions of Random Variables<a class="headerlink" href="#functions-of-random-variables" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.1.3.1. </span>Functions of Random Variables<a class="headerlink" href="#functions-of-random-variables" title="Permalink to this headline">¶</a></h3>
 <p>A random variable is a numerical function on <span class="math notranslate nohighlight">\(\Omega\)</span>. Therefore by composition, a numerical function of a random variable is also a random variable.</p>
 <p>For example, <span class="math notranslate nohighlight">\(S^2\)</span> is a random variable, calculated as follows:</p>
 <div class="math notranslate nohighlight">
@@ -1204,10 +1251,32 @@ The range of <span class="math notranslate nohighlight">\(S\)</span> is the inte
 S^2(\omega) = \big{(} S(\omega)\big{)}^2
 \]</div>
 <p>Thus for example <span class="math notranslate nohighlight">\(S^2(\text{[6 6 6 6 6]}) = 30^2 = 900\)</span>.</p>
+<div class="admonition-quick-check admonition">
+<p class="admonition-title">Quick Check</p>
+<p>Let <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> be random variables defined on the same probability space.</p>
+<p>(a) Is <span class="math notranslate nohighlight">\(\max(X, Y)\)</span> a random variable?</p>
+<p>(b) Let <span class="math notranslate nohighlight">\(Z = 1\)</span> if <span class="math notranslate nohighlight">\(X=Y\)</span> and <span class="math notranslate nohighlight">\(Z=0\)</span> otherwise. Is <span class="math notranslate nohighlight">\(Z\)</span> a random variable?</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Answer</p>
+<p>(a) Yes (b) Yes</p>
+</div>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="400"
+    height="300"
+    src="https://www.youtube.com/embed/OJZDPWSKIbw"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
 </div>
 </div>
 <div class="section" id="events-determined-by-s">
-<h2><span class="section-number">3.1.3. </span>Events Determined by <span class="math notranslate nohighlight">\(S\)</span><a class="headerlink" href="#events-determined-by-s" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.1.4. </span>Events Determined by <span class="math notranslate nohighlight">\(S\)</span><a class="headerlink" href="#events-determined-by-s" title="Permalink to this headline">¶</a></h2>
 <p>From the table <code class="docutils literal notranslate"><span class="pre">five_rolls_sum</span></code> it is hard to tell how many rows show a sum of 6, or 10, or any other value. To better understand the properties of <span class="math notranslate nohighlight">\(S\)</span>, we have to organize the information in <code class="docutils literal notranslate"><span class="pre">five_rolls_sum</span></code>.</p>
 <p>For any subset <span class="math notranslate nohighlight">\(A\)</span> of the range of <span class="math notranslate nohighlight">\(S\)</span>, define the event <span class="math notranslate nohighlight">\(\{S \in A\}\)</span> as</p>
 <div class="math notranslate nohighlight">
@@ -1215,10 +1284,12 @@ S^2(\omega) = \big{(} S(\omega)\big{)}^2
 \{S \in A \} = \{\omega: S(\omega) \in A \}
 \]</div>
 <p>That is, <span class="math notranslate nohighlight">\(\{ S \in A\}\)</span> is the collection of all <span class="math notranslate nohighlight">\(\omega\)</span> for which <span class="math notranslate nohighlight">\(S(\omega)\)</span> is in <span class="math notranslate nohighlight">\(A\)</span>. In terms of the table, the set consists of the values of <span class="math notranslate nohighlight">\(\omega\)</span> in all the rows in which the sum is in <span class="math notranslate nohighlight">\(A\)</span>.</p>
-<p>Try out the definition in a special case. Take <span class="math notranslate nohighlight">\(A = \{5, 30\}\)</span>. Then <span class="math notranslate nohighlight">\(\{S \in A\}\)</span> if and only if either all the rolls show 1 spot or all the rolls show 6 spots. So
-<span class="math notranslate nohighlight">\($
+<p>Events of the form <span class="math notranslate nohighlight">\(\{ S \in A\}\)</span> are said to be <em>determined by <span class="math notranslate nohighlight">\(S\)</span></em>. If we know the value of <span class="math notranslate nohighlight">\(S\)</span>, then we know whether or not that value is in <span class="math notranslate nohighlight">\(A\)</span>. So we can determine whether or not the event <span class="math notranslate nohighlight">\(\{ S \in A\}\)</span> has occurred.</p>
+<p>Let’s try out the definition in a special case. Take <span class="math notranslate nohighlight">\(A = \{5, 30\}\)</span>. Then <span class="math notranslate nohighlight">\(\{S \in A\}\)</span> if and only if either all the rolls show 1 spot or all the rolls show 6 spots. So</p>
+<div class="math notranslate nohighlight">
+\[
 \{S \in A\} = \{\text{[1 1 1 1 1], [6 6 6 6 6]}\}
-$\)</span></p>
+\]</div>
 <p>It is natural to ask about the chance the sum is a particular value, say 10. That’s not easy to read off the table, but we can access the corresponding rows:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1269,10 +1340,22 @@ $\)</span></p>
 <p>... (116 rows omitted)</p></div></div>
 </div>
 <p>There are 126 values of <span class="math notranslate nohighlight">\(\omega\)</span> for which <span class="math notranslate nohighlight">\(S(\omega) = 10\)</span>. Since all the <span class="math notranslate nohighlight">\(\omega\)</span> are equally likely, the chance that <span class="math notranslate nohighlight">\(S\)</span> has the value 10 is 126/7776.</p>
-<p>We will usually be informal with notation and write <span class="math notranslate nohighlight">\(\{ S = 10 \}\)</span> instead of <span class="math notranslate nohighlight">\(\{ S \in \{10\} \}\)</span>:
-<span class="math notranslate nohighlight">\($
+<p>We will usually be informal with notation and write <span class="math notranslate nohighlight">\(\{ S = 10 \}\)</span> instead of <span class="math notranslate nohighlight">\(\{ S \in \{10\} \}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
 P(S = 10) = \frac{126}{7776} = 1.62\%
-$\)</span></p>
+\]</div>
+<div class="admonition-quick-check admonition">
+<p class="admonition-title">Quick Check</p>
+<p>Consider a probability space representing two rolls of a die. That is the space consists of the 36 equally likely pairs <span class="math notranslate nohighlight">\((i,j)\)</span> where <span class="math notranslate nohighlight">\(1 \le i, j \le 6\)</span>. Let <span class="math notranslate nohighlight">\(X_1\)</span> be the result of the first roll and <span class="math notranslate nohighlight">\(X_2\)</span> the result of the second, and let <span class="math notranslate nohighlight">\(D = X_1 - X_2\)</span>. Here are two events determined by <span class="math notranslate nohighlight">\(D\)</span>. Write them as subsets of the outcome space and find their probabilities.</p>
+<p>(a) <span class="math notranslate nohighlight">\(D = 0\)</span></p>
+<p>(b) <span class="math notranslate nohighlight">\(D &gt; 3\)</span></p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Answer</p>
+<p>(a) <span class="math notranslate nohighlight">\(\{ (1,1), (2,2), (3,3), (4,4), (5,5), (6,6) \}\)</span>, probability <span class="math notranslate nohighlight">\(6/36\)</span></p>
+<p>(b) <span class="math notranslate nohighlight">\(\{ (1,5), (1,6), (2,6) \}\)</span>, probability <span class="math notranslate nohighlight">\(3/36\)</span></p>
+</div>
 </div>
 </div>
 

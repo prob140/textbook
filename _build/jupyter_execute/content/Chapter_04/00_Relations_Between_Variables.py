@@ -31,4 +31,5 @@ In this chapter we will study multiple random variables defined on the same set 
 03_Marginal_Distributions
 04_Conditional_Distributions
 05_Dependence_and_Independence
+06_Exercises
 ```
