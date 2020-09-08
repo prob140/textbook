@@ -40,8 +40,8 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="7.3.1. Poissonizing the Binomial" href="01_Poissonizing_the_Binomial.html" />
-    <link rel="prev" title="6.5. The Law of Small Numbers" href="../Chapter_06/05_Law_of_Small_Numbers.html" />
+    <link rel="next" title="7.1. Poisson Distribution" href="01_Poisson_Distribution.html" />
+    <link rel="prev" title="6.7. Exercises" href="../Chapter_06/07_Exercises.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -285,18 +285,28 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_06/03_Hypergeometric_Distribution.html">
-     6.3. The Hypergeometric Distribution
+    <a class="reference internal" href="../Chapter_06/03_Multinomial_Distribution.html">
+     6.3. Multinomial Distribution
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_06/04_Odds_Ratios.html">
-     6.4. Odds Ratios
+    <a class="reference internal" href="../Chapter_06/04_The_Hypergeometric_Revisited.html">
+     6.4. The Hypergeometric, Revisited
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_06/05_Law_of_Small_Numbers.html">
-     6.5. The Law of Small Numbers
+    <a class="reference internal" href="../Chapter_06/05_Odds_Ratios.html">
+     6.5. Odds Ratios
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_06/06_Law_of_Small_Numbers.html">
+     6.6. The Law of Small Numbers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_06/07_Exercises.html">
+     6.7. Exercises
     </a>
    </li>
   </ul>
@@ -307,13 +317,23 @@
   </a>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="01_Poissonizing_the_Binomial.html">
-     7.3.1. Poissonizing the Binomial
+    <a class="reference internal" href="01_Poisson_Distribution.html">
+     7.1. Poisson Distribution
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="02_Poissonizing_the_Multinomial.html">
-     7.3.2. Poissonizing the Multinomial
+    <a class="reference internal" href="02_Poissonizing_the_Binomial.html">
+     7.2. Poissonizing the Binomial
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03_Poissonizing_the_Multinomial.html">
+     7.3. Poissonizing the Multinomial
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04_Exercises.html">
+     7.4. Exercises
     </a>
    </li>
   </ul>
@@ -896,31 +916,7 @@
             <i class="fas fa-list"></i> On this page
         </div>
         <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#poisson-distribution">
-   7.1. Poisson Distribution
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#an-interpretation-of-the-parameter">
-   7.2. An Interpretation of the Parameter
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#mode-of-the-poisson">
-     7.2.1. Mode of the Poisson
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-cumulative-distribution-function-c-d-f">
-   7.3. The Cumulative Distribution Function (c.d.f.)
-  </a>
- </li>
-</ul>
-
+            
         </nav>
     </div>
 </div>
@@ -932,135 +928,8 @@
   <div class="section" id="poissonization">
 <h1><span class="section-number">7. </span>Poissonization<a class="headerlink" href="#poissonization" title="Permalink to this headline">¶</a></h1>
 <p>A binomial <span class="math notranslate nohighlight">\((n, p)\)</span> random variable has a finite number of values: it can only be between 0 and <span class="math notranslate nohighlight">\(n\)</span>. But now that we are studying the behavior of binomial probabilities as <span class="math notranslate nohighlight">\(n\)</span> gets large, it is time to move from finite outcome spaces to spaces that are infinite.</p>
-<p>Our first example of a probability distribution on infinitely many values is motivated by the approximation we have developed for the binomial <span class="math notranslate nohighlight">\((n, p)\)</span> distribution when <span class="math notranslate nohighlight">\(n\)</span> is large and <span class="math notranslate nohighlight">\(p\)</span> is small. Under those assumptions we
-saw that the chance of <span class="math notranslate nohighlight">\(k\)</span> successes in <span class="math notranslate nohighlight">\(n\)</span> i.i.d. Bernoulli <span class="math notranslate nohighlight">\((p)\)</span> trials is roughly</p>
-<div class="math notranslate nohighlight">
-\[
-P(k) ~ \approx ~ e^{-\mu} \frac{\mu^k}{k!}, ~~ k = 0, 1, 2, \ldots, n
-\]</div>
-<p>where <span class="math notranslate nohighlight">\(\mu = np\)</span>.</p>
-<p>The terms in the approximation are proportional to terms in the series expansion of <span class="math notranslate nohighlight">\(e^\mu\)</span>, but <em>that expansion is infinite</em>. It doesn’t stop at <span class="math notranslate nohighlight">\(n\)</span>, so we won’t either.</p>
-<p>A little care is required before we go further. First, we must state the additivity axiom of probability theory in terms of countably many outcomes:</p>
-<p>If events $A_1, A_2, \ldots $ are mutually exclusive, then</p>
-<div class="math notranslate nohighlight">
-\[
-P(\bigcup_{i=1}^\infty A_i) ~ = ~ \sum_{i=1}^\infty P(A_i)
-\]</div>
-<p>This is called the <em>countable additivity</em> axiom, in contrast to the finite additivity axiom we have thus far assumed. It doesn’t follow from finite additivity, but of course finite additivity follows from it.</p>
-<p>In this course, we will not go into the technical aspects of countable additivity and the existence of probability functions that satisfy the axioms on the spaces that interest us. But those technical aspects do have to be studied before you can develop a deeper understanding of probability theory. If you want to do that, a good start is to take Real Analysis and then Measure Theory.</p>
-<p>While in Prob 140, you don’t have to worry about it. Just assume that all our work is consistent with the axioms.</p>
-<p>Here is our first infinite valued distribution.</p>
-<div class="section" id="poisson-distribution">
-<h2><span class="section-number">7.1. </span>Poisson Distribution<a class="headerlink" href="#poisson-distribution" title="Permalink to this headline">¶</a></h2>
-<p>A random variable <span class="math notranslate nohighlight">\(X\)</span> has the <em>Poisson distribution with parameter <span class="math notranslate nohighlight">\(\mu &gt; 0\)</span></em> if</p>
-<div class="math notranslate nohighlight">
-\[
-P(X = k) ~ = ~ e^{-\mu} \frac{\mu^k}{k!}, ~~~~ k = 0, 1, 2, \ldots
-\]</div>
-<p>The terms are proportional to the terms in the infinte series expansion of <span class="math notranslate nohighlight">\(e^{\mu}\)</span>. These terms <span class="math notranslate nohighlight">\(\frac{\mu^k}{k!}\)</span> for <span class="math notranslate nohighlight">\(k \ge 0\)</span> determine the shape of the distribution.</p>
-<p>The constant of proportionality is <span class="math notranslate nohighlight">\(e^{-\mu}\)</span>. It doesn’t affect the shape. It just ensures that the probabilities add up to 1.</p>
-<div class="math notranslate nohighlight">
-\[
-\sum_{k=0}^\infty P(X = k) 
-~ = ~ \sum_{k=0}^\infty e^{-\mu} \frac{\mu^k}{k!} 
-~ = ~ e^{-\mu} \sum_{k=0}^\infty \frac{\mu^k}{k!} 
-~ = ~ e^{-\mu} \cdot e^{\mu} ~ = ~ 1
-\]</div>
-<p>The Poisson is a distribution in its own right. It does not have to arise as a limit, though it is sometimes helpful to think of it that way.</p>
-</div>
-<div class="section" id="an-interpretation-of-the-parameter">
-<h2><span class="section-number">7.2. </span>An Interpretation of the Parameter<a class="headerlink" href="#an-interpretation-of-the-parameter" title="Permalink to this headline">¶</a></h2>
-<p>To understand the parameter <span class="math notranslate nohighlight">\(\mu\)</span> of the Poisson distribution, a first step is to notice that mode of the distribution is just around <span class="math notranslate nohighlight">\(\mu\)</span>. Here is an example where <span class="math notranslate nohighlight">\(\mu = 3.74\)</span>. No computing system can calculate infinitely many probabilities, so we have just calculated the Poisson probabilities till the sum is close enough to 1 that the <code class="docutils literal notranslate"><span class="pre">prob140</span></code> library considers it a Distribution object.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mu</span> <span class="o">=</span> <span class="mf">3.74</span>
-<span class="n">k</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
-<span class="n">poi_probs_374</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">poisson</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">mu</span><span class="p">)</span>
-<span class="n">poi_dist_374</span> <span class="o">=</span> <span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">.</span><span class="n">probability</span><span class="p">(</span><span class="n">poi_probs_374</span><span class="p">)</span>
-<span class="n">Plot</span><span class="p">(</span><span class="n">poi_dist_374</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Poisson (3.74)&#39;</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="stderr docutils container">
-<pre class="stderr literal-block">/home/ryan/anaconda3/envs/140book/lib/python3.7/site-packages/prob140/single_variable.py:350: UserWarning: .probability() is deprecated - please use .probabilities()
-  warnings.warn('.probability() is deprecated - please use .probabilities()')
-</pre>
-</div>
-<img alt="../../_images/00_Poissonization_6_1.png" src="../../_images/00_Poissonization_6_1.png" />
-</div>
-</div>
-<p>The mode is 3. To find a formula for the mode, follow the process we used for the binomial: calculate the consecutive odds ratios, notice that they are decreasing, and see where they cross 1. This is left to you as an exercise. Your calculations should conclude the following:</p>
-<div class="section" id="mode-of-the-poisson">
-<h3><span class="section-number">7.2.1. </span>Mode of the Poisson<a class="headerlink" href="#mode-of-the-poisson" title="Permalink to this headline">¶</a></h3>
-<p>The mode of the Poisson distribution is the integer part of <span class="math notranslate nohighlight">\(\mu\)</span>. That is, the most likely value is <span class="math notranslate nohighlight">\(\mu\)</span> rounded <em>down</em> to an integer. If <span class="math notranslate nohighlight">\(\mu\)</span> is an integer, both <span class="math notranslate nohighlight">\(\mu\)</span> and <span class="math notranslate nohighlight">\(\mu - 1\)</span> are modes.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mu</span> <span class="o">=</span> <span class="mi">4</span>
-<span class="n">k</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
-<span class="n">poi_probs_4</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">poisson</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">mu</span><span class="p">)</span>
-<span class="n">poi_dist_4</span> <span class="o">=</span> <span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">.</span><span class="n">probability</span><span class="p">(</span><span class="n">poi_probs_4</span><span class="p">)</span>
-<span class="n">Plot</span><span class="p">(</span><span class="n">poi_dist_4</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Poisson (4)&#39;</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../_images/00_Poissonization_8_0.png" src="../../_images/00_Poissonization_8_0.png" />
-</div>
-</div>
-<p>In later chapters we will learn a lot more about the parameter <span class="math notranslate nohighlight">\(\mu\)</span> of the Poisson distribution. For now, just keep in mind that the most likely value is essentially <span class="math notranslate nohighlight">\(\mu\)</span>.</p>
-</div>
-</div>
-<div class="section" id="the-cumulative-distribution-function-c-d-f">
-<h2><span class="section-number">7.3. </span>The Cumulative Distribution Function (c.d.f.)<a class="headerlink" href="#the-cumulative-distribution-function-c-d-f" title="Permalink to this headline">¶</a></h2>
-<p>Very often, we need probabilities of the form <span class="math notranslate nohighlight">\(P(X &gt; x)\)</span> or <span class="math notranslate nohighlight">\(P(X \le x)\)</span>. For example, if <span class="math notranslate nohighlight">\(X\)</span> has the Poisson <span class="math notranslate nohighlight">\((4)\)</span> distribution, here is the event <span class="math notranslate nohighlight">\(\{ X \le 5 \}\)</span>.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Plot</span><span class="p">(</span><span class="n">poi_dist_4</span><span class="p">,</span> <span class="n">event</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Poisson (4)&#39;</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../_images/00_Poissonization_11_0.png" src="../../_images/00_Poissonization_11_0.png" />
-</div>
-</div>
-<p>The <em>cumulative distribution function</em> or c.d.f. of any random variable is a function that calculates this “area to the left” of any point. If you denote the c.d.f. by <span class="math notranslate nohighlight">\(F\)</span>, then
-<span class="math notranslate nohighlight">\($
-F(x) = P(X \le x)
-$\)</span>
-for any x.</p>
-<p>We will get to know this function better later in the course. For now, note that <code class="docutils literal notranslate"><span class="pre">stats</span></code> lets you calculate it directly without having to use <code class="docutils literal notranslate"><span class="pre">pmf</span></code> and then summing. The function is called <code class="docutils literal notranslate"><span class="pre">stats.distribution_name.cdf</span></code> where <code class="docutils literal notranslate"><span class="pre">distribution_name</span></code> could be <code class="docutils literal notranslate"><span class="pre">binom</span></code> or <code class="docutils literal notranslate"><span class="pre">poisson</span></code> or any other distribution name that <code class="docutils literal notranslate"><span class="pre">stats</span></code> recognizes. The first argument is <span class="math notranslate nohighlight">\(x\)</span>, followed by the parameters of the distribution in a specified order. In the case of the Poisson, there is just one parameter <span class="math notranslate nohighlight">\(\mu\)</span>.</p>
-<p>For <span class="math notranslate nohighlight">\(X\)</span> a Poisson <span class="math notranslate nohighlight">\((4)\)</span> random variable, the gold area above is <span class="math notranslate nohighlight">\(P(X \le 5)\)</span> which is about 78.5%.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">stats</span><span class="o">.</span><span class="n">poisson</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0.7851303870304052
-</pre></div>
-</div>
-</div>
-</div>
-<p>Just to be sure, you can check that the answer is the same as what you would have got by summing the probabilities of the individual values:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">sum</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">poisson</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">6</span><span class="p">),</span> <span class="mi">4</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0.785130387030405
-</pre></div>
-</div>
-</div>
-</div>
+<p>Our first example of a probability distribution on infinitely many values is motivated by the approximation we have developed for the binomial <span class="math notranslate nohighlight">\((n, p)\)</span> distribution when <span class="math notranslate nohighlight">\(n\)</span> is large and <span class="math notranslate nohighlight">\(p\)</span> is small. This is the family of <em>Poisson</em> distributions, which has powerful relations with many other distribution families.</p>
 <div class="toctree-wrapper compound">
-</div>
 </div>
 </div>
 
@@ -1092,8 +961,8 @@ for any x.</p>
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="../Chapter_06/05_Law_of_Small_Numbers.html" title="previous page"><span class="section-number">6.5. </span>The Law of Small Numbers</a>
-    <a class='right-next' id="next-link" href="01_Poissonizing_the_Binomial.html" title="next page"><span class="section-number">7.3.1. </span>Poissonizing the Binomial</a>
+    <a class='left-prev' id="prev-link" href="../Chapter_06/07_Exercises.html" title="previous page"><span class="section-number">6.7. </span>Exercises</a>
+    <a class='right-next' id="next-link" href="01_Poisson_Distribution.html" title="next page"><span class="section-number">7.1. </span>Poisson Distribution</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

@@ -1,4 +1,6 @@
 # HIDDEN
+import warnings
+warnings.filterwarnings('ignore')
 from datascience import *
 from prob140 import *
 import numpy as np
@@ -17,7 +19,7 @@ Let $X_1, X_2, \ldots , X_n$ be i.i.d. Bernoulli $(p)$ random variables and let 
 
 The first goal of this section is to find the distribution of $S_n$. 
 
-In the example that we fixed our minds on earlier, we are counting the number of sixes in 7 rolls of a die. The 7 rolls are independent of each other, the chance of "success" (getting a six) is $1/6$ on each trial, and $S_7$ is the number of sixes.
+In our [earlier example](http://prob140.org/textbook/content/Chapter_06/00_Random_Counts.html), we were counting the number of sixes in 7 rolls of a die. The 7 rolls are independent of each other, the chance of "success" (getting a six) is $1/6$ on each trial, and $S_7$ is the number of sixes.
 
 The first step in finding the distribution of any random variable is to identify the possible values of the variable. In $n$ trials, the smallest number of successes you can have is 0 and the largest is $n$. So the set of possible values of $S_n$ is $\{0, 1, 2, \ldots , n\}$.
 
@@ -55,6 +57,11 @@ $$
 
 Parameters of a distribution are constants associated with it. The Bernoulli $(p)$ distribution has parameter $p$. The binomial distribution defined above has parameters $n$ and $p$ and is referred to as the binomial $(n, p)$ distribution for short. You should check that the Bernoulli $(p)$ distribution is the same as the binomial $(1, p)$ distribution.
 
+# VIDEO: Binomial Distribution
+from IPython.display import YouTubeVideo
+
+YouTubeVideo("K2Rsnx8YbJQ")
+
 Before we get going on calculations with the binomial distribution, let's make a few observations.
 
 - The functional form of the probabilities is symmetric in successes and failures, because
@@ -87,7 +94,7 @@ $$
 \end{align*}
 $$
 
-by the *binomial expansion* of $(a+b)^n$. The numbers $\binom{n}{k}$ are the elements of Pascal's triangle, as you will have seen in a math class.
+by the *binomial expansion* of $(a+b)^n$. The numbers $\binom{n}{k}$ are the elements of Pascal's triangle, as you will have seen in a math class, and are called *binomial coefficients*.
 
 Plug in $a = p$ and $b = 1-p$ and notice that the terms in the sum are exactly the binomial probabilities we defined above. So the sum of the probabilities is
 
@@ -96,6 +103,36 @@ $$
 ~ = ~ \big{(} p + (1-p) \big{)}^n ~ = ~ 1^n ~ = ~ 1
 $$
 
+### Applying the Formula ###
+
+To use the binomial formula, you first have to recognize that it can be used, and then use it as you would use any distribution.
+
+- Check the conditions: a known number of independent, repeated, success/failure trials, and you are counting the number of successes
+- Identify the two parameters $n$ and $p$
+- Identify each $k$ for which the event occurs
+- Add up the binomial $(n, p)$ probabilities for all $k$ in the set you identified (or, if the set is very large, add up the probabilities in the complement and then subtract from 1)
+
+```{admonition} Quick Check
+Every time I throw a dart, I have chance 25% of hitting the bullseye, independent of all other throws. Suppose I throw the dart 10 times. Find the chance that
+
+(a) I hit the bullseye two times
+
+(b) I hit the bullseye more than two times
+
+(c) I hit the bullseye more than six times
+
+```
+
+```{admonition} Answer
+:class: dropdown
+(a) $\binom{10}{2} 0.25^2 0.75^8$
+
+(b) $1 - \sum_{k=0}^{2} \binom{10}{k} 0.25^k 0.75^{10-k} $
+
+(c) $\sum_{k=7}^{10} \binom{10}{k} 0.25^k 0.75^{10-k} $
+
+```
+
 ### Binomial Probabilities in Python ###
 `SciPy` is a system for scientific computing, based on Python. The `stats` submodule of `scipy` does numerous calculations in probability and statistics. We will be importing it at the start of every notebook from now on.
 
@@ -103,7 +140,7 @@ from scipy import stats
 
 The function `stats.binom.pmf` takes three arguments: $k$, $n$, and $p$, in that order. It returns the numerical value of $P(S_n = k)$ For short, we will say that the function returns the binomial $(n, p)$ probability of $k$.
 
-The acronym "pmf" stands for "probability mass function" which as we have noted earlier is sometimes used as another name for the distribution of a variable that has finitely many values.
+The acronym "pmf" stands for *probability mass function* which as we have noted earlier is sometimes used as another name for the distribution of a variable that has finitely many values.
 
 The chance of 3 sixes in 7 rolls of a die is
 $\binom{7}{3}(1/6)^3(5/6)^4$ by the binomial formula, which works out to about 8% by the calculation below.
@@ -118,7 +155,11 @@ Thus to find $P(2 \le S_7 \le 4)$, you can use
 
 sum(stats.binom.pmf([2, 3, 4], 7, 1/6))
 
-### Binomial Histograms ###
+# VIDEO: CDF
+YouTubeVideo('MoBXF8icYkM')
+
+### Cumulative Distribution Function (cdf) ###
+
 To visualize binomial distributions we will use the `prob140` method `Plot`, by first using `stats.binom.pmf` to calculate the binomial probabilities. The cell below plots the distribution of $S_7$ above. Notice how we start by specifying all the possible values of $S_7$ in the array `k`.
 
 n = 7
@@ -128,9 +169,56 @@ binom_7_1_6 = stats.binom.pmf(k, n, p)
 binom_7_1_6_dist = Table().values(k).probabilities(binom_7_1_6)
 Plot(binom_7_1_6_dist)
 
-Not surprisingly, the graph shows that in 7 rolls of a die you are most likely to get around 1 six.
+Very often, we need probabilities of the form $P(X > x)$ or $P(X \le x)$. For example, for $X$ with the binomial $(7, 1/6)$ distribution above, here is the event $\{ X \le 2 \}$.
+
+Plot(binom_7_1_6_dist, event=np.arange(0, 3))
+
+The *cumulative distribution function* or c.d.f. of any random variable is a function that calculates this "area to the left" of any point. If you denote the c.d.f. by $F$, then
+$$
+F(x) = P(X \le x)
+$$
+for any x. 
+
+We will get to know this function better later in the course. For now, note that `stats` lets you calculate it directly without having to use `pmf` and then summing. The function is called `stats.distribution_name.cdf` where `distribution_name` could be `binom` or `hypergeom` or any other distribution name that `stats` recognizes. The first argument is $x$, followed by the parameters of the distribution in a specified order. 
+
+For $X$ a binomial $(7, 1/6)$ random variable, the gold area above is $F(2)$ which is about 90.4%.
+
+To find $P(X > 2)$, we can use the cdf again:
+
+$$
+P(X > 2) ~ = ~ 1 - P(X \le 2) ~ = ~ 1 - F(2)
+$$
+
+1 - stats.binom.cdf(2, 7, 1/6)
+
+stats.binom.cdf(2, 7, 1/6)
+
+Here is the event $P(5 < Y \le 10)$ for a random variable $Y$ that has the binomial $(20, 0.4)$ distribution.
+
+k = np.arange(21)
+probs = stats.binom.pmf(k, 20, 0.4)
+binom_20_point4 = Table().values(k).probabilities(probs)
+Plot(binom_20_point4, event=np.arange(6, 11))
+
+To find $P(5 < Y \le 10)$ we can sum the areas of the gold bars. But we can also use the cdf:
+
+$$
+P(5 < Y \le 10) ~ = ~ P(Y \le 10) - P(Y \le 5)
+$$
+
+That's about 74.7%.
+
+stats.binom.cdf(10, 20, 0.4) - stats.binom.cdf(5, 20, 0.4)
+
+### Binomial Histograms ###
+
+Here is the histogram of the binomial $(7, 1/6)$ distribution again. Not surprisingly, the graph shows that in 7 rolls of a die you are most likely to get around 1 six.
+
+Plot(binom_7_1_6_dist)
 
 This distribution is not symmetric, as you would expect. But something interesting happens to the distribution of the number of sixes when you increase the number of rolls.
+
+
 
 n = 600
 p = 1/6

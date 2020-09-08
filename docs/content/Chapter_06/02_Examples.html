@@ -40,7 +40,7 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="6.3. The Hypergeometric Distribution" href="03_Hypergeometric_Distribution.html" />
+    <link rel="next" title="6.3. Multinomial Distribution" href="03_Multinomial_Distribution.html" />
     <link rel="prev" title="6.1. The Binomial Distribution" href="01_Binomial_Distribution.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -285,18 +285,28 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="03_Hypergeometric_Distribution.html">
-     6.3. The Hypergeometric Distribution
+    <a class="reference internal" href="03_Multinomial_Distribution.html">
+     6.3. Multinomial Distribution
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="04_Odds_Ratios.html">
-     6.4. Odds Ratios
+    <a class="reference internal" href="04_The_Hypergeometric_Revisited.html">
+     6.4. The Hypergeometric, Revisited
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="05_Law_of_Small_Numbers.html">
-     6.5. The Law of Small Numbers
+    <a class="reference internal" href="05_Odds_Ratios.html">
+     6.5. Odds Ratios
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="06_Law_of_Small_Numbers.html">
+     6.6. The Law of Small Numbers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="07_Exercises.html">
+     6.7. Exercises
     </a>
    </li>
   </ul>
@@ -307,13 +317,23 @@
   </a>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_07/01_Poissonizing_the_Binomial.html">
-     7.3.1. Poissonizing the Binomial
+    <a class="reference internal" href="../Chapter_07/01_Poisson_Distribution.html">
+     7.1. Poisson Distribution
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_07/02_Poissonizing_the_Multinomial.html">
-     7.3.2. Poissonizing the Multinomial
+    <a class="reference internal" href="../Chapter_07/02_Poissonizing_the_Binomial.html">
+     7.2. Poissonizing the Binomial
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_07/03_Poissonizing_the_Multinomial.html">
+     7.3. Poissonizing the Multinomial
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_07/04_Exercises.html">
+     7.4. Exercises
     </a>
    </li>
   </ul>
@@ -898,18 +918,18 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#example-1-random-number-generator">
-   6.2.1. Example 1: Random Number Generator
+  <a class="reference internal nav-link" href="#random-number-generator">
+   6.2.1. Random Number Generator
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#example-2-both-heads-and-tails">
-   6.2.2. Example 2: Both Heads and Tails
+  <a class="reference internal nav-link" href="#both-heads-and-tails">
+   6.2.2. Both Heads and Tails
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#example-3-conditional-distribution-of-the-trial-that-results-in-the-first-success">
-   6.2.3. Example 3: Conditional Distribution of the Trial that Results in the First Success
+  <a class="reference internal nav-link" href="#conditional-distribution-of-the-trial-that-results-in-the-first-success">
+   6.2.3. Conditional Distribution of the Trial that Results in the First Success
   </a>
  </li>
 </ul>
@@ -931,8 +951,8 @@
 <li><p>with the same probability of success on each trial.</p></li>
 </ul>
 <p>So don’t use it for the number of aces in a hand of cards dealt without replacement.</p>
-<div class="section" id="example-1-random-number-generator">
-<h2><span class="section-number">6.2.1. </span>Example 1: Random Number Generator<a class="headerlink" href="#example-1-random-number-generator" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="random-number-generator">
+<h2><span class="section-number">6.2.1. </span>Random Number Generator<a class="headerlink" href="#random-number-generator" title="Permalink to this headline">¶</a></h2>
 <p>A random number generator draws repeatedly at random with replacement from the 10 digits <span class="math notranslate nohighlight">\(\{0, 1, 2, 3, 4, 5, 6, 7, 8, 9\}\)</span>.</p>
 <p><strong>Question 1.</strong> The generator is run 20 times. Find the chance that 0 appears more than two times.</p>
 <p><strong>Answer 1.</strong></p>
@@ -998,8 +1018,8 @@
 p = \binom{20}{2} 0.1^2 0.9^{18}
 \]</div>
 </div>
-<div class="section" id="example-2-both-heads-and-tails">
-<h2><span class="section-number">6.2.2. </span>Example 2: Both Heads and Tails<a class="headerlink" href="#example-2-both-heads-and-tails" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="both-heads-and-tails">
+<h2><span class="section-number">6.2.2. </span>Both Heads and Tails<a class="headerlink" href="#both-heads-and-tails" title="Permalink to this headline">¶</a></h2>
 <p>Toss a coin 10 times.</p>
 <p><strong>Question.</strong> What is the chance that you get at least 3 heads and at least 3 tails?</p>
 <p><strong>Answer.</strong> Here is a great first step in working with any distribution: identify the set of possible values that make your event occur.</p>
@@ -1028,8 +1048,8 @@ P(H \ge 3, T \ge 3) = P(H \ge 3)P(T \ge 3 \mid H \ge 3)
 \]</div>
 <p>The first factor is easily found, but the second isn’t clear at all. It’s not <span class="math notranslate nohighlight">\(P(T \ge 3)\)</span> because <span class="math notranslate nohighlight">\(H\)</span> and <span class="math notranslate nohighlight">\(T\)</span> are far from independent: <span class="math notranslate nohighlight">\(T = 10 - H\)</span>.</p>
 </div>
-<div class="section" id="example-3-conditional-distribution-of-the-trial-that-results-in-the-first-success">
-<h2><span class="section-number">6.2.3. </span>Example 3: Conditional Distribution of the Trial that Results in the First Success<a class="headerlink" href="#example-3-conditional-distribution-of-the-trial-that-results-in-the-first-success" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="conditional-distribution-of-the-trial-that-results-in-the-first-success">
+<h2><span class="section-number">6.2.3. </span>Conditional Distribution of the Trial that Results in the First Success<a class="headerlink" href="#conditional-distribution-of-the-trial-that-results-in-the-first-success" title="Permalink to this headline">¶</a></h2>
 <p>I have rolled a die 24 times.</p>
 <p><strong>Question.</strong> Find the conditional distribution of the roll in which I saw “six”, given that I saw 1 six in the 24 rolls.</p>
 <p><strong>Answer.</strong> Let <span class="math notranslate nohighlight">\(R\)</span> be the roll in which the six appeared, and let <span class="math notranslate nohighlight">\(S\)</span> be the total number of sixes in the 24 rolls. We want the conditional distribution of <span class="math notranslate nohighlight">\(R\)</span> given <span class="math notranslate nohighlight">\(S = 1\)</span>.</p>
@@ -1078,7 +1098,7 @@ P(R = k \mid S = 1) &amp;= \frac{P(R = k, S = 1)}{P(S=1)} \\ \\
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="01_Binomial_Distribution.html" title="previous page"><span class="section-number">6.1. </span>The Binomial Distribution</a>
-    <a class='right-next' id="next-link" href="03_Hypergeometric_Distribution.html" title="next page"><span class="section-number">6.3. </span>The Hypergeometric Distribution</a>
+    <a class='right-next' id="next-link" href="03_Multinomial_Distribution.html" title="next page"><span class="section-number">6.3. </span>Multinomial Distribution</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

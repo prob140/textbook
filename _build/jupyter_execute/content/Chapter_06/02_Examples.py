@@ -17,7 +17,7 @@ In this section we will work with the binomial distribution in a variety of sett
 
 So don't use it for the number of aces in a hand of cards dealt without replacement.
 
-### Example 1: Random Number Generator ###
+### Random Number Generator ###
 A random number generator draws repeatedly at random with replacement from the 10 digits $\{0, 1, 2, 3, 4, 5, 6, 7, 8, 9\}$.
 
 **Question 1.** The generator is run 20 times. Find the chance that 0 appears more than two times.
@@ -61,7 +61,7 @@ $$
 p = \binom{20}{2} 0.1^2 0.9^{18}
 $$
 
-### Example 2: Both Heads and Tails ###
+### Both Heads and Tails ###
 Toss a coin 10 times. 
 
 **Question.** What is the chance that you get at least 3 heads and at least 3 tails?
@@ -86,7 +86,7 @@ $$
 
 The first factor is easily found, but the second isn't clear at all. It's not $P(T \ge 3)$ because $H$ and $T$ are far from independent: $T = 10 - H$.
 
-### Example 3: Conditional Distribution of the Trial that Results in the First Success ###
+### Conditional Distribution of the Trial that Results in the First Success ###
 I have rolled a die 24 times. 
 
 **Question.** Find the conditional distribution of the roll in which I saw "six", given that I saw 1 six in the 24 rolls.

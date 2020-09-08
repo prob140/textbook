@@ -285,18 +285,28 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="03_Hypergeometric_Distribution.html">
-     6.3. The Hypergeometric Distribution
+    <a class="reference internal" href="03_Multinomial_Distribution.html">
+     6.3. Multinomial Distribution
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="04_Odds_Ratios.html">
-     6.4. Odds Ratios
+    <a class="reference internal" href="04_The_Hypergeometric_Revisited.html">
+     6.4. The Hypergeometric, Revisited
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="05_Law_of_Small_Numbers.html">
-     6.5. The Law of Small Numbers
+    <a class="reference internal" href="05_Odds_Ratios.html">
+     6.5. Odds Ratios
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="06_Law_of_Small_Numbers.html">
+     6.6. The Law of Small Numbers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="07_Exercises.html">
+     6.7. Exercises
     </a>
    </li>
   </ul>
@@ -307,13 +317,23 @@
   </a>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_07/01_Poissonizing_the_Binomial.html">
-     7.3.1. Poissonizing the Binomial
+    <a class="reference internal" href="../Chapter_07/01_Poisson_Distribution.html">
+     7.1. Poisson Distribution
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_07/02_Poissonizing_the_Multinomial.html">
-     7.3.2. Poissonizing the Multinomial
+    <a class="reference internal" href="../Chapter_07/02_Poissonizing_the_Binomial.html">
+     7.2. Poissonizing the Binomial
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_07/03_Poissonizing_the_Multinomial.html">
+     7.3. Poissonizing the Multinomial
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_07/04_Exercises.html">
+     7.4. Exercises
     </a>
    </li>
   </ul>
@@ -907,13 +927,23 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#applying-the-formula">
+   6.1.2. Applying the Formula
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#binomial-probabilities-in-python">
-   6.1.2. Binomial Probabilities in Python
+   6.1.3. Binomial Probabilities in Python
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cumulative-distribution-function-cdf">
+   6.1.4. Cumulative Distribution Function (cdf)
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#binomial-histograms">
-   6.1.3. Binomial Histograms
+   6.1.5. Binomial Histograms
   </a>
  </li>
 </ul>
@@ -936,7 +966,7 @@
 <li><p>Let <span class="math notranslate nohighlight">\(S_n\)</span> be the total number of successes.</p></li>
 </ul>
 <p>The first goal of this section is to find the distribution of <span class="math notranslate nohighlight">\(S_n\)</span>.</p>
-<p>In the example that we fixed our minds on earlier, we are counting the number of sixes in 7 rolls of a die. The 7 rolls are independent of each other, the chance of “success” (getting a six) is <span class="math notranslate nohighlight">\(1/6\)</span> on each trial, and <span class="math notranslate nohighlight">\(S_7\)</span> is the number of sixes.</p>
+<p>In our <a class="reference external" href="http://prob140.org/textbook/content/Chapter_06/00_Random_Counts.html">earlier example</a>, we were counting the number of sixes in 7 rolls of a die. The 7 rolls are independent of each other, the chance of “success” (getting a six) is <span class="math notranslate nohighlight">\(1/6\)</span> on each trial, and <span class="math notranslate nohighlight">\(S_7\)</span> is the number of sixes.</p>
 <p>The first step in finding the distribution of any random variable is to identify the possible values of the variable. In <span class="math notranslate nohighlight">\(n\)</span> trials, the smallest number of successes you can have is 0 and the largest is <span class="math notranslate nohighlight">\(n\)</span>. So the set of possible values of <span class="math notranslate nohighlight">\(S_n\)</span> is <span class="math notranslate nohighlight">\(\{0, 1, 2, \ldots , n\}\)</span>.</p>
 <p>Thus the number of sixes in 7 rolls can be any integer in the 0 through 7 range. Let’s find <span class="math notranslate nohighlight">\(P(S_7 = 3)\)</span>.</p>
 <p>Partition the event <span class="math notranslate nohighlight">\(\{S_7 = 3\}\)</span> into the different ways it can happen. One way can be denoted SSSFFFF, where S denotes “success” (or “six”), and F denotes failure. Another is SFFSSFF. And so on.</p>
@@ -965,6 +995,18 @@ P(S_7 = 3) &amp;= \text{(number of sequences that have three S and four F)} \cdo
 P(S_n = k) = \binom{n}{k} p^k (1-p)^{n-k}, ~~~ k = 0, 1, \ldots, n
 \]</div>
 <p>Parameters of a distribution are constants associated with it. The Bernoulli <span class="math notranslate nohighlight">\((p)\)</span> distribution has parameter <span class="math notranslate nohighlight">\(p\)</span>. The binomial distribution defined above has parameters <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(p\)</span> and is referred to as the binomial <span class="math notranslate nohighlight">\((n, p)\)</span> distribution for short. You should check that the Bernoulli <span class="math notranslate nohighlight">\((p)\)</span> distribution is the same as the binomial <span class="math notranslate nohighlight">\((1, p)\)</span> distribution.</p>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="400"
+    height="300"
+    src="https://www.youtube.com/embed/K2Rsnx8YbJQ"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
 <p>Before we get going on calculations with the binomial distribution, let’s make a few observations.</p>
 <ul class="simple">
 <li><p>The functional form of the probabilities is symmetric in successes and failures, because</p></li>
@@ -996,7 +1038,7 @@ chance that all the trials are successes.</p>
 (a+b)^n &amp;= \sum_{k=0}^n \binom{n}{k} a^k b^{n-k}
 \end{align*}
 \end{split}\]</div>
-<p>by the <em>binomial expansion</em> of <span class="math notranslate nohighlight">\((a+b)^n\)</span>. The numbers <span class="math notranslate nohighlight">\(\binom{n}{k}\)</span> are the elements of Pascal’s triangle, as you will have seen in a math class.</p>
+<p>by the <em>binomial expansion</em> of <span class="math notranslate nohighlight">\((a+b)^n\)</span>. The numbers <span class="math notranslate nohighlight">\(\binom{n}{k}\)</span> are the elements of Pascal’s triangle, as you will have seen in a math class, and are called <em>binomial coefficients</em>.</p>
 <p>Plug in <span class="math notranslate nohighlight">\(a = p\)</span> and <span class="math notranslate nohighlight">\(b = 1-p\)</span> and notice that the terms in the sum are exactly the binomial probabilities we defined above. So the sum of the probabilities is</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1004,8 +1046,31 @@ chance that all the trials are successes.</p>
 ~ = ~ \big{(} p + (1-p) \big{)}^n ~ = ~ 1^n ~ = ~ 1
 \]</div>
 </div>
+<div class="section" id="applying-the-formula">
+<h2><span class="section-number">6.1.2. </span>Applying the Formula<a class="headerlink" href="#applying-the-formula" title="Permalink to this headline">¶</a></h2>
+<p>To use the binomial formula, you first have to recognize that it can be used, and then use it as you would use any distribution.</p>
+<ul class="simple">
+<li><p>Check the conditions: a known number of independent, repeated, success/failure trials, and you are counting the number of successes</p></li>
+<li><p>Identify the two parameters <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(p\)</span></p></li>
+<li><p>Identify each <span class="math notranslate nohighlight">\(k\)</span> for which the event occurs</p></li>
+<li><p>Add up the binomial <span class="math notranslate nohighlight">\((n, p)\)</span> probabilities for all <span class="math notranslate nohighlight">\(k\)</span> in the set you identified (or, if the set is very large, add up the probabilities in the complement and then subtract from 1)</p></li>
+</ul>
+<div class="admonition-quick-check admonition">
+<p class="admonition-title">Quick Check</p>
+<p>Every time I throw a dart, I have chance 25% of hitting the bullseye, independent of all other throws. Suppose I throw the dart 10 times. Find the chance that</p>
+<p>(a) I hit the bullseye two times</p>
+<p>(b) I hit the bullseye more than two times</p>
+<p>(c) I hit the bullseye more than six times</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Answer</p>
+<p>(a) <span class="math notranslate nohighlight">\(\binom{10}{2} 0.25^2 0.75^8\)</span></p>
+<p>(b) $1 - \sum_{k=0}^{2} \binom{10}{k} 0.25^k 0.75^{10-k} $</p>
+<p>(c) $\sum_{k=7}^{10} \binom{10}{k} 0.25^k 0.75^{10-k} $</p>
+</div>
+</div>
 <div class="section" id="binomial-probabilities-in-python">
-<h2><span class="section-number">6.1.2. </span>Binomial Probabilities in Python<a class="headerlink" href="#binomial-probabilities-in-python" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.1.3. </span>Binomial Probabilities in Python<a class="headerlink" href="#binomial-probabilities-in-python" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">SciPy</span></code> is a system for scientific computing, based on Python. The <code class="docutils literal notranslate"><span class="pre">stats</span></code> submodule of <code class="docutils literal notranslate"><span class="pre">scipy</span></code> does numerous calculations in probability and statistics. We will be importing it at the start of every notebook from now on.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1015,7 +1080,7 @@ chance that all the trials are successes.</p>
 </div>
 </div>
 <p>The function <code class="docutils literal notranslate"><span class="pre">stats.binom.pmf</span></code> takes three arguments: <span class="math notranslate nohighlight">\(k\)</span>, <span class="math notranslate nohighlight">\(n\)</span>, and <span class="math notranslate nohighlight">\(p\)</span>, in that order. It returns the numerical value of <span class="math notranslate nohighlight">\(P(S_n = k)\)</span> For short, we will say that the function returns the binomial <span class="math notranslate nohighlight">\((n, p)\)</span> probability of <span class="math notranslate nohighlight">\(k\)</span>.</p>
-<p>The acronym “pmf” stands for “probability mass function” which as we have noted earlier is sometimes used as another name for the distribution of a variable that has finitely many values.</p>
+<p>The acronym “pmf” stands for <em>probability mass function</em> which as we have noted earlier is sometimes used as another name for the distribution of a variable that has finitely many values.</p>
 <p>The chance of 3 sixes in 7 rolls of a die is
 <span class="math notranslate nohighlight">\(\binom{7}{3}(1/6)^3(5/6)^4\)</span> by the binomial formula, which works out to about 8% by the calculation below.</p>
 <div class="cell docutils container">
@@ -1056,9 +1121,21 @@ chance that all the trials are successes.</p>
 </div>
 </div>
 </div>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="400"
+    height="300"
+    src="https://www.youtube.com/embed/MoBXF8icYkM"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
 </div>
-<div class="section" id="binomial-histograms">
-<h2><span class="section-number">6.1.3. </span>Binomial Histograms<a class="headerlink" href="#binomial-histograms" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="cumulative-distribution-function-cdf">
+<h2><span class="section-number">6.1.4. </span>Cumulative Distribution Function (cdf)<a class="headerlink" href="#cumulative-distribution-function-cdf" title="Permalink to this headline">¶</a></h2>
 <p>To visualize binomial distributions we will use the <code class="docutils literal notranslate"><span class="pre">prob140</span></code> method <code class="docutils literal notranslate"><span class="pre">Plot</span></code>, by first using <code class="docutils literal notranslate"><span class="pre">stats.binom.pmf</span></code> to calculate the binomial probabilities. The cell below plots the distribution of <span class="math notranslate nohighlight">\(S_7\)</span> above. Notice how we start by specifying all the possible values of <span class="math notranslate nohighlight">\(S_7\)</span> in the array <code class="docutils literal notranslate"><span class="pre">k</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1072,10 +1149,102 @@ chance that all the trials are successes.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/01_Binomial_Distribution_13_0.png" src="../../_images/01_Binomial_Distribution_13_0.png" />
+<img alt="../../_images/01_Binomial_Distribution_19_0.png" src="../../_images/01_Binomial_Distribution_19_0.png" />
 </div>
 </div>
-<p>Not surprisingly, the graph shows that in 7 rolls of a die you are most likely to get around 1 six.</p>
+<p>Very often, we need probabilities of the form <span class="math notranslate nohighlight">\(P(X &gt; x)\)</span> or <span class="math notranslate nohighlight">\(P(X \le x)\)</span>. For example, for <span class="math notranslate nohighlight">\(X\)</span> with the binomial <span class="math notranslate nohighlight">\((7, 1/6)\)</span> distribution above, here is the event <span class="math notranslate nohighlight">\(\{ X \le 2 \}\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Plot</span><span class="p">(</span><span class="n">binom_7_1_6_dist</span><span class="p">,</span> <span class="n">event</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/01_Binomial_Distribution_21_0.png" src="../../_images/01_Binomial_Distribution_21_0.png" />
+</div>
+</div>
+<p>The <em>cumulative distribution function</em> or c.d.f. of any random variable is a function that calculates this “area to the left” of any point. If you denote the c.d.f. by <span class="math notranslate nohighlight">\(F\)</span>, then
+<span class="math notranslate nohighlight">\($
+F(x) = P(X \le x)
+$\)</span>
+for any x.</p>
+<p>We will get to know this function better later in the course. For now, note that <code class="docutils literal notranslate"><span class="pre">stats</span></code> lets you calculate it directly without having to use <code class="docutils literal notranslate"><span class="pre">pmf</span></code> and then summing. The function is called <code class="docutils literal notranslate"><span class="pre">stats.distribution_name.cdf</span></code> where <code class="docutils literal notranslate"><span class="pre">distribution_name</span></code> could be <code class="docutils literal notranslate"><span class="pre">binom</span></code> or <code class="docutils literal notranslate"><span class="pre">hypergeom</span></code> or any other distribution name that <code class="docutils literal notranslate"><span class="pre">stats</span></code> recognizes. The first argument is <span class="math notranslate nohighlight">\(x\)</span>, followed by the parameters of the distribution in a specified order.</p>
+<p>For <span class="math notranslate nohighlight">\(X\)</span> a binomial <span class="math notranslate nohighlight">\((7, 1/6)\)</span> random variable, the gold area above is <span class="math notranslate nohighlight">\(F(2)\)</span> which is about 90.4%.</p>
+<p>To find <span class="math notranslate nohighlight">\(P(X &gt; 2)\)</span>, we can use the cdf again:</p>
+<div class="math notranslate nohighlight">
+\[
+P(X &gt; 2) ~ = ~ 1 - P(X \le 2) ~ = ~ 1 - F(2)
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="o">-</span> <span class="n">stats</span><span class="o">.</span><span class="n">binom</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">6</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0.09577546296296291
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">stats</span><span class="o">.</span><span class="n">binom</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">6</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0.9042245370370371
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here is the event <span class="math notranslate nohighlight">\(P(5 &lt; Y \le 10)\)</span> for a random variable <span class="math notranslate nohighlight">\(Y\)</span> that has the binomial <span class="math notranslate nohighlight">\((20, 0.4)\)</span> distribution.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">21</span><span class="p">)</span>
+<span class="n">probs</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">binom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">)</span>
+<span class="n">binom_20_point4</span> <span class="o">=</span> <span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">.</span><span class="n">probabilities</span><span class="p">(</span><span class="n">probs</span><span class="p">)</span>
+<span class="n">Plot</span><span class="p">(</span><span class="n">binom_20_point4</span><span class="p">,</span> <span class="n">event</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">11</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/01_Binomial_Distribution_27_0.png" src="../../_images/01_Binomial_Distribution_27_0.png" />
+</div>
+</div>
+<p>To find <span class="math notranslate nohighlight">\(P(5 &lt; Y \le 10)\)</span> we can sum the areas of the gold bars. But we can also use the cdf:</p>
+<div class="math notranslate nohighlight">
+\[
+P(5 &lt; Y \le 10) ~ = ~ P(Y \le 10) - P(Y \le 5)
+\]</div>
+<p>That’s about 74.7%.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">stats</span><span class="o">.</span><span class="n">binom</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">)</span> <span class="o">-</span> <span class="n">stats</span><span class="o">.</span><span class="n">binom</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0.7468797811297461
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="binomial-histograms">
+<h2><span class="section-number">6.1.5. </span>Binomial Histograms<a class="headerlink" href="#binomial-histograms" title="Permalink to this headline">¶</a></h2>
+<p>Here is the histogram of the binomial <span class="math notranslate nohighlight">\((7, 1/6)\)</span> distribution again. Not surprisingly, the graph shows that in 7 rolls of a die you are most likely to get around 1 six.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Plot</span><span class="p">(</span><span class="n">binom_7_1_6_dist</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/01_Binomial_Distribution_31_0.png" src="../../_images/01_Binomial_Distribution_31_0.png" />
+</div>
+</div>
 <p>This distribution is not symmetric, as you would expect. But something interesting happens to the distribution of the number of sixes when you increase the number of rolls.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1089,7 +1258,7 @@ chance that all the trials are successes.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/01_Binomial_Distribution_15_0.png" src="../../_images/01_Binomial_Distribution_15_0.png" />
+<img alt="../../_images/01_Binomial_Distribution_34_0.png" src="../../_images/01_Binomial_Distribution_34_0.png" />
 </div>
 </div>
 <p>This distribution is close to symmetric, even though the die has only a 1/6 chance of showing a six.</p>
@@ -1102,7 +1271,7 @@ chance that all the trials are successes.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/01_Binomial_Distribution_17_0.png" src="../../_images/01_Binomial_Distribution_17_0.png" />
+<img alt="../../_images/01_Binomial_Distribution_36_0.png" src="../../_images/01_Binomial_Distribution_36_0.png" />
 </div>
 </div>
 <p>But the binomial <span class="math notranslate nohighlight">\((n, p)\)</span> distribution doesn’t always look bell shaped if <span class="math notranslate nohighlight">\(n\)</span> is large.</p>
@@ -1119,7 +1288,7 @@ chance that all the trials are successes.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/01_Binomial_Distribution_19_0.png" src="../../_images/01_Binomial_Distribution_19_0.png" />
+<img alt="../../_images/01_Binomial_Distribution_38_0.png" src="../../_images/01_Binomial_Distribution_38_0.png" />
 </div>
 </div>
 <p>We really can’t see that at all! Let’s zoom in. When we set the limits on the horizontal axis, we have to account for the bar at 0 being centered at the 0 and hence starting at -0.5.</p>
@@ -1131,7 +1300,7 @@ chance that all the trials are successes.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/01_Binomial_Distribution_21_0.png" src="../../_images/01_Binomial_Distribution_21_0.png" />
+<img alt="../../_images/01_Binomial_Distribution_40_0.png" src="../../_images/01_Binomial_Distribution_40_0.png" />
 </div>
 </div>
 <p>Now you can see that in 600 independent trials with probability 1/600 of success on each trial, you are most likely to get no successes or 1 success. There is some chance that you get 2 through 4 successes, but the chance of any number of successes greater than 4 is barely visible on the scale of the graph.</p>

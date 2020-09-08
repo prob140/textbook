@@ -57,14 +57,18 @@
     sections:
     - file: content/Chapter_06/01_Binomial_Distribution
     - file: content/Chapter_06/02_Examples
-    - file: content/Chapter_06/03_Hypergeometric_Distribution
-    - file: content/Chapter_06/04_Odds_Ratios
-    - file: content/Chapter_06/05_Law_of_Small_Numbers
+    - file: content/Chapter_06/03_Multinomial_Distribution
+    - file: content/Chapter_06/04_The_Hypergeometric_Revisited
+    - file: content/Chapter_06/05_Odds_Ratios
+    - file: content/Chapter_06/06_Law_of_Small_Numbers
+    - file: content/Chapter_06/07_Exercises
   - file: content/Chapter_07/00_Poissonization
     expand_sections: true
     sections:
-    - file: content/Chapter_07/01_Poissonizing_the_Binomial
-    - file: content/Chapter_07/02_Poissonizing_the_Multinomial
+    - file: content/Chapter_07/01_Poisson_Distribution    
+    - file: content/Chapter_07/02_Poissonizing_the_Binomial
+    - file: content/Chapter_07/03_Poissonizing_the_Multinomial
+    - file: content/Chapter_07/04_Exercises
   - file: content/Chapter_08/00_Expectation
     expand_sections: true
     sections:

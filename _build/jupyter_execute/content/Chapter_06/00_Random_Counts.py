@@ -51,7 +51,9 @@ To fix such an example in your mind, think of the trials as being 7 rolls of a d
 
 01_Binomial_Distribution
 02_Examples
-03_Hypergeometric_Distribution
-04_Odds_Ratios
-05_Law_of_Small_Numbers
+03_Multinomial_Distribution
+04_The_Hypergeometric_Revisited
+05_Odds_Ratios
+06_Law_of_Small_Numbers
+07_Exercises
 ```

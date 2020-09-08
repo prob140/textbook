@@ -8,7 +8,7 @@
 
 Suppose one of the surveyed adults is picked at random. If possible, find the chance that the selected person agreed with at least one of the three statements. If this is not possible with the information given, find the best bounds you can for the chance.
 
-**2.** In a hand of 13 cards drawn randomly from a pack of 52, find the chance that at most one of the following ranks appears: Jack, Queen, King, Ace.
+**2.** In a hand of 13 cards drawn randomly from a pack of 52, find the chance of getting at most one card of the following ranks: Jack, Queen, King, Ace.
 
 **3.** A bag contains $m$ M&M’s, of which $g$ are green, $r$ red, and $b$ brown. There are no other colors, so $m=g+r+b$. Assume $m \geq 10$, and suppose I pick $10$ M&M’s at random without replacement.
 
@@ -40,7 +40,7 @@ Suppose one of the surveyed adults is picked at random. If possible, find the ch
 
 (b) $P(W = 3)$
 
-**12.** A small organization has $n < 12$ workers. Assume that each worker's birthday is equally likely to be any of the 12 months of the year, independent of all the other workers' birthdays. Find the chance that there is at least one month in which none of the workers has their birthday.
+**12.** A small organization has $n > 12$ workers. Assume that each worker's birthday is equally likely to be any of the 12 months of the year, independent of all the other workers' birthdays. Find the chance that there is at least one month in which none of the workers has their birthday.
 
 **13.** Remember from Data 8 that a confidence interval is a random interval estimate of a fixed population parameter. Remember also that the process for generating a $p$% confidence interval has probability $p$% of producing an interval that contains (or *covers*) the parameter being estimated. 
 

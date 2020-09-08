@@ -196,7 +196,7 @@ Consider a probability space representing two rolls of a die. That is the space 
 :class: dropdown
 (a) $\{ (1,1), (2,2), (3,3), (4,4), (5,5), (6,6) \}$, probability $6/36$
 
-(b) $\{ (1,5), (1,6), (2,6) \}$, probability $3/36$
+(b) $\{ (5,1), (6,1), (6,2) \}$, probability $3/36$
 ```
 
 
