@@ -127,9 +127,9 @@ Every time I throw a dart, I have chance 25% of hitting the bullseye, independen
 :class: dropdown
 (a) $\binom{10}{2} 0.25^2 0.75^8$
 
-(b) $1 - \sum_{k=0}^{2} \binom{10}{k} 0.25^k 0.75^{10-k} $
+(b) $1 - \sum_{k=0}^{2} \binom{10}{k} 0.25^k 0.75^{10-k}$
 
-(c) $\sum_{k=7}^{10} \binom{10}{k} 0.25^k 0.75^{10-k} $
+(c) $\sum_{k=7}^{10} \binom{10}{k} 0.25^k 0.75^{10-k}$
 
 ```
 
