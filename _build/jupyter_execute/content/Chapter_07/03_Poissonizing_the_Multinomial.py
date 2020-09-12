@@ -54,7 +54,7 @@ Suppose I roll a Poisson $(18)$ number of dice. What is the chance that each fac
 
 ```{admonition} Answer
 :class: dropdown
-$\big{(} \sum_{i=0}^2 e^{-3}\frac{3^k}{k!} \big{)}^6$ 
+$\big{(} \sum_{k=0}^2 e^{-3}\frac{3^k}{k!} \big{)}^6$ 
 
 ```
 

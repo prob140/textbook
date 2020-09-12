@@ -21,5 +21,4 @@ As any student who has taken multiple "midterm" exams in a class knows, words li
 01_Definition
 02_Additivity
 03_Expectations_of_Functions
-04_Review_Problems_Set_2
 ```

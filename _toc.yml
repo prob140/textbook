@@ -75,7 +75,6 @@
     - file: content/Chapter_08/01_Definition
     - file: content/Chapter_08/02_Additivity
     - file: content/Chapter_08/03_Expectations_of_Functions
-    - file: content/Chapter_08/04_Review_Problems_Set_2
   - file: content/Chapter_09/00_Conditioning_Revisited
     expand_sections: true
     sections:
@@ -96,7 +95,6 @@
     - file: content/Chapter_11/02_Reversibility
     - file: content/Chapter_11/03_Code_Breaking
     - file: content/Chapter_11/04_Markov_Chain_Monte_Carlo
-    - file: content/Chapter_11/05_Review_Conditioning_and_MC
   - file: content/Chapter_12/00_Standard_Deviation
     expand_sections: true
     sections:

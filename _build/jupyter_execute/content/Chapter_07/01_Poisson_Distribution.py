@@ -98,7 +98,7 @@ In later chapters we will learn a lot more about the parameter $\mu$ of the Pois
 
 # VIDEO: Sum of Independent Poissons
 
-YouTubeVideo('SaHXAaHWMCY')
+YouTubeVideo('BJ-hAV1TiHk')
 
 ### Sums of Independent Poisson Variables ###
 Let $X$ have the Poisson ($\mu$) distribution, and let $Y$ independent of $X$ have the Poisson ($\lambda$) distribution. Then the sum $S = X+Y$ has the Poisson ($\mu + \lambda$) distribution.

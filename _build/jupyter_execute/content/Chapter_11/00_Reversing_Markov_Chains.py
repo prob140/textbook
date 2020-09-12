@@ -31,5 +31,4 @@ To understand and implement MCMC algorithms you have to study the reversibility 
 02_Reversibility
 03_Code_Breaking
 04_Markov_Chain_Monte_Carlo
-05_Review_Conditioning_and_MC
 ```
