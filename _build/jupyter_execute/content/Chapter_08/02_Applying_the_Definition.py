@@ -41,6 +41,17 @@ bern_1_3 = Table().values(x).probabilities(qp)
 Plot(bern_1_3, show_ev=True)
 plt.title('Bernoulli (0.25)');
 
+```{admonition} Quick Check
+Three coins are tossed. Let $I$ be the indicator of the event that all three coins land the same way. Find $E(I)$.
+
+```
+
+```{admonition} Answer
+:class: dropdown
+$\frac{1}{4}$
+
+```
+
 ### Uniform on an Interval of Integers ###
 Let $a$ and $b$ be two integers such that $a < b$. If $X$ has the uniform distribution on the integers $a, a+1, a+2, \ldots, b$, then by symmetry, $E(X)$ is half-way between $a$ and $b$. That's where the probability histogram will balance. So
 
@@ -68,6 +79,23 @@ unif_10 = Table().values(x).probabilities(probs)
 Plot(unif_10, show_ev=True)
 plt.title('Uniform on Integers 0, 1, 2, ..., 9');
 
+```{admonition} Quick Check
+Let $D$ be a digit picked at random from the $10$ digits $0$ through $9$. Pick one option: $E(D)$ is equal to
+
+(i) $4$
+
+(ii) $4.5$
+
+(iii) $5$
+
+```
+
+```{admonition} Answer
+:class: dropdown
+(ii)
+
+```
+
 # VIDEO: Expectation: Poisson
 from IPython.display import YouTubeVideo
 
@@ -93,6 +121,27 @@ poi_2_probs = stats.poisson.pmf(k, 2)
 dist_poi_2 = Table().values(k).probabilities(poi_2_probs)
 Plot(dist_poi_2, show_ev=True)
 plt.title('Poisson (2)');
+
+```{admonition} Quick Check
+Let $X$ have the Poisson $(\mu)$ distribution. Say whether each of the following statements is True or False.
+
+(a) If you simulate $X$ repeatedly, the average of the simulated values is likely to be around $\mu$.
+
+(b) The most likely value of $X$ is close to $\mu$.
+
+(c) $P(X > \mu)$ is $0.5$ or close to $0.5$.
+
+```
+
+```{admonition} Answer
+:class: dropdown
+(a) True
+
+(b) True
+
+(c) False
+
+```
 
 # VIDEO: Tail Sum Formula
 YouTubeVideo('ctcoolPNZjE')
@@ -154,4 +203,25 @@ $$
 
 # VIDEO: Expectation: Geometric
 YouTubeVideo('f2HhYnaGL2U')
+
+```{admonition} Quick Check
+Find the expectations of the following random variables.
+
+(a) The number of rolls of a die till the face with six spots appears
+
+(b) The number of rolls of a die till a face with more than four spots appears
+
+(c) The number of times a coin is tossed till it lands heads
+
+```
+
+```{admonition} Answer
+:class: dropdown
+(a) 6
+
+(b) 3
+
+(c) 2
+
+```
 

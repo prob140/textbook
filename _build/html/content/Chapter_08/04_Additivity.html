@@ -928,33 +928,45 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#e-x-2-for-a-poisson-variable-x">
+   8.4.2.
+   <span class="math notranslate nohighlight">
+    \(E(X^2)\)
+   </span>
+   for a Poisson Variable
+   <span class="math notranslate nohighlight">
+    \(X\)
+   </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#sample-sum">
-   8.4.2. Sample Sum
+   8.4.3. Sample Sum
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#unbiased-estimator">
-   8.4.3. Unbiased Estimator
+   8.4.4. Unbiased Estimator
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#unbiased-estimators-of-a-population-mean">
-   8.4.4. Unbiased Estimators of a Population Mean
+   8.4.5. Unbiased Estimators of a Population Mean
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#first-unbiased-estimator-of-a-maximum-possible-value">
-   8.4.5. First Unbiased Estimator of a Maximum Possible Value
+   8.4.6. First Unbiased Estimator of a Maximum Possible Value
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#second-unbiased-estimator-of-the-maximum-possible-value">
-   8.4.6. Second Unbiased Estimator of the Maximum Possible Value
+   8.4.7. Second Unbiased Estimator of the Maximum Possible Value
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#which-estimator-to-use">
-   8.4.7. Which Estimator to Use?
+   8.4.8. Which Estimator to Use?
   </a>
  </li>
 </ul>
@@ -1012,8 +1024,24 @@ E(X_1 + X_2 + \cdots + X_n) = E(X_1) + E(X_2) + \cdots + E(X_n)
 <p>regardless of the dependence structure of <span class="math notranslate nohighlight">\(X_1, X_2, \ldots, X_n\)</span>.</p>
 <p>If you are trying to find an expectation, then the way to use additivity is to write your random variable as a sum of simpler variables whose expectations you know or can calculate easily.</p>
 </div>
+<div class="section" id="e-x-2-for-a-poisson-variable-x">
+<h2><span class="section-number">8.4.2. </span><span class="math notranslate nohighlight">\(E(X^2)\)</span> for a Poisson Variable <span class="math notranslate nohighlight">\(X\)</span><a class="headerlink" href="#e-x-2-for-a-poisson-variable-x" title="Permalink to this headline">¶</a></h2>
+<p>Let <span class="math notranslate nohighlight">\(X\)</span> have the Poisson <span class="math notranslate nohighlight">\(\mu\)</span> distribution. In earlier sections we showed that <span class="math notranslate nohighlight">\(E(X) = \mu\)</span> and <span class="math notranslate nohighlight">\(E(X(X-1)) = \mu^2\)</span>.</p>
+<p>Now <span class="math notranslate nohighlight">\(X^2 = X(X-1) + X\)</span>. The random variables <span class="math notranslate nohighlight">\(X(X-1)\)</span> and <span class="math notranslate nohighlight">\(X\)</span> are both functions of <span class="math notranslate nohighlight">\(X\)</span>, so they are not independent of each other. But additivity of expectation doesn’t require independence, so we can use it to see that</p>
+<div class="math notranslate nohighlight">
+\[
+E(X^2) ~ = ~ E(X(X-1)) + E(X) ~ = ~ \mu^2 + \mu
+\]</div>
+<p>We will use this fact later when we study the variability of <span class="math notranslate nohighlight">\(X\)</span>.</p>
+<p>It is worth noting that it is not easy to calculate <span class="math notranslate nohighlight">\(E(X^2)\)</span> directly, since</p>
+<div class="math notranslate nohighlight">
+\[
+E(X^2) ~ = ~ \sum_{k=0}^\infty k^2 e^{-\mu}\frac{\mu^k}{k!}
+\]</div>
+<p>is not an easy sum to simplify.</p>
+</div>
 <div class="section" id="sample-sum">
-<h2><span class="section-number">8.4.2. </span>Sample Sum<a class="headerlink" href="#sample-sum" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.4.3. </span>Sample Sum<a class="headerlink" href="#sample-sum" title="Permalink to this headline">¶</a></h2>
 <p>Let <span class="math notranslate nohighlight">\(X_1, X_2, \ldots , X_n\)</span> be a sample drawn at random from a numerical population that has mean <span class="math notranslate nohighlight">\(\mu\)</span>, and let the sample sum be</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1028,7 +1056,7 @@ E(S_n) = E(X_1) + E(X_2) + \cdots + E(X_n) = n\mu
 <p>We can use this to estimate a population mean based on a sample mean.</p>
 </div>
 <div class="section" id="unbiased-estimator">
-<h2><span class="section-number">8.4.3. </span>Unbiased Estimator<a class="headerlink" href="#unbiased-estimator" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.4.4. </span>Unbiased Estimator<a class="headerlink" href="#unbiased-estimator" title="Permalink to this headline">¶</a></h2>
 <p>Suppose a random variable <span class="math notranslate nohighlight">\(X\)</span> is being used to estimate a fixed numerical parameter <span class="math notranslate nohighlight">\(\theta\)</span>. Then <span class="math notranslate nohighlight">\(X\)</span> is called an <em>estimator</em> of <span class="math notranslate nohighlight">\(\theta\)</span>.</p>
 <p>The <em>bias</em> of <span class="math notranslate nohighlight">\(X\)</span> is the difference <span class="math notranslate nohighlight">\(E(X) - \theta\)</span>. The bias measures the amount by which the estimator exceeds the parameter, on average. The bias can be negative if the estimator tends to underestimate the parameter.</p>
 <p>If the bias of an estimator is <span class="math notranslate nohighlight">\(0\)</span> then the estimator is called <em>unbiased</em>. So <span class="math notranslate nohighlight">\(X\)</span> is an unbiased estimator of <span class="math notranslate nohighlight">\(\theta\)</span> if <span class="math notranslate nohighlight">\(E(X) = \theta\)</span>.</p>
@@ -1038,7 +1066,7 @@ E(S_n) = E(X_1) + E(X_2) + \cdots + E(X_n) = n\mu
 <p>Constructing an unbiased estimator of a parameter <span class="math notranslate nohighlight">\(\theta\)</span> therefore amounts to finding a statistic <span class="math notranslate nohighlight">\(T = g(X_1, X_2, \ldots, X_n)\)</span> for a function <span class="math notranslate nohighlight">\(g\)</span> such that <span class="math notranslate nohighlight">\(E(T) = \theta\)</span>.</p>
 </div>
 <div class="section" id="unbiased-estimators-of-a-population-mean">
-<h2><span class="section-number">8.4.4. </span>Unbiased Estimators of a Population Mean<a class="headerlink" href="#unbiased-estimators-of-a-population-mean" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.4.5. </span>Unbiased Estimators of a Population Mean<a class="headerlink" href="#unbiased-estimators-of-a-population-mean" title="Permalink to this headline">¶</a></h2>
 <p>As in the sample sum example above, let <span class="math notranslate nohighlight">\(S_n\)</span> be the sum of a sample <span class="math notranslate nohighlight">\(X_1, X_2, \ldots , X_n\)</span> drawn at random from a population that has mean <span class="math notranslate nohighlight">\(\mu\)</span>. The standard statistical notation for the average of <span class="math notranslate nohighlight">\(X_1, X_2, \ldots , X_n\)</span> is <span class="math notranslate nohighlight">\(\bar{X}_n\)</span>. So</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1056,6 +1084,14 @@ E(\bar{X}_n) &amp;= \frac{E(S_n)}{n} ~~~~ \text{(linear function rule)} \\
 <p>Thus the sample mean is an unbiased estimator of the population mean.</p>
 <p>It is worth noting that <span class="math notranslate nohighlight">\(X_1\)</span> is also an unbiased estimator of <span class="math notranslate nohighlight">\(\mu\)</span>, since <span class="math notranslate nohighlight">\(E(X_1) = \mu\)</span>. So is <span class="math notranslate nohighlight">\(X_j\)</span> for any <span class="math notranslate nohighlight">\(j\)</span>, also <span class="math notranslate nohighlight">\((X_1 + X_9)/2\)</span>, or any linear combination of the sample if the coefficients add up to 1.</p>
 <p>But it seems clear that using the sample mean as the estimator is better than using just one sampled element, even though both are unbiased. This is true, and is related to how variable the estimators are. We will address this later in the course.</p>
+<div class="admonition-quick-check admonition">
+<p class="admonition-title">Quick Check</p>
+<p>Let <span class="math notranslate nohighlight">\(X_1, X_2, X_3\)</span> be i.i.d. Poisson <span class="math notranslate nohighlight">\((\mu)\)</span> random variables, and suppose the value of <span class="math notranslate nohighlight">\(\mu\)</span> is unknown. Is <span class="math notranslate nohighlight">\(0.4X_1 + 0.2X_2 + 0.4X_3\)</span> an unbiased estimator of <span class="math notranslate nohighlight">\(\mu\)</span>?</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Answer</p>
+<p>Yes</p>
+</div>
 <div class="cell tag_remove-input tag_hide-output docutils container">
 <div class="cell_output docutils container">
 <div class="output text_html">
@@ -1070,7 +1106,7 @@ E(\bar{X}_n) &amp;= \frac{E(S_n)}{n} ~~~~ \text{(linear function rule)} \\
 </div>
 </div>
 <div class="section" id="first-unbiased-estimator-of-a-maximum-possible-value">
-<h2><span class="section-number">8.4.5. </span>First Unbiased Estimator of a Maximum Possible Value<a class="headerlink" href="#first-unbiased-estimator-of-a-maximum-possible-value" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.4.6. </span>First Unbiased Estimator of a Maximum Possible Value<a class="headerlink" href="#first-unbiased-estimator-of-a-maximum-possible-value" title="Permalink to this headline">¶</a></h2>
 <p>Suppose we have a sample <span class="math notranslate nohighlight">\(X_1, X_2, \ldots , X_n\)</span> drawn at random from <span class="math notranslate nohighlight">\(1, 2, \ldots , N\)</span> for some fixed <span class="math notranslate nohighlight">\(N\)</span>, and we are trying to estimate <span class="math notranslate nohighlight">\(N\)</span>.</p>
 <p>How can we use the sample to construct an unbiased estimator of <span class="math notranslate nohighlight">\(N\)</span>? By definition, such an estimator must be a function of the sample and its expectation must be <span class="math notranslate nohighlight">\(N\)</span>.</p>
 <p>In other words, we have to construct a statistic that has expectation <span class="math notranslate nohighlight">\(N\)</span>.</p>
@@ -1090,9 +1126,17 @@ E(\bar{X}_n) = \frac{N+1}{2}
 \]</div>
 <p>This tells us what we have to do to the sample <span class="math notranslate nohighlight">\(X_1, X_2, \ldots, X_n\)</span> to get an unbiased estimator of <span class="math notranslate nohighlight">\(N\)</span>.</p>
 <p>We should just use the statistic <span class="math notranslate nohighlight">\(T_1 = 2\bar{X}_n - 1\)</span> as the estimator. It is unbiased because <span class="math notranslate nohighlight">\(E(T_1) = N\)</span> by the calculation above.</p>
+<div class="admonition-quick-check admonition">
+<p class="admonition-title">Quick Check</p>
+<p>In the setting above, what is the bias of <span class="math notranslate nohighlight">\(2\bar{X}_n\)</span> as an estimator of <span class="math notranslate nohighlight">\(N\)</span>? Does it tend to overestimate on average, or underestimate?</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Answer</p>
+<p><span class="math notranslate nohighlight">\(1\)</span>; overestimate</p>
+</div>
 </div>
 <div class="section" id="second-unbiased-estimator-of-the-maximum-possible-value">
-<h2><span class="section-number">8.4.6. </span>Second Unbiased Estimator of the Maximum Possible Value<a class="headerlink" href="#second-unbiased-estimator-of-the-maximum-possible-value" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.4.7. </span>Second Unbiased Estimator of the Maximum Possible Value<a class="headerlink" href="#second-unbiased-estimator-of-the-maximum-possible-value" title="Permalink to this headline">¶</a></h2>
 <p>The calculation above stems from a problem the Allied forces faced in World War II. Germany had a seemingly never-ending fleet of Panzer tanks, and the Allies needed to estimate how many they had. They decided to base their estimates on the serial numbers of the tanks that they saw.</p>
 <p>Here is a picture of one from <a class="reference external" href="https://en.wikipedia.org/wiki/Panzer_IV">Wikipedia</a>.</p>
 <p><img alt="Panzer Tank" src="../../_images/panzer.png" /></p>
@@ -1159,14 +1203,22 @@ T_2 ~ = ~ M\cdot\frac{n+1}{n}  -  1
 E(T_2) ~ = ~ E(M)\cdot\frac{n+1}{n}  -  1 ~ = ~ (N+1)\frac{n}{n+1}\cdot\frac{n+1}{n} - 1 ~ = ~ N
 \]</div>
 <p>Thus the augmented maximum <span class="math notranslate nohighlight">\(T_2\)</span> is an unbiased estimator of <span class="math notranslate nohighlight">\(N\)</span>.</p>
+<div class="admonition-quick-check admonition">
+<p class="admonition-title">Quick Check</p>
+<p>A gardener in Berkeley has 23 blue flower pots in a row. She picks a simple random sample of 5 of them and colors the selected pots gold. What is the expected number of blue flower pots at the end of the row?</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Answer</p>
+<p><span class="math notranslate nohighlight">\(3\)</span></p>
+</div>
 </div>
 <div class="section" id="which-estimator-to-use">
-<h2><span class="section-number">8.4.7. </span>Which Estimator to Use?<a class="headerlink" href="#which-estimator-to-use" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.4.8. </span>Which Estimator to Use?<a class="headerlink" href="#which-estimator-to-use" title="Permalink to this headline">¶</a></h2>
 <p>The Allied statisticians thus had two unbiased estimators of <span class="math notranslate nohighlight">\(N\)</span> from which to choose. They went with <span class="math notranslate nohighlight">\(T_2\)</span> instead of <span class="math notranslate nohighlight">\(T_1\)</span> because <span class="math notranslate nohighlight">\(T_2\)</span> has less variability.</p>
 <p>We will quantify this later in the course. For now, here is a simulation of distributions of the two estimators in the case <span class="math notranslate nohighlight">\(N = 300\)</span> and <span class="math notranslate nohighlight">\(n=30\)</span>. The simulation is based on <span class="math notranslate nohighlight">\(5000\)</span> repetitions of drawing a simple random sample of size <span class="math notranslate nohighlight">\(30\)</span> from the integers <span class="math notranslate nohighlight">\(1\)</span> through <span class="math notranslate nohighlight">\(300\)</span>.</p>
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/04_Additivity_13_0.png" src="../../_images/04_Additivity_13_0.png" />
+<img alt="../../_images/04_Additivity_20_0.png" src="../../_images/04_Additivity_20_0.png" />
 </div>
 </div>
 <p>You can see why <span class="math notranslate nohighlight">\(T_2\)</span> is a better estimator than <span class="math notranslate nohighlight">\(T_1\)</span>.</p>

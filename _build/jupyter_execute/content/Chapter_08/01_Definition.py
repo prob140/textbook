@@ -17,21 +17,38 @@ YouTubeVideo('jhKL5nVe0Mk')
 
 The *expectation* of a random variable $X$, denoted $E(X)$, is the average of the possible values of $X$ weighted by their probabilities. This can be calculated in two equivalent ways.
 
-#### On the domain of $X$: ####
+**On the domain of $X$:**
 
 $$
 E(X) = \sum_{\omega \in \Omega} X(\omega)P(\omega)
 $$
 
-#### On the range of $X$: ####
+**On the range of $X$:**
 
 $$
 E(X) = \sum_{\text{all }x} xP(X=x)
 $$
 
+```{admonition} Quick Check
+Let $X$ be the maximum of two draws at random without replacement from $\{ 1, 2, 3 \}$. 
+
+(a) For the outcome $\omega = (3, 1)$ of Draw 1 followed by Draw 2, what is the value of $X(\omega)P(\omega)$?
+
+(b) Show how to calculate $E(X)$ on the range of $X$.
+
+```
+
+```{admonition} Answer
+:class: dropdown
+(a) $3\cdot\frac{1}{6}$
+
+(b) $2 \cdot \frac{2}{6} + 3 \cdot \frac{4}{6}$
+
+```
+
 **Technical Note:** If $X$ has finitely many possible values, the sums above are always well defined and finite. If $X$ can have countably many values (that is, values indexed by 1, 2, 3, $\ldots$), then more care is needed to make sure that the formulas result in a well defined number. We will deal with that issue shortly; for now, assume that the sum is well defined.
 
-Assuming the sums are well defined, is straightforward to show that these two formulas give the same answer. One way to show it is to group terms in the first sum by the distinct values of $X(\omega)$ over all the different outcomes $\omega$.
+Assuming the sums are well defined, it is straightforward to show that these two formulas give the same answer. One way to show it is to group terms in the first sum by the distinct values of $X(\omega)$ over all the different outcomes $\omega$.
 
 The second formula is often given as "the" definition of expectation, but the first can be helpful for understanding properties of expectation. In particular, it shows that if two random variables have the same distribution, then they also have the same expectation.
 
@@ -63,6 +80,17 @@ If you have studied some physics, you will recognize that the formula we used fo
 So suppose the histogram is made of cardboard or some rigid material, and imagine trying to balance it on the tip of a pencil held somewhere on the horizontal axis. You'll have to hold the pencil at 2.85 for the figure to balance.
 
 The expectation is the *center* of the distribution in this physical sense: it is the *center of gravity* or *center of mass* of the distribution.
+
+```{admonition} Quick Check
+True or False: If $X \stackrel{d}{=} Y$ then $E(X) = E(Y)$.
+
+```
+
+```{admonition} Answer
+:class: dropdown
+True
+
+```
 
 ### Long Run Average ###
 You can also think of expectation as the *long run average* value of the random variable when you generate the variable over and over again independently and under identical conditions. The `sample_from_dist` method applied to `prob140` distribution objects allows you to do just that. It samples at random with replacement from the distribution and returns an array of sampled values. The argument is the sample size.
@@ -105,4 +133,21 @@ $$
 Now suppose the random variable $X$ has values $2, 4, 8, 16 \ldots$ so that $P(X = 2^n) = 1/2^n$ for $n = 1, 2, 3, \ldots $. Then for every possible value $x$, the product $xP(X=x) = 1$. If you try to add infinitely many 1's, the only sensible answer is infinity. 
 
 This problem with expectation happens when the distribution has "mass drifting off to infinity" at a rate that makes it impossible to balance the probability histogram anywhere on the horizontal axis. 
+
+```{admonition} Quick Check
+Let $X$ be the number of spots on one roll of a die. Say whether each of the following statements is True or False.
+
+(a) $E(X)$ does not exist because $X$ can't be $3.5$.
+
+(b) If you roll a die repeatedly, the average number of spots per roll is likely to be about 3.5.
+
+```
+
+```{admonition} Answer
+:class: dropdown
+(a) False; $E(X) = 3.5$
+
+(b) True
+
+```
 

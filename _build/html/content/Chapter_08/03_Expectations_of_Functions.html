@@ -931,32 +931,6 @@
   <a class="reference internal nav-link" href="#non-linear-function-rule">
    8.3.2. Non-linear Function Rule
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#on-the-range-of-y">
-     8.3.2.1. On the range of
-     <span class="math notranslate nohighlight">
-      \(Y\)
-     </span>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#on-the-domain-omega">
-     8.3.2.2. On the domain
-     <span class="math notranslate nohighlight">
-      \(\Omega\)
-     </span>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#on-the-range-of-x">
-     8.3.2.3. On the range of
-     <span class="math notranslate nohighlight">
-      \(X\)
-     </span>
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#y-vert-x-3-vert">
@@ -975,10 +949,10 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#e-x-2-for-a-poisson-variable-x">
+  <a class="reference internal nav-link" href="#e-x-x-1-for-a-poisson-variable-x">
    8.3.5.
    <span class="math notranslate nohighlight">
-    \(E(X^2)\)
+    \(E(X(X-1))\)
    </span>
    for a Poisson Variable
    <span class="math notranslate nohighlight">
@@ -1003,7 +977,6 @@
 \[
 Y = |X - 10|
 \]</div>
-<p>To find <span class="math notranslate nohighlight">\(E(Y)\)</span>, we need a bit more technique.</p>
 <p>This section is about finding the expectation of a function of a random variable whose distribution you know. Throughout, we will assume that all the expectations that we are discussing are well defined.</p>
 <p>In what follows, let <span class="math notranslate nohighlight">\(X\)</span> be a random variable whose distribution (and hence also expectation) are known.</p>
 <div class="section" id="linear-function-rule">
@@ -1012,7 +985,7 @@ Y = |X - 10|
 <p>This kind of transformation happens for example when you change units of measurement.</p>
 <ul class="simple">
 <li><p>If you switch from Celsius to Fahreneheit, then <span class="math notranslate nohighlight">\(a = 9/5\)</span> and <span class="math notranslate nohighlight">\(b = 32\)</span>.</p></li>
-<li><p>If you switch from inches to centimeters, then <span class="math notranslate nohighlight">\(a = 2/54\)</span> and <span class="math notranslate nohighlight">\(b = 0\)</span>.</p></li>
+<li><p>If you switch from inches to centimeters, then <span class="math notranslate nohighlight">\(a = 2.54\)</span> and <span class="math notranslate nohighlight">\(b = 0\)</span>.</p></li>
 </ul>
 <p>We can find <span class="math notranslate nohighlight">\(E(Y)\)</span> by applying the definition of expectation on the domain <span class="math notranslate nohighlight">\(\Omega\)</span>. For every <span class="math notranslate nohighlight">\(\omega \in \Omega\)</span>, we have <span class="math notranslate nohighlight">\(Y(\omega) = aX(\omega) + b\)</span>. So</p>
 <div class="math notranslate nohighlight">
@@ -1023,8 +996,19 @@ E(Y) ~ &amp;= ~ \sum_{\text{all }\omega} (aX(\omega)+b)P(\omega) \\
 &amp;= ~aE(X) + b
 \end{align*}
 \end{split}\]</div>
-<p>So for example, <span class="math notranslate nohighlight">\(E(2X - 3) = 2E(X) - 3\)</span>. Also <span class="math notranslate nohighlight">\(E(X/2) = E(X)/2\)</span>, and <span class="math notranslate nohighlight">\(E(1 - X) = 1 - E(X)\)</span>.</p>
+<p>For example, <span class="math notranslate nohighlight">\(E(2X - 3) = 2E(X) - 3\)</span>. Also <span class="math notranslate nohighlight">\(E(X/2) = E(X)/2\)</span>, and <span class="math notranslate nohighlight">\(E(1 - X) = 1 - E(X)\)</span>.</p>
 <p>The expectation of a linear transformation of <span class="math notranslate nohighlight">\(X\)</span> is the linear transformation of the expectation of <span class="math notranslate nohighlight">\(X\)</span>. This is a handy result as we will often be transforming variables linearly.</p>
+<div class="admonition-quick-check admonition">
+<p class="admonition-title">Quick Check</p>
+<p>Let <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> be random variables on the same space, with <span class="math notranslate nohighlight">\(E(X) = 5\)</span> and <span class="math notranslate nohighlight">\(E(Y) = 3\)</span>.</p>
+<p>(a) Find <span class="math notranslate nohighlight">\(E(X-Y)\)</span>.</p>
+<p>(b) Find <span class="math notranslate nohighlight">\(E(2X-8Y+7)\)</span>.</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Answer</p>
+<p>(a) <span class="math notranslate nohighlight">\(2\)</span> because <span class="math notranslate nohighlight">\(X-Y = X+(-Y)\)</span></p>
+<p>(b) <span class="math notranslate nohighlight">\(-7\)</span></p>
+</div>
 <p>But expectation behaves differently under non-linear transformation.</p>
 <div class="cell tag_remove-input tag_hide-output docutils container">
 <div class="cell_output docutils container">
@@ -1047,22 +1031,17 @@ E(Y) ~ &amp;= ~ \sum_{\text{all }\omega} (aX(\omega)+b)P(\omega) \\
 Y(\omega) = (g \circ X) (\omega) ~~~~~~~~~ \text{for } \omega \in \Omega
 \]</div>
 <p>This allows us to write <span class="math notranslate nohighlight">\(E(Y)\)</span> in three equivalent ways:</p>
-<div class="section" id="on-the-range-of-y">
-<h3><span class="section-number">8.3.2.1. </span>On the range of <span class="math notranslate nohighlight">\(Y\)</span><a class="headerlink" href="#on-the-range-of-y" title="Permalink to this headline">¶</a></h3>
+<p><strong>On the range of <span class="math notranslate nohighlight">\(Y\)</span></strong></p>
 <div class="math notranslate nohighlight">
 \[
 E(Y) =  \sum_{\text{all }y} yP(Y=y)
 \]</div>
-</div>
-<div class="section" id="on-the-domain-omega">
-<h3><span class="section-number">8.3.2.2. </span>On the domain <span class="math notranslate nohighlight">\(\Omega\)</span><a class="headerlink" href="#on-the-domain-omega" title="Permalink to this headline">¶</a></h3>
+<p><strong>On the domain <span class="math notranslate nohighlight">\(\Omega\)</span></strong></p>
 <div class="math notranslate nohighlight">
 \[
 E(Y) = E(g(X)) = \sum_{\omega \in \Omega} (g \circ X) (\omega) P(\omega)
 \]</div>
-</div>
-<div class="section" id="on-the-range-of-x">
-<h3><span class="section-number">8.3.2.3. </span>On the range of <span class="math notranslate nohighlight">\(X\)</span><a class="headerlink" href="#on-the-range-of-x" title="Permalink to this headline">¶</a></h3>
+<p><strong>On the range of <span class="math notranslate nohighlight">\(X\)</span></strong></p>
 <div class="math notranslate nohighlight">
 \[
 E(Y) = E(g(X)) = \sum_{\text{all }x} g(x)P(X=x)
@@ -1090,7 +1069,6 @@ E(Y) = E(g(X)) = \sum_{\text{all }x} g(x)P(X=x)
 </div></div>
 </div>
 <p>Let’s see how our method works in some examples.</p>
-</div>
 </div>
 <div class="section" id="y-vert-x-3-vert">
 <h2><span class="section-number">8.3.3. </span><span class="math notranslate nohighlight">\(Y = \vert X-3 \vert\)</span><a class="headerlink" href="#y-vert-x-3-vert" title="Permalink to this headline">¶</a></h2>
@@ -1237,25 +1215,9 @@ E(Y) = E(g(X)) = \sum_{\text{all }x} g(x)P(X=x)
 </div>
 </div>
 </div>
-<div class="section" id="e-x-2-for-a-poisson-variable-x">
-<h2><span class="section-number">8.3.5. </span><span class="math notranslate nohighlight">\(E(X^2)\)</span> for a Poisson Variable <span class="math notranslate nohighlight">\(X\)</span><a class="headerlink" href="#e-x-2-for-a-poisson-variable-x" title="Permalink to this headline">¶</a></h2>
-<p>Let <span class="math notranslate nohighlight">\(X\)</span> have the Poisson <span class="math notranslate nohighlight">\((\mu)\)</span> distribution. In a later chapter you will see that it is useful to know the value of <span class="math notranslate nohighlight">\(E(X^2)\)</span>. By our non-linear function rule,</p>
-<div class="math notranslate nohighlight">
-\[
-E(X^2) = \sum_{k=0}^\infty k^2 e^{-\mu} \frac{\mu^k}{k!}
-\]</div>
-<p>This sum turns out to be hard to simplify. The term for <span class="math notranslate nohighlight">\(k=0\)</span> is 0. In each term for <span class="math notranslate nohighlight">\(k \ge 1\)</span>, one of the <span class="math notranslate nohighlight">\(k\)</span>’s in the numerator cancels a <span class="math notranslate nohighlight">\(k\)</span> in the denominator but the other factor of <span class="math notranslate nohighlight">\(k\)</span> in the numerator remains. It would be so nice if that factor <span class="math notranslate nohighlight">\(k\)</span> were <span class="math notranslate nohighlight">\(k-1\)</span> instead, so it could cancel <span class="math notranslate nohighlight">\(k-1\)</span> in the denominator.</p>
-<p>This motivates the following calculation. No matter what <span class="math notranslate nohighlight">\(X\)</span> is, if we know <span class="math notranslate nohighlight">\(E(X)\)</span> and can find <span class="math notranslate nohighlight">\(E(X(X-1))\)</span>, then we can use additivity to find <span class="math notranslate nohighlight">\(E(X^2)\)</span> as follows:</p>
-<div class="math notranslate nohighlight">
-\[
-E(X(X-1)) = E(X^2 - X) = E(X^2) - E(X) 
-\]</div>
-<p>so</p>
-<div class="math notranslate nohighlight">
-\[
-E(X^2) = E(X(X-1)) + E(X)
-\]</div>
-<p>Let’s see if we can find <span class="math notranslate nohighlight">\(E(X(X-1))\)</span> by applying the non-linear function rule.</p>
+<div class="section" id="e-x-x-1-for-a-poisson-variable-x">
+<h2><span class="section-number">8.3.5. </span><span class="math notranslate nohighlight">\(E(X(X-1))\)</span> for a Poisson Variable <span class="math notranslate nohighlight">\(X\)</span><a class="headerlink" href="#e-x-x-1-for-a-poisson-variable-x" title="Permalink to this headline">¶</a></h2>
+<p>Let <span class="math notranslate nohighlight">\(X\)</span> have the Poisson <span class="math notranslate nohighlight">\((\mu)\)</span> distribution.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{align*}
@@ -1265,13 +1227,12 @@ E(X(X-1)) &amp;= \sum_{k=0}^\infty k(k-1) e^{-\mu} \frac{\mu^k}{k!} \\ \\
 &amp;= \mu^2
 \end{align*}
 \end{split}\]</div>
-<p>We know that <span class="math notranslate nohighlight">\(E(X) = \mu\)</span>, so</p>
+<p>In the next section we will use this to find <span class="math notranslate nohighlight">\(E(X^2)\)</span>. For now, notice that</p>
 <div class="math notranslate nohighlight">
 \[
-E(X^2) = \mu^2 + \mu
+E(X^2) ~ = ~ \sum_{k=0}^\infty k^2 e^{-\mu} \frac{\mu^k}{k!} ~ \ge ~ \sum_{k=0}^\infty k(k-1) e^{-\mu} \frac{\mu^k}{k!} ~ = ~ E(X(X-1)) ~ = ~ \mu^2
 \]</div>
-<p>Notice that <span class="math notranslate nohighlight">\(E(X^2) &gt; (E(X))^2\)</span>. This is an instance of a general fact. Later in the course we will see why it matters.</p>
-<p>For now, as an exercise, see if you can find <span class="math notranslate nohighlight">\(E(X(X-1)(X-2))\)</span> and hence <span class="math notranslate nohighlight">\(E(X^3)\)</span>.</p>
+<p>Since <span class="math notranslate nohighlight">\(E(X) = \mu\)</span>, we have <span class="math notranslate nohighlight">\(E(X^2) \ge (E(X))^2\)</span>. We will see later that this inequality is true for all random variables for which the expected square is finite.</p>
 </div>
 </div>
 

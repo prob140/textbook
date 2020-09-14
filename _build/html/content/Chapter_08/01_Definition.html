@@ -923,36 +923,18 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#on-the-domain-of-x">
-   8.1.1. On the domain of
-   <span class="math notranslate nohighlight">
-    \(X\)
-   </span>
-   :
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#on-the-range-of-x">
-   8.1.2. On the range of
-   <span class="math notranslate nohighlight">
-    \(X\)
-   </span>
-   :
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#center-of-gravity">
-   8.1.3. Center of Gravity
+   8.1.1. Center of Gravity
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#long-run-average">
-   8.1.4. Long Run Average
+   8.1.2. Long Run Average
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#existence">
-   8.1.5. Existence
+   8.1.3. Existence
   </a>
  </li>
 </ul>
@@ -980,25 +962,32 @@
 </div></div>
 </div>
 <p>The <em>expectation</em> of a random variable <span class="math notranslate nohighlight">\(X\)</span>, denoted <span class="math notranslate nohighlight">\(E(X)\)</span>, is the average of the possible values of <span class="math notranslate nohighlight">\(X\)</span> weighted by their probabilities. This can be calculated in two equivalent ways.</p>
-<div class="section" id="on-the-domain-of-x">
-<h2><span class="section-number">8.1.1. </span>On the domain of <span class="math notranslate nohighlight">\(X\)</span>:<a class="headerlink" href="#on-the-domain-of-x" title="Permalink to this headline">¶</a></h2>
+<p><strong>On the domain of <span class="math notranslate nohighlight">\(X\)</span>:</strong></p>
 <div class="math notranslate nohighlight">
 \[
 E(X) = \sum_{\omega \in \Omega} X(\omega)P(\omega)
 \]</div>
-</div>
-<div class="section" id="on-the-range-of-x">
-<h2><span class="section-number">8.1.2. </span>On the range of <span class="math notranslate nohighlight">\(X\)</span>:<a class="headerlink" href="#on-the-range-of-x" title="Permalink to this headline">¶</a></h2>
+<p><strong>On the range of <span class="math notranslate nohighlight">\(X\)</span>:</strong></p>
 <div class="math notranslate nohighlight">
 \[
 E(X) = \sum_{\text{all }x} xP(X=x)
 \]</div>
-<p><strong>Technical Note:</strong> If <span class="math notranslate nohighlight">\(X\)</span> has finitely many possible values, the sums above are always well defined and finite. If <span class="math notranslate nohighlight">\(X\)</span> can have countably many values (that is, values indexed by 1, 2, 3, <span class="math notranslate nohighlight">\(\ldots\)</span>), then more care is needed to make sure that the formulas result in a well defined number. We will deal with that issue shortly; for now, assume that the sum is well defined.</p>
-<p>Assuming the sums are well defined, is straightforward to show that these two formulas give the same answer. One way to show it is to group terms in the first sum by the distinct values of <span class="math notranslate nohighlight">\(X(\omega)\)</span> over all the different outcomes <span class="math notranslate nohighlight">\(\omega\)</span>.</p>
-<p>The second formula is often given as “the” definition of expectation, but the first can be helpful for understanding properties of expectation. In particular, it shows that if two random variables have the same distribution, then they also have the same expectation.</p>
+<div class="admonition-quick-check admonition">
+<p class="admonition-title">Quick Check</p>
+<p>Let <span class="math notranslate nohighlight">\(X\)</span> be the maximum of two draws at random without replacement from <span class="math notranslate nohighlight">\(\{ 1, 2, 3 \}\)</span>.</p>
+<p>(a) For the outcome <span class="math notranslate nohighlight">\(\omega = (3, 1)\)</span> of Draw 1 followed by Draw 2, what is the value of <span class="math notranslate nohighlight">\(X(\omega)P(\omega)\)</span>?</p>
+<p>(b) Show how to calculate <span class="math notranslate nohighlight">\(E(X)\)</span> on the range of <span class="math notranslate nohighlight">\(X\)</span>.</p>
 </div>
+<div class="dropdown admonition">
+<p class="admonition-title">Answer</p>
+<p>(a) <span class="math notranslate nohighlight">\(3\cdot\frac{1}{6}\)</span></p>
+<p>(b) <span class="math notranslate nohighlight">\(2 \cdot \frac{2}{6} + 3 \cdot \frac{4}{6}\)</span></p>
+</div>
+<p><strong>Technical Note:</strong> If <span class="math notranslate nohighlight">\(X\)</span> has finitely many possible values, the sums above are always well defined and finite. If <span class="math notranslate nohighlight">\(X\)</span> can have countably many values (that is, values indexed by 1, 2, 3, <span class="math notranslate nohighlight">\(\ldots\)</span>), then more care is needed to make sure that the formulas result in a well defined number. We will deal with that issue shortly; for now, assume that the sum is well defined.</p>
+<p>Assuming the sums are well defined, it is straightforward to show that these two formulas give the same answer. One way to show it is to group terms in the first sum by the distinct values of <span class="math notranslate nohighlight">\(X(\omega)\)</span> over all the different outcomes <span class="math notranslate nohighlight">\(\omega\)</span>.</p>
+<p>The second formula is often given as “the” definition of expectation, but the first can be helpful for understanding properties of expectation. In particular, it shows that if two random variables have the same distribution, then they also have the same expectation.</p>
 <div class="section" id="center-of-gravity">
-<h2><span class="section-number">8.1.3. </span>Center of Gravity<a class="headerlink" href="#center-of-gravity" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.1.1. </span>Center of Gravity<a class="headerlink" href="#center-of-gravity" title="Permalink to this headline">¶</a></h2>
 <p>Suppose <span class="math notranslate nohighlight">\(X\)</span> has the distribution given below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1010,7 +999,7 @@ E(X) = \sum_{\text{all }x} xP(X=x)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/01_Definition_6_0.png" src="../../_images/01_Definition_6_0.png" />
+<img alt="../../_images/01_Definition_8_0.png" src="../../_images/01_Definition_8_0.png" />
 </div>
 </div>
 <p>Then by the formula on the range of <span class="math notranslate nohighlight">\(X\)</span>, we have <span class="math notranslate nohighlight">\(E(X) = 2.85\)</span>.</p>
@@ -1049,15 +1038,23 @@ E(X) = \sum_{\text{all }x} xP(X=x)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/01_Definition_12_0.png" src="../../_images/01_Definition_12_0.png" />
+<img alt="../../_images/01_Definition_14_0.png" src="../../_images/01_Definition_14_0.png" />
 </div>
 </div>
 <p>If you have studied some physics, you will recognize that the formula we used for the expectation is the same as the formula for the center of gravity of a system in which weights equal to the corresponding probabilities hang from each possible value 1, 2, 3, 4, and 5.</p>
 <p>So suppose the histogram is made of cardboard or some rigid material, and imagine trying to balance it on the tip of a pencil held somewhere on the horizontal axis. You’ll have to hold the pencil at 2.85 for the figure to balance.</p>
 <p>The expectation is the <em>center</em> of the distribution in this physical sense: it is the <em>center of gravity</em> or <em>center of mass</em> of the distribution.</p>
+<div class="admonition-quick-check admonition">
+<p class="admonition-title">Quick Check</p>
+<p>True or False: If <span class="math notranslate nohighlight">\(X \stackrel{d}{=} Y\)</span> then <span class="math notranslate nohighlight">\(E(X) = E(Y)\)</span>.</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Answer</p>
+<p>True</p>
+</div>
 </div>
 <div class="section" id="long-run-average">
-<h2><span class="section-number">8.1.4. </span>Long Run Average<a class="headerlink" href="#long-run-average" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.1.2. </span>Long Run Average<a class="headerlink" href="#long-run-average" title="Permalink to this headline">¶</a></h2>
 <p>You can also think of expectation as the <em>long run average</em> value of the random variable when you generate the variable over and over again independently and under identical conditions. The <code class="docutils literal notranslate"><span class="pre">sample_from_dist</span></code> method applied to <code class="docutils literal notranslate"><span class="pre">prob140</span></code> distribution objects allows you to do just that. It samples at random with replacement from the distribution and returns an array of sampled values. The argument is the sample size.</p>
 <p>You can use the <code class="docutils literal notranslate"><span class="pre">emp_dist</span></code> method to convert the array of simulated values to a distribution object which you can then use with <code class="docutils literal notranslate"><span class="pre">Plot</span></code> and other <code class="docutils literal notranslate"><span class="pre">prob140</span></code> functions. The <code class="docutils literal notranslate"><span class="pre">show_ave=True</span></code> option of <code class="docutils literal notranslate"><span class="pre">Plot</span></code> displays the average of the simulated values.</p>
 <div class="cell docutils container">
@@ -1070,7 +1067,7 @@ E(X) = \sum_{\text{all }x} xP(X=x)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/01_Definition_15_0.png" src="../../_images/01_Definition_15_0.png" />
+<img alt="../../_images/01_Definition_19_0.png" src="../../_images/01_Definition_19_0.png" />
 </div>
 </div>
 <p>The average of the 10,000 simulated values of <span class="math notranslate nohighlight">\(X\)</span> is very close to <span class="math notranslate nohighlight">\(E(X)\)</span> but not exactly equal.</p>
@@ -1081,7 +1078,7 @@ E(X) = \sum_{\text{all }x} xP(X=x)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>2.8445
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>2.8402
 </pre></div>
 </div>
 </div>
@@ -1102,7 +1099,7 @@ E(X) = \sum_{\text{all }x} xP(X=x)
 </div>
 </div>
 <div class="section" id="existence">
-<h2><span class="section-number">8.1.5. </span>Existence<a class="headerlink" href="#existence" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.1.3. </span>Existence<a class="headerlink" href="#existence" title="Permalink to this headline">¶</a></h2>
 <p>If <span class="math notranslate nohighlight">\(X\)</span> has countably many values, then the sums used to define expectation are infinite and hence are limits of partial sums. But not all sequences of partial sums have limits, and so not all random variables have expectations. Indeed, <span class="math notranslate nohighlight">\(E(X)\)</span> is only well defined when the sum is <em>absolutely convergent</em>:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1117,6 +1114,17 @@ E(X) = \sum_{\text{all }x} xP(X=x) ~~~~ \text{provided }
 \]</div>
 <p>Now suppose the random variable <span class="math notranslate nohighlight">\(X\)</span> has values <span class="math notranslate nohighlight">\(2, 4, 8, 16 \ldots\)</span> so that <span class="math notranslate nohighlight">\(P(X = 2^n) = 1/2^n\)</span> for $n = 1, 2, 3, \ldots $. Then for every possible value <span class="math notranslate nohighlight">\(x\)</span>, the product <span class="math notranslate nohighlight">\(xP(X=x) = 1\)</span>. If you try to add infinitely many 1’s, the only sensible answer is infinity.</p>
 <p>This problem with expectation happens when the distribution has “mass drifting off to infinity” at a rate that makes it impossible to balance the probability histogram anywhere on the horizontal axis.</p>
+<div class="admonition-quick-check admonition">
+<p class="admonition-title">Quick Check</p>
+<p>Let <span class="math notranslate nohighlight">\(X\)</span> be the number of spots on one roll of a die. Say whether each of the following statements is True or False.</p>
+<p>(a) <span class="math notranslate nohighlight">\(E(X)\)</span> does not exist because <span class="math notranslate nohighlight">\(X\)</span> can’t be <span class="math notranslate nohighlight">\(3.5\)</span>.</p>
+<p>(b) If you roll a die repeatedly, the average number of spots per roll is likely to be about 3.5.</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Answer</p>
+<p>(a) False; <span class="math notranslate nohighlight">\(E(X) = 3.5\)</span></p>
+<p>(b) True</p>
+</div>
 </div>
 </div>
 

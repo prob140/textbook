@@ -73,6 +73,26 @@ regardless of the dependence structure of $X_1, X_2, \ldots, X_n$.
 
 If you are trying to find an expectation, then the way to use additivity is to write your random variable as a sum of simpler variables whose expectations you know or can calculate easily. 
 
+### $E(X^2)$ for a Poisson Variable $X$ ###
+
+Let $X$ have the Poisson $\mu$ distribution. In earlier sections we showed that $E(X) = \mu$ and $E(X(X-1)) = \mu^2$.
+
+Now $X^2 = X(X-1) + X$. The random variables $X(X-1)$ and $X$ are both functions of $X$, so they are not independent of each other. But additivity of expectation doesn't require independence, so we can use it to see that
+
+$$
+E(X^2) ~ = ~ E(X(X-1)) + E(X) ~ = ~ \mu^2 + \mu
+$$
+
+We will use this fact later when we study the variability of $X$. 
+
+It is worth noting that it is not easy to calculate $E(X^2)$ directly, since
+
+$$
+E(X^2) ~ = ~ \sum_{k=0}^\infty k^2 e^{-\mu}\frac{\mu^k}{k!}
+$$
+
+is not an easy sum to simplify.
+
 ### Sample Sum ###
 Let $X_1, X_2, \ldots , X_n$ be a sample drawn at random from a numerical population that has mean $\mu$, and let the sample sum be 
 
@@ -130,6 +150,17 @@ It is worth noting that $X_1$ is also an unbiased estimator of $\mu$, since $E(X
 
 But it seems clear that using the sample mean as the estimator is better than using just one sampled element, even though both are unbiased. This is true, and is related to how variable the estimators are. We will address this later in the course.
 
+```{admonition} Quick Check
+Let $X_1, X_2, X_3$ be i.i.d. Poisson $(\mu)$ random variables, and suppose the value of $\mu$ is unknown. Is $0.4X_1 + 0.2X_2 + 0.4X_3$ an unbiased estimator of $\mu$?
+
+```
+
+```{admonition} Answer
+:class: dropdown
+Yes
+
+```
+
 # VIDEO: Example of an Unbiased Estimator
 
 YouTubeVideo('ruEpGZJwHmw')
@@ -165,6 +196,17 @@ $$
 This tells us what we have to do to the sample $X_1, X_2, \ldots, X_n$ to get an unbiased estimator of $N$.
 
 We should just use the statistic $T_1 = 2\bar{X}_n - 1$ as the estimator. It is unbiased because $E(T_1) = N$ by the calculation above.
+
+```{admonition} Quick Check
+In the setting above, what is the bias of $2\bar{X}_n$ as an estimator of $N$? Does it tend to overestimate on average, or underestimate?
+
+```
+
+```{admonition} Answer
+:class: dropdown
+$1$; overestimate
+
+```
 
 ### Second Unbiased Estimator of the Maximum Possible Value ###
 
@@ -262,6 +304,17 @@ $$
 
 Thus the augmented maximum $T_2$ is an unbiased estimator of $N$.
 
+```{admonition} Quick Check
+A gardener in Berkeley has 23 blue flower pots in a row. She picks a simple random sample of 5 of them and colors the selected pots gold. What is the expected number of blue flower pots at the end of the row?
+
+```
+
+```{admonition} Answer
+:class: dropdown
+$3$
+
+```
+
 ### Which Estimator to Use? ###
 The Allied statisticians thus had two unbiased estimators of $N$ from which to choose. They went with $T_2$ instead of $T_1$ because $T_2$ has less variability.
 
@@ -275,4 +328,3 @@ You can see why $T_2$ is a better estimator than $T_1$.
 - The emipirical distribution of $T_2$ is clustered much closer to the true value $300$ than the empirical distribution of $T_1$.
 
 For a recap, take another look at the [accuracy table](https://en.wikipedia.org/wiki/German_tank_problem#Specific_data) of the Allied statisticians' estimator $T_2$. Not bad for an estimator based on a model that assumes nothing more complicated than simple random sampling!
-

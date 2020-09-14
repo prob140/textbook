@@ -109,6 +109,23 @@ hyp_dist = Table().values(k).probabilities(probs)
 Plot(hyp_dist, show_ev=True)
 plt.title('Hypergeometric (N=52, G=13, n=5)');
 
+```{admonition} Quick Check
+A deck contains $40$ blue cards and $60$ gold cards. Ten cards are drawn at random. Find the expected number of blue cards drawn
+
+(a) if the cards are drawn with replacement
+
+(b) if the cards are drawn without replacement
+
+```
+
+```{admonition} Answer
+:class: dropdown
+(a) $4$ by the binomial expectation formula
+
+(b) $4$ by the hypergeometric expectation formula
+
+```
+
 ### Number of Missing Classes ###
 A population consists of four classes of individuals, in the proportions 0.4, 0.3, 0.2, and 0.1. A random sample of $n$ individuals is chosen so that the choices are mutually independent. What is the expected number of classes that are missing in the sample?
 
@@ -132,3 +149,21 @@ The four indicators aren't independent but that doesn't affect the additivity of
 # VIDEO: Applying the Method of Indicators
 YouTubeVideo('mxj4Gr_QUCM')
 
+```{admonition} Quick Check
+A deck of 52 cards is dealt (at random without replacement) to four players, so that each player gets a hand of 13 cards. To find the expected number of hands that have no aces, which would you use?
+
+(i) Four indicators, one for each ace
+
+(ii) Four indicators, one for each hand
+
+(iii) Thirteen indicators, one for each card in a hand
+
+(iv) Fifty-two indicators, one for each card in the deck
+
+```
+
+```{admonition} Answer
+:class: dropdown
+(ii)
+
+```

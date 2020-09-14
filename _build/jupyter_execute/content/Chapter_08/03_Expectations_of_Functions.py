@@ -17,8 +17,6 @@ $$
 Y = |X - 10|
 $$
 
-To find $E(Y)$, we need a bit more technique. 
-
 This section is about finding the expectation of a function of a random variable whose distribution you know. Throughout, we will assume that all the expectations that we are discussing are well defined.
 
 In what follows, let $X$ be a random variable whose distribution (and hence also expectation) are known.
@@ -30,7 +28,7 @@ Let $X$ be a random variable with expectation $E(X)$ and let $Y = aX + b$ for so
 This kind of transformation happens for example when you change units of measurement. 
 
 - If you switch from Celsius to Fahreneheit, then $a = 9/5$ and $b = 32$. 
-- If you switch from inches to centimeters, then $a = 2/54$ and $b = 0$.
+- If you switch from inches to centimeters, then $a = 2.54$ and $b = 0$.
 
 We can find $E(Y)$ by applying the definition of expectation on the domain $\Omega$. For every $\omega \in \Omega$, we have $Y(\omega) = aX(\omega) + b$. So
 
@@ -42,9 +40,26 @@ E(Y) ~ &= ~ \sum_{\text{all }\omega} (aX(\omega)+b)P(\omega) \\
 \end{align*}
 $$
 
-So for example, $E(2X - 3) = 2E(X) - 3$. Also $E(X/2) = E(X)/2$, and $E(1 - X) = 1 - E(X)$.
+For example, $E(2X - 3) = 2E(X) - 3$. Also $E(X/2) = E(X)/2$, and $E(1 - X) = 1 - E(X)$.
 
 The expectation of a linear transformation of $X$ is the linear transformation of the expectation of $X$. This is a handy result as we will often be transforming variables linearly.
+
+```{admonition} Quick Check
+Let $X$ and $Y$ be random variables on the same space, with $E(X) = 5$ and $E(Y) = 3$.
+
+(a) Find $E(X-Y)$.
+
+(b) Find $E(2X-8Y+7)$.
+
+```
+
+```{admonition} Answer
+:class: dropdown
+(a) $2$ because $X-Y = X+(-Y)$
+
+(b) $-7$
+
+```
 
 But expectation behaves differently under non-linear transformation.
 
@@ -62,19 +77,19 @@ $$
 
 This allows us to write $E(Y)$ in three equivalent ways:
 
-#### On the range of $Y$ ####
+**On the range of $Y$**
 
 $$
 E(Y) =  \sum_{\text{all }y} yP(Y=y)
 $$
 
-#### On the domain $\Omega$ ####
+**On the domain $\Omega$**
 
 $$
 E(Y) = E(g(X)) = \sum_{\omega \in \Omega} (g \circ X) (\omega) P(\omega)
 $$
 
-#### On the range of $X$ ####
+**On the range of $X$**
 
 $$
 E(Y) = E(g(X)) = \sum_{\text{all }x} g(x)P(X=x)
@@ -130,28 +145,9 @@ To find $E(Y)$ we can just go row by row and replace the value of $x$ by the val
 ev_Y = 1*0.15 + 2*0.25 + 3*0.3 + 3*0.2 + 3*0.1
 ev_Y
 
-### $E(X^2)$ for a Poisson Variable $X$ ###
-Let $X$ have the Poisson $(\mu)$ distribution. In a later chapter you will see that it is useful to know the value of $E(X^2)$. By our non-linear function rule,
+### $E(X(X-1))$ for a Poisson Variable $X$ ###
 
-$$
-E(X^2) = \sum_{k=0}^\infty k^2 e^{-\mu} \frac{\mu^k}{k!}
-$$
-
-This sum turns out to be hard to simplify. The term for $k=0$ is 0. In each term for $k \ge 1$, one of the $k$'s in the numerator cancels a $k$ in the denominator but the other factor of $k$ in the numerator remains. It would be so nice if that factor $k$ were $k-1$ instead, so it could cancel $k-1$ in the denominator.
-
-This motivates the following calculation. No matter what $X$ is, if we know $E(X)$ and can find $E(X(X-1))$, then we can use additivity to find $E(X^2)$ as follows:
-
-$$
-E(X(X-1)) = E(X^2 - X) = E(X^2) - E(X) 
-$$
-
-so
-
-$$
-E(X^2) = E(X(X-1)) + E(X)
-$$
-
-Let's see if we can find $E(X(X-1))$ by applying the non-linear function rule.
+Let $X$ have the Poisson $(\mu)$ distribution. 
 
 $$
 \begin{align*}
@@ -162,13 +158,11 @@ E(X(X-1)) &= \sum_{k=0}^\infty k(k-1) e^{-\mu} \frac{\mu^k}{k!} \\ \\
 \end{align*}
 $$
 
-We know that $E(X) = \mu$, so
+In the next section we will use this to find $E(X^2)$. For now, notice that 
 
 $$
-E(X^2) = \mu^2 + \mu
+E(X^2) ~ = ~ \sum_{k=0}^\infty k^2 e^{-\mu} \frac{\mu^k}{k!} ~ \ge ~ \sum_{k=0}^\infty k(k-1) e^{-\mu} \frac{\mu^k}{k!} ~ = ~ E(X(X-1)) ~ = ~ \mu^2
 $$
 
-Notice that $E(X^2) > (E(X))^2$. This is an instance of a general fact. Later in the course we will see why it matters.
-
-For now, as an exercise, see if you can find $E(X(X-1)(X-2))$ and hence $E(X^3)$.
+Since $E(X) = \mu$, we have $E(X^2) \ge (E(X))^2$. We will see later that this inequality is true for all random variables for which the expected square is finite.
 
