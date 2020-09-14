@@ -19,6 +19,9 @@ As any student who has taken multiple "midterm" exams in a class knows, words li
 
 
 01_Definition
-02_Additivity
+02_Applying_the_Definition
 03_Expectations_of_Functions
+04_Additivity
+05_Method_of_Indicators
+06_Exercises
 ```

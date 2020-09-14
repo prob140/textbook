@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>8.2. Additivity &#8212; Prob 140 Textbook</title>
+    <title>8.5. Method of Indicators &#8212; Prob 140 Textbook</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
@@ -40,8 +40,8 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="8.3. Expectations of Functions" href="03_Expectations_of_Functions.html" />
-    <link rel="prev" title="8.1. Definition" href="01_Definition.html" />
+    <link rel="next" title="8.6. Exercises" href="06_Exercises.html" />
+    <link rel="prev" title="8.4. Additivity" href="04_Additivity.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -348,14 +348,29 @@
      8.1. Definition
     </a>
    </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     8.2. Additivity
+   <li class="toctree-l2">
+    <a class="reference internal" href="02_Applying_the_Definition.html">
+     8.2. Applying the Definition
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="03_Expectations_of_Functions.html">
      8.3. Expectations of Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04_Additivity.html">
+     8.4. Additivity
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     8.5. Method of Indicators
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="06_Exercises.html">
+     8.6. Exercises
     </a>
    </li>
   </ul>
@@ -862,7 +877,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/content/Chapter_08/02_Additivity.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/content/Chapter_08/05_Method_of_Indicators.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -887,7 +902,7 @@
     <div class="dropdown-buttons">
         
         
-        <a class="jupyterhub-button" href="https://prob140.datahub.berkeley.edu/hub/user-redirect/git-pull?repo=https://github.com/prob140/textbook&urlpath=tree/textbook/content/Chapter_08/02_Additivity.ipynb&branch=gh-pages"><button type="button"
+        <a class="jupyterhub-button" href="https://prob140.datahub.berkeley.edu/hub/user-redirect/git-pull?repo=https://github.com/prob140/textbook&urlpath=tree/textbook/content/Chapter_08/05_Method_of_Indicators.ipynb&branch=gh-pages"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
                 data-placement="left"><img class="jupyterhub-button-logo"
                     src="../../_static/images/logo_jupyterhub.svg"
@@ -908,43 +923,18 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#additivity-of-expectation">
-   8.2.1. Additivity of Expectation
+  <a class="reference internal nav-link" href="#expectation-of-the-binomial">
+   8.5.1. Expectation of the Binomial
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#sample-sum">
-   8.2.2. Sample Sum
+  <a class="reference internal nav-link" href="#expectation-of-the-hypergeometric">
+   8.5.2. Expectation of the Hypergeometric
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#linear-function-rule">
-   8.2.3. Linear Function Rule
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#example-an-unbiased-estimator">
-   8.2.4. Example: An Unbiased Estimator
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-method-of-indicators">
-   8.2.5. The Method of Indicators
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#example-binomial">
-   8.2.6. Example: Binomial
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#example-hypergeometric">
-   8.2.7. Example: Hypergeometric
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#example-number-of-missing-classes">
-   8.2.8. Example: Number of Missing Classes
+  <a class="reference internal nav-link" href="#number-of-missing-classes">
+   8.5.3. Number of Missing Classes
   </a>
  </li>
 </ul>
@@ -957,110 +947,17 @@
         
               <div>
                 
-  <div class="section" id="additivity">
-<h1><span class="section-number">8.2. </span>Additivity<a class="headerlink" href="#additivity" title="Permalink to this headline">¶</a></h1>
-<p>Calculating expectation by plugging into the definition works in simple cases, but often it can be cumbersome or lack insight. The most powerful result for calculating expectation turns out not to be the definition. It looks rather innocuous:</p>
-<div class="section" id="additivity-of-expectation">
-<h2><span class="section-number">8.2.1. </span>Additivity of Expectation<a class="headerlink" href="#additivity-of-expectation" title="Permalink to this headline">¶</a></h2>
-<p>Let <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> be two random variables defined on the same probability space. Then</p>
-<div class="math notranslate nohighlight">
-\[
-E(X+Y) = E(X) + E(Y)
-\]</div>
-<p>Before we look more closely at this result, note that we are assuming that all the expectations exist; we will do this throughout in this course.</p>
-<p>And now note that <strong>there are no assumptions about the relation between <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span></strong>. They could be dependent or independent. Regardless, the expectation of the sum is the sum of the expectations. This makes the result powerful.</p>
-<p>Additivity follows easily from the definition of <span class="math notranslate nohighlight">\(X+Y\)</span> and the definition of expectation on the domain space. First note that the random variable <span class="math notranslate nohighlight">\(X+Y\)</span> is the function defined by</p>
-<div class="math notranslate nohighlight">
-\[
-(X+Y)(\omega) = X(\omega) + Y(\omega) ~~~~ \text{for all }
-\omega \in \Omega
-\]</div>
-<p>Thus a “value of <span class="math notranslate nohighlight">\(X+Y\)</span> weighted by the probability” can be written as</p>
-<div class="math notranslate nohighlight">
-\[
-(X+Y)(\omega) \cdot P(\omega) = X(\omega)P(\omega) + 
-Y(\omega)P(\omega )
-\]</div>
-<p>Sum the two sides over all <span class="math notranslate nohighlight">\(\omega \in \Omega\)</span> to prove additivty of expecation.</p>
-<p>By induction, additivity extends to any finite number of random variables. If <span class="math notranslate nohighlight">\(X_1, X_2, \ldots , X_n\)</span> are random variables defined on the same probability space, then</p>
-<div class="math notranslate nohighlight">
-\[
-E(X_1 + X_2 + \cdots + X_n) = E(X_1) + E(X_2) + \cdots + E(X_n)
-\]</div>
-<p>If you are trying to find an expectation, then the way to use additivity is to write your random variable as a sum of simpler variables whose expectations you know or can calculate easily. The rest of this section consists of examples of this technique.</p>
-</div>
-<div class="section" id="sample-sum">
-<h2><span class="section-number">8.2.2. </span>Sample Sum<a class="headerlink" href="#sample-sum" title="Permalink to this headline">¶</a></h2>
-<p>Let <span class="math notranslate nohighlight">\(X_1, X_2, \ldots , X_n\)</span> be a sample drawn at random from a numerical population that has mean <span class="math notranslate nohighlight">\(\mu\)</span>, and let the sample sum be
-<span class="math notranslate nohighlight">\($
-S_n = X_1 + X_2 + \cdots + X_n
-$\)</span>
-Then, regardless of whether the sample was drawn with or without replacement, each <span class="math notranslate nohighlight">\(X_i\)</span> has the same distribution as the population. This is clearly true if the sampling is with replacement, and it is true by symmetry if the sampling is without replacement as we saw in an earlier chapter.</p>
-<p>So, regardless of whether the sample is drawn with or without replacement, <span class="math notranslate nohighlight">\(E(X_i) = \mu\)</span> for each <span class="math notranslate nohighlight">\(i\)</span>, and hence</p>
-<div class="math notranslate nohighlight">
-\[
-E(S_n) = E(X_1) + E(X_2) + \cdots + E(X_n) = n\mu
-\]</div>
-</div>
-<div class="section" id="linear-function-rule">
-<h2><span class="section-number">8.2.3. </span>Linear Function Rule<a class="headerlink" href="#linear-function-rule" title="Permalink to this headline">¶</a></h2>
-<p>Let <span class="math notranslate nohighlight">\(X\)</span> be a random variable with expectation <span class="math notranslate nohighlight">\(E(X)\)</span> and let <span class="math notranslate nohighlight">\(Y = aX\)</span> for some constant <span class="math notranslate nohighlight">\(a\)</span>. For example, when you change units of a random length from inches to centimeters, then <span class="math notranslate nohighlight">\(a = 2.54\)</span>.</p>
-<p>For every <span class="math notranslate nohighlight">\(\omega \in \Omega\)</span>, we have <span class="math notranslate nohighlight">\(Y(\omega) = aX(\omega)\)</span>. So</p>
-<div class="math notranslate nohighlight">
-\[
-E(Y) ~ = ~ \sum_{\text{all }\omega} aX(\omega)P(\omega)
-~ = ~a \sum_{\text{all }\omega} X(\omega)P(\omega )  ~ = ~ aE(X)
-\]</div>
-<p>Now consider the <em>linear tranformation</em> <span class="math notranslate nohighlight">\(W = aX + b\)</span>. This kind of transformation happens for example when you change units from Celsius to Fahreneheit. In that case <span class="math notranslate nohighlight">\(a = 9/5\)</span> and <span class="math notranslate nohighlight">\(b = 32\)</span>.</p>
-<p>Then <span class="math notranslate nohighlight">\(W = Y + b\)</span>, so by additivity of expectation,</p>
-<div class="math notranslate nohighlight">
-\[
-E(W) = E(aX + b) = E(aX) + E(b) = aE(X) + b
-\]</div>
-<p>So for example, <span class="math notranslate nohighlight">\(E(2X - 3) = 2E(X) - 3\)</span>. Also <span class="math notranslate nohighlight">\(E(X/2) = E(X)/2\)</span>, and <span class="math notranslate nohighlight">\(E(1 - X) = 1 - E(X)\)</span>.</p>
-<p>The expectation of a linear transformation of <span class="math notranslate nohighlight">\(X\)</span> is the linear transformation of the expectation of <span class="math notranslate nohighlight">\(X\)</span>. This is a handy result as we will often be transforming variables linearly. But expectation behaves differently under non-linear transformations, as we will see in the next section.</p>
-</div>
-<div class="section" id="example-an-unbiased-estimator">
-<h2><span class="section-number">8.2.4. </span>Example: An Unbiased Estimator<a class="headerlink" href="#example-an-unbiased-estimator" title="Permalink to this headline">¶</a></h2>
-<p>Suppose <span class="math notranslate nohighlight">\(\theta\)</span> is a parameter of the distribution of <span class="math notranslate nohighlight">\(X\)</span>, and suppose <span class="math notranslate nohighlight">\(E(X) = \theta\)</span>. Then we say that * <span class="math notranslate nohighlight">\(X\)</span> is an unbiased estimator of <span class="math notranslate nohighlight">\(\theta\)</span>*.</p>
-<p>If an estimator is unbiased, and you use it to generate estimates repeatedly and independently, then in the long run the average of all the estimates is equal to the parameter being estimated. On average, the unbiased estimator is neither higher nor lower than the parameter. That’s usually considered a good quality in an estimator.</p>
-<p>As in the sample sum example above, let <span class="math notranslate nohighlight">\(S_n\)</span> be the sum of a sample of size <span class="math notranslate nohighlight">\(n\)</span> drawn from a population that has mean <span class="math notranslate nohighlight">\(\mu\)</span>. Let <span class="math notranslate nohighlight">\(A_n\)</span> be the sample average, that is,</p>
-<div class="math notranslate nohighlight">
-\[
-A_n = \frac{S_n}{n}
-\]</div>
-<p>Then, regardless of whether the draws were made with replacement or without,</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{align*}
-E(A_n) &amp;= \frac{E(S_n)}{n} ~~~~ \text{(linear function rule)} \\
-&amp;= \frac{n \mu}{n} ~~~~~~~~~ \text{(} E(S_n) = n\mu \text{)} \\
-&amp;= \mu
-\end{align*}
-\end{split}\]</div>
-<p>Thus the sample mean is an unbiased estimator of the population mean.</p>
-<p>Suppose we have a sample <span class="math notranslate nohighlight">\(X_1, X_2, \ldots , X_n\)</span> where each variable is uniform on <span class="math notranslate nohighlight">\(1, 2, \ldots , N\)</span> for some fixed <span class="math notranslate nohighlight">\(N\)</span>, and we are trying to estimate <span class="math notranslate nohighlight">\(N\)</span>. This was the setting in the German warplanes example in Data 8. The expectation of each of the uniform variables is <span class="math notranslate nohighlight">\((N+1)/2\)</span>, as we have seen earlier. So if <span class="math notranslate nohighlight">\(A_n\)</span> is the sample mean, then</p>
-<div class="math notranslate nohighlight">
-\[
-E(A_n) = \frac{N+1}{2}
-\]</div>
-<p>and so <span class="math notranslate nohighlight">\(A_n\)</span> is <em>not</em> an unbiased estimator of <span class="math notranslate nohighlight">\(N\)</span>. That’s not surprising because <span class="math notranslate nohighlight">\(N\)</span> is the maximum possible value of each observation and <span class="math notranslate nohighlight">\(A_n\)</span> should be somewhere in the middle of all the possible values.</p>
-<p>But because <span class="math notranslate nohighlight">\(E(A_n)\)</span> is a linear function of <span class="math notranslate nohighlight">\(N\)</span>, we can tweak <span class="math notranslate nohighlight">\(A_n\)</span> to create an unbiased estimator of <span class="math notranslate nohighlight">\(N\)</span>. We just have to invert the linear function. Let <span class="math notranslate nohighlight">\(A_n^* = 2A_n - 1\)</span>. Then</p>
-<div class="math notranslate nohighlight">
-\[
-E(A_n^*) = 2E(A_n) - 1 = 2 \cdot \frac{N+1}{2} - 1 = N
-\]</div>
-<p>so <span class="math notranslate nohighlight">\(A_n^*\)</span> is an unbiased estimator of <span class="math notranslate nohighlight">\(N\)</span>.</p>
-</div>
-<div class="section" id="the-method-of-indicators">
-<h2><span class="section-number">8.2.5. </span>The Method of Indicators<a class="headerlink" href="#the-method-of-indicators" title="Permalink to this headline">¶</a></h2>
+  <div class="section" id="method-of-indicators">
+<h1><span class="section-number">8.5. </span>Method of Indicators<a class="headerlink" href="#method-of-indicators" title="Permalink to this headline">¶</a></h1>
 <p>This is a powerful method for finding expected counts. It is based on the observation that among <span class="math notranslate nohighlight">\(n\)</span> trials, the number of “good” results can be counted by first coding each “good” result as 1 and each of the other results as 0, and then adding the 1’s and 0’s.</p>
-<p>If <span class="math notranslate nohighlight">\(N\)</span> is the total number of good results among <span class="math notranslate nohighlight">\(n\)</span>, then</p>
+<p>If <span class="math notranslate nohighlight">\(N\)</span> is the total number of good results among <span class="math notranslate nohighlight">\(n\)</span> trials, then</p>
 <div class="math notranslate nohighlight">
 \[
 N = I_1 + I_2 + \cdots + I_n
 \]</div>
-<p>where for each <span class="math notranslate nohighlight">\(j\)</span> in the range 1 through <span class="math notranslate nohighlight">\(n\)</span>, <span class="math notranslate nohighlight">\(I_j\)</span> is the indicator of “the result of the <span class="math notranslate nohighlight">\(j\)</span>th trial is good”. So</p>
+<p>where for each <span class="math notranslate nohighlight">\(j\)</span> in the range 1 through <span class="math notranslate nohighlight">\(n\)</span>, the random variable <span class="math notranslate nohighlight">\(I_j\)</span> is the indicator of “the result of the <span class="math notranslate nohighlight">\(j\)</span>th trial is good”.</p>
+<p>Now recall that if <span class="math notranslate nohighlight">\(I_A\)</span> is the indicator of an event <span class="math notranslate nohighlight">\(A\)</span>, then <span class="math notranslate nohighlight">\(E(I_A) = P(A)\)</span>. That is, the expectation of an indicator is the probability of the event that it indicates.</p>
+<p>So</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{align*}
@@ -1070,11 +967,21 @@ P(\text{result of Trial } 2 \text{ is good}) + \cdots +
 P(\text{result of Trial } n \text{ is good}) \\
 \end{align*}
 \end{split}\]</div>
-<p>The additivity works regardless of whether the trials are dependent or independent.</p>
-<p>We conclude this section with three applications of the method of indicators.</p>
+<p>It is important to note that the additivity works regardless of whether the trials are dependent or independent.</p>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="400"
+    height="300"
+    src="https://www.youtube.com/embed/hOIcQUYUNsM"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
 </div>
-<div class="section" id="example-binomial">
-<h2><span class="section-number">8.2.6. </span>Example: Binomial<a class="headerlink" href="#example-binomial" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="expectation-of-the-binomial">
+<h2><span class="section-number">8.5.1. </span>Expectation of the Binomial<a class="headerlink" href="#expectation-of-the-binomial" title="Permalink to this headline">¶</a></h2>
 <p>Let <span class="math notranslate nohighlight">\(X\)</span> have the binomial <span class="math notranslate nohighlight">\((n, p)\)</span> distribution. Then <span class="math notranslate nohighlight">\(X\)</span> can be thought of as the number of successes in <span class="math notranslate nohighlight">\(n\)</span> i.i.d. Bernoulli <span class="math notranslate nohighlight">\((p)\)</span> trials, and we can write</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1098,25 +1005,32 @@ E(X) &amp;= E(I_1) + E(I_2) + \cdots + E(I_n) ~~~~ \text{(additivity)} \\
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span>
 <span class="n">probs</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">binom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">)</span>
-<span class="n">bin_10_75</span> <span class="o">=</span> <span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">.</span><span class="n">probability</span><span class="p">(</span><span class="n">probs</span><span class="p">)</span>
+<span class="n">bin_10_75</span> <span class="o">=</span> <span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">.</span><span class="n">probabilities</span><span class="p">(</span><span class="n">probs</span><span class="p">)</span>
 <span class="n">Plot</span><span class="p">(</span><span class="n">bin_10_75</span><span class="p">,</span> <span class="n">show_ev</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Binomial (10, 0.75)&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="stderr docutils container">
-<pre class="stderr literal-block">/home/ryan/anaconda3/envs/140book/lib/python3.7/site-packages/prob140/single_variable.py:350: UserWarning: .probability() is deprecated - please use .probabilities()
-  warnings.warn('.probability() is deprecated - please use .probabilities()')
-</pre>
-</div>
-<img alt="../../_images/02_Additivity_8_1.png" src="../../_images/02_Additivity_8_1.png" />
+<img alt="../../_images/05_Method_of_Indicators_5_0.png" src="../../_images/05_Method_of_Indicators_5_0.png" />
 </div>
 </div>
 <p>Notice that we didn’t use independence. Additivity of expectation works whether or not the random variables being added are independent. This will be very helpful in the next example.</p>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="400"
+    height="300"
+    src="https://www.youtube.com/embed/lz-UuQqvUOE"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
 </div>
-<div class="section" id="example-hypergeometric">
-<h2><span class="section-number">8.2.7. </span>Example: Hypergeometric<a class="headerlink" href="#example-hypergeometric" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="expectation-of-the-hypergeometric">
+<h2><span class="section-number">8.5.2. </span>Expectation of the Hypergeometric<a class="headerlink" href="#expectation-of-the-hypergeometric" title="Permalink to this headline">¶</a></h2>
 <p>Let <span class="math notranslate nohighlight">\(X\)</span> have the hypergeometric <span class="math notranslate nohighlight">\((N, G, n)\)</span> distribution. Then <span class="math notranslate nohighlight">\(X\)</span> can be thought of as the number of good elements in <span class="math notranslate nohighlight">\(n\)</span> draws made at random without replacement from a population of <span class="math notranslate nohighlight">\(N = G+B\)</span> elements of which <span class="math notranslate nohighlight">\(G\)</span> are good and <span class="math notranslate nohighlight">\(B\)</span> bad. Then</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1146,19 +1060,19 @@ E(X) &amp;= E(I_1) + E(I_2) + \cdots + E(I_n) ~~~~ \text{(additivity)} \\ \\
 <span class="n">n</span> <span class="o">=</span> <span class="mi">5</span>
 <span class="n">k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
 <span class="n">probs</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">hypergeom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">G</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
-<span class="n">hyp_dist</span> <span class="o">=</span> <span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">.</span><span class="n">probability</span><span class="p">(</span><span class="n">probs</span><span class="p">)</span>
+<span class="n">hyp_dist</span> <span class="o">=</span> <span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">.</span><span class="n">probabilities</span><span class="p">(</span><span class="n">probs</span><span class="p">)</span>
 <span class="n">Plot</span><span class="p">(</span><span class="n">hyp_dist</span><span class="p">,</span> <span class="n">show_ev</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Hypergeometric (N=52, G=13, n=5)&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/02_Additivity_11_0.png" src="../../_images/02_Additivity_11_0.png" />
+<img alt="../../_images/05_Method_of_Indicators_9_0.png" src="../../_images/05_Method_of_Indicators_9_0.png" />
 </div>
 </div>
 </div>
-<div class="section" id="example-number-of-missing-classes">
-<h2><span class="section-number">8.2.8. </span>Example: Number of Missing Classes<a class="headerlink" href="#example-number-of-missing-classes" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="number-of-missing-classes">
+<h2><span class="section-number">8.5.3. </span>Number of Missing Classes<a class="headerlink" href="#number-of-missing-classes" title="Permalink to this headline">¶</a></h2>
 <p>A population consists of four classes of individuals, in the proportions 0.4, 0.3, 0.2, and 0.1. A random sample of <span class="math notranslate nohighlight">\(n\)</span> individuals is chosen so that the choices are mutually independent. What is the expected number of classes that are missing in the sample?</p>
 <p>If <span class="math notranslate nohighlight">\(M\)</span> is the number of missing classes, then</p>
 <div class="math notranslate nohighlight">
@@ -1173,6 +1087,18 @@ E(M) = E(I_1) + E(I_2) + E(I_3) + E(I_4)
 = 0.6^n + 0.7^n + 0.8^n + 0.9^n
 \]</div>
 <p>The four indicators aren’t independent but that doesn’t affect the additivity of expectation.</p>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="400"
+    height="300"
+    src="https://www.youtube.com/embed/mxj4Gr_QUCM"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
 </div>
 </div>
 
@@ -1204,8 +1130,8 @@ E(M) = E(I_1) + E(I_2) + E(I_3) + E(I_4)
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="01_Definition.html" title="previous page"><span class="section-number">8.1. </span>Definition</a>
-    <a class='right-next' id="next-link" href="03_Expectations_of_Functions.html" title="next page"><span class="section-number">8.3. </span>Expectations of Functions</a>
+    <a class='left-prev' id="prev-link" href="04_Additivity.html" title="previous page"><span class="section-number">8.4. </span>Additivity</a>
+    <a class='right-next' id="next-link" href="06_Exercises.html" title="next page"><span class="section-number">8.6. </span>Exercises</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

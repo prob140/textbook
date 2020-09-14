@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Review Problems: Set 2 &#8212; Prob 140 Textbook</title>
+    <title>8.2. Applying the Definition &#8212; Prob 140 Textbook</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
@@ -40,6 +40,8 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="8.3. Expectations of Functions" href="03_Expectations_of_Functions.html" />
+    <link rel="prev" title="8.1. Definition" href="01_Definition.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -96,7 +98,7 @@
   Chapters
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="current nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../Chapter_01/00_Fundamentals.html">
    1. Fundamentals
@@ -336,24 +338,39 @@
    </li>
   </ul>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 current active">
   <a class="reference internal" href="00_Expectation.html">
    8. Expectation
   </a>
-  <ul>
+  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="01_Definition.html">
      8.1. Definition
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="02_Additivity.html">
-     8.2. Additivity
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     8.2. Applying the Definition
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="03_Expectations_of_Functions.html">
      8.3. Expectations of Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04_Additivity.html">
+     8.4. Additivity
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05_Method_of_Indicators.html">
+     8.5. Method of Indicators
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="06_Exercises.html">
+     8.6. Exercises
     </a>
    </li>
   </ul>
@@ -860,7 +877,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/content/Chapter_08/04_Review_Problems_Set_2.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/content/Chapter_08/02_Applying_the_Definition.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -885,7 +902,7 @@
     <div class="dropdown-buttons">
         
         
-        <a class="jupyterhub-button" href="https://prob140.datahub.berkeley.edu/hub/user-redirect/git-pull?repo=https://github.com/prob140/textbook&urlpath=tree/textbook/content/Chapter_08/04_Review_Problems_Set_2.ipynb&branch=gh-pages"><button type="button"
+        <a class="jupyterhub-button" href="https://prob140.datahub.berkeley.edu/hub/user-redirect/git-pull?repo=https://github.com/prob140/textbook&urlpath=tree/textbook/content/Chapter_08/02_Applying_the_Definition.ipynb&branch=gh-pages"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
                 data-placement="left"><img class="jupyterhub-button-logo"
                     src="../../_static/images/logo_jupyterhub.svg"
@@ -906,13 +923,33 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-basics">
-   The Basics
+  <a class="reference internal nav-link" href="#constant">
+   8.2.1. Constant
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#additional-practice">
-   Additional Practice
+  <a class="reference internal nav-link" href="#bernoulli-and-indicators">
+   8.2.2. Bernoulli and Indicators
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#uniform-on-an-interval-of-integers">
+   8.2.3. Uniform on an Interval of Integers
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#poisson">
+   8.2.4. Poisson
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tail-sum-formula">
+   8.2.5. Tail Sum Formula
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#geometric">
+   8.2.6. Geometric
   </a>
  </li>
 </ul>
@@ -925,209 +962,187 @@
         
               <div>
                 
-  <div class="section" id="review-problems-set-2">
-<h1>Review Problems: Set 2<a class="headerlink" href="#review-problems-set-2" title="Permalink to this headline">¶</a></h1>
-<p>These problems can be solved using the main ideas of Chapters 6 through 8. The material in those chapters of course relies on all the previous chapters.</p>
-<p>The set of exercises is divided into two parts: The Basics, and Additional Practice. The first part will remind you of the fundamental concepts and some typical calculations. The rest are for you to further develop your problem solving skills and your fluency with the notation and ideas.</p>
-<div class="section" id="the-basics">
-<h2>The Basics<a class="headerlink" href="#the-basics" title="Permalink to this headline">¶</a></h2>
-<p><strong>1.</strong> A coin is tossed 12 times. Find the chance that</p>
-<p>(a) there are six heads</p>
-<p>(b) there are more heads than tails (use the result of Part (a))</p>
-<p>(c) there are more than four tails</p>
-<p>(d) one of the faces appears twice as many times as the other</p>
-<p><strong>2.</strong> A bridge hand is a simple random sample of 13 cards from a standard deck
-of 52 cards. The <strong>face cards</strong> are the Jacks, Queens, and Kings; there
-are 12 face cards in all. Let <span class="math notranslate nohighlight">\(X\)</span> be the number of face cards in a
-bridge hand.</p>
-<p>(a) Fill in the blank with the name of a distribution along with the
-appropriate parameters:</p>
-<p><span class="math notranslate nohighlight">\(X\)</span> has the <span class="math notranslate nohighlight">\(\underline{~~~~~~~~~~~~~~~~~}\)</span> distribution.</p>
-<p>(b) Find <span class="math notranslate nohighlight">\(P(X &gt; 5)\)</span>.</p>
-<p>(c) Find <span class="math notranslate nohighlight">\(E(X)\)</span>.</p>
-<p><strong>3.</strong> Each time it is run, a random number generator produces each of the 100 pairs of digits 00 through 99 with equal probability, independently of all other times. Let <span class="math notranslate nohighlight">\(X\)</span> be the number of times it produces 00 in 100 runs.</p>
-<p>Fill in the blanks with the names of distributions along with the appropriate parameters:</p>
-<p>The distribution of <span class="math notranslate nohighlight">\(X\)</span> is exactly <span class="math notranslate nohighlight">\($\underline{~~~~~~~~~~~~~~~~~}\)</span>$ and approximately <span class="math notranslate nohighlight">\($\underline{~~~~~~~~~~~~~~~~~}\)</span>$.</p>
-<p><strong>4.</strong> Two radioactive substances emit <span class="math notranslate nohighlight">\(\alpha\)</span>-particles independently of each
-other. A counter records a Poisson <span class="math notranslate nohighlight">\((5.41)\)</span> number of particles from one
-substance and a Poisson <span class="math notranslate nohighlight">\((3.87)\)</span> number of particles from the other.
-Find the chance that the counter records at most four particles.</p>
-<p><strong>5.</strong> If you bet on “red” at roulette, your chance of winning is 18/38.
-Successive bets are independent of each other. Suppose you keep betting
-on red and stop when you have won a total of six bets.</p>
-<p>(a) What is the chance that you place exactly 10 bets?</p>
-<p>(b) What is the chance that you place more than 10 bets?</p>
-<p><strong>6.</strong> Let <span class="math notranslate nohighlight">\(X\)</span> have the distribution given in the table below.</p>
-<table class="colwidths-auto table">
-<thead>
-<tr class="row-odd"><th class="text-align:right head"><p>value</p></th>
-<th class="text-align:center head"><p>-2</p></th>
-<th class="text-align:center head"><p>-1</p></th>
-<th class="text-align:center head"><p>0</p></th>
-<th class="text-align:center head"><p>1</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td class="text-align:right"><p><strong>probability</strong></p></td>
-<td class="text-align:center"><p>1/8</p></td>
-<td class="text-align:center"><p>1/2</p></td>
-<td class="text-align:center"><p>1/4</p></td>
-<td class="text-align:center"><p>1/8</p></td>
-</tr>
-</tbody>
-</table>
-<p>Find</p>
-<p>(a) <span class="math notranslate nohighlight">\(E(X)\)</span></p>
-<p>(b) <span class="math notranslate nohighlight">\(E(\vert X \vert )\)</span></p>
-<p>(c) <span class="math notranslate nohighlight">\(E(\min(X, -1))\)</span></p>
-<p>(d) <span class="math notranslate nohighlight">\(E(X-1)\)</span></p>
-<p>(e) <span class="math notranslate nohighlight">\(E((X-1)^2)\)</span></p>
-<p><strong>7.</strong> A student is taking a True/False test in which there are 30 questions.
-For each correct answer, the student will get 2 points. For each wrong
-answer, the student will lose 1 point. If the student leaves a question
-unanswered, the student will get 0 points for that question. The student
-answers all of the questions by rolling a die. If the die shows 1 or 2
-spots, the student doesn’t answer the question. If it shows 3 or 4
-spots, the student chooses False. If it shows 5 or 6 spots, the student
-chooses True. Find the student’s expected score on the test.</p>
-<p><strong>8.</strong> Each move in the game Monopoly is based on the total number of spots
-showing on two rolls of a die. Let <span class="math notranslate nohighlight">\(X\)</span> be the number of times I see a
-total of four spots in my next 10 moves in Monopoly. Find <span class="math notranslate nohighlight">\(P(X =2)\)</span>.</p>
-<p><strong>9.</strong> A die is rolled 10 times. Find the chance that the face that has six
-spots does not appear and every other face appears two times.</p>
-<p><strong>10.</strong> Let <span class="math notranslate nohighlight">\(p \in (0, 1)\)</span> and let <span class="math notranslate nohighlight">\(X\)</span> be the number of spots showing on a
-flattened die that shows its six faces according to the following
-chances:</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(P(X = 1) = P(X = 6)\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(P(X = 2) = P(X = 3) = P(X = 4) = P(X = 5)\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(P(X = 1 \text{ or } 6) = p\)</span></p></li>
-</ul>
-<p>(a) Find <span class="math notranslate nohighlight">\(E(X)\)</span>.</p>
-<p>(b) Find <span class="math notranslate nohighlight">\(E(\vert X - 3.5 \vert)\)</span>. Explain algebraically and also by an
-intuitive argument why the answer is an increasing function of <span class="math notranslate nohighlight">\(p\)</span>.</p>
+  <div class="section" id="applying-the-definition">
+<h1><span class="section-number">8.2. </span>Applying the Definition<a class="headerlink" href="#applying-the-definition" title="Permalink to this headline">¶</a></h1>
+<p>Now that we have a few ways to think about expectation, let’s see why it has such fundamental importance. We will start by directly applying the definition to calculate some expectations. In subsequent sections we will develop more powerful methods to calculate and use expectation.</p>
+<div class="section" id="constant">
+<h2><span class="section-number">8.2.1. </span>Constant<a class="headerlink" href="#constant" title="Permalink to this headline">¶</a></h2>
+<p>This little example is worth writing out because it gets used all the time. Suppose a random variable <span class="math notranslate nohighlight">\(X\)</span> is actually a constant <span class="math notranslate nohighlight">\(c\)</span>, that is, suppose <span class="math notranslate nohighlight">\(P(X = c) = 1\)</span>. Then the distribution of <span class="math notranslate nohighlight">\(X\)</span> puts all its mass on the single value <span class="math notranslate nohighlight">\(c\)</span>, and <span class="math notranslate nohighlight">\(E(X) = c\cdot 1 = c\)</span>. We just write <span class="math notranslate nohighlight">\(E(c) = c\)</span>.</p>
 </div>
-<div class="section" id="additional-practice">
-<h2>Additional Practice<a class="headerlink" href="#additional-practice" title="Permalink to this headline">¶</a></h2>
-<p><strong>11.</strong> In the first hour that a bank opens, the customers who enter are of three kinds: those who only require teller service, those who only want to use the ATM, and those who only require special services (neither the tellers nor the ATM). Assume that the numbers of customers of the three kinds are independent of each other and also that:</p>
-<ul class="simple">
-<li><p>the number that only require teller service has the Poisson (6) distribution,</p></li>
-<li><p>the number that only want to use the ATM has the Poisson (2) distribution, and</p></li>
-<li><p>the number that only require special services has the Poisson (1) distribution.</p></li>
-</ul>
-<p>Suppose you observe the bank in the first hour that it opens. In each part below, find the chance of the event described.</p>
-<p><strong>a)</strong> 12 customers enter the bank</p>
-<p><strong>b)</strong> more than 12 customers enter the bank</p>
-<p><strong>c)</strong> customers do enter but none requires special services</p>
-<p><strong>12.</strong> If you bet a dollar on a “split” at roulette, you have a 2/38 chance of
-winning. If you win the bet, your net gain is $17 . If you lose the
-bet, you lose your dollar.<br />
-Suppose you make 100 bets. Find the chance that you come out ahead, that
-is, the chance that you end up with more money than you had at the
-start.</p>
-<p><strong>13.</strong> Let <span class="math notranslate nohighlight">\(X_1, X_2, \ldots, X_n\)</span> be i.i.d. Poisson <span class="math notranslate nohighlight">\((\lambda)\)</span> random
-variables.</p>
-<ol class="simple">
-<li><p>Find the distribution of the sample sum
-<span class="math notranslate nohighlight">\(S_n = X_1 + X_2 + \cdots + X_n\)</span>.</p></li>
-<li><p>Let <span class="math notranslate nohighlight">\(A_n = S_n/n\)</span> be the sample average. For a non-negative integer
-<span class="math notranslate nohighlight">\(k\)</span>, find <span class="math notranslate nohighlight">\(P(A_n \le k)\)</span>.</p></li>
-</ol>
-<p><strong>14.</strong> A courtyard is paved with 100 identical tiles. In an instant of rain, the number of raindrops on each tile has the Poisson (10) distribution independently of all other tiles.</p>
-<p>Find the chance that more than 90 tiles have more than 5 raindrops on them.</p>
-<p><strong>15.</strong> Dibya and Jason are playing tennis. The game consists of a sequence of
-sets. The first player to win <span class="math notranslate nohighlight">\(s\)</span> sets wins the match. Suppose the
-probability that Jason wins a set is <span class="math notranslate nohighlight">\(p\)</span> (where <span class="math notranslate nohighlight">\(0.5 &lt; p &lt; 1\)</span>),
-independent of the result of any other set. What is the probability that
-Jason wins the match?</p>
-<p><strong>16.</strong> Let <span class="math notranslate nohighlight">\(X\)</span> have the <span class="math notranslate nohighlight">\(Poisson(\mu)\)</span> distribution. Find</p>
-<p>(a) E(X+1)</p>
-<p>(b) E(1/(X+1))</p>
-<p>[First read the Poisson portions of Sections 8.1 and 8.3.]</p>
-<p><strong>17.</strong> A test for a disease produces a correct result with chance 0.99. Suppose
-the test is run on 300 patients.</p>
-<ol class="simple">
-<li><p>What is the chance that for at least 295 patients the result is
-correct?</p></li>
-<li><p>Justify a Poisson approximation for the chance in (a), and find the
-value of the approximation.</p></li>
-</ol>
-<p><strong>18.</strong> Roll a fair <span class="math notranslate nohighlight">\(n\)</span>-sided die <span class="math notranslate nohighlight">\(m\)</span> times. Find the expected number of
-distinct faces seen.</p>
-<p><strong>19.</strong> Seven dice are rolled. Write down unsimplified expressions for the
-probabilities of each of the following events:</p>
-<p>(a) exactly two sixes</p>
-<p>(b) two of one kind and five of another</p>
-<p>(c) two fours, two fives, and three sixes</p>
-<p>(d) each number appears</p>
-<p>(e) the sum of the dice is 9 or more</p>
-<p><strong>20.</strong> Use consecutive odds ratios to find the mode of the Poisson(<span class="math notranslate nohighlight">\(\mu\)</span>)
-distribution. Be careful about the case where <span class="math notranslate nohighlight">\(\mu\)</span> is an integer.</p>
-<p><strong>21.</strong> A monkey types on a 26-letter keyboard that has lowercase letters only.
-Each letter is chosen independently and uniformly at random from the
-alphabet. If the monkey types n letters ( n <span class="math notranslate nohighlight">\(\geq\)</span> 11 ), what is the
-expected number of times the sequence “probability” appears?</p>
-<p><strong>22.</strong> I see a Poisson (15) number of cars. Assume that each car has chance 0.2
-of being a hybrid and chance 0.1 of being electric, independently of all
-other cars. Find the chance that I see 3 hybrid cars, 2 electric cars,
-and 8 cars of other types.</p>
-<p><strong>23.</strong> A box contains <span class="math notranslate nohighlight">\(n_R\)</span> red balls, <span class="math notranslate nohighlight">\(n_B\)</span> blue balls, and <span class="math notranslate nohighlight">\(n_G\)</span> green balls.
-Balls are drawn one by one without replacement until all the red balls
-are drawn. Let D be the number of draws made. Calculate <span class="math notranslate nohighlight">\(E(D)\)</span>. Then,
-evaluate it (no calculators or computers) when <span class="math notranslate nohighlight">\(n_R=5, n_B=3, n_G=3\)</span>.</p>
-<p><strong>24.</strong> Let <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(N\)</span> be positive integers, and suppose n draws made at random
-with replacement from {<span class="math notranslate nohighlight">\(1\)</span>,<span class="math notranslate nohighlight">\(2\)</span>,<span class="math notranslate nohighlight">\(3\)</span>, … ,<span class="math notranslate nohighlight">\(N\)</span>}. Find the expectation of
-the minimum of the values drawn.</p>
-<p><strong>25.</strong> Suppose you have <span class="math notranslate nohighlight">\(N\)</span> balls where <span class="math notranslate nohighlight">\(N\)</span> has the Poisson <span class="math notranslate nohighlight">\((\lambda)\)</span>
-distribution. Each ball is thrown into into one of <span class="math notranslate nohighlight">\(m\)</span> bins chosen
-uniformly at random, independent of all other balls. Find
-<span class="math notranslate nohighlight">\(P(\text{there is an empty bin})\)</span>.</p>
-<p><strong>26.</strong> Let <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> be independent random variables such that <span class="math notranslate nohighlight">\(X\)</span> has the
-Poisson <span class="math notranslate nohighlight">\((\lambda)\)</span> distribution and <span class="math notranslate nohighlight">\(Y\)</span> has the Poisson <span class="math notranslate nohighlight">\((\mu)\)</span>
-distribution. For a fixed integer <span class="math notranslate nohighlight">\(n\)</span>, find the conditional distribution
-of <span class="math notranslate nohighlight">\(X\)</span> given <span class="math notranslate nohighlight">\(X+Y=n\)</span>. Identify it as one of the famous ones and provide
-the parameters in terms of <span class="math notranslate nohighlight">\(n\)</span>, <span class="math notranslate nohighlight">\(\lambda\)</span>, and <span class="math notranslate nohighlight">\(\mu\)</span>.</p>
-<p><strong>27.</strong> Suppose there are <span class="math notranslate nohighlight">\(m\)</span> distinguishable pairs of socks, but a prankster
-chooses <span class="math notranslate nohighlight">\(d\)</span> of these <span class="math notranslate nohighlight">\(2m\)</span> socks at random, and pokes holes in them. Let
-<span class="math notranslate nohighlight">\(X\)</span> be the number of undamaged pairs of socks. Find <span class="math notranslate nohighlight">\(E(X)\)</span></p>
-<p><strong>28.</strong> The distribution of a random variable <span class="math notranslate nohighlight">\(X\)</span> involves an unknown parameter <span class="math notranslate nohighlight">\(\theta\)</span>.</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(P(X = 1 ) = \theta\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(P(X = 2) = 2\theta\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(P(X = 3) = 1 - 3\theta\)</span></p></li>
-</ul>
-<p>(a) Find <span class="math notranslate nohighlight">\(E(X)\)</span>.</p>
-<p>(b) Let <span class="math notranslate nohighlight">\(X_1, X_2, \ldots, X_n\)</span> be i.i.d. with the same distribution as <span class="math notranslate nohighlight">\(X\)</span>, and let <span class="math notranslate nohighlight">\(\bar{X} = \frac{1}{n}\sum_{i}^n X_i\)</span> be the sample average. Use <span class="math notranslate nohighlight">\(\bar{X}\)</span> to construct an unbiased estimator of <span class="math notranslate nohighlight">\(\theta\)</span>.</p>
-<p><strong>29.</strong> Use probability theory to explain why the math identity below is true
-for all <span class="math notranslate nohighlight">\(\mu &gt; 0\)</span>.</p>
+<div class="section" id="bernoulli-and-indicators">
+<h2><span class="section-number">8.2.2. </span>Bernoulli and Indicators<a class="headerlink" href="#bernoulli-and-indicators" title="Permalink to this headline">¶</a></h2>
+<p>If <span class="math notranslate nohighlight">\(X\)</span> has the Bernoulli <span class="math notranslate nohighlight">\((p)\)</span> distribution, then <span class="math notranslate nohighlight">\(P(X = 1) p\)</span>
+and <span class="math notranslate nohighlight">\(P(X = 0) = 1-p\)</span>. So</p>
 <div class="math notranslate nohighlight">
-\[\sum_{k = 0}^\infty \sum_{j=k+1}^\infty \frac{\mu^j}{j!} ~ = ~
-\sum_{k = 1}^\infty \frac{\mu^k}{(k-1)!}\]</div>
-<p><strong>30.</strong> Survey respondents understandably don’t like to answer questions about
-sensitive topics such as illegal drug use. If data scientists want to
-estimate the proportion of illegal drug users in a population, they have
-to devise methods of getting the information they need while maintaining
-the privacy of the individual respondents.</p>
-<p>*Randomized response* schemes are often used in such situations. In
-one such scheme, each surveyed person is given a coin and asked to
-answer YES or NO after following these instructions out of sight of the
-surveyor:</p>
-<p><span class="math notranslate nohighlight">\(\bullet\)</span> Toss the coin.</p>
-<p><span class="math notranslate nohighlight">\(\bullet\)</span> If it lands heads, then truthfully answer, “Do you use illegal
-drugs?”</p>
-<p><span class="math notranslate nohighlight">\(\bullet\)</span> If it lands tails, then toss it again and answer, “Did the
-second toss land heads?”</p>
-<p>This way each respondent answers YES or NO but the surveyor doesn’t know
-which question was answered. The data scientists then have to estimate
-the proportion of illegal drug users based on the overall proportion of
-YES answers, which includes the YES answers to the second question.</p>
-<p>Let the unknown proportion of illegal drug users in a large population
-be <span class="math notranslate nohighlight">\(p\)</span>, and suppose a random sample of size <span class="math notranslate nohighlight">\(n\)</span> is surveyed using the
-scheme above. You can assume that the sampling is equivalent to drawing
-at random with replacement.</p>
-<p>(a) Let <span class="math notranslate nohighlight">\(X\)</span> be the proportion of sampled people who answer YES. Find
-<span class="math notranslate nohighlight">\(E(X)\)</span>.</p>
-<p>(b) Use <span class="math notranslate nohighlight">\(X\)</span> to construct an unbiased estimate of <span class="math notranslate nohighlight">\(p\)</span>.</p>
+\[
+E(X) = 0 \cdot (1-p) ~ + ~ 1 \cdot p ~ = ~ p
+\]</div>
+<p>As you saw earlier, zero/one valued random variables are building blocks for other variables and are called indicators.</p>
+<p>Let <span class="math notranslate nohighlight">\(A\)</span> be any event. Then the indicator of <span class="math notranslate nohighlight">\(A\)</span> is the random variable <span class="math notranslate nohighlight">\(I_A\)</span> that is 1 if <span class="math notranslate nohighlight">\(A\)</span> occurs and 0 if <span class="math notranslate nohighlight">\(A\)</span> doesn’t occur. Thus <span class="math notranslate nohighlight">\(I_A\)</span> is has the Bernoulli <span class="math notranslate nohighlight">\((P(A))\)</span> distribution and</p>
+<div class="math notranslate nohighlight">
+\[
+E(I_A) = P(A)
+\]</div>
+<p>by our calculation above. Thus every probability is an expectation. We will use this heavily in later sections.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">qp</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.75</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">]</span>
+<span class="n">bern_1_3</span> <span class="o">=</span> <span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">probabilities</span><span class="p">(</span><span class="n">qp</span><span class="p">)</span>
+<span class="n">Plot</span><span class="p">(</span><span class="n">bern_1_3</span><span class="p">,</span> <span class="n">show_ev</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Bernoulli (0.25)&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/02_Applying_the_Definition_5_0.png" src="../../_images/02_Applying_the_Definition_5_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="uniform-on-an-interval-of-integers">
+<h2><span class="section-number">8.2.3. </span>Uniform on an Interval of Integers<a class="headerlink" href="#uniform-on-an-interval-of-integers" title="Permalink to this headline">¶</a></h2>
+<p>Let <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> be two integers such that <span class="math notranslate nohighlight">\(a &lt; b\)</span>. If <span class="math notranslate nohighlight">\(X\)</span> has the uniform distribution on the integers <span class="math notranslate nohighlight">\(a, a+1, a+2, \ldots, b\)</span>, then by symmetry, <span class="math notranslate nohighlight">\(E(X)\)</span> is half-way between <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>. That’s where the probability histogram will balance. So</p>
+<div class="math notranslate nohighlight">
+\[
+E(X) = \frac{a+b}{2}
+\]</div>
+<p>For example, if <span class="math notranslate nohighlight">\(X\)</span> has the uniform distribution on <span class="math notranslate nohighlight">\(1, 2, \ldots , n\)</span>, then</p>
+<div class="math notranslate nohighlight">
+\[
+E(X) = \frac{n+1}{2}
+\]</div>
+<p>An instance of this is if <span class="math notranslate nohighlight">\(X\)</span> is the number of spots on one roll of a die. Then <span class="math notranslate nohighlight">\(E(X) = 3.5\)</span>.</p>
+<p>If instead <span class="math notranslate nohighlight">\(X\)</span> is uniform on <span class="math notranslate nohighlight">\(0, 1, 2, \ldots , n\)</span>, then</p>
+<div class="math notranslate nohighlight">
+\[
+E(X) = \frac{n}{2}
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">probs</span> <span class="o">=</span> <span class="mf">0.1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">unif_10</span> <span class="o">=</span> <span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">probabilities</span><span class="p">(</span><span class="n">probs</span><span class="p">)</span>
+<span class="n">Plot</span><span class="p">(</span><span class="n">unif_10</span><span class="p">,</span> <span class="n">show_ev</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Uniform on Integers 0, 1, 2, ..., 9&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/02_Applying_the_Definition_7_0.png" src="../../_images/02_Applying_the_Definition_7_0.png" />
+</div>
+</div>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="400"
+    height="300"
+    src="https://www.youtube.com/embed/hq9GiEQ1ZzY"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
+</div>
+<div class="section" id="poisson">
+<h2><span class="section-number">8.2.4. </span>Poisson<a class="headerlink" href="#poisson" title="Permalink to this headline">¶</a></h2>
+<p>Let <span class="math notranslate nohighlight">\(X\)</span> have the Poisson <span class="math notranslate nohighlight">\((\mu)\)</span> distribution. Then</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+E(X) &amp;= \sum_{k=0}^\infty k e^{-\mu} \frac{\mu^k}{k!} \\ \\
+&amp;= e^{-\mu} \mu \sum_{k=1}^\infty \frac{\mu^{k-1}}{(k-1)!} \\ \\
+&amp;= e^{-\mu} \mu \sum_{j=0}^\infty \frac{\mu^j}{j!} \\ \\
+&amp;= e^{-\mu} \mu e^{\mu} \\ \\
+&amp;= \mu
+\end{align*}
+\end{split}\]</div>
+<p><strong>We now have an important new interpretation of the parameter of the Poisson distribution.</strong> We saw earlier it was close to the mode; now we know that it is also the balance point or expectation of the distribution. The notation <span class="math notranslate nohighlight">\(\mu\)</span> was chosen to stand for “mean”.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">poi_2_probs</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">poisson</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">dist_poi_2</span> <span class="o">=</span> <span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">.</span><span class="n">probabilities</span><span class="p">(</span><span class="n">poi_2_probs</span><span class="p">)</span>
+<span class="n">Plot</span><span class="p">(</span><span class="n">dist_poi_2</span><span class="p">,</span> <span class="n">show_ev</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Poisson (2)&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/02_Applying_the_Definition_10_0.png" src="../../_images/02_Applying_the_Definition_10_0.png" />
+</div>
+</div>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="400"
+    height="300"
+    src="https://www.youtube.com/embed/ctcoolPNZjE"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
+</div>
+<div class="section" id="tail-sum-formula">
+<h2><span class="section-number">8.2.5. </span>Tail Sum Formula<a class="headerlink" href="#tail-sum-formula" title="Permalink to this headline">¶</a></h2>
+<p>To find the expectation of a non-negative integer valued random variable it is sometimes quicker to use a formula that uses only the <em>right hand tail</em> probabilities <span class="math notranslate nohighlight">\(P(X &gt; k) = 1 - F(k)\)</span> where <span class="math notranslate nohighlight">\(F\)</span> is the cdf of <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(k \ge 0\)</span>.</p>
+<p>For non-negative integer valued <span class="math notranslate nohighlight">\(X\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[
+E(X) = P(X=1) + 2P(X=2) + 3P(X=3) + \cdots
+\]</div>
+<p>Rewrite this as</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+E(X) ~ = ~ &amp;P(X=1)\\
++ ~ &amp;P(X=2) + P(X=2)\\
++ ~ &amp;P(X=3) + P(X=3) + P(X=3)\\
++ ~ &amp;P(X=4) + P(X=4) + P(X=4) + P(X=4)\\
++ ~ &amp; ~~~~~~~~ \vdots ~~~~~ + ~~~~~~~~ \vdots ~~~~~ + ~~~~~~~~ \vdots ~~~~~ + ~~~~~~~~ \vdots ~~~~~~
+\end{align*}
+\end{split}\]</div>
+<p>Add the terms along each column on the right hand side to get the <em>tail sum formula</em> for the expectation of a non-negative integer valued random variable.</p>
+<div class="math notranslate nohighlight">
+\[
+E(X) = P(X &gt; 0) + P(X &gt; 1) + P(X &gt; 2) + \cdots ~ = ~ \sum_{k=0}^\infty P(X &gt; k)
+\]</div>
+<p>This formula comes in handy if a random variable has tail probabilities that are easy to find and also easy to sum.</p>
+</div>
+<div class="section" id="geometric">
+<h2><span class="section-number">8.2.6. </span>Geometric<a class="headerlink" href="#geometric" title="Permalink to this headline">¶</a></h2>
+<p>In a sequence of i.i.d. Bernoulli <span class="math notranslate nohighlight">\((p)\)</span> trials, let <span class="math notranslate nohighlight">\(X\)</span> be the number of trials till the first success. We will use the word “till” to mean “up to and including”.</p>
+<p>Let <span class="math notranslate nohighlight">\(q = 1-p\)</span>. The distribution of <span class="math notranslate nohighlight">\(X\)</span> is given by</p>
+<div class="math notranslate nohighlight">
+\[
+P(X = k) ~ = ~ P(k-1 \text{ failures followed by a success}) ~ = ~ q^{k-1}p, ~~ k = 1, 2, 3, \ldots
+\]</div>
+<p>This is called the <em>geometric</em> <span class="math notranslate nohighlight">\((p)\)</span> distribution on <span class="math notranslate nohighlight">\(\{1, 2, 3, \ldots \}\)</span> because the probabilities are terms in a geometric series.</p>
+<p>The right tails of <span class="math notranslate nohighlight">\(X\)</span> are simple because for each <span class="math notranslate nohighlight">\(k \ge 1\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[
+P(X &gt; k) ~ = ~ P(\text{first } k \text{ trials are failures}) ~ = ~ q^k
+\]</div>
+<p>The formula is also true for <span class="math notranslate nohighlight">\(k = 0\)</span> because <span class="math notranslate nohighlight">\(P(X &gt; 0) = 1 = q^0\)</span>.</p>
+<p>By the tail sum formula,</p>
+<div class="math notranslate nohighlight">
+\[
+E(X) ~ = ~ \sum_{k=0}^\infty q^k ~ = ~ \frac{1}{1-q} ~ = ~ \frac{1}{p}
+\]</div>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="400"
+    height="300"
+    src="https://www.youtube.com/embed/f2HhYnaGL2U"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
 </div>
 </div>
 
@@ -1159,6 +1174,8 @@ at random with replacement.</p>
     
     <div class='prev-next-bottom'>
         
+    <a class='left-prev' id="prev-link" href="01_Definition.html" title="previous page"><span class="section-number">8.1. </span>Definition</a>
+    <a class='right-next' id="next-link" href="03_Expectations_of_Functions.html" title="next page"><span class="section-number">8.3. </span>Expectations of Functions</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

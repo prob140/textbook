@@ -11,26 +11,47 @@ from scipy import misc
 
 ## Expectations of Functions ##
 
-Once we start using random variables as estimators, we will want to see how far the estimate is from a desired value. For example, we might want to see how far a random variable $X$ is from the number 10. That's a function of $X$. Let's call it $Y$. Then
+Once we have a random variable, we often want to work with functions of it. For example, if a random variables is an estimator, we usually want to see how far it is from the value it is trying to estimate. For example, we might want to see how far a random variable $X$ is from the number 10. That's a function of $X$. Let's call it $Y$. Then
 
 $$
 Y = |X - 10|
 $$
 
-which is not a linear function. To find $E(Y)$, we need a bit more technique. Throughout, we will assume that all the expectations that we are discussing are well defined.
+To find $E(Y)$, we need a bit more technique. 
 
-This section is about finding the expectation of a function of a random variable whose distribution you know.
+This section is about finding the expectation of a function of a random variable whose distribution you know. Throughout, we will assume that all the expectations that we are discussing are well defined.
 
 In what follows, let $X$ be a random variable whose distribution (and hence also expectation) are known.
 
 ### Linear Function Rule ###
-Let $Y = aX + b$ for some constants $a$ and $b$. In an earlier section we showed that
+
+Let $X$ be a random variable with expectation $E(X)$ and let $Y = aX + b$ for some constants $a$ and $b$. 
+
+This kind of transformation happens for example when you change units of measurement. 
+
+- If you switch from Celsius to Fahreneheit, then $a = 9/5$ and $b = 32$. 
+- If you switch from inches to centimeters, then $a = 2/54$ and $b = 0$.
+
+We can find $E(Y)$ by applying the definition of expectation on the domain $\Omega$. For every $\omega \in \Omega$, we have $Y(\omega) = aX(\omega) + b$. So
 
 $$
-E(Y) = aE(X) + b
+\begin{align*}
+E(Y) ~ &= ~ \sum_{\text{all }\omega} (aX(\omega)+b)P(\omega) \\
+&= ~a \sum_{\text{all }\omega} X(\omega)P(\omega ) + ~b \sum_{\text{all }\omega} P(\omega )\\
+&= ~aE(X) + b
+\end{align*}
 $$
 
-This includes the case where $a=0$ and thus $Y$ is just the constant $b$ and thus has expectation $b$.
+So for example, $E(2X - 3) = 2E(X) - 3$. Also $E(X/2) = E(X)/2$, and $E(1 - X) = 1 - E(X)$.
+
+The expectation of a linear transformation of $X$ is the linear transformation of the expectation of $X$. This is a handy result as we will often be transforming variables linearly.
+
+But expectation behaves differently under non-linear transformation.
+
+# VIDEO: Non-linear Function: Observation
+from IPython.display import YouTubeVideo
+
+YouTubeVideo('BWNa1Ri7eII')
 
 ### Non-linear Function Rule ###
 Now let $Y = g(X)$ where $g$ is any numerical function. Remember that $X$ is a function on $\Omega$. So the function that defines the random variable $Y$ is a *composition*:
@@ -69,9 +90,15 @@ The third form is the one to use. It uses the known distribution of $X$. It says
 - Weight $g(x)$ by $P(X=x)$, which is known.
 - Do this for all $x$ and add. The sum is $E(Y)$.
 
-The crucial thing to note about this method is that **we didn't have to first find the distribution of $Y$**. That saves us a lot of work. Let's see how our method works in some examples.
+The crucial thing to note about this method is that **we didn't have to first find the distribution of $Y$**. That saves us a lot of work. 
 
-### Example 1: $Y = \vert X-3 \vert$ ###
+# VIDEO: Non-linear Function: Calculation
+
+YouTubeVideo('jVBrCMCzO3o')
+
+Let's see how our method works in some examples.
+
+### $Y = \vert X-3 \vert$ ###
 Let $X$ have a distribution we worked with earlier:
 
 x = np.arange(1, 6)
@@ -93,7 +120,7 @@ To get $E(Y)$, find the appropriate weighed average: multiply the `g(x)` and `P(
 ev_Y = sum(dist_with_Y.column('g(x)') * dist_with_Y.column('P(X=x)'))
 ev_Y
 
-### Example 2: $Y = \min(X, 3)$ ###
+### $Y = \min(X, 3)$ ###
 Let $X$ be as above, but now let $Y = \min(X, 3)$. We want $E(Y)$. What we know is the distribution of $X$:
 
 dist
@@ -103,8 +130,8 @@ To find $E(Y)$ we can just go row by row and replace the value of $x$ by the val
 ev_Y = 1*0.15 + 2*0.25 + 3*0.3 + 3*0.2 + 3*0.1
 ev_Y
 
-### Example 3: $E(X^2)$ for a Poisson Variable $X$ ###
-Let $X$ have the Poisson $(\mu)$ distribution. You will see in the next chapter that it will be useful to know the value of $E(X^2)$. By our non-linear function rule,
+### $E(X^2)$ for a Poisson Variable $X$ ###
+Let $X$ have the Poisson $(\mu)$ distribution. In a later chapter you will see that it is useful to know the value of $E(X^2)$. By our non-linear function rule,
 
 $$
 E(X^2) = \sum_{k=0}^\infty k^2 e^{-\mu} \frac{\mu^k}{k!}

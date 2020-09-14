@@ -130,7 +130,7 @@ The calculation here does not require simulation and produces an exact P-value.
 This method is called Fisher's exact test. That's the same Sir Ronald Fisher who formalized tests of hypotheses, suggested cutoffs for P-values, and so on. The method can be used for any sample size and any randomized controlled experiment with a binary response.
 
 ### Joint, Marginal, and Conditional Distributions ###
-The calculations above extend easily to samples that can come out in more than two categories. Consider a five-card poker hand dealt from a well-shuffled deck. Let $H$ be the number of hearts and $S$ the number of spaces in the hand. Let us find the joint distribution of $H$ and $S$.
+The calculations above extend easily to samples that can come out in more than two categories. Consider a five-card poker hand dealt from a well-shuffled deck. Let $H$ be the number of hearts and $S$ the number of spades in the hand. Let us find the joint distribution of $H$ and $S$.
 
 The hand can have cards other than hearts and spades, of course. Let $X$ be the number of those cards, which must be diamonds or clubs. Then
 

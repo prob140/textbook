@@ -73,8 +73,11 @@
     expand_sections: true
     sections:
     - file: content/Chapter_08/01_Definition
-    - file: content/Chapter_08/02_Additivity
+    - file: content/Chapter_08/02_Applying_the_Definition
     - file: content/Chapter_08/03_Expectations_of_Functions
+    - file: content/Chapter_08/04_Additivity
+    - file: content/Chapter_08/05_Method_of_Indicators
+    - file: content/Chapter_08/06_Exercises
   - file: content/Chapter_09/00_Conditioning_Revisited
     expand_sections: true
     sections:
