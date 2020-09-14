@@ -40,8 +40,8 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="9. Conditioning, Revisited" href="../Chapter_09/00_Conditioning_Revisited.html" />
-    <link rel="prev" title="8.2. Additivity" href="02_Additivity.html" />
+    <link rel="next" title="8.4. Additivity" href="04_Additivity.html" />
+    <link rel="prev" title="8.2. Applying the Definition" href="02_Applying_the_Definition.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -349,13 +349,28 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="02_Additivity.html">
-     8.2. Additivity
+    <a class="reference internal" href="02_Applying_the_Definition.html">
+     8.2. Applying the Definition
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
      8.3. Expectations of Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04_Additivity.html">
+     8.4. Additivity
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05_Method_of_Indicators.html">
+     8.5. Method of Indicators
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="06_Exercises.html">
+     8.6. Exercises
     </a>
    </li>
   </ul>
@@ -944,24 +959,24 @@
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#example-1-y-vert-x-3-vert">
-   8.3.3. Example 1:
+  <a class="reference internal nav-link" href="#y-vert-x-3-vert">
+   8.3.3.
    <span class="math notranslate nohighlight">
     \(Y = \vert X-3 \vert\)
    </span>
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#example-2-y-min-x-3">
-   8.3.4. Example 2:
+  <a class="reference internal nav-link" href="#y-min-x-3">
+   8.3.4.
    <span class="math notranslate nohighlight">
     \(Y = \min(X, 3)\)
    </span>
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#example-3-e-x-2-for-a-poisson-variable-x">
-   8.3.5. Example 3:
+  <a class="reference internal nav-link" href="#e-x-2-for-a-poisson-variable-x">
+   8.3.5.
    <span class="math notranslate nohighlight">
     \(E(X^2)\)
    </span>
@@ -983,22 +998,46 @@
                 
   <div class="section" id="expectations-of-functions">
 <h1><span class="section-number">8.3. </span>Expectations of Functions<a class="headerlink" href="#expectations-of-functions" title="Permalink to this headline">¶</a></h1>
-<p>Once we start using random variables as estimators, we will want to see how far the estimate is from a desired value. For example, we might want to see how far a random variable <span class="math notranslate nohighlight">\(X\)</span> is from the number 10. That’s a function of <span class="math notranslate nohighlight">\(X\)</span>. Let’s call it <span class="math notranslate nohighlight">\(Y\)</span>. Then</p>
+<p>Once we have a random variable, we often want to work with functions of it. For example, if a random variables is an estimator, we usually want to see how far it is from the value it is trying to estimate. For example, we might want to see how far a random variable <span class="math notranslate nohighlight">\(X\)</span> is from the number 10. That’s a function of <span class="math notranslate nohighlight">\(X\)</span>. Let’s call it <span class="math notranslate nohighlight">\(Y\)</span>. Then</p>
 <div class="math notranslate nohighlight">
 \[
 Y = |X - 10|
 \]</div>
-<p>which is not a linear function. To find <span class="math notranslate nohighlight">\(E(Y)\)</span>, we need a bit more technique. Throughout, we will assume that all the expectations that we are discussing are well defined.</p>
-<p>This section is about finding the expectation of a function of a random variable whose distribution you know.</p>
+<p>To find <span class="math notranslate nohighlight">\(E(Y)\)</span>, we need a bit more technique.</p>
+<p>This section is about finding the expectation of a function of a random variable whose distribution you know. Throughout, we will assume that all the expectations that we are discussing are well defined.</p>
 <p>In what follows, let <span class="math notranslate nohighlight">\(X\)</span> be a random variable whose distribution (and hence also expectation) are known.</p>
 <div class="section" id="linear-function-rule">
 <h2><span class="section-number">8.3.1. </span>Linear Function Rule<a class="headerlink" href="#linear-function-rule" title="Permalink to this headline">¶</a></h2>
-<p>Let <span class="math notranslate nohighlight">\(Y = aX + b\)</span> for some constants <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>. In an earlier section we showed that</p>
+<p>Let <span class="math notranslate nohighlight">\(X\)</span> be a random variable with expectation <span class="math notranslate nohighlight">\(E(X)\)</span> and let <span class="math notranslate nohighlight">\(Y = aX + b\)</span> for some constants <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>.</p>
+<p>This kind of transformation happens for example when you change units of measurement.</p>
+<ul class="simple">
+<li><p>If you switch from Celsius to Fahreneheit, then <span class="math notranslate nohighlight">\(a = 9/5\)</span> and <span class="math notranslate nohighlight">\(b = 32\)</span>.</p></li>
+<li><p>If you switch from inches to centimeters, then <span class="math notranslate nohighlight">\(a = 2/54\)</span> and <span class="math notranslate nohighlight">\(b = 0\)</span>.</p></li>
+</ul>
+<p>We can find <span class="math notranslate nohighlight">\(E(Y)\)</span> by applying the definition of expectation on the domain <span class="math notranslate nohighlight">\(\Omega\)</span>. For every <span class="math notranslate nohighlight">\(\omega \in \Omega\)</span>, we have <span class="math notranslate nohighlight">\(Y(\omega) = aX(\omega) + b\)</span>. So</p>
 <div class="math notranslate nohighlight">
-\[
-E(Y) = aE(X) + b
-\]</div>
-<p>This includes the case where <span class="math notranslate nohighlight">\(a=0\)</span> and thus <span class="math notranslate nohighlight">\(Y\)</span> is just the constant <span class="math notranslate nohighlight">\(b\)</span> and thus has expectation <span class="math notranslate nohighlight">\(b\)</span>.</p>
+\[\begin{split}
+\begin{align*}
+E(Y) ~ &amp;= ~ \sum_{\text{all }\omega} (aX(\omega)+b)P(\omega) \\
+&amp;= ~a \sum_{\text{all }\omega} X(\omega)P(\omega ) + ~b \sum_{\text{all }\omega} P(\omega )\\
+&amp;= ~aE(X) + b
+\end{align*}
+\end{split}\]</div>
+<p>So for example, <span class="math notranslate nohighlight">\(E(2X - 3) = 2E(X) - 3\)</span>. Also <span class="math notranslate nohighlight">\(E(X/2) = E(X)/2\)</span>, and <span class="math notranslate nohighlight">\(E(1 - X) = 1 - E(X)\)</span>.</p>
+<p>The expectation of a linear transformation of <span class="math notranslate nohighlight">\(X\)</span> is the linear transformation of the expectation of <span class="math notranslate nohighlight">\(X\)</span>. This is a handy result as we will often be transforming variables linearly.</p>
+<p>But expectation behaves differently under non-linear transformation.</p>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="400"
+    height="300"
+    src="https://www.youtube.com/embed/BWNa1Ri7eII"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
 </div>
 <div class="section" id="non-linear-function-rule">
 <h2><span class="section-number">8.3.2. </span>Non-linear Function Rule<a class="headerlink" href="#non-linear-function-rule" title="Permalink to this headline">¶</a></h2>
@@ -1037,11 +1076,24 @@ E(Y) = E(g(X)) = \sum_{\text{all }x} g(x)P(X=x)
 <li><p>Weight <span class="math notranslate nohighlight">\(g(x)\)</span> by <span class="math notranslate nohighlight">\(P(X=x)\)</span>, which is known.</p></li>
 <li><p>Do this for all <span class="math notranslate nohighlight">\(x\)</span> and add. The sum is <span class="math notranslate nohighlight">\(E(Y)\)</span>.</p></li>
 </ul>
-<p>The crucial thing to note about this method is that <strong>we didn’t have to first find the distribution of <span class="math notranslate nohighlight">\(Y\)</span></strong>. That saves us a lot of work. Let’s see how our method works in some examples.</p>
+<p>The crucial thing to note about this method is that <strong>we didn’t have to first find the distribution of <span class="math notranslate nohighlight">\(Y\)</span></strong>. That saves us a lot of work.</p>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="400"
+    height="300"
+    src="https://www.youtube.com/embed/jVBrCMCzO3o"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
+<p>Let’s see how our method works in some examples.</p>
 </div>
 </div>
-<div class="section" id="example-1-y-vert-x-3-vert">
-<h2><span class="section-number">8.3.3. </span>Example 1: <span class="math notranslate nohighlight">\(Y = \vert X-3 \vert\)</span><a class="headerlink" href="#example-1-y-vert-x-3-vert" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="y-vert-x-3-vert">
+<h2><span class="section-number">8.3.3. </span><span class="math notranslate nohighlight">\(Y = \vert X-3 \vert\)</span><a class="headerlink" href="#y-vert-x-3-vert" title="Permalink to this headline">¶</a></h2>
 <p>Let <span class="math notranslate nohighlight">\(X\)</span> have a distribution we worked with earlier:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1135,8 +1187,8 @@ E(Y) = E(g(X)) = \sum_{\text{all }x} g(x)P(X=x)
 </div>
 </div>
 </div>
-<div class="section" id="example-2-y-min-x-3">
-<h2><span class="section-number">8.3.4. </span>Example 2: <span class="math notranslate nohighlight">\(Y = \min(X, 3)\)</span><a class="headerlink" href="#example-2-y-min-x-3" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="y-min-x-3">
+<h2><span class="section-number">8.3.4. </span><span class="math notranslate nohighlight">\(Y = \min(X, 3)\)</span><a class="headerlink" href="#y-min-x-3" title="Permalink to this headline">¶</a></h2>
 <p>Let <span class="math notranslate nohighlight">\(X\)</span> be as above, but now let <span class="math notranslate nohighlight">\(Y = \min(X, 3)\)</span>. We want <span class="math notranslate nohighlight">\(E(Y)\)</span>. What we know is the distribution of <span class="math notranslate nohighlight">\(X\)</span>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1185,9 +1237,9 @@ E(Y) = E(g(X)) = \sum_{\text{all }x} g(x)P(X=x)
 </div>
 </div>
 </div>
-<div class="section" id="example-3-e-x-2-for-a-poisson-variable-x">
-<h2><span class="section-number">8.3.5. </span>Example 3: <span class="math notranslate nohighlight">\(E(X^2)\)</span> for a Poisson Variable <span class="math notranslate nohighlight">\(X\)</span><a class="headerlink" href="#example-3-e-x-2-for-a-poisson-variable-x" title="Permalink to this headline">¶</a></h2>
-<p>Let <span class="math notranslate nohighlight">\(X\)</span> have the Poisson <span class="math notranslate nohighlight">\((\mu)\)</span> distribution. You will see in the next chapter that it will be useful to know the value of <span class="math notranslate nohighlight">\(E(X^2)\)</span>. By our non-linear function rule,</p>
+<div class="section" id="e-x-2-for-a-poisson-variable-x">
+<h2><span class="section-number">8.3.5. </span><span class="math notranslate nohighlight">\(E(X^2)\)</span> for a Poisson Variable <span class="math notranslate nohighlight">\(X\)</span><a class="headerlink" href="#e-x-2-for-a-poisson-variable-x" title="Permalink to this headline">¶</a></h2>
+<p>Let <span class="math notranslate nohighlight">\(X\)</span> have the Poisson <span class="math notranslate nohighlight">\((\mu)\)</span> distribution. In a later chapter you will see that it is useful to know the value of <span class="math notranslate nohighlight">\(E(X^2)\)</span>. By our non-linear function rule,</p>
 <div class="math notranslate nohighlight">
 \[
 E(X^2) = \sum_{k=0}^\infty k^2 e^{-\mu} \frac{\mu^k}{k!}
@@ -1251,8 +1303,8 @@ E(X^2) = \mu^2 + \mu
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="02_Additivity.html" title="previous page"><span class="section-number">8.2. </span>Additivity</a>
-    <a class='right-next' id="next-link" href="../Chapter_09/00_Conditioning_Revisited.html" title="next page"><span class="section-number">9. </span>Conditioning, Revisited</a>
+    <a class='left-prev' id="prev-link" href="02_Applying_the_Definition.html" title="previous page"><span class="section-number">8.2. </span>Applying the Definition</a>
+    <a class='right-next' id="next-link" href="04_Additivity.html" title="next page"><span class="section-number">8.4. </span>Additivity</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

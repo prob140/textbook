@@ -40,7 +40,7 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="8.2. Additivity" href="02_Additivity.html" />
+    <link rel="next" title="8.2. Applying the Definition" href="02_Applying_the_Definition.html" />
     <link rel="prev" title="8. Expectation" href="00_Expectation.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -349,13 +349,28 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="02_Additivity.html">
-     8.2. Additivity
+    <a class="reference internal" href="02_Applying_the_Definition.html">
+     8.2. Applying the Definition
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="03_Expectations_of_Functions.html">
      8.3. Expectations of Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04_Additivity.html">
+     8.4. Additivity
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05_Method_of_Indicators.html">
+     8.5. Method of Indicators
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="06_Exercises.html">
+     8.6. Exercises
     </a>
    </li>
   </ul>
@@ -936,38 +951,8 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#constant">
-   8.1.5. Constant
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#bernoulli-and-indicators">
-   8.1.6. Bernoulli and Indicators
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#uniform-on-an-interval-of-integers">
-   8.1.7. Uniform on an Interval of Integers
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#poisson">
-   8.1.8. Poisson
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#existence">
-   8.1.9. Existence
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#tail-sum-formula">
-   8.1.10. Tail Sum Formula
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#geometric">
-   8.1.11. Geometric
+   8.1.5. Existence
   </a>
  </li>
 </ul>
@@ -982,6 +967,18 @@
                 
   <div class="section" id="definition">
 <h1><span class="section-number">8.1. </span>Definition<a class="headerlink" href="#definition" title="Permalink to this headline">¶</a></h1>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="400"
+    height="300"
+    src="https://www.youtube.com/embed/jhKL5nVe0Mk"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
 <p>The <em>expectation</em> of a random variable <span class="math notranslate nohighlight">\(X\)</span>, denoted <span class="math notranslate nohighlight">\(E(X)\)</span>, is the average of the possible values of <span class="math notranslate nohighlight">\(X\)</span> weighted by their probabilities. This can be calculated in two equivalent ways.</p>
 <div class="section" id="on-the-domain-of-x">
 <h2><span class="section-number">8.1.1. </span>On the domain of <span class="math notranslate nohighlight">\(X\)</span>:<a class="headerlink" href="#on-the-domain-of-x" title="Permalink to this headline">¶</a></h2>
@@ -1013,7 +1010,7 @@ E(X) = \sum_{\text{all }x} xP(X=x)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/01_Definition_4_0.png" src="../../_images/01_Definition_4_0.png" />
+<img alt="../../_images/01_Definition_6_0.png" src="../../_images/01_Definition_6_0.png" />
 </div>
 </div>
 <p>Then by the formula on the range of <span class="math notranslate nohighlight">\(X\)</span>, we have <span class="math notranslate nohighlight">\(E(X) = 2.85\)</span>.</p>
@@ -1052,7 +1049,7 @@ E(X) = \sum_{\text{all }x} xP(X=x)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/01_Definition_10_0.png" src="../../_images/01_Definition_10_0.png" />
+<img alt="../../_images/01_Definition_12_0.png" src="../../_images/01_Definition_12_0.png" />
 </div>
 </div>
 <p>If you have studied some physics, you will recognize that the formula we used for the expectation is the same as the formula for the center of gravity of a system in which weights equal to the corresponding probabilities hang from each possible value 1, 2, 3, 4, and 5.</p>
@@ -1073,7 +1070,7 @@ E(X) = \sum_{\text{all }x} xP(X=x)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/01_Definition_13_0.png" src="../../_images/01_Definition_13_0.png" />
+<img alt="../../_images/01_Definition_15_0.png" src="../../_images/01_Definition_15_0.png" />
 </div>
 </div>
 <p>The average of the 10,000 simulated values of <span class="math notranslate nohighlight">\(X\)</span> is very close to <span class="math notranslate nohighlight">\(E(X)\)</span> but not exactly equal.</p>
@@ -1084,113 +1081,28 @@ E(X) = \sum_{\text{all }x} xP(X=x)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>2.8771
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>2.8445
 </pre></div>
 </div>
 </div>
 </div>
 <p>This is because of what you can see in the empirical histogram: it looks very much like the probability histogram of <span class="math notranslate nohighlight">\(X\)</span>. About 15% of the simulated values are 1, about 20% are 2’s, and so on, so the average is very close to 2.85.</p>
 <p>The similarity of the two histograms is because of the Law of Averages that you saw in Data 8 and that we will establish formally in this course.</p>
-<p>Now that we have a few ways to think about expectation, let’s see why it has such fundamental importance. We will start by directly applying the definition to calculate some expectations. In subsequent sections we will develop more powerful methods to calculate and use expectation.</p>
-</div>
-<div class="section" id="constant">
-<h2><span class="section-number">8.1.5. </span>Constant<a class="headerlink" href="#constant" title="Permalink to this headline">¶</a></h2>
-<p>This little example is worth writing out because it gets used all the time. Suppose a random variable <span class="math notranslate nohighlight">\(X\)</span> is actually a constant <span class="math notranslate nohighlight">\(c\)</span>, that is, suppose <span class="math notranslate nohighlight">\(P(X = c) = 1\)</span>. Then the distribution of <span class="math notranslate nohighlight">\(X\)</span> puts all its mass on the single value <span class="math notranslate nohighlight">\(c\)</span>, and <span class="math notranslate nohighlight">\(E(X) = c\cdot 1 = c\)</span>. We just write <span class="math notranslate nohighlight">\(E(c) = c\)</span>.</p>
-</div>
-<div class="section" id="bernoulli-and-indicators">
-<h2><span class="section-number">8.1.6. </span>Bernoulli and Indicators<a class="headerlink" href="#bernoulli-and-indicators" title="Permalink to this headline">¶</a></h2>
-<p>If <span class="math notranslate nohighlight">\(X\)</span> has the Bernoulli <span class="math notranslate nohighlight">\((p)\)</span> distribution, then <span class="math notranslate nohighlight">\(P(X = 1) p\)</span>
-and <span class="math notranslate nohighlight">\(P(X = 0) = 1-p\)</span>. So</p>
-<div class="math notranslate nohighlight">
-\[
-E(X) = 0 \cdot (1-p) ~ + ~ 1 \cdot p ~ = ~ p
-\]</div>
-<p>As you saw earlier, zero/one valued random variables are building blocks for other variables and are called indicators.</p>
-<p>Let <span class="math notranslate nohighlight">\(A\)</span> be any event. Then the indicator of <span class="math notranslate nohighlight">\(A\)</span> is the random variable <span class="math notranslate nohighlight">\(I_A\)</span> that is 1 if <span class="math notranslate nohighlight">\(A\)</span> occurs and 0 if <span class="math notranslate nohighlight">\(A\)</span> doesn’t occur. Thus <span class="math notranslate nohighlight">\(I_A\)</span> is has the Bernoulli <span class="math notranslate nohighlight">\((P(A))\)</span> distribution and</p>
-<div class="math notranslate nohighlight">
-\[
-E(I_A) = P(A)
-\]</div>
-<p>by our calculation above. Thus every probability is an expectation. We will use this heavily in later sections.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
-<span class="n">qp</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.75</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">]</span>
-<span class="n">bern_1_3</span> <span class="o">=</span> <span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">probabilities</span><span class="p">(</span><span class="n">qp</span><span class="p">)</span>
-<span class="n">Plot</span><span class="p">(</span><span class="n">bern_1_3</span><span class="p">,</span> <span class="n">show_ev</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Bernoulli (0.25)&#39;</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
+<div class="cell tag_remove-input tag_hide-output docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/01_Definition_20_0.png" src="../../_images/01_Definition_20_0.png" />
-</div>
-</div>
-</div>
-<div class="section" id="uniform-on-an-interval-of-integers">
-<h2><span class="section-number">8.1.7. </span>Uniform on an Interval of Integers<a class="headerlink" href="#uniform-on-an-interval-of-integers" title="Permalink to this headline">¶</a></h2>
-<p>Let <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> be two integers such that <span class="math notranslate nohighlight">\(a &lt; b\)</span>. If <span class="math notranslate nohighlight">\(X\)</span> has the uniform distribution on the integers <span class="math notranslate nohighlight">\(a, a+1, a+2, \ldots, b\)</span>, then by symmetry, <span class="math notranslate nohighlight">\(E(X)\)</span> is half-way between <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>. That’s where the probability histogram will balance. So</p>
-<div class="math notranslate nohighlight">
-\[
-E(X) = \frac{a+b}{2}
-\]</div>
-<p>For example, if <span class="math notranslate nohighlight">\(X\)</span> has the uniform distribution on <span class="math notranslate nohighlight">\(1, 2, \ldots , n\)</span>, then</p>
-<div class="math notranslate nohighlight">
-\[
-E(X) = \frac{n+1}{2}
-\]</div>
-<p>An instance of this is if <span class="math notranslate nohighlight">\(X\)</span> is the number of spots on one roll of a die. Then <span class="math notranslate nohighlight">\(E(X) = 3.5\)</span>.</p>
-<p>If instead <span class="math notranslate nohighlight">\(X\)</span> is uniform on <span class="math notranslate nohighlight">\(0, 1, 2, \ldots , n\)</span>, then</p>
-<div class="math notranslate nohighlight">
-\[
-E(X) = \frac{n}{2}
-\]</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">probs</span> <span class="o">=</span> <span class="mf">0.1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">unif_10</span> <span class="o">=</span> <span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">probabilities</span><span class="p">(</span><span class="n">probs</span><span class="p">)</span>
-<span class="n">Plot</span><span class="p">(</span><span class="n">unif_10</span><span class="p">,</span> <span class="n">show_ev</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Uniform on Integers 0, 1, 2, ..., 9&#39;</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../_images/01_Definition_22_0.png" src="../../_images/01_Definition_22_0.png" />
-</div>
-</div>
-</div>
-<div class="section" id="poisson">
-<h2><span class="section-number">8.1.8. </span>Poisson<a class="headerlink" href="#poisson" title="Permalink to this headline">¶</a></h2>
-<p>Let <span class="math notranslate nohighlight">\(X\)</span> have the Poisson <span class="math notranslate nohighlight">\((\mu)\)</span> distribution. Then</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{align*}
-E(X) &amp;= \sum_{k=0}^\infty k e^{-\mu} \frac{\mu^k}{k!} \\ \\
-&amp;= e^{-\mu} \mu \sum_{k=1}^\infty \frac{\mu^{k-1}}{(k-1)!} \\ \\
-&amp;= e^{-\mu} \mu \sum_{j=0}^\infty \frac{\mu^j}{j!} \\ \\
-&amp;= e^{-\mu} \mu e^{\mu} \\ \\
-&amp;= \mu
-\end{align*}
-\end{split}\]</div>
-<p><strong>We now have an important new interpretation of the parameter of the Poisson distribution.</strong> We saw earlier it was close to the mode; now we know that it is also the balance point or expectation of the distribution. The notation <span class="math notranslate nohighlight">\(\mu\)</span> was chosen to stand for “mean”.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
-<span class="n">poi_2_probs</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">poisson</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="n">dist_poi_2</span> <span class="o">=</span> <span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">.</span><span class="n">probabilities</span><span class="p">(</span><span class="n">poi_2_probs</span><span class="p">)</span>
-<span class="n">Plot</span><span class="p">(</span><span class="n">dist_poi_2</span><span class="p">,</span> <span class="n">show_ev</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Poisson (2)&#39;</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../_images/01_Definition_24_0.png" src="../../_images/01_Definition_24_0.png" />
-</div>
+<div class="output text_html">
+<iframe
+    width="400"
+    height="300"
+    src="https://www.youtube.com/embed/9gjBI8SMQis"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
 </div>
 </div>
 <div class="section" id="existence">
-<h2><span class="section-number">8.1.9. </span>Existence<a class="headerlink" href="#existence" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.1.5. </span>Existence<a class="headerlink" href="#existence" title="Permalink to this headline">¶</a></h2>
 <p>If <span class="math notranslate nohighlight">\(X\)</span> has countably many values, then the sums used to define expectation are infinite and hence are limits of partial sums. But not all sequences of partial sums have limits, and so not all random variables have expectations. Indeed, <span class="math notranslate nohighlight">\(E(X)\)</span> is only well defined when the sum is <em>absolutely convergent</em>:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1205,53 +1117,6 @@ E(X) = \sum_{\text{all }x} xP(X=x) ~~~~ \text{provided }
 \]</div>
 <p>Now suppose the random variable <span class="math notranslate nohighlight">\(X\)</span> has values <span class="math notranslate nohighlight">\(2, 4, 8, 16 \ldots\)</span> so that <span class="math notranslate nohighlight">\(P(X = 2^n) = 1/2^n\)</span> for $n = 1, 2, 3, \ldots $. Then for every possible value <span class="math notranslate nohighlight">\(x\)</span>, the product <span class="math notranslate nohighlight">\(xP(X=x) = 1\)</span>. If you try to add infinitely many 1’s, the only sensible answer is infinity.</p>
 <p>This problem with expectation happens when the distribution has “mass drifting off to infinity” at a rate that makes it impossible to balance the probability histogram anywhere on the horizontal axis.</p>
-</div>
-<div class="section" id="tail-sum-formula">
-<h2><span class="section-number">8.1.10. </span>Tail Sum Formula<a class="headerlink" href="#tail-sum-formula" title="Permalink to this headline">¶</a></h2>
-<p>To find the expectation of a non-negative integer valued random variable it is sometimes quicker to use a formula that uses only the <em>right hand tail</em> probabilities <span class="math notranslate nohighlight">\(P(X &gt; k) = 1 - F(k)\)</span> where <span class="math notranslate nohighlight">\(F\)</span> is the cdf of <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(k \ge 0\)</span>.</p>
-<p>For non-negative integer valued <span class="math notranslate nohighlight">\(X\)</span>,</p>
-<div class="math notranslate nohighlight">
-\[
-E(X) = P(X=1) + 2P(X=2) + 3P(X=3) + \cdots
-\]</div>
-<p>Rewrite this as</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{align*}
-E(X) ~ = ~ &amp;P(X=1)\\
-+ ~ &amp;P(X=2) + P(X=2)\\
-+ ~ &amp;P(X=3) + P(X=3) + P(X=3)\\
-+ ~ &amp;P(X=4) + P(X=4) + P(X=4) + P(X=4)\\
-+ ~ &amp; ~~~~~~~~ \vdots ~~~~~ + ~~~~~~~~ \vdots ~~~~~ + ~~~~~~~~ \vdots ~~~~~ + ~~~~~~~~ \vdots ~~~~~~
-\end{align*}
-\end{split}\]</div>
-<p>Add the terms along each column on the right hand side to get the <em>tail sum formula</em> for the expectation of a non-negative integer valued random variable.</p>
-<div class="math notranslate nohighlight">
-\[
-E(X) = P(X &gt; 0) + P(X &gt; 1) + P(X &gt; 2) + \cdots ~ = ~ \sum_{k=0}^\infty P(X &gt; k)
-\]</div>
-<p>This formula comes in handy if a random variable has tail probabilities that are easy to find and also easy to sum.</p>
-</div>
-<div class="section" id="geometric">
-<h2><span class="section-number">8.1.11. </span>Geometric<a class="headerlink" href="#geometric" title="Permalink to this headline">¶</a></h2>
-<p>In a sequence of i.i.d. Bernoulli <span class="math notranslate nohighlight">\((p)\)</span> trials, let <span class="math notranslate nohighlight">\(X\)</span> be the number of trials till the first success. We will use the word “till” to mean “up to and including”.</p>
-<p>Let <span class="math notranslate nohighlight">\(q = 1-p\)</span>. The distribution of <span class="math notranslate nohighlight">\(X\)</span> is given by</p>
-<div class="math notranslate nohighlight">
-\[
-P(X = k) ~ = ~ P(k-1 \text{ failures followed by a success}) ~ = ~ q^{k-1}p, ~~ k = 1, 2, 3, \ldots
-\]</div>
-<p>This is called the <em>geometric</em> <span class="math notranslate nohighlight">\((p)\)</span> distribution on <span class="math notranslate nohighlight">\(\{1, 2, 3, \ldots \}\)</span> because the probabilities are terms in a geometric series.</p>
-<p>The right tails of <span class="math notranslate nohighlight">\(X\)</span> are simple because for each <span class="math notranslate nohighlight">\(k \ge 1\)</span>,</p>
-<div class="math notranslate nohighlight">
-\[
-P(X &gt; k) ~ = ~ P(\text{first } k \text{ trials are failures}) ~ = ~ q^k
-\]</div>
-<p>The formula is also true for <span class="math notranslate nohighlight">\(k = 0\)</span> because <span class="math notranslate nohighlight">\(P(X &gt; 0) = 1 = q^0\)</span>.</p>
-<p>By the tail sum formula,</p>
-<div class="math notranslate nohighlight">
-\[
-E(X) ~ = ~ \sum_{k=0}^\infty q^k ~ = ~ \frac{1}{1-q} ~ = ~ \frac{1}{p}
-\]</div>
 </div>
 </div>
 
@@ -1284,7 +1149,7 @@ E(X) ~ = ~ \sum_{k=0}^\infty q^k ~ = ~ \frac{1}{1-q} ~ = ~ \frac{1}{p}
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="00_Expectation.html" title="previous page"><span class="section-number">8. </span>Expectation</a>
-    <a class='right-next' id="next-link" href="02_Additivity.html" title="next page"><span class="section-number">8.2. </span>Additivity</a>
+    <a class='right-next' id="next-link" href="02_Applying_the_Definition.html" title="next page"><span class="section-number">8.2. </span>Applying the Definition</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
