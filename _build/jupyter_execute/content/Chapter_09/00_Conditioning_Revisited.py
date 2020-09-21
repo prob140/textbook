@@ -26,4 +26,5 @@ Naturally, we will be interested in what we can predict about a process in the f
 01_Probability_by_Conditioning
 02_Expectation_by_Conditioning
 03_Expected_Waiting_Times
+04_Exercises
 ```

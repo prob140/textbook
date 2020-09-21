@@ -9,26 +9,23 @@ from scipy import stats
 
 ## Expected Waiting Times ##
 
-Let's find some expectations by conditioning. All of the calculations below involve conditioning on early moves of a random process.
+Conditioning helps us find expectations of waiting times. All the examples below involve conditioning on early moves of a random process.
 
 ### Waiting till H ###
 A coin lands heads with chance $p$. Let's call it a $p$-coin for short. Let $W_H$ be the number of tosses of a $p$-coin till the first head appears. The use of $W$ in the notation is because the random variable is often called the *waiting time* till the first head.
 
-If as usual we write $q = 1-p$, the distribution of $W_H$ is given by
+We know that $W_H$ has the geometric $(p)$ distribution on $1, 2, 3, \ldots $. We derived its expectation earlier by using the Tail Sum Formula. Here is a quick way to derive $E(W_H)$ without using the formula for the probabilities.
 
-$$
-P(W_H = k) ~ = ~ q^{k-1}p, ~~~~~ k \ge 1
-$$
+# VIDEO: Expectation of the Geometric, Revisited
+from IPython.display import YouTubeVideo
 
-This is called the geometric $(p)$ distribution on $1, 2, 3, \ldots $, because its terms are those of a geometric series. You have seen this distribution in exercises.
+YouTubeVideo('MxeioidxzTA')
 
-Here is a quick way to derive $E(W_H)$ without even using the form of the distribution.
+The method is based on representing $W_H$ in terms of a mixture of random variables. A *mixture* is a description of the random variable by conditioning.
 
-The method is based on representing $W_H$ in terms of a mixture of random variables:
 - With probability 1, at least one toss has to be made. So $W_H = 1 + R$ where $R$ is the random number of tosses required after the first one.
 - With probability $p$ the first toss is a head, so $R = 0$.
-- With the remaining probability $q$ the first toss is a tail, and then *the process starts over* independently of what has happened before. That is, with probability $q$, $R = W^*$ where $W^*$ is an independent copy of $W_H$.
-
+- With the remaining probability $q=1-p$ the first toss is a tail, and then *the process starts over* independently of what has happened before. That is, with probability $q$, $R = W^*$ where $W^*$ is an independent copy of $W_H$.
 
 Let $x = E(W_H)$. By additivity and averaging conditional expectations,
 
@@ -42,7 +39,9 @@ $$
 x = \frac{1}{p}
 $$
 
-We have shown that in i.i.d. Bernoulli $(p)$ trials, the expected waiting time till the first success is $1/p$.
+This calculation confirms that in i.i.d. Bernoulli $(p)$ trials, the expected waiting time till the first success is $1/p$.
+
+### Infinite Monkey Theorem ###
 
 "The number of trials till the first success" provides the framework for a rich array of examples, because both "trial" and "success" can be defined to be much more complex than just tossing a coin and getting heads. A classic example is about a professor (or a monkey) drawing independently at random from the 26 letters of the alphabet to see if they ever get the sequence `datascience`. They will, with probability 1, as you can see by overestimating the number of draws they have to make.
 - Define a "trial" to be 11 letters picked at random.
@@ -55,9 +54,9 @@ There is nothing special about the sequence `datascience`. You can replace it wi
 ### Waiting Till Both Faces Have Appeared ###
 Suppose we toss the $p$-coin until both faces have appeared. Let $N$ be the number of tosses. 
 
-**Question.** What is $E(N)$?
+**Question:** What is $E(N)$?
 
-**Answer.** We can find $E(N)$ by conditioning on the first toss as we did in the previous example.
+**Answer:** We can find $E(N)$ by conditioning on the first toss as we did in the previous example.
 - With probability 1, $N = 1 + M$ where $M$ is the additional number of tosses needed after the first one.
 - With probability $p$ the first toss is a head, so $M = W_T$ where $W_T$ has the geometric $(q)$ distribution.
 - With probability $q$ the first toss is a tail, so $M = W_H$ where $W_H$ has the geometric $(p)$ distribution.
@@ -72,9 +71,9 @@ $$
 ### Waiting till HH ###
 In tosses of a $p$-coin, let $W_{HH}$ be the number of tosses till you see two heads in a row. 
 
-**Question.** What is $E(W_{HH})$?
+**Question:** What is $E(W_{HH})$?
 
-**Answer 1.** We can find this is several ways. One way is by conditioning on the first two tosses.
+**Answer 1:** We can find this is several ways. One way is by conditioning on the first two tosses.
 - With probability $q$, the first toss is a tail, so $W_{HH} = 1 + W^*$ where $W^*$ is an independent copy of $W_{HH}$.
 - With probability $pq$ the first two tosses are HT, and $W_{HH} = 2 + W^{**}$
 where $W^{**}$ is an independent copy of $W_{HH}$.
@@ -95,11 +94,14 @@ $$
 
 by repeatedly using $p + q = 1$.
 
-**Answer 2.** Another way is by conditioning on $W_H$, the number of tosses till the first head. We know that $E(W_H) = 1/p$. 
+**Answer 2:** Another way is by conditioning on the toss after $W_H$ where, as before, $W_H$ is the number of tosses till the first head. We know that $E(W_H) = 1/p$. 
 
-Notice that $W_{HH} = W_H + V$ where $V$ is the additional number of tosses needed after $W_H$.
+Now $W_{HH} = W_H + V$ where $V$ is the additional number of tosses needed after $W_H$.
 - With probability $p$, the toss after $W_H$ is a head, so $V = 1$.
 - With probability $q$, the toss after $W_H$ is a tail, so $V = 1 + W^*$ where $W^*$ is an independent copy of $W_{HH}$.
+
+# VIDEO: Tree diagram for Answer 2
+YouTubeVideo('XivRI0ba2v8')
 
 So if $x = E(W_{HH})$ then
 
@@ -113,7 +115,13 @@ $$
 px = \frac{1}{p} + 1 ~~~~ \text{and hence} ~~~~ x = \frac{1+p}{p^2}
 $$
 
-as before.
+as before. Notice that the answer can also be written as
+
+$$
+E(W_{HH}) ~ = ~ \frac{1}{p^2} + \frac{1}{p}
+$$
+
+In exercises you will generalize this to a get formula for the expected waiting time till you see $n$ heads in a row.
 
 ### Gambler's Ruin: Duration of the Game ###
 Let's return to the setting of the gambler's ruin problem with a fair coin and positive integers $a < b$. The gambler starts with $a$ dollars and bets on tosses of the coin till either his net gain reaches $b$ dollars or he loses all his money. Let $T$ be the duration of the game. 
@@ -127,7 +135,9 @@ By conditioning on the first step, we see that for $-a+1 \le k \le b-1$,
 $$
 E_k(T) = 1 + \frac{1}{2}E_{k-1}T + \frac{1}{2} E_{k+1}T
 $$
+
 where the edge cases are
+
 $$
 E_{-a}(T) = 0 = E_{a+b}(T)
 $$

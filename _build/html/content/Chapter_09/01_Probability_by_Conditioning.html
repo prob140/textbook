@@ -395,6 +395,11 @@
      9.3. Expected Waiting Times
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04_Exercises.html">
+     9.4. Exercises
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1">
@@ -950,6 +955,18 @@
   <div class="section" id="probability-by-conditioning">
 <h1><span class="section-number">9.1. </span>Probability by Conditioning<a class="headerlink" href="#probability-by-conditioning" title="Permalink to this headline">¶</a></h1>
 <p>The theory in this section isn’t new. It’s the old familiar multiplication rule. We are just going to use it in the context of processes indexed by time, in a method that we are going to call <em>conditioning on early moves</em>.</p>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="400"
+    height="300"
+    src="https://www.youtube.com/embed/BCx-DlphihU"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
 <div class="section" id="winning-a-game-of-dice">
 <h2><span class="section-number">9.1.1. </span>Winning a Game of Dice<a class="headerlink" href="#winning-a-game-of-dice" title="Permalink to this headline">¶</a></h2>
 <p>Suppose Jo and Bo play the following game. Jo rolls a die, then Bo rolls it, then Jo rolls again, and so on, until the first time one of them gets the face with six spots. That person is the winner.</p>
@@ -971,6 +988,18 @@ x = \frac{1}{6} + \big{(}\frac{5}{6}\big{)}^2 x
 \frac{11}{36}x ~ = ~ \frac{6}{36} ~~~~ \text{and so } ~~~~ x = \frac{6}{11}
 \]</div>
 <p>which is greater than half as we had guessed.</p>
+<div class="admonition-quick-check admonition">
+<p class="admonition-title">Quick Check</p>
+<p>I have a coin that lands heads with chance <span class="math notranslate nohighlight">\(1/3\)</span>, and you have a fair coin. We take turns tossing our coins until one of us gets a head; that person is the winner. Since my coin is less likely than yours to land heads, I get to toss first.</p>
+<p>Let <span class="math notranslate nohighlight">\(x\)</span> be the chance that I am the winner.</p>
+<p>(a) Find an equation for <span class="math notranslate nohighlight">\(x\)</span> by conditioning on the first two tosses.</p>
+<p>(b) Solve the equation to find the chance that I am the winner.</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Answer</p>
+<p>(a) <span class="math notranslate nohighlight">\(x = \frac{1}{3} + \frac{2}{3}\cdot\frac{1}{2}x\)</span></p>
+<p>(b) <span class="math notranslate nohighlight">\(x = \frac{1}{2}\)</span></p>
+</div>
 </div>
 <div class="section" id="gambler-s-ruin-fair-coin">
 <h2><span class="section-number">9.1.2. </span>Gambler’s Ruin: Fair Coin<a class="headerlink" href="#gambler-s-ruin-fair-coin" title="Permalink to this headline">¶</a></h2>
@@ -980,12 +1009,12 @@ x = \frac{1}{6} + \big{(}\frac{5}{6}\big{)}^2 x
 <p>It’s a good idea to start visualizing the random trajectory of the gambler’s net gain as a <em>path</em>. Here are two graphs that assume <span class="math notranslate nohighlight">\(a = 3\)</span> and <span class="math notranslate nohighlight">\(b = 7\)</span>. The first graph shows a path that leads to the gambler reaching a net gain of $\$b$. The second shows a path to ruin.</p>
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/01_Probability_by_Conditioning_5_0.png" src="../../_images/01_Probability_by_Conditioning_5_0.png" />
+<img alt="../../_images/01_Probability_by_Conditioning_8_0.png" src="../../_images/01_Probability_by_Conditioning_8_0.png" />
 </div>
 </div>
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/01_Probability_by_Conditioning_6_0.png" src="../../_images/01_Probability_by_Conditioning_6_0.png" />
+<img alt="../../_images/01_Probability_by_Conditioning_9_0.png" src="../../_images/01_Probability_by_Conditioning_9_0.png" />
 </div>
 </div>
 <p><strong>Question.</strong> What is the probability that the gambler is ruined?</p>
@@ -1011,7 +1040,7 @@ p_k - p_{k-1} = p_{k+1} - p_k
 <p>Here is the line assuming <span class="math notranslate nohighlight">\(a= 3\)</span> and <span class="math notranslate nohighlight">\(b = 7\)</span> as before. The red lines show that <span class="math notranslate nohighlight">\(p_0 = 0.7\)</span>.</p>
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/01_Probability_by_Conditioning_8_0.png" src="../../_images/01_Probability_by_Conditioning_8_0.png" />
+<img alt="../../_images/01_Probability_by_Conditioning_11_0.png" src="../../_images/01_Probability_by_Conditioning_11_0.png" />
 </div>
 </div>
 <p>For general <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>, the line starts at <span class="math notranslate nohighlight">\((-a, 1)\)</span> and has slope <span class="math notranslate nohighlight">\(-1/(a+b)\)</span>. So
@@ -1058,7 +1087,7 @@ p_0 ~ =  ~ \frac{r^a - r^{a+b}}{1 - r^{a+b}}
 <p>Here is a graph of the ruin probabilities, for <span class="math notranslate nohighlight">\(a = 3\)</span> and <span class="math notranslate nohighlight">\(b = 10\)</span> as before, but now with a coin that is biased towards heads with <span class="math notranslate nohighlight">\(p = 0.6\)</span>. Not surprisingly, as the initial fortune increases the probability of ruin falls more sharply for this coin than for the fair coin. Even when the gambler starts with only $\$3$, his chance of ruin is less than 30%.</p>
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/01_Probability_by_Conditioning_11_0.png" src="../../_images/01_Probability_by_Conditioning_11_0.png" />
+<img alt="../../_images/01_Probability_by_Conditioning_14_0.png" src="../../_images/01_Probability_by_Conditioning_14_0.png" />
 </div>
 </div>
 </div>

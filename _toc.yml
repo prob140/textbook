@@ -84,6 +84,7 @@
     - file: content/Chapter_09/01_Probability_by_Conditioning
     - file: content/Chapter_09/02_Expectation_by_Conditioning
     - file: content/Chapter_09/03_Expected_Waiting_Times
+    - file: content/Chapter_09/04_Exercises    
   - file: content/Chapter_10/00_Markov_Chains
     expand_sections: true
     sections:

@@ -18,7 +18,7 @@ Now that we have a few ways to think about expectation, let's see why it has suc
 This little example is worth writing out because it gets used all the time. Suppose a random variable $X$ is actually a constant $c$, that is, suppose $P(X = c) = 1$. Then the distribution of $X$ puts all its mass on the single value $c$, and $E(X) = c\cdot 1 = c$. We just write $E(c) = c$. 
 
 ### Bernoulli and Indicators ###
-If $X$ has the Bernoulli $(p)$ distribution, then $P(X = 1) p$
+If $X$ has the Bernoulli $(p)$ distribution, then $P(X = 1) = p$
 and $P(X = 0) = 1-p$. So
 
 $$

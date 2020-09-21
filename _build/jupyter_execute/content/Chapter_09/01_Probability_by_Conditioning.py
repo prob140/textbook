@@ -12,6 +12,10 @@ from scipy import stats
 
 The theory in this section isn't new. It's the old familiar multiplication rule. We are just going to use it in the context of processes indexed by time, in a method that we are going to call *conditioning on early moves*.
 
+# VIDEO: Conditioning on Early Moves
+from IPython.display import YouTubeVideo
+YouTubeVideo('BCx-DlphihU')
+
 ### Winning a Game of Dice ###
 Suppose Jo and Bo play the following game. Jo rolls a die, then Bo rolls it, then Jo rolls again, and so on, until the first time one of them gets the face with six spots. That person is the winner.
 
@@ -36,6 +40,25 @@ $$
 $$
 
 which is greater than half as we had guessed.
+
+```{admonition} Quick Check
+I have a coin that lands heads with chance $1/3$, and you have a fair coin. We take turns tossing our coins until one of us gets a head; that person is the winner. Since my coin is less likely than yours to land heads, I get to toss first. 
+
+Let $x$ be the chance that I am the winner. 
+
+(a) Find an equation for $x$ by conditioning on the first two tosses.
+
+(b) Solve the equation to find the chance that I am the winner.
+
+```
+
+```{admonition} Answer
+:class: dropdown
+(a) $x = \frac{1}{3} + \frac{2}{3}\cdot\frac{1}{2}x$
+
+(b) $x = \frac{1}{2}$
+
+```
 
 ### Gambler's Ruin: Fair Coin ###
 Let $a$ and $b$ be two positive integers. Suppose a gambler starts with $a$ dollars and bets on the tosses of a coin. Every time the coin lands heads, the gambler wins a dollar. Every time it lands tails, the gambler loses a dollar. 

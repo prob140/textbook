@@ -1,4 +1,6 @@
 # HIDDEN
+import warnings
+warnings.filterwarnings('ignore')
 from datascience import *
 from prob140 import *
 import numpy as np
@@ -10,7 +12,14 @@ plt.style.use('fivethirtyeight')
 
 Let $T$ be a random variable, and let $S$ be a random variable defined on the same space as $T$. As we have seen, conditioning on $S$ might be a good way to find probabilities for $T$ if $S$ and $T$ are related. In this section we will see that conditioning on $S$ can also be a good way to find the expectation of $T$.
 
-We will start with a simple example to illustrate the ideas. Let the joint distribution of $T$ and $S$ be as in the table below.
+We will start with a simple example to illustrate the ideas. 
+
+# VIDEO: Expectation by Conditioning
+from IPython.display import YouTubeVideo
+
+YouTubeVideo('GrM0Ve-a010')
+
+Let the joint distribution of $T$ and $S$ be as in the table below.
 
 t = [3, 4]
 s = [5, 6, 7]
@@ -64,7 +73,7 @@ In short, $E(T)$ is the *expectation of the conditional expectation of $T$ given
 ### Conditional Expectation as a Random Variable ###
 In general, suppose $T$ and $S$ are two random variables on a probability space.
 
-Then for each fixed value of $s$, $T$ has a conditional distribution given $S=s$. This is an ordinary distribution and has an expectation. That is called the *conditional expectation of $T$ given $S=s$* and is denoted $E(T \mid S = s)$. 
+Then for each fixed value of $s$, $T$ has a conditional distribution given $S=s$. This is an ordinary distribution and has an expectation. That is called the *conditional expectation of  $T$ given $S=s$* and is denoted $E(T \mid S = s)$. 
 
 So for each $s$, there is a value $E(T \mid S=s)$. This defines a function of the random variable $S$. It is called the *conditional expectation of $T$ given $S$*, and is denoted $E(T \mid S)$.
 
@@ -73,8 +82,31 @@ The key difference between expectation and conditional expectation:
 - $E(T)$, the expectation of $T$, is a real number.
 - $E(T \mid S)$, the conditional expectation of $T$ given $S$, is a function of $S$ and hence is a random variable.
 
-Since $E(T \mid S)$ is a random variable, it has an expectation. That expectation is equal to $E(T)$. We observed this in an example; now here is a proof.
+```{admonition} Quick Check
+A class has three sections. 
+<UL>
+<LI>Section 1 has 20 students with a midterm average of 75.
+<LI>Section 2 has 35 students with a midterm average of 70.
+<LI>Section 3 has 25 students with a midterm average of 85.
 
+A student is picked at random from the class. Let $S$ be the student's section number. For example, $\{ S=1 \}$ is the event that the student is in Section 1. Let $T$ be the student's midterm score. Draw a distribution table for $E(T \mid S)$.
+
+```
+
+```{admonition} Answer
+:class: dropdown
+The possible values of $S$ are $s=1, 2, 3$. The corresponding possible values and probabilities of $E(T \mid S)$ are
+
+|$E(T \mid S=s)$|$75$|$70$|$85$|
+|---:|:---:|:---:|:---:|
+|$P(S=s)$|$\frac{20}{80}$|$\frac{35}{80}$|$\frac{25}{80}$|
+
+```
+
+# VIDEO: Conditional Expectation
+YouTubeVideo('k0CaLXwRCz0')
+
+Since $E(T \mid S)$ is a random variable, it has an expectation. That expectation is equal to $E(T)$. We observed this in an example; now here is a proof.
 
 ### Iterated Expectations ###
 Suppose we want the expectation of a random variable, and suppose it is easy for us to say what that expectation would be if we were given the value of a related random variable. The rule of *iterated expectations* says that we can find that conditional expectation first, and take its expectation to get our answer.
@@ -94,8 +126,19 @@ E(T) &= \sum_{\text{all }t} tP(T=t) \\ \\
 \end{align*}
 $$
 
-### Random Sums ###
-Let $X_1, X_2, \ldots $ be i.i.d. and let $E(X_1) = \mu_X$. Let $N$ be a non-negative integer valued random variable that is independent of the sequence of $X$'s and let $E(N) = \mu_N$. 
+```{admonition} Quick Check
+A bag has three fair coins, five coins that land heads with chance $1/4$, and two coins that land heads with chance $2/3$. A coin is picked at random and tossed 10 times. Find the expected number of heads.
+
+```
+
+```{admonition} Answer
+:class: dropdown
+$(10\cdot\frac{1}{2})0.3 + (10\cdot\frac{1}{4})0.5 + (10\cdot\frac{2}{3})0.2$
+
+```
+
+### Example: Random Sums ###
+Let $X_1, X_2, \ldots$ be i.i.d. and let $E(X_1) = \mu_X$. Let $N$ be a non-negative integer valued random variable that is independent of the sequence of $X$'s and let $E(N) = \mu_N$. 
 
 Define the *random sum* $S$ to be
 
@@ -107,9 +150,9 @@ where $S = 0$ if $N=0$.
 
 Notice that $S$ is the sum of a random number of terms.
 
-**Question.** What is $E(S)$?
+**Question:** What is $E(S)$?
 
-**Answer.** If $N$ were the constant 10, then the answer would be $10\mu_X$. This is our signal to condition on $N$. Here are the steps to follow.
+**Answer:** If $N$ were the constant 10, then the answer would be $10\mu_X$. This is our signal to condition on $N$. Here are the steps to follow.
 - First condition on a fixed value of $N$. Given $N=n$, $S$ is the sum of $n$ i.i.d. terms. Hence 
 
 $$
@@ -134,12 +177,12 @@ This is a natural answer. It is the expected number of terms being added times t
 
 This is an important point to note about calculating expectations by conditioning. The natural answer is often correct.
 
-### Population Size in a Branching Process ###
+### Example: Population Size in a Branching Process ###
 In a *Galton-Watson branching process*, each individual has a random number of progeny. Assume that the numbers of progeny of the different indviduals are i.i.d. with mean $\mu$. Suppose the process starts with one individual in Generation 0. 
 
-**Question.** Assuming that there are no deaths, what is the expected total number of individuals in Generations 0 through $n$?
+**Question:** Assuming that there are no deaths, what is the expected total number of individuals in Generations 0 through $n$?
 
-**Answer.** Let $T_k$ be the number of individuals born in Generation $k$. We are assuming $T_0 = 1$. By the example above, for each $k > 1$,
+**Answer:** Let $T_k$ be the number of individuals born in Generation $k$. We are assuming $T_0 = 1$. By the example above, for each $k > 1$,
 
 $$
 E(T_k) = E(T_{k-1})\mu
@@ -164,6 +207,8 @@ $$
 $$
  
 The value of $\mu$, the expected number of progeny of a single individual, determines how this expected total behaves as $n$ gets large. Even with no deaths, if $\mu < 1$ the expected population size tends to a positive constant as $n \to \infty$. But if $\mu \ge 1$ then the expected population size explodes.
+
+This is closely related to the $R_0$ value you might have read about in the context of the Covid-19 pandemic. $R_0$ is notation for the average number of people infected by a single individual, and is the equivalent of $\mu$ in our example. The assumptions of the Covid-19 models are more complex than ours, but the conclusion is the same: for the epidemic to be under control, $R_0$ has to be below 1.
 
 ### Other Properties of Conditional Expectation ###
 The most important property of conditional expectation is the iteration that we have studied in this section. But conditional expectation has other properties that are analogous to those of expectation. **They are now expressed as equalities of random variables instead of equalities of real numbers.**

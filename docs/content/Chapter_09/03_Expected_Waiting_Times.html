@@ -40,7 +40,7 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="10. Markov Chains" href="../Chapter_10/00_Markov_Chains.html" />
+    <link rel="next" title="9.4. Exercises" href="04_Exercises.html" />
     <link rel="prev" title="9.2. Expectation by Conditioning" href="02_Expectation_by_Conditioning.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -393,6 +393,11 @@
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
      9.3. Expected Waiting Times
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04_Exercises.html">
+     9.4. Exercises
     </a>
    </li>
   </ul>
@@ -928,18 +933,23 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#infinite-monkey-theorem">
+   9.3.2. Infinite Monkey Theorem
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#waiting-till-both-faces-have-appeared">
-   9.3.2. Waiting Till Both Faces Have Appeared
+   9.3.3. Waiting Till Both Faces Have Appeared
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#waiting-till-hh">
-   9.3.3. Waiting till HH
+   9.3.4. Waiting till HH
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#gambler-s-ruin-duration-of-the-game">
-   9.3.4. Gambler’s Ruin: Duration of the Game
+   9.3.5. Gambler’s Ruin: Duration of the Game
   </a>
  </li>
 </ul>
@@ -954,22 +964,28 @@
                 
   <div class="section" id="expected-waiting-times">
 <h1><span class="section-number">9.3. </span>Expected Waiting Times<a class="headerlink" href="#expected-waiting-times" title="Permalink to this headline">¶</a></h1>
-<p>Let’s find some expectations by conditioning. All of the calculations below involve conditioning on early moves of a random process.</p>
+<p>Conditioning helps us find expectations of waiting times. All the examples below involve conditioning on early moves of a random process.</p>
 <div class="section" id="waiting-till-h">
 <h2><span class="section-number">9.3.1. </span>Waiting till H<a class="headerlink" href="#waiting-till-h" title="Permalink to this headline">¶</a></h2>
 <p>A coin lands heads with chance <span class="math notranslate nohighlight">\(p\)</span>. Let’s call it a <span class="math notranslate nohighlight">\(p\)</span>-coin for short. Let <span class="math notranslate nohighlight">\(W_H\)</span> be the number of tosses of a <span class="math notranslate nohighlight">\(p\)</span>-coin till the first head appears. The use of <span class="math notranslate nohighlight">\(W\)</span> in the notation is because the random variable is often called the <em>waiting time</em> till the first head.</p>
-<p>If as usual we write <span class="math notranslate nohighlight">\(q = 1-p\)</span>, the distribution of <span class="math notranslate nohighlight">\(W_H\)</span> is given by</p>
-<div class="math notranslate nohighlight">
-\[
-P(W_H = k) ~ = ~ q^{k-1}p, ~~~~~ k \ge 1
-\]</div>
-<p>This is called the geometric <span class="math notranslate nohighlight">\((p)\)</span> distribution on $1, 2, 3, \ldots $, because its terms are those of a geometric series. You have seen this distribution in exercises.</p>
-<p>Here is a quick way to derive <span class="math notranslate nohighlight">\(E(W_H)\)</span> without even using the form of the distribution.</p>
-<p>The method is based on representing <span class="math notranslate nohighlight">\(W_H\)</span> in terms of a mixture of random variables:</p>
+<p>We know that <span class="math notranslate nohighlight">\(W_H\)</span> has the geometric <span class="math notranslate nohighlight">\((p)\)</span> distribution on $1, 2, 3, \ldots $. We derived its expectation earlier by using the Tail Sum Formula. Here is a quick way to derive <span class="math notranslate nohighlight">\(E(W_H)\)</span> without using the formula for the probabilities.</p>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="400"
+    height="300"
+    src="https://www.youtube.com/embed/MxeioidxzTA"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
+<p>The method is based on representing <span class="math notranslate nohighlight">\(W_H\)</span> in terms of a mixture of random variables. A <em>mixture</em> is a description of the random variable by conditioning.</p>
 <ul class="simple">
 <li><p>With probability 1, at least one toss has to be made. So <span class="math notranslate nohighlight">\(W_H = 1 + R\)</span> where <span class="math notranslate nohighlight">\(R\)</span> is the random number of tosses required after the first one.</p></li>
 <li><p>With probability <span class="math notranslate nohighlight">\(p\)</span> the first toss is a head, so <span class="math notranslate nohighlight">\(R = 0\)</span>.</p></li>
-<li><p>With the remaining probability <span class="math notranslate nohighlight">\(q\)</span> the first toss is a tail, and then <em>the process starts over</em> independently of what has happened before. That is, with probability <span class="math notranslate nohighlight">\(q\)</span>, <span class="math notranslate nohighlight">\(R = W^*\)</span> where <span class="math notranslate nohighlight">\(W^*\)</span> is an independent copy of <span class="math notranslate nohighlight">\(W_H\)</span>.</p></li>
+<li><p>With the remaining probability <span class="math notranslate nohighlight">\(q=1-p\)</span> the first toss is a tail, and then <em>the process starts over</em> independently of what has happened before. That is, with probability <span class="math notranslate nohighlight">\(q\)</span>, <span class="math notranslate nohighlight">\(R = W^*\)</span> where <span class="math notranslate nohighlight">\(W^*\)</span> is an independent copy of <span class="math notranslate nohighlight">\(W_H\)</span>.</p></li>
 </ul>
 <p>Let <span class="math notranslate nohighlight">\(x = E(W_H)\)</span>. By additivity and averaging conditional expectations,</p>
 <div class="math notranslate nohighlight">
@@ -981,7 +997,10 @@ x ~ = ~ 1 + E(R) ~ = ~ 1 + pE(0) ~ + ~ qE(W^*) = 1 + qx
 \[
 x = \frac{1}{p}
 \]</div>
-<p>We have shown that in i.i.d. Bernoulli <span class="math notranslate nohighlight">\((p)\)</span> trials, the expected waiting time till the first success is <span class="math notranslate nohighlight">\(1/p\)</span>.</p>
+<p>This calculation confirms that in i.i.d. Bernoulli <span class="math notranslate nohighlight">\((p)\)</span> trials, the expected waiting time till the first success is <span class="math notranslate nohighlight">\(1/p\)</span>.</p>
+</div>
+<div class="section" id="infinite-monkey-theorem">
+<h2><span class="section-number">9.3.2. </span>Infinite Monkey Theorem<a class="headerlink" href="#infinite-monkey-theorem" title="Permalink to this headline">¶</a></h2>
 <p>“The number of trials till the first success” provides the framework for a rich array of examples, because both “trial” and “success” can be defined to be much more complex than just tossing a coin and getting heads. A classic example is about a professor (or a monkey) drawing independently at random from the 26 letters of the alphabet to see if they ever get the sequence <code class="docutils literal notranslate"><span class="pre">datascience</span></code>. They will, with probability 1, as you can see by overestimating the number of draws they have to make.</p>
 <ul class="simple">
 <li><p>Define a “trial” to be 11 letters picked at random.</p></li>
@@ -991,10 +1010,10 @@ x = \frac{1}{p}
 <p>There is nothing special about the sequence <code class="docutils literal notranslate"><span class="pre">datascience</span></code>. You can replace it with any finite string of letters, no matter how long. For example, the string could be the complete works of Shakespeare. You will just have to replace 11 by the length of the string. This is popularly known as the <a class="reference external" href="https://en.wikipedia.org/wiki/Infinite_monkey_theorem">Infinite Monkey Theorem</a>.</p>
 </div>
 <div class="section" id="waiting-till-both-faces-have-appeared">
-<h2><span class="section-number">9.3.2. </span>Waiting Till Both Faces Have Appeared<a class="headerlink" href="#waiting-till-both-faces-have-appeared" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">9.3.3. </span>Waiting Till Both Faces Have Appeared<a class="headerlink" href="#waiting-till-both-faces-have-appeared" title="Permalink to this headline">¶</a></h2>
 <p>Suppose we toss the <span class="math notranslate nohighlight">\(p\)</span>-coin until both faces have appeared. Let <span class="math notranslate nohighlight">\(N\)</span> be the number of tosses.</p>
-<p><strong>Question.</strong> What is <span class="math notranslate nohighlight">\(E(N)\)</span>?</p>
-<p><strong>Answer.</strong> We can find <span class="math notranslate nohighlight">\(E(N)\)</span> by conditioning on the first toss as we did in the previous example.</p>
+<p><strong>Question:</strong> What is <span class="math notranslate nohighlight">\(E(N)\)</span>?</p>
+<p><strong>Answer:</strong> We can find <span class="math notranslate nohighlight">\(E(N)\)</span> by conditioning on the first toss as we did in the previous example.</p>
 <ul class="simple">
 <li><p>With probability 1, <span class="math notranslate nohighlight">\(N = 1 + M\)</span> where <span class="math notranslate nohighlight">\(M\)</span> is the additional number of tosses needed after the first one.</p></li>
 <li><p>With probability <span class="math notranslate nohighlight">\(p\)</span> the first toss is a head, so <span class="math notranslate nohighlight">\(M = W_T\)</span> where <span class="math notranslate nohighlight">\(W_T\)</span> has the geometric <span class="math notranslate nohighlight">\((q)\)</span> distribution.</p></li>
@@ -1008,10 +1027,10 @@ E(N) = 1 + p\big{(} \frac{1}{q} \big{)} + q\big{(}\frac{1}{p} \big{)}
 \]</div>
 </div>
 <div class="section" id="waiting-till-hh">
-<h2><span class="section-number">9.3.3. </span>Waiting till HH<a class="headerlink" href="#waiting-till-hh" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">9.3.4. </span>Waiting till HH<a class="headerlink" href="#waiting-till-hh" title="Permalink to this headline">¶</a></h2>
 <p>In tosses of a <span class="math notranslate nohighlight">\(p\)</span>-coin, let <span class="math notranslate nohighlight">\(W_{HH}\)</span> be the number of tosses till you see two heads in a row.</p>
-<p><strong>Question.</strong> What is <span class="math notranslate nohighlight">\(E(W_{HH})\)</span>?</p>
-<p><strong>Answer 1.</strong> We can find this is several ways. One way is by conditioning on the first two tosses.</p>
+<p><strong>Question:</strong> What is <span class="math notranslate nohighlight">\(E(W_{HH})\)</span>?</p>
+<p><strong>Answer 1:</strong> We can find this is several ways. One way is by conditioning on the first two tosses.</p>
 <ul class="simple">
 <li><p>With probability <span class="math notranslate nohighlight">\(q\)</span>, the first toss is a tail, so <span class="math notranslate nohighlight">\(W_{HH} = 1 + W^*\)</span> where <span class="math notranslate nohighlight">\(W^*\)</span> is an independent copy of <span class="math notranslate nohighlight">\(W_{HH}\)</span>.</p></li>
 <li><p>With probability <span class="math notranslate nohighlight">\(pq\)</span> the first two tosses are HT, and <span class="math notranslate nohighlight">\(W_{HH} = 2 + W^{**}\)</span>
@@ -1030,12 +1049,24 @@ x = \frac{q + 2pq + 2p^2}{1 - q - pq}
 = \frac{1+p}{p^2}
 \]</div>
 <p>by repeatedly using <span class="math notranslate nohighlight">\(p + q = 1\)</span>.</p>
-<p><strong>Answer 2.</strong> Another way is by conditioning on <span class="math notranslate nohighlight">\(W_H\)</span>, the number of tosses till the first head. We know that <span class="math notranslate nohighlight">\(E(W_H) = 1/p\)</span>.</p>
-<p>Notice that <span class="math notranslate nohighlight">\(W_{HH} = W_H + V\)</span> where <span class="math notranslate nohighlight">\(V\)</span> is the additional number of tosses needed after <span class="math notranslate nohighlight">\(W_H\)</span>.</p>
+<p><strong>Answer 2:</strong> Another way is by conditioning on the toss after <span class="math notranslate nohighlight">\(W_H\)</span> where, as before, <span class="math notranslate nohighlight">\(W_H\)</span> is the number of tosses till the first head. We know that <span class="math notranslate nohighlight">\(E(W_H) = 1/p\)</span>.</p>
+<p>Now <span class="math notranslate nohighlight">\(W_{HH} = W_H + V\)</span> where <span class="math notranslate nohighlight">\(V\)</span> is the additional number of tosses needed after <span class="math notranslate nohighlight">\(W_H\)</span>.</p>
 <ul class="simple">
 <li><p>With probability <span class="math notranslate nohighlight">\(p\)</span>, the toss after <span class="math notranslate nohighlight">\(W_H\)</span> is a head, so <span class="math notranslate nohighlight">\(V = 1\)</span>.</p></li>
 <li><p>With probability <span class="math notranslate nohighlight">\(q\)</span>, the toss after <span class="math notranslate nohighlight">\(W_H\)</span> is a tail, so <span class="math notranslate nohighlight">\(V = 1 + W^*\)</span> where <span class="math notranslate nohighlight">\(W^*\)</span> is an independent copy of <span class="math notranslate nohighlight">\(W_{HH}\)</span>.</p></li>
 </ul>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="400"
+    height="300"
+    src="https://www.youtube.com/embed/XivRI0ba2v8"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
 <p>So if <span class="math notranslate nohighlight">\(x = E(W_{HH})\)</span> then</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1046,10 +1077,15 @@ x ~ = ~ E(W_H) + E(V) ~ = ~ \frac{1}{p} + p + q(1 + x)
 \[
 px = \frac{1}{p} + 1 ~~~~ \text{and hence} ~~~~ x = \frac{1+p}{p^2}
 \]</div>
-<p>as before.</p>
+<p>as before. Notice that the answer can also be written as</p>
+<div class="math notranslate nohighlight">
+\[
+E(W_{HH}) ~ = ~ \frac{1}{p^2} + \frac{1}{p}
+\]</div>
+<p>In exercises you will generalize this to a get formula for the expected waiting time till you see <span class="math notranslate nohighlight">\(n\)</span> heads in a row.</p>
 </div>
 <div class="section" id="gambler-s-ruin-duration-of-the-game">
-<h2><span class="section-number">9.3.4. </span>Gambler’s Ruin: Duration of the Game<a class="headerlink" href="#gambler-s-ruin-duration-of-the-game" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">9.3.5. </span>Gambler’s Ruin: Duration of the Game<a class="headerlink" href="#gambler-s-ruin-duration-of-the-game" title="Permalink to this headline">¶</a></h2>
 <p>Let’s return to the setting of the gambler’s ruin problem with a fair coin and positive integers <span class="math notranslate nohighlight">\(a &lt; b\)</span>. The gambler starts with <span class="math notranslate nohighlight">\(a\)</span> dollars and bets on tosses of the coin till either his net gain reaches <span class="math notranslate nohighlight">\(b\)</span> dollars or he loses all his money. Let <span class="math notranslate nohighlight">\(T\)</span> be the duration of the game.</p>
 <p><strong>Question.</strong> What the expected duration of the game?</p>
 <p><strong>Answer.</strong> Let <span class="math notranslate nohighlight">\(E_k(T)\)</span> denote the expected duration of the game given that the gambler starts with a net gain of <span class="math notranslate nohighlight">\(k\)</span> dollars. We want <span class="math notranslate nohighlight">\(E_0(T)\)</span>.</p>
@@ -1058,10 +1094,11 @@ px = \frac{1}{p} + 1 ~~~~ \text{and hence} ~~~~ x = \frac{1+p}{p^2}
 \[
 E_k(T) = 1 + \frac{1}{2}E_{k-1}T + \frac{1}{2} E_{k+1}T
 \]</div>
-<p>where the edge cases are
-<span class="math notranslate nohighlight">\($
+<p>where the edge cases are</p>
+<div class="math notranslate nohighlight">
+\[
 E_{-a}(T) = 0 = E_{a+b}(T)
-$\)</span></p>
+\]</div>
 <p>You can check that the function <span class="math notranslate nohighlight">\(f(k) = (b-k)(k+a)\)</span> satisfies this recursion, and hence that <span class="math notranslate nohighlight">\(E_0(T) = ab\)</span>.</p>
 </div>
 </div>
@@ -1095,7 +1132,7 @@ $\)</span></p>
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="02_Expectation_by_Conditioning.html" title="previous page"><span class="section-number">9.2. </span>Expectation by Conditioning</a>
-    <a class='right-next' id="next-link" href="../Chapter_10/00_Markov_Chains.html" title="next page"><span class="section-number">10. </span>Markov Chains</a>
+    <a class='right-next' id="next-link" href="04_Exercises.html" title="next page"><span class="section-number">9.4. </span>Exercises</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
