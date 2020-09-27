@@ -430,28 +430,28 @@
   </ul>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../Chapter_11/00_Reversing_Markov_Chains.html">
-   11. Reversing Markov Chains
+  <a class="reference internal" href="../Chapter_11/00_Markov_Chain_Monte_Carlo.html">
+   11. Markov Chain Monte Carlo
   </a>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_11/01_Detailed_Balance.html">
-     11.1. Detailed Balance
+    <a class="reference internal" href="../Chapter_11/01_Balance_and_Detailed_Balance.html">
+     11.1. Balance and Detailed Balance
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_11/02_Reversibility.html">
-     11.2. Reversibility
+    <a class="reference internal" href="../Chapter_11/02_Code_Breaking.html">
+     11.2. Code Breaking
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_11/03_Code_Breaking.html">
-     11.3. Code Breaking
+    <a class="reference internal" href="../Chapter_11/03_Metropolis_Algorithm.html">
+     11.3. Metropolis Algorithm
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_11/04_Markov_Chain_Monte_Carlo.html">
-     11.4. Markov Chain Monte Carlo
+    <a class="reference internal" href="../Chapter_11/04_Exercises.html">
+     11.4. Exercises
     </a>
    </li>
   </ul>
@@ -928,23 +928,33 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#markov-property">
+   10.1.1. Markov Property
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#initial-distribution-and-transition-probabilities">
+   10.1.2. Initial Distribution and Transition Probabilities
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#stationary-transition-probabilities">
-   10.1.1. Stationary Transition Probabilities
+   10.1.3. Stationary Transition Probabilities
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#one-step-transition-matrix">
-   10.1.2. One-Step Transition Matrix
+   10.1.4. One-Step Transition Matrix
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#sticky-reflecting-random-walk">
-   10.1.3. Sticky Reflecting Random Walk
+   10.1.5. Sticky Reflecting Random Walk
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#n-step-transition-matrix">
-   10.1.4.
+   10.1.6.
    <span class="math notranslate nohighlight">
     \(n\)
    </span>
@@ -953,7 +963,7 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#the-long-run">
-   10.1.5. The Long Run
+   10.1.7. The Long Run
   </a>
  </li>
 </ul>
@@ -968,7 +978,33 @@
                 
   <div class="section" id="transitions">
 <h1><span class="section-number">10.1. </span>Transitions<a class="headerlink" href="#transitions" title="Permalink to this headline">¶</a></h1>
-<p>Let $X_0, X_1, X_2, \ldots $ be a Markov chain with state space <span class="math notranslate nohighlight">\(S\)</span>. By the Markov property, the probability of a <em>trajectory</em> or <em>path</em> of finite length is</p>
+<p>The <em>state space</em> of a process is the set of possible values of the random variables in the process. We will often denote the state space by <span class="math notranslate nohighlight">\(S\)</span>.</p>
+<p>For example, consider a <em>random walk</em> where a gambler starts with a fortune of <span class="math notranslate nohighlight">\(a\)</span> dollars for some positive integer <span class="math notranslate nohighlight">\(a\)</span>, and bets on successive tosses of a fair coin. If the coin lands heads he gains a dollar, and if it lands tails he loses a dollar.</p>
+<p>Let <span class="math notranslate nohighlight">\(X_{0} = a\)</span>, and for <span class="math notranslate nohighlight">\(n &gt; 0\)</span> let <span class="math notranslate nohighlight">\(X_{n+1} = X_n + I_n\)</span> where <span class="math notranslate nohighlight">\(I_1, I_2, \ldots\)</span> is an i.i.d. sequence of increments, each taking the value <span class="math notranslate nohighlight">\(+1\)</span> or <span class="math notranslate nohighlight">\(-1\)</span> with chance <span class="math notranslate nohighlight">\(1/2\)</span>. The state space of this random walk <span class="math notranslate nohighlight">\(X_0, X_1, X_2, 
+\dots\)</span> is the set of all integers. In this course we will restrict the state space to be discrete and typically finite.</p>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+</div>
+<div class="section" id="markov-property">
+<h2><span class="section-number">10.1.1. </span>Markov Property<a class="headerlink" href="#markov-property" title="Permalink to this headline">¶</a></h2>
+<p>Consider a stochastic process <span class="math notranslate nohighlight">\(X_0, X_1, X_2, \ldots\)</span>. The <em>Markov property</em> formalizes the idea that the future of the process depends only on where the process is at present, not on how it got there.</p>
+<ul class="simple">
+<li><p>For each <span class="math notranslate nohighlight">\(n \ge 1\)</span>, the conditional distribution of <span class="math notranslate nohighlight">\(X_{n+1}\)</span> given <span class="math notranslate nohighlight">\(X_0, X_1, \ldots , X_n\)</span> depends only on <span class="math notranslate nohighlight">\(X_n\)</span>.</p></li>
+</ul>
+<p>That is, for every sequence of possible values <span class="math notranslate nohighlight">\(i_0, i_1, \ldots, i_n, i_{n+1}\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[ 
+P(X_{n+1} = i_{n+1} \mid X_0 = i_0, X_1 = i_1 , \ldots, X_{n-1} = i_{n-1}, X_n = i_n) = P(X_{n+1} = i_{n+1} \mid X_n = i_n) 
+\]</div>
+<p>The Markov property holds for the random walk described above. Given the gambler’s fortune at time <span class="math notranslate nohighlight">\(n\)</span>, the distribution of his fortune at time <span class="math notranslate nohighlight">\(n+1\)</span> doesn’t depend on his fortune before time <span class="math notranslate nohighlight">\(n\)</span>. So the process $X_0, X_1, X_2, \ldots $ is a Markov Chain representing the evolution of the gambler’s fortune over time.</p>
+<p><strong>Conditional Independence</strong></p>
+<p>Recall that two random variables <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> are independent if the conditional distribution of <span class="math notranslate nohighlight">\(X\)</span> given <span class="math notranslate nohighlight">\(Y\)</span> is just the unconditional distribution of <span class="math notranslate nohighlight">\(X\)</span>.</p>
+<p>Random variables <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> are said to be <em>conditionally independent given <span class="math notranslate nohighlight">\(Z\)</span></em> if the conditional distribution of <span class="math notranslate nohighlight">\(X\)</span> given both <span class="math notranslate nohighlight">\(Y\)</span> and <span class="math notranslate nohighlight">\(Z\)</span> is just the conditional distribution of <span class="math notranslate nohighlight">\(X\)</span> given <span class="math notranslate nohighlight">\(Z\)</span> alone. That is, if you know <span class="math notranslate nohighlight">\(Z\)</span>, then additional knowledge about <span class="math notranslate nohighlight">\(Y\)</span> doesn’t change your opinion about <span class="math notranslate nohighlight">\(X\)</span>.</p>
+<p>In a Markov Chain, if you define time <span class="math notranslate nohighlight">\(n\)</span> to be the present, time <span class="math notranslate nohighlight">\(n+1\)</span> to be the future, and times <span class="math notranslate nohighlight">\(0\)</span> through <span class="math notranslate nohighlight">\(n-1\)</span> to be the past, then the Markov property says that the past and future are conditionally independent given the present.</p>
+</div>
+<div class="section" id="initial-distribution-and-transition-probabilities">
+<h2><span class="section-number">10.1.2. </span>Initial Distribution and Transition Probabilities<a class="headerlink" href="#initial-distribution-and-transition-probabilities" title="Permalink to this headline">¶</a></h2>
+<p>Let <span class="math notranslate nohighlight">\(X_0, X_1, X_2, \ldots\)</span> be a Markov chain with state space <span class="math notranslate nohighlight">\(S\)</span>. The distribution of <span class="math notranslate nohighlight">\(X_0\)</span> is called the <em>initial distribution</em> of the chain.</p>
+<p>A a <em>trajectory</em> or <em>path</em> is a sequence of states visited by the process. Let <span class="math notranslate nohighlight">\(i_0 i_1 \ldots i_n\)</span> denote a path of finite length, with <span class="math notranslate nohighlight">\(i_j\)</span> representing the value of <span class="math notranslate nohighlight">\(X_j\)</span>. By the Markov property, the probability of this path is</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{align*}
@@ -978,20 +1014,18 @@ P(X_0 = i_0)P(X_1 = i_1 \mid X_0 = i_0)P(X_2 = i_2 \mid X_1 = i_1) \cdots
 P(X_n = i_n \mid X_{n-1} = i_{n-1})
 \end{align*}
 \end{split}\]</div>
-<p>The distribution of <span class="math notranslate nohighlight">\(X_0\)</span> is called the <em>initial distribution</em> of the chain.</p>
 <p>The conditional probabilities in the product are called <em>transition probabilities</em>. For states <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(j\)</span>, the conditional probability <span class="math notranslate nohighlight">\(P(X_{n+1} = j \mid X_n = i)\)</span> is called a <em>one-step transition probability at time <span class="math notranslate nohighlight">\(n\)</span></em>.</p>
+</div>
 <div class="section" id="stationary-transition-probabilities">
-<h2><span class="section-number">10.1.1. </span>Stationary Transition Probabilities<a class="headerlink" href="#stationary-transition-probabilities" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">10.1.3. </span>Stationary Transition Probabilities<a class="headerlink" href="#stationary-transition-probabilities" title="Permalink to this headline">¶</a></h2>
 <p>For many chains such as the random walk, the one-step transition probabilities depend only on the states <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(j\)</span>, not on the time <span class="math notranslate nohighlight">\(n\)</span>. For example, for the random walk,</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-\begin{equation}
 P(X_{n+1} = j \mid X_n = i) = 
- \begin{cases} 
-      \frac{1}{2} &amp; \text{if } j = i-1 \text{ or } j = i+1 \\
-      0 &amp; \text{ otherwise}
-   \end{cases}
-\end{equation}
+\begin{cases} 
+\frac{1}{2} &amp; \text{if } j = i-1 \text{ or } j = i+1 \\
+0 &amp; \text{ otherwise}
+\end{cases}
 \end{split}\]</div>
 <p>for every <span class="math notranslate nohighlight">\(n\)</span>.
 When one-step transition probabilites don’t depend on <span class="math notranslate nohighlight">\(n\)</span>, they are called <em>stationary</em> or <em>time-homogenous</em>. All the Markov chains that we will study in this course have time-homogenous transition probabilities.</p>
@@ -1006,9 +1040,11 @@ P(i, j) ~ = ~ P(X_{n+1} = j \mid X_n = i) ~ = ~ P(X_1 = j \mid X_0 = i)
 P(X_0 = i_0, X_1 = i_1, X_2 = i_2, \ldots, X_n = i_n)
 ~ = ~ P(X_0 = i_0)P(i_0, i_1)P(i_1, i_2) \cdots P(i_{n-1}, i_n)
 \]</div>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+</div>
 </div>
 <div class="section" id="one-step-transition-matrix">
-<h2><span class="section-number">10.1.2. </span>One-Step Transition Matrix<a class="headerlink" href="#one-step-transition-matrix" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">10.1.4. </span>One-Step Transition Matrix<a class="headerlink" href="#one-step-transition-matrix" title="Permalink to this headline">¶</a></h2>
 <p>The one-step transition probabilities can be represented as elements of a matrix. This isn’t just for compactness of notation – it leads to a powerful theory.</p>
 <p>The <em>one-step transition matrix</em> of the chain is the matrix <span class="math notranslate nohighlight">\(\mathbb{P}\)</span> whose <span class="math notranslate nohighlight">\((i, j)\)</span>th element is <span class="math notranslate nohighlight">\(P(i, j) = P(X_1 = j \mid X_0 = i)\)</span>.</p>
 <p>Often, <span class="math notranslate nohighlight">\(\mathbb{P}\)</span> is just called <em>the transition matrix</em> for short. Note two important properties:</p>
@@ -1019,7 +1055,7 @@ P(X_0 = i_0, X_1 = i_1, X_2 = i_2, \ldots, X_n = i_n)
 <p>Let’s see what the transition matrix looks like in an example.</p>
 </div>
 <div class="section" id="sticky-reflecting-random-walk">
-<h2><span class="section-number">10.1.3. </span>Sticky Reflecting Random Walk<a class="headerlink" href="#sticky-reflecting-random-walk" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">10.1.5. </span>Sticky Reflecting Random Walk<a class="headerlink" href="#sticky-reflecting-random-walk" title="Permalink to this headline">¶</a></h2>
 <p>Often, the transition behavior of a Markov chain is easier to describe in a <em>transition diagram</em> instead of a matrix. Here is such a diagram for a chain on the states 1, 2, 3, 4, and 5. The diagram shows the one-step transition probabilities.</p>
 <ul class="simple">
 <li><p>No matter at which state the chain is, it stays there with chance 0.5.</p></li>
@@ -1149,6 +1185,16 @@ P(X_0 = i_0, X_1 = i_1, X_2 = i_2, \ldots, X_n = i_n)
 </div>
 <p>Compare the transition matrix <span class="math notranslate nohighlight">\(\mathbb{P}\)</span> with the transition diagram, and confirm that they contain the same information about transition probabilities.</p>
 <p>To find the chance that the chain moves to <span class="math notranslate nohighlight">\(j\)</span> given that it is at <span class="math notranslate nohighlight">\(i\)</span>, go to Row <span class="math notranslate nohighlight">\(i\)</span> and pick out the probability in Column <span class="math notranslate nohighlight">\(j\)</span>.</p>
+<div class="admonition-quick-check admonition">
+<p class="admonition-title">Quick Check</p>
+<p>Use the table (not the transition diagram) to find</p>
+<p>(a) <span class="math notranslate nohighlight">\(P(X_1 = 3 \mid X_0 = 4)\)</span></p>
+<p>(b) <span class="math notranslate nohighlight">\(P(X_{101} = 3 \mid X_{100} = 4)\)</span></p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Answer</p>
+<p>Both answers are <span class="math notranslate nohighlight">\(0.25\)</span></p>
+</div>
 <p>If you know the starting state, you can use <span class="math notranslate nohighlight">\(\mathbb{P}\)</span> to find the probability of any finite path. For example, given that the walk starts at 1, the probability that it then has the path [2, 2, 3, 4, 3] is</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1191,6 +1237,14 @@ P(1, 2)P(2, 2)P(2, 3)P(3, 4)P(4, 3) \approx 0.4\%
 </div>
 </div>
 </div>
+<div class="admonition-quick-check admonition">
+<p class="admonition-title">Quick Check</p>
+<p>Suppose the sticky reflecting walk starts at state 3. What is the chance that it then visits the states 2, 3, 3, and 4 in that order? You don’t have to simplify the product.</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Answer</p>
+<p><span class="math notranslate nohighlight">\(0.25 \times 0.25 \times 0.5 \times 0.25\)</span></p>
+</div>
 <p>You can simulate paths of the chain using the <code class="docutils literal notranslate"><span class="pre">simulate_path</span></code> method. It takes two arguments: the starting state and the number of steps of the path. By default it returns an array consisting of the sequence of states in the path. The optional argument <code class="docutils literal notranslate"><span class="pre">plot_path=True</span></code> plots the simulated path. Run the cells below a few times and see how the output changes.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1199,7 +1253,7 @@ P(1, 2)P(2, 2)P(2, 3)P(3, 4)P(4, 3) \approx 0.4\%
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([1, 2, 1, 2, 3, 4, 4, 3])
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([1, 2, 2, 1, 2, 3, 4, 4])
 </pre></div>
 </div>
 </div>
@@ -1211,12 +1265,14 @@ P(1, 2)P(2, 2)P(2, 3)P(3, 4)P(4, 3) \approx 0.4\%
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/01_Transitions_14_0.png" src="../../_images/01_Transitions_14_0.png" />
+<img alt="../../_images/01_Transitions_26_0.png" src="../../_images/01_Transitions_26_0.png" />
 </div>
+</div>
+<div class="cell tag_remove-input tag_hide-output docutils container">
 </div>
 </div>
 <div class="section" id="n-step-transition-matrix">
-<h2><span class="section-number">10.1.4. </span><span class="math notranslate nohighlight">\(n\)</span>-Step Transition Matrix<a class="headerlink" href="#n-step-transition-matrix" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">10.1.6. </span><span class="math notranslate nohighlight">\(n\)</span>-Step Transition Matrix<a class="headerlink" href="#n-step-transition-matrix" title="Permalink to this headline">¶</a></h2>
 <p>For states <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(j\)</span>, the chance of getting from <span class="math notranslate nohighlight">\(i\)</span> to <span class="math notranslate nohighlight">\(j\)</span> in <span class="math notranslate nohighlight">\(n\)</span> steps is called the <span class="math notranslate nohighlight">\(n\)</span>-step transition probability from <span class="math notranslate nohighlight">\(i\)</span> to <span class="math notranslate nohighlight">\(j\)</span>. Formally, the <span class="math notranslate nohighlight">\(n\)</span>-step transition probability is</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1308,6 +1364,16 @@ P_n(i, j) ~ = ~ P(X_n = j \mid X_0 = i)
 <li><p>[1, 2, 1]</p></li>
 </ul>
 <p>Given that 1 is the starting state, the total chance of the two paths is <span class="math notranslate nohighlight">\((0.5 \times 0.5) + (0.5 \times 0.25) = 0.375\)</span>.</p>
+<div class="admonition-quick-check admonition">
+<p class="admonition-title">Quick Check</p>
+<p>For the sticky reflecting walk, find the following if it is possible without further calculation. If it is not possible, explain why not.</p>
+<p>(a) <span class="math notranslate nohighlight">\(P(X_2 = 5 \mid X_0 = 3)\)</span></p>
+<p>(b) <span class="math notranslate nohighlight">\(P(X_{32} = 5 \mid X_{30} = 3)\)</span></p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Answer</p>
+<p>Both answers are <span class="math notranslate nohighlight">\(0.0625\)</span></p>
+</div>
 <p>Because of the Markov property, the one-step transition probabilities are all you need to find the 2-step transition probabilities.</p>
 <p>In general, we can find <span class="math notranslate nohighlight">\(P_2(i, j)\)</span> by conditioning on where the chain was at time 1.</p>
 <div class="math notranslate nohighlight">
@@ -1320,7 +1386,11 @@ P_2(i, j) ~ &amp;= ~ P(X_2 = j \mid X_0 = i) \\
 \end{align*}
 \end{split}\]</div>
 <p>That’s the <span class="math notranslate nohighlight">\((i, j)\)</span>th element of the matrix product <span class="math notranslate nohighlight">\(\mathbb{P} \times \mathbb{P} = \mathbb{P}^2\)</span>. Thus the 2-step transition matrix of the chain is <span class="math notranslate nohighlight">\(\mathbb{P}^2\)</span>.</p>
-<p>By induction, you can show that the <span class="math notranslate nohighlight">\(n\)</span>-step transition matrix of the chain is <span class="math notranslate nohighlight">\(\mathbb{P}^n\)</span>.</p>
+<p>By induction, you can show that the <span class="math notranslate nohighlight">\(n\)</span>-step transition matrix of the chain is <span class="math notranslate nohighlight">\(\mathbb{P}^n\)</span>. That is,</p>
+<div class="math notranslate nohighlight">
+\[
+P_n(i, j) ~ = ~ P(X_n = j \mid X_0 = i) ~ = ~ (i, j) \text{ element of } \mathbb{P}^n
+\]</div>
 <p>Here is a display of the 5-step transition matrix of the reflecting walk.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1439,9 +1509,9 @@ P_2(i, j) ~ &amp;= ~ P(X_2 = j \mid X_0 = i) \\
 <p>When we want to use <span class="math notranslate nohighlight">\(\mathbb{P}\)</span> in computations, we will use this matrix representation. For displays, <code class="docutils literal notranslate"><span class="pre">transition_matrix</span></code> is better.</p>
 </div>
 <div class="section" id="the-long-run">
-<h2><span class="section-number">10.1.5. </span>The Long Run<a class="headerlink" href="#the-long-run" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">10.1.7. </span>The Long Run<a class="headerlink" href="#the-long-run" title="Permalink to this headline">¶</a></h2>
 <p>To understand the long run behavior of the chain, let <span class="math notranslate nohighlight">\(n\)</span> be large and let’s examine the distribution of <span class="math notranslate nohighlight">\(X_n\)</span> for each value of the starting state. That’s contained in the <span class="math notranslate nohighlight">\(n\)</span>-step transition matrix <span class="math notranslate nohighlight">\(\mathbb{P}^n\)</span>.</p>
-<p>Here is the display of <span class="math notranslate nohighlight">\(\mathbb{P}^n\)</span> for the reflecting walk, for <span class="math notranslate nohighlight">\(n = 25, 50\)</span>, and <span class="math notranslate nohighlight">\(100\)</span>.</p>
+<p>Here is the display of <span class="math notranslate nohighlight">\(\mathbb{P}^n\)</span> for the reflecting walk, for <span class="math notranslate nohighlight">\(n = 25, 50\)</span>, and <span class="math notranslate nohighlight">\(100\)</span>. Keep your eyes on the rows of the matrices as <span class="math notranslate nohighlight">\(n\)</span> changes.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">reflecting_walk</span><span class="o">.</span><span class="n">transition_matrix</span><span class="p">(</span><span class="mi">25</span><span class="p">)</span>
@@ -1676,6 +1746,16 @@ P_2(i, j) ~ &amp;= ~ P(X_2 = j \mid X_0 = i) \\
 <p>The rows of <span class="math notranslate nohighlight">\(\mathbb{P}^{100}\)</span> are all the same! That means that for the reflecting walk, the distribution at time 100 doesn’t depend on the starting state. <em>The chain has forgotten where it started.</em></p>
 <p>You can increase <span class="math notranslate nohighlight">\(n\)</span> and see that the <span class="math notranslate nohighlight">\(n\)</span>-step transition matrix stays the same. By time 100, this chain has <em>reached stationarity</em>.</p>
 <p>Stationarity is a remarkable property of many Markov chains, and is the main topic of this chapter.</p>
+<div class="admonition-quick-check admonition">
+<p class="admonition-title">Quick Check</p>
+<p>Pick the correct option: If the sticky reflecting walk is run for 500 steps, the chance that it is at state 4 at time 500</p>
+<p>(i) is about 25%.</p>
+<p>(ii) cannot be determined or approximated because we don’t know where the chain started.</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Answer</p>
+<p>(i)</p>
+</div>
 </div>
 </div>
 

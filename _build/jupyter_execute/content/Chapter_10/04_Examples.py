@@ -57,9 +57,9 @@ $$
 
 The chain is clearly irreducible. It is aperiodic because $P(i, i) > 0$.
 
-**Question.** What is the stationary distribution of the chain? 
+**Question:** What is the stationary distribution of the chain? 
 
-**Answer.** We have computers. So let's first find the stationary distribution for $N=100$ particles, and then see if we can identify it for general $N$.
+**Answer:** We have computers. So let's first find the stationary distribution for $N=100$ particles, and then see if we can identify it for general $N$.
 
 N = 100
 
@@ -78,7 +78,7 @@ def transition_probs(i, j):
 ehrenfest = MarkovChain.from_transition_function(states, transition_probs)
 Plot(ehrenfest.steady_state(), edges=True)
 
-That looks suspiciously like the binomial (100, 1/2) distribution. In fact it *is* the binomial (100, 1/2) distribution. Since you've guessed it, all you have to do is plug it into the balance equations and check that they work out. 
+That looks suspiciously like the binomial (100, 1/2) distribution. In fact it *is* the binomial (100, 1/2) distribution. Let's solve the balance equations to prove this.
 
 The balance equations are:
 
@@ -90,26 +90,36 @@ $$
 \end{align*}
 $$
 
-You have already guessed the solution by looking at the answer calculated for $N=100$. But if you want to start from scratch, you'll have to simplify the balance equations.
-
-To do this, **it's a great idea to write all the elements of $\pi$ in terms of one of the elements**. 
-
-Try writing all the elements of $\pi$ in terms of $\pi(0)$. You will get:
+Now rewrite each equation to express all the elements of $\pi$ in terms of $\pi(0)$. You will get:
 
 $$
 \begin{align*}
 \pi(1) &= N\pi(0) \\ \\
-\pi(2) &= \frac{N(N-1)}{2} \pi0 = \binom{N}{2} \pi(0)
+\pi(2) &= \frac{N(N-1)}{2} \pi(0) = \binom{N}{2} \pi(0)
 \end{align*}
 $$
 
 and so on by induction:
 
 $$
-\pi(j) = \binom{N}{j} \pi(0)
+\pi(j) = \binom{N}{j} \pi(0), ~~~~~~~~ 1 \le j \le N
 $$
 
-In other words, the stationary distribution is proportional to the binomial coefficients. So $\pi(0) = 1/2^N$ to make all the elements sum to 1, and the distribution is binomial $(N, 1/2)$.
+This is true for $j = 0$ as well, since $\binom{N}{0} = 1$.
+
+Therefore the stationary distribution is 
+
+$$
+\pi ~ = ~ \big{[} \binom{N}{0}\pi(0), \binom{N}{1}\pi(0), \binom{N}{2}\pi(0), \ldots, \binom{N}{N}\pi(0) \big{]}
+$$
+
+In other words, the stationary distribution is proportional to the binomial coefficients. Now
+
+$$
+\sum_{j=0}^N \binom{N}{j} ~ = ~ (1 + 1)^N = 2^N
+$$
+
+So $\pi(0) = 1/2^N$ and the stationary distribution is binomial $(N, 1/2)$.
 
 ### Expected Reward ###
 Suppose I run the sticky reflecting random walk from the previous section for a long time. As a reminder, here is its stationary distribution.
@@ -117,15 +127,15 @@ Suppose I run the sticky reflecting random walk from the previous section for a 
 stationary = reflecting_walk.steady_state()
 stationary
 
-**Question 1.** Suppose that every time the chain is in state 4, I win 4 dollars; every time it's in state 5, I win 5 dollars; otherwise I win nothing. What is my expected long run average reward?
+**Question 1:** Suppose that every time the chain is in state 4, I win 4 dollars; every time it's in state 5, I win 5 dollars; otherwise I win nothing. What is my expected long run average reward?
 
-**Answer 1.** In the long run, the chain is in steady state. So I expect that on 62.5% of the moves I will win nothing; on 25% of the moves I will win 4 dollars; and on 12.5% of the moves I will win 5 dollars. My expected long run average reward per move is 1.65 dollars.
+**Answer 1:** In the long run, the chain is in steady state. So I expect that on 62.5% of the moves I will win nothing; on 25% of the moves I will win 4 dollars; and on 12.5% of the moves I will win 5 dollars. My expected long run average reward per move is 1.65 dollars.
 
 0*0.625 + 4*0.25 + 5*.125
 
-**Question 2.** Suppose that every time the chain is in state $i$, I toss $i$ coins and record the number of heads. In the long run, how many heads do I expect to get on average per move?
+**Question 2:** Suppose that every time the chain is in state $i$, I toss $i$ coins and record the number of heads. In the long run, how many heads do I expect to get on average per move?
 
-**Answer 2.** Each time the chain is in state $i$, I expect to get $i/2$ heads. When the chain is in steady state, the expected number of coins I toss at any given move is 3. So, by iterated expectations, the long run average number of heads I expect to get is 1.5.
+**Answer 2:** Each time the chain is in state $i$, I expect to get $i/2$ heads. When the chain is in steady state, the expected number of coins I toss at any given move is 3. So, by iterated expectations, the long run average number of heads I expect to get is 1.5.
 
 stationary.ev()/2
 

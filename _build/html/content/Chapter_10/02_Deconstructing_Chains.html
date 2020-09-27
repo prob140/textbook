@@ -430,28 +430,28 @@
   </ul>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../Chapter_11/00_Reversing_Markov_Chains.html">
-   11. Reversing Markov Chains
+  <a class="reference internal" href="../Chapter_11/00_Markov_Chain_Monte_Carlo.html">
+   11. Markov Chain Monte Carlo
   </a>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_11/01_Detailed_Balance.html">
-     11.1. Detailed Balance
+    <a class="reference internal" href="../Chapter_11/01_Balance_and_Detailed_Balance.html">
+     11.1. Balance and Detailed Balance
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_11/02_Reversibility.html">
-     11.2. Reversibility
+    <a class="reference internal" href="../Chapter_11/02_Code_Breaking.html">
+     11.2. Code Breaking
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_11/03_Code_Breaking.html">
-     11.3. Code Breaking
+    <a class="reference internal" href="../Chapter_11/03_Metropolis_Algorithm.html">
+     11.3. Metropolis Algorithm
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_11/04_Markov_Chain_Monte_Carlo.html">
-     11.4. Markov Chain Monte Carlo
+    <a class="reference internal" href="../Chapter_11/04_Exercises.html">
+     11.4. Exercises
     </a>
    </li>
   </ul>
@@ -928,13 +928,13 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#communication">
-   10.2.1. Communication
+  <a class="reference internal nav-link" href="#irreducibility">
+   10.2.1. Irreducibility
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#period">
-   10.2.2. Period
+  <a class="reference internal nav-link" href="#aperiodicity">
+   10.2.2. Aperiodicity
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -955,8 +955,10 @@
   <div class="section" id="deconstructing-chains">
 <h1><span class="section-number">10.2. </span>Deconstructing Chains<a class="headerlink" href="#deconstructing-chains" title="Permalink to this headline">¶</a></h1>
 <p>Let <span class="math notranslate nohighlight">\(S\)</span> be a finite or countably infinite set of states. Any stochastic matrix with rows and columns indexed by <span class="math notranslate nohighlight">\(S\)</span> is the transition matrix of some Markov chain with state space <span class="math notranslate nohighlight">\(S\)</span>. The transition behaviors of Markov chains are thus as varied as the matrices. It is helpful to set up terminology to discuss some of these behaviors.</p>
-<div class="section" id="communication">
-<h2><span class="section-number">10.2.1. </span>Communication<a class="headerlink" href="#communication" title="Permalink to this headline">¶</a></h2>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+</div>
+<div class="section" id="irreducibility">
+<h2><span class="section-number">10.2.1. </span>Irreducibility<a class="headerlink" href="#irreducibility" title="Permalink to this headline">¶</a></h2>
 <p>If it is possible for the chain to get from state <span class="math notranslate nohighlight">\(i\)</span> to state <span class="math notranslate nohighlight">\(j\)</span>, we say that <em><span class="math notranslate nohighlight">\(i\)</span> leads to <span class="math notranslate nohighlight">\(j\)</span></em> and we write <span class="math notranslate nohighlight">\(i \rightarrow j\)</span>. Usually you can decide whether <span class="math notranslate nohighlight">\(i\)</span> leads to <span class="math notranslate nohighlight">\(j\)</span> just by examining the transition diagram of the chain. As a formal definition, <span class="math notranslate nohighlight">\(i \rightarrow j\)</span> if:</p>
 <ul class="simple">
 <li><p>There is a path of positive probability that starts at <span class="math notranslate nohighlight">\(i\)</span> and ends at <span class="math notranslate nohighlight">\(j\)</span>.</p></li>
@@ -965,16 +967,30 @@
 <p>We say that <em><span class="math notranslate nohighlight">\(i\)</span> communicates with <span class="math notranslate nohighlight">\(j\)</span></em> if <span class="math notranslate nohighlight">\(i \rightarrow j\)</span> and <span class="math notranslate nohighlight">\(j \rightarrow i\)</span>. In that case we write <span class="math notranslate nohighlight">\(i \leftrightarrow j\)</span>.</p>
 <p>If all the states of a chain communicate with each other, the chain is called <em>irreducible</em>.</p>
 <p>The sticky reflecting random walk of the previous section is irreducible, because it is possible for the chain to get from every state to every other state.</p>
+<p><strong>A way to establish irreducibility</strong></p>
+<p>Suppose a chain has a finite number of states. A good way to establish the irreducibility of the chain is to construct a path that</p>
+<ul class="simple">
+<li><p>starts at any state,</p></li>
+<li><p>goes through all of the other states,</p></li>
+<li><p>ends at the starting state,</p></li>
+<li><p>and has positive probability.</p></li>
+</ul>
+<p>Then for any two states <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(j\)</span>, there is a segment of the path that starts at <span class="math notranslate nohighlight">\(i\)</span> and ends at <span class="math notranslate nohighlight">\(j\)</span>, and another segment that starts at <span class="math notranslate nohighlight">\(j\)</span> and ends at <span class="math notranslate nohighlight">\(i\)</span>, and both segments have positive probability. So it is possible to get from any state to any other state.</p>
+<div class="cell tag_remove-input tag_hide-output docutils container">
 </div>
-<div class="section" id="period">
-<h2><span class="section-number">10.2.2. </span>Period<a class="headerlink" href="#period" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="aperiodicity">
+<h2><span class="section-number">10.2.2. </span>Aperiodicity<a class="headerlink" href="#aperiodicity" title="Permalink to this headline">¶</a></h2>
 <p>Working in discrete time has disadvantages. One of them is that states can be <em>periodic</em>. Let’s start with the example of a random walk where the steps are based on tosses of a fair coin. Suppose the walk starts at state 0. Then it can return to 0 only at even times: the number of heads up to that point has to exactly equal the number of tails, and thus the number of tosses has to be even. We say that the state 0 <em>has period 2.</em></p>
 <p>A state <span class="math notranslate nohighlight">\(i\)</span> has <em>period</em> <span class="math notranslate nohighlight">\(d\)</span> if, starting at <span class="math notranslate nohighlight">\(i\)</span>, the chain can come back to <span class="math notranslate nohighlight">\(i\)</span> only at times that are multiples of <span class="math notranslate nohighlight">\(d\)</span>. That is, <span class="math notranslate nohighlight">\(d\)</span> is the greatest common divisor of the set all <span class="math notranslate nohighlight">\(n\)</span> such that <span class="math notranslate nohighlight">\(P_n(i, i) &gt; 0\)</span>.</p>
 <p>In the random walk described above, all states have period 2.</p>
 <p>Period causes trouble with statements about long-run behavior. For example, if state <span class="math notranslate nohighlight">\(i\)</span> has period 3, then the sequence <span class="math notranslate nohighlight">\(P_n(i, i)\)</span> might look like “0, 0, positive, 0, 0, positive, <span class="math notranslate nohighlight">\(\ldots\)</span>”, so limit statements might become complicated.</p>
 <p>In this course we will study the long run behavior of chains in which all states are <em>aperiodic</em>, that is, they have period 1. In other words there is no cyclical pattern to when the chain can return to any state.</p>
 <p>How do you check if all states are aperiodic? If the chain is irreducible, it turns out that all the states must have the same period. The proof of this fact isn’t terribly hard but we won’t go through it. What it implies is that if a chain is irreducible, which is easy to check, all you have to do is figure out the period of one of its states. Then all the others must have the same period.</p>
-<p>Some states are easy to identify as aperiodic. If the one-step transition probability <span class="math notranslate nohighlight">\(P(i, i)\)</span> is positive, then the state <span class="math notranslate nohighlight">\(i\)</span> has to be aperiodic. Since the chain can stay at <span class="math notranslate nohighlight">\(i\)</span> for arbitrary lengths of time, its “returns” are not cyclical.</p>
+<p><strong>A way to establish aperiodicity</strong></p>
+<p>Some states are easy to identify as aperiodic. If the one-step transition probability <span class="math notranslate nohighlight">\(P(i, i)\)</span> is positive, then the state <span class="math notranslate nohighlight">\(i\)</span> has to be aperiodic. Since the chain can stay at <span class="math notranslate nohighlight">\(i\)</span> for arbitrary lengths of time, it cannot have a cyclical pattern in how it returns to a state.</p>
+<p>So if you have an irreducible chain, it’s a good idea to look on the diagonal of the transition matrix. If you see a non-zero element on the diagonal, the chain is aperiodic.</p>
+<p>That’s not a necessary condition for the chain to be aperiodic, but it’s sufficient and very easy to spot.</p>
 </div>
 <div class="section" id="example-deconstructing-a-chain">
 <h2><span class="section-number">10.2.3. </span>Example: Deconstructing a Chain<a class="headerlink" href="#example-deconstructing-a-chain" title="Permalink to this headline">¶</a></h2>

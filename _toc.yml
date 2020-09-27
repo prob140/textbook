@@ -92,13 +92,13 @@
     - file: content/Chapter_10/02_Deconstructing_Chains
     - file: content/Chapter_10/03_Long_Run_Behavior
     - file: content/Chapter_10/04_Examples
-  - file: content/Chapter_11/00_Reversing_Markov_Chains
+  - file: content/Chapter_11/00_Markov_Chain_Monte_Carlo
     expand_sections: true
     sections:
-    - file: content/Chapter_11/01_Detailed_Balance
-    - file: content/Chapter_11/02_Reversibility
-    - file: content/Chapter_11/03_Code_Breaking
-    - file: content/Chapter_11/04_Markov_Chain_Monte_Carlo
+    - file: content/Chapter_11/01_Balance_and_Detailed_Balance
+    - file: content/Chapter_11/02_Code_Breaking
+    - file: content/Chapter_11/03_Metropolis_Algorithm
+    - file: content/Chapter_11/04_Exercises
   - file: content/Chapter_12/00_Standard_Deviation
     expand_sections: true
     sections:

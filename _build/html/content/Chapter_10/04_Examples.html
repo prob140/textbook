@@ -40,7 +40,7 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="11. Reversing Markov Chains" href="../Chapter_11/00_Reversing_Markov_Chains.html" />
+    <link rel="next" title="11. Markov Chain Monte Carlo" href="../Chapter_11/00_Markov_Chain_Monte_Carlo.html" />
     <link rel="prev" title="10.3. Long Run Behavior" href="03_Long_Run_Behavior.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -430,28 +430,28 @@
   </ul>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../Chapter_11/00_Reversing_Markov_Chains.html">
-   11. Reversing Markov Chains
+  <a class="reference internal" href="../Chapter_11/00_Markov_Chain_Monte_Carlo.html">
+   11. Markov Chain Monte Carlo
   </a>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_11/01_Detailed_Balance.html">
-     11.1. Detailed Balance
+    <a class="reference internal" href="../Chapter_11/01_Balance_and_Detailed_Balance.html">
+     11.1. Balance and Detailed Balance
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_11/02_Reversibility.html">
-     11.2. Reversibility
+    <a class="reference internal" href="../Chapter_11/02_Code_Breaking.html">
+     11.2. Code Breaking
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_11/03_Code_Breaking.html">
-     11.3. Code Breaking
+    <a class="reference internal" href="../Chapter_11/03_Metropolis_Algorithm.html">
+     11.3. Metropolis Algorithm
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_11/04_Markov_Chain_Monte_Carlo.html">
-     11.4. Markov Chain Monte Carlo
+    <a class="reference internal" href="../Chapter_11/04_Exercises.html">
+     11.4. Exercises
     </a>
    </li>
   </ul>
@@ -968,8 +968,8 @@ P(i, j) =
 \end{equation}
 \end{split}\]</div>
 <p>The chain is clearly irreducible. It is aperiodic because <span class="math notranslate nohighlight">\(P(i, i) &gt; 0\)</span>.</p>
-<p><strong>Question.</strong> What is the stationary distribution of the chain?</p>
-<p><strong>Answer.</strong> We have computers. So let’s first find the stationary distribution for <span class="math notranslate nohighlight">\(N=100\)</span> particles, and then see if we can identify it for general <span class="math notranslate nohighlight">\(N\)</span>.</p>
+<p><strong>Question:</strong> What is the stationary distribution of the chain?</p>
+<p><strong>Answer:</strong> We have computers. So let’s first find the stationary distribution for <span class="math notranslate nohighlight">\(N=100\)</span> particles, and then see if we can identify it for general <span class="math notranslate nohighlight">\(N\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">100</span>
@@ -995,7 +995,7 @@ P(i, j) =
 <img alt="../../_images/04_Examples_5_0.png" src="../../_images/04_Examples_5_0.png" />
 </div>
 </div>
-<p>That looks suspiciously like the binomial (100, 1/2) distribution. In fact it <em>is</em> the binomial (100, 1/2) distribution. Since you’ve guessed it, all you have to do is plug it into the balance equations and check that they work out.</p>
+<p>That looks suspiciously like the binomial (100, 1/2) distribution. In fact it <em>is</em> the binomial (100, 1/2) distribution. Let’s solve the balance equations to prove this.</p>
 <p>The balance equations are:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -1005,22 +1005,31 @@ P(i, j) =
 \pi(N) &amp;= \frac{1}{2N}\pi(N-1) + \frac{1}{2}\pi(N)
 \end{align*}
 \end{split}\]</div>
-<p>You have already guessed the solution by looking at the answer calculated for <span class="math notranslate nohighlight">\(N=100\)</span>. But if you want to start from scratch, you’ll have to simplify the balance equations.</p>
-<p>To do this, <strong>it’s a great idea to write all the elements of <span class="math notranslate nohighlight">\(\pi\)</span> in terms of one of the elements</strong>.</p>
-<p>Try writing all the elements of <span class="math notranslate nohighlight">\(\pi\)</span> in terms of <span class="math notranslate nohighlight">\(\pi(0)\)</span>. You will get:</p>
+<p>Now rewrite each equation to express all the elements of <span class="math notranslate nohighlight">\(\pi\)</span> in terms of <span class="math notranslate nohighlight">\(\pi(0)\)</span>. You will get:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{align*}
 \pi(1) &amp;= N\pi(0) \\ \\
-\pi(2) &amp;= \frac{N(N-1)}{2} \pi0 = \binom{N}{2} \pi(0)
+\pi(2) &amp;= \frac{N(N-1)}{2} \pi(0) = \binom{N}{2} \pi(0)
 \end{align*}
 \end{split}\]</div>
 <p>and so on by induction:</p>
 <div class="math notranslate nohighlight">
 \[
-\pi(j) = \binom{N}{j} \pi(0)
+\pi(j) = \binom{N}{j} \pi(0), ~~~~~~~~ 1 \le j \le N
 \]</div>
-<p>In other words, the stationary distribution is proportional to the binomial coefficients. So <span class="math notranslate nohighlight">\(\pi(0) = 1/2^N\)</span> to make all the elements sum to 1, and the distribution is binomial <span class="math notranslate nohighlight">\((N, 1/2)\)</span>.</p>
+<p>This is true for <span class="math notranslate nohighlight">\(j = 0\)</span> as well, since <span class="math notranslate nohighlight">\(\binom{N}{0} = 1\)</span>.</p>
+<p>Therefore the stationary distribution is</p>
+<div class="math notranslate nohighlight">
+\[
+\pi ~ = ~ \big{[} \binom{N}{0}\pi(0), \binom{N}{1}\pi(0), \binom{N}{2}\pi(0), \ldots, \binom{N}{N}\pi(0) \big{]}
+\]</div>
+<p>In other words, the stationary distribution is proportional to the binomial coefficients. Now</p>
+<div class="math notranslate nohighlight">
+\[
+\sum_{j=0}^N \binom{N}{j} ~ = ~ (1 + 1)^N = 2^N
+\]</div>
+<p>So <span class="math notranslate nohighlight">\(\pi(0) = 1/2^N\)</span> and the stationary distribution is binomial <span class="math notranslate nohighlight">\((N, 1/2)\)</span>.</p>
 </div>
 <div class="section" id="expected-reward">
 <h2><span class="section-number">10.4.2. </span>Expected Reward<a class="headerlink" href="#expected-reward" title="Permalink to this headline">¶</a></h2>
@@ -1058,8 +1067,8 @@ P(i, j) =
     </tbody>
 </table></div></div>
 </div>
-<p><strong>Question 1.</strong> Suppose that every time the chain is in state 4, I win 4 dollars; every time it’s in state 5, I win 5 dollars; otherwise I win nothing. What is my expected long run average reward?</p>
-<p><strong>Answer 1.</strong> In the long run, the chain is in steady state. So I expect that on 62.5% of the moves I will win nothing; on 25% of the moves I will win 4 dollars; and on 12.5% of the moves I will win 5 dollars. My expected long run average reward per move is 1.65 dollars.</p>
+<p><strong>Question 1:</strong> Suppose that every time the chain is in state 4, I win 4 dollars; every time it’s in state 5, I win 5 dollars; otherwise I win nothing. What is my expected long run average reward?</p>
+<p><strong>Answer 1:</strong> In the long run, the chain is in steady state. So I expect that on 62.5% of the moves I will win nothing; on 25% of the moves I will win 4 dollars; and on 12.5% of the moves I will win 5 dollars. My expected long run average reward per move is 1.65 dollars.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span><span class="o">*</span><span class="mf">0.625</span> <span class="o">+</span> <span class="mi">4</span><span class="o">*</span><span class="mf">0.25</span> <span class="o">+</span> <span class="mi">5</span><span class="o">*.</span><span class="mi">125</span>
@@ -1072,8 +1081,8 @@ P(i, j) =
 </div>
 </div>
 </div>
-<p><strong>Question 2.</strong> Suppose that every time the chain is in state <span class="math notranslate nohighlight">\(i\)</span>, I toss <span class="math notranslate nohighlight">\(i\)</span> coins and record the number of heads. In the long run, how many heads do I expect to get on average per move?</p>
-<p><strong>Answer 2.</strong> Each time the chain is in state <span class="math notranslate nohighlight">\(i\)</span>, I expect to get <span class="math notranslate nohighlight">\(i/2\)</span> heads. When the chain is in steady state, the expected number of coins I toss at any given move is 3. So, by iterated expectations, the long run average number of heads I expect to get is 1.5.</p>
+<p><strong>Question 2:</strong> Suppose that every time the chain is in state <span class="math notranslate nohighlight">\(i\)</span>, I toss <span class="math notranslate nohighlight">\(i\)</span> coins and record the number of heads. In the long run, how many heads do I expect to get on average per move?</p>
+<p><strong>Answer 2:</strong> Each time the chain is in state <span class="math notranslate nohighlight">\(i\)</span>, I expect to get <span class="math notranslate nohighlight">\(i/2\)</span> heads. When the chain is in steady state, the expected number of coins I toss at any given move is 3. So, by iterated expectations, the long run average number of heads I expect to get is 1.5.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">stationary</span><span class="o">.</span><span class="n">ev</span><span class="p">()</span><span class="o">/</span><span class="mi">2</span>
@@ -1119,7 +1128,7 @@ P(i, j) =
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="03_Long_Run_Behavior.html" title="previous page"><span class="section-number">10.3. </span>Long Run Behavior</a>
-    <a class='right-next' id="next-link" href="../Chapter_11/00_Reversing_Markov_Chains.html" title="next page"><span class="section-number">11. </span>Reversing Markov Chains</a>
+    <a class='right-next' id="next-link" href="../Chapter_11/00_Markov_Chain_Monte_Carlo.html" title="next page"><span class="section-number">11. </span>Markov Chain Monte Carlo</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

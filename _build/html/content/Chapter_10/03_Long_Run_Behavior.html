@@ -430,28 +430,28 @@
   </ul>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../Chapter_11/00_Reversing_Markov_Chains.html">
-   11. Reversing Markov Chains
+  <a class="reference internal" href="../Chapter_11/00_Markov_Chain_Monte_Carlo.html">
+   11. Markov Chain Monte Carlo
   </a>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_11/01_Detailed_Balance.html">
-     11.1. Detailed Balance
+    <a class="reference internal" href="../Chapter_11/01_Balance_and_Detailed_Balance.html">
+     11.1. Balance and Detailed Balance
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_11/02_Reversibility.html">
-     11.2. Reversibility
+    <a class="reference internal" href="../Chapter_11/02_Code_Breaking.html">
+     11.2. Code Breaking
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_11/03_Code_Breaking.html">
-     11.3. Code Breaking
+    <a class="reference internal" href="../Chapter_11/03_Metropolis_Algorithm.html">
+     11.3. Metropolis Algorithm
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_11/04_Markov_Chain_Monte_Carlo.html">
-     11.4. Markov Chain Monte Carlo
+    <a class="reference internal" href="../Chapter_11/04_Exercises.html">
+     11.4. Exercises
     </a>
    </li>
   </ul>
@@ -943,28 +943,33 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#balance-and-steady-state">
-   10.3.4. Balance and Steady State
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#uniqueness">
-   10.3.5. Uniqueness
+   10.3.4. Uniqueness
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#expected-long-run-proportion-of-time">
-   10.3.6. Expected Long Run Proportion of Time
+  <a class="reference internal nav-link" href="#solving-the-balance-equations">
+   10.3.5. Solving the Balance Equations
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#stationary-distribution-of-sticky-reflecting-walk">
-   10.3.7. Stationary Distribution of Sticky Reflecting Walk
+   10.3.6. Stationary Distribution of Sticky Reflecting Walk
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#steady-state">
+   10.3.7. Steady State
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#expected-long-run-proportion-of-time">
+   10.3.8. Expected Long Run Proportion of Time
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#sticky-random-walk-on-a-circle">
-   10.3.8. Sticky Random Walk on a Circle
+   10.3.9. Sticky Random Walk on a Circle
   </a>
  </li>
 </ul>
@@ -980,6 +985,8 @@
   <div class="section" id="long-run-behavior">
 <h1><span class="section-number">10.3. </span>Long Run Behavior<a class="headerlink" href="#long-run-behavior" title="Permalink to this headline">¶</a></h1>
 <p>Every irreducible and aperiodic Markov Chain on a finite state space exhibits astonishing regularity after it has run for a while. The proof of the convergence theorem below is beyond the scope of this course, but in examples you have seen the result by computation. All the results are true in greater generality for some classes of Markov Chains on infinitely many states.</p>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+</div>
 <div class="section" id="convergence-to-stationarity">
 <h2><span class="section-number">10.3.1. </span>Convergence to Stationarity<a class="headerlink" href="#convergence-to-stationarity" title="Permalink to this headline">¶</a></h2>
 <p>Let <span class="math notranslate nohighlight">\(X_0, X_1, \ldots\)</span> be an irreducible, aperiodic Markov chain on a finite state space <span class="math notranslate nohighlight">\(S\)</span>. Then for all states <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(j\)</span>,</p>
@@ -996,14 +1003,18 @@ P_n(i, j) \to \pi(j) ~~~ \text{as } n \to \infty
 </div>
 <div class="section" id="properties-of-the-limit">
 <h2><span class="section-number">10.3.2. </span>Properties of the Limit<a class="headerlink" href="#properties-of-the-limit" title="Permalink to this headline">¶</a></h2>
-<p><strong>(i)</strong> The vector <span class="math notranslate nohighlight">\(\pi\)</span> is the unique probability distribution that solves the <em>balance equations</em> <span class="math notranslate nohighlight">\(\pi \mathbb{P} = \pi\)</span>. Every other solution has the form <span class="math notranslate nohighlight">\(c\pi\)</span> for some constant <span class="math notranslate nohighlight">\(c\)</span>.</p>
+<p>In this section we will establish the following results. All of them are useful for calculation and for understanding the long run behavior of Markov chains.</p>
+<p><strong>(i)</strong> The row vector <span class="math notranslate nohighlight">\(\pi\)</span> is the unique probability distribution that solves the <em>balance equations</em> <span class="math notranslate nohighlight">\(\pi \mathbb{P} = \pi\)</span>. Every other solution has the form <span class="math notranslate nohighlight">\(c\pi\)</span> for some constant <span class="math notranslate nohighlight">\(c\)</span>.</p>
 <p><strong>(ii)</strong> If for some <span class="math notranslate nohighlight">\(n\)</span> the distribution of <span class="math notranslate nohighlight">\(X_n\)</span> is <span class="math notranslate nohighlight">\(\pi\)</span>, then the distribution of <span class="math notranslate nohighlight">\(X_m\)</span> is also <span class="math notranslate nohighlight">\(\pi\)</span> for all <span class="math notranslate nohighlight">\(m &gt; n\)</span>. Thus <span class="math notranslate nohighlight">\(\pi\)</span> is called the <em>stationary</em> or <em>steady state</em> distribution of the chain.</p>
 <p><strong>(iii)</strong> For each state <span class="math notranslate nohighlight">\(j\)</span>, the <span class="math notranslate nohighlight">\(j\)</span>th entry of the <span class="math notranslate nohighlight">\(\pi\)</span> vector <span class="math notranslate nohighlight">\(\pi(j)\)</span> is the expected long run proportion of time the chain spends at <span class="math notranslate nohighlight">\(j\)</span>.</p>
 <p>We will assume that the convergence theorem is true; you have observed in numerically in examples. The other properties follow rather easily. In the remainder of this section we will establish the properties and see how they are used.</p>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+</div>
 </div>
 <div class="section" id="balance-equations">
 <h2><span class="section-number">10.3.3. </span>Balance Equations<a class="headerlink" href="#balance-equations" title="Permalink to this headline">¶</a></h2>
-<p>Let <span class="math notranslate nohighlight">\(n \ge 0\)</span> and let <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(j\)</span> be two states. Then</p>
+<p>In our example of the sticky reflecting walk, we found the steady state distribution by computation: we simply computed the <span class="math notranslate nohighlight">\(n\)</span>-step transition matrix for large <span class="math notranslate nohighlight">\(n\)</span> and saw that eventually all the rows were the same. The distribution common to all the rows was the steady state distribution.</p>
+<p>But there is also a simple analytical way of finding the steady state distribution. To see this, let <span class="math notranslate nohighlight">\(n \ge 0\)</span> and let <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(j\)</span> be two states. Then</p>
 <div class="math notranslate nohighlight">
 \[
 P_{n+1}(i, j) = \sum_{k \in S} P_n(i, k)P(k, j)
@@ -1021,74 +1032,41 @@ P_{n+1}(i, j) = \sum_{k \in S} P_n(i, k)P(k, j)
 \[
 \pi(j) = \sum_{k \in S} \pi(k)P(k, j)
 \]</div>
-<p>These are called the balance equations.</p>
+<p>These are called the <em>balance equations</em>. There is one equation for each state <span class="math notranslate nohighlight">\(j\)</span>.</p>
 <p>In matrix notation, if you think of <span class="math notranslate nohighlight">\(\pi\)</span> as a row vector, these equations become</p>
 <div class="math notranslate nohighlight">
 \[
-\pi = \pi \mathbb{P} ~~~~~ \text{or, as we will usually write it,} ~~~~~ \pi\mathbb{P} = \pi
+\pi = \pi \mathbb{P} ~~~~~ \text{or, as we will often say it,} ~~~~~ \pi\mathbb{P} = \pi
 \]</div>
-<p>This helps us compute <span class="math notranslate nohighlight">\(\pi\)</span> without taking limits.</p>
-<p><strong>Note:</strong> The steady state isn’t an element of the state space <span class="math notranslate nohighlight">\(S\)</span>. It’s the condition of the chain after it has been run for a long time. Let’s examine this further.</p>
-</div>
-<div class="section" id="balance-and-steady-state">
-<h2><span class="section-number">10.3.4. </span>Balance and Steady State<a class="headerlink" href="#balance-and-steady-state" title="Permalink to this headline">¶</a></h2>
-<p>To see what is being “balanced” in these equations, imagine a large number of independent replications of this chain. For example, imagine a large number of particles that are moving among the states 1 through 5 according to the transition probabilities of the sticky reflecting walk, and suppose all the particles are moving at instants 1, 2, 3, <span class="math notranslate nohighlight">\(\ldots\)</span> independently of each other.</p>
-<p>Then at any instant and for any state <span class="math notranslate nohighlight">\(j\)</span>, there is some proportion of particles that is leaving <span class="math notranslate nohighlight">\(j\)</span>, and another proportion that is entering <span class="math notranslate nohighlight">\(j\)</span>. The balance equations say that those two proportions are equal.</p>
-<p>Let’s check this by looking at the equations again. For any state <span class="math notranslate nohighlight">\(j\)</span>,</p>
-<div class="math notranslate nohighlight">
-\[
-\pi(j) = \sum_{k \in S} \pi(k)P(k, j)
-\]</div>
-<p>For every <span class="math notranslate nohighlight">\(k \in S\)</span> (including <span class="math notranslate nohighlight">\(k=j\)</span>), think of <span class="math notranslate nohighlight">\(\pi(k)\)</span> as the proportion of particles leaving state <span class="math notranslate nohighlight">\(k\)</span> after the chain has been run a long time. Then the left hand side is the proportion leaving <span class="math notranslate nohighlight">\(j\)</span>. The generic term in the sum on the right is the proportion that left <span class="math notranslate nohighlight">\(k\)</span> at the previous instant and are moving to <span class="math notranslate nohighlight">\(j\)</span>. The sum is all the particles entering <span class="math notranslate nohighlight">\(j\)</span>. When the two sides are equal, the chain is <em>balanced</em>.</p>
-<p>The theorem on convergence to stationarity says that the chain approaches balance as <span class="math notranslate nohighlight">\(n\)</span> gets large. If it actually achieves balance, that is, if the distribution of <span class="math notranslate nohighlight">\(X_n\)</span> is equal to <span class="math notranslate nohighlight">\(\pi\)</span> for some <span class="math notranslate nohighlight">\(n\)</span>, then it stays balanced. The reason:</p>
-<div class="math notranslate nohighlight">
-\[
-P(X_{n+1} = j) = \sum_{i \in S} P(X_n = i)P(i, j) = \sum_{i \in S} \pi(i)P(i, j) = \pi(j)
-\]</div>
-<p>by the balance equations. Now use induction.</p>
-<p>In particular, if you start the chain with its stationary distribution <span class="math notranslate nohighlight">\(\pi\)</span>, then the distribution of <span class="math notranslate nohighlight">\(X_n\)</span> is <span class="math notranslate nohighlight">\(\pi\)</span> for every <span class="math notranslate nohighlight">\(n\)</span>.</p>
+<p>The balance equations help us compute <span class="math notranslate nohighlight">\(\pi\)</span> without taking limits.</p>
+<p>In a later chapter we will see how the term <em>balance</em> arises. For now, let’s focus on solving the equations.</p>
 </div>
 <div class="section" id="uniqueness">
-<h2><span class="section-number">10.3.5. </span>Uniqueness<a class="headerlink" href="#uniqueness" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">10.3.4. </span>Uniqueness<a class="headerlink" href="#uniqueness" title="Permalink to this headline">¶</a></h2>
 <p>It’s not very hard to show that if a probability distribution solves the balance equations, then it has to be <span class="math notranslate nohighlight">\(\pi\)</span>, the limit of the marginal distributions of <span class="math notranslate nohighlight">\(X_n\)</span>. We won’t do the proof; it essentially repeats the steps we took to derive the balance equations. You should just be aware that an irreducible, aperiodic, finite state Markov Chain has exactly one stationary distribution.</p>
-<p>This is particularly helpful if you happen to guess a solution to the balance equations. If the solution that you have guessed is a probability distribution, you have found the stationary distribution of the chain.</p>
+<p><strong>This is particularly helpful if you happen to guess a solution to the balance equations.</strong> If the solution that you have guessed is a probability distribution, you have found the stationary distribution of the chain.</p>
 </div>
-<div class="section" id="expected-long-run-proportion-of-time">
-<h2><span class="section-number">10.3.6. </span>Expected Long Run Proportion of Time<a class="headerlink" href="#expected-long-run-proportion-of-time" title="Permalink to this headline">¶</a></h2>
-<p>Let <span class="math notranslate nohighlight">\(j\)</span> be a state, and let <span class="math notranslate nohighlight">\(I_m(j)\)</span> be the indicator of the event <span class="math notranslate nohighlight">\(\{X_m = j\}\)</span>. The <em>proportion of time the chain spends at <span class="math notranslate nohighlight">\(j\)</span></em>, from time 1 through time <span class="math notranslate nohighlight">\(n\)</span>, is</p>
-<div class="math notranslate nohighlight">
-\[
-\frac{1}{n} \sum_{m=1}^n I_m(j)
-\]</div>
-<p>Therefore, the <em>expected proportion of time the chain spends at <span class="math notranslate nohighlight">\(j\)</span></em>, given that it started at <span class="math notranslate nohighlight">\(i\)</span>, is</p>
-<div class="math notranslate nohighlight">
-\[
-\frac{1}{n} \sum_{m=1}^n E(I_m(j) \mid X_0 = i) 
-= \frac{1}{n} \sum_{m=1}^n P(X_m = j \mid X_0 = i) 
-= \frac{1}{n} \sum_{m=1}^n P_m(i, j)
-\]</div>
-<p>Now recall a property of convergent sequences of real numbers:</p>
+<div class="section" id="solving-the-balance-equations">
+<h2><span class="section-number">10.3.5. </span>Solving the Balance Equations<a class="headerlink" href="#solving-the-balance-equations" title="Permalink to this headline">¶</a></h2>
+<p>The zero vector solves the balance equations, but it’s not a probability distribution.</p>
+<p>To find non-zero solutions, it is tempting to rewrite the balance equations as <span class="math notranslate nohighlight">\(\pi(\mathbb{I} - \mathbb{P}) = 0\)</span> where <span class="math notranslate nohighlight">\(\mathbb{I}\)</span> is the identity matrix, and try to invert <span class="math notranslate nohighlight">\(\mathbb{I} - \mathbb{P}\)</span>. But that doesn’t work. Each row of <span class="math notranslate nohighlight">\(\mathbb{P}\)</span> sums to 1, and hence each row of <span class="math notranslate nohighlight">\(\mathbb{I} - \mathbb{P}\)</span> sums to 0, which means that <span class="math notranslate nohighlight">\(\mathbb{I} - \mathbb{P}\)</span> is not invertible.</p>
+<p>So there are multiple solutions of the balance equations. We can see this easily by noting that if any vector solves the balance equations, then 10 times that vector also solves them.</p>
+<p>Our job is to find the solution <em>that is also a probability distribution</em>. That’s the steady state vector <span class="math notranslate nohighlight">\(\pi\)</span>.</p>
+<p>Let <span class="math notranslate nohighlight">\(s\)</span> denote the number of elements in the state space <span class="math notranslate nohighlight">\(S\)</span>. Then <span class="math notranslate nohighlight">\(\pi\)</span> is a row vector of length <span class="math notranslate nohighlight">\(s\)</span>. The <span class="math notranslate nohighlight">\(j\)</span>th element of <span class="math notranslate nohighlight">\(\pi\)</span> is <span class="math notranslate nohighlight">\(\pi(j)\)</span> and corresponds to the <span class="math notranslate nohighlight">\(j\)</span>th element of the state space.</p>
+<p>Two key observations help us solve the balance equations.</p>
 <ul class="simple">
-<li><p>If <span class="math notranslate nohighlight">\(x_n \to x\)</span> as <span class="math notranslate nohighlight">\(n \to \infty\)</span>, then the sequence of averages also converges to <span class="math notranslate nohighlight">\(x\)</span>. That is,</p></li>
+<li><p>The equations say that for each state <span class="math notranslate nohighlight">\(j\)</span>, <span class="math notranslate nohighlight">\(\pi(j)\)</span> is equal to the dot product of <span class="math notranslate nohighlight">\(\pi\)</span> and the <span class="math notranslate nohighlight">\(j\)</span>th column of <span class="math notranslate nohighlight">\(\mathbb{P}\)</span>.</p></li>
+<li><p>There are therefore <span class="math notranslate nohighlight">\(s\)</span> equations with the additional condition that <span class="math notranslate nohighlight">\(\sum_{j \in S} \pi(j) = 1\)</span>.</p></li>
 </ul>
-<div class="math notranslate nohighlight">
-\[
-\frac{1}{n} \sum_{m=1}^n x_m \to x ~~~ \text{as } n \to \infty
-\]</div>
-<p>Take <span class="math notranslate nohighlight">\(x_n = P_n(i, j)\)</span>. Then by the theorem on convergence to stationarity,</p>
-<div class="math notranslate nohighlight">
-\[
-P_n(i, j) \to \pi(j) ~~~ \text{as } n \to \infty
-\]</div>
-<p>and hence the averages also converge:</p>
-<div class="math notranslate nohighlight">
-\[
-\frac{1}{n} \sum_{m=1}^n P_m(i, j) \to \pi(j) ~~~ \text{as } n \to \infty
-\]</div>
-<p>Thus the long run expected proportion of time the chain spends in state <span class="math notranslate nohighlight">\(j\)</span> is <span class="math notranslate nohighlight">\(\pi(j)\)</span>, where <span class="math notranslate nohighlight">\(\pi\)</span> is the stationary distribution of the chain.</p>
+<p>In many examples, there is an efficient way of solving these equations.</p>
+<ul class="simple">
+<li><p>Try to manipulate each balance equation so that you can write each <span class="math notranslate nohighlight">\(\pi(j)\)</span> in terms of the same element of <span class="math notranslate nohighlight">\(\pi\)</span>. For example, you might be able to simplify the equations to see that <span class="math notranslate nohighlight">\(\pi = [\pi(1), c_2\pi(1), c_3\pi(1), \ldots, c_s\pi(1)]\)</span> where <span class="math notranslate nohighlight">\(c_2, c_3, \ldots, c_s\)</span> are constants you have determined from the balance equations.</p></li>
+<li><p>Then solve for that key element of <span class="math notranslate nohighlight">\(\pi\)</span> by using the fact that the elements of <span class="math notranslate nohighlight">\(\pi\)</span> sum to 1. In the example above, <span class="math notranslate nohighlight">\((1 + c_1 + c_2 + \cdots + c_s)\pi(1) = 1\)</span>, so you can solve for <span class="math notranslate nohighlight">\(\pi(1)\)</span>. By plugging this value into the expression for <span class="math notranslate nohighlight">\(\pi\)</span> above, you get the entire vector <span class="math notranslate nohighlight">\(\pi\)</span>.</p></li>
+</ul>
+<p>Here is an example of carrying out this process.</p>
 </div>
 <div class="section" id="stationary-distribution-of-sticky-reflecting-walk">
-<h2><span class="section-number">10.3.7. </span>Stationary Distribution of Sticky Reflecting Walk<a class="headerlink" href="#stationary-distribution-of-sticky-reflecting-walk" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">10.3.6. </span>Stationary Distribution of Sticky Reflecting Walk<a class="headerlink" href="#stationary-distribution-of-sticky-reflecting-walk" title="Permalink to this headline">¶</a></h2>
 <p>We studied this in an earlier section. The transition diagram is</p>
 <p><img alt="Lazy Circle Walk" src="../../_images/trans_refl.png" /></p>
 <p>Here is the transition matrix <span class="math notranslate nohighlight">\(\mathbb{P}\)</span>.</p>
@@ -1203,47 +1181,88 @@ P_n(i, j) \to \pi(j) ~~~ \text{as } n \to \infty
 </table></div></div>
 </div>
 <p>We could also solve for <span class="math notranslate nohighlight">\(\pi\)</span> using the balance equations. While this might seem superfluous given that Python has already given us <span class="math notranslate nohighlight">\(\pi\)</span>, it is good practice for when transition matrices are larger and not numerical.</p>
-<p>According to the balance equations,</p>
+<p>According to the balance equations, <span class="math notranslate nohighlight">\(\pi(1)\)</span> is the dot product of <span class="math notranslate nohighlight">\(\pi\)</span> and Column 1 of <span class="math notranslate nohighlight">\(\mathbb{P}\)</span>. So</p>
 <div class="math notranslate nohighlight">
 \[
-\pi(1) = \sum_{k=1}^s \pi(k)P(k, 1)
+\pi(1) ~ = ~ \pi(1)\cdot 0.5 ~ + ~ \pi(2) \cdot 0.25 
 \]</div>
-<p>That is, we’re multiplying <span class="math notranslate nohighlight">\(\pi\)</span> by the <code class="docutils literal notranslate"><span class="pre">1</span></code> column of <span class="math notranslate nohighlight">\(\mathbb{P}\)</span> and adding. So</p>
+<p>Rearrange this to write <span class="math notranslate nohighlight">\(\pi(2)\)</span> in terms of <span class="math notranslate nohighlight">\(\pi(1)\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[
-\pi(1) = \pi(1)\cdot 0.5 ~ + ~ \pi(2) \cdot 0.25 = 0.5\pi(1) + 0.25\pi(2)
+\pi(2) = 2\pi(1)
 \]</div>
-<p>Follow the same process to get all five balance equations:</p>
+<p>Follow the same process with the next equation.</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{align*}
-\pi(1) &amp;= 0.5\pi(1) + 0.25\pi(2) \\
-\pi(2) &amp;= 0.5\pi(1) + 0.5\pi(2) + 0.25\pi(3) \\
-\pi(3) &amp;= 0.25\pi(2) + 0.5\pi(3) + 0.25\pi(4) \\
-\pi(4) &amp;= 0.25\pi(3) + 0.5\pi(4) + 0.5\pi(5) \\
-\pi(5) &amp;= 0.25\pi(4) + 0.5\pi(5)
-\end{align*}
-\end{split}\]</div>
-<p>Some observations make the system easy to solve.</p>
+\[
+\pi(2) ~ = ~ 0.5\pi(1) + 0.5\pi(2) + 0.25\pi(3)
+\]</div>
+<p>Rearrange this and plug in <span class="math notranslate nohighlight">\(\pi(2) = 2\pi(1)\)</span> to get</p>
+<div class="math notranslate nohighlight">
+\[
+\pi(3) = 2\pi(1)
+\]</div>
+<p>Similarly, you will get <span class="math notranslate nohighlight">\(\pi(4) = 2\pi(1)\)</span> and <span class="math notranslate nohighlight">\(\pi(5) = \pi(1)\)</span>.</p>
+<p>So <span class="math notranslate nohighlight">\(\pi\)</span> can be written entirely in terms of <span class="math notranslate nohighlight">\(\pi(1)\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\pi = [ \pi(1), 2\pi(1), 2\pi(1), 2\pi(1), \pi(1) ]
+\]</div>
+<p>Now use the fact that <span class="math notranslate nohighlight">\(\pi\)</span> sums to 1. By the formula above, the total is <span class="math notranslate nohighlight">\(8\pi(1)\)</span>, so <span class="math notranslate nohighlight">\(\pi(1) = 1/8\)</span>. This gives us the whole distribution:</p>
+<div class="math notranslate nohighlight">
+\[
+\pi = \big{[} \frac{1}{8}, \frac{2}{8}, \frac{2}{8}, \frac{2}{8}, \frac{1}{8} \big{]}
+\]</div>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+</div>
+</div>
+<div class="section" id="steady-state">
+<h2><span class="section-number">10.3.7. </span>Steady State<a class="headerlink" href="#steady-state" title="Permalink to this headline">¶</a></h2>
+<p>The steady state isn’t an element of the state space <span class="math notranslate nohighlight">\(S\)</span>. It’s the condition of the chain after it has been run for a long time. Let’s examine this further.</p>
+<p>The theorem on convergence to stationarity says that the chain approaches the steady state as <span class="math notranslate nohighlight">\(n\)</span> gets large. If it actually <em>achieves</em> the steady state, that is, if the distribution of <span class="math notranslate nohighlight">\(X_n\)</span> is equal to <span class="math notranslate nohighlight">\(\pi\)</span> for some <span class="math notranslate nohighlight">\(n\)</span>, then it stays in that state, for the following reason.</p>
+<div class="math notranslate nohighlight">
+\[
+P(X_{n+1} = j) = \sum_{i \in S} P(X_n = i)P(i, j) = \sum_{i \in S} \pi(i)P(i, j) = \pi(j)
+\]</div>
+<p>by the balance equations. Now use induction.</p>
+<p>In particular, if you start the chain with its stationary distribution <span class="math notranslate nohighlight">\(\pi\)</span>, then the distribution of <span class="math notranslate nohighlight">\(X_n\)</span> is equal to <span class="math notranslate nohighlight">\(\pi\)</span> for every <span class="math notranslate nohighlight">\(n\)</span>.</p>
+</div>
+<div class="section" id="expected-long-run-proportion-of-time">
+<h2><span class="section-number">10.3.8. </span>Expected Long Run Proportion of Time<a class="headerlink" href="#expected-long-run-proportion-of-time" title="Permalink to this headline">¶</a></h2>
+<p>Suppose you run a chain for a long time. Then the chance that the chain is at state <span class="math notranslate nohighlight">\(j\)</span> is approximately <span class="math notranslate nohighlight">\(\pi(j)\)</span> no matter where the chain started. So in the long run, the chain is expected to spend a proportion of <span class="math notranslate nohighlight">\(\pi(j)\)</span> of its time at the state <span class="math notranslate nohighlight">\(j\)</span>.</p>
+<p>Formally, let <span class="math notranslate nohighlight">\(j\)</span> be a state, and let <span class="math notranslate nohighlight">\(I_m(j)\)</span> be the indicator of the event <span class="math notranslate nohighlight">\(\{X_m = j\}\)</span>. The <em>proportion of time the chain spends at <span class="math notranslate nohighlight">\(j\)</span></em>, from time 1 through time <span class="math notranslate nohighlight">\(n\)</span>, is</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{1}{n} \sum_{m=1}^n I_m(j)
+\]</div>
+<p>Therefore, the <em>expected proportion of time the chain spends at <span class="math notranslate nohighlight">\(j\)</span></em>, given that it started at <span class="math notranslate nohighlight">\(i\)</span>, is</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{1}{n} \sum_{m=1}^n E(I_m(j) \mid X_0 = i) 
+= \frac{1}{n} \sum_{m=1}^n P(X_m = j \mid X_0 = i) 
+= \frac{1}{n} \sum_{m=1}^n P_m(i, j)
+\]</div>
+<p>Now recall a property of convergent sequences of real numbers:</p>
 <ul class="simple">
-<li><p>By rearranging the first equation, we get <span class="math notranslate nohighlight">\(\pi(2) = 2\pi(1)\)</span>.</p></li>
-<li><p>By symmetry, <span class="math notranslate nohighlight">\(\pi(1) = \pi(5)\)</span> and <span class="math notranslate nohighlight">\(\pi(2) = \pi (4)\)</span>.</p></li>
-<li><p>Because <span class="math notranslate nohighlight">\(\pi(2) = \pi(4)\)</span>, the equation for <span class="math notranslate nohighlight">\(\pi(3)\)</span> shows that <span class="math notranslate nohighlight">\(\pi(3) = \pi(2) = \pi(4)\)</span>.</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(x_n \to x\)</span> as <span class="math notranslate nohighlight">\(n \to \infty\)</span>, then the sequence of averages also converges to <span class="math notranslate nohighlight">\(x\)</span>. That is,</p></li>
 </ul>
-<p>So the distribution <span class="math notranslate nohighlight">\(\pi\)</span> is</p>
 <div class="math notranslate nohighlight">
 \[
-\big{(} \pi(1), 2\pi(1), 2\pi(1), 2\pi(1), \pi(1) \big{)}
+\frac{1}{n} \sum_{m=1}^n x_m \to x ~~~ \text{as } n \to \infty
 \]</div>
-<p>As <span class="math notranslate nohighlight">\(\pi\)</span> is a probability distribution, it sums to 1. Its total is <span class="math notranslate nohighlight">\(8\pi(1)\)</span>, so we have</p>
+<p>Take <span class="math notranslate nohighlight">\(x_n = P_n(i, j)\)</span>. Then by the theorem on convergence to stationarity,</p>
 <div class="math notranslate nohighlight">
 \[
-\pi = \big{(} \frac{1}{8}, \frac{2}{8}, \frac{2}{8}, \frac{2}{8}, \frac{1}{8} \big{)}
+P_n(i, j) \to \pi(j) ~~~ \text{as } n \to \infty
 \]</div>
-<p>This implies that in the long run, the lazy reflecting random walk of this section is expected to spend about 12.5% of its time at state 1, 25% of its time at each of states 2, 3, and 4, and the remaining 12.5% of its time at state 5.</p>
+<p>and hence the averages also converge:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{1}{n} \sum_{m=1}^n P_m(i, j) \to \pi(j) ~~~ \text{as } n \to \infty
+\]</div>
+<p>Thus the long run expected proportion of time the chain spends in state <span class="math notranslate nohighlight">\(j\)</span> is <span class="math notranslate nohighlight">\(\pi(j)\)</span>, where <span class="math notranslate nohighlight">\(\pi\)</span> is the stationary distribution of the chain.</p>
 </div>
 <div class="section" id="sticky-random-walk-on-a-circle">
-<h2><span class="section-number">10.3.8. </span>Sticky Random Walk on a Circle<a class="headerlink" href="#sticky-random-walk-on-a-circle" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">10.3.9. </span>Sticky Random Walk on a Circle<a class="headerlink" href="#sticky-random-walk-on-a-circle" title="Permalink to this headline">¶</a></h2>
 <p>Now let the state space be five points arranged on a circle. Suppose the process starts at Point 1, and at each step either stays in place with probability 0.5 (and thus is sticky), or moves to one of the two neighboring points with chance 0.25 each, regardless of the other moves.</p>
 <p>In other words, this walk is just the same as the sticky reflecting walk, except that <span class="math notranslate nohighlight">\(1 \rightarrow 5\)</span> and <span class="math notranslate nohighlight">\(5 \rightarrow 1\)</span> transitions are both possible. This transition behavior can be summed up in a transition diagram. Notice that the transition behavior is the same for all the states.</p>
 <p><img alt="Lazy Circle Walk" src="../../_images/trans_circle.png" /></p>
@@ -1344,7 +1363,7 @@ P_n(i, j) \to \pi(j) ~~~ \text{as } n \to \infty
 </table>
 </div></div></div>
 </div>
-<p>Because of the symmetry of the transition behavior, no state should be occupied more than any other state, and hence all the <span class="math notranslate nohighlight">\(\pi(j)\)</span>’s should be equal. This is confirmed by <code class="docutils literal notranslate"><span class="pre">steady_state</span></code>.</p>
+<p>Because of the symmetry of the transition behavior across all the states, in the long run no state should be occupied more than any other state. Hence all the <span class="math notranslate nohighlight">\(\pi(j)\)</span>’s should be equal. This is confirmed by <code class="docutils literal notranslate"><span class="pre">steady_state</span></code>, and you can also confirm it by checking that the vector <span class="math notranslate nohighlight">\(\pi = [0.2, 0.2, 0.2, 0.2, 0.2]\)</span> solves the balance equations. Remember that the steady state distribution is unique, so there is nothing more to check.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">circle_walk</span><span class="o">.</span><span class="n">steady_state</span><span class="p">()</span>

@@ -1,17 +1,51 @@
 # HIDDEN
+import warnings
+warnings.filterwarnings('ignore')
 from datascience import *
 from prob140 import *
 import numpy as np
 import matplotlib.pyplot as plt
 plt.style.use('fivethirtyeight')
 %matplotlib inline
-import math
-from scipy import stats
-from scipy import misc
 
 ## Transitions ##
 
-Let $X_0, X_1, X_2, \ldots $ be a Markov chain with state space $S$. By the Markov property, the probability of a *trajectory* or *path* of finite length is
+The *state space* of a process is the set of possible values of the random variables in the process. We will often denote the state space by $S$.
+
+For example, consider a *random walk* where a gambler starts with a fortune of $a$ dollars for some positive integer $a$, and bets on successive tosses of a fair coin. If the coin lands heads he gains a dollar, and if it lands tails he loses a dollar. 
+
+Let $X_{0} = a$, and for $n > 0$ let $X_{n+1} = X_n + I_n$ where $I_1, I_2, \ldots$ is an i.i.d. sequence of increments, each taking the value $+1$ or $-1$ with chance $1/2$. The state space of this random walk $X_0, X_1, X_2, 
+\dots$ is the set of all integers. In this course we will restrict the state space to be discrete and typically finite.
+
+# VIDEO: Markov Property
+
+### Markov Property ###
+
+Consider a stochastic process $X_0, X_1, X_2, \ldots$. The *Markov property* formalizes the idea that the future of the process depends only on where the process is at present, not on how it got there.
+
+- For each $n \ge 1$, the conditional distribution of $X_{n+1}$ given $X_0, X_1, \ldots , X_n$ depends only on $X_n$.
+
+That is, for every sequence of possible values $i_0, i_1, \ldots, i_n, i_{n+1}$,
+
+$$ 
+P(X_{n+1} = i_{n+1} \mid X_0 = i_0, X_1 = i_1 , \ldots, X_{n-1} = i_{n-1}, X_n = i_n) = P(X_{n+1} = i_{n+1} \mid X_n = i_n) 
+$$
+
+The Markov property holds for the random walk described above. Given the gambler's fortune at time $n$, the distribution of his fortune at time $n+1$ doesn't depend on his fortune before time $n$. So the process $X_0, X_1, X_2, \ldots $ is a Markov Chain representing the evolution of the gambler's fortune over time. 
+
+**Conditional Independence**
+
+Recall that two random variables $X$ and $Y$ are independent if the conditional distribution of $X$ given $Y$ is just the unconditional distribution of $X$.
+
+Random variables $X$ and $Y$ are said to be *conditionally independent given $Z$* if the conditional distribution of $X$ given both $Y$ and $Z$ is just the conditional distribution of $X$ given $Z$ alone. That is, if you know $Z$, then additional knowledge about $Y$ doesn't change your opinion about $X$.
+
+In a Markov Chain, if you define time $n$ to be the present, time $n+1$ to be the future, and times $0$ through $n-1$ to be the past, then the Markov property says that the past and future are conditionally independent given the present.
+
+### Initial Distribution and Transition Probabilities ###
+
+Let $X_0, X_1, X_2, \ldots$ be a Markov chain with state space $S$. The distribution of $X_0$ is called the *initial distribution* of the chain.
+
+A a *trajectory* or *path* is a sequence of states visited by the process. Let $i_0 i_1 \ldots i_n$ denote a path of finite length, with $i_j$ representing the value of $X_j$. By the Markov property, the probability of this path is
 
 $$
 \begin{align*}
@@ -22,8 +56,6 @@ P(X_n = i_n \mid X_{n-1} = i_{n-1})
 \end{align*}
 $$
 
-The distribution of $X_0$ is called the *initial distribution* of the chain.
-
 The conditional probabilities in the product are called *transition probabilities*. For states $i$ and $j$, the conditional probability $P(X_{n+1} = j \mid X_n = i)$ is called a *one-step transition probability at time $n$*. 
 
 ### Stationary Transition Probabilities ###
@@ -31,13 +63,11 @@ The conditional probabilities in the product are called *transition probabilitie
 For many chains such as the random walk, the one-step transition probabilities depend only on the states $i$ and $j$, not on the time $n$. For example, for the random walk,
 
 $$
-\begin{equation}
 P(X_{n+1} = j \mid X_n = i) = 
- \begin{cases} 
-      \frac{1}{2} & \text{if } j = i-1 \text{ or } j = i+1 \\
-      0 & \text{ otherwise}
-   \end{cases}
-\end{equation}
+\begin{cases} 
+\frac{1}{2} & \text{if } j = i-1 \text{ or } j = i+1 \\
+0 & \text{ otherwise}
+\end{cases}
 $$
 
 for every $n$. 
@@ -55,6 +85,8 @@ $$
 P(X_0 = i_0, X_1 = i_1, X_2 = i_2, \ldots, X_n = i_n)
 ~ = ~ P(X_0 = i_0)P(i_0, i_1)P(i_1, i_2) \cdots P(i_{n-1}, i_n)
 $$
+
+# VIDEO: Transitions
 
 ### One-Step Transition Matrix ###
 The one-step transition probabilities can be represented as elements of a matrix. This isn't just for compactness of notation – it leads to a powerful theory.
@@ -123,6 +155,20 @@ Compare the transition matrix $\mathbb{P}$ with the transition diagram, and conf
 
 To find the chance that the chain moves to $j$ given that it is at $i$, go to Row $i$ and pick out the probability in Column $j$.
 
+```{admonition} Quick Check
+Use the table (not the transition diagram) to find 
+
+(a) $P(X_1 = 3 \mid X_0 = 4)$
+
+(b) $P(X_{101} = 3 \mid X_{100} = 4)$
+```
+
+```{admonition} Answer
+:class: dropdown
+Both answers are $0.25$
+
+```
+
 If you know the starting state, you can use $\mathbb{P}$ to find the probability of any finite path. For example, given that the walk starts at 1, the probability that it then has the path [2, 2, 3, 4, 3] is
 
 $$
@@ -137,11 +183,24 @@ reflecting_walk.prob_of_path(1, [2, 2, 3, 4, 3])
 
 reflecting_walk.prob_of_path(1, [2, 2, 3, 4, 3, 5])
 
+```{admonition} Quick Check
+Suppose the sticky reflecting walk starts at state 3. What is the chance that it then visits the states 2, 3, 3, and 4 in that order? You don't have to simplify the product. 
+
+```
+
+```{admonition} Answer
+:class: dropdown
+$0.25 \times 0.25 \times 0.5 \times 0.25$
+
+```
+
 You can simulate paths of the chain using the `simulate_path` method. It takes two arguments: the starting state and the number of steps of the path. By default it returns an array consisting of the sequence of states in the path. The optional argument `plot_path=True` plots the simulated path. Run the cells below a few times and see how the output changes.
 
 reflecting_walk.simulate_path(1, 7)
 
 reflecting_walk.simulate_path(1, 10, plot_path=True)
+
+# VIDEO: n-Step Transition Matrix
 
 ### $n$-Step Transition Matrix ###
 For states $i$ and $j$, the chance of getting from $i$ to $j$ in $n$ steps is called the $n$-step transition probability from $i$ to $j$. Formally, the $n$-step transition probability is
@@ -164,6 +223,21 @@ You can calculate the individual entries easily by hand. For example, the $(1, 1
 
 Given that 1 is the starting state, the total chance of the two paths is $(0.5 \times 0.5) + (0.5 \times 0.25) = 0.375$.
 
+```{admonition} Quick Check
+For the sticky reflecting walk, find the following if it is possible without further calculation. If it is not possible, explain why not.
+
+(a) $P(X_2 = 5 \mid X_0 = 3)$
+
+(b) $P(X_{32} = 5 \mid X_{30} = 3)$
+
+```
+
+```{admonition} Answer
+:class: dropdown
+Both answers are $0.0625$
+
+```
+
 Because of the Markov property, the one-step transition probabilities are all you need to find the 2-step transition probabilities. 
 
 In general, we can find $P_2(i, j)$ by conditioning on where the chain was at time 1.
@@ -179,7 +253,11 @@ $$
 
 That's the $(i, j)$th element of the matrix product $\mathbb{P} \times \mathbb{P} = \mathbb{P}^2$. Thus the 2-step transition matrix of the chain is $\mathbb{P}^2$.
 
-By induction, you can show that the $n$-step transition matrix of the chain is $\mathbb{P}^n$.
+By induction, you can show that the $n$-step transition matrix of the chain is $\mathbb{P}^n$. That is,
+
+$$
+P_n(i, j) ~ = ~ P(X_n = j \mid X_0 = i) ~ = ~ (i, j) \text{ element of } \mathbb{P}^n
+$$
 
 Here is a display of the 5-step transition matrix of the reflecting walk.
 
@@ -204,7 +282,7 @@ When we want to use $\mathbb{P}$ in computations, we will use this matrix repres
 
 To understand the long run behavior of the chain, let $n$ be large and let's examine the distribution of $X_n$ for each value of the starting state. That's contained in the $n$-step transition matrix $\mathbb{P}^n$. 
 
-Here is the display of $\mathbb{P}^n$ for the reflecting walk, for $n = 25, 50$, and $100$.
+Here is the display of $\mathbb{P}^n$ for the reflecting walk, for $n = 25, 50$, and $100$. Keep your eyes on the rows of the matrices as $n$ changes.
 
 reflecting_walk.transition_matrix(25)
 
@@ -217,4 +295,19 @@ The rows of $\mathbb{P}^{100}$ are all the same! That means that for the reflect
 You can increase $n$ and see that the $n$-step transition matrix stays the same. By time 100, this chain has *reached stationarity*.
 
 Stationarity is a remarkable property of many Markov chains, and is the main topic of this chapter.
+
+```{admonition} Quick Check
+Pick the correct option: If the sticky reflecting walk is run for 500 steps, the chance that it is at state 4 at time 500
+
+(i) is about 25%.
+
+(ii) cannot be determined or approximated because we don't know where the chain started.
+
+```
+
+```{admonition} Answer
+:class: dropdown
+(i)
+
+```
 

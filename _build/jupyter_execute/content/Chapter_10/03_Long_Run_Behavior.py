@@ -1,13 +1,12 @@
 # HIDDEN
+import warnings
+warnings.filterwarnings('ignore')
 from datascience import *
 from prob140 import *
 import numpy as np
 import matplotlib.pyplot as plt
 plt.style.use('fivethirtyeight')
 %matplotlib inline
-import math
-from scipy import stats
-from scipy import misc
 
 # HIDDEN
 s = np.arange(1, 6)
@@ -44,6 +43,8 @@ reflecting_walk = MarkovChain.from_transition_function(s, refl_walk_probs)
 
 Every irreducible and aperiodic Markov Chain on a finite state space exhibits astonishing regularity after it has run for a while. The proof of the convergence theorem below is beyond the scope of this course, but in examples you have seen the result by computation. All the results are true in greater generality for some classes of Markov Chains on infinitely many states. 
 
+# VIDEO: The Big Theorem
+
 ### Convergence to Stationarity ###
 Let $X_0, X_1, \ldots$ be an irreducible, aperiodic Markov chain on a finite state space $S$. Then for all states $i$ and $j$,
 
@@ -61,7 +62,9 @@ That is, as $n \to \infty$, every row of the $n$-step transition matrix $\mathbb
 
 ### Properties of the Limit ###
 
-**(i)** The vector $\pi$ is the unique probability distribution that solves the *balance equations* $\pi \mathbb{P} = \pi$. Every other solution has the form $c\pi$ for some constant $c$.
+In this section we will establish the following results. All of them are useful for calculation and for understanding the long run behavior of Markov chains.
+
+**(i)** The row vector $\pi$ is the unique probability distribution that solves the *balance equations* $\pi \mathbb{P} = \pi$. Every other solution has the form $c\pi$ for some constant $c$.
 
 **(ii)** If for some $n$ the distribution of $X_n$ is $\pi$, then the distribution of $X_m$ is also $\pi$ for all $m > n$. Thus $\pi$ is called the *stationary* or *steady state* distribution of the chain.
 
@@ -69,8 +72,12 @@ That is, as $n \to \infty$, every row of the $n$-step transition matrix $\mathbb
 
 We will assume that the convergence theorem is true; you have observed in numerically in examples. The other properties follow rather easily. In the remainder of this section we will establish the properties and see how they are used.
 
+# VIDEO: Balance Equations
+
 ### Balance Equations ###
-Let $n \ge 0$ and let $i$ and $j$ be two states. Then
+In our example of the sticky reflecting walk, we found the steady state distribution by computation: we simply computed the $n$-step transition matrix for large $n$ and saw that eventually all the rows were the same. The distribution common to all the rows was the steady state distribution. 
+
+But there is also a simple analytical way of finding the steady state distribution. To see this, let $n \ge 0$ and let $i$ and $j$ be two states. Then
 
 $$
 P_{n+1}(i, j) = \sum_{k \in S} P_n(i, k)P(k, j)
@@ -91,32 +98,107 @@ $$
 \pi(j) = \sum_{k \in S} \pi(k)P(k, j)
 $$
 
-These are called the balance equations.
+These are called the *balance equations*. There is one equation for each state $j$.
 
 In matrix notation, if you think of $\pi$ as a row vector, these equations become
 
 $$
-\pi = \pi \mathbb{P} ~~~~~ \text{or, as we will usually write it,} ~~~~~ \pi\mathbb{P} = \pi
+\pi = \pi \mathbb{P} ~~~~~ \text{or, as we will often say it,} ~~~~~ \pi\mathbb{P} = \pi
 $$
 
-This helps us compute $\pi$ without taking limits.
+The balance equations help us compute $\pi$ without taking limits.
 
-**Note:** The steady state isn't an element of the state space $S$. It's the condition of the chain after it has been run for a long time. Let's examine this further. 
+In a later chapter we will see how the term *balance* arises. For now, let's focus on solving the equations.
 
-### Balance and Steady State ###
-To see what is being "balanced" in these equations, imagine a large number of independent replications of this chain. For example, imagine a large number of particles that are moving among the states 1 through 5 according to the transition probabilities of the sticky reflecting walk, and suppose all the particles are moving at instants 1, 2, 3, $\ldots$ independently of each other.
+### Uniqueness ###
+It's not very hard to show that if a probability distribution solves the balance equations, then it has to be $\pi$, the limit of the marginal distributions of $X_n$. We won't do the proof; it essentially repeats the steps we took to derive the balance equations. You should just be aware that an irreducible, aperiodic, finite state Markov Chain has exactly one stationary distribution.
 
-Then at any instant and for any state $j$, there is some proportion of particles that is leaving $j$, and another proportion that is entering $j$. The balance equations say that those two proportions are equal.
+**This is particularly helpful if you happen to guess a solution to the balance equations.** If the solution that you have guessed is a probability distribution, you have found the stationary distribution of the chain.
 
-Let's check this by looking at the equations again. For any state $j$,
+### Solving the Balance Equations ###
+
+The zero vector solves the balance equations, but it's not a probability distribution.
+
+To find non-zero solutions, it is tempting to rewrite the balance equations as $\pi(\mathbb{I} - \mathbb{P}) = 0$ where $\mathbb{I}$ is the identity matrix, and try to invert $\mathbb{I} - \mathbb{P}$. But that doesn't work. Each row of $\mathbb{P}$ sums to 1, and hence each row of $\mathbb{I} - \mathbb{P}$ sums to 0, which means that $\mathbb{I} - \mathbb{P}$ is not invertible. 
+
+So there are multiple solutions of the balance equations. We can see this easily by noting that if any vector solves the balance equations, then 10 times that vector also solves them. 
+
+Our job is to find the solution *that is also a probability distribution*. That's the steady state vector $\pi$.
+
+Let $s$ denote the number of elements in the state space $S$. Then $\pi$ is a row vector of length $s$. The $j$th element of $\pi$ is $\pi(j)$ and corresponds to the $j$th element of the state space.
+
+Two key observations help us solve the balance equations.
+
+- The equations say that for each state $j$, $\pi(j)$ is equal to the dot product of $\pi$ and the $j$th column of $\mathbb{P}$.
+- There are therefore $s$ equations with the additional condition that $\sum_{j \in S} \pi(j) = 1$. 
+
+In many examples, there is an efficient way of solving these equations.
+
+- Try to manipulate each balance equation so that you can write each $\pi(j)$ in terms of the same element of $\pi$. For example, you might be able to simplify the equations to see that $\pi = [\pi(1), c_2\pi(1), c_3\pi(1), \ldots, c_s\pi(1)]$ where $c_2, c_3, \ldots, c_s$ are constants you have determined from the balance equations.
+- Then solve for that key element of $\pi$ by using the fact that the elements of $\pi$ sum to 1. In the example above, $(1 + c_1 + c_2 + \cdots + c_s)\pi(1) = 1$, so you can solve for $\pi(1)$. By plugging this value into the expression for $\pi$ above, you get the entire vector $\pi$.
+
+Here is an example of carrying out this process.
+
+### Stationary Distribution of Sticky Reflecting Walk ###
+We studied this in an earlier section. The transition diagram is
+
+![Lazy Circle Walk](trans_refl.png)
+
+Here is the transition matrix $\mathbb{P}$.
+
+reflecting_walk
+
+The `MarkovChain` method `steady_state` returns the stationary distribution $\pi$. You saw earlier that this is the limit of the rows of $\mathbb{P}$.
+
+reflecting_walk.steady_state()
+
+We could also solve for $\pi$ using the balance equations. While this might seem superfluous given that Python has already given us $\pi$, it is good practice for when transition matrices are larger and not numerical.
+
+According to the balance equations, $\pi(1)$ is the dot product of $\pi$ and Column 1 of $\mathbb{P}$. So
 
 $$
-\pi(j) = \sum_{k \in S} \pi(k)P(k, j)
+\pi(1) ~ = ~ \pi(1)\cdot 0.5 ~ + ~ \pi(2) \cdot 0.25 
 $$
 
-For every $k \in S$ (including $k=j$), think of $\pi(k)$ as the proportion of particles leaving state $k$ after the chain has been run a long time. Then the left hand side is the proportion leaving $j$. The generic term in the sum on the right is the proportion that left $k$ at the previous instant and are moving to $j$. The sum is all the particles entering $j$. When the two sides are equal, the chain is *balanced*. 
+Rearrange this to write $\pi(2)$ in terms of $\pi(1)$:
 
-The theorem on convergence to stationarity says that the chain approaches balance as $n$ gets large. If it actually achieves balance, that is, if the distribution of $X_n$ is equal to $\pi$ for some $n$, then it stays balanced. The reason:
+$$
+\pi(2) = 2\pi(1)
+$$
+
+Follow the same process with the next equation.
+
+$$
+\pi(2) ~ = ~ 0.5\pi(1) + 0.5\pi(2) + 0.25\pi(3)
+$$
+
+Rearrange this and plug in $\pi(2) = 2\pi(1)$ to get
+
+$$
+\pi(3) = 2\pi(1)
+$$
+
+Similarly, you will get $\pi(4) = 2\pi(1)$ and $\pi(5) = \pi(1)$.
+
+So $\pi$ can be written entirely in terms of $\pi(1)$:
+
+$$
+\pi = [ \pi(1), 2\pi(1), 2\pi(1), 2\pi(1), \pi(1) ]
+$$
+
+Now use the fact that $\pi$ sums to 1. By the formula above, the total is $8\pi(1)$, so $\pi(1) = 1/8$. This gives us the whole distribution:
+
+$$
+\pi = \big{[} \frac{1}{8}, \frac{2}{8}, \frac{2}{8}, \frac{2}{8}, \frac{1}{8} \big{]}
+$$
+
+# VIDEO: Steady State
+
+### Steady State ###
+
+The steady state isn't an element of the state space $S$. It's the condition of the chain after it has been run for a long time. Let's examine this further. 
+
+The theorem on convergence to stationarity says that the chain approaches the steady state as $n$ gets large. If it actually *achieves* the steady state, that is, if the distribution of $X_n$ is equal to $\pi$ for some $n$, then it stays in that state, for the following reason.
 
 $$
 P(X_{n+1} = j) = \sum_{i \in S} P(X_n = i)P(i, j) = \sum_{i \in S} \pi(i)P(i, j) = \pi(j)
@@ -124,15 +206,13 @@ $$
 
 by the balance equations. Now use induction.
 
-In particular, if you start the chain with its stationary distribution $\pi$, then the distribution of $X_n$ is $\pi$ for every $n$.
-
-### Uniqueness ###
-It's not very hard to show that if a probability distribution solves the balance equations, then it has to be $\pi$, the limit of the marginal distributions of $X_n$. We won't do the proof; it essentially repeats the steps we took to derive the balance equations. You should just be aware that an irreducible, aperiodic, finite state Markov Chain has exactly one stationary distribution.
-
-This is particularly helpful if you happen to guess a solution to the balance equations. If the solution that you have guessed is a probability distribution, you have found the stationary distribution of the chain.
+In particular, if you start the chain with its stationary distribution $\pi$, then the distribution of $X_n$ is equal to $\pi$ for every $n$.
 
 ### Expected Long Run Proportion of Time ###
-Let $j$ be a state, and let $I_m(j)$ be the indicator of the event $\{X_m = j\}$. The *proportion of time the chain spends at $j$*, from time 1 through time $n$, is
+
+Suppose you run a chain for a long time. Then the chance that the chain is at state $j$ is approximately $\pi(j)$ no matter where the chain started. So in the long run, the chain is expected to spend a proportion of $\pi(j)$ of its time at the state $j$.
+
+Formally, let $j$ be a state, and let $I_m(j)$ be the indicator of the event $\{X_m = j\}$. The *proportion of time the chain spends at $j$*, from time 1 through time $n$, is
 
 $$
 \frac{1}{n} \sum_{m=1}^n I_m(j)
@@ -168,64 +248,6 @@ $$
 
 Thus the long run expected proportion of time the chain spends in state $j$ is $\pi(j)$, where $\pi$ is the stationary distribution of the chain.
 
-### Stationary Distribution of Sticky Reflecting Walk ###
-We studied this in an earlier section. The transition diagram is
-
-![Lazy Circle Walk](trans_refl.png)
-
-Here is the transition matrix $\mathbb{P}$.
-
-reflecting_walk
-
-The `MarkovChain` method `steady_state` returns the stationary distribution $\pi$. You saw earlier that this is the limit of the rows of $\mathbb{P}$.
-
-reflecting_walk.steady_state()
-
-We could also solve for $\pi$ using the balance equations. While this might seem superfluous given that Python has already given us $\pi$, it is good practice for when transition matrices are larger and not numerical.
-
-According to the balance equations,
-
-$$
-\pi(1) = \sum_{k=1}^s \pi(k)P(k, 1)
-$$
-
-That is, we're multiplying $\pi$ by the `1` column of $\mathbb{P}$ and adding. So
-
-$$
-\pi(1) = \pi(1)\cdot 0.5 ~ + ~ \pi(2) \cdot 0.25 = 0.5\pi(1) + 0.25\pi(2)
-$$
-
-Follow the same process to get all five balance equations:
-
-$$
-\begin{align*}
-\pi(1) &= 0.5\pi(1) + 0.25\pi(2) \\
-\pi(2) &= 0.5\pi(1) + 0.5\pi(2) + 0.25\pi(3) \\
-\pi(3) &= 0.25\pi(2) + 0.5\pi(3) + 0.25\pi(4) \\
-\pi(4) &= 0.25\pi(3) + 0.5\pi(4) + 0.5\pi(5) \\
-\pi(5) &= 0.25\pi(4) + 0.5\pi(5)
-\end{align*}
-$$
-
-Some observations make the system easy to solve.
-- By rearranging the first equation, we get $\pi(2) = 2\pi(1)$.
-- By symmetry, $\pi(1) = \pi(5)$ and $\pi(2) = \pi (4)$.
-- Because $\pi(2) = \pi(4)$, the equation for $\pi(3)$ shows that $\pi(3) = \pi(2) = \pi(4)$.
-
-So the distribution $\pi$ is
-
-$$
-\big{(} \pi(1), 2\pi(1), 2\pi(1), 2\pi(1), \pi(1) \big{)}
-$$
-
-As $\pi$ is a probability distribution, it sums to 1. Its total is $8\pi(1)$, so we have
-
-$$
-\pi = \big{(} \frac{1}{8}, \frac{2}{8}, \frac{2}{8}, \frac{2}{8}, \frac{1}{8} \big{)}
-$$
-
-This implies that in the long run, the lazy reflecting random walk of this section is expected to spend about 12.5% of its time at state 1, 25% of its time at each of states 2, 3, and 4, and the remaining 12.5% of its time at state 5.
-
 ### Sticky Random Walk on a Circle ###
 Now let the state space be five points arranged on a circle. Suppose the process starts at Point 1, and at each step either stays in place with probability 0.5 (and thus is sticky), or moves to one of the two neighboring points with chance 0.25 each, regardless of the other moves. 
 
@@ -251,7 +273,7 @@ circle_walk = MarkovChain.from_transition_function(s, circle_walk_probs)
 
 circle_walk
 
-Because of the symmetry of the transition behavior, no state should be occupied more than any other state, and hence all the $\pi(j)$'s should be equal. This is confirmed by `steady_state`.
+Because of the symmetry of the transition behavior across all the states, in the long run no state should be occupied more than any other state. Hence all the $\pi(j)$'s should be equal. This is confirmed by `steady_state`, and you can also confirm it by checking that the vector $\pi = [0.2, 0.2, 0.2, 0.2, 0.2]$ solves the balance equations. Remember that the steady state distribution is unique, so there is nothing more to check. 
 
 circle_walk.steady_state()
 

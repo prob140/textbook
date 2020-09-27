@@ -1,19 +1,21 @@
 # HIDDEN
+import warnings
+warnings.filterwarnings('ignore')
 from datascience import *
 from prob140 import *
 import numpy as np
 import matplotlib.pyplot as plt
 plt.style.use('fivethirtyeight')
 %matplotlib inline
-import math
-from scipy import stats
-from scipy import misc
 
 ## Deconstructing Chains ##
 
 Let $S$ be a finite or countably infinite set of states. Any stochastic matrix with rows and columns indexed by $S$ is the transition matrix of some Markov chain with state space $S$. The transition behaviors of Markov chains are thus as varied as the matrices. It is helpful to set up terminology to discuss some of these behaviors.
 
-### Communication ###
+# VIDEO: Irreducibility
+
+### Irreducibility ###
+
 If it is possible for the chain to get from state $i$ to state $j$, we say that *$i$ leads to $j$* and we write $i \rightarrow j$. Usually you can decide whether $i$ leads to $j$ just by examining the transition diagram of the chain. As a formal definition, $i \rightarrow j$ if:
 - There is a path of positive probability that starts at $i$ and ends at $j$.
 - Equivalently, there is some $n > 0$ such that $P_n(i, j) > 0$.
@@ -24,7 +26,20 @@ If all the states of a chain communicate with each other, the chain is called *i
 
 The sticky reflecting random walk of the previous section is irreducible, because it is possible for the chain to get from every state to every other state.
 
-### Period ###
+**A way to establish irreducibility**
+
+Suppose a chain has a finite number of states. A good way to establish the irreducibility of the chain is to construct a path that
+
+- starts at any state,
+- goes through all of the other states,
+- ends at the starting state,
+- and has positive probability.
+
+Then for any two states $i$ and $j$, there is a segment of the path that starts at $i$ and ends at $j$, and another segment that starts at $j$ and ends at $i$, and both segments have positive probability. So it is possible to get from any state to any other state.
+
+# VIDEO: Aperiodicity
+
+### Aperiodicity ###
 Working in discrete time has disadvantages. One of them is that states can be *periodic*. Let's start with the example of a random walk where the steps are based on tosses of a fair coin. Suppose the walk starts at state 0. Then it can return to 0 only at even times: the number of heads up to that point has to exactly equal the number of tails, and thus the number of tosses has to be even. We say that the state 0 *has period 2.* 
 
 A state $i$ has *period* $d$ if, starting at $i$, the chain can come back to $i$ only at times that are multiples of $d$. That is, $d$ is the greatest common divisor of the set all $n$ such that $P_n(i, i) > 0$.
@@ -37,7 +52,13 @@ In this course we will study the long run behavior of chains in which all states
 
 How do you check if all states are aperiodic? If the chain is irreducible, it turns out that all the states must have the same period. The proof of this fact isn't terribly hard but we won't go through it. What it implies is that if a chain is irreducible, which is easy to check, all you have to do is figure out the period of one of its states. Then all the others must have the same period.
 
-Some states are easy to identify as aperiodic. If the one-step transition probability $P(i, i)$ is positive, then the state $i$ has to be aperiodic. Since the chain can stay at $i$ for arbitrary lengths of time, its "returns" are not cyclical.
+**A way to establish aperiodicity**
+
+Some states are easy to identify as aperiodic. If the one-step transition probability $P(i, i)$ is positive, then the state $i$ has to be aperiodic. Since the chain can stay at $i$ for arbitrary lengths of time, it cannot have a cyclical pattern in how it returns to a state.
+
+So if you have an irreducible chain, it's a good idea to look on the diagonal of the transition matrix. If you see a non-zero element on the diagonal, the chain is aperiodic.
+
+That's not a necessary condition for the chain to be aperiodic, but it's sufficient and very easy to spot.
 
 ### Example: Deconstructing a Chain ###
 Consider the chain with transition matrix given by
