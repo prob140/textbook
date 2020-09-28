@@ -53,6 +53,8 @@ bigrams = MarkovChain.from_table(Table().states(alph).transition_probability(row
 
 We can use Markov chains that have detailed balance to solve a class of problems that are intractable by other methods and are apparently unrelated to Markov chains. In this section we present an example of how such problems arise. In the next section we discuss a solution.
 
+# VIDEO: Assumptions
+
 ### Assumptions ###
 People have long been fascinated by encryption and decryption, well before cybersecurity became part of our lives. Decoding encrypted information can be complex and computation intensive. Reversed Markov Chains can help us in this task.
 
@@ -63,6 +65,8 @@ To decode a message encrypted by a substitution code, you have to *invert* the p
 To decode a textual message, we have to make some assumptions. For example, it helps to know the language in which the message was written, and what combinations of letters are common in that language. For example, suppose we try to decode a message that was written in English and then encrypted. If our decoding process ends up with "words" like zzxtf and tbgdgaa, we might want to try a different way.
 
 So we need data about which sequences of letters are common. Such data are now increasingly easy to gather; see for example this [web page](http://norvig.com/ngrams/) by [Peter Norvig](http://norvig.com), a Director of Research at Google. 
+
+# VIDEO: Decoders
 
 ### Decoding a Message ###
 Let's see how we can use such an approach to decode a message. For simplicity, suppose our alphabet consists of only three letters: a, d, and t. Now suppose we get the coded message atdt. We believe it's an English word. How can we go about decoding it in a manner that can be replicated by a computer for other words too?
@@ -91,6 +95,8 @@ Notice that in each decoded message, a letter appears twice, at indices 1 and 3.
 
 decoding
 
+# VIDEO: Bigrams
+
 Which one of these decoders should we use? To make this decision, we have to know something about the frequency of letter transitions in English. Our goal will be to pick the decoder according to the frequency of the decoded word.
 
 We have put together some data on the frequency of the different *bigrams*, or two-letter combinations, in English. Here is a transition matrix called `bigrams` that is a gross simplification of available information about bigrams in English; we used Peter Norvig's bigrams table and restricted it to our three-letter alphabet. The row corresponding to the letter 'a' assumes that about 2% of the bigrams that start with 'a' are 'aa', about 22% are 'ad', and the remaining 76% are 'at'. 
@@ -99,13 +105,15 @@ It makes sense that the 'aa' transitions are rare; we don't use words like aardv
 
 bigrams
 
+# VIDEO: Score of a Decoder
+
 Now think of the true text as a path of a Markov Chain that has this transition matrix. An interesting historical note is that this is what Markov did when he first came up with the process that now bears his name – he analyzed the transitions between vowels and consonants in *Eugene Onegin*, Alexander Pushkin's novel written in verse.
 
-If the true text is tada, then we can think of the sequence tada as the path of a Markov chain. Its probability can be calculated at $P(t)P(t, a)P(a, d)P(d, a)$. We will give each decoder a score based on this probability. Higher scores correspond to better decoders.
+According to our `decoding` table above, tada is the result we get by applying the decoder ['t', 'd', 'a'] to our data atdt. It makes sense to consider this decoder to be a good decoder if the decoded text tada is likely to appear in our language. 
 
-To assign the score, we assume that all three letters are equally likely to start the path. For three common letters in the alphabet, this won't be far from the truth. That means the probability of each path will start with a factor of 1/3, which we can ignore because all we are trying to do is rank all the probabilities. We will just calculate $P(t, a)P(a, d)P(d, a)$ which is about 8%.  
+To quantify this idea, remember that if the true text is tada, then we can think of the sequence tada as the path of a Markov chain. Let's define the *score* of the decoder ['t', 'd', 'a'] to be the probability of the path tada given the starting point. So the score is $P(t, a)P(a, d)P(d, a)$. Later we will introduce more formal calculations and terminology to go deeper into this choice.
 
-According to our `decoding` table above, tada is the result we get by applying the decoder ['t', 'd', 'a'] to our data atdt. For now, we will say that *the score of this decoder, given the data*, is 8%. Later we will introduce more formal calculations and terminology.
+In the same way, we can give each decoder a score based on the probability of its decoded text. Higher scores correspond to better decoders.
 
 # score of decoder ['t', 'd', 'a']
 0.653477 * 0.219458 * 0.570995
@@ -113,6 +121,8 @@ According to our `decoding` table above, tada is the result we get by applying t
 To automate such calcuations we can use the `prob_of_path` method. Remember that its first argument is the initial state, and the second argument is a list or array consisting of the remaining states in sequence.
 
 bigrams.prob_of_path('t', ['a', 'd', 'a'])
+
+# VIDEO: The Best Decoder
 
 Should we decide that our message atdt should be decoded as tada? Perhaps, if we think that 8% is a high likelihood. But what if some other possible decoder has a higher likelihood? In that case it would be natural to prefer that one.
 
@@ -127,6 +137,8 @@ Here are the results in decreasing order of score. There is a clear winner: the 
 
 decoding = decoding.with_column('Score of Decoder', decoding.apply(score, 1))
 decoding.sort('Score of Decoder', descending=True)
+
+# VIDEO: Larger Alphabet
 
 ### The Size of the Problem ###
 What we have been able to do with an alphabet of three characters becomes daunting when the alphabet is larger. The 52 lower case and upper case letters, along with a space character and all the punctuations, form an alphabet of around 70 characters. That gives us 70! different decoders to consider. In theory, we have to find the likelihood of each of these 70! candidates and sort them.

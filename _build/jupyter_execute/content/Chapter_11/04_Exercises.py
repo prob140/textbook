@@ -6,7 +6,7 @@ Suppose the chain starts at this state $i$. That is, suppose you are given $X_0 
 
 Find the distribution of $T$. Recognize it as one of the famous ones and provide its name and parameters.
 
-**2.** Let $X_0, X_1, \ldots $ be an irreducible, aperiodic Markov Chain on a finite state space $S$. Let $\mathbb{P}$ be the transition matrix of the chain. Let $\lambda$ be the initial distribution of the chain. That is, let $\lambda$ be a vector containing the distribution of $X_0$.
+**2.** Let $X_0, X_1, \ldots$ be an irreducible, aperiodic Markov Chain on a finite state space $S$. Let $\mathbb{P}$ be the transition matrix of the chain. Let $\lambda$ be the initial distribution of the chain. That is, let $\lambda$ be a vector containing the distribution of $X_0$.
 
 (a) Find the distribution of $X_n$ in terms of $\lambda$, $\mathbb{P}$, and $n$.
 
@@ -28,7 +28,7 @@ Find the distribution of $T$. Recognize it as one of the famous ones and provide
 
 [Use uniqueness and the balance equations.]
 
-(b) For $n \ge 1$, let $S_n$ be the total number of spots on $n$ rolls of a die. For large $n$, approximately what is the probability that $S_n$ is a multiple of 7? [Think about remainders, and use Part **a**.]
+(b) For $n \ge 1$, let $S_n$ be the total number of spots on $n$ rolls of a die. For large $n$, approximately what is the probability that $S_n$ is a multiple of 7? [Think about remainders and use Part **a**.]
 
 **5.** I don’t know why this problem has become a classic. But versions of it appear in many texts and exercise sets with diverse people getting wet.
 
@@ -43,7 +43,8 @@ A professor has two umbrellas, each of which could either be in her office or in
 In the long run, what is the expected proportion of walks on which the professor gets wet?
 
 
-### Selections from Konstantopoulos ###
+**Selections from Konstantopoulos**
+
 Emeritus Prof. David Aldous' former student Takis Konstantopoulos created a great [resource](https://www.stat.berkeley.edu/~aldous/150/takis_exercises.pdf) of exercises on Markov Chains. Selected problems are listed below. 
 
 The exercises are numerous. Here are some to try. Resist the impulse to read the answers before you try the exercises yourself. 

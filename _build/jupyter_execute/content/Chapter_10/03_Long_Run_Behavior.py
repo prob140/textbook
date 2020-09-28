@@ -44,6 +44,9 @@ reflecting_walk = MarkovChain.from_transition_function(s, refl_walk_probs)
 Every irreducible and aperiodic Markov Chain on a finite state space exhibits astonishing regularity after it has run for a while. The proof of the convergence theorem below is beyond the scope of this course, but in examples you have seen the result by computation. All the results are true in greater generality for some classes of Markov Chains on infinitely many states. 
 
 # VIDEO: The Big Theorem
+from IPython.display import YouTubeVideo
+
+YouTubeVideo('5ulR-5VcgLQ')
 
 ### Convergence to Stationarity ###
 Let $X_0, X_1, \ldots$ be an irreducible, aperiodic Markov chain on a finite state space $S$. Then for all states $i$ and $j$,
@@ -73,6 +76,8 @@ In this section we will establish the following results. All of them are useful 
 We will assume that the convergence theorem is true; you have observed in numerically in examples. The other properties follow rather easily. In the remainder of this section we will establish the properties and see how they are used.
 
 # VIDEO: Balance Equations
+
+YouTubeVideo('Qxg5EAP90dw')
 
 ### Balance Equations ###
 In our example of the sticky reflecting walk, we found the steady state distribution by computation: we simply computed the $n$-step transition matrix for large $n$ and saw that eventually all the rows were the same. The distribution common to all the rows was the steady state distribution. 
@@ -193,6 +198,8 @@ $$
 $$
 
 # VIDEO: Steady State
+
+YouTubeVideo('LIXffVd1wic')
 
 ### Steady State ###
 

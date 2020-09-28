@@ -13,6 +13,9 @@ plt.style.use('fivethirtyeight')
 Let $S$ be a finite or countably infinite set of states. Any stochastic matrix with rows and columns indexed by $S$ is the transition matrix of some Markov chain with state space $S$. The transition behaviors of Markov chains are thus as varied as the matrices. It is helpful to set up terminology to discuss some of these behaviors.
 
 # VIDEO: Irreducibility
+from IPython.display import YouTubeVideo
+
+YouTubeVideo('Cnosegp3IlI')
 
 ### Irreducibility ###
 
@@ -38,6 +41,8 @@ Suppose a chain has a finite number of states. A good way to establish the irred
 Then for any two states $i$ and $j$, there is a segment of the path that starts at $i$ and ends at $j$, and another segment that starts at $j$ and ends at $i$, and both segments have positive probability. So it is possible to get from any state to any other state.
 
 # VIDEO: Aperiodicity
+
+YouTubeVideo('dtsukvJUscs')
 
 ### Aperiodicity ###
 Working in discrete time has disadvantages. One of them is that states can be *periodic*. Let's start with the example of a random walk where the steps are based on tosses of a fair coin. Suppose the walk starts at state 0. Then it can return to 0 only at even times: the number of heads up to that point has to exactly equal the number of tails, and thus the number of tosses has to be even. We say that the state 0 *has period 2.* 

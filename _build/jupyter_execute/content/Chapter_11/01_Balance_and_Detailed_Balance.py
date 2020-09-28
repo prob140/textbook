@@ -10,9 +10,11 @@ plt.style.use('fivethirtyeight')
 
 ## Balance and Detailed Balance ##
 
-The Markov chains that we have been studying have stationary distributions that contain much information about the behavior of the chain. The stationary distribution of a chain is a probability distribution that solves the balance equations. For some chains it is easy to identify a distribution that solves the balance equations. But for other chains, the solution can be complicated or tedious. 
+The Markov chains that we have been studying have stationary distributions that contain much information about the behavior of the chain. The stationary distribution of a chain is the unique probability distribution that solves the balance equations. For some chains it is easy to identify a distribution that solves the balance equations. But for other chains, the solution can be complicated or tedious. 
 
 In this section we will see where the term *balance* comes from, and identify a condition under which it is easy to solve the balance equations.
+
+# VIDEO: Balance
 
 ### Balance ###
 
@@ -51,6 +53,8 @@ In the case $i = j$ the two sides of the equation are identical and hence carry 
 
 Detailed balance turns out to be a stronger condition than balance. 
 
+# VIDEO: Detailed Balance
+
 ### Detailed Balance Implies Balance ###
 
 Suppose there is a probability distribution $\pi$ that solves the detailed balance equations. Then $\pi$ also solves the balance equations.
@@ -77,11 +81,13 @@ Of course all the $\binom{s}{2}$ equations need not be consistent, in which case
 
 But there is an important class of Markov chains for which it is easy to see that the detailed balance equations must have a solution. Therefore for those chains we have an easy way at finding the stationary distribution.
 
+# Birth-and-Death Chains
+
 ### Birth-and-Death Chains ###
 
-A *birth and death chain* is a Markov chain on the integers, with one-step transitions restricted to going up by 1, going down by 1, or staying in place. A *birth* is a move up, and a *death* is a move down.
+A *birth-and-death chain* is a Markov chain on the integers, with one-step transitions restricted to going up by 1, going down by 1, or staying in place. A *birth* is a move up, and a *death* is a move down.
 
-Such chains are used to model many different random quantities such as gamblers' fortunes or population sizes. Look through the chains you have worked with thus far. Many of them, including the sticky reflecting random walk and the Ehrenfest chain, are birth and death chains. In the Ehrenfest example, we were modeling the size of the population of gas particles in a container.
+Such chains are used to model many different random quantities such as gamblers' fortunes or population sizes. Look through the chains you have worked with thus far. Many of them, including the sticky reflecting random walk and the Ehrenfest chain, are birth-and-death chains. In the Ehrenfest example, we were modeling the size of the population of gas particles in a container.
 
 For all irreducible birth-and-death chains, the detailed balance equations have a solution. This is because the only possible moves are between consecutive integers, so the only detailed balance equations that have to be solved are
 
@@ -135,9 +141,9 @@ $$
 as we have seen earlier numerically and also by solving the balance equations. The method used here is easier than both of those ways.
 
 ### Ehrenfest Chain Revisited ###
-We have returned to this example because it is one where solving the balance equations involved some labor. But now we know the chain is a birth-and-death, so we can use the detailed balance equations to find the stationary distribution. 
+We have returned to this example because it is one where solving the balance equations involved some labor. But now we know the chain is a birth-and-death chain, so we can use the detailed balance equations to find the stationary distribution. 
 
-Recall the transition rules:
+[Recall](http://prob140.org/textbook/content/Chapter_10/04_Examples.html#a-diffusion-model-by-ehrenfest) the transition rules:
 
 - At each step, select one of the $N$ particles at random and place it into one of the two containers at random; the chain counts the number of particles in Container 1.
 
@@ -172,7 +178,7 @@ $$
 
 by a far quicker calculation than the one we did to solve the balance equations. 
 
-At this point the calculation is the same as before: the terms have to add up to 1, which leads to $\pi(0) = 2^{-N}$ and therefore the stationary distribution is binomial $(N, 1/2)$.
+At this point the calculation is the [same as before](http://prob140.org/textbook/content/Chapter_10/04_Examples.html#a-diffusion-model-by-ehrenfest): the terms have to add up to 1, which leads to $\pi(0) = 2^{-N}$ and therefore the stationary distribution is binomial $(N, 1/2)$.
 
 It is worth remembering that for numerical value of $N$ you can just use `steady_state` to find the stationary distribution, relying on Python to do all the work for you. This has some clear advantages but also some disadvantages:
 
@@ -192,6 +198,7 @@ The chain is irreducible and aperiodic. It is clear that the behavior of the cha
 Unlike the chains above, this chain can "loop back around." It can move from state 4 to state 1. So it's not a birth-and-death chain, and it's not clear that the detailed balance equations are consistent.
 
 Let's try to solve them and see what happens. The detailed balance equations are:
+
 $$
 \begin{align*}
 \pi(0)r = \pi(1)p ~~~~ \implies \pi(1) = \frac{r}{p}\pi(0) \\ 
@@ -200,6 +207,7 @@ $$
 \pi(3)r = \pi(4)p ~~~~ \implies \pi(4) = \frac{r^4}{p^4}\pi(0) 
 \end{align*}
 $$
+
 So far so good, but now for the moment of truth:
 
 $$

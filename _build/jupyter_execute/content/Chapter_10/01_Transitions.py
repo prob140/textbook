@@ -18,6 +18,9 @@ Let $X_{0} = a$, and for $n > 0$ let $X_{n+1} = X_n + I_n$ where $I_1, I_2, \ldo
 \dots$ is the set of all integers. In this course we will restrict the state space to be discrete and typically finite.
 
 # VIDEO: Markov Property
+from IPython.display import YouTubeVideo
+
+YouTubeVideo('YVGKlWO9ANk')
 
 ### Markov Property ###
 
@@ -87,6 +90,7 @@ P(X_0 = i_0, X_1 = i_1, X_2 = i_2, \ldots, X_n = i_n)
 $$
 
 # VIDEO: Transitions
+YouTubeVideo('G_g-45W7yYk')
 
 ### One-Step Transition Matrix ###
 The one-step transition probabilities can be represented as elements of a matrix. This isn't just for compactness of notation – it leads to a powerful theory.
@@ -201,6 +205,8 @@ reflecting_walk.simulate_path(1, 7)
 reflecting_walk.simulate_path(1, 10, plot_path=True)
 
 # VIDEO: n-Step Transition Matrix
+
+YouTubeVideo('YQziLVkV_Ro')
 
 ### $n$-Step Transition Matrix ###
 For states $i$ and $j$, the chance of getting from $i$ to $j$ in $n$ steps is called the $n$-step transition probability from $i$ to $j$. Formally, the $n$-step transition probability is
