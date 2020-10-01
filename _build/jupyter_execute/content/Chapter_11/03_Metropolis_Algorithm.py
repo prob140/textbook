@@ -10,11 +10,26 @@ plt.style.use('fivethirtyeight')
 
 The goal of Markov Chain Monte Carlo (MCMC) is to generate random samples from complicated high dimensional distributions about which we have incomplete information. For example, it might be that we don't know the normalizing constant of the distribution, as we saw in the code breaking example of the previous section.
 
-Suppose the distribution from which we want to generate a sample is called $\pi$. We are going to assume that $\pi$ is a probability distribution on a finite set, and you should imagine the set to be large. MCMC relies on a few observations.
+# VIDEO: Metropolis: Setup
+from IPython.display import YouTubeVideo
 
-- Let $X_0, X_1, \ldots $ be an irreducible aperiodic Markov Chain on a finite state space. Then the distribution of $X_n$ converges to a stationary distribution as $n$ gets large. If we can create a Markov Chain $\{X_n\}$ that has the desired distribution $\pi$ as its stationary distribution, then we can simulate draws from $\pi$ (or close enough to it) by running the chain for a long time and using the values $X_n$ for large $n$.
+YouTubeVideo('LwkIn66bkXc')
 
-- To create a transition matrix that results in $\pi$ as the stationary distribution, the easiest way is to try to ensure that the detailed balance equations are solved. 
+Imagine a large state space $S$. In our code-breaking example it is the space of all decoders, that is, all permutations of the alphabet.
+
+Now suppose we are interested in a particular probability distribution on this space. We are going to call this probability distribution $\pi$. In the code-breaking example, $\pi$ is the distribution of scores of the decoders. Remember that while we can find the score of any particular decoder, we can't list them all, so we don't have a computational formula for $\pi$.
+
+In the code-breaking setting, we are interested in the mode of $\pi$. That is, we are looking for the decoder that has the highest score.
+
+Since can't compute $\pi$, the idea is to see if we can instead simulate a random variable that has distribution $\pi$. 
+
+That is what MCMC does. The procedure relies on a few observations.
+
+- Suppose we can create a Markov Chain $\{X_n\}$ that has our specified distribution $\pi$ as its stationary distribution. Then for large $n$ the distribution of $X_n$ will be approximately $\pi$.
+
+- Suppose we can construct such a chain. By the definition of a mode, $X_n$ is most likely to be at or near the mode of $\pi$, when $n$ is large. So by running the chain for a long time we will be able to identify the mode of $\pi$.
+
+- Creating a chain involves creating a transition matrix. To create a transition matrix that results in $\pi$ as the stationary distribution, the easiest way is to try to ensure that the detailed balance equations are solved. 
 
 - The detailed balance equations are equivalent to  
 
@@ -55,6 +70,10 @@ Thus the new chain either moves to the state picked according to $\mathbb{Q}$, o
 The new chain is irreducible because the proposal chain is irreducible. It is aperiodic because it can stay in place. So it has a steady state distribution. 
 
 The alogrithm says that this steady state distribution is the same as the distribution $\pi$ that was used to define the ratios $r(i, j)$.
+
+# VIDEO: Metropolis Algorithm
+
+YouTubeVideo('0_JsYu1NpBo')
 
 ### How to Think About the Algorithm ###
 Before we prove that the algorithm works, let's examine what it is doing in the context of decoders.

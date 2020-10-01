@@ -54,6 +54,9 @@ bigrams = MarkovChain.from_table(Table().states(alph).transition_probability(row
 We can use Markov chains that have detailed balance to solve a class of problems that are intractable by other methods and are apparently unrelated to Markov chains. In this section we present an example of how such problems arise. In the next section we discuss a solution.
 
 # VIDEO: Assumptions
+from IPython.display import YouTubeVideo
+
+YouTubeVideo('C18hs5sHf0Y')
 
 ### Assumptions ###
 People have long been fascinated by encryption and decryption, well before cybersecurity became part of our lives. Decoding encrypted information can be complex and computation intensive. Reversed Markov Chains can help us in this task.
@@ -67,6 +70,8 @@ To decode a textual message, we have to make some assumptions. For example, it h
 So we need data about which sequences of letters are common. Such data are now increasingly easy to gather; see for example this [web page](http://norvig.com/ngrams/) by [Peter Norvig](http://norvig.com), a Director of Research at Google. 
 
 # VIDEO: Decoders
+
+YouTubeVideo('MUdZWq3b0mg')
 
 ### Decoding a Message ###
 Let's see how we can use such an approach to decode a message. For simplicity, suppose our alphabet consists of only three letters: a, d, and t. Now suppose we get the coded message atdt. We believe it's an English word. How can we go about decoding it in a manner that can be replicated by a computer for other words too?
@@ -97,6 +102,8 @@ decoding
 
 # VIDEO: Bigrams
 
+YouTubeVideo('OrLjMVjpryY')
+
 Which one of these decoders should we use? To make this decision, we have to know something about the frequency of letter transitions in English. Our goal will be to pick the decoder according to the frequency of the decoded word.
 
 We have put together some data on the frequency of the different *bigrams*, or two-letter combinations, in English. Here is a transition matrix called `bigrams` that is a gross simplification of available information about bigrams in English; we used Peter Norvig's bigrams table and restricted it to our three-letter alphabet. The row corresponding to the letter 'a' assumes that about 2% of the bigrams that start with 'a' are 'aa', about 22% are 'ad', and the remaining 76% are 'at'. 
@@ -106,6 +113,8 @@ It makes sense that the 'aa' transitions are rare; we don't use words like aardv
 bigrams
 
 # VIDEO: Score of a Decoder
+
+YouTubeVideo('pi36R1lN8ww')
 
 Now think of the true text as a path of a Markov Chain that has this transition matrix. An interesting historical note is that this is what Markov did when he first came up with the process that now bears his name – he analyzed the transitions between vowels and consonants in *Eugene Onegin*, Alexander Pushkin's novel written in verse.
 
@@ -124,6 +133,8 @@ bigrams.prob_of_path('t', ['a', 'd', 'a'])
 
 # VIDEO: The Best Decoder
 
+YouTubeVideo('zCAeQUaPf1E')
+
 Should we decide that our message atdt should be decoded as tada? Perhaps, if we think that 8% is a high likelihood. But what if some other possible decoder has a higher likelihood? In that case it would be natural to prefer that one.
 
 So we are going to need the probabilities of each of the six "decoded" paths.
@@ -139,6 +150,8 @@ decoding = decoding.with_column('Score of Decoder', decoding.apply(score, 1))
 decoding.sort('Score of Decoder', descending=True)
 
 # VIDEO: Larger Alphabet
+
+YouTubeVideo('XLd2MuMIlR4')
 
 ### The Size of the Problem ###
 What we have been able to do with an alphabet of three characters becomes daunting when the alphabet is larger. The 52 lower case and upper case letters, along with a space character and all the punctuations, form an alphabet of around 70 characters. That gives us 70! different decoders to consider. In theory, we have to find the likelihood of each of these 70! candidates and sort them.

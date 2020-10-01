@@ -15,6 +15,9 @@ The Markov chains that we have been studying have stationary distributions that 
 In this section we will see where the term *balance* comes from, and identify a condition under which it is easy to solve the balance equations.
 
 # VIDEO: Balance
+from IPython.display import YouTubeVideo
+
+YouTubeVideo('SfH-oJ-PTC4')
 
 ### Balance ###
 
@@ -55,6 +58,8 @@ Detailed balance turns out to be a stronger condition than balance.
 
 # VIDEO: Detailed Balance
 
+YouTubeVideo('KEOTepEQCrU')
+
 ### Detailed Balance Implies Balance ###
 
 Suppose there is a probability distribution $\pi$ that solves the detailed balance equations. Then $\pi$ also solves the balance equations.
@@ -81,7 +86,9 @@ Of course all the $\binom{s}{2}$ equations need not be consistent, in which case
 
 But there is an important class of Markov chains for which it is easy to see that the detailed balance equations must have a solution. Therefore for those chains we have an easy way at finding the stationary distribution.
 
-# Birth-and-Death Chains
+# VIDEO: Birth-and-Death Chains
+
+YouTubeVideo('CZNtQV5JpsU')
 
 ### Birth-and-Death Chains ###
 

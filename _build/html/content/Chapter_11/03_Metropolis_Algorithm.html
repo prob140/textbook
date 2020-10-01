@@ -981,10 +981,27 @@
   <div class="section" id="metropolis-algorithm">
 <h1><span class="section-number">11.3. </span>Metropolis Algorithm<a class="headerlink" href="#metropolis-algorithm" title="Permalink to this headline">¶</a></h1>
 <p>The goal of Markov Chain Monte Carlo (MCMC) is to generate random samples from complicated high dimensional distributions about which we have incomplete information. For example, it might be that we don’t know the normalizing constant of the distribution, as we saw in the code breaking example of the previous section.</p>
-<p>Suppose the distribution from which we want to generate a sample is called <span class="math notranslate nohighlight">\(\pi\)</span>. We are going to assume that <span class="math notranslate nohighlight">\(\pi\)</span> is a probability distribution on a finite set, and you should imagine the set to be large. MCMC relies on a few observations.</p>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="400"
+    height="300"
+    src="https://www.youtube.com/embed/LwkIn66bkXc"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
+<p>Imagine a large state space <span class="math notranslate nohighlight">\(S\)</span>. In our code-breaking example it is the space of all decoders, that is, all permutations of the alphabet.</p>
+<p>Now suppose we are interested in a particular probability distribution on this space. We are going to call this probability distribution <span class="math notranslate nohighlight">\(\pi\)</span>. In the code-breaking example, <span class="math notranslate nohighlight">\(\pi\)</span> is the distribution of scores of the decoders. Remember that while we can find the score of any particular decoder, we can’t list them all, so we don’t have a computational formula for <span class="math notranslate nohighlight">\(\pi\)</span>.</p>
+<p>In the code-breaking setting, we are interested in the mode of <span class="math notranslate nohighlight">\(\pi\)</span>. That is, we are looking for the decoder that has the highest score.</p>
+<p>Since can’t compute <span class="math notranslate nohighlight">\(\pi\)</span>, the idea is to see if we can instead simulate a random variable that has distribution <span class="math notranslate nohighlight">\(\pi\)</span>.</p>
+<p>That is what MCMC does. The procedure relies on a few observations.</p>
 <ul class="simple">
-<li><p>Let $X_0, X_1, \ldots $ be an irreducible aperiodic Markov Chain on a finite state space. Then the distribution of <span class="math notranslate nohighlight">\(X_n\)</span> converges to a stationary distribution as <span class="math notranslate nohighlight">\(n\)</span> gets large. If we can create a Markov Chain <span class="math notranslate nohighlight">\(\{X_n\}\)</span> that has the desired distribution <span class="math notranslate nohighlight">\(\pi\)</span> as its stationary distribution, then we can simulate draws from <span class="math notranslate nohighlight">\(\pi\)</span> (or close enough to it) by running the chain for a long time and using the values <span class="math notranslate nohighlight">\(X_n\)</span> for large <span class="math notranslate nohighlight">\(n\)</span>.</p></li>
-<li><p>To create a transition matrix that results in <span class="math notranslate nohighlight">\(\pi\)</span> as the stationary distribution, the easiest way is to try to ensure that the detailed balance equations are solved.</p></li>
+<li><p>Suppose we can create a Markov Chain <span class="math notranslate nohighlight">\(\{X_n\}\)</span> that has our specified distribution <span class="math notranslate nohighlight">\(\pi\)</span> as its stationary distribution. Then for large <span class="math notranslate nohighlight">\(n\)</span> the distribution of <span class="math notranslate nohighlight">\(X_n\)</span> will be approximately <span class="math notranslate nohighlight">\(\pi\)</span>.</p></li>
+<li><p>Suppose we can construct such a chain. By the definition of a mode, <span class="math notranslate nohighlight">\(X_n\)</span> is most likely to be at or near the mode of <span class="math notranslate nohighlight">\(\pi\)</span>, when <span class="math notranslate nohighlight">\(n\)</span> is large. So by running the chain for a long time we will be able to identify the mode of <span class="math notranslate nohighlight">\(\pi\)</span>.</p></li>
+<li><p>Creating a chain involves creating a transition matrix. To create a transition matrix that results in <span class="math notranslate nohighlight">\(\pi\)</span> as the stationary distribution, the easiest way is to try to ensure that the detailed balance equations are solved.</p></li>
 <li><p>The detailed balance equations are equivalent to</p></li>
 </ul>
 <div class="math notranslate nohighlight">
@@ -1020,6 +1037,18 @@ r(i, j) = \frac{\pi(j)}{\pi(i)}
 <p>Thus the new chain either moves to the state picked according to <span class="math notranslate nohighlight">\(\mathbb{Q}\)</span>, or it stays where it is. We say that it <em>accepts a move to a new state</em> based on <span class="math notranslate nohighlight">\(\mathbb{Q}\)</span> and <span class="math notranslate nohighlight">\(r\)</span>, and otherwise it doesn’t move.</p>
 <p>The new chain is irreducible because the proposal chain is irreducible. It is aperiodic because it can stay in place. So it has a steady state distribution.</p>
 <p>The alogrithm says that this steady state distribution is the same as the distribution <span class="math notranslate nohighlight">\(\pi\)</span> that was used to define the ratios <span class="math notranslate nohighlight">\(r(i, j)\)</span>.</p>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="400"
+    height="300"
+    src="https://www.youtube.com/embed/0_JsYu1NpBo"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
 </div>
 <div class="section" id="how-to-think-about-the-algorithm">
 <h2><span class="section-number">11.3.2. </span>How to Think About the Algorithm<a class="headerlink" href="#how-to-think-about-the-algorithm" title="Permalink to this headline">¶</a></h2>

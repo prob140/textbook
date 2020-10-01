@@ -956,6 +956,16 @@
 <h1><span class="section-number">11.2. </span>Code Breaking<a class="headerlink" href="#code-breaking" title="Permalink to this headline">¶</a></h1>
 <p>We can use Markov chains that have detailed balance to solve a class of problems that are intractable by other methods and are apparently unrelated to Markov chains. In this section we present an example of how such problems arise. In the next section we discuss a solution.</p>
 <div class="cell tag_remove-input tag_hide-output docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="400"
+    height="300"
+    src="https://www.youtube.com/embed/C18hs5sHf0Y"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
 </div>
 <div class="section" id="assumptions">
 <h2><span class="section-number">11.2.1. </span>Assumptions<a class="headerlink" href="#assumptions" title="Permalink to this headline">¶</a></h2>
@@ -965,6 +975,16 @@
 <p>To decode a textual message, we have to make some assumptions. For example, it helps to know the language in which the message was written, and what combinations of letters are common in that language. For example, suppose we try to decode a message that was written in English and then encrypted. If our decoding process ends up with “words” like zzxtf and tbgdgaa, we might want to try a different way.</p>
 <p>So we need data about which sequences of letters are common. Such data are now increasingly easy to gather; see for example this <a class="reference external" href="http://norvig.com/ngrams/">web page</a> by <a class="reference external" href="http://norvig.com">Peter Norvig</a>, a Director of Research at Google.</p>
 <div class="cell tag_remove-input tag_hide-output docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="400"
+    height="300"
+    src="https://www.youtube.com/embed/MUdZWq3b0mg"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
 </div>
 </div>
 <div class="section" id="decoding-a-message">
@@ -1025,6 +1045,16 @@
 </table></div></div>
 </div>
 <div class="cell tag_remove-input tag_hide-output docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="400"
+    height="300"
+    src="https://www.youtube.com/embed/OrLjMVjpryY"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
 </div>
 <p>Which one of these decoders should we use? To make this decision, we have to know something about the frequency of letter transitions in English. Our goal will be to pick the decoder according to the frequency of the decoded word.</p>
 <p>We have put together some data on the frequency of the different <em>bigrams</em>, or two-letter combinations, in English. Here is a transition matrix called <code class="docutils literal notranslate"><span class="pre">bigrams</span></code> that is a gross simplification of available information about bigrams in English; we used Peter Norvig’s bigrams table and restricted it to our three-letter alphabet. The row corresponding to the letter ‘a’ assumes that about 2% of the bigrams that start with ‘a’ are ‘aa’, about 22% are ‘ad’, and the remaining 76% are ‘at’.</p>
@@ -1083,6 +1113,16 @@
 </div></div></div>
 </div>
 <div class="cell tag_remove-input tag_hide-output docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="400"
+    height="300"
+    src="https://www.youtube.com/embed/pi36R1lN8ww"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
 </div>
 <p>Now think of the true text as a path of a Markov Chain that has this transition matrix. An interesting historical note is that this is what Markov did when he first came up with the process that now bears his name – he analyzed the transitions between vowels and consonants in <em>Eugene Onegin</em>, Alexander Pushkin’s novel written in verse.</p>
 <p>According to our <code class="docutils literal notranslate"><span class="pre">decoding</span></code> table above, tada is the result we get by applying the decoder [‘t’, ‘d’, ‘a’] to our data atdt. It makes sense to consider this decoder to be a good decoder if the decoded text tada is likely to appear in our language.</p>
@@ -1115,6 +1155,16 @@
 </div>
 </div>
 <div class="cell tag_remove-input tag_hide-output docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="400"
+    height="300"
+    src="https://www.youtube.com/embed/zCAeQUaPf1E"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
 </div>
 <p>Should we decide that our message atdt should be decoded as tada? Perhaps, if we think that 8% is a high likelihood. But what if some other possible decoder has a higher likelihood? In that case it would be natural to prefer that one.</p>
 <p>So we are going to need the probabilities of each of the six “decoded” paths.</p>
@@ -1165,6 +1215,16 @@
 </table></div></div>
 </div>
 <div class="cell tag_remove-input tag_hide-output docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="400"
+    height="300"
+    src="https://www.youtube.com/embed/XLd2MuMIlR4"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
 </div>
 </div>
 <div class="section" id="the-size-of-the-problem">
