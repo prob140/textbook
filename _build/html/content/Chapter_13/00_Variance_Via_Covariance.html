@@ -40,8 +40,8 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="13.1. Properties of Covariance" href="01_Properties_of_Covariance.html" />
-    <link rel="prev" title="12.4. Heavy Tails" href="../Chapter_12/04_Heavy_Tails.html" />
+    <link rel="next" title="13.1. Covariance" href="01_Covariance.html" />
+    <link rel="prev" title="12.5. Exercises" href="../Chapter_12/05_Exercises.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -481,6 +481,11 @@
      12.4. Heavy Tails
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_12/05_Exercises.html">
+     12.5. Exercises
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1 current active">
@@ -489,23 +494,33 @@
   </a>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="01_Properties_of_Covariance.html">
-     13.1. Properties of Covariance
+    <a class="reference internal" href="01_Covariance.html">
+     13.1. Covariance
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="02_Sums_of_IID_Samples.html">
-     13.2. Sums of IID Samples
+    <a class="reference internal" href="02_Properties_of_Covariance.html">
+     13.2. Properties of Covariance
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="03_Sums_of_Simple_Random_Samples.html">
-     13.3. Sums of Simple Random Samples
+    <a class="reference internal" href="03_Sums_of_Independent_Variables.html">
+     13.3. Sums of Independent Variables
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="04_Finite_Population_Correction.html">
-     13.4. Finite Population Correction
+    <a class="reference internal" href="04_Symmetry_and_Indicators.html">
+     13.4. Symmetry and Indicators
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05_Finite_Population_Correction.html">
+     13.5. Finite Population Correction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="06_Exercises.html">
+     13.6. Exercises
     </a>
    </li>
   </ul>
@@ -937,46 +952,8 @@
                 
   <div class="section" id="variance-via-covariance">
 <h1><span class="section-number">13. </span>Variance Via Covariance<a class="headerlink" href="#variance-via-covariance" title="Permalink to this headline">¶</a></h1>
-<p>In this chapter we return to random sampling and study the variability in the sum of a random sample. It is worth taking some time to understand how sample sums behave, because many interesting random variables like counts of successes can be written as sums. Binomial and hypergeometric random variables are such sums. Also, the mean of a random sample is a straightforward function of the sample sum.</p>
-<p>Let <span class="math notranslate nohighlight">\(X\)</span> be a random variable. We will use some familiar shorthand:</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(\mu_X = E(X)\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(\sigma_X = SD(X)\)</span></p></li>
-</ul>
-<p>Let <span class="math notranslate nohighlight">\(D_X = X - \mu_X\)</span> denote the deviation of <span class="math notranslate nohighlight">\(X\)</span> from its mean. Then</p>
-<div class="math notranslate nohighlight">
-\[
-Var(X) = \sigma_X^2 = E(D_X^2)
-\]</div>
-<p><strong>Variance of a Sum</strong></p>
-<p>Let <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> be two random variables on the same space, and let <span class="math notranslate nohighlight">\(S = X+Y\)</span>. Then <span class="math notranslate nohighlight">\(E(S) = \mu_X + \mu_Y\)</span>, and the deviation of <span class="math notranslate nohighlight">\(S\)</span> is the sum of the deviations of <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span>:</p>
-<div class="math notranslate nohighlight">
-\[
-D_S ~ = ~ S - \mu_S ~ = ~ X + Y - (\mu_X + \mu_Y) ~ = ~ D_X + D_Y
-\]</div>
-<p>This gives us some insight into the variance of the sum <span class="math notranslate nohighlight">\(S\)</span>.</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{align*}
-Var(S) &amp;= E(D_S^2) \\
-&amp;= E[(D_X + D_Y)^2] \\
-&amp;= E(D_X^2) + E(D_Y^2) + 2E(D_XD_Y) \\
-&amp;= Var(X) + Var(Y) + 2E(D_XD_Y)
-\end{align*}
-\end{split}\]</div>
-<p>The first thing to note is that while the expectation of a sum is the sum of the expectations, the calculation above shows that the variance of a sum is in general <strong>not</strong> the sum of the variances. There’s an extra term.</p>
-<p>To calculate the variance of a sum, we have to understand that extra term.</p>
-<p><strong>Covariance</strong></p>
-<p>The <em>covariance of <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span></em>, denoted <span class="math notranslate nohighlight">\(Cov(X, Y)\)</span>, is the expected product of the deviations of <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span>:</p>
-<div class="math notranslate nohighlight">
-\[
-Cov(X, Y) ~ = ~ E(D_XD_Y) ~=~ E[(X - \mu_X)(Y - \mu_Y)]
-\]</div>
-<p>In this chapter we will learn how to utilize covariance to find variances of sums. The fundamental calculation is the one we did above; here is the result again, using the language of covariance.</p>
-<div class="math notranslate nohighlight">
-\[
-Var(X+Y) ~ = ~ Var(X) + Var(Y) + 2Cov(X, Y)
-\]</div>
+<p>Additivity is a principal property of expectation. We have used it frequently to find expectation by writing the random variable as a sum of random variables whose expectation we know or can calculate. In this chapter we will study the variance of a sum of random variables. Unlike expectation, variance is not always additive. To deal with this, we will introduce the concept of <em>covariance</em>.</p>
+<p>It is worth taking some time to understand how sample sums behave, because many interesting random variables like counts of successes can be written as sums. Binomial and hypergeometric random variables are such sums. Also, the mean of a random sample is a straightforward function of the sample sum, and you have seen that random sample means are good estimators of population means.</p>
 <div class="toctree-wrapper compound">
 </div>
 </div>
@@ -1009,8 +986,8 @@ Var(X+Y) ~ = ~ Var(X) + Var(Y) + 2Cov(X, Y)
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="../Chapter_12/04_Heavy_Tails.html" title="previous page"><span class="section-number">12.4. </span>Heavy Tails</a>
-    <a class='right-next' id="next-link" href="01_Properties_of_Covariance.html" title="next page"><span class="section-number">13.1. </span>Properties of Covariance</a>
+    <a class='left-prev' id="prev-link" href="../Chapter_12/05_Exercises.html" title="previous page"><span class="section-number">12.5. </span>Exercises</a>
+    <a class='right-next' id="next-link" href="01_Covariance.html" title="next page"><span class="section-number">13.1. </span>Covariance</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

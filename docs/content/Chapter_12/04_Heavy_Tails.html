@@ -40,7 +40,7 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="13. Variance Via Covariance" href="../Chapter_13/00_Variance_Via_Covariance.html" />
+    <link rel="next" title="12.5. Exercises" href="05_Exercises.html" />
     <link rel="prev" title="12.3. Tail Bounds" href="03_Bounds.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -481,6 +481,11 @@
      12.4. Heavy Tails
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05_Exercises.html">
+     12.5. Exercises
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1">
@@ -489,23 +494,33 @@
   </a>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_13/01_Properties_of_Covariance.html">
-     13.1. Properties of Covariance
+    <a class="reference internal" href="../Chapter_13/01_Covariance.html">
+     13.1. Covariance
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_13/02_Sums_of_IID_Samples.html">
-     13.2. Sums of IID Samples
+    <a class="reference internal" href="../Chapter_13/02_Properties_of_Covariance.html">
+     13.2. Properties of Covariance
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_13/03_Sums_of_Simple_Random_Samples.html">
-     13.3. Sums of Simple Random Samples
+    <a class="reference internal" href="../Chapter_13/03_Sums_of_Independent_Variables.html">
+     13.3. Sums of Independent Variables
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_13/04_Finite_Population_Correction.html">
-     13.4. Finite Population Correction
+    <a class="reference internal" href="../Chapter_13/04_Symmetry_and_Indicators.html">
+     13.4. Symmetry and Indicators
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_13/05_Finite_Population_Correction.html">
+     13.5. Finite Population Correction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_13/06_Exercises.html">
+     13.6. Exercises
     </a>
    </li>
   </ul>
@@ -944,7 +959,7 @@
                 
   <div class="section" id="heavy-tails">
 <h1><span class="section-number">12.4. </span>Heavy Tails<a class="headerlink" href="#heavy-tails" title="Permalink to this headline">¶</a></h1>
-<p>This short section shows an example of how expectations and SDs, though very useful in many situations, aren’t quite adequate when distributions have long, fat tails. Here is one such distribution.</p>
+<p>This short section shows an example of how expectations and SDs, though very useful in many situations, aren’t quite adequate when distributions have long, fat tails. Here is one such distribution. You can see that the tail stretches out quite far.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">1000</span>
@@ -960,7 +975,7 @@
 <img alt="../../_images/04_Heavy_Tails_3_0.png" src="../../_images/04_Heavy_Tails_3_0.png" />
 </div>
 </div>
-<p>You can see that the tail stretches out quite far. If we sample independently from this population, how does the sample average behave? Averages are affected by values out in the tails.</p>
+<p>If we sample independently from this population, how does the sample average behave? Averages are affected by values out in the tails.</p>
 <p>Let’s simulate the distribution of the average of a random sample of size 500 from this distribution. We’ll do 10,000 repetitions to try to get the empirical distribution to settle down.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1015,7 +1030,7 @@
 </div>
 </div>
 <p>And there we have it. The SD is huge, even bigger than the mean. The long tail makes the SD very large – so large that even the interval “expected value plus or minus one SD” is extremely wide and contains almost all the data.</p>
-<p>To analyze heavy-tailed distributions like this, the expected value and SD aren’t the best quantities to use. There is a large and growing literature on what should be used instead. You might come across it in a more advanced course.</p>
+<p>To analyze heavy-tailed distributions like this, the expected value and SD aren’t the best quantities to use. There is a large literature on what should be used instead. You might come across it in a more advanced course.</p>
 <div class="section" id="zipf-s-law">
 <h2><span class="section-number">12.4.1. </span>Zipf’s Law<a class="headerlink" href="#zipf-s-law" title="Permalink to this headline">¶</a></h2>
 <p>You are almost certain to come across distributions like these if you study natural language processing, or linguistics, or economics, or even the populations of cities. The example used in this section is one of the <em>Zipf</em> distributions that occurs in those fields.</p>
@@ -1070,7 +1085,7 @@ P(X = n) = c \cdot \frac{1}{n}, ~~~ 1 \le n \le N
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="03_Bounds.html" title="previous page"><span class="section-number">12.3. </span>Tail Bounds</a>
-    <a class='right-next' id="next-link" href="../Chapter_13/00_Variance_Via_Covariance.html" title="next page"><span class="section-number">13. </span>Variance Via Covariance</a>
+    <a class='right-next' id="next-link" href="05_Exercises.html" title="next page"><span class="section-number">12.5. </span>Exercises</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

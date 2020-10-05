@@ -481,6 +481,11 @@
      12.4. Heavy Tails
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05_Exercises.html">
+     12.5. Exercises
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1">
@@ -489,23 +494,33 @@
   </a>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_13/01_Properties_of_Covariance.html">
-     13.1. Properties of Covariance
+    <a class="reference internal" href="../Chapter_13/01_Covariance.html">
+     13.1. Covariance
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_13/02_Sums_of_IID_Samples.html">
-     13.2. Sums of IID Samples
+    <a class="reference internal" href="../Chapter_13/02_Properties_of_Covariance.html">
+     13.2. Properties of Covariance
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_13/03_Sums_of_Simple_Random_Samples.html">
-     13.3. Sums of Simple Random Samples
+    <a class="reference internal" href="../Chapter_13/03_Sums_of_Independent_Variables.html">
+     13.3. Sums of Independent Variables
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_13/04_Finite_Population_Correction.html">
-     13.4. Finite Population Correction
+    <a class="reference internal" href="../Chapter_13/04_Symmetry_and_Indicators.html">
+     13.4. Symmetry and Indicators
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_13/05_Finite_Population_Correction.html">
+     13.5. Finite Population Correction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_13/06_Exercises.html">
+     13.6. Exercises
     </a>
    </li>
   </ul>
@@ -933,8 +948,8 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#comparing-estimates">
-   12.2.2. Comparing Estimates
+  <a class="reference internal nav-link" href="#german-tanks-revisited">
+   12.2.2. German Tanks, Revisited
   </a>
  </li>
 </ul>
@@ -950,15 +965,37 @@
   <div class="section" id="prediction-and-estimation">
 <h1><span class="section-number">12.2. </span>Prediction and Estimation<a class="headerlink" href="#prediction-and-estimation" title="Permalink to this headline">¶</a></h1>
 <p>One way to think about the SD is in terms of errors in prediction. Suppose I am going to generate a value of the random variable <span class="math notranslate nohighlight">\(X\)</span>, and I ask you to predict the value I am going to get. What should you use as your predictor?</p>
-<p>A natural choice is <span class="math notranslate nohighlight">\(\mu_X\)</span>, the expectation of <span class="math notranslate nohighlight">\(X\)</span>. But you could choose any number <span class="math notranslate nohighlight">\(c\)</span>. The error that you will make is <span class="math notranslate nohighlight">\(X - c\)</span>. About how big is that? For most reasonable choices of <span class="math notranslate nohighlight">\(c\)</span>, the error will sometimes be positive and sometimes negative. To find the rough size of this error, we will avoid cancellation as before, and start by calculating the <em>mean squared error</em> <span class="math notranslate nohighlight">\(E[(X-c)^2]\)</span>.</p>
-<p>Because we have guessed that <span class="math notranslate nohighlight">\(\mu_X\)</span> might be a good choice, we will organize the algebra around that value. The mean squared error using <span class="math notranslate nohighlight">\(c\)</span> as your predictor is</p>
+<p>A natural choice is <span class="math notranslate nohighlight">\(\mu_X\)</span>, the expectation of <span class="math notranslate nohighlight">\(X\)</span>. But you could choose any number <span class="math notranslate nohighlight">\(c\)</span>. The error that you will make is <span class="math notranslate nohighlight">\(X - c\)</span>. About how big is that? For most reasonable choices of <span class="math notranslate nohighlight">\(c\)</span>, the error will sometimes be positive and sometimes negative. To find the rough size of this error, we will avoid cancellation as before, and start by calculating the <em>mean squared error</em> of the predictor <span class="math notranslate nohighlight">\(c\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+MSE(c) ~ = ~ E[(X-c)^2]
+\]</div>
+<p>Notice that by definition, the variance of <span class="math notranslate nohighlight">\(X\)</span> is the mean squared error of using <span class="math notranslate nohighlight">\(\mu_X\)</span> as the predictor.</p>
+<div class="math notranslate nohighlight">
+\[
+MSE(\mu_X) ~ = ~ E[(X-\mu_X)^2] ~ = ~ \sigma_X^2
+\]</div>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="400"
+    height="300"
+    src="https://www.youtube.com/embed/hnm1Ht5DiWk"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
+<p>We will now show that <span class="math notranslate nohighlight">\(\mu_X\)</span> is the <em>least squares</em> constant predictor, that is, it has the smallest mean squared error among all constant predictors. Since we have guessed that <span class="math notranslate nohighlight">\(\mu_X\)</span> is the best choice, we will organize the algebra around that value.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{align*}
-E\big{[}(X - c)^2\big{]} &amp;= E\big{[} \big{(} (X - \mu_X) + (\mu_X - c) \big{)}^2 \big{]} \\
+MSE(c) ~ = ~ E\big{[}(X - c)^2\big{]} &amp;= E\big{[} \big{(} (X - \mu_X) + (\mu_X - c) \big{)}^2 \big{]} \\
 &amp;= E\big{[} (X - \mu_X)^2 \big{]} +2(\mu_X - c)E\big{[} (X-\mu_X) \big{]} + (\mu_X -c)^2 \\
 &amp;= \sigma_X^2 + 0 + (\mu_X -c)^2 \\
-&amp;\ge \sigma_X^2
+&amp;\ge \sigma_X^2 \\
+&amp;= MSE(\mu_X)
 \end{align*}
 \end{split}\]</div>
 <p>with equality if and only if <span class="math notranslate nohighlight">\(c = \mu_X\)</span>.</p>
@@ -966,81 +1003,91 @@ E\big{[}(X - c)^2\big{]} &amp;= E\big{[} \big{(} (X - \mu_X) + (\mu_X - c) \big{
 <h2><span class="section-number">12.2.1. </span>The Mean as a Least Squares Predictor<a class="headerlink" href="#the-mean-as-a-least-squares-predictor" title="Permalink to this headline">¶</a></h2>
 <p>What we have shown is the predictor <span class="math notranslate nohighlight">\(\mu_X\)</span> has the smallest mean squared error among all choices <span class="math notranslate nohighlight">\(c\)</span>. That smallest mean squared error is the variance of <span class="math notranslate nohighlight">\(X\)</span>, and hence the smallest root mean squared error is the SD <span class="math notranslate nohighlight">\(\sigma_X\)</span>.</p>
 <p>This is why a common approach to prediction is, “My guess is the mean, and I’ll be off by about an SD.”</p>
+<div class="admonition-quick-check admonition">
+<p class="admonition-title">Quick Check</p>
+<p>Your friend has a random dollar amount <span class="math notranslate nohighlight">\(X\)</span> in their wallet. Suppose you know that <span class="math notranslate nohighlight">\(E(X) = 16\)</span> dollars and <span class="math notranslate nohighlight">\(SD(X) = 3\)</span> dollars. In all your answers below, please include units of measurement.</p>
+<p>(a) What is the least squares constant predictor of <span class="math notranslate nohighlight">\(X\)</span>?</p>
+<p>(b) What is the mean squared error of this predictor?</p>
+<p>(c) What is the root mean squared error of this predictor?</p>
 </div>
-<div class="section" id="comparing-estimates">
-<h2><span class="section-number">12.2.2. </span>Comparing Estimates<a class="headerlink" href="#comparing-estimates" title="Permalink to this headline">¶</a></h2>
-<p>If we have two competing estimators of a parameter, we can use expected values and SDs to compare them.</p>
-<p>As an example, recall the German warplanes example of Data 8. The model was that we were observing <span class="math notranslate nohighlight">\(X_1, X_2, \ldots , X_n\)</span>, which are <span class="math notranslate nohighlight">\(n\)</span> draws made at random with replacement from <span class="math notranslate nohighlight">\(1, 2, \ldots , N\)</span>. The goal was to estimate <span class="math notranslate nohighlight">\(N\)</span>, the total number of warplanes.</p>
-<p>One natural estimate is <span class="math notranslate nohighlight">\(M = \max(X_1, X_2, \ldots , X_n)\)</span>. The other, developed more carefully earlier in this text than in Data 8, is <span class="math notranslate nohighlight">\(2A - 1\)</span>
-where</p>
-<div class="math notranslate nohighlight">
-\[
-A = \frac{X_1 + X_2 + \ldots + X_n}{n}
-\]</div>
-<p>is the sample average.</p>
-<p>Here is the simulation we did in Data 8, using a sample of size 30 to estimate <span class="math notranslate nohighlight">\(N\)</span> which we had taken to be 300.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Answer</p>
+<p>(a) <span class="math notranslate nohighlight">\(16\)</span> dollars</p>
+<p>(b) <span class="math notranslate nohighlight">\(9\)</span> squared dollars</p>
+<p>(c) <span class="math notranslate nohighlight">\(3\)</span> dollars</p>
+</div>
+</div>
+<div class="section" id="german-tanks-revisited">
+<h2><span class="section-number">12.2.2. </span>German Tanks, Revisited<a class="headerlink" href="#german-tanks-revisited" title="Permalink to this headline">¶</a></h2>
+<p>Recall the <a class="reference external" href="http://prob140.org/textbook/content/Chapter_08/04_Additivity.html#first-unbiased-estimator-of-a-maximum-possible-value">German tanks</a> problem in which we have a sample <span class="math notranslate nohighlight">\(X_1, X_2, \ldots , X_n\)</span> drawn at random without replacement from <span class="math notranslate nohighlight">\(1, 2, \ldots , N\)</span> for some fixed <span class="math notranslate nohighlight">\(N\)</span>, and we are trying to estimate <span class="math notranslate nohighlight">\(N\)</span>.</p>
+<p>We came up with two unbiased estimators of <span class="math notranslate nohighlight">\(N\)</span>:</p>
+<ul class="simple">
+<li><p>An estimator based on the sample mean: <span class="math notranslate nohighlight">\(T_1 = 2\bar{X}_n - 1\)</span> where <span class="math notranslate nohighlight">\(\bar{X}_n\)</span> is the sample average <span class="math notranslate nohighlight">\(\frac{1}{n}\sum_{i=1}^n X_i\)</span></p></li>
+<li><p>An estimator based on the sample maximum: <span class="math notranslate nohighlight">\(T_2 = M\cdot\frac{n+1}{n} - 1\)</span> where <span class="math notranslate nohighlight">\(M = \max(X_1, X_2, \ldots, X_n)\)</span>.</p></li>
+</ul>
+<p>Here are simulated distributions of <span class="math notranslate nohighlight">\(T_1\)</span> and <span class="math notranslate nohighlight">\(T_2\)</span> in the case <span class="math notranslate nohighlight">\(N = 300\)</span> and <span class="math notranslate nohighlight">\(n = 30\)</span>, based on 5000 repetitions.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">300</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">simulate_T1_T2</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Returns one pair of simulated values of T_1 and T_2</span>
+<span class="sd">    based on the same simple random sample&quot;&quot;&quot;</span>
+    <span class="n">tanks</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">sample</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">tanks</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">t1</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="n">t2</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">compare_T1_T2</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">repetitions</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Returns a table of simulated values of T_1 and T_2, </span>
+<span class="sd">    with the number of rows = repetitions</span>
+<span class="sd">    and each row containing the two estimates based on the same simple random sample&quot;&quot;&quot;</span>
+    <span class="n">tbl</span> <span class="o">=</span> <span class="n">Table</span><span class="p">([</span><span class="s1">&#39;T_1 = 2*Mean-1&#39;</span><span class="p">,</span> <span class="s1">&#39;T_2 = Augmented Max&#39;</span><span class="p">])</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">repetitions</span><span class="p">):</span>
+        <span class="n">tbl</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">simulate_T1_T2</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">tbl</span>
+
+<span class="n">N</span> <span class="o">=</span> <span class="mi">300</span>
 <span class="n">n</span> <span class="o">=</span> <span class="mi">30</span>
-<span class="n">serial_nos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-
-<span class="n">repetitions</span> <span class="o">=</span> <span class="mi">10000</span>
-<span class="n">maxes</span> <span class="o">=</span> <span class="n">make_array</span><span class="p">()</span>
-<span class="n">double_means</span> <span class="o">=</span> <span class="n">make_array</span><span class="p">()</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">repetitions</span><span class="p">):</span>
-    <span class="n">sample</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">serial_nos</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
-    <span class="n">maxes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">maxes</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">sample</span><span class="p">))</span>
-    <span class="n">double_means</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">double_means</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-
-<span class="n">results</span> <span class="o">=</span> <span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">with_columns</span><span class="p">(</span>
-    <span class="s1">&#39;M&#39;</span><span class="p">,</span> <span class="n">maxes</span><span class="p">,</span>
-    <span class="s1">&#39;2A - 1&#39;</span><span class="p">,</span> <span class="n">double_means</span>
-<span class="p">)</span>
+<span class="n">repetitions</span> <span class="o">=</span> <span class="mi">5000</span>
+<span class="n">comparison</span> <span class="o">=</span> <span class="n">compare_T1_T2</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="mi">5000</span><span class="p">)</span>   
+<span class="n">comparison</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">*</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;$N =$&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">N</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;, $n =$&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39; (&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">repetitions</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39; repetitions)&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/02_Prediction_and_Estimation_9_0.png" src="../../_images/02_Prediction_and_Estimation_9_0.png" />
+</div>
+</div>
+<p>We know that both estimators are unbiased: <span class="math notranslate nohighlight">\(E(T_1) = N = E(T_2)\)</span>. But is clear from the simulation that <span class="math notranslate nohighlight">\(SD(T_1) &gt; SD(T_2)\)</span> and hence <span class="math notranslate nohighlight">\(T_2\)</span> is a better estimator than <span class="math notranslate nohighlight">\(T_1\)</span>.</p>
+<p>The empirical values of the two means and standard deviations based on this simulation are calculated below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">t1</span> <span class="o">=</span> <span class="n">comparison</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">t1</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">t1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>(299.77329333333336, 30.183202960855194)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">every_ten</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="o">+</span><span class="mi">101</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
-<span class="n">results</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="n">every_ten</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">t2</span> <span class="o">=</span> <span class="n">comparison</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">t2</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">t2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/02_Prediction_and_Estimation_6_0.png" src="../../_images/02_Prediction_and_Estimation_6_0.png" />
-</div>
-</div>
-<p>We constructed the estimator <span class="math notranslate nohighlight">\(2A - 1\)</span> to be unbiased, and indeed its empirical distribution is symmetric around the parameter 300. The estimator <span class="math notranslate nohighlight">\(M\)</span> is clearly biased: it can never be larger than <span class="math notranslate nohighlight">\(N\)</span> but it can be smaller. If we just compare expectations, then <span class="math notranslate nohighlight">\(E(2A-1) = 300\)</span> while <span class="math notranslate nohighlight">\(E(M) \ne 300\)</span>, so it seems as though <span class="math notranslate nohighlight">\(2A-1\)</span> is the better estimate.</p>
-<p>But the graph tells a different story, because the graph also shows the spread in each of the two distributions. The distribution of <span class="math notranslate nohighlight">\(2A-1\)</span> is much more spread out than the distribution of <span class="math notranslate nohighlight">\(M\)</span>. The two empirical SDs differ by a factor of around 3.5:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">maxes</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>9.424365349454572
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>(299.9289866666667, 9.157997536812653)
 </pre></div>
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">double_means</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>31.978407824655687
-</pre></div>
-</div>
-</div>
-</div>
-<p>This tells us that though <span class="math notranslate nohighlight">\(M\)</span> is typically going to be below 300, it won’t be below by much, whereas <span class="math notranslate nohighlight">\(2A-1\)</span> can be quite far away from 300, underestimating about as often as it overestimates.</p>
-<p>Perhaps now you’d prefer to use <span class="math notranslate nohighlight">\(M\)</span> instead of <span class="math notranslate nohighlight">\(2A-1\)</span>.</p>
-<p>This is an example of the <em>bias-variance tradeoff</em> that is common in estimation. Both expectation and SD are important in choosing one estimator over another. As in this example, the choice isn’t always clear. But if the estimator with the lower SD also happens to be unbiased, then you can declare it the winner.</p>
+<p>These standard deviations are calculated based on empirical data given a specified value of the parameter <span class="math notranslate nohighlight">\(N = 300\)</span> and a specified sample size <span class="math notranslate nohighlight">\(n = 30\)</span>. In the next chapter we will develop properties of the SD that will allow us to obtain algebraic expressions for <span class="math notranslate nohighlight">\(SD(T_1)\)</span> and <span class="math notranslate nohighlight">\(SD(T_2)\)</span> for all <span class="math notranslate nohighlight">\(N\)</span> and <span class="math notranslate nohighlight">\(n\)</span>.</p>
 </div>
 </div>
 

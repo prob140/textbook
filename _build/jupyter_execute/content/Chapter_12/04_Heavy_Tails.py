@@ -1,19 +1,16 @@
 # HIDDEN
+import warnings
+warnings.filterwarnings('ignore')
 from datascience import *
 from prob140 import *
 import numpy as np
 import matplotlib.pyplot as plt
 plt.style.use('fivethirtyeight')
 %matplotlib inline
-import math
-from scipy import stats
-from scipy import misc
-import warnings
-warnings.filterwarnings('ignore')
 
 ## Heavy Tails ##
 
-This short section shows an example of how expectations and SDs, though very useful in many situations, aren't quite adequate when distributions have long, fat tails. Here is one such distribution.
+This short section shows an example of how expectations and SDs, though very useful in many situations, aren't quite adequate when distributions have long, fat tails. Here is one such distribution. You can see that the tail stretches out quite far.
 
 N = 1000
 n = np.arange(1, N+1, 1)
@@ -22,7 +19,7 @@ dist = Table().values(n).probabilities(probs)
 Plot(dist)
 plt.xlim(0, N/10);
 
-You can see that the tail stretches out quite far. If we sample independently from this population, how does the sample average behave? Averages are affected by values out in the tails. 
+If we sample independently from this population, how does the sample average behave? Averages are affected by values out in the tails. 
 
 Let's simulate the distribution of the average of a random sample of size 500 from this distribution. We'll do 10,000 repetitions to try to get the empirical distribution to settle down.
 
@@ -48,7 +45,7 @@ dist.sd()
 
 And there we have it. The SD is huge, even bigger than the mean. The long tail makes the SD very large – so large that even the interval "expected value plus or minus one SD" is extremely wide and contains almost all the data.
 
-To analyze heavy-tailed distributions like this, the expected value and SD aren't the best quantities to use. There is a large and growing literature on what should be used instead. You might come across it in a more advanced course.
+To analyze heavy-tailed distributions like this, the expected value and SD aren't the best quantities to use. There is a large literature on what should be used instead. You might come across it in a more advanced course.
 
 ### Zipf's Law ###
 You are almost certain to come across distributions like these if you study natural language processing, or linguistics, or economics, or even the populations of cities. The example used in this section is one of the *Zipf* distributions that occurs in those fields.

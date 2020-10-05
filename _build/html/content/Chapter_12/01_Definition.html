@@ -481,6 +481,11 @@
      12.4. Heavy Tails
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05_Exercises.html">
+     12.5. Exercises
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1">
@@ -489,23 +494,33 @@
   </a>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_13/01_Properties_of_Covariance.html">
-     13.1. Properties of Covariance
+    <a class="reference internal" href="../Chapter_13/01_Covariance.html">
+     13.1. Covariance
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_13/02_Sums_of_IID_Samples.html">
-     13.2. Sums of IID Samples
+    <a class="reference internal" href="../Chapter_13/02_Properties_of_Covariance.html">
+     13.2. Properties of Covariance
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_13/03_Sums_of_Simple_Random_Samples.html">
-     13.3. Sums of Simple Random Samples
+    <a class="reference internal" href="../Chapter_13/03_Sums_of_Independent_Variables.html">
+     13.3. Sums of Independent Variables
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_13/04_Finite_Population_Correction.html">
-     13.4. Finite Population Correction
+    <a class="reference internal" href="../Chapter_13/04_Symmetry_and_Indicators.html">
+     13.4. Symmetry and Indicators
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_13/05_Finite_Population_Correction.html">
+     13.5. Finite Population Correction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_13/06_Exercises.html">
+     13.6. Exercises
     </a>
    </li>
   </ul>
@@ -928,8 +943,8 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#root-mean-squared-deviation-from-the-mean">
-   12.1.1. Root Mean Squared Deviation from the Mean
+  <a class="reference internal nav-link" href="#standard-deviation">
+   12.1.1. Standard Deviation
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -938,23 +953,28 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#linear-functions">
+   12.1.3. Linear Functions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#computational-formula-for-variance">
-   12.1.3. “Computational” Formula for Variance
+   12.1.4. “Computational” Formula for Variance
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#indicator">
-   12.1.4. Indicator
+   12.1.5. Indicator
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#uniform">
-   12.1.5. Uniform
+   12.1.6. Uniform
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#poisson">
-   12.1.6. Poisson
+   12.1.7. Poisson
   </a>
  </li>
 </ul>
@@ -969,10 +989,30 @@
                 
   <div class="section" id="definition">
 <h1><span class="section-number">12.1. </span>Definition<a class="headerlink" href="#definition" title="Permalink to this headline">¶</a></h1>
+<p>Define the <em>deviation from the mean</em> to be <span class="math notranslate nohighlight">\(X - \mu_X\)</span>. Let’s see what we expect that to be. By the linear function rule,</p>
+<div class="math notranslate nohighlight">
+\[
+E(X - \mu_X) = E(X) - \mu_X = \mu_X - \mu_X = 0
+\]</div>
+<p>For every random variable, the expected deviation from the mean is 0. The positive deviations exactly cancel out the negative ones.</p>
+<p>This cancellation prevents us from understanding how big the deviations are regardless of their sign. But that’s what we need to measure, if we want to measure the distance between the random variable <span class="math notranslate nohighlight">\(X\)</span> and its expectation <span class="math notranslate nohighlight">\(\mu_X\)</span>.</p>
+<p>We have to get rid of the sign of the deviation somehow. One time-honored way of getting rid of the sign of a number is to take the absolute value. The other is to square the number. That’s the method we will use. As you will see, it results in a measure of spread that is crucial for understanding the sums and averages of large samples.</p>
 <p>Measuring the rough size of the squared deviations has the advantage that it avoids cancellation between positive and negative errors. The disadvantage is that squared deviations have units that are difficult to understand. The measure of spread that we are about to define takes care of this problem.</p>
-<div class="section" id="root-mean-squared-deviation-from-the-mean">
-<h2><span class="section-number">12.1.1. </span>Root Mean Squared Deviation from the Mean<a class="headerlink" href="#root-mean-squared-deviation-from-the-mean" title="Permalink to this headline">¶</a></h2>
-<p>Let <span class="math notranslate nohighlight">\(X\)</span> be a random variable with expectation <span class="math notranslate nohighlight">\(\mu_X\)</span>. The <em>standard deviation</em> of <span class="math notranslate nohighlight">\(X\)</span>, denoted <span class="math notranslate nohighlight">\(SD(X)\)</span> or <span class="math notranslate nohighlight">\(\sigma_X\)</span>, is the root mean square of deviations from the mean:</p>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="400"
+    height="300"
+    src="https://www.youtube.com/embed/9h34zgXmuqo"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
+<div class="section" id="standard-deviation">
+<h2><span class="section-number">12.1.1. </span>Standard Deviation<a class="headerlink" href="#standard-deviation" title="Permalink to this headline">¶</a></h2>
+<p>Let <span class="math notranslate nohighlight">\(X\)</span> be a random variable with expectation <span class="math notranslate nohighlight">\(\mu_X\)</span>. The <em>standard deviation</em> of <span class="math notranslate nohighlight">\(X\)</span>, denoted <span class="math notranslate nohighlight">\(SD(X)\)</span> or <span class="math notranslate nohighlight">\(\sigma_X\)</span>, is the <em>root mean square (rms) of deviations from the mean</em>:</p>
 <div class="math notranslate nohighlight">
 \[
 SD(X) = \sigma_X = \sqrt{ E\big{(} (X-\mu_X)^2 \big{)} }
@@ -995,11 +1035,6 @@ Var(X) = \sigma_X^2 = E\big{(} (X-\mu_X)^2 \big{)}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="stderr docutils container">
-<pre class="stderr literal-block">/home/ryan/anaconda3/envs/140book/lib/python3.7/site-packages/prob140/single_variable.py:350: UserWarning: .probability() is deprecated - please use .probabilities()
-  warnings.warn('.probability() is deprecated - please use .probabilities()')
-</pre>
-</div>
 <div class="output text_html"><table border="1" class="dataframe">
     <thead>
         <tr>
@@ -1090,6 +1125,17 @@ Var(X) = \sigma_X^2 = E\big{(} (X-\mu_X)^2 \big{)}
 </div>
 </div>
 </div>
+<div class="admonition-quick-check admonition">
+<p class="admonition-title">Quick Check</p>
+<p>The random variable <span class="math notranslate nohighlight">\(X\)</span> has distribution given by <span class="math notranslate nohighlight">\(P(X = -3) = 0.3\)</span>, <span class="math notranslate nohighlight">\(P(X = 1) = 0.5\)</span>, and <span class="math notranslate nohighlight">\(P(X = 2) = 0.2\)</span>.</p>
+<p>(a) Find <span class="math notranslate nohighlight">\(E(X)\)</span>.</p>
+<p>(b) Apply the definition of standard deviation to find <span class="math notranslate nohighlight">\(SD(X)\)</span>.</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Answer</p>
+<p>(a) <span class="math notranslate nohighlight">\(0\)</span></p>
+<p>(b) <span class="math notranslate nohighlight">\(2\)</span></p>
+</div>
 <p>We now know how to calculate the SD. But we don’t yet have a good understanding of what it does. Let’s start developing a few properties that it ought to have. Then we can check if it has them.</p>
 <p>First, the SD of a constant should be 0. You should check that this is indeed what the definition implies.</p>
 </div>
@@ -1104,7 +1150,7 @@ Var(X) = \sigma_X^2 = E\big{(} (X-\mu_X)^2 \big{)}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/01_Definition_13_0.png" src="../../_images/01_Definition_13_0.png" />
+<img alt="../../_images/01_Definition_17_0.png" src="../../_images/01_Definition_17_0.png" />
 </div>
 </div>
 <p>On the other hand, multiplying <span class="math notranslate nohighlight">\(X\)</span> by a constant results in a distribution that should have a different spread. Here is the distribution of <span class="math notranslate nohighlight">\(X\)</span> along with the distribution of <span class="math notranslate nohighlight">\(4X\)</span>. The spread of the distribution of <span class="math notranslate nohighlight">\(4X\)</span> appears to be four times as large as that of <span class="math notranslate nohighlight">\(X\)</span>.</p>
@@ -1117,7 +1163,7 @@ Var(X) = \sigma_X^2 = E\big{(} (X-\mu_X)^2 \big{)}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/01_Definition_15_0.png" src="../../_images/01_Definition_15_0.png" />
+<img alt="../../_images/01_Definition_19_01.png" src="../../_images/01_Definition_19_01.png" />
 </div>
 </div>
 <p>Multiplying by <span class="math notranslate nohighlight">\(-4\)</span> should have the same effect on the spread as multiplying by 4, as the figure below shows. One histogram is just the mirror image of the other about the vertical axis at 0. There is no change in spread.</p>
@@ -1129,10 +1175,25 @@ Var(X) = \sigma_X^2 = E\big{(} (X-\mu_X)^2 \big{)}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/01_Definition_17_0.png" src="../../_images/01_Definition_17_0.png" />
+<img alt="../../_images/01_Definition_21_0.png" src="../../_images/01_Definition_21_0.png" />
 </div>
 </div>
-<p>The graphs above help us visualize what happens to the SD when the random variable is transformed linearly. Let <span class="math notranslate nohighlight">\(Y = aX + b\)</span>. Then</p>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="400"
+    height="300"
+    src="https://www.youtube.com/embed/zF-_2JwObjQ"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
+</div>
+<div class="section" id="linear-functions">
+<h2><span class="section-number">12.1.3. </span>Linear Functions<a class="headerlink" href="#linear-functions" title="Permalink to this headline">¶</a></h2>
+<p>The graphs above help us visualize what happens to the SD when the random variable is transformed linearly, for example when changing units of measurement. Let <span class="math notranslate nohighlight">\(Y = aX + b\)</span>. Then</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{align*}
@@ -1142,16 +1203,24 @@ Var(Y) = E\big{[} (Y-\mu_Y)^2 \big{]} &amp;= E\big{[} (aX + b - a\mu_X - b)^2 \b
 \end{align*}
 \end{split}\]</div>
 <p>Notice that the shift <span class="math notranslate nohighlight">\(b\)</span> has no effect on the variance. This is consistent with what we saw in the first visualization above.</p>
-<p>Because the units of the variance are the square of the units of <span class="math notranslate nohighlight">\(X\)</span>, <span class="math notranslate nohighlight">\(Var(Y)\)</span> is <span class="math notranslate nohighlight">\(a^2\)</span> times the variance of <span class="math notranslate nohighlight">\(X\)</span>. Thus <span class="math notranslate nohighlight">\(SD(Y)\)</span> is</p>
+<p>Because the units of the variance are the square of the units of <span class="math notranslate nohighlight">\(X\)</span>, <span class="math notranslate nohighlight">\(Var(Y)\)</span> is <span class="math notranslate nohighlight">\(a^2\)</span> times the variance of <span class="math notranslate nohighlight">\(X\)</span>. That is,</p>
 <div class="math notranslate nohighlight">
 \[
-SD(aX + b) = |a|\sigma_X
+Var(aX + b) = a^2Var(X), ~~~~~~~~~~~~~~~~~~ SD(aX + b) = |a|\sigma_X
 \]</div>
 <p>Notice that you get the same answer when the multiplicative constant is <span class="math notranslate nohighlight">\(a\)</span> as when it is <span class="math notranslate nohighlight">\(-a\)</span>. That is what the two “mirror image” histograms had shown.</p>
 <p>In particular, it is very handy to remember that <span class="math notranslate nohighlight">\(SD(X) = SD(-X)\)</span>.</p>
+<div class="admonition-quick-check admonition">
+<p class="admonition-title">Quick Check</p>
+<p>Let <span class="math notranslate nohighlight">\(E(X) = 10\)</span> and <span class="math notranslate nohighlight">\(SD(X) = 2\)</span>. Let <span class="math notranslate nohighlight">\(Y = 4 - 3X\)</span>. Find the expectation and SD of <span class="math notranslate nohighlight">\(Y\)</span>.</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Answer</p>
+<p><span class="math notranslate nohighlight">\(E(Y) = -26\)</span>, <span class="math notranslate nohighlight">\(SD(Y) = 6\)</span></p>
+</div>
 </div>
 <div class="section" id="computational-formula-for-variance">
-<h2><span class="section-number">12.1.3. </span>“Computational” Formula for Variance<a class="headerlink" href="#computational-formula-for-variance" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">12.1.4. </span>“Computational” Formula for Variance<a class="headerlink" href="#computational-formula-for-variance" title="Permalink to this headline">¶</a></h2>
 <p>An algebraic simplification of the formula for variance turns out to be very useful.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -1164,10 +1233,36 @@ SD(aX + b) = |a|\sigma_X
 \end{align*}
 \end{split}\]</div>
 <p>Thus the variance is the “mean of the square minus the square of the mean.”</p>
-<p>Though this is often called the “computational” formula for variance, it can be be numerically inaccurate if the possible values of <span class="math notranslate nohighlight">\(X\)</span> are large and numerous. For algebraic computation, however, it is very useful. Here are several examples.</p>
+<p>Apart from giving us an alternative way of calculating variance, the formula tells us something about the relation between <span class="math notranslate nohighlight">\(E(X^2)\)</span> and <span class="math notranslate nohighlight">\(\mu_X^2 = (E(X))^2\)</span>. Since variance is non-negative, the formula shows that</p>
+<div class="math notranslate nohighlight">
+\[
+E(X^2) ~ \ge ~ (E(X))^2
+\]</div>
+<p>with equality only when <span class="math notranslate nohighlight">\(X\)</span> is a constant.</p>
+<p>The formula is often called the “computational” formula for variance. But it can be be numerically inaccurate if the possible values of <span class="math notranslate nohighlight">\(X\)</span> are large and numerous. For algebraic computation, however, it is very useful, as you will see in the calculations below.</p>
+<div class="admonition-quick-check admonition">
+<p class="admonition-title">Quick Check</p>
+<p>Return to the random variable <span class="math notranslate nohighlight">\(X\)</span> that has distribution given by <span class="math notranslate nohighlight">\(P(X = -3) = 0.3\)</span>, <span class="math notranslate nohighlight">\(P(X = 1) = 0.5\)</span>, and <span class="math notranslate nohighlight">\(P(X = 2) = 0.2\)</span>. Earlier, you found <span class="math notranslate nohighlight">\(SD(X)\)</span> by applying the definition of standard deviation. Now find <span class="math notranslate nohighlight">\(SD(X)\)</span> by using the “computational” formula for variance.</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Answer</p>
+<p><span class="math notranslate nohighlight">\(2\)</span></p>
+</div>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="400"
+    height="300"
+    src="https://www.youtube.com/embed/lfJWb_s3MSI"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
 </div>
 <div class="section" id="indicator">
-<h2><span class="section-number">12.1.4. </span>Indicator<a class="headerlink" href="#indicator" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">12.1.5. </span>Indicator<a class="headerlink" href="#indicator" title="Permalink to this headline">¶</a></h2>
 <p>The values of an indicator random variable are 0 and 1. Each of those two numbers is equal to its square. So if <span class="math notranslate nohighlight">\(I\)</span> is an indicator, then <span class="math notranslate nohighlight">\(I^2 = I\)</span>, and thus</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1180,7 +1275,7 @@ SD(I) = \sqrt{p(1-p)}
 \]</div>
 </div>
 <div class="section" id="uniform">
-<h2><span class="section-number">12.1.5. </span>Uniform<a class="headerlink" href="#uniform" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">12.1.6. </span>Uniform<a class="headerlink" href="#uniform" title="Permalink to this headline">¶</a></h2>
 <p>Let <span class="math notranslate nohighlight">\(U\)</span> be uniform on <span class="math notranslate nohighlight">\(1, 2, 3, \ldots, n\)</span>. Then</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -1207,8 +1302,8 @@ SD(U) = \sqrt{\frac{n^2-1}{12}}
 <p>By shifting, this is the same as the SD of the uniform distribution on any <span class="math notranslate nohighlight">\(n\)</span> consecutive integers.</p>
 </div>
 <div class="section" id="poisson">
-<h2><span class="section-number">12.1.6. </span>Poisson<a class="headerlink" href="#poisson" title="Permalink to this headline">¶</a></h2>
-<p>Let <span class="math notranslate nohighlight">\(X\)</span> have the Poisson <span class="math notranslate nohighlight">\((\mu)\)</span> distribution. In the previous chapter we showed that</p>
+<h2><span class="section-number">12.1.7. </span>Poisson<a class="headerlink" href="#poisson" title="Permalink to this headline">¶</a></h2>
+<p>Let <span class="math notranslate nohighlight">\(X\)</span> have the Poisson <span class="math notranslate nohighlight">\((\mu)\)</span> distribution. In <a class="reference external" href="http://prob140.org/textbook/content/Chapter_08/04_Additivity.html#e-x-2-for-a-poisson-variable-x">Chapter 8</a> we showed that</p>
 <div class="math notranslate nohighlight">
 \[
 E(X^2) = \mu^2 + \mu
@@ -1223,7 +1318,7 @@ Var(X) = \mu^2 + \mu - \mu^2 = \mu
 \[
 SD(X) = \sqrt{\mu}
 \]</div>
-<p>So for example if <span class="math notranslate nohighlight">\(X\)</span> has the Poisson <span class="math notranslate nohighlight">\((5)\)</span> distribution, then <span class="math notranslate nohighlight">\(E(X) = 5\)</span> and <span class="math notranslate nohighlight">\(SD(X) = \sqrt{5} \approx 2.24\)</span>. In the remainder of this chapter, we will try to figure out what that means.</p>
+<p>So for example if <span class="math notranslate nohighlight">\(X\)</span> has the Poisson <span class="math notranslate nohighlight">\((5)\)</span> distribution, then <span class="math notranslate nohighlight">\(E(X) = 5\)</span> and <span class="math notranslate nohighlight">\(SD(X) = \sqrt{5} \approx 2.24\)</span>. In the this chapter and the next, we will try to figure out what that means.</p>
 </div>
 </div>
 

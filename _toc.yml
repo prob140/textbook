@@ -106,13 +106,16 @@
     - file: content/Chapter_12/02_Prediction_and_Estimation
     - file: content/Chapter_12/03_Bounds
     - file: content/Chapter_12/04_Heavy_Tails
+    - file: content/Chapter_12/05_Exercises
   - file: content/Chapter_13/00_Variance_Via_Covariance
     expand_sections: true
     sections:
-    - file: content/Chapter_13/01_Properties_of_Covariance
-    - file: content/Chapter_13/02_Sums_of_IID_Samples
-    - file: content/Chapter_13/03_Sums_of_Simple_Random_Samples
-    - file: content/Chapter_13/04_Finite_Population_Correction
+    - file: content/Chapter_13/01_Covariance
+    - file: content/Chapter_13/02_Properties_of_Covariance
+    - file: content/Chapter_13/03_Sums_of_Independent_Variables
+    - file: content/Chapter_13/04_Symmetry_and_Indicators
+    - file: content/Chapter_13/05_Finite_Population_Correction
+    - file: content/Chapter_13/06_Exercises
   - file: content/Chapter_14/00_The_Central_Limit_Theorem
     expand_sections: true
     sections:

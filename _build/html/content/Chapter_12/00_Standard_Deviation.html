@@ -481,6 +481,11 @@
      12.4. Heavy Tails
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05_Exercises.html">
+     12.5. Exercises
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1">
@@ -489,23 +494,33 @@
   </a>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_13/01_Properties_of_Covariance.html">
-     13.1. Properties of Covariance
+    <a class="reference internal" href="../Chapter_13/01_Covariance.html">
+     13.1. Covariance
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_13/02_Sums_of_IID_Samples.html">
-     13.2. Sums of IID Samples
+    <a class="reference internal" href="../Chapter_13/02_Properties_of_Covariance.html">
+     13.2. Properties of Covariance
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_13/03_Sums_of_Simple_Random_Samples.html">
-     13.3. Sums of Simple Random Samples
+    <a class="reference internal" href="../Chapter_13/03_Sums_of_Independent_Variables.html">
+     13.3. Sums of Independent Variables
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_13/04_Finite_Population_Correction.html">
-     13.4. Finite Population Correction
+    <a class="reference internal" href="../Chapter_13/04_Symmetry_and_Indicators.html">
+     13.4. Symmetry and Indicators
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_13/05_Finite_Population_Correction.html">
+     13.5. Finite Population Correction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_13/06_Exercises.html">
+     13.6. Exercises
     </a>
    </li>
   </ul>
@@ -938,20 +953,7 @@
   <div class="section" id="standard-deviation">
 <h1><span class="section-number">12. </span>Standard Deviation<a class="headerlink" href="#standard-deviation" title="Permalink to this headline">¶</a></h1>
 <p>The expected value <span class="math notranslate nohighlight">\(\mu_X\)</span> of a random variable <span class="math notranslate nohighlight">\(X\)</span> is a measure of the center of the distribution of <span class="math notranslate nohighlight">\(X\)</span>. But we know that <span class="math notranslate nohighlight">\(X\)</span> need not be equal to <span class="math notranslate nohighlight">\(\mu_X\)</span>; indeed, <span class="math notranslate nohighlight">\(\mu_X\)</span> need not even be a possible value of <span class="math notranslate nohighlight">\(X\)</span>.</p>
-<p>How far from <span class="math notranslate nohighlight">\(\mu_X\)</span> can <span class="math notranslate nohighlight">\(X\)</span> be? This chapter develops an answer to that question.</p>
-<p>As a starting point, it is natural to look at the <em>deviation from the mean</em></p>
-<div class="math notranslate nohighlight">
-\[
-X - \mu_X
-\]</div>
-<p>and try to get a sense of what we expect that to be. By the linear function rule,</p>
-<div class="math notranslate nohighlight">
-\[
-E(X - \mu_X) = E(X) - \mu_X = \mu_X - \mu_X = 0
-\]</div>
-<p>For every random variable, the expected deviation from the mean is 0. The positive deviations exactly cancel out the negative ones.</p>
-<p>This cancellation prevents us from understanding how big the deviations are regardless of their sign. But that’s what we need to measure, if we want to measure the distance between the random variable <span class="math notranslate nohighlight">\(X\)</span> and its expectation <span class="math notranslate nohighlight">\(\mu_X\)</span>.</p>
-<p>We have to get rid of the sign of the deviation somehow. One time-honored way of getting rid of the sign of a number is to take the absolute value. The other is to square the number. That’s the method we will use. As you will see, it results in a measure of spread that is crucial for understanding the sums and averages of large samples.</p>
+<p>How far from <span class="math notranslate nohighlight">\(\mu_X\)</span> can <span class="math notranslate nohighlight">\(X\)</span> be? This chapter develops an answer to that question, by examining the <em>mean squared error</em> familiar to you from Data 8.</p>
 <div class="toctree-wrapper compound">
 </div>
 </div>

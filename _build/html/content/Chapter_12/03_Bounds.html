@@ -481,6 +481,11 @@
      12.4. Heavy Tails
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05_Exercises.html">
+     12.5. Exercises
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1">
@@ -489,23 +494,33 @@
   </a>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_13/01_Properties_of_Covariance.html">
-     13.1. Properties of Covariance
+    <a class="reference internal" href="../Chapter_13/01_Covariance.html">
+     13.1. Covariance
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_13/02_Sums_of_IID_Samples.html">
-     13.2. Sums of IID Samples
+    <a class="reference internal" href="../Chapter_13/02_Properties_of_Covariance.html">
+     13.2. Properties of Covariance
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_13/03_Sums_of_Simple_Random_Samples.html">
-     13.3. Sums of Simple Random Samples
+    <a class="reference internal" href="../Chapter_13/03_Sums_of_Independent_Variables.html">
+     13.3. Sums of Independent Variables
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_13/04_Finite_Population_Correction.html">
-     13.4. Finite Population Correction
+    <a class="reference internal" href="../Chapter_13/04_Symmetry_and_Indicators.html">
+     13.4. Symmetry and Indicators
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_13/05_Finite_Population_Correction.html">
+     13.5. Finite Population Correction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_13/06_Exercises.html">
+     13.6. Exercises
     </a>
    </li>
   </ul>
@@ -938,18 +953,28 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#chebyshev-s-inequality">
-   12.3.3. Chebyshev’s Inequality
+  <a class="reference internal nav-link" href="#another-way-of-writing-markov-s-inequality">
+   12.3.3. Another Way of Writing Markov’s Inequality
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#standard-units">
-   12.3.4. Standard Units
+  <a class="reference internal nav-link" href="#chebyshev-s-inequality">
+   12.3.4. Chebyshev’s Inequality
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bound-on-one-tail">
+   12.3.5. Bound on One Tail
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#another-way-of-writing-chebyshev-s-inequality">
-   12.3.5. Another Way of Writing Chebyshev’s Inequality
+   12.3.6. Another Way of Writing Chebyshev’s Inequality
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#standard-units">
+   12.3.7. Standard Units
   </a>
  </li>
 </ul>
@@ -987,6 +1012,26 @@
 <img alt="../../_images/03_Bounds_6_0.png" src="../../_images/03_Bounds_6_0.png" />
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># VIDEO: Markov&#39;s Inequality</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">YouTubeVideo</span>
+
+<span class="n">YouTubeVideo</span><span class="p">(</span><span class="s1">&#39;WIokPScne_8&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="400"
+    height="300"
+    src="https://www.youtube.com/embed/WIokPScne_8"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
 <p>The function <span class="math notranslate nohighlight">\(h\)</span> is the indicator defined by <span class="math notranslate nohighlight">\(h(x) = I(x \ge c)\)</span>. So <span class="math notranslate nohighlight">\(h(X) = I(X \ge c)\)</span> and <span class="math notranslate nohighlight">\(E(h(X)) = P(X \ge c)\)</span>.</p>
 <p>The function <span class="math notranslate nohighlight">\(g\)</span> is constructed so that the graph of <span class="math notranslate nohighlight">\(g\)</span> is a straight line that is at or above the graph of <span class="math notranslate nohighlight">\(h\)</span> on <span class="math notranslate nohighlight">\([0, \infty)\)</span>, with the two graphs meeting at <span class="math notranslate nohighlight">\(x = 0\)</span> and <span class="math notranslate nohighlight">\(x = c\)</span>. The equation of the straight line is <span class="math notranslate nohighlight">\(g(x) = x/c\)</span>.</p>
 <p>Thus <span class="math notranslate nohighlight">\(g(X) = X/c\)</span> and hence <span class="math notranslate nohighlight">\(E(g(X)) = E(X/c) = E(X)/c\)</span>.</p>
@@ -1014,16 +1059,27 @@ P(X \ge c) ~ \le ~ \frac{E(X)}{c}
 <p>You can see that the bound is pretty crude. The gold area is clearly quite a bit less than 0.325.</p>
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/03_Bounds_8_0.png" src="../../_images/03_Bounds_8_0.png" />
+<img alt="../../_images/03_Bounds_9_0.png" src="../../_images/03_Bounds_9_0.png" />
 </div>
 </div>
+<div class="admonition-quick-check admonition">
+<p class="admonition-title">Quick Check</p>
+<p>Students in a dorm have 4 packets of Oreos, on average. Let <span class="math notranslate nohighlight">\(R\)</span> be the number of packets of Oreos that a randomly picked student has. Find or provide lower and upper bounds on <span class="math notranslate nohighlight">\(P(R &gt; 12)\)</span>.</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Answer</p>
+<p>Between <span class="math notranslate nohighlight">\(0\)</span> and <span class="math notranslate nohighlight">\(1/3\)</span></p>
+</div>
+</div>
+<div class="section" id="another-way-of-writing-markov-s-inequality">
+<h2><span class="section-number">12.3.3. </span>Another Way of Writing Markov’s Inequality<a class="headerlink" href="#another-way-of-writing-markov-s-inequality" title="Permalink to this headline">¶</a></h2>
 <p>Another way to think of Markov’s bound is that if <span class="math notranslate nohighlight">\(X\)</span> is a non-negative random variable with expectation <span class="math notranslate nohighlight">\(\mu_X\)</span>, then</p>
 <div class="math notranslate nohighlight">
 \[
 P(X \ge k\mu_X) ~ \le ~ \frac{1}{k} ~~~ \text{for all } k &gt; 0
 \]</div>
 <p>That is, <span class="math notranslate nohighlight">\(P(X \ge 2\mu_X) \le 1/2\)</span>, <span class="math notranslate nohighlight">\(P(X \ge 5\mu_X) \le 1/5\)</span>, and so on. The chance that a non-negative random variable is at least <span class="math notranslate nohighlight">\(k\)</span> times the mean is at most <span class="math notranslate nohighlight">\(1/k\)</span>.</p>
-<p>Notes:</p>
+<p><strong>Notes:</strong></p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(k\)</span> need not be an integer. For example, the chance that a non-negative random variable is at least 3.8 times the mean is at most <span class="math notranslate nohighlight">\(1/3.8\)</span>.</p></li>
 <li><p>If <span class="math notranslate nohighlight">\(k \le 1\)</span>, the inequality doesn’t tell you anything you didn’t already know. If <span class="math notranslate nohighlight">\(k \le 1\)</span> then Markov’s bound is 1 or greater. All probabilities are bounded above by 1, so the inequality is true but useless for <span class="math notranslate nohighlight">\(k \le 1\)</span>.</p></li>
@@ -1031,24 +1087,94 @@ P(X \ge k\mu_X) ~ \le ~ \frac{1}{k} ~~~ \text{for all } k &gt; 0
 </ul>
 </div>
 <div class="section" id="chebyshev-s-inequality">
-<h2><span class="section-number">12.3.3. </span>Chebyshev’s Inequality<a class="headerlink" href="#chebyshev-s-inequality" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">12.3.4. </span>Chebyshev’s Inequality<a class="headerlink" href="#chebyshev-s-inequality" title="Permalink to this headline">¶</a></h2>
 <p>Markov’s bound only uses <span class="math notranslate nohighlight">\(E(X)\)</span>, not <span class="math notranslate nohighlight">\(SD(X)\)</span>. To get bounds on tails it seems better to use <span class="math notranslate nohighlight">\(SD(X)\)</span> if we can. <em>Chebyshev’s Inequality</em> does just that. It provides a bound on the two tails outside an interval that is symmetric about <span class="math notranslate nohighlight">\(E(X)\)</span> as in the following graph.</p>
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/03_Bounds_12_0.png" src="../../_images/03_Bounds_12_0.png" />
+<img alt="../../_images/03_Bounds_14_0.png" src="../../_images/03_Bounds_14_0.png" />
 </div>
 </div>
-<p>The red arrow marks <span class="math notranslate nohighlight">\(\mu_X\)</span> as usual, and now the two blue arrows are at a distance of <span class="math notranslate nohighlight">\(SD(X)\)</span> on either side of the mean. It is often going to be convenient to think of <span class="math notranslate nohighlight">\(E(X)\)</span> as “the origin” and to measure distances in units of SDs on either side.</p>
-<p>Thus we can think of the gold area as the probability that <span class="math notranslate nohighlight">\(X\)</span> is at least <span class="math notranslate nohighlight">\(z\)</span> SDs away from <span class="math notranslate nohighlight">\(\mu_X\)</span>, for some positive <span class="math notranslate nohighlight">\(z\)</span>. Now</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># VIDEO: Chebyshev&#39;s Inequality</span>
+
+<span class="n">YouTubeVideo</span><span class="p">(</span><span class="s1">&#39;n6DilL4PzAQ&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="400"
+    height="300"
+    src="https://www.youtube.com/embed/n6DilL4PzAQ"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
+<p>The red arrow marks <span class="math notranslate nohighlight">\(\mu_X\)</span> as usual, and now the two blue arrows are at a distance of <span class="math notranslate nohighlight">\(SD(X)\)</span> on either side of the mean. The gold tails start at the same constant <span class="math notranslate nohighlight">\(c\)</span> on either side of <span class="math notranslate nohighlight">\(\mu\)</span>. We will get an upper bound on the gold area by applying Markov’s Inequality to the non-negative random variable <span class="math notranslate nohighlight">\((X - \mu_X)^2\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{align*}
-P\big{(}|X - \mu_X| \ge z\sigma_X\big{)} &amp;= P\big{(}(X-\mu_X)^2 \ge z^2\sigma_X^2\big{)} \\ \\
+P\big{(}|X - \mu_X| \ge c\big{)} &amp;= P\big{(}(X-\mu_X)^2 \ge c^2\big{)} \\ \\
 &amp;\le \frac{E\big{[}(X-\mu_X)^2\big{]}}{z^2\sigma_X^2} ~~~~~ \text{(Markov's Inequality)}\\ \\
-&amp;= \frac{\sigma_X^2}{z^2\sigma_X^2} ~~~~~ \text{(definition of variance)} \\ \\
-&amp;= \frac{1}{z^2}
+&amp;= \frac{\sigma_X^2}{c^2} ~~~~~ \text{(definition of variance)} 
 \end{align*}
 \end{split}\]</div>
+<p>The figure below is analogous to the figure drawn earlier to illustrate the derivation of Markov’s inequality.</p>
+<p>The graph of the quadratic function <span class="math notranslate nohighlight">\(g(x) = (x - \mu_X)^2/c^2\)</span> is always at or above the graph of the indicator function <span class="math notranslate nohighlight">\(h(x) = I(\vert x - \mu_X \vert \ge c)\)</span>.</p>
+<p>Chebyshev’s Inequality is just a restatement of the fact that <span class="math notranslate nohighlight">\(E(g(X)) ~ \ge ~ E(h(X)) ~ = ~ P(\vert X - \mu_X \vert \ge c)\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># NO CODE</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mf">5.01</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="mi">9</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;h&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.2</span><span class="p">,</span> <span class="mi">5</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;$\mu_X -c$&#39;</span><span class="p">,</span> <span class="s1">&#39;$\mu_X$&#39;</span><span class="p">,</span> <span class="s1">&#39;$\mu_X +c$&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;$g(x) = (x - \mu_X)^2/c^2$,  $h(x) = I(|x - \mu_X| \geq c)$&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/03_Bounds_19_0.png" src="../../_images/03_Bounds_19_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="bound-on-one-tail">
+<h2><span class="section-number">12.3.5. </span>Bound on One Tail<a class="headerlink" href="#bound-on-one-tail" title="Permalink to this headline">¶</a></h2>
+<p>It is important to remember that Chebyshev’s Inequality just provides an upper bound on the total of two tail probabilities. It is not an exact probability or an approximation. The same upper bound applies for a single tail:</p>
+<div class="math notranslate nohighlight">
+\[
+P(X - \mu_X \ge c) ~ \le ~ P(|X - \mu_X| \le c) ~ \le ~ \frac{\sigma_X^2}{c^2}
+\]</div>
+<p>Don’t yield to the temptation of dividing the bound by 2. The two tails need not be equal. There is no assumption of symmetry.</p>
+<div class="admonition-quick-check admonition">
+<p class="admonition-title">Quick Check</p>
+<p>Suppose <span class="math notranslate nohighlight">\(E(X) = 50\)</span> and <span class="math notranslate nohighlight">\(SD(X) = 5\)</span>.</p>
+<p>(a) Find the best upper bound you can for <span class="math notranslate nohighlight">\(P(\vert X - 50 \vert \ge 30)\)</span>.</p>
+<p>(b) Find the best upper bound you can for <span class="math notranslate nohighlight">\(P(X - 50 \ge 30)\)</span>.</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Answer</p>
+<p>Both upper bounds are <span class="math notranslate nohighlight">\(1/36\)</span></p>
+</div>
+</div>
+<div class="section" id="another-way-of-writing-chebyshev-s-inequality">
+<h2><span class="section-number">12.3.6. </span>Another Way of Writing Chebyshev’s Inequality<a class="headerlink" href="#another-way-of-writing-chebyshev-s-inequality" title="Permalink to this headline">¶</a></h2>
+<p>It is often going to be convenient to think of <span class="math notranslate nohighlight">\(E(X)\)</span> as “the origin” and to measure distances in units of SDs on either side.</p>
+<p>Thus we can think of the two tails as the event “<span class="math notranslate nohighlight">\(X\)</span> is at least <span class="math notranslate nohighlight">\(z\)</span> SDs away from <span class="math notranslate nohighlight">\(\mu_X\)</span>”, for some positive <span class="math notranslate nohighlight">\(z\)</span>. Chebyshev’s Inequality says</p>
+<div class="math notranslate nohighlight">
+\[
+P(\vert X - \mu_X \vert \ge z\sigma_X) ~ \le ~ \frac{\sigma_X^2}{z^2\sigma_X^2} ~ = ~ \frac{1}{z^2}
+\]</div>
+<p>This is the form in which you saw Chebyshev’s Inequality in Data 8.</p>
 <p>Chebyshev’s Inequality makes no assumptions about the shape of the distribution. It implies that no matter what the distribution of <span class="math notranslate nohighlight">\(X\)</span> looks like,</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(P(\mu_X - 2\sigma_X &lt; X &lt; \mu_X + 2\sigma_X) &gt; 1 - 1/4 = 75\%\)</span></p></li>
@@ -1059,9 +1185,28 @@ P\big{(}|X - \mu_X| \ge z\sigma_X\big{)} &amp;= P\big{(}(X-\mu_X)^2 \ge z^2\sigm
 <p>That is, <em>no matter what the shape of the distribution</em>, the bulk of the probability is in the interval “expected value plus or minus a few SDs”.</p>
 <p>This is one reason why the SD is a good measure of spread. No matter what the distribution, if you know the expectation and the SD then you have a pretty good sense of where the bulk of the probability is located.</p>
 <p>If you happen to know more about the distribution then of course you can do better than Chebyshev’s bound. But in general Chebyshev’s bound is as well as you can do without making further assumptions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># VIDEO: Standard Units</span>
+
+<span class="n">YouTubeVideo</span><span class="p">(</span><span class="s1">&#39;y6RF-WBJciY&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="400"
+    height="300"
+    src="https://www.youtube.com/embed/y6RF-WBJciY"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
 </div>
 <div class="section" id="standard-units">
-<h2><span class="section-number">12.3.4. </span>Standard Units<a class="headerlink" href="#standard-units" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">12.3.7. </span>Standard Units<a class="headerlink" href="#standard-units" title="Permalink to this headline">¶</a></h2>
 <p>To formalize the notion of “setting <span class="math notranslate nohighlight">\(\mu_X\)</span> as the origin and measuring distances in units of <span class="math notranslate nohighlight">\(\sigma_X\)</span>, we define a random variable <span class="math notranslate nohighlight">\(Z\)</span> called “<span class="math notranslate nohighlight">\(X\)</span> in standard units” as follows:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1078,6 +1223,11 @@ X = Z\sigma_X + \mu_X
 E(Z) = 0 ~~~~ \text{and} ~~~~ SD(Z) = 1
 \]</div>
 <p>no matter what the distribution of <span class="math notranslate nohighlight">\(X\)</span> is.</p>
+<p>Also note that because <span class="math notranslate nohighlight">\(Var(Z) = 1\)</span>, we have</p>
+<div class="math notranslate nohighlight">
+\[
+E(Z^2) ~ = ~ Var(Z) + (E(Z))^2 ~ = ~ 1 + 0^2 ~ = ~ 1
+\]</div>
 <p>Chebyshev’s Inequality says</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1089,24 +1239,6 @@ P(|X - \mu_X| \ge z\sigma_X) \le \frac{1}{z^2}
 P(|Z| \ge z) \le \frac{1}{z^2}
 \]</div>
 <p>So if you have converted a random variable to standard units, the overwhelming majority of the values of the standardized variable should be in the range <span class="math notranslate nohighlight">\(-5\)</span> to <span class="math notranslate nohighlight">\(5\)</span>. It is possible that there are values outside that range, but it is not likely.</p>
-</div>
-<div class="section" id="another-way-of-writing-chebyshev-s-inequality">
-<h2><span class="section-number">12.3.5. </span>Another Way of Writing Chebyshev’s Inequality<a class="headerlink" href="#another-way-of-writing-chebyshev-s-inequality" title="Permalink to this headline">¶</a></h2>
-<p>Chebyshev’s Inequality is often written as follows:</p>
-<p>For all <span class="math notranslate nohighlight">\(c &gt; 0\)</span>,</p>
-<div class="math notranslate nohighlight">
-\[
-P\big{(}|X - \mu_X| \ge c \big{)} ~ \le ~ \frac{\sigma_X^2}{c^2}
-\]</div>
-<p>This is the same as our statement but with <span class="math notranslate nohighlight">\(c\)</span> replacing <span class="math notranslate nohighlight">\(z\sigma_X\)</span>. We will use whichever form happens to be convenient in a given setting.</p>
-<p>The figure below is analogous to the figure drawn earlier to illustrate the derivation of Markov’s inequality.</p>
-<p>The graph of the quadratic function <span class="math notranslate nohighlight">\(g(x) = (x - \mu_X)^2/c^2\)</span> is always at or above the graph of the indicator function <span class="math notranslate nohighlight">\(h(x) = I(\vert x - \mu_X \vert \ge c)\)</span>.</p>
-<p>Thus <span class="math notranslate nohighlight">\(E(g(X)) ~ \ge ~ E(h(X)) ~ = ~ P(\vert X - \mu_X \vert \ge c)\)</span>. Chebyshev’s inequality follows, because <span class="math notranslate nohighlight">\(E(g(X)) ~ = ~ E((X - \mu_X)^2)/c^2 ~ = ~ \sigma_X^2/c^2\)</span>.</p>
-<div class="cell tag_remove_input docutils container">
-<div class="cell_output docutils container">
-<img alt="../../_images/03_Bounds_17_0.png" src="../../_images/03_Bounds_17_0.png" />
-</div>
-</div>
 </div>
 </div>
 
