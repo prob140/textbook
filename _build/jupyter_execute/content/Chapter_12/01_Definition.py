@@ -75,7 +75,7 @@ The `prob140` method `sd` applied to a distribution object returns the standard 
 dist_X.sd()
 
 ```{admonition} Quick Check
-The random variable $X$ has distribution given by $P(X = -3) = 0.3$, $P(X = 1) = 0.5$, and $P(X = 2) = 0.2$.
+The random variable $X$ has distribution given by $P(X = -2) = 0.3$, $P(X = 2) = 0.5$, and $P(X = 3) = 0.2$.
 
 (a) Find $E(X)$.
 
@@ -85,7 +85,7 @@ The random variable $X$ has distribution given by $P(X = -3) = 0.3$, $P(X = 1) =
 
 ```{admonition} Answer
 :class: dropdown
-(a) $0$
+(a) $1$
 
 (b) $2$
 
@@ -177,7 +177,7 @@ with equality only when $X$ is a constant.
 The formula is often called the "computational" formula for variance. But it can be be numerically inaccurate if the possible values of $X$ are large and numerous. For algebraic computation, however, it is very useful, as you will see in the calculations below.
 
 ```{admonition} Quick Check
-Return to the random variable $X$ that has distribution given by $P(X = -3) = 0.3$, $P(X = 1) = 0.5$, and $P(X = 2) = 0.2$. Earlier, you found $SD(X)$ by applying the definition of standard deviation. Now find $SD(X)$ by using the "computational" formula for variance.
+Return to the random variable $X$ that has distribution given by $P(X = -2) = 0.3$, $P(X = 2) = 0.5$, and $P(X = 3) = 0.2$. Earlier, you found $SD(X)$ by applying the definition of standard deviation. Now find $SD(X)$ by using the "computational" formula for variance.
 
 ```
 

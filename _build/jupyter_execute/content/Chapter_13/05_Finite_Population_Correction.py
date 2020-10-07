@@ -12,13 +12,14 @@ from scipy import stats
 Data scientists often have to work with a relatively small sample from an enormous population. So suppose we are drawing at random $n$ times from a population of size $N$ where $N$ is large and $n$ is small relative to $N$. Just go with the flow for now – all of this will become more precise as this section develops.
 
 Suppose the population mean is $\mu$ and the population SD is $\sigma$. Let $S_n$ be the sample sum. Then, regardless of whether the sample is drawn with replacement or without,
+
 $$
 E(S_n) = n\mu
 $$
 
 The variance of the sample sum is different in the two cases.
 
-|$~~~~~~~~~~~~~~~~~$ | sampling with replacement | sampling without replacement|
+|$~~~~~~~~~~~~~~~~~$ | with replacement | without replacement|
 |:---------:|:-------------------------:|:---------------------------:|
 |$Var(S_n)$ |$n\sigma^2$                | $n\sigma^2\frac{N-n}{N-1}$  |
 |$SD(S_n)$  |$\sqrt{n}\sigma$           | $\sqrt{n}\sigma\sqrt{\frac{N-n}{N-1}}$  |
@@ -39,6 +40,7 @@ The fpc gives us a way to quantify this idea.
 
 ### The Size of the FPC ###
 First note that when $N$ is even moderately large,
+
 $$
 \frac{N-n}{N-1} ~ \approx ~ \frac{N-n}{N} ~ = ~ 1 - \frac{n}{N}
 $$
@@ -50,7 +52,9 @@ If $N$ is large and $n$ is small relative to $N$, then
 $$
 \frac{N-n}{N-1} ~ \approx ~ 1 - \frac{n}{N} ~ \approx ~ 1
 $$
+
 which also implies
+
 $$
 \sqrt{\frac{N-n}{N-1}} ~ \approx ~ 1
 $$
@@ -93,3 +97,4 @@ $$
 which involves only the sample size $n$ and the population SD $\sigma$. 
 
 To understand this intuitively, suppose you are trying to determine the composition of a liquid based on the amount in a test tube. If the liquid is well mixed, does it matter whether the amount in the test tube was drawn from a bowl or from a bathtub? It doesn't, because both the bowl and the bathtub are so much larger than the test tube that they might as well be inifinite.
+

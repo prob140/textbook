@@ -59,11 +59,38 @@ $$
 
 The expectation and variance of $X$ are based on the distribution of $X$ alone. The expectation and variance of $Y$ are based on the distribution of $Y$ alone. But covariance depends on the *joint* distribution of $X$ and $Y$ and thus takes into account the relation between $X$ and $Y$.
 
-Covariance has two main uses. First, it is a tool for calculating the variance of a sum. The fundamental calculation is the one we did above; here is the result again, using the language of covariance.
+Covariance has two main uses. First, it is a tool for calculating the variance of a sum. The fundamental calculation is the one we did above. Here is the result again, using the language of covariance.
 
 $$
 Var(X+Y) ~ = ~ Var(X) + Var(Y) + 2Cov(X, Y)
 $$
+
+```{admonition} Quick Check
+Apply the definition of covariance to recognize $Cov(X, X)$ as a quantity you know from earlier chapters. Which quantity is it?
+
+```
+
+```{admonition} Answer
+:class: dropdown
+$Var(X)$
+
+```
+
+```{admonition} Quick Check
+Find $Var(2X)$ in two ways:
+
+(a) by using linear transformation rules
+
+(b) by writing $Var(2X) = Var(X+X)$ and applying the formula for the variance of a sum
+
+
+```
+
+```{admonition} Answer
+:class: dropdown
+Both answers are $4Var(X)$
+
+```
 
 The focus of this chapter is utilizing covariance to find variances of sums. But covariance has a second important application, which we will study later in the course. Here is a preview.
 
@@ -88,4 +115,4 @@ $$
 r(X, Y) ~ = ~ \frac{Cov(X, Y)}{\sigma_X\sigma_Y}
 $$
 
-As you know, correlation is widely used in data analysis and inference. We will return to it when we study prediction; for now, you will just establish its basic properties in exercises.
+As you know, correlation is widely used in data analysis and inference. We will return to it when we study prediction. For now, you will just establish its basic properties in exercises.

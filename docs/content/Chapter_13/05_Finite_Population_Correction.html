@@ -965,16 +965,17 @@
   <div class="section" id="finite-population-correction">
 <h1><span class="section-number">13.5. </span>Finite Population Correction<a class="headerlink" href="#finite-population-correction" title="Permalink to this headline">¶</a></h1>
 <p>Data scientists often have to work with a relatively small sample from an enormous population. So suppose we are drawing at random <span class="math notranslate nohighlight">\(n\)</span> times from a population of size <span class="math notranslate nohighlight">\(N\)</span> where <span class="math notranslate nohighlight">\(N\)</span> is large and <span class="math notranslate nohighlight">\(n\)</span> is small relative to <span class="math notranslate nohighlight">\(N\)</span>. Just go with the flow for now – all of this will become more precise as this section develops.</p>
-<p>Suppose the population mean is <span class="math notranslate nohighlight">\(\mu\)</span> and the population SD is <span class="math notranslate nohighlight">\(\sigma\)</span>. Let <span class="math notranslate nohighlight">\(S_n\)</span> be the sample sum. Then, regardless of whether the sample is drawn with replacement or without,
-<span class="math notranslate nohighlight">\($
+<p>Suppose the population mean is <span class="math notranslate nohighlight">\(\mu\)</span> and the population SD is <span class="math notranslate nohighlight">\(\sigma\)</span>. Let <span class="math notranslate nohighlight">\(S_n\)</span> be the sample sum. Then, regardless of whether the sample is drawn with replacement or without,</p>
+<div class="math notranslate nohighlight">
+\[
 E(S_n) = n\mu
-$\)</span></p>
+\]</div>
 <p>The variance of the sample sum is different in the two cases.</p>
 <table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="text-align:center head"><p><span class="math notranslate nohighlight">\(~~~~~~~~~~~~~~~~~\)</span></p></th>
-<th class="text-align:center head"><p>sampling with replacement</p></th>
-<th class="text-align:center head"><p>sampling without replacement</p></th>
+<th class="text-align:center head"><p>with replacement</p></th>
+<th class="text-align:center head"><p>without replacement</p></th>
 </tr>
 </thead>
 <tbody>
@@ -999,20 +1000,22 @@ $\)</span></p>
 <p>The fpc gives us a way to quantify this idea.</p>
 <div class="section" id="the-size-of-the-fpc">
 <h2><span class="section-number">13.5.1. </span>The Size of the FPC<a class="headerlink" href="#the-size-of-the-fpc" title="Permalink to this headline">¶</a></h2>
-<p>First note that when <span class="math notranslate nohighlight">\(N\)</span> is even moderately large,
-<span class="math notranslate nohighlight">\($
+<p>First note that when <span class="math notranslate nohighlight">\(N\)</span> is even moderately large,</p>
+<div class="math notranslate nohighlight">
+\[
 \frac{N-n}{N-1} ~ \approx ~ \frac{N-n}{N} ~ = ~ 1 - \frac{n}{N}
-$\)</span></p>
+\]</div>
 <p>which is the fraction of the population that is left after sampling.</p>
 <p>If <span class="math notranslate nohighlight">\(N\)</span> is large and <span class="math notranslate nohighlight">\(n\)</span> is small relative to <span class="math notranslate nohighlight">\(N\)</span>, then</p>
 <div class="math notranslate nohighlight">
 \[
 \frac{N-n}{N-1} ~ \approx ~ 1 - \frac{n}{N} ~ \approx ~ 1
 \]</div>
-<p>which also implies
-<span class="math notranslate nohighlight">\($
+<p>which also implies</p>
+<div class="math notranslate nohighlight">
+\[
 \sqrt{\frac{N-n}{N-1}} ~ \approx ~ 1
-$\)</span></p>
+\]</div>
 <p>So whether you are sampling with replacement or without, the variance of the sample sum can be taken to be <span class="math notranslate nohighlight">\(n\sigma^2\)</span>. The formula is exact in the case of sampling with replacement and an excellent approximation in the case of sampling without replacement from a large population when the sample size is small relative to the population size.</p>
 <p>The table below gives the fpc for a variety of population and sample sizes.</p>
 <div class="cell docutils container">

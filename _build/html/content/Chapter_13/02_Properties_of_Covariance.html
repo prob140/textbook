@@ -1034,8 +1034,8 @@ Cov(X, Y) &amp;= E[(X - \mu_X)(Y - \mu_Y)] \\
 \end{align*}
 \end{split}\]</div>
 <p>So covariance is the <em>mean of the product minus the product of the means</em>.</p>
-<p>Set <span class="math notranslate nohighlight">\(X = Y\)</span> in this result to get the familiar fact that variance is the mean of the square minus the square of the mean.</p>
-<p>This result simplifies proofs of facts about covariance, as you will see below. But as a computational tool, it is only useful when the distributions of <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> are very simple – for example, when each has just a few possible values. In other calculations of covariance it is rarely a good idea to try to use this result. Rather, we will use the bilinearity property described below.</p>
+<p>Set <span class="math notranslate nohighlight">\(X = Y\)</span> in this result to get the “computational” formula for the variance as the mean of the square minus the square of the mean.</p>
+<p>This result simplifies proofs of facts about covariance, as you will see below. But as a computational tool, it is only useful when the distributions of <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> are very simple – for example, when each has just a few possible values. In other calculations of covariance it is rarely a good idea to try to use this result. Rather, we will use the bilinearity property described at the end of this section.</p>
 <div class="cell tag_remove-input tag_hide-output docutils container">
 <div class="cell_output docutils container">
 <div class="output text_html">
@@ -1047,6 +1047,17 @@ Cov(X, Y) &amp;= E[(X - \mu_X)(Y - \mu_Y)] \\
     allowfullscreen
 ></iframe>
 </div></div>
+</div>
+<div class="admonition-quick-check admonition">
+<p class="admonition-title">Quick Check</p>
+<p>Let <span class="math notranslate nohighlight">\((X, Y)\)</span> be one point picked at random from the four points <span class="math notranslate nohighlight">\((0, 0)\)</span>, <span class="math notranslate nohighlight">\((1, 0)\)</span>, <span class="math notranslate nohighlight">\((0.5, 1)\)</span>, <span class="math notranslate nohighlight">\((1.5, 1)\)</span>.</p>
+<p>(a) Find <span class="math notranslate nohighlight">\(E(XY)\)</span>.</p>
+<p>(b) Find <span class="math notranslate nohighlight">\(Cov(X, Y)\)</span>.</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Answer</p>
+<p>(a) <span class="math notranslate nohighlight">\(0.5\)</span></p>
+<p>(b) <span class="math notranslate nohighlight">\(0.125\)</span></p>
 </div>
 </div>
 <div class="section" id="independent-implies-uncorrelated">
@@ -1084,6 +1095,14 @@ E(XY) &amp;= \sum_x\sum_y xyP(X=x, Y=y) ~~~~~~ \text{(expectation of a function)
 Cov(X+Y, Z) ~ = ~ Cov(X, Z) + Cov(Y, Z)
 \]</div>
 <p>Just write <span class="math notranslate nohighlight">\(Cov(X+Y, Z) = E[(X+Y)Z] - E(X+Y)E(Z)\)</span>, expand both products, and collect terms.</p>
+<div class="admonition-quick-check admonition">
+<p class="admonition-title">Quick Check</p>
+<p>Let <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> be independent and suppose <span class="math notranslate nohighlight">\(Var(X) = 10\)</span>. Find <span class="math notranslate nohighlight">\(Cov(X, X+Y)\)</span>.</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Answer</p>
+<p><span class="math notranslate nohighlight">\(10\)</span></p>
+</div>
 <div class="cell tag_remove-input tag_hide-output docutils container">
 <div class="cell_output docutils container">
 <div class="output text_html">
@@ -1121,6 +1140,14 @@ Cov(\sum_{i=1}^n a_iX_i, \sum_{j=1}^m b_jY_j) ~ = ~
 Cov(10X - Y, 3Y + Z) = 30Cov(X, Y) + 10Cov(X, Z) - 3Cov(Y, Y) - Cov(Y, Z)
 \]</div>
 <p>You can replace <span class="math notranslate nohighlight">\(Cov(Y, Y)\)</span> by <span class="math notranslate nohighlight">\(Var(Y)\)</span>.</p>
+<div class="admonition-quick-check admonition">
+<p class="admonition-title">Quick Check</p>
+<p>Let <span class="math notranslate nohighlight">\(Var(X) = 4\)</span>, <span class="math notranslate nohighlight">\(Var(Y) = 5\)</span>, and <span class="math notranslate nohighlight">\(Cov(X, Y) = 3\)</span>. Find <span class="math notranslate nohighlight">\(Cov(2X - Y + 7, X + 3Y - 10)\)</span>.</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Answer</p>
+<p><span class="math notranslate nohighlight">\(8\)</span></p>
+</div>
 </div>
 </div>
 

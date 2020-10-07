@@ -1013,6 +1013,7 @@ Var(S_n) &amp;= Cov(S_n, S_n) \\
 <li><p>The first sum has <span class="math notranslate nohighlight">\(n\)</span> terms.</p></li>
 <li><p>The second sum has <span class="math notranslate nohighlight">\(n(n-1)\)</span> terms.</p></li>
 </ul>
+<p>Since <span class="math notranslate nohighlight">\(Cov(X_i, X_j) = Cov(X_j, X_i)\)</span>, the second sum can be written as <span class="math notranslate nohighlight">\(2\mathop{\sum \sum}_{1 \le i &lt; j \le n} Cov(X_i, X_j)\)</span>. But we will use the form given above.</p>
 </div>
 <div class="section" id="sum-of-independent-random-variables">
 <h2><span class="section-number">13.3.2. </span>Sum of Independent Random Variables<a class="headerlink" href="#sum-of-independent-random-variables" title="Permalink to this headline">¶</a></h2>
@@ -1050,7 +1051,18 @@ E(S_n) = \sum_{i=1}^n E(X_i), ~~~~~~ Var(S_n) = \sum_{i=1}^n Var(X_i)
 E(S_n) = n\mu ~~~~~~~~~~ Var(S_n) = n\sigma^2 ~~~~~~~~~~ SD(S_n) = \sqrt{n}\sigma
 \]</div>
 <p>This implies that as the sample size <span class="math notranslate nohighlight">\(n\)</span> increases, the distribution of the sum <span class="math notranslate nohighlight">\(S_n\)</span> shifts to the right and is more spread out. The expectation goes up linearly in <span class="math notranslate nohighlight">\(n\)</span>, but the SD goes up more slowly.</p>
-<p>Here is one of the most important applications of these results.</p>
+<div class="admonition-quick-check admonition">
+<p class="admonition-title">Quick Check</p>
+<p>Suppose the sizes of <span class="math notranslate nohighlight">\(100\)</span> random households are i.i.d. with expectation <span class="math notranslate nohighlight">\(2.5\)</span> and SD <span class="math notranslate nohighlight">\(1.9\)</span>. Let <span class="math notranslate nohighlight">\(S\)</span> be the total number of people in all <span class="math notranslate nohighlight">\(100\)</span> households, that is, the sum of all the household sizes.</p>
+<p>(a) Pick one of the following values for <span class="math notranslate nohighlight">\(E(S)\)</span>: <span class="math notranslate nohighlight">\(25\)</span>, <span class="math notranslate nohighlight">\(250\)</span>, <span class="math notranslate nohighlight">\(2500\)</span></p>
+<p>(b) Pick one of the following values for <span class="math notranslate nohighlight">\(SD(S)\)</span>: <span class="math notranslate nohighlight">\(19\)</span>, <span class="math notranslate nohighlight">\(190\)</span>, <span class="math notranslate nohighlight">\(1900\)</span></p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Answer</p>
+<p>(a) <span class="math notranslate nohighlight">\(250\)</span></p>
+<p>(b) <span class="math notranslate nohighlight">\(19\)</span></p>
+</div>
+<p>Here is an important application of the formula for the variance of an i.i.d. sample sum.</p>
 </div>
 <div class="section" id="variance-of-the-binomial">
 <h2><span class="section-number">13.3.4. </span>Variance of the Binomial<a class="headerlink" href="#variance-of-the-binomial" title="Permalink to this headline">¶</a></h2>
@@ -1080,8 +1092,16 @@ E(X) = 100 \times 0.5 = 50 ~~~~~~~~~~ SD(X) = \sqrt{100 \times 0.5 \times 0.5} =
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/03_Sums_of_Independent_Variables_9_0.png" src="../../_images/03_Sums_of_Independent_Variables_9_0.png" />
+<img alt="../../_images/03_Sums_of_Independent_Variables_12_0.png" src="../../_images/03_Sums_of_Independent_Variables_12_0.png" />
 </div>
+</div>
+<div class="admonition-quick-check admonition">
+<p class="admonition-title">Quick Check</p>
+<p>A die is rolled <span class="math notranslate nohighlight">\(45\)</span> times. Find the expectation and standard deviation of the number of times the face with six spots appears.</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Answer</p>
+<p>Expectation <span class="math notranslate nohighlight">\(7.5\)</span>, SD <span class="math notranslate nohighlight">\(2.5\)</span></p>
 </div>
 <div class="cell tag_remove-input tag_hide-output docutils container">
 <div class="cell_output docutils container">
@@ -1103,7 +1123,7 @@ E(X) = 100 \times 0.5 = 50 ~~~~~~~~~~ SD(X) = \sqrt{100 \times 0.5 \times 0.5} =
 <p>Now let’s compare the standard deviations. The standard deviation of the binomial is</p>
 <div class="math notranslate nohighlight">
 \[
-\sqrt{npq} ~ \approx ~ \sqrt{np} ~~~ \text{since } q \approx 1 \text{ because } p \text{ is small}
+\sqrt{npq} ~ \approx ~ \sqrt{np} ~~~ \text{ because the small } p \text{ implies } q \approx 1
 \]</div>
 <p>But <span class="math notranslate nohighlight">\(np = \mu\)</span> in this setting, so the SD of the binomial is approximately <span class="math notranslate nohighlight">\(\sqrt{\mu}\)</span>. That’s the SD of its approximating Poisson <span class="math notranslate nohighlight">\((\mu)\)</span> distribution.</p>
 </div>

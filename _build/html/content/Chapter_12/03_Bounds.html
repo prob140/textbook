@@ -1103,7 +1103,7 @@ P(X \ge k\mu_X) ~ \le ~ \frac{1}{k} ~~~ \text{for all } k &gt; 0
 \[\begin{split}
 \begin{align*}
 P\big{(}|X - \mu_X| \ge c\big{)} &amp;= P\big{(}(X-\mu_X)^2 \ge c^2\big{)} \\ \\
-&amp;\le \frac{E\big{[}(X-\mu_X)^2\big{]}}{z^2\sigma_X^2} ~~~~~ \text{(Markov's Inequality)}\\ \\
+&amp;\le \frac{E\big{[}(X-\mu_X)^2\big{]}}{c^2} ~~~~~ \text{(Markov's Inequality)}\\ \\
 &amp;= \frac{\sigma_X^2}{c^2} ~~~~~ \text{(definition of variance)} 
 \end{align*}
 \end{split}\]</div>
@@ -1137,7 +1137,7 @@ P\big{(}|X - \mu_X| \ge c\big{)} &amp;= P\big{(}(X-\mu_X)^2 \ge c^2\big{)} \\ \\
 <p>It is important to remember that Chebyshev’s Inequality just provides an upper bound on the total of two tail probabilities. It is not an exact probability or an approximation. The same upper bound applies for a single tail:</p>
 <div class="math notranslate nohighlight">
 \[
-P(X - \mu_X \ge c) ~ \le ~ P(|X - \mu_X| \le c) ~ \le ~ \frac{\sigma_X^2}{c^2}
+P(X - \mu_X \ge c) ~ \le ~ P(|X - \mu_X| \ge c) ~ \le ~ \frac{\sigma_X^2}{c^2}
 \]</div>
 <p>Don’t yield to the temptation of dividing the bound by 2. The two tails need not be equal. There is no assumption of symmetry.</p>
 <div class="admonition-quick-check admonition">

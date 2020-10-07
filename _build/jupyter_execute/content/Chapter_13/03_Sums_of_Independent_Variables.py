@@ -42,6 +42,8 @@ We say that *the variance of the sum is the sum of all the variances and all the
 - The first sum has $n$ terms.
 - The second sum has $n(n-1)$ terms.
 
+Since $Cov(X_i, X_j) = Cov(X_j, X_i)$, the second sum can be written as $2\mathop{\sum \sum}_{1 \le i < j \le n} Cov(X_i, X_j)$. But we will use the form given above.
+
 ### Sum of Independent Random Variables ###
 
 If $X_1, X_2 \ldots , X_n$ are independent, then all the covariance terms in the formula above are 0. 
@@ -75,7 +77,25 @@ $$
 
 This implies that as the sample size $n$ increases, the distribution of the sum $S_n$ shifts to the right and is more spread out. The expectation goes up linearly in $n$, but the SD goes up more slowly.
 
-Here is one of the most important applications of these results.
+```{admonition} Quick Check
+Suppose the sizes of $100$ random households are i.i.d. with expectation $2.5$ and SD $1.9$. Let $S$ be the total number of people in all $100$ households, that is, the sum of all the household sizes.
+
+(a) Pick one of the following values for $E(S)$: $25$, $250$, $2500$
+
+(b) Pick one of the following values for $SD(S)$: $19$, $190$, $1900$
+
+
+```
+
+```{admonition} Answer
+:class: dropdown
+(a) $250$
+
+(b) $19$
+
+```
+
+Here is an important application of the formula for the variance of an i.i.d. sample sum.
 
 ### Variance of the Binomial ###
 Let $X$ have the binomial $(n, p)$ distribution. We know that 
@@ -103,6 +123,17 @@ binom_probs = stats.binom.pmf(k, 100, 0.5)
 binom_dist = Table().values(k).probabilities(binom_probs)
 Plot(binom_dist, show_ev=True, show_sd=True)
 
+```{admonition} Quick Check
+A die is rolled $45$ times. Find the expectation and standard deviation of the number of times the face with six spots appears.
+
+```
+
+```{admonition} Answer
+:class: dropdown
+Expectation $7.5$, SD $2.5$
+
+```
+
 # VIDEO: Binomial and Poisson Variance
 
 YouTubeVideo('KoWHPWJBeJo')
@@ -116,7 +147,7 @@ One way in which a Poisson $(\mu)$ distribution can arise is as an approximation
 Now let's compare the standard deviations. The standard deviation of the binomial is
 
 $$
-\sqrt{npq} ~ \approx ~ \sqrt{np} ~~~ \text{since } q \approx 1 \text{ because } p \text{ is small}
+\sqrt{npq} ~ \approx ~ \sqrt{np} ~~~ \text{ because the small } p \text{ implies } q \approx 1
 $$
 
 But $np = \mu$ in this setting, so the SD of the binomial is approximately $\sqrt{\mu}$. That's the SD of its approximating Poisson $(\mu)$ distribution.

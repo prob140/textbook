@@ -58,14 +58,33 @@ $$
 
 So covariance is the *mean of the product minus the product of the means*. 
 
-Set $X = Y$ in this result to get the familiar fact that variance is the mean of the square minus the square of the mean.
+Set $X = Y$ in this result to get the "computational" formula for the variance as the mean of the square minus the square of the mean.
 
-This result simplifies proofs of facts about covariance, as you will see below. But as a computational tool, it is only useful when the distributions of $X$ and $Y$ are very simple – for example, when each has just a few possible values. In other calculations of covariance it is rarely a good idea to try to use this result. Rather, we will use the bilinearity property described below.
+This result simplifies proofs of facts about covariance, as you will see below. But as a computational tool, it is only useful when the distributions of $X$ and $Y$ are very simple – for example, when each has just a few possible values. In other calculations of covariance it is rarely a good idea to try to use this result. Rather, we will use the bilinearity property described at the end of this section.
 
 # VIDEO: Uncorrelated but Not Independent
 from IPython.display import YouTubeVideo
 
 YouTubeVideo('_FG4CxA6_9A')
+
+```{admonition} Quick Check
+Let $(X, Y)$ be one point picked at random from the four points $(0, 0)$, $(1, 0)$, $(0.5, 1)$, $(1.5, 1)$.
+
+(a) Find $E(XY)$.
+
+(b) Find $Cov(X, Y)$.
+
+
+```
+
+```{admonition} Answer
+:class: dropdown
+(a) $0.5$
+
+(b) $0.125$
+
+
+```
 
 ### Independent Implies Uncorrelated ###
 Let $X$ and $Y$ be independent. Then
@@ -95,6 +114,17 @@ Cov(X+Y, Z) ~ = ~ Cov(X, Z) + Cov(Y, Z)
 $$
 
 Just write $Cov(X+Y, Z) = E[(X+Y)Z] - E(X+Y)E(Z)$, expand both products, and collect terms.
+
+```{admonition} Quick Check
+Let $X$ and $Y$ be independent and suppose $Var(X) = 10$. Find $Cov(X, X+Y)$.
+
+```
+
+```{admonition} Answer
+:class: dropdown
+$10$
+
+```
 
 # VIDEO: Bilinearity of Covariance
 
@@ -128,3 +158,13 @@ $$
 
 You can replace $Cov(Y, Y)$ by $Var(Y)$.
 
+```{admonition} Quick Check
+Let $Var(X) = 4$, $Var(Y) = 5$, and $Cov(X, Y) = 3$. Find $Cov(2X - Y + 7, X + 3Y - 10)$.
+
+```
+
+```{admonition} Answer
+:class: dropdown
+$8$
+
+```

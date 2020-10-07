@@ -948,13 +948,18 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#variance-of-the-hypergeometric">
-   13.4.2. Variance of the Hypergeometric
+  <a class="reference internal nav-link" href="#example-number-of-classes">
+   13.4.2. Example: Number of Classes
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#variance-of-a-simple-random-sample-sum">
    13.4.3. Variance of a Simple Random Sample Sum
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-variance-of-the-hypergeometric">
+   13.4.4. Example: Variance of the Hypergeometric
   </a>
  </li>
 </ul>
@@ -979,7 +984,16 @@ S_n = \sum_{i=1}^n X_i
 \[
 Var(S_n) ~ = ~ \sum_{i=1}^n Var(X_i) + \mathop{\sum \sum}_{1 \le i \ne j \le n} Cov(X_i, X_j)
 \]</div>
-<p>Before we apply this formula, let’s start out by finding a simple covariance.</p>
+<p>There are <span class="math notranslate nohighlight">\(n\)</span> variance terms in the first sum on the right hand side, and <span class="math notranslate nohighlight">\(n(n-1)\)</span> covariance terms. That’s a lot of variances and covariances to calculate. Finding the variance of a sum of dependent random variables can require effort.</p>
+<p>But <em><strong>if there is symmetry in the joint distribution of <span class="math notranslate nohighlight">\(X_1, X_2, \ldots, X_n\)</span></strong></em>, that is, if all the variances are equal and all the covariances are equal, then</p>
+<div class="math notranslate nohighlight">
+\[
+Var(S_n) ~ = ~ nVar(X_1) + n(n-1)Cov(X_1, X_2)
+\]</div>
+<p>That looks much simpler. In the examples below we will see a couple of different ways of using this simple form when we have symmetry.</p>
+<p>Before we apply the formula, let’s start out by finding the covariance of two indicators. We will need this when we find the variance of a sum of indicators.</p>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+</div>
 <div class="section" id="indicators">
 <h2><span class="section-number">13.4.1. </span>Indicators<a class="headerlink" href="#indicators" title="Permalink to this headline">¶</a></h2>
 <p>Let <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> be two events. Let <span class="math notranslate nohighlight">\(I_A\)</span> be the indicator of <span class="math notranslate nohighlight">\(A\)</span> and let <span class="math notranslate nohighlight">\(I_B\)</span> be the indicator of  <span class="math notranslate nohighlight">\(B\)</span>. This is going to be one of the rare instances where we use an expected product to find a covariance. That’s because we know that products of indicators are themselves indicators.</p>
@@ -987,63 +1001,70 @@ Var(S_n) ~ = ~ \sum_{i=1}^n Var(X_i) + \mathop{\sum \sum}_{1 \le i \ne j \le n} 
 \[
 Cov(I_A, I_B) = E(I_AI_B) - E(I_A)E(I_B) = P(AB) - P(A)P(B)
 \]</div>
-<p>You can see that the covariance is 0 if <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are independent, consistent with the more general result of the previous section. When <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are not independent, covariance helps us understand the nature of the dependence. For example, if <span class="math notranslate nohighlight">\(Cov(I_A, I_B)\)</span> is positive, then</p>
+<p>You can see that the covariance is 0 if <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are independent, consistent with the more general result earlier in this chapter.</p>
+<p>When <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are not independent, covariance helps us understand the nature of the dependence. For example, if <span class="math notranslate nohighlight">\(Cov(I_A, I_B)\)</span> is positive, then</p>
 <div class="math notranslate nohighlight">
 \[
 P(AB) &gt; P(A)P(B) ~~~ \implies ~~~ P(A)P(B \mid A) &gt; P(A)P(B)
 ~~~ \implies ~~~ P(B \mid A) &gt; P(B)
 \]</div>
-<p>That is, given that <span class="math notranslate nohighlight">\(A\)</span> has occurred, the chance of <span class="math notranslate nohighlight">\(B\)</span> is higher than it is overall. This is called <em>positive association</em> or <em>positive dependence</em> of <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>.</p>
+<p>Given that <span class="math notranslate nohighlight">\(A\)</span> has occurred, the chance of <span class="math notranslate nohighlight">\(B\)</span> is higher than it is overall. This is called <em>positive association</em> or <em>positive dependence</em> of <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>.</p>
+<div class="admonition-quick-check admonition">
+<p class="admonition-title">Quick Check</p>
+<p>One draw is made at random from the integers <span class="math notranslate nohighlight">\(1\)</span> through <span class="math notranslate nohighlight">\(10\)</span>. Find the covariance of the indicators <span class="math notranslate nohighlight">\(I_A\)</span> and <span class="math notranslate nohighlight">\(I_B\)</span> defined as follows.</p>
+<p><span class="math notranslate nohighlight">\(I_A\)</span> is the indicator of the event that the number drawn is greater than <span class="math notranslate nohighlight">\(6\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(I_B\)</span> is the indicator of the event that the number drawn is a multiple of <span class="math notranslate nohighlight">\(5\)</span>.</p>
 </div>
-<div class="section" id="variance-of-the-hypergeometric">
-<h2><span class="section-number">13.4.2. </span>Variance of the Hypergeometric<a class="headerlink" href="#variance-of-the-hypergeometric" title="Permalink to this headline">¶</a></h2>
-<p>Suppose you have a population of <span class="math notranslate nohighlight">\(N\)</span> elements of which <span class="math notranslate nohighlight">\(G\)</span> are good. Let <span class="math notranslate nohighlight">\(X\)</span> be the number of good elements in simple random sample of <span class="math notranslate nohighlight">\(n\)</span> elements drawn from the population. Remember that simple random samples are drawn without replacement.</p>
-<p>We know that</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Answer</p>
+<p><span class="math notranslate nohighlight">\(1/50\)</span></p>
+</div>
+</div>
+<div class="section" id="example-number-of-classes">
+<h2><span class="section-number">13.4.2. </span>Example: Number of Classes<a class="headerlink" href="#example-number-of-classes" title="Permalink to this headline">¶</a></h2>
+<p>Suppose you draw <span class="math notranslate nohighlight">\(n\)</span> times at random from a population that is evenly split between several classes. For example, this could be a model for the birth months of <span class="math notranslate nohighlight">\(n\)</span> people if each person is equally likely to be born in any of the 12 months of the year independent of the births of all others. You can model this as drawing <span class="math notranslate nohighlight">\(n\)</span> times at random with replacement from the 12 months.</p>
+<p>Suppose we want to find the expectation and variance of the number of classes that appear in the sample, that is, the number of months that appear.</p>
+<p>Let <span class="math notranslate nohighlight">\(X\)</span> be the number of months that appear in the sample. You will have noticed by now that it is often easier to deal with the months that don’t appear. So let <span class="math notranslate nohighlight">\(Y\)</span> be the number of months that don’t appear. Then <span class="math notranslate nohighlight">\(X = 12-Y\)</span>, and so <span class="math notranslate nohighlight">\(E(X) = 12 - E(Y)\)</span> and <span class="math notranslate nohighlight">\(Var(X) = Var(Y)\)</span>.</p>
+<p>To find <span class="math notranslate nohighlight">\(E(Y)\)</span>, write <span class="math notranslate nohighlight">\(Y\)</span> as a sum of indicators: <span class="math notranslate nohighlight">\(Y = I_1 + I_2 + \cdots + I_{12}\)</span> where <span class="math notranslate nohighlight">\(I_j\)</span> is the indicator of the event that Month <span class="math notranslate nohighlight">\(j\)</span> doesn’t appear.</p>
+<p>Now <span class="math notranslate nohighlight">\(E(I_j) = P(\text{month } j \text{ doesn't appear}) = \big{(} \frac{11}{12} \big{)}^n\)</span> is the same for all <span class="math notranslate nohighlight">\(j\)</span>. By the additivity of expectation,</p>
 <div class="math notranslate nohighlight">
 \[
-X = \sum_{j=1}^n I_j
+E(Y) ~ = ~ 12PE(I_1) ~ = ~ 12\big{(} \frac{11}{12} \big{)}^n
 \]</div>
-<p>where <span class="math notranslate nohighlight">\(I_j\)</span> is the indicator that draw <span class="math notranslate nohighlight">\(j\)</span> yields a good element.</p>
-<p>By symmetry, we know that <span class="math notranslate nohighlight">\(E(I_j) = \frac{G}{N}\)</span> for each <span class="math notranslate nohighlight">\(j\)</span>. That is why</p>
-<div class="math notranslate nohighlight">
-\[
-E(X) ~ = ~ n \frac{G}{N} ~ = ~ np ~~~~ \text{where } p = \frac{G}{N}
-\]</div>
-<p>That’s the same formula as for the binomial.</p>
-<p>We also know that <span class="math notranslate nohighlight">\(Var(I_j) = \frac{G}{N} \cdot \frac{B}{N}\)</span> where <span class="math notranslate nohighlight">\(B = N-G\)</span> is the number of bad elements in the population.</p>
-<p>Also by symmetry, <span class="math notranslate nohighlight">\(Cov(I_j, I_k)\)</span> is the same for each pair <span class="math notranslate nohighlight">\(j, k\)</span> where <span class="math notranslate nohighlight">\(j \ne k\)</span>. The example above tells us how to calculate this common value.</p>
-<div class="math notranslate nohighlight">
-\[
-Cov(I_j, I_k) = \frac{G}{N} \cdot \frac{G-1}{N-1} - \frac{G}{N} \cdot \frac{G}{N}
-\]</div>
-<p>Therefore</p>
+<p>So <span class="math notranslate nohighlight">\(E(X) = 12 - 12\big{(} \frac{11}{12} \big{)}^n\)</span>.</p>
+<p>Since <span class="math notranslate nohighlight">\(I_j\)</span> is an indicator, <span class="math notranslate nohighlight">\(Var(I_j) = \big{(} \frac{11}{12} \big{)}^n\big{(}1 - \big{(} \frac{11}{12} \big{)}^n\big{)}\)</span> for all <span class="math notranslate nohighlight">\(j\)</span>.</p>
+<p>By the formula for the covariance of two indicators, for <span class="math notranslate nohighlight">\(i \ne j\)</span></p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{align*}
-Var(X) &amp;= \sum_{j=1}^n Var(I_j) + \mathop{\sum \sum}_{1 \le j \ne k \le n} Cov(I_j, I_k) \\ \\
-&amp;= n \frac{G}{N} \cdot \frac{B}{N} ~ + ~ n(n-1) \Big{(} \frac{G}{N} \cdot \frac{G-1}{N-1} - \frac{G}{N} \cdot \frac{G}{N} \Big{)} \\ \\
-&amp;= n \frac{G}{N} \cdot \frac{B}{N} ~ + ~ n(n-1) \frac{G}{N} \Big{(} \frac{G-1}{N-1} - \frac{G}{N} \Big{)} \\ \\
-&amp;= n \frac{G}{N} \cdot \frac{B}{N} ~ - ~ n(n-1) \frac{G}{N} \cdot \frac{N-G}{N(N-1)} \\ \\
-&amp;= n \frac{G}{N} \cdot \frac{B}{N} \cdot \Big{(} 1 - \frac{n-1}{N-1} \Big{)} \\ \\
-&amp;= n \frac{G}{N} \cdot \frac{B}{N} \cdot \Big{(} \frac{N-n}{N-1} \Big{)} \\ \\
-&amp;= npq \cdot \frac{N-n}{N-1}
+Cov(I_i, I_j) ~ &amp;= ~ P(\text{months } i \text{ and } j \text{ don't appear}) - \big{(} \frac{11}{12} \big{)}^n\big{(} \frac{11}{12} \big{)}^n \\
+&amp;= ~ \big{(} \frac{10}{12} \big{)}^n - \big{(} \frac{11}{12} \big{)}^n\big{(} \frac{11}{12} \big{)}^n
 \end{align*}
 \end{split}\]</div>
-<p>where <span class="math notranslate nohighlight">\(p = \frac{G}{N}\)</span> and <span class="math notranslate nohighlight">\(q = 1-p\)</span>.</p>
-<p>Notice that the formula is the same as the formula for the variance of the binomial, apart from the factor of <span class="math notranslate nohighlight">\(\frac{N-n}{N-1}\)</span>.</p>
-<p>We can generalize this result to the case where the population isn’t binary.</p>
+<p>Put all this together to get</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+Var(X) ~ = ~ Var(Y) ~ &amp;= 12Var(I_1) + 12 \cdot 11 \cdot Cov(I_1, I_2) \\
+&amp;= ~ 12\big{(} \frac{11}{12} \big{)}^n\big{(}1 - \big{(} \frac{11}{12} \big{)}^n\big{)} ~ + ~
+12 \cdot 11 \cdot \Big{(} \big{(} \frac{10}{12} \big{)}^n - \big{(} \frac{11}{12} \big{)}^n\big{(} \frac{11}{12} \big{)}^n \Big{)}
+\end{align*}
+\end{split}\]</div>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+</div>
 </div>
 <div class="section" id="variance-of-a-simple-random-sample-sum">
 <h2><span class="section-number">13.4.3. </span>Variance of a Simple Random Sample Sum<a class="headerlink" href="#variance-of-a-simple-random-sample-sum" title="Permalink to this headline">¶</a></h2>
-<p>Suppose we have a population of <span class="math notranslate nohighlight">\(N\)</span> numbers which need not be only zeros and ones. Suppose the population has mean <span class="math notranslate nohighlight">\(\mu\)</span> and standard deviation <span class="math notranslate nohighlight">\(\sigma\)</span>. Draw a simple random sample of size <span class="math notranslate nohighlight">\(n\)</span> from the population. For <span class="math notranslate nohighlight">\(j\)</span> in the range 1 through <span class="math notranslate nohighlight">\(n\)</span>, let <span class="math notranslate nohighlight">\(X_j\)</span> be the <span class="math notranslate nohighlight">\(j\)</span>th value drawn.</p>
-<p>Let <span class="math notranslate nohighlight">\(S_n = X_1 + X_2 + \cdots + X_n\)</span>. Then <span class="math notranslate nohighlight">\(E(S_n) = n\mu\)</span>, and</p>
+<p>Suppose we have a numerical population of size <span class="math notranslate nohighlight">\(N\)</span>, and let the population have mean <span class="math notranslate nohighlight">\(\mu\)</span> and standard deviation <span class="math notranslate nohighlight">\(\sigma\)</span>. Draw a simple random sample of size <span class="math notranslate nohighlight">\(n\)</span> from the population. For <span class="math notranslate nohighlight">\(j\)</span> in the range 1 through <span class="math notranslate nohighlight">\(n\)</span>, let <span class="math notranslate nohighlight">\(X_j\)</span> be the <span class="math notranslate nohighlight">\(j\)</span>th value drawn.</p>
+<p>Let <span class="math notranslate nohighlight">\(S_n = X_1 + X_2 + \cdots + X_n\)</span>. Then by the symmetry of the joint distribution of <span class="math notranslate nohighlight">\(X_1, X_2, \cdots, X_n\)</span> we know that <span class="math notranslate nohighlight">\(E(S_n) = n\mu\)</span>.</p>
+<p>Also by symmetry,</p>
 <div class="math notranslate nohighlight">
 \[
-Var(S_n) ~ = ~ \sum_{i=1}^n Var(X_i) + \mathop{\sum \sum}_{1 \le i \ne j \le n} Cov(X_i, X_j) ~ = ~ n\sigma^2 + n(n-1)Cov(X_1, X_2)
+Var(S_n) ~ = ~ nVar(X_1) + n(n-1)Cov(X_1, X_2) ~ = ~ n\sigma^2 + n(n-1)Cov(X_1, X_2)
 \]</div>
-<p>by symmetry.</p>
 <p>How can we find <span class="math notranslate nohighlight">\(Cov(X_1, X_2)\)</span>? It’s not a good idea to try and multiply the two variables, as they are dependent and their distributions might be unpleasant. The expected product will be hard to find.</p>
-<p>What we can use is the observation that the equation we derived above for <span class="math notranslate nohighlight">\(Var(S_n)\)</span> is valid for any sample size. In particular, it is valid in the case when we take a census, that is, when we sample all the elements of the population. In that case <span class="math notranslate nohighlight">\(n = N\)</span> and the equation is</p>
+<p>Instead, we will <em><strong>solve for the covariance by using the equation above in a special case where we already know the variance on the left hand side.</strong></em></p>
+<p>The equation above for <span class="math notranslate nohighlight">\(Var(S_n)\)</span> is valid for any sample size <span class="math notranslate nohighlight">\(n\)</span>. In particular, it is valid in the case when we take a census, that is, when we sample all the elements of the population. In that case <span class="math notranslate nohighlight">\(n = N\)</span> and the equation is</p>
 <div class="math notranslate nohighlight">
 \[
 Var(S_N) = N\sigma^2 + N(N-1)Cov(X_1, X_2)
@@ -1062,8 +1083,34 @@ Var(S_n) ~ = ~ n\sigma^2 - n(n-1)\frac{\sigma^2}{N-1} ~ = ~
 n\sigma^2 \Big{(} 1 - \frac{n-1}{N-1} \Big{)} ~ = ~
 n\sigma^2 \frac{N-n}{N-1}
 \]</div>
-<p>Recall that the variance of the sample sum is <span class="math notranslate nohighlight">\(n\sigma^2\)</span> when the sample is drawn with replacement. When the sample is drawn without replacement, the formula is the same apart from the factor of <span class="math notranslate nohighlight">\(\frac{N-n}{N-1}\)</span>.</p>
-<p>That is exactly what we saw in the special case of the binary population. In the final section of this chapter we will investigate this relation between sampling with and without replacement.</p>
+<p>Recall that when the sample is drawn with replacement, the variance of the sample sum is <span class="math notranslate nohighlight">\(n\sigma^2\)</span>. When the sample is drawn without replacement, the formula is the same apart from the factor of <span class="math notranslate nohighlight">\(\frac{N-n}{N-1}\)</span>. In the next section we will examine this factor.</p>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+</div>
+</div>
+<div class="section" id="example-variance-of-the-hypergeometric">
+<h2><span class="section-number">13.4.4. </span>Example: Variance of the Hypergeometric<a class="headerlink" href="#example-variance-of-the-hypergeometric" title="Permalink to this headline">¶</a></h2>
+<p>A important special case is when the numbers in the population are either <span class="math notranslate nohighlight">\(0\)</span> or <span class="math notranslate nohighlight">\(1\)</span>. This models the situation in which some of the elements in the population are “good” and we are counting the number of good elements in a simple random sample.</p>
+<p>If the population consists of <span class="math notranslate nohighlight">\(N\)</span> elements of which <span class="math notranslate nohighlight">\(G\)</span> are labeled <span class="math notranslate nohighlight">\(1\)</span>, then</p>
+<ul class="simple">
+<li><p>the population mean <span class="math notranslate nohighlight">\(\mu = \frac{G}{N}\)</span>, and</p></li>
+<li><p>the population variance <span class="math notranslate nohighlight">\(\sigma^2 = \frac{G}{N}\cdot\frac{B}{N}\)</span> where <span class="math notranslate nohighlight">\(B = N-G\)</span> is the number of “bad” elements in the population.</p></li>
+</ul>
+<p>Let <span class="math notranslate nohighlight">\(X\)</span> be the number of good elements in simple random sample of <span class="math notranslate nohighlight">\(n\)</span> elements drawn from the population. Remember that simple random samples are drawn without replacement, and that <span class="math notranslate nohighlight">\(X\)</span> has the hypergeometric <span class="math notranslate nohighlight">\((N, G, n)\)</span> distribution.</p>
+<p>Let <span class="math notranslate nohighlight">\(I_j\)</span> be the indicator that Draw <span class="math notranslate nohighlight">\(j\)</span> yields a good element. Then <span class="math notranslate nohighlight">\(X = \sum_{j=1}^n I_j\)</span> is the sum of a simple random sample drawn from the population of <span class="math notranslate nohighlight">\(0\)</span>s and <span class="math notranslate nohighlight">\(1\)</span>s. By plugging into the formulas derived above,</p>
+<div class="math notranslate nohighlight">
+\[
+E(X) ~ = ~ n\frac{G}{N} ~~~~~ Var(X) ~ = ~ n \frac{G}{N} \cdot \frac{B}{N} \cdot \Big{(} \frac{N-n}{N-1} \Big{)}
+\]</div>
+<p>These formulas for the hypergeometric expectation and variace are almost the same as for the binomial when the sampling was done <em>with</em> replacement. The only difference is in the variance formula, where instead of just <span class="math notranslate nohighlight">\(npq\)</span> we have another factor of <span class="math notranslate nohighlight">\(\frac{N-n}{N-1}\)</span>.</p>
+<p>As an exercise, you should write <span class="math notranslate nohighlight">\(X\)</span> as a sum of indicators and then use the methods of the first example in this section to find <span class="math notranslate nohighlight">\(Var(X)\)</span>. Be warned that some algebra is required to get it into the compact form given above.</p>
+<div class="admonition-quick-check admonition">
+<p class="admonition-title">Quick Check</p>
+<p>A standard deck has <span class="math notranslate nohighlight">\(52\)</span> cards of which four are aces. Find the expectation and variance of the number of aces in a poker hand of five cards dealt at random without replacement.</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Answer</p>
+<p>Expectation <span class="math notranslate nohighlight">\(5\cdot\frac{4}{52}\)</span>, variance <span class="math notranslate nohighlight">\(5\cdot\frac{4}{52}\cdot\frac{48}{52}\cdot\frac{47}{51}\)</span></p>
+</div>
 </div>
 </div>
 

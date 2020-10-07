@@ -1020,11 +1020,29 @@ Var(S) &amp;= E(D_S^2) \\
 Cov(X, Y) ~ = ~ E(D_XD_Y) ~=~ E\big{(} (X - \mu_X)(Y - \mu_Y) \big{)}
 \]</div>
 <p>The expectation and variance of <span class="math notranslate nohighlight">\(X\)</span> are based on the distribution of <span class="math notranslate nohighlight">\(X\)</span> alone. The expectation and variance of <span class="math notranslate nohighlight">\(Y\)</span> are based on the distribution of <span class="math notranslate nohighlight">\(Y\)</span> alone. But covariance depends on the <em>joint</em> distribution of <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> and thus takes into account the relation between <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span>.</p>
-<p>Covariance has two main uses. First, it is a tool for calculating the variance of a sum. The fundamental calculation is the one we did above; here is the result again, using the language of covariance.</p>
+<p>Covariance has two main uses. First, it is a tool for calculating the variance of a sum. The fundamental calculation is the one we did above. Here is the result again, using the language of covariance.</p>
 <div class="math notranslate nohighlight">
 \[
 Var(X+Y) ~ = ~ Var(X) + Var(Y) + 2Cov(X, Y)
 \]</div>
+<div class="admonition-quick-check admonition">
+<p class="admonition-title">Quick Check</p>
+<p>Apply the definition of covariance to recognize <span class="math notranslate nohighlight">\(Cov(X, X)\)</span> as a quantity you know from earlier chapters. Which quantity is it?</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Answer</p>
+<p><span class="math notranslate nohighlight">\(Var(X)\)</span></p>
+</div>
+<div class="admonition-quick-check admonition">
+<p class="admonition-title">Quick Check</p>
+<p>Find <span class="math notranslate nohighlight">\(Var(2X)\)</span> in two ways:</p>
+<p>(a) by using linear transformation rules</p>
+<p>(b) by writing <span class="math notranslate nohighlight">\(Var(2X) = Var(X+X)\)</span> and applying the formula for the variance of a sum</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Answer</p>
+<p>Both answers are <span class="math notranslate nohighlight">\(4Var(X)\)</span></p>
+</div>
 <p>The focus of this chapter is utilizing covariance to find variances of sums. But covariance has a second important application, which we will study later in the course. Here is a preview.</p>
 <div class="cell tag_remove-input tag_hide-output docutils container">
 <div class="cell_output docutils container">
@@ -1053,7 +1071,7 @@ E \big{(} \frac{X-\mu_X}{\sigma_X} \cdot \frac{Y-\mu_Y}{\sigma_Y} \big{)}
 \[
 r(X, Y) ~ = ~ \frac{Cov(X, Y)}{\sigma_X\sigma_Y}
 \]</div>
-<p>As you know, correlation is widely used in data analysis and inference. We will return to it when we study prediction; for now, you will just establish its basic properties in exercises.</p>
+<p>As you know, correlation is widely used in data analysis and inference. We will return to it when we study prediction. For now, you will just establish its basic properties in exercises.</p>
 </div>
 </div>
 
