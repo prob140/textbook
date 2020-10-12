@@ -531,8 +531,8 @@
   </a>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_14/01_Exact_Distribution.html">
-     14.1. Exact Distribution
+    <a class="reference internal" href="../Chapter_14/01_Exact_Distribution_of_a_Sum.html">
+     14.1. Exact Distribution of a Sum
     </a>
    </li>
    <li class="toctree-l2">
@@ -546,13 +546,23 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_14/04_The_Sample_Mean.html">
-     14.4. The Sample Mean
+    <a class="reference internal" href="../Chapter_14/04_SciPy_and_Normal_Curves.html">
+     14.4. SciPy and Normal Curves
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_14/05_Confidence_Intervals.html">
-     14.5. Confidence Intervals
+    <a class="reference internal" href="../Chapter_14/05_The_Sample_Mean.html">
+     14.5. The Sample Mean
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_14/06_Confidence_Intervals.html">
+     14.6. Confidence Intervals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_14/07_Exercises.html">
+     14.7. Exercises
     </a>
    </li>
   </ul>
@@ -588,8 +598,8 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="06_Review_Problems_Set_3.html">
-     15.6. Review Problems: Set 3
+    <a class="reference internal" href="06_Exercises.html">
+     15.6. Exercises
     </a>
    </li>
   </ul>
@@ -990,6 +1000,18 @@ f_T(t) ~ = \lambda e^{-\lambda t}, ~~~ t \ge 0
 <img alt="../../_images/04_Exponential_Distribution_3_0.png" src="../../_images/04_Exponential_Distribution_3_0.png" />
 </div>
 </div>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="400"
+    height="300"
+    src="https://www.youtube.com/embed/D8DAKgt-NUk"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
 <div class="section" id="cdf-and-survival-function">
 <h2><span class="section-number">15.4.1. </span>CDF and Survival Function<a class="headerlink" href="#cdf-and-survival-function" title="Permalink to this headline">¶</a></h2>
 <p>The exponential distribution is often used as a model for random lifetimes, in settings that we will study in greater detail below. For now, just think of <span class="math notranslate nohighlight">\(T\)</span> as the lifetime of an object like a lightbulb, and note that the cdf at time <span class="math notranslate nohighlight">\(t\)</span> can be thought of as the chance that the object dies before time <span class="math notranslate nohighlight">\(t\)</span>:</p>
@@ -1002,13 +1024,31 @@ P(T \le t) ~ = ~ F_T(t) ~ = ~ 1 - e^{-\lambda t}
 \[
 S_T(t) ~ = ~ P(T &gt; t) ~ = ~ 1 - F_T(t) ~ = ~ e^{-\lambda t}
 \]</div>
+<div class="admonition-quick-check admonition">
+<p class="admonition-title">Quick Check</p>
+<p>Let <span class="math notranslate nohighlight">\(X\)</span> have the exponential distribution with rate <span class="math notranslate nohighlight">\(1/10\)</span>. Find <span class="math notranslate nohighlight">\(P(X &gt; 10)\)</span>.</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Answer</p>
+<p><span class="math notranslate nohighlight">\(e^{-1}\)</span></p>
+</div>
+<div class="admonition-quick-check admonition">
+<p class="admonition-title">Quick Check</p>
+<p>Let <span class="math notranslate nohighlight">\(T\)</span> have the exponential <span class="math notranslate nohighlight">\((\lambda)\)</span> distribution, and <span class="math notranslate nohighlight">\(t &gt; 0\)</span>. Which of the following is the density of <span class="math notranslate nohighlight">\(T\)</span> at the point <span class="math notranslate nohighlight">\(t\)</span>? Which is the survival function of <span class="math notranslate nohighlight">\(T\)</span> at the point <span class="math notranslate nohighlight">\(t\)</span>?</p>
+<p><span class="math notranslate nohighlight">\(e^{-\lambda t}\)</span>, <span class="math notranslate nohighlight">\(1 - e^{-\lambda t}\)</span>, <span class="math notranslate nohighlight">\(\lambda e^{-\lambda t}\)</span></p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Answer</p>
+<p>Density at <span class="math notranslate nohighlight">\(t\)</span> is <span class="math notranslate nohighlight">\(\lambda e^{-\lambda t}\)</span>, survival function at <span class="math notranslate nohighlight">\(t\)</span> is <span class="math notranslate nohighlight">\(e^{-\lambda t}\)</span></p>
+</div>
 </div>
 <div class="section" id="mean-and-sd">
 <h2><span class="section-number">15.4.2. </span>Mean and SD<a class="headerlink" href="#mean-and-sd" title="Permalink to this headline">¶</a></h2>
-<p>To find <span class="math notranslate nohighlight">\(E(T)\)</span>, you have two options:
-<span class="math notranslate nohighlight">\($
+<p>To find <span class="math notranslate nohighlight">\(E(T)\)</span>, you have two options:</p>
+<div class="math notranslate nohighlight">
+\[
 E(T) ~ = ~ \int_0^{\infty} t\lambda e^{-\lambda t} dt ~ = ~ \frac{1}{\lambda}
-$\)</span></p>
+\]</div>
 <p>either by integration by parts or by recognizing the indefinite integral of <span class="math notranslate nohighlight">\(\lambda te^{-\lambda t}\)</span> . Since <span class="math notranslate nohighlight">\(T\)</span> is a non-negative variable, an easier way is to use the <em>tail integral</em>, analogous to the tail sum formula for the expectation of a non-negative integer valued random variable.</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1023,8 +1063,17 @@ Var(T) ~ = ~ \frac{1}{\lambda^2} ~~~~ \mbox{and } ~~~~ SD(T) = \frac{1}{\lambda}
 <p>The graph below shows the density <span class="math notranslate nohighlight">\(f_T\)</span> with the labeled points on the horizontal axis corresponding to standard units of -1, 0, 1, 2, and 3. The random variable <span class="math notranslate nohighlight">\(T\)</span> can’t be negative, and the density doesn’t go further than 1 SD below the mean. The spread comes from the long right hand tail.</p>
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/04_Exponential_Distribution_6_0.png" src="../../_images/04_Exponential_Distribution_6_0.png" />
+<img alt="../../_images/04_Exponential_Distribution_11_0.png" src="../../_images/04_Exponential_Distribution_11_0.png" />
 </div>
+</div>
+<div class="admonition-quick-check admonition">
+<p class="admonition-title">Quick Check</p>
+<p>Let <span class="math notranslate nohighlight">\(X\)</span> have the exponential distribution with rate <span class="math notranslate nohighlight">\(1/10\)</span>. Which of the following is <span class="math notranslate nohighlight">\(E(X)\)</span>? Which is <span class="math notranslate nohighlight">\(SD(X)\)</span>?</p>
+<p><span class="math notranslate nohighlight">\(100\)</span>, <span class="math notranslate nohighlight">\(10\)</span>, <span class="math notranslate nohighlight">\(0.1\)</span> <span class="math notranslate nohighlight">\(0.01\)</span></p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Answer</p>
+<p><span class="math notranslate nohighlight">\(E(X) = 10\)</span>, <span class="math notranslate nohighlight">\(Var(X) = 100\)</span>, <span class="math notranslate nohighlight">\(SD(X) = 10\)</span></p>
 </div>
 </div>
 <div class="section" id="median">
@@ -1032,7 +1081,7 @@ Var(T) ~ = ~ \frac{1}{\lambda^2} ~~~~ \mbox{and } ~~~~ SD(T) = \frac{1}{\lambda}
 <p>Here are graphs of the cdf and the survival function.</p>
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/04_Exponential_Distribution_8_0.png" src="../../_images/04_Exponential_Distribution_8_0.png" />
+<img alt="../../_images/04_Exponential_Distribution_15_0.png" src="../../_images/04_Exponential_Distribution_15_0.png" />
 </div>
 </div>
 <p>Notice that the two curves intersect at the vertical level 0.5. If <span class="math notranslate nohighlight">\(t_{0.5}\)</span> is the value of <span class="math notranslate nohighlight">\(t\)</span> at which the curves intersect, then</p>
@@ -1040,14 +1089,15 @@ Var(T) ~ = ~ \frac{1}{\lambda^2} ~~~~ \mbox{and } ~~~~ SD(T) = \frac{1}{\lambda}
 \[
 S_T(t_{0.5}) = 1 - F_T(t_{0.5}) ~~~~ \text{and} ~~~~ S_T(t_{0.5}) = F_T(t_{0.5})
 \]</div>
-<p>and therefore
-<span class="math notranslate nohighlight">\($
+<p>and therefore</p>
+<div class="math notranslate nohighlight">
+\[
 P(T &gt; t_{0.5}) = S_T(t_{0.5}) = 0.5 = F_T(t_{0.5}) = P(T \le t_{0.5})
-$\)</span></p>
+\]</div>
 <p>The point <span class="math notranslate nohighlight">\(t_{0.5}\)</span> is called the <em>median</em> of the distribution. We can find <span class="math notranslate nohighlight">\(t_{0.5}\)</span> in terms of <span class="math notranslate nohighlight">\(\lambda\)</span> by using the formula for the survival function.</p>
 <div class="math notranslate nohighlight">
 \[
-e^{-\lambda t_{0.5}} = 0.5 ~ \iff ~ -\lambda t_{0.5} = \log(0.5) ~ \iff ~ \lambda t_{0.5} =  \log(2) ~ \iff ~ t_{0.5} = \frac{\log(2)}{\lambda} = \log(2)E(T)
+e^{-\lambda t_{0.5}} = 0.5 ~ \iff ~ -\lambda t_{0.5} = \log(0.5) ~ \iff ~ \lambda t_{0.5} =  \log(2) ~ \iff ~ t_{0.5}  = \log(2)E(T)
 \]</div>
 <p>Because <span class="math notranslate nohighlight">\(\log(2) &lt; 1\)</span>, the median lifetime <span class="math notranslate nohighlight">\(t_{0.5}\)</span> is less than the mean lifetime <span class="math notranslate nohighlight">\(E(T) = 1/\lambda\)</span> as you can see on the graph. This is consistent with an observation you made in Data 8: if a distribution has a right hand tail, the median is less than the mean.</p>
 <p>The exponential distribution is often used to model lifetimes of objects like radioactive atoms that undergo <em>exponential decay</em>. The <em>half life</em> of a radioactive isotope is defined as the time by which half of the atoms of the isotope will have decayed. That is, the half life is the median of the exponential lifetime of the atom. The parameter <span class="math notranslate nohighlight">\(\lambda\)</span> is called the <em>decay rate</em> of the atom. By the property of the median <span class="math notranslate nohighlight">\(t_{0.5}\)</span> derived above, the relation between <span class="math notranslate nohighlight">\(\lambda\)</span> and the half life is</p>
@@ -1055,6 +1105,26 @@ e^{-\lambda t_{0.5}} = 0.5 ~ \iff ~ -\lambda t_{0.5} = \log(0.5) ~ \iff ~ \lambd
 \[
 \text{half life} = \frac{\log(2)}{\lambda}
 \]</div>
+<div class="admonition-quick-check admonition">
+<p class="admonition-title">Quick Check</p>
+<p>Let <span class="math notranslate nohighlight">\(T\)</span> have the exponential <span class="math notranslate nohighlight">\((\lambda)\)</span> distribution. If the median of the distribution of <span class="math notranslate nohighlight">\(T\)</span> is 1000, what is the value of <span class="math notranslate nohighlight">\(\lambda\)</span>?</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Answer</p>
+<p><span class="math notranslate nohighlight">\(\log(2)/1000\)</span></p>
+</div>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="400"
+    height="300"
+    src="https://www.youtube.com/embed/x9ECxtFPrKE"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
 </div>
 <div class="section" id="memoryless-property">
 <h2><span class="section-number">15.4.4. </span>Memoryless Property<a class="headerlink" href="#memoryless-property" title="Permalink to this headline">¶</a></h2>
@@ -1075,7 +1145,7 @@ P(T &gt; t+s \mid T &gt; t) = \frac{P(T &gt; t+s, T &gt; t)}{P(T &gt; t)}
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{align*}
-P(T \le t + \Delta_t \mid T &gt; t ~ &amp;= ~ 1 - e^{-\lambda \Delta_t} \\
+P(T \le t + \Delta_t \mid T &gt; t) ~ &amp;= ~ 1 - e^{-\lambda \Delta_t} \\
 &amp;= ~ \lambda \Delta_t + \frac{\lambda^2\Delta_t^2}{2!} + \cdots \\
 &amp;\sim ~ \lambda \Delta_t ~~~~~ \mbox{because } \Delta_t \mbox{ is small}
 \end{align*}

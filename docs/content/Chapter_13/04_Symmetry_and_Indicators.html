@@ -531,8 +531,8 @@
   </a>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_14/01_Exact_Distribution.html">
-     14.1. Exact Distribution
+    <a class="reference internal" href="../Chapter_14/01_Exact_Distribution_of_a_Sum.html">
+     14.1. Exact Distribution of a Sum
     </a>
    </li>
    <li class="toctree-l2">
@@ -546,13 +546,23 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_14/04_The_Sample_Mean.html">
-     14.4. The Sample Mean
+    <a class="reference internal" href="../Chapter_14/04_SciPy_and_Normal_Curves.html">
+     14.4. SciPy and Normal Curves
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_14/05_Confidence_Intervals.html">
-     14.5. Confidence Intervals
+    <a class="reference internal" href="../Chapter_14/05_The_Sample_Mean.html">
+     14.5. The Sample Mean
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_14/06_Confidence_Intervals.html">
+     14.6. Confidence Intervals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_14/07_Exercises.html">
+     14.7. Exercises
     </a>
    </li>
   </ul>
@@ -588,8 +598,8 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_15/06_Review_Problems_Set_3.html">
-     15.6. Review Problems: Set 3
+    <a class="reference internal" href="../Chapter_15/06_Exercises.html">
+     15.6. Exercises
     </a>
    </li>
   </ul>
@@ -993,6 +1003,16 @@ Var(S_n) ~ = ~ nVar(X_1) + n(n-1)Cov(X_1, X_2)
 <p>That looks much simpler. In the examples below we will see a couple of different ways of using this simple form when we have symmetry.</p>
 <p>Before we apply the formula, let’s start out by finding the covariance of two indicators. We will need this when we find the variance of a sum of indicators.</p>
 <div class="cell tag_remove-input tag_hide-output docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="400"
+    height="300"
+    src="https://www.youtube.com/embed/9j8VwhEsWrk"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
 </div>
 <div class="section" id="indicators">
 <h2><span class="section-number">13.4.1. </span>Indicators<a class="headerlink" href="#indicators" title="Permalink to this headline">¶</a></h2>
@@ -1029,7 +1049,7 @@ P(AB) &gt; P(A)P(B) ~~~ \implies ~~~ P(A)P(B \mid A) &gt; P(A)P(B)
 <p>Now <span class="math notranslate nohighlight">\(E(I_j) = P(\text{month } j \text{ doesn't appear}) = \big{(} \frac{11}{12} \big{)}^n\)</span> is the same for all <span class="math notranslate nohighlight">\(j\)</span>. By the additivity of expectation,</p>
 <div class="math notranslate nohighlight">
 \[
-E(Y) ~ = ~ 12PE(I_1) ~ = ~ 12\big{(} \frac{11}{12} \big{)}^n
+E(Y) ~ = ~ 12E(I_1) ~ = ~ 12\big{(} \frac{11}{12} \big{)}^n
 \]</div>
 <p>So <span class="math notranslate nohighlight">\(E(X) = 12 - 12\big{(} \frac{11}{12} \big{)}^n\)</span>.</p>
 <p>Since <span class="math notranslate nohighlight">\(I_j\)</span> is an indicator, <span class="math notranslate nohighlight">\(Var(I_j) = \big{(} \frac{11}{12} \big{)}^n\big{(}1 - \big{(} \frac{11}{12} \big{)}^n\big{)}\)</span> for all <span class="math notranslate nohighlight">\(j\)</span>.</p>
@@ -1051,6 +1071,16 @@ Var(X) ~ = ~ Var(Y) ~ &amp;= 12Var(I_1) + 12 \cdot 11 \cdot Cov(I_1, I_2) \\
 \end{align*}
 \end{split}\]</div>
 <div class="cell tag_remove-input tag_hide-output docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="400"
+    height="300"
+    src="https://www.youtube.com/embed/XWHrPZOgD0A"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
 </div>
 </div>
 <div class="section" id="variance-of-a-simple-random-sample-sum">
@@ -1085,6 +1115,16 @@ n\sigma^2 \frac{N-n}{N-1}
 \]</div>
 <p>Recall that when the sample is drawn with replacement, the variance of the sample sum is <span class="math notranslate nohighlight">\(n\sigma^2\)</span>. When the sample is drawn without replacement, the formula is the same apart from the factor of <span class="math notranslate nohighlight">\(\frac{N-n}{N-1}\)</span>. In the next section we will examine this factor.</p>
 <div class="cell tag_remove-input tag_hide-output docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="400"
+    height="300"
+    src="https://www.youtube.com/embed/SJ2X0h2XdiY"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
 </div>
 </div>
 <div class="section" id="example-variance-of-the-hypergeometric">

@@ -1,4 +1,6 @@
 # HIDDEN
+import warnings
+warnings.filterwarnings('ignore')
 from datascience import *
 from prob140 import *
 import numpy as np
@@ -40,6 +42,11 @@ F(x) ~ = ~ P(X \le x) ~ = ~ P(X < x) ~~~ \text{for all } x
 $$
 
 Being able to drop the equal sign like this is a major departure from calculations involving discrete random variables; $P(X = k)$ has disappeared. But it does have an analog if we think in terms of infinitesimals.
+
+# VIDEO: Meaning of Density
+from IPython.display import YouTubeVideo
+
+YouTubeVideo('7A7MqighkTA')
 
 ### An Infinitesimal Calculation ###
 In the theory of Riemann integration, the area under a curve is calculated by discrete approximation. The interval on the horizontal axis is divided into tiny little segments. Each segment becomes the base of a very narrow rectangle with a height determined by the curve. The total area of all these rectangular slivers is an approximation to the integral. As you make the slivers narrower, the sum approaches the area under the curve.
@@ -88,6 +95,7 @@ P(a \le X \le b) ~ = ~ \sum_{k=a}^b P(X = k)
 $$
 
 When $X$ has density $f$, then
+
 $$
 P(a \le X \le b) ~ = ~ \int_a^b f(x)dx
 $$
@@ -96,6 +104,38 @@ The calculus notation is clever as well as powerful. It involves two analogies:
 
 - $f(x)dx$ is the chance the chance that $X$ is just around $x$
 - the integral is a continuous version of the sum
+
+```{admonition} Quick Check
+A random variable $X$ has density $f$ that is positive on the entire real number line. True or false: 
+
+(a) For all $x$, $P(X=x) = f(x)$.
+
+(b) For all $x$, $0 \le f(x) \le 1$.
+
+(c) For all $x$, $P(X = x) = 0$.
+
+(d) For all $x$, $P(X \in dx) \sim f(x)dx$.
+
+```
+
+```{admonition} Answer
+:class: dropdown
+False, False, True, True
+
+```
+
+```{admonition} Quick Check
+A random variable $X$ has density $f$. Arrange the following from largest to smallest. If two entries are the same, put an $=$ sign between them; it doesn't matter in which order you write them.
+
+$P(a \le X < b)$, $P(a < X < b)$, $P(a \le X \le b)$
+
+```
+
+```{admonition} Answer
+:class: dropdown
+All three are equal
+
+```
 
 ### Probability Density ###
 We can rewrite $P(X \in dx) \sim f(x)dx$ as

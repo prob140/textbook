@@ -531,8 +531,8 @@
   </a>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_14/01_Exact_Distribution.html">
-     14.1. Exact Distribution
+    <a class="reference internal" href="../Chapter_14/01_Exact_Distribution_of_a_Sum.html">
+     14.1. Exact Distribution of a Sum
     </a>
    </li>
    <li class="toctree-l2">
@@ -546,13 +546,23 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_14/04_The_Sample_Mean.html">
-     14.4. The Sample Mean
+    <a class="reference internal" href="../Chapter_14/04_SciPy_and_Normal_Curves.html">
+     14.4. SciPy and Normal Curves
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_14/05_Confidence_Intervals.html">
-     14.5. Confidence Intervals
+    <a class="reference internal" href="../Chapter_14/05_The_Sample_Mean.html">
+     14.5. The Sample Mean
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_14/06_Confidence_Intervals.html">
+     14.6. Confidence Intervals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_14/07_Exercises.html">
+     14.7. Exercises
     </a>
    </li>
   </ul>
@@ -588,8 +598,8 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="06_Review_Problems_Set_3.html">
-     15.6. Review Problems: Set 3
+    <a class="reference internal" href="06_Exercises.html">
+     15.6. Exercises
     </a>
    </li>
   </ul>
@@ -989,6 +999,18 @@ P(X = x) ~ = ~ 0
 F(x) ~ = ~ P(X \le x) ~ = ~ P(X &lt; x) ~~~ \text{for all } x
 \]</div>
 <p>Being able to drop the equal sign like this is a major departure from calculations involving discrete random variables; <span class="math notranslate nohighlight">\(P(X = k)\)</span> has disappeared. But it does have an analog if we think in terms of infinitesimals.</p>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="400"
+    height="300"
+    src="https://www.youtube.com/embed/7A7MqighkTA"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
 </div>
 <div class="section" id="an-infinitesimal-calculation">
 <h2><span class="section-number">15.2.2. </span>An Infinitesimal Calculation<a class="headerlink" href="#an-infinitesimal-calculation" title="Permalink to this headline">¶</a></h2>
@@ -1001,7 +1023,7 @@ f(x) ~ = ~ 6x(1-x), ~~~ 0 &lt; x &lt; 1
 <p>Here is one of those narrow slivers.</p>
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/02_The_Meaning_of_Density_6_0.png" src="../../_images/02_The_Meaning_of_Density_6_0.png" />
+<img alt="../../_images/02_The_Meaning_of_Density_7_0.png" src="../../_images/02_The_Meaning_of_Density_7_0.png" />
 </div>
 </div>
 <p>We will now set up some notation that will be used repeatedly in the course.</p>
@@ -1027,15 +1049,37 @@ P(X \in dx) ~ \sim ~ f(x)dx
 \[
 P(a \le X \le b) ~ = ~ \sum_{k=a}^b P(X = k)
 \]</div>
-<p>When <span class="math notranslate nohighlight">\(X\)</span> has density <span class="math notranslate nohighlight">\(f\)</span>, then
-<span class="math notranslate nohighlight">\($
+<p>When <span class="math notranslate nohighlight">\(X\)</span> has density <span class="math notranslate nohighlight">\(f\)</span>, then</p>
+<div class="math notranslate nohighlight">
+\[
 P(a \le X \le b) ~ = ~ \int_a^b f(x)dx
-$\)</span></p>
+\]</div>
 <p>The calculus notation is clever as well as powerful. It involves two analogies:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(f(x)dx\)</span> is the chance the chance that <span class="math notranslate nohighlight">\(X\)</span> is just around <span class="math notranslate nohighlight">\(x\)</span></p></li>
 <li><p>the integral is a continuous version of the sum</p></li>
 </ul>
+<div class="admonition-quick-check admonition">
+<p class="admonition-title">Quick Check</p>
+<p>A random variable <span class="math notranslate nohighlight">\(X\)</span> has density <span class="math notranslate nohighlight">\(f\)</span> that is positive on the entire real number line. True or false:</p>
+<p>(a) For all <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(P(X=x) = f(x)\)</span>.</p>
+<p>(b) For all <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(0 \le f(x) \le 1\)</span>.</p>
+<p>(c) For all <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(P(X = x) = 0\)</span>.</p>
+<p>(d) For all <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(P(X \in dx) \sim f(x)dx\)</span>.</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Answer</p>
+<p>False, False, True, True</p>
+</div>
+<div class="admonition-quick-check admonition">
+<p class="admonition-title">Quick Check</p>
+<p>A random variable <span class="math notranslate nohighlight">\(X\)</span> has density <span class="math notranslate nohighlight">\(f\)</span>. Arrange the following from largest to smallest. If two entries are the same, put an <span class="math notranslate nohighlight">\(=\)</span> sign between them; it doesn’t matter in which order you write them.</p>
+<p><span class="math notranslate nohighlight">\(P(a \le X &lt; b)\)</span>, <span class="math notranslate nohighlight">\(P(a &lt; X &lt; b)\)</span>, <span class="math notranslate nohighlight">\(P(a \le X \le b)\)</span></p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Answer</p>
+<p>All three are equal</p>
+</div>
 </div>
 <div class="section" id="probability-density">
 <h2><span class="section-number">15.2.3. </span>Probability Density<a class="headerlink" href="#probability-density" title="Permalink to this headline">¶</a></h2>
@@ -1048,7 +1092,7 @@ f(x) ~ \sim ~ \frac{P(X \in dx)}{dx}
 <p>Let’s take another look at the graph of <span class="math notranslate nohighlight">\(f\)</span>.</p>
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/02_The_Meaning_of_Density_9_0.png" src="../../_images/02_The_Meaning_of_Density_9_0.png" />
+<img alt="../../_images/02_The_Meaning_of_Density_14_0.png" src="../../_images/02_The_Meaning_of_Density_14_0.png" />
 </div>
 </div>
 <p>If you simulate multiple independent copies of a random variable that has this density (exactly how to do that will be the subject of the next lab), then for example the simulated values will be more crowded around 0.5 than around 0.2.</p>
@@ -1060,7 +1104,7 @@ f(x) ~ \sim ~ \frac{P(X \in dx)}{dx}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/02_The_Meaning_of_Density_11_0.png" src="../../_images/02_The_Meaning_of_Density_11_0.png" />
+<img alt="../../_images/02_The_Meaning_of_Density_16_0.png" src="../../_images/02_The_Meaning_of_Density_16_0.png" />
 </div>
 </div>
 <p>The distribution of 10,000 simulated values follows <span class="math notranslate nohighlight">\(f\)</span> pretty closely.</p>

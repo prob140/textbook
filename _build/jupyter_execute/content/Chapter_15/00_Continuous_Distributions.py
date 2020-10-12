@@ -27,5 +27,5 @@ It is worth noting that not all distributions fall neatly into one of the two ca
 03_Expectation
 04_Exponential_Distribution
 05_Calculus_in_SymPy
-06_Review_Problems_Set_3
+06_Exercises
 ```

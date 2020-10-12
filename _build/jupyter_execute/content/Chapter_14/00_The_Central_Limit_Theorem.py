@@ -21,9 +21,11 @@ We will start by looking at the exact distribution of the sum of an i.i.d. sampl
 :titlesonly:
 
 
-01_Exact_Distribution
+01_Exact_Distribution_of_a_Sum
 02_PGFs_in_NumPy
 03_Central_Limit_Theorem
-04_The_Sample_Mean
-05_Confidence_Intervals
+04_SciPy_and_Normal_Curves
+05_The_Sample_Mean
+06_Confidence_Intervals
+07_Exercises
 ```

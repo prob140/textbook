@@ -1,4 +1,6 @@
 # HIDDEN
+import warnings
+warnings.filterwarnings('ignore')
 from datascience import *
 from prob140 import *
 import numpy as np
@@ -8,6 +10,11 @@ plt.style.use('fivethirtyeight')
 from scipy import stats
 
 ## Expectation ##
+
+# VIDEO: Definition of Expectation
+from IPython.display import YouTubeVideo
+
+YouTubeVideo('gJkb-5YXly4')
 
 Let $X$ have density $f$. Let $g$ be a real valued function on the real line, and suppose you want to find $E(g(X))$. Then you can follow a procedure analogous to the non-linear function rule we developed for finding expectations of functions of discrete random variables.
 
@@ -43,6 +50,17 @@ $$
 **Non-technical Note:** In almost all of our examples, we will not be faced with questions about the existence of integrals. For example, if the set of possible values of $g(X)$ is bounded, then its expectation exists. But we will see a few examples of random variables that don't have expectations. Such random variables have "heavy tails" and are important in many applications.
 
 All the properties of means, variances, and covariances that we proved for discrete variables are still true. The proofs need to be rewritten for random variables with densities, but we won't take the time to do that. Just use the properties as you did before. The Central Limit Theorem holds as well.
+
+```{admonition} Quick Check
+$X$ is a non-negative random variable that has density $f(x) = \frac{1}{120}x^5e^{-x}$ for $x \ge 0$. Write a math expression for $E(\sqrt{X})$. You don't have to simplify it. [You can assume that $f$ is a density and that $E(\sqrt{X})$ is finite. We'll check these facts later in the course.]
+
+```
+
+```{admonition} Answer
+:class: dropdown
+$E(\sqrt{X}) = \int_0^\infty x^{1/2} \cdot \frac{1}{120}x^5e^{-x} dx$
+
+```
 
 ### Uniform $(0, 1)$ ###
 The random variable $U$ is *uniform on the unit interval* if its density is flat over that interval and zero everywhere else:
@@ -137,6 +155,21 @@ $$
 Var(X) ~ = ~ \frac{(b-a)^2}{12} 
 $$
 
+```{admonition} Quick Check
+(a) Let $U$ be uniform on $(0, 1)$. Find $c_0$ and $c_1$ such that $Y = c_0 + c_1U$ is uniform on $(15, 20)$.
+
+(b) Let $X$ be uniform on $(-2, 2)$. Find $c_0$ and $c_1$ such that $V = c_0 + c_1X$ is uniform on $(0, 1)$.
+
+```
+
+```{admonition} Answer
+:class: dropdown
+(a) $c_0 = 15$, $c_1 = 5$
+
+(b) $c_0 = 0.5$, $c_1 = 0.25$
+
+```
+
 ### Example: Random Discs ###
 A screen saver chooses a random radius uniformly in the interval $(0, 2)$ centimeters and draws a disc with that radius. Then it chooses another radius in the same way, independently of the first, and draws another disc. And so on.
 
@@ -172,21 +205,28 @@ plt.title('Approximate Distribution of Sample Mean Radius');
 
 We are looking for $c$ such that there is about 99% chance that $\bar{R}$ is in the interval $(1-c, 1+c)$. Therefore $1 + c$ is the 99.5th (not 99th) percent point of the curve above, from which you can find $c$.
 
-c = stats.norm.ppf(0.995, 1, sd_rbar) - 1
-c
-
-There is another way to find $c$. Since $c$ is a distance from the mean, $c = zSD(\bar{R})$ where $z$ is such that the area between $-z$ and $z$ under the standard normal curve is about 99%. This $z$ is the 99.5th percent point of the standard normal curve.
-
 z = stats.norm.ppf(0.995)
 z
 
 c = z*sd_rbar
 c
 
-That's the same value of $c$ that we got by the previous method. The graph below shows the corresponding area of 99%.
+We can now get the endpoints of the interval. The graph below shows the corresponding area of 99%.
+
+1-c, 1+c
 
 Plot_norm((0.8, 1.2), 1, sd_rbar, left_end = 1-c, right_end = 1+c)
 plt.xticks([1-c, 1, 1+c])
 plt.xlabel('Radius in Centimeters')
 plt.title('Gold Area is Approximately 99%');
 
+```{admonition} Quick Check
+Let $X_1, X_2, \ldots, X_{100}$ be i.i.d. uniform on $(0, 1)$, and let $A_n = \frac{1}{n}\sum_{i=1}^n X_i$. Find or approximate the distribution of $A_n$. If it's a famous one, provide its name and parameters.
+
+```
+
+```{admonition} Answer
+:class: dropdown
+Roughly normal, mean $1/2$, variance $1/1200$
+
+```

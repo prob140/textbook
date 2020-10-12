@@ -41,7 +41,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="14.3. Central Limit Theorem" href="03_Central_Limit_Theorem.html" />
-    <link rel="prev" title="14.1. Exact Distribution" href="01_Exact_Distribution.html" />
+    <link rel="prev" title="14.1. Exact Distribution of a Sum" href="01_Exact_Distribution_of_a_Sum.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -531,8 +531,8 @@
   </a>
   <ul class="current">
    <li class="toctree-l2">
-    <a class="reference internal" href="01_Exact_Distribution.html">
-     14.1. Exact Distribution
+    <a class="reference internal" href="01_Exact_Distribution_of_a_Sum.html">
+     14.1. Exact Distribution of a Sum
     </a>
    </li>
    <li class="toctree-l2 current active">
@@ -546,13 +546,23 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="04_The_Sample_Mean.html">
-     14.4. The Sample Mean
+    <a class="reference internal" href="04_SciPy_and_Normal_Curves.html">
+     14.4. SciPy and Normal Curves
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="05_Confidence_Intervals.html">
-     14.5. Confidence Intervals
+    <a class="reference internal" href="05_The_Sample_Mean.html">
+     14.5. The Sample Mean
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="06_Confidence_Intervals.html">
+     14.6. Confidence Intervals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="07_Exercises.html">
+     14.7. Exercises
     </a>
    </li>
   </ul>
@@ -588,8 +598,8 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_15/06_Review_Problems_Set_3.html">
-     15.6. Review Problems: Set 3
+    <a class="reference internal" href="../Chapter_15/06_Exercises.html">
+     15.6. Exercises
     </a>
    </li>
   </ul>
@@ -983,6 +993,18 @@
 <li><p>Read the distribution of <span class="math notranslate nohighlight">\(S_n\)</span> off the pgf.</p></li>
 </ul>
 <p>In this section we will use <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> to carry out this algorithm.</p>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="400"
+    height="300"
+    src="https://www.youtube.com/embed/e3ItAqkAhj4"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
 <p>Let’s start with an example. Suppose the distribution of <span class="math notranslate nohighlight">\(X_1\)</span> is given by <span class="math notranslate nohighlight">\(p_0 = 0.1\)</span>, <span class="math notranslate nohighlight">\(p_1 = 0.5\)</span>, <span class="math notranslate nohighlight">\(p_2 = 0.4\)</span>. Let <code class="docutils literal notranslate"><span class="pre">probs_X1</span></code> be an array containing the probabilities of the values 0, 1, and 2.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -999,13 +1021,14 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/02_PGFs_in_NumPy_5_0.png" src="../../_images/02_PGFs_in_NumPy_5_0.png" />
+<img alt="../../_images/02_PGFs_in_NumPy_6_0.png" src="../../_images/02_PGFs_in_NumPy_6_0.png" />
 </div>
 </div>
-<p>The pgf of <span class="math notranslate nohighlight">\(X_1\)</span> is
-<span class="math notranslate nohighlight">\($
+<p>The pgf of <span class="math notranslate nohighlight">\(X_1\)</span> is</p>
+<div class="math notranslate nohighlight">
+\[
 0.1 + 0.5s + 0.4s^2
-$\)</span></p>
+\]</div>
 <p><code class="docutils literal notranslate"><span class="pre">NumPy</span></code> expresses this polynomial in the standard mathematical way, leading with the term of the highest degree:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1041,6 +1064,18 @@ $\)</span></p>
 </div>
 </div>
 <p>The call to <code class="docutils literal notranslate"><span class="pre">print</span></code> displays the polynomial in retro typewriter style, using <span class="math notranslate nohighlight">\(x\)</span> where we have been using <span class="math notranslate nohighlight">\(s\)</span>. Keep in mind that the final term is the coefficient of <span class="math notranslate nohighlight">\(x^0\)</span>.</p>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="400"
+    height="300"
+    src="https://www.youtube.com/embed/dJCAW5CRJlc"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
 <p>Now suppose <span class="math notranslate nohighlight">\(S_3\)</span> is the sum of three i.i.d. copies of <span class="math notranslate nohighlight">\(X_1\)</span>. The pgf of <span class="math notranslate nohighlight">\(S_3\)</span> is the cube of the pgf of <span class="math notranslate nohighlight">\(X_1\)</span> and can be calculated just as you would hope.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1094,12 +1129,12 @@ $\)</span></p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/02_PGFs_in_NumPy_17_0.png" src="../../_images/02_PGFs_in_NumPy_17_0.png" />
+<img alt="../../_images/02_PGFs_in_NumPy_20_0.png" src="../../_images/02_PGFs_in_NumPy_20_0.png" />
 </div>
 </div>
 <div class="section" id="a-function-to-calculate-the-distribution-of-s-n">
 <h2><span class="section-number">14.2.1. </span>A Function to Calculate the Distribution of <span class="math notranslate nohighlight">\(S_n\)</span><a class="headerlink" href="#a-function-to-calculate-the-distribution-of-s-n" title="Permalink to this headline">¶</a></h2>
-<p>We will combine the steps above to create a function <code class="docutils literal notranslate"><span class="pre">dist_sum</span></code> that takes as its arguments the number of terms <span class="math notranslate nohighlight">\(n\)</span> and the probabilities in the distribution of <span class="math notranslate nohighlight">\(X_1\)</span>, and returns the distribution of the sum of <span class="math notranslate nohighlight">\(n\)</span> i.i.d. copies of <span class="math notranslate nohighlight">\(X_1\)</span>.</p>
+<p>We can combine the steps above to create a function <code class="docutils literal notranslate"><span class="pre">dist_sum</span></code> that takes as its arguments the number of terms <span class="math notranslate nohighlight">\(n\)</span> and the probabilities in the distribution of <span class="math notranslate nohighlight">\(X_1\)</span>, and returns the distribution of the sum of <span class="math notranslate nohighlight">\(n\)</span> i.i.d. copies of <span class="math notranslate nohighlight">\(X_1\)</span>.</p>
 <p>Remember that <span class="math notranslate nohighlight">\(X_1\)</span> must have a finite number of non-negative integer values.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1130,7 +1165,7 @@ $\)</span></p>
 </div>
 <div class="section" id="the-sum-of-the-numbers-on-n-rolls-of-a-die">
 <h2><span class="section-number">14.2.2. </span>The Sum of the Numbers on <span class="math notranslate nohighlight">\(n\)</span> Rolls of a Die<a class="headerlink" href="#the-sum-of-the-numbers-on-n-rolls-of-a-die" title="Permalink to this headline">¶</a></h2>
-<p>In Chapter 3 we found the exact distribution of the sum of five rolls of a die by listing all <span class="math notranslate nohighlight">\(6^5\)</span> possible outcomes and computing the sum for each of them. That method gets intractable with larger numbers of rolls. Let’s see if our new method can find the distribution of the total number of spots on 10 rolls of a die.</p>
+<p>In <a class="reference external" href="http://prob140.org/textbook/content/Chapter_03/02_Distributions.html#probability-histogram">Chapter 3</a> we found the exact distribution of the sum of five rolls of a die by listing all <span class="math notranslate nohighlight">\(6^5\)</span> possible outcomes and computing the sum for each of them. That method gets intractable with larger numbers of rolls. Let’s see if our new method can find the distribution of the total number of spots on 10 rolls of a die.</p>
 <p>We have to start with the distribution of the number of spots on a single roll, for which it is important to remember to include 0 as the probability of 0 spots. Otherwise the pgf will be wrong because <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> won’t know that it is not supposed to include a term of degree 0.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1153,7 +1188,7 @@ $\)</span></p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/02_PGFs_in_NumPy_22_0.png" src="../../_images/02_PGFs_in_NumPy_22_0.png" />
+<img alt="../../_images/02_PGFs_in_NumPy_25_0.png" src="../../_images/02_PGFs_in_NumPy_25_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1163,7 +1198,7 @@ $\)</span></p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/02_PGFs_in_NumPy_23_0.png" src="../../_images/02_PGFs_in_NumPy_23_0.png" />
+<img alt="../../_images/02_PGFs_in_NumPy_26_0.png" src="../../_images/02_PGFs_in_NumPy_26_0.png" />
 </div>
 </div>
 </div>
@@ -1186,7 +1221,7 @@ $\)</span></p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/02_PGFs_in_NumPy_27_0.png" src="../../_images/02_PGFs_in_NumPy_27_0.png" />
+<img alt="../../_images/02_PGFs_in_NumPy_30_0.png" src="../../_images/02_PGFs_in_NumPy_30_0.png" />
 </div>
 </div>
 <p>The probability histogram of <span class="math notranslate nohighlight">\(S_{10}\)</span> shows that sums don’t always have smooth distributions.</p>
@@ -1197,7 +1232,7 @@ $\)</span></p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/02_PGFs_in_NumPy_29_0.png" src="../../_images/02_PGFs_in_NumPy_29_0.png" />
+<img alt="../../_images/02_PGFs_in_NumPy_32_0.png" src="../../_images/02_PGFs_in_NumPy_32_0.png" />
 </div>
 </div>
 <p>The distribution of <span class="math notranslate nohighlight">\(S_{30}\)</span> looks like a stegosaurus having a bad hair day.</p>
@@ -1208,7 +1243,7 @@ $\)</span></p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/02_PGFs_in_NumPy_31_0.png" src="../../_images/02_PGFs_in_NumPy_31_0.png" />
+<img alt="../../_images/02_PGFs_in_NumPy_34_0.png" src="../../_images/02_PGFs_in_NumPy_34_0.png" />
 </div>
 </div>
 <p>And the distribution of <span class="math notranslate nohighlight">\(S_{100}\)</span> is …</p>
@@ -1219,12 +1254,12 @@ $\)</span></p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/02_PGFs_in_NumPy_33_0.png" src="../../_images/02_PGFs_in_NumPy_33_0.png" />
+<img alt="../../_images/02_PGFs_in_NumPy_36_0.png" src="../../_images/02_PGFs_in_NumPy_36_0.png" />
 </div>
 </div>
 <p>… beautifully normal.</p>
 <p>It’s begining to look as though there’s a theorem here. In the rest of the chapter we will study that theorem, which about the approximate distribution of the sum of a large i.i.d. sample.</p>
-<p>Keep in mind that our pgf method gives the <em>exact</em> distribution of the sum of an i.i.d. sample from a distribution on finitely many non-negative integers, provided <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> can handle the calculations. In the example above, the pgf of <span class="math notranslate nohighlight">\(S_{100}\)</span> is a polynomial of degree 900. <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> handled it just fine.</p>
+<p><strong>Note:</strong> Keep in mind that our pgf method gives the <em>exact</em> distribution of the sum of an i.i.d. sample from a distribution on finitely many non-negative integers, provided <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> can handle the calculations. In the example above, the pgf of <span class="math notranslate nohighlight">\(S_{100}\)</span> is a polynomial of degree 900. <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> handled it just fine.</p>
 </div>
 </div>
 
@@ -1256,7 +1291,7 @@ $\)</span></p>
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="01_Exact_Distribution.html" title="previous page"><span class="section-number">14.1. </span>Exact Distribution</a>
+    <a class='left-prev' id="prev-link" href="01_Exact_Distribution_of_a_Sum.html" title="previous page"><span class="section-number">14.1. </span>Exact Distribution of a Sum</a>
     <a class='right-next' id="next-link" href="03_Central_Limit_Theorem.html" title="next page"><span class="section-number">14.3. </span>Central Limit Theorem</a>
 
     </div>

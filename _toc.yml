@@ -119,11 +119,13 @@
   - file: content/Chapter_14/00_The_Central_Limit_Theorem
     expand_sections: true
     sections:
-    - file: content/Chapter_14/01_Exact_Distribution
+    - file: content/Chapter_14/01_Exact_Distribution_of_a_Sum
     - file: content/Chapter_14/02_PGFs_in_NumPy
     - file: content/Chapter_14/03_Central_Limit_Theorem
-    - file: content/Chapter_14/04_The_Sample_Mean
-    - file: content/Chapter_14/05_Confidence_Intervals
+    - file: content/Chapter_14/04_SciPy_and_Normal_Curves
+    - file: content/Chapter_14/05_The_Sample_Mean
+    - file: content/Chapter_14/06_Confidence_Intervals
+    - file: content/Chapter_14/07_Exercises
   - file: content/Chapter_15/00_Continuous_Distributions
     expand_sections: true
     sections:
@@ -132,7 +134,7 @@
     - file: content/Chapter_15/03_Expectation
     - file: content/Chapter_15/04_Exponential_Distribution
     - file: content/Chapter_15/05_Calculus_in_SymPy
-    - file: content/Chapter_15/06_Review_Problems_Set_3
+    - file: content/Chapter_15/06_Exercises
   - file: content/Chapter_16/00_Transformations
     expand_sections: true
     sections:

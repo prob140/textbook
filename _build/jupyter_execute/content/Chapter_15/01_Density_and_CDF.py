@@ -1,4 +1,6 @@
 # HIDDEN
+import warnings
+warnings.filterwarnings('ignore')
 from datascience import *
 from prob140 import *
 import numpy as np
@@ -9,6 +11,11 @@ from scipy import stats
 
 ## Density and CDF ##
 
+# VIDEO: Introduction to Density
+from IPython.display import YouTubeVideo
+
+YouTubeVideo('YU3ShHl3wE8')
+
 Let $f$ be a non-negative function on the real number line and suppose 
 
 $$
@@ -17,7 +24,18 @@ $$
 
 Then $f$ is called a *probability density function* or just *density* for short.
 
-In the next section we will discuss the reason behind the name. For now, imagine the graph of $f$ as a kind of continuous probability histogram. We will soon make that precise.
+In the next section we will discuss the reason behind the name. For now, imagine the graph of $f$ as a kind of continuous probability histogram. We will soon make that precise, but notice that by definition the total area under a density curve has to be 1.
+
+```{admonition} Quick Check
+Consider the function $f(x) = \frac{1}{2}x$ for $0 < x < 2$ and $f(x) = 0$ elsewhere. Explain why $f$ is a probability density. [It is quicker to use geometry than calculus.]
+
+```
+
+```{admonition} Answer
+:class: dropdown
+Non-negative, total area under the graph is 1
+
+```
 
 As an example, the function $f$ defined by
 
@@ -86,9 +104,24 @@ plt.ylabel('$f(x)$', rotation=0)
 plt.title('Gold Area = $P(0.6 < X \leq 0.8)$');
 
 The area is
+
 $$
 P(0.6 < X \le 0.8) ~ = ~ \int_{0.6}^{0.8} 6x(1-x)dx ~ = ~ 0.248
 $$
+
+```{admonition} Quick Check
+Let $X$ have density $f$ given by $f(x) = \frac{1}{2}x$ for $0 < x < 2$ and $f(x) = 0$ elsewhere. Find $P(X > 1)$.
+
+```
+
+```{admonition} Answer
+:class: dropdown
+$0.75$
+
+```
+
+# VIDEO: CDF
+YouTubeVideo('heahvMpBU_E')
 
 ### Cumulative Distribution Function (CDF) ###
 The cdf of $X$ is the function $F$ defined by
@@ -168,4 +201,10 @@ F(x) = \int_{-\infty}^x f(s)ds ~~~~~~~~~~~~~~~~~~ f(x) = \frac{d}{dx}F(x)
 $$
 
 You can use whichever of the two functions is more convenient in a particular application.
+
+Also keep in mind that every cdf $F$ satisfies some basic properties:
+
+- $F(x) \to 0$ as $x \to -\infty$
+- $F$ is non-decreasing
+- $F(x) \to 1$ as $x \to \infty$
 

@@ -101,7 +101,7 @@ Here is an important application of the formula for the variance of an i.i.d. sa
 Let $X$ have the binomial $(n, p)$ distribution. We know that 
 
 $$
-X = \sum_{i=1}^n I_j
+X = \sum_{j=1}^n I_j
 $$
 
 where $I_1, I_2, \ldots, I_n$ are i.i.d. indicators, each taking the value 1 with probability $p$. Each of these indicators has expectation $p$ and variance $pq = p(1-p)$. Therefore

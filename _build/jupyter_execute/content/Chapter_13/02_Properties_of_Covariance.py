@@ -107,7 +107,7 @@ To summarize, independent random variables are uncorrelated. But it is not true 
 YouTubeVideo('y8GIvXI7b-s')
 
 ### Addition Rule ###
-A routine application of the property above shows that for any random variables $X$, $Y$, and $Z$,
+A routine application of the calculation of covariance using the expected product shows that for any random variables $X$, $Y$, and $Z$,
 
 $$
 Cov(X+Y, Z) ~ = ~ Cov(X, Z) + Cov(Y, Z)

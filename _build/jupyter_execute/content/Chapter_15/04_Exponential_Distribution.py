@@ -1,4 +1,6 @@
 # HIDDEN
+import warnings
+warnings.filterwarnings('ignore')
 from datascience import *
 from prob140 import *
 import numpy as np
@@ -28,6 +30,11 @@ plt.xlabel('$t$')
 plt.ylabel('$f_T(t)$', rotation=False)
 plt.title('Density of $T$');
 
+# VIDEO: Exponential Distribution
+from IPython.display import YouTubeVideo
+
+YouTubeVideo('D8DAKgt-NUk')
+
 ### CDF and Survival Function ###
 The exponential distribution is often used as a model for random lifetimes, in settings that we will study in greater detail below. For now, just think of $T$ as the lifetime of an object like a lightbulb, and note that the cdf at time $t$ can be thought of as the chance that the object dies before time $t$:
 
@@ -41,8 +48,33 @@ $$
 S_T(t) ~ = ~ P(T > t) ~ = ~ 1 - F_T(t) ~ = ~ e^{-\lambda t}
 $$
 
+```{admonition} Quick Check
+Let $X$ have the exponential distribution with rate $1/10$. Find $P(X > 10)$. 
+
+```
+
+```{admonition} Answer
+:class: dropdown
+$e^{-1}$
+
+```
+
+```{admonition} Quick Check
+Let $T$ have the exponential $(\lambda)$ distribution, and $t > 0$. Which of the following is the density of $T$ at the point $t$? Which is the survival function of $T$ at the point $t$?
+
+$e^{-\lambda t}$, $1 - e^{-\lambda t}$, $\lambda e^{-\lambda t}$
+
+```
+
+```{admonition} Answer
+:class: dropdown
+Density at $t$ is $\lambda e^{-\lambda t}$, survival function at $t$ is $e^{-\lambda t}$
+
+```
+
 ### Mean and SD ###
 To find $E(T)$, you have two options:
+
 $$
 E(T) ~ = ~ \int_0^{\infty} t\lambda e^{-\lambda t} dt ~ = ~ \frac{1}{\lambda}
 $$
@@ -80,6 +112,19 @@ plt.xlabel('$t$')
 plt.ylabel('$f_T(t)$', rotation=0)
 plt.title('Exponential $(\lambda)$ Density of $T$');
 
+```{admonition} Quick Check
+Let $X$ have the exponential distribution with rate $1/10$. Which of the following is $E(X)$? Which is $SD(X)$?
+
+$100$, $10$, $0.1$ $0.01$
+
+```
+
+```{admonition} Answer
+:class: dropdown
+$E(X) = 10$, $Var(X) = 100$, $SD(X) = 10$
+
+```
+
 ### Median ###
 Here are graphs of the cdf and the survival function.
 
@@ -103,6 +148,7 @@ S_T(t_{0.5}) = 1 - F_T(t_{0.5}) ~~~~ \text{and} ~~~~ S_T(t_{0.5}) = F_T(t_{0.5})
 $$
 
 and therefore
+
 $$
 P(T > t_{0.5}) = S_T(t_{0.5}) = 0.5 = F_T(t_{0.5}) = P(T \le t_{0.5})
 $$
@@ -110,7 +156,7 @@ $$
 The point $t_{0.5}$ is called the *median* of the distribution. We can find $t_{0.5}$ in terms of $\lambda$ by using the formula for the survival function.
 
 $$
-e^{-\lambda t_{0.5}} = 0.5 ~ \iff ~ -\lambda t_{0.5} = \log(0.5) ~ \iff ~ \lambda t_{0.5} =  \log(2) ~ \iff ~ t_{0.5} = \frac{\log(2)}{\lambda} = \log(2)E(T)
+e^{-\lambda t_{0.5}} = 0.5 ~ \iff ~ -\lambda t_{0.5} = \log(0.5) ~ \iff ~ \lambda t_{0.5} =  \log(2) ~ \iff ~ t_{0.5}  = \log(2)E(T)
 $$
 
 Because $\log(2) < 1$, the median lifetime $t_{0.5}$ is less than the mean lifetime $E(T) = 1/\lambda$ as you can see on the graph. This is consistent with an observation you made in Data 8: if a distribution has a right hand tail, the median is less than the mean.
@@ -120,6 +166,20 @@ The exponential distribution is often used to model lifetimes of objects like ra
 $$
 \text{half life} = \frac{\log(2)}{\lambda}
 $$
+
+```{admonition} Quick Check
+Let $T$ have the exponential $(\lambda)$ distribution. If the median of the distribution of $T$ is 1000, what is the value of $\lambda$?
+
+```
+
+```{admonition} Answer
+:class: dropdown
+$\log(2)/1000$
+
+```
+
+# VIDEO: Memoryless Property
+YouTubeVideo('x9ECxtFPrKE')
 
 ### Memoryless Property ###
 Let $s$ and $t$ be positive, and let's find the conditional probability that the object survives a further $s$ units of time given that it has already survived $t$.
@@ -141,7 +201,7 @@ If $\lambda$ is large, then $E(T) = 1/\lambda$ is small. If you think of $T$ as 
 
 $$
 \begin{align*}
-P(T \le t + \Delta_t \mid T > t ~ &= ~ 1 - e^{-\lambda \Delta_t} \\
+P(T \le t + \Delta_t \mid T > t) ~ &= ~ 1 - e^{-\lambda \Delta_t} \\
 &= ~ \lambda \Delta_t + \frac{\lambda^2\Delta_t^2}{2!} + \cdots \\
 &\sim ~ \lambda \Delta_t ~~~~~ \mbox{because } \Delta_t \mbox{ is small}
 \end{align*}
@@ -152,5 +212,3 @@ The left hand side is the chance that the object dies immediately after time $t$
 $$
 \lambda ~ \sim ~ \frac{P(T \le t+\Delta_t \mid T > t)}{\Delta_t}
 $$
-
-

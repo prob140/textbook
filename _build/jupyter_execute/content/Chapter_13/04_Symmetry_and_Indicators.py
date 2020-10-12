@@ -35,6 +35,9 @@ That looks much simpler. In the examples below we will see a couple of different
 Before we apply the formula, let's start out by finding the covariance of two indicators. We will need this when we find the variance of a sum of indicators.
 
 # VIDEO: Covariance of Two Indicators 
+from IPython.display import YouTubeVideo
+
+YouTubeVideo('9j8VwhEsWrk')
 
 ### Indicators ###
 Let $A$ and $B$ be two events. Let $I_A$ be the indicator of $A$ and let $I_B$ be the indicator of  $B$. This is going to be one of the rare instances where we use an expected product to find a covariance. That's because we know that products of indicators are themselves indicators.
@@ -82,7 +85,7 @@ To find $E(Y)$, write $Y$ as a sum of indicators: $Y = I_1 + I_2 + \cdots + I_{1
 Now $E(I_j) = P(\text{month } j \text{ doesn't appear}) = \big{(} \frac{11}{12} \big{)}^n$ is the same for all $j$. By the additivity of expectation, 
 
 $$
-E(Y) ~ = ~ 12PE(I_1) ~ = ~ 12\big{(} \frac{11}{12} \big{)}^n
+E(Y) ~ = ~ 12E(I_1) ~ = ~ 12\big{(} \frac{11}{12} \big{)}^n
 $$
 
 So $E(X) = 12 - 12\big{(} \frac{11}{12} \big{)}^n$.
@@ -109,6 +112,7 @@ Var(X) ~ = ~ Var(Y) ~ &= 12Var(I_1) + 12 \cdot 11 \cdot Cov(I_1, I_2) \\
 $$
 
 # VIDEO: Variance of a Simple Random Sample Sum
+YouTubeVideo('XWHrPZOgD0A')
 
 ### Variance of a Simple Random Sample Sum ###
 Suppose we have a numerical population of size $N$, and let the population have mean $\mu$ and standard deviation $\sigma$. Draw a simple random sample of size $n$ from the population. For $j$ in the range 1 through $n$, let $X_j$ be the $j$th value drawn.
@@ -151,6 +155,7 @@ $$
 Recall that when the sample is drawn with replacement, the variance of the sample sum is $n\sigma^2$. When the sample is drawn without replacement, the formula is the same apart from the factor of $\frac{N-n}{N-1}$. In the next section we will examine this factor.
 
 # VIDEO: Variance of the Hypergeometric
+YouTubeVideo('SJ2X0h2XdiY')
 
 ### Example: Variance of the Hypergeometric ###
 
