@@ -155,7 +155,6 @@
     - file: content/Chapter_18/02_Sums_of_Independent_Normal_Variables
     - file: content/Chapter_18/03_The_Gamma_Family
     - file: content/Chapter_18/04_Chi_Squared_Distributions
-    - file: content/Chapter_18/05_Review_Problems_Set_4
   - file: content/Chapter_19/00_Distributions_of_Sums
     expand_sections: true
     sections:

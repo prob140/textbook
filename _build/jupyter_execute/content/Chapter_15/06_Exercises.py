@@ -42,7 +42,7 @@ Let $M = \min(X_1, X_2, \ldots, X_n)$. Find the distribution of $M$. Recognize i
 
 **7.** For fixed $\alpha > 2$, a random variable $T$ has the *Pareto* distribution with shape parameter $\alpha$ and possible values $(1, \infty)$ if the density of $T$ is given by
 
-$$f_T(t) ~ = ~ c t^{-(\alpha + 1)}, ~~~ t > 1$$
+$$f_T(t) ~ = ~ c t^{-(\alpha + 1)}, ~~~ t > 1$$.
 
 (a) Find $c$.
 
@@ -56,7 +56,7 @@ $$f_T(t) ~ = ~ c t^{-(\alpha + 1)}, ~~~ t > 1$$
 
 Assume that $X$ has the density, expectation, and variance given below. (This is a *lognormal* distribution, which you will encounter later in the course.)
 
-$$f_X(x) = \frac{1}{x\sqrt{2\pi}} e^{-\frac{(\ln x)^2}{2}}, ~~ x > 0 ~~~~~~~~~~~E(X) = 1 ~~~~~~~~~~~ Var(X) = e^2-e$$
+$$f_X(x) = \frac{1}{x\sqrt{2\pi}} e^{-\frac{(\ln x)^2}{2}}, ~~ x > 0 ~~~~~~~~~~~E(X) = 1 ~~~~~~~~~~~ Var(X) = e^2-e$$.
 
 (a) Let $F_X$ be the cdf of $X$ and $F_Y$ the cdf of $Y$. Without doing any integrals, write $F_Y$ in terms of $F_X$.
 

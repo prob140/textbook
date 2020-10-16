@@ -28,5 +28,4 @@ The gamma family of distributions, properties of which you have established in e
 02_Sums_of_Independent_Normal_Variables
 03_The_Gamma_Family
 04_Chi_Squared_Distributions
-05_Review_Problems_Set_4
 ```
