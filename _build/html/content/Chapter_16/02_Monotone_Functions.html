@@ -40,7 +40,7 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="16.3. Two-to-One Functions" href="03_Two_to_One_Functions.html" />
+    <link rel="next" title="16.3. Simulation via the CDF" href="03_Simulation_via_the_CDF.html" />
     <link rel="prev" title="16.1. Linear Transformations" href="01_Linear_Transformations.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -620,8 +620,18 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="03_Two_to_One_Functions.html">
-     16.3. Two-to-One Functions
+    <a class="reference internal" href="03_Simulation_via_the_CDF.html">
+     16.3. Simulation via the CDF
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04_Two_to_One_Functions.html">
+     16.4. Two-to-One Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05_Exercises.html">
+     16.5. Exercises
     </a>
    </li>
   </ul>
@@ -649,6 +659,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_17/04_Beta_Densities_with_Integer_Parameters.html">
      17.4. Beta Densities with Integer Parameters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_17/05_Exercises.html">
+     17.5. Exercises
     </a>
    </li>
   </ul>
@@ -948,40 +963,35 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#simulation-via-the-cdf">
-   16.2.1. Simulation via the CDF
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#change-of-variable-formula-for-density-increasing-function">
-   16.2.2. Change of Variable Formula for Density: Increasing Function
+   16.2.1. Change of Variable Formula for Density: Increasing Function
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#the-formula">
-     16.2.2.1. The Formula
+     16.2.1.1. The Formula
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#understanding-the-formula">
-   16.2.3. Understanding the Formula
+   16.2.2. Understanding the Formula
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#applying-the-formula">
-   16.2.4. Applying the Formula
+   16.2.3. Applying the Formula
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#change-of-variable-formula-for-density-monotone-function">
-   16.2.5. Change of Variable Formula for Density: Monotone Function
+   16.2.4. Change of Variable Formula for Density: Monotone Function
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#reciprocal-of-a-uniform-variable">
-   16.2.6. Reciprocal of a Uniform Variable
+   16.2.5. Reciprocal of a Uniform Variable
   </a>
  </li>
 </ul>
@@ -996,27 +1006,36 @@
                 
   <div class="section" id="monotone-functions">
 <h1><span class="section-number">16.2. </span>Monotone Functions<a class="headerlink" href="#monotone-functions" title="Permalink to this headline">¶</a></h1>
-<p>The method we have developed for finding the density of a linear function of a random variable can be extended to non-linear functions. We will start with a setting in which you have seen that applying non-linear functions to a random variable can have useful results.</p>
-<div class="section" id="simulation-via-the-cdf">
-<h2><span class="section-number">16.2.1. </span>Simulation via the CDF<a class="headerlink" href="#simulation-via-the-cdf" title="Permalink to this headline">¶</a></h2>
-<p>In exercises, you have seen by simulation that you can generate a value of a random variable with a specified distribution by using the cdf of the distribution and a uniform (0, 1) random number. We will now establish the theory that underlies what you discovered by computation.</p>
-<p>Let <span class="math notranslate nohighlight">\(F\)</span> be a differentiable, strictly increasing cdf on the real number line. The differentiability assumption allows you to find the corresponding density by differentiating.</p>
-<p>Our goal is to generate a value of a random variable that has <span class="math notranslate nohighlight">\(F\)</span> as its cdf. The statement below describes the process that you came up with in exercises. Note that because <span class="math notranslate nohighlight">\(F\)</span> is continuous and strictly increasing, it has an inverse function.</p>
-<p>Let <span class="math notranslate nohighlight">\(U\)</span> have the uniform (0, 1) distribution. Define a random variable <span class="math notranslate nohighlight">\(X\)</span> by the formula <span class="math notranslate nohighlight">\(X = F^{-1}(U)\)</span>, and let <span class="math notranslate nohighlight">\(F_X\)</span> be the cdf of <span class="math notranslate nohighlight">\(X\)</span>. We will show that <span class="math notranslate nohighlight">\(F_X = F\)</span> and thus that <span class="math notranslate nohighlight">\(X\)</span> has the desired distribution.</p>
-<p>To prove the result, remember that the cdf <span class="math notranslate nohighlight">\(F_U\)</span> of <span class="math notranslate nohighlight">\(U\)</span> is given by <span class="math notranslate nohighlight">\(F_U(u) = u\)</span> for <span class="math notranslate nohighlight">\(0 &lt; u &lt; 1\)</span>. Let <span class="math notranslate nohighlight">\(x\)</span> be any number. Our goal is to show that <span class="math notranslate nohighlight">\(F_X(x) = F(x)\)</span>.</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{align*}
-F_X(x) ~ &amp;= ~ P(X \le x) \\
-&amp;= ~ P(F^{-1}(U) \le x) \\
-&amp;= ~ P(U \le F(x)) ~~~~ \mbox{because } F \mbox{ is increasing} \\
-&amp;= ~ F_U(F(x)) \\
-&amp;= ~ F(x)
-\end{align*}
-\end{split}\]</div>
+<p>If <span class="math notranslate nohighlight">\(X\)</span> is discrete, and <span class="math notranslate nohighlight">\(g\)</span> is a monotone function, then finding the distribution of the random variable <span class="math notranslate nohighlight">\(Y = g(X)\)</span> is straightforward: convert each possible value of <span class="math notranslate nohighlight">\(X\)</span> by applying <span class="math notranslate nohighlight">\(g\)</span> and leave the probabilities alone.</p>
+<p>For example, if <span class="math notranslate nohighlight">\(X\)</span> is uniform on the three values <span class="math notranslate nohighlight">\(0, 1, 2\)</span>, and <span class="math notranslate nohighlight">\(Y = e^X\)</span>, then the you can just augment the distribution table of <span class="math notranslate nohighlight">\(X\)</span> by the possible values of <span class="math notranslate nohighlight">\(Y\)</span>:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:right head"><p><span class="math notranslate nohighlight">\(y\)</span></p></th>
+<th class="text-align:center head"><p><span class="math notranslate nohighlight">\(1\)</span></p></th>
+<th class="text-align:center head"><p><span class="math notranslate nohighlight">\(e\)</span></p></th>
+<th class="text-align:center head"><p><span class="math notranslate nohighlight">\(e^2\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:right"><p><span class="math notranslate nohighlight">\(x\)</span></p></td>
+<td class="text-align:center"><p><span class="math notranslate nohighlight">\(0\)</span></p></td>
+<td class="text-align:center"><p><span class="math notranslate nohighlight">\(1\)</span></p></td>
+<td class="text-align:center"><p><span class="math notranslate nohighlight">\(2\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>chance</p></td>
+<td class="text-align:center"><p><span class="math notranslate nohighlight">\(\frac{1}{3}\)</span></p></td>
+<td class="text-align:center"><p><span class="math notranslate nohighlight">\(\frac{1}{3}\)</span></p></td>
+<td class="text-align:center"><p><span class="math notranslate nohighlight">\(\frac{1}{3}\)</span></p></td>
+</tr>
+</tbody>
+</table>
+<p>The new random variable <span class="math notranslate nohighlight">\(Y\)</span> is uniform on the three values <span class="math notranslate nohighlight">\(1, e, e^2\)</span>.</p>
+<p>But if <span class="math notranslate nohighlight">\(X\)</span> has a density then both <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> have a continuum of values and we have to be more careful.</p>
+<p>The method we developed in the previous section for finding the density of a linear function of a random variable can be extended to non-linear functions.</p>
+<div class="cell tag_remove-input tag_hide-output docutils container">
 </div>
 <div class="section" id="change-of-variable-formula-for-density-increasing-function">
-<h2><span class="section-number">16.2.2. </span>Change of Variable Formula for Density: Increasing Function<a class="headerlink" href="#change-of-variable-formula-for-density-increasing-function" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">16.2.1. </span>Change of Variable Formula for Density: Increasing Function<a class="headerlink" href="#change-of-variable-formula-for-density-increasing-function" title="Permalink to this headline">¶</a></h2>
 <p>The function <span class="math notranslate nohighlight">\(F^{-1}\)</span> is differentiable and increasing. We will now develop a general method for finding the density of such a function applied to any random variable that has a density.</p>
 <p>Let <span class="math notranslate nohighlight">\(X\)</span> have density <span class="math notranslate nohighlight">\(f_X\)</span>. Let <span class="math notranslate nohighlight">\(g\)</span> be a smooth (that is, differentiable) increasing function, and let <span class="math notranslate nohighlight">\(Y = g(X)\)</span>. Examples of such functions <span class="math notranslate nohighlight">\(g\)</span> are:</p>
 <ul class="simple">
@@ -1044,7 +1063,7 @@ f_Y(y) ~ &amp;= ~ f_X(g^{-1}(y)) \frac{d}{dy} g^{-1}(y) \\
 \end{align*}
 \end{split}\]</div>
 <div class="section" id="the-formula">
-<h3><span class="section-number">16.2.2.1. </span>The Formula<a class="headerlink" href="#the-formula" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">16.2.1.1. </span>The Formula<a class="headerlink" href="#the-formula" title="Permalink to this headline">¶</a></h3>
 <p>Let <span class="math notranslate nohighlight">\(g\)</span> be a differentiable, increasing function. The density of <span class="math notranslate nohighlight">\(Y = g(X)\)</span> is given by</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1053,7 +1072,7 @@ f_Y(y) ~ = ~ \frac{f_X(x)}{g'(x)} ~~~ \text{at } x = g^{-1}(y)
 </div>
 </div>
 <div class="section" id="understanding-the-formula">
-<h2><span class="section-number">16.2.3. </span>Understanding the Formula<a class="headerlink" href="#understanding-the-formula" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">16.2.2. </span>Understanding the Formula<a class="headerlink" href="#understanding-the-formula" title="Permalink to this headline">¶</a></h2>
 <p>To see what is going on in the calculation, we will follow the same process as we used for linear functions in an earlier section.</p>
 <ul class="simple">
 <li><p>For <span class="math notranslate nohighlight">\(Y\)</span> to be <span class="math notranslate nohighlight">\(y\)</span>, <span class="math notranslate nohighlight">\(X\)</span> has to be <span class="math notranslate nohighlight">\(g^{-1}(y)\)</span>.</p></li>
@@ -1062,7 +1081,7 @@ f_Y(y) ~ = ~ \frac{f_X(x)}{g'(x)} ~~~ \text{at } x = g^{-1}(y)
 <p>This gives us an intuitive justification for the formula.</p>
 </div>
 <div class="section" id="applying-the-formula">
-<h2><span class="section-number">16.2.4. </span>Applying the Formula<a class="headerlink" href="#applying-the-formula" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">16.2.3. </span>Applying the Formula<a class="headerlink" href="#applying-the-formula" title="Permalink to this headline">¶</a></h2>
 <p>Let <span class="math notranslate nohighlight">\(X\)</span> have the exponential (1/2) density and let <span class="math notranslate nohighlight">\(Y = \sqrt{X}\)</span>. We can take the square root because <span class="math notranslate nohighlight">\(X\)</span> is a positive random variable.</p>
 <p>Let’s find the density of <span class="math notranslate nohighlight">\(Y\)</span> by applying the formula we have derived above. We will organize our calculation in four preliminary steps, and then plug into the formula.</p>
 <ul class="simple">
@@ -1089,12 +1108,20 @@ f_Y(y) ~ &amp;= ~ \frac{(1/2)e^{-\frac{1}{2}x}}{1/(2\sqrt{x})} ~~~~ \mbox{at } x
 <p>This is called the <em>Rayleigh</em> density. Its graph is shown below.</p>
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/02_Monotone_Functions_7_0.png" src="../../_images/02_Monotone_Functions_7_0.png" />
+<img alt="../../_images/02_Monotone_Functions_8_0.png" src="../../_images/02_Monotone_Functions_8_0.png" />
 </div>
+</div>
+<div class="admonition-quick-check admonition">
+<p class="admonition-title">Quick Check</p>
+<p><span class="math notranslate nohighlight">\(V\)</span> has density <span class="math notranslate nohighlight">\(f_V(v) = 2v\)</span> for <span class="math notranslate nohighlight">\(v \in (0, 1)\)</span> and 0 elsewhere. Let <span class="math notranslate nohighlight">\(W = -\log(V)\)</span>. What are the possible values of <span class="math notranslate nohighlight">\(W\)</span>? What is the density of <span class="math notranslate nohighlight">\(W\)</span>?</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Answer</p>
+<p>Exponential <span class="math notranslate nohighlight">\((2)\)</span></p>
 </div>
 </div>
 <div class="section" id="change-of-variable-formula-for-density-monotone-function">
-<h2><span class="section-number">16.2.5. </span>Change of Variable Formula for Density: Monotone Function<a class="headerlink" href="#change-of-variable-formula-for-density-monotone-function" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">16.2.4. </span>Change of Variable Formula for Density: Monotone Function<a class="headerlink" href="#change-of-variable-formula-for-density-monotone-function" title="Permalink to this headline">¶</a></h2>
 <p>Let <span class="math notranslate nohighlight">\(g\)</span> be smooth and monotone (that is, either increasing or decreasing). The density of <span class="math notranslate nohighlight">\(Y = g(X)\)</span> is given by</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1103,7 +1130,7 @@ f_Y(y) ~ = ~ \frac{f_X(x)}{\lvert g'(x) \rvert} ~~~ \text{at } x = g^{-1}(y)
 <p>We have proved the result for increasing <span class="math notranslate nohighlight">\(g\)</span>. When <span class="math notranslate nohighlight">\(g\)</span> is decreasing, the proof is analogous to proof in the linear case and accounts for <span class="math notranslate nohighlight">\(g'\)</span> being negative. We won’t take the time to write it out.</p>
 </div>
 <div class="section" id="reciprocal-of-a-uniform-variable">
-<h2><span class="section-number">16.2.6. </span>Reciprocal of a Uniform Variable<a class="headerlink" href="#reciprocal-of-a-uniform-variable" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">16.2.5. </span>Reciprocal of a Uniform Variable<a class="headerlink" href="#reciprocal-of-a-uniform-variable" title="Permalink to this headline">¶</a></h2>
 <p>Let <span class="math notranslate nohighlight">\(U\)</span> be uniform on <span class="math notranslate nohighlight">\((0, 1)\)</span> and let <span class="math notranslate nohighlight">\(V = 1/U\)</span>. The distribution of <span class="math notranslate nohighlight">\(V\)</span> is called the <em>inverse uniform</em> but the word “inverse” is confusing in the context of change of variable. So we will simply call <span class="math notranslate nohighlight">\(V\)</span> the reciprocal of <span class="math notranslate nohighlight">\(U\)</span>.</p>
 <p>To find the density of <span class="math notranslate nohighlight">\(V\)</span>, start by noticing that the possible values of <span class="math notranslate nohighlight">\(V\)</span> are in <span class="math notranslate nohighlight">\((1, \infty)\)</span> as the possible values of <span class="math notranslate nohighlight">\(U\)</span> are in <span class="math notranslate nohighlight">\((0, 1)\)</span>.</p>
 <p>The components of the change of variable formula for densities:</p>
@@ -1132,7 +1159,7 @@ f_V(v) ~ = ~ \frac{1}{v^2}, ~~~ v &gt; 1
 <p>The density <span class="math notranslate nohighlight">\(f_V\)</span> belongs to the <em>Pareto</em> family of densities, much used in economics.</p>
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/02_Monotone_Functions_10_0.png" src="../../_images/02_Monotone_Functions_10_0.png" />
+<img alt="../../_images/02_Monotone_Functions_13_0.png" src="../../_images/02_Monotone_Functions_13_0.png" />
 </div>
 </div>
 </div>
@@ -1167,7 +1194,7 @@ f_V(v) ~ = ~ \frac{1}{v^2}, ~~~ v &gt; 1
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="01_Linear_Transformations.html" title="previous page"><span class="section-number">16.1. </span>Linear Transformations</a>
-    <a class='right-next' id="next-link" href="03_Two_to_One_Functions.html" title="next page"><span class="section-number">16.3. </span>Two-to-One Functions</a>
+    <a class='right-next' id="next-link" href="03_Simulation_via_the_CDF.html" title="next page"><span class="section-number">16.3. </span>Simulation via the CDF</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

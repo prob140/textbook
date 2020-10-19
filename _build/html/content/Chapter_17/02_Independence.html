@@ -620,8 +620,18 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_16/03_Two_to_One_Functions.html">
-     16.3. Two-to-One Functions
+    <a class="reference internal" href="../Chapter_16/03_Simulation_via_the_CDF.html">
+     16.3. Simulation via the CDF
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_16/04_Two_to_One_Functions.html">
+     16.4. Two-to-One Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_16/05_Exercises.html">
+     16.5. Exercises
     </a>
    </li>
   </ul>
@@ -649,6 +659,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="04_Beta_Densities_with_Integer_Parameters.html">
      17.4. Beta Densities with Integer Parameters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05_Exercises.html">
+     17.5. Exercises
     </a>
    </li>
   </ul>
@@ -953,8 +968,8 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-larger-of-two-independent-exponential-random-variables">
-   17.2.2. The Larger of Two Independent Exponential Random Variables
+  <a class="reference internal nav-link" href="#competing-exponentials">
+   17.2.2. Competing Exponentials
   </a>
  </li>
 </ul>
@@ -969,11 +984,28 @@
                 
   <div class="section" id="independence">
 <h1><span class="section-number">17.2. </span>Independence<a class="headerlink" href="#independence" title="Permalink to this headline">¶</a></h1>
-<p>Jointly distributed random variables <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> are <em>independent</em> if
-<span class="math notranslate nohighlight">\($
+<p>Informally, the definition of independence is the same as before: two random variables that have a joint density are independent if additional information about one of them doesn’t change the distribution of the other.</p>
+<p>One quick way to spot the lack of independence is to look at the set of possible values of the pair <span class="math notranslate nohighlight">\((X, Y)\)</span>. If that set is not a rectangle then <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> can’t be independent. The non-rectangular shape implies that there must be two values of <span class="math notranslate nohighlight">\(X\)</span> for which the corresponding values of <span class="math notranslate nohighlight">\(Y\)</span> are different.</p>
+<div class="admonition-quick-check admonition">
+<p class="admonition-title">Quick Check</p>
+<p>The “unit disc” is the disc of radius 1 centered at the origin. That is, it’s the set of points <span class="math notranslate nohighlight">\((x,y)\)</span> such that <span class="math notranslate nohighlight">\(x^2 + y^2 \le 1\)</span>. Suppose the joint density of <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> is positive on the unit disc and <span class="math notranslate nohighlight">\(0\)</span> elsewhere. Pick the correct option.</p>
+<p>(i) It is not possible to determine whether or not <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> are independent.</p>
+<p>(ii) <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> are independent.</p>
+<p>(iii) <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> are not independent.</p>
+</div>
+<div class="admonition-answer admonition">
+<p class="admonition-title">Answer</p>
+<p>(iii)</p>
+</div>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+</div>
+<p>If the set of possible values is rectangular then you have to check independence using the old definition:</p>
+<p>Jointly distributed random variables <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> are <em>independent</em> if</p>
+<div class="math notranslate nohighlight">
+\[
 P(X \in A, Y \in B) = P(X \in A)P(Y \in B)
-$\)</span>
-for all intervals <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>.</p>
+\]</div>
+<p>for all intervals <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>.</p>
 <p>Let <span class="math notranslate nohighlight">\(X\)</span> have density <span class="math notranslate nohighlight">\(f_X\)</span>, let <span class="math notranslate nohighlight">\(Y\)</span> have density <span class="math notranslate nohighlight">\(f_Y\)</span>, and suppose <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> are independent. Then if <span class="math notranslate nohighlight">\(f\)</span> is the joint density of <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span>,</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -990,6 +1022,7 @@ f(x, y)dxdy &amp;\sim P(X \in dx, Y \in dy) \\
 f(x, y) = f_X(x)f_Y(y)
 \]</div>
 <p>This is the <em>product rule for densities</em>: the joint density of two independent random variables is the product of their densities.</p>
+<p>The converse is also true: if the joint density factors into a function of <span class="math notranslate nohighlight">\(x\)</span> times a function of <span class="math notranslate nohighlight">\(y\)</span>, then <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> are independent.</p>
 <div class="section" id="independent-standard-normal-random-variables">
 <h2><span class="section-number">17.2.1. </span>Independent Standard Normal Random Variables<a class="headerlink" href="#independent-standard-normal-random-variables" title="Permalink to this headline">¶</a></h2>
 <p>Suppose <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> are i.i.d. standard normal random variables. Then their joint density is given by</p>
@@ -1012,14 +1045,31 @@ $\)</span></p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/02_Independence_4_0.png" src="../../_images/02_Independence_4_0.png" />
+<img alt="../../_images/02_Independence_8_0.png" src="../../_images/02_Independence_8_0.png" />
 </div>
 </div>
 <p>Notice the circular symmetry of the surface. This is because the formula for the joint density involves the pair <span class="math notranslate nohighlight">\((x, y)\)</span> through the expression <span class="math notranslate nohighlight">\(x^2 + y^2\)</span> which is symmetric in <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>.</p>
 <p>Notice also that <span class="math notranslate nohighlight">\(P(X = Y) = 0\)</span>, as the probability is the volume over a line. This is true of all pairs of independent random variables with a joint density: <span class="math notranslate nohighlight">\(P(X = Y) = 0\)</span>. So for example <span class="math notranslate nohighlight">\(P(X &gt; Y) = P(X \ge Y)\)</span>. You don’t have to worry about whether or not to the inequality should be strict.</p>
+<div class="admonition-quick-check admonition">
+<p class="admonition-title">Quick Check</p>
+<p><span class="math notranslate nohighlight">\(X\)</span> is normal <span class="math notranslate nohighlight">\((0, 4)\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> is normal <span class="math notranslate nohighlight">\((0, 9)\)</span>. Suppose <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> are independent. Find the joint density of <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span>.</p>
 </div>
-<div class="section" id="the-larger-of-two-independent-exponential-random-variables">
-<h2><span class="section-number">17.2.2. </span>The Larger of Two Independent Exponential Random Variables<a class="headerlink" href="#the-larger-of-two-independent-exponential-random-variables" title="Permalink to this headline">¶</a></h2>
+<div class="dropdown admonition">
+<p class="admonition-title">Answer</p>
+<p><span class="math notranslate nohighlight">\(f(x,y) = \frac{1}{\sqrt{2\pi}\cdot2} e^{-\frac{1}{2}\cdot\frac{x^2}{4}} \cdot \frac{1}{\sqrt{2\pi}\cdot3} e^{-\frac{1}{2}\cdot\frac{y^2}{9}}\)</span>
+for all <span class="math notranslate nohighlight">\(x, y\)</span></p>
+</div>
+<div class="admonition-quick-check admonition">
+<p class="admonition-title">Quick Check</p>
+<p>For some positive constant <span class="math notranslate nohighlight">\(c\)</span>, the random variables <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> have joint density <span class="math notranslate nohighlight">\(f(x,y) = ce^{-\frac{1}{10}(x^2+y^2)}\)</span> for all <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>. Are <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> independent?</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Quick Check</p>
+<p>Yes</p>
+</div>
+</div>
+<div class="section" id="competing-exponentials">
+<h2><span class="section-number">17.2.2. </span>Competing Exponentials<a class="headerlink" href="#competing-exponentials" title="Permalink to this headline">¶</a></h2>
 <p>Let <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> be independent random variables. Suppose <span class="math notranslate nohighlight">\(X\)</span> has the exponential <span class="math notranslate nohighlight">\((\lambda)\)</span> distribution and <span class="math notranslate nohighlight">\(Y\)</span> has the exponential <span class="math notranslate nohighlight">\((\mu)\)</span> distribution. The goal of this example is to find <span class="math notranslate nohighlight">\(P(Y &gt; X)\)</span>.</p>
 <p>By the product rule, the joint density of <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> is given by</p>
 <div class="math notranslate nohighlight">
@@ -1037,20 +1087,20 @@ f(x, y) ~ = ~ \lambda e^{-\lambda x} \mu e^{-\mu y}, ~~~~ x &gt; 0, ~ y &gt; 0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/02_Independence_7_0.png" src="../../_images/02_Independence_7_0.png" />
+<img alt="../../_images/02_Independence_15_0.png" src="../../_images/02_Independence_15_0.png" />
 </div>
 </div>
 <p>To find <span class="math notranslate nohighlight">\(P(Y &gt; X)\)</span> we must integrate the joint density over the upper triangle of the first quadrant, a portion of which is shown below.</p>
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/02_Independence_9_0.png" src="../../_images/02_Independence_9_0.png" />
+<img alt="../../_images/02_Independence_17_0.png" src="../../_images/02_Independence_17_0.png" />
 </div>
 </div>
 <p>The probability is therefore
 <span class="math notranslate nohighlight">\($
 P(Y &gt; X) ~ = ~ \int_0^\infty \int_x^\infty \lambda e^{-\lambda x} \mu e^{-\mu y} dy dx
 $\)</span></p>
-<p>We can do this double integral without much calculus, just by using probability facts.</p>
+<p>We can do this double integral without much calculus, just by using probability facts. As you calculate, try to involve densities as much as possible, and remember that the integral of a density over an interval is the probability of that interval.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{align*}
@@ -1074,10 +1124,30 @@ P(X &gt; Y) ~ = ~ \frac{\mu}{\lambda + \mu}
 \]</div>
 <p>Notice that the two chances are proportional to the parameters. This is consistent with intuition if you think of <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> as two lifetimes. If <span class="math notranslate nohighlight">\(\lambda\)</span> is large, the corresponding lifetime <span class="math notranslate nohighlight">\(X\)</span> is likely to be short, and therefore <span class="math notranslate nohighlight">\(Y\)</span> is likely to be larger than <span class="math notranslate nohighlight">\(X\)</span> as the formula implies.</p>
 <p>If <span class="math notranslate nohighlight">\(\lambda = \mu\)</span> then <span class="math notranslate nohighlight">\(P(Y &gt; X) = 1/2\)</span> which you can see by symmetry since <span class="math notranslate nohighlight">\(P(X = Y) = 0\)</span>.</p>
+<div class="admonition-quick-check admonition">
+<p class="admonition-title">Quick Check</p>
+<p>The lifetimes of two electrical components are independent. The lifetime of Component 1 has the exponential <span class="math notranslate nohighlight">\((0.1)\)</span> distribution, and the lifetime of Component 2 has the exponential <span class="math notranslate nohighlight">\((0.2)\)</span> distribution.</p>
+<p>Without calculation, pick the correct option: The chance that Component 1 lives longer than Component 2 is</p>
+<p>(i) greater than <span class="math notranslate nohighlight">\(1/2\)</span></p>
+<p>(ii) equal to <span class="math notranslate nohighlight">\(1/2\)</span></p>
+<p>(iii) less than <span class="math notranslate nohighlight">\(1/2\)</span></p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Answer</p>
+<p>(i)</p>
+</div>
+<div class="admonition-quick-check admonition">
+<p class="admonition-title">Quick Check</p>
+<p>Find the chance in Quick Check above.</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Answer</p>
+<p><span class="math notranslate nohighlight">\(2/3\)</span></p>
+</div>
 <p>If we had attempted the double integral in the other order – first <span class="math notranslate nohighlight">\(x\)</span>, then <span class="math notranslate nohighlight">\(y\)</span> – we would have had to do more work. The integral is</p>
 <div class="math notranslate nohighlight">
 \[
-\int_0^\infty \int_0^y \lambda e^{-\lambda x} \mu e^{-\mu y} dx dy
+P(Y &gt; X) ~ = ~ \int_0^\infty \int_0^y \lambda e^{-\lambda x} \mu e^{-\mu y} dx dy
 \]</div>
 <p>Let’s take the easy way out by using <code class="docutils literal notranslate"><span class="pre">SymPy</span></code> to confirm that we will get the same answer.</p>
 <div class="cell docutils container">
@@ -1104,7 +1174,7 @@ P(X &gt; Y) ~ = ~ \frac{\mu}{\lambda + \mu}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/02_Independence_13_0.png" src="../../_images/02_Independence_13_0.png" />
+<img alt="../../_images/02_Independence_25_0.png" src="../../_images/02_Independence_25_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1116,7 +1186,7 @@ P(X &gt; Y) ~ = ~ \frac{\mu}{\lambda + \mu}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/02_Independence_14_0.png" src="../../_images/02_Independence_14_0.png" />
+<img alt="../../_images/02_Independence_26_0.png" src="../../_images/02_Independence_26_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1129,7 +1199,7 @@ P(X &gt; Y) ~ = ~ \frac{\mu}{\lambda + \mu}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/02_Independence_15_0.png" src="../../_images/02_Independence_15_0.png" />
+<img alt="../../_images/02_Independence_27_0.png" src="../../_images/02_Independence_27_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1142,7 +1212,7 @@ P(X &gt; Y) ~ = ~ \frac{\mu}{\lambda + \mu}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/02_Independence_16_0.png" src="../../_images/02_Independence_16_0.png" />
+<img alt="../../_images/02_Independence_28_0.png" src="../../_images/02_Independence_28_0.png" />
 </div>
 </div>
 </div>

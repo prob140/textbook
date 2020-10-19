@@ -140,7 +140,9 @@
     sections:
     - file: content/Chapter_16/01_Linear_Transformations
     - file: content/Chapter_16/02_Monotone_Functions
-    - file: content/Chapter_16/03_Two_to_One_Functions
+    - file: content/Chapter_16/03_Simulation_via_the_CDF
+    - file: content/Chapter_16/04_Two_to_One_Functions
+    - file: content/Chapter_16/05_Exercises
   - file: content/Chapter_17/00_Joint_Densities
     expand_sections: true
     sections:
@@ -148,6 +150,7 @@
     - file: content/Chapter_17/02_Independence
     - file: content/Chapter_17/03_Marginal_and_Conditional_Densities
     - file: content/Chapter_17/04_Beta_Densities_with_Integer_Parameters
+    - file: content/Chapter_17/05_Exercises
   - file: content/Chapter_18/00_The_Normal_and_Gamma_Families
     expand_sections: true
     sections:

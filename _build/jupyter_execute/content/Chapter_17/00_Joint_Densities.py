@@ -23,4 +23,5 @@ We turn now to probability densities on the plane, that is, to joint distributio
 02_Independence
 03_Marginal_and_Conditional_Densities
 04_Beta_Densities_with_Integer_Parameters
+05_Exercises
 ```

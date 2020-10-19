@@ -620,8 +620,18 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_16/03_Two_to_One_Functions.html">
-     16.3. Two-to-One Functions
+    <a class="reference internal" href="../Chapter_16/03_Simulation_via_the_CDF.html">
+     16.3. Simulation via the CDF
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_16/04_Two_to_One_Functions.html">
+     16.4. Two-to-One Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_16/05_Exercises.html">
+     16.5. Exercises
     </a>
    </li>
   </ul>
@@ -649,6 +659,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="04_Beta_Densities_with_Integer_Parameters.html">
      17.4. Beta Densities with Integer Parameters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05_Exercises.html">
+     17.5. Exercises
     </a>
    </li>
   </ul>
@@ -985,6 +1000,8 @@
                 
   <div class="section" id="marginal-and-conditional-densities">
 <h1><span class="section-number">17.3. </span>Marginal and Conditional Densities<a class="headerlink" href="#marginal-and-conditional-densities" title="Permalink to this headline">¶</a></h1>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+</div>
 <p>Let random variables <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> have the joint density defined by</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -1007,13 +1024,13 @@ f(x, y) ~ = ~
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/03_Marginal_and_Conditional_Densities_3_0.png" src="../../_images/03_Marginal_and_Conditional_Densities_3_0.png" />
+<img alt="../../_images/03_Marginal_and_Conditional_Densities_4_0.png" src="../../_images/03_Marginal_and_Conditional_Densities_4_0.png" />
 </div>
 </div>
 <p>Then the possible values of <span class="math notranslate nohighlight">\((X, Y)\)</span> are in the upper right hand triangle of the unit square.</p>
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/03_Marginal_and_Conditional_Densities_5_0.png" src="../../_images/03_Marginal_and_Conditional_Densities_5_0.png" />
+<img alt="../../_images/03_Marginal_and_Conditional_Densities_6_0.png" src="../../_images/03_Marginal_and_Conditional_Densities_6_0.png" />
 </div>
 </div>
 <p>Here is a quick check by <code class="docutils literal notranslate"><span class="pre">SymPy</span></code> to see that the function <span class="math notranslate nohighlight">\(f\)</span> is indeed a joint density.</p>
@@ -1034,7 +1051,7 @@ f(x, y) ~ = ~
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/03_Marginal_and_Conditional_Densities_8_0.png" src="../../_images/03_Marginal_and_Conditional_Densities_8_0.png" />
+<img alt="../../_images/03_Marginal_and_Conditional_Densities_9_0.png" src="../../_images/03_Marginal_and_Conditional_Densities_9_0.png" />
 </div>
 </div>
 <div class="section" id="marginal-density-of-x">
@@ -1052,7 +1069,7 @@ f_X(x)dx &amp;\sim P(X \in dx) \\
 <p>You can see the reasoning behind this calculation in the graph below. The blue strip shows the event <span class="math notranslate nohighlight">\(\{ X \in dx \}\)</span> for a value of <span class="math notranslate nohighlight">\(x\)</span> very near 0.25. To find the volume <span class="math notranslate nohighlight">\(P(X \in dx)\)</span>, we hold <span class="math notranslate nohighlight">\(x\)</span> fixed and add over all <span class="math notranslate nohighlight">\(y\)</span>.</p>
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/03_Marginal_and_Conditional_Densities_10_0.png" src="../../_images/03_Marginal_and_Conditional_Densities_10_0.png" />
+<img alt="../../_images/03_Marginal_and_Conditional_Densities_11_0.png" src="../../_images/03_Marginal_and_Conditional_Densities_11_0.png" />
 </div>
 </div>
 <p>So the density of <span class="math notranslate nohighlight">\(X\)</span> is given by</p>
@@ -1079,13 +1096,13 @@ f_X(x) &amp;= \int_x^1 30(y-x)^4 dy \\
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/03_Marginal_and_Conditional_Densities_13_0.png" src="../../_images/03_Marginal_and_Conditional_Densities_13_0.png" />
+<img alt="../../_images/03_Marginal_and_Conditional_Densities_14_0.png" src="../../_images/03_Marginal_and_Conditional_Densities_14_0.png" />
 </div>
 </div>
 <p>That can be seen in the shape of the density of <span class="math notranslate nohighlight">\(X\)</span>.</p>
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/03_Marginal_and_Conditional_Densities_15_0.png" src="../../_images/03_Marginal_and_Conditional_Densities_15_0.png" />
+<img alt="../../_images/03_Marginal_and_Conditional_Densities_16_0.png" src="../../_images/03_Marginal_and_Conditional_Densities_16_0.png" />
 </div>
 </div>
 </div>
@@ -1104,8 +1121,10 @@ f_Y(y) ~ = ~ \int_0^y 30(y-x)^4dx ~ = ~ 6y^5
 \]</div>
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/03_Marginal_and_Conditional_Densities_17_0.png" src="../../_images/03_Marginal_and_Conditional_Densities_17_0.png" />
+<img alt="../../_images/03_Marginal_and_Conditional_Densities_18_0.png" src="../../_images/03_Marginal_and_Conditional_Densities_18_0.png" />
 </div>
+</div>
+<div class="cell tag_remove-input tag_hide-output docutils container">
 </div>
 </div>
 <div class="section" id="conditional-densities">
@@ -1150,13 +1169,13 @@ f_{Y \mid X=0.4} (y) = \frac{30(y - 0.4)^4}{6(1 - 0.4)^5} =
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/03_Marginal_and_Conditional_Densities_20_0.png" src="../../_images/03_Marginal_and_Conditional_Densities_20_0.png" />
+<img alt="../../_images/03_Marginal_and_Conditional_Densities_22_0.png" src="../../_images/03_Marginal_and_Conditional_Densities_22_0.png" />
 </div>
 </div>
 <p>The figure below shows the overlaid graphs of the density of <span class="math notranslate nohighlight">\(Y\)</span> and the conditional density of <span class="math notranslate nohighlight">\(Y\)</span> given <span class="math notranslate nohighlight">\(X = 0.4\)</span>. You can see that the conditional density is more concentrated on large values of <span class="math notranslate nohighlight">\(Y\)</span>, because under the condition <span class="math notranslate nohighlight">\(X = 0.4\)</span> you know that <span class="math notranslate nohighlight">\(Y\)</span> can’t be small.</p>
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/03_Marginal_and_Conditional_Densities_22_0.png" src="../../_images/03_Marginal_and_Conditional_Densities_22_0.png" />
+<img alt="../../_images/03_Marginal_and_Conditional_Densities_24_0.png" src="../../_images/03_Marginal_and_Conditional_Densities_24_0.png" />
 </div>
 </div>
 </div>
@@ -1175,7 +1194,7 @@ P(Y &gt; 0.9 \mid X = 0.4) = \int_{0.9}^1 \frac{5}{0.6^5} (y - 0.4)^4 dy
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/03_Marginal_and_Conditional_Densities_24_0.png" src="../../_images/03_Marginal_and_Conditional_Densities_24_0.png" />
+<img alt="../../_images/03_Marginal_and_Conditional_Densities_26_0.png" src="../../_images/03_Marginal_and_Conditional_Densities_26_0.png" />
 </div>
 </div>
 <p>Now we will use the conditional density to find a conditional expectation. Remember that in our example, given that <span class="math notranslate nohighlight">\(X = 0.4\)</span> the possible values of <span class="math notranslate nohighlight">\(Y\)</span> go from <span class="math notranslate nohighlight">\(0.4\)</span> to 1.</p>
@@ -1190,7 +1209,7 @@ E(Y \mid X = 0.4) ~ = ~ \int_{0.4}^1 y \frac{5}{0.6^5} (y - 0.4)^4 dy ~ = ~ 0.9
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/03_Marginal_and_Conditional_Densities_26_0.png" src="../../_images/03_Marginal_and_Conditional_Densities_26_0.png" />
+<img alt="../../_images/03_Marginal_and_Conditional_Densities_28_0.png" src="../../_images/03_Marginal_and_Conditional_Densities_28_0.png" />
 </div>
 </div>
 <p>You can condition <span class="math notranslate nohighlight">\(X\)</span> on <span class="math notranslate nohighlight">\(Y\)</span> in the same way. By analogous arguments, for any fixed value of <span class="math notranslate nohighlight">\(y\)</span> the conditional density of <span class="math notranslate nohighlight">\(X\)</span> given <span class="math notranslate nohighlight">\(Y = y\)</span> is</p>

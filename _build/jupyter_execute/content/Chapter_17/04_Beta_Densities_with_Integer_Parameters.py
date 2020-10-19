@@ -64,6 +64,8 @@ plt.title('Order Statistics of the Five IID Uniform (0, 1) Variables');
 
 In general for $1 \le k \le n$, the *$k$th order statistic* of $U_1, U_2, \ldots, U_n$ is the $k$th value when the $U_i$'s are sorted in increasing order. This can also be thought of as the $k$th *ranked* value when the minimum has rank 1. It is denoted $U_{(k)}$.
 
+# VIDEO
+
 ### Joint Density of Two Order Statistics ###
 Let $n = 5$ as above and let's try to work out the joint density of $U_{(2)}$ and $U_{(4)}$. That's the joint density of the second and fourth values on the sorted list.
 
@@ -126,6 +128,16 @@ $$
 This solves the mystery of how the formula arises. 
 
 But it also does much more. The *marginal* densities of the order statistics of i.i.d. uniform $(0, 1)$ variables form a family that is important in data science.
+
+```{admonition} Quick Check
+$U_1, U_2, \ldots, U_{10}$ are i.i.d. uniform $(0, 1)$ random variables. Find the joint density of $U_{(3)}$ and $U_{(7)}$. You can leave the constant in terms of factorials.
+
+```
+
+```{admonition} Answer
+$f(x,y) = \frac{10!}{2!1!3!1!3!}x^2(y-x)^3(1-y)^3$, $0 < x < y < 1$
+
+```
 
 ### The Density of $U_{(k)}$ ###
 Let $U_{(k)}$ be the $k$th order statistic of $U_1, U_2, \ldots, U_n$. We will find the density of $U_{(k)}$ by following the same general process that we followed to find the joint density above.

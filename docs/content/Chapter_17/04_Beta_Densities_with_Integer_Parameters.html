@@ -40,7 +40,7 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="18. The Normal and Gamma Families" href="../Chapter_18/00_The_Normal_and_Gamma_Families.html" />
+    <link rel="next" title="17.5. Exercises" href="05_Exercises.html" />
     <link rel="prev" title="17.3. Marginal and Conditional Densities" href="03_Marginal_and_Conditional_Densities.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -620,8 +620,18 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_16/03_Two_to_One_Functions.html">
-     16.3. Two-to-One Functions
+    <a class="reference internal" href="../Chapter_16/03_Simulation_via_the_CDF.html">
+     16.3. Simulation via the CDF
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_16/04_Two_to_One_Functions.html">
+     16.4. Two-to-One Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_16/05_Exercises.html">
+     16.5. Exercises
     </a>
    </li>
   </ul>
@@ -649,6 +659,11 @@
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
      17.4. Beta Densities with Integer Parameters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05_Exercises.html">
+     17.5. Exercises
     </a>
    </li>
   </ul>
@@ -1015,6 +1030,8 @@ f(x, y) = 120x(y-x)(1-y), ~~~~ 0 &lt; x &lt; y &lt; 1
 </div>
 </div>
 <p>In general for <span class="math notranslate nohighlight">\(1 \le k \le n\)</span>, the <em><span class="math notranslate nohighlight">\(k\)</span>th order statistic</em> of <span class="math notranslate nohighlight">\(U_1, U_2, \ldots, U_n\)</span> is the <span class="math notranslate nohighlight">\(k\)</span>th value when the <span class="math notranslate nohighlight">\(U_i\)</span>’s are sorted in increasing order. This can also be thought of as the <span class="math notranslate nohighlight">\(k\)</span>th <em>ranked</em> value when the minimum has rank 1. It is denoted <span class="math notranslate nohighlight">\(U_{(k)}\)</span>.</p>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+</div>
 </div>
 <div class="section" id="joint-density-of-two-order-statistics">
 <h2><span class="section-number">17.4.2. </span>Joint Density of Two Order Statistics<a class="headerlink" href="#joint-density-of-two-order-statistics" title="Permalink to this headline">¶</a></h2>
@@ -1022,7 +1039,7 @@ f(x, y) = 120x(y-x)(1-y), ~~~~ 0 &lt; x &lt; y &lt; 1
 <p>The graph below shows the event <span class="math notranslate nohighlight">\(\{U_{(2)} \in dx, U_{(4)} \in dy\}\)</span> for values <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> such that <span class="math notranslate nohighlight">\(0 &lt; x &lt; y &lt; 1\)</span>.</p>
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/04_Beta_Densities_with_Integer_Parameters_9_0.png" src="../../_images/04_Beta_Densities_with_Integer_Parameters_9_0.png" />
+<img alt="../../_images/04_Beta_Densities_with_Integer_Parameters_10_0.png" src="../../_images/04_Beta_Densities_with_Integer_Parameters_10_0.png" />
 </div>
 </div>
 <p>To find <span class="math notranslate nohighlight">\(P(U_{(2)} \in dx, U_{(4)} \in dy)\)</span>, notice that for this event to occur:</p>
@@ -1059,6 +1076,14 @@ f(x, y) = 120x(y-x)(1-y), ~~~ 0 &lt; x &lt; y &lt; 1
 \]</div>
 <p>This solves the mystery of how the formula arises.</p>
 <p>But it also does much more. The <em>marginal</em> densities of the order statistics of i.i.d. uniform <span class="math notranslate nohighlight">\((0, 1)\)</span> variables form a family that is important in data science.</p>
+<div class="admonition-quick-check admonition">
+<p class="admonition-title">Quick Check</p>
+<p><span class="math notranslate nohighlight">\(U_1, U_2, \ldots, U_{10}\)</span> are i.i.d. uniform <span class="math notranslate nohighlight">\((0, 1)\)</span> random variables. Find the joint density of <span class="math notranslate nohighlight">\(U_{(3)}\)</span> and <span class="math notranslate nohighlight">\(U_{(7)}\)</span>. You can leave the constant in terms of factorials.</p>
+</div>
+<div class="admonition-answer admonition">
+<p class="admonition-title">Answer</p>
+<p><span class="math notranslate nohighlight">\(f(x,y) = \frac{10!}{2!1!3!1!3!}x^2(y-x)^3(1-y)^3\)</span>, <span class="math notranslate nohighlight">\(0 &lt; x &lt; y &lt; 1\)</span></p>
+</div>
 </div>
 <div class="section" id="the-density-of-u-k">
 <h2><span class="section-number">17.4.3. </span>The Density of <span class="math notranslate nohighlight">\(U_{(k)}\)</span><a class="headerlink" href="#the-density-of-u-k" title="Permalink to this headline">¶</a></h2>
@@ -1070,7 +1095,7 @@ f(x, y) = 120x(y-x)(1-y), ~~~ 0 &lt; x &lt; y &lt; 1
 </ul>
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/04_Beta_Densities_with_Integer_Parameters_12_0.png" src="../../_images/04_Beta_Densities_with_Integer_Parameters_12_0.png" />
+<img alt="../../_images/04_Beta_Densities_with_Integer_Parameters_15_0.png" src="../../_images/04_Beta_Densities_with_Integer_Parameters_15_0.png" />
 </div>
 </div>
 <p>Apply the multinomial formula again.</p>
@@ -1113,7 +1138,7 @@ f(x) ~ = ~ \frac{(r+s-1)!}{(r-1)!(s-1)!} x^{r-1}(1-x)^{s-1}, ~~~ 0 &lt; x &lt; 1
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/04_Beta_Densities_with_Integer_Parameters_15_0.png" src="../../_images/04_Beta_Densities_with_Integer_Parameters_15_0.png" />
+<img alt="../../_images/04_Beta_Densities_with_Integer_Parameters_18_0.png" src="../../_images/04_Beta_Densities_with_Integer_Parameters_18_0.png" />
 </div>
 </div>
 <p>By choosing the parameters appropriately, you can create beta densities that put much of their mass near a prescribed value. That is one of the reasons beta densities are used to model <em>random proportions</em>. For example, if you think that the probability that an email is spam is most likely in the 60% to 90% range, but might be lower, you might model your belief by choosing the density that peaks at around 0.75 in the graph above.</p>
@@ -1172,7 +1197,7 @@ E(X) &amp;= \int_0^1 x \frac{(r+s-1)!}{(r-1)!(s-1)!} x^{r-1}(1-x)^{s-1}dx \\ \\
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="03_Marginal_and_Conditional_Densities.html" title="previous page"><span class="section-number">17.3. </span>Marginal and Conditional Densities</a>
-    <a class='right-next' id="next-link" href="../Chapter_18/00_The_Normal_and_Gamma_Families.html" title="next page"><span class="section-number">18. </span>The Normal and Gamma Families</a>
+    <a class='right-next' id="next-link" href="05_Exercises.html" title="next page"><span class="section-number">17.5. </span>Exercises</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

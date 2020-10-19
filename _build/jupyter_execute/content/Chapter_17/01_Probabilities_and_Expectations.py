@@ -12,12 +12,14 @@ init_printing()
 
 ## Probabilities and Expectations ##
 
+# VIDEO
+
 A function $f$ on the plane is called a *joint density* if:
 
 - $f(x, y) \ge 0$ for all $x$, $y$ 
-- $\int_x \int_y f(x, y)dydx = 1$
+- $\int_{-\infty}^\infty \int_{-\infty}^\infty f(x, y)dydx = 1$
 
-If you think of $f$ as a surface, then the first condition says that the surface is on or above the plane. The second condition says that the total volume under the surface is 1.
+If you think of $f$ as a surface, then the first condition says that the surface is on or above the plane. The second condition says that the total volume under the surface is $1$.
 
 Think of probabilities as volumes under the surface, and define $f$ to be the *joint density of random variables $X$ and $Y$* if
 
@@ -28,6 +30,26 @@ $$
 That is, the chance that the random point $(X, Y)$ falls in the region $A$ is the volume under the joint density surface over the region $A$.
 
 This is a two-dimensional analog of the fact that probabilities involving a single continuous random variable can be thought of as areas under the density curve.
+
+```{admonition} Quick Check
+Random variables $X$ and $Y$ have joint density $f$. Pick all the options that are correct about $\int_1^2 \int_3^4 f(x,y)dxdy$.
+
+(i) Could be any non-negative number
+
+(ii) Has to be in $[0, 1]$ (this interval includes both endpoints)
+
+(iii) Has to be in $(0, 1)$ (this interval excludes both endpoints)
+
+(iv) None of the above
+
+```
+
+```{admonition} Answer
+(ii)
+
+```
+
+# VIDEO
 
 ### Infinitesimals ###
 Also analogous is the interpretation of the joint density as part of the calculation of the probability of an infinitesimal region.
@@ -93,6 +115,8 @@ plt.xlabel('$x$')
 plt.ylabel('$y$', rotation=0)
 plt.title('Possible Values of $(X, Y)$');
 
+# VIDEO
+
 ### The Total Volume Under the Surface ###
 The function $f$ looks like a bit of a mess but it is easy to see that it is non-negative. It's a good idea to check that the total probability under the surface is equal to 1. 
 
@@ -128,6 +152,28 @@ Integral(f, (x, 0, y), (y, 0, 1))
 To evaluate the integral, use `doit()`:
 
 Integral(f, (x, 0, y), (y, 0, 1)).doit()
+
+```{admonition} Quick Check
+For $f$ the joint density in the example above, integrate $f$ in the other order by replacing each ? with a number.
+
+$$
+\text{total volume} ~ = ~ 
+\int_?^? \int_?^?
+f(x,y)dydx
+$$
+
+
+```
+
+```{admonition} Answer
+$
+\int_{0}^{1} \int_{x}^{1}
+f(x,y)dxdy
+$
+
+```
+
+# VIDEO
 
 ### Probabilities as Volumes ###
 Probabilities are volumes under the joint density surface. In other words, they are double integrals of the function $f$. For each probability, we have to first identify the region of integration, which we will do by geometry and by inspecting the event. Once we have set up the integral, we have to calculate its value, which we will do by calculus or `SymPy`.
@@ -209,6 +255,8 @@ You can crank that out by hand or use `SymPy`.
 Integral(f, (x, 0.25, y), (y, 0.5, 1))
 
 Integral(f, (x, 0.25, y), (y, 0.5, 1)).doit()
+
+# VIDEO
 
 ### Expectation ###
 Let $g$ be a function on the plane. Then

@@ -12,6 +12,8 @@ init_printing()
 
 ## Marginal and Conditional Densities ##
 
+# VIDEO
+
 Let random variables $X$ and $Y$ have the joint density defined by
 
 $$
@@ -142,6 +144,8 @@ plt.plot(y_vals, f_Y, color='darkblue', lw=2)
 plt.xlabel('$y$')
 plt.ylabel('$f_Y(y)$', rotation=0)
 plt.title('$f_Y$: Density of $Y$');
+
+# VIDEO
 
 ### Conditional Densities ###
 Consider the conditional probability $P(Y \in dy \mid X \in dx)$. By the division rule, 

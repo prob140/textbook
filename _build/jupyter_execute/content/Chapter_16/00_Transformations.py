@@ -24,5 +24,7 @@ We will start by studying properties of the exponential distribution which was i
 
 01_Linear_Transformations
 02_Monotone_Functions
-03_Two_to_One_Functions
+03_Simulation_via_the_CDF
+04_Two_to_One_Functions
+05_Exercises
 ```

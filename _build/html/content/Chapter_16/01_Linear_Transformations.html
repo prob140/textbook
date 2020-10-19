@@ -620,8 +620,18 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="03_Two_to_One_Functions.html">
-     16.3. Two-to-One Functions
+    <a class="reference internal" href="03_Simulation_via_the_CDF.html">
+     16.3. Simulation via the CDF
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04_Two_to_One_Functions.html">
+     16.4. Two-to-One Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05_Exercises.html">
+     16.5. Exercises
     </a>
    </li>
   </ul>
@@ -649,6 +659,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_17/04_Beta_Densities_with_Integer_Parameters.html">
      17.4. Beta Densities with Integer Parameters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_17/05_Exercises.html">
+     17.5. Exercises
     </a>
    </li>
   </ul>
@@ -948,8 +963,8 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#scale-parameter">
-   16.1.1. Scale Parameter
+  <a class="reference internal nav-link" href="#linear-transformation-exponential-density">
+   16.1.1. Linear Transformation: Exponential Density
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -979,6 +994,9 @@
                 
   <div class="section" id="linear-transformations">
 <h1><span class="section-number">16.1. </span>Linear Transformations<a class="headerlink" href="#linear-transformations" title="Permalink to this headline">¶</a></h1>
+<p>Linear transformations are both simple and ubiquitous: every time you change units of measurement, for example to standard units, you are performing a linear transformation.</p>
+<div class="section" id="linear-transformation-exponential-density">
+<h2><span class="section-number">16.1.1. </span>Linear Transformation: Exponential Density<a class="headerlink" href="#linear-transformation-exponential-density" title="Permalink to this headline">¶</a></h2>
 <p>Let <span class="math notranslate nohighlight">\(T\)</span> have the exponential <span class="math notranslate nohighlight">\((\lambda)\)</span> distribution and let <span class="math notranslate nohighlight">\(T_1 = \lambda T\)</span>. Then <span class="math notranslate nohighlight">\(T_1\)</span> is a linear transformation of <span class="math notranslate nohighlight">\(T\)</span>. Therefore</p>
 <div class="math notranslate nohighlight">
 \[
@@ -993,13 +1011,11 @@ F_{T_1}(t) = P(T_1 \le t) = P(T \le t/\lambda) = 1 - e^{-\lambda (t/\lambda)}
 <p>That’s the cdf of the exponential <span class="math notranslate nohighlight">\((1)\)</span> distribution, consistent with the expectation and SD we found above.</p>
 <p>To summarize, if <span class="math notranslate nohighlight">\(T\)</span> has the exponential <span class="math notranslate nohighlight">\((\lambda)\)</span> distribution then the distribution of <span class="math notranslate nohighlight">\(T_1 = \lambda T\)</span> is exponential <span class="math notranslate nohighlight">\((1)\)</span>.</p>
 <p>You can think of the exponential <span class="math notranslate nohighlight">\((1)\)</span> distribution as the fundamental member of the family of exponential distributions. All others in the family can be found by changing the scale of measurement, that is, by multiplying by a constant.</p>
-<div class="section" id="scale-parameter">
-<h2><span class="section-number">16.1.1. </span>Scale Parameter<a class="headerlink" href="#scale-parameter" title="Permalink to this headline">¶</a></h2>
-<p>Conversely if <span class="math notranslate nohighlight">\(T_1\)</span> has the exponential <span class="math notranslate nohighlight">\((1)\)</span> distribution, then <span class="math notranslate nohighlight">\(T = \frac{1}{\lambda}T_1\)</span> has the exponential <span class="math notranslate nohighlight">\((\lambda)\)</span> distribution. The factor <span class="math notranslate nohighlight">\(1/\lambda\)</span> is called the <em>scale parameter</em>.</p>
-<p>Here are graphs of the densities of <span class="math notranslate nohighlight">\(T_1\)</span> and <span class="math notranslate nohighlight">\(T = \frac{1}{2}T_1\)</span>. We know that <span class="math notranslate nohighlight">\(T\)</span> has the exponential <span class="math notranslate nohighlight">\((2)\)</span> distribution.</p>
+<p>If <span class="math notranslate nohighlight">\(T_1\)</span> has the exponential <span class="math notranslate nohighlight">\((1)\)</span> distribution, then <span class="math notranslate nohighlight">\(T = \frac{1}{\lambda}T_1\)</span> has the exponential <span class="math notranslate nohighlight">\((\lambda)\)</span> distribution. The factor <span class="math notranslate nohighlight">\(1/\lambda\)</span> is called the <em>scale parameter</em>.</p>
+<p>Here are graphs of the densities of <span class="math notranslate nohighlight">\(T_1\)</span> and <span class="math notranslate nohighlight">\(T = \frac{1}{2}T_1\)</span>. By the paragraph above, <span class="math notranslate nohighlight">\(T\)</span> has the exponential <span class="math notranslate nohighlight">\((2)\)</span> distribution.</p>
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/01_Linear_Transformations_3_0.png" src="../../_images/01_Linear_Transformations_3_0.png" />
+<img alt="../../_images/01_Linear_Transformations_4_0.png" src="../../_images/01_Linear_Transformations_4_0.png" />
 </div>
 </div>
 <p>The formulas for the two densities are</p>
@@ -1011,8 +1027,19 @@ f_{T_1} (s) = e^{-s} ~~~~~~~~~~~~~~ f_T(t) = 2e^{-2t}
 <p>The relation between the two random variables is <span class="math notranslate nohighlight">\(T = \frac{1}{2}T_1\)</span>.</p>
 <ul class="simple">
 <li><p>For any <span class="math notranslate nohighlight">\(t\)</span>, the chance that <span class="math notranslate nohighlight">\(T\)</span> is near <span class="math notranslate nohighlight">\(t\)</span> is the same as the chance that <span class="math notranslate nohighlight">\(T_1\)</span> is near <span class="math notranslate nohighlight">\(s = 2t\)</span>. This explains the factor <span class="math notranslate nohighlight">\(e^{-2t}\)</span> in the density of <span class="math notranslate nohighlight">\(T\)</span>.</p></li>
-<li><p>If we think of <span class="math notranslate nohighlight">\(T_1\)</span> as a point on the horizontal axis, then to create <span class="math notranslate nohighlight">\(T\)</span> you have to divide <span class="math notranslate nohighlight">\(T_1\)</span> by 2. So the transformation consists of halving all distances on the horizontal axis. The total area under the density of <span class="math notranslate nohighlight">\(T\)</span> must equal 1, so we have to compensate by doubling all distances on the vertical axis. This explains the factor 2 in the density of <span class="math notranslate nohighlight">\(T\)</span>.</p></li>
+<li><p>If we think of <span class="math notranslate nohighlight">\(T_1\)</span> as a point on the horizontal axis, then to create <span class="math notranslate nohighlight">\(T\)</span> you have to divide <span class="math notranslate nohighlight">\(T_1\)</span> by <span class="math notranslate nohighlight">\(2\)</span>. So the transformation consists of halving all distances on the horizontal axis. The total area under the density of <span class="math notranslate nohighlight">\(T\)</span> must equal <span class="math notranslate nohighlight">\(1\)</span>, so we have to compensate by doubling all distances on the vertical axis. This explains the factor <span class="math notranslate nohighlight">\(2\)</span> in the density of <span class="math notranslate nohighlight">\(T\)</span>.</p></li>
 </ul>
+<div class="admonition-quick-check admonition">
+<p class="admonition-title">Quick Check</p>
+<p>If <span class="math notranslate nohighlight">\(T\)</span> is exponential <span class="math notranslate nohighlight">\((\lambda)\)</span> and <span class="math notranslate nohighlight">\(c &gt; 0\)</span>, then <span class="math notranslate nohighlight">\(S = cT\)</span> is exponential with one of the following rates. Which one?</p>
+<p><span class="math notranslate nohighlight">\(c\lambda\)</span>, <span class="math notranslate nohighlight">\(\frac{c}{\lambda}\)</span>, <span class="math notranslate nohighlight">\(\frac{\lambda}{c}\)</span></p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Answer</p>
+<p><span class="math notranslate nohighlight">\(\frac{\lambda}{c}\)</span></p>
+</div>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+</div>
 </div>
 <div class="section" id="linear-change-of-variable-formula-for-densities">
 <h2><span class="section-number">16.1.2. </span>Linear Change of Variable Formula for Densities<a class="headerlink" href="#linear-change-of-variable-formula-for-densities" title="Permalink to this headline">¶</a></h2>
@@ -1049,6 +1076,17 @@ F_Y(y) = P(aX+b \le y) = P\big{(}X \ge \frac{y-b}{a}\big{)} = 1 - F_X\big{(}\fra
 f_Y(y) ~ = ~ -f_X\big{(}\frac{y-b}{a}\big{)} \cdot \frac{1}{a}
 ~ = ~ f_X\big{(}\frac{y-b}{a}\big{)} \cdot \frac{1}{\lvert a \rvert}
 \]</div>
+<div class="admonition-quick-check admonition">
+<p class="admonition-title">Quick Check</p>
+<p><span class="math notranslate nohighlight">\(V\)</span> has density <span class="math notranslate nohighlight">\(f\)</span> on the whole real line.</p>
+<p>(a) Write the density of <span class="math notranslate nohighlight">\(W = 5 + 3V\)</span> in terms of <span class="math notranslate nohighlight">\(f\)</span>.</p>
+<p>(b) Write the density of <span class="math notranslate nohighlight">\(W = 5 - 3V\)</span> in terms of <span class="math notranslate nohighlight">\(f\)</span>.</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Answer</p>
+<p>(a) For all <span class="math notranslate nohighlight">\(w\)</span>, <span class="math notranslate nohighlight">\(f_W(w) = f\big{(}\frac{w-5}{3}\big{)}\cdot\frac{1}{3}\)</span></p>
+<p>(b) For all <span class="math notranslate nohighlight">\(w\)</span>, <span class="math notranslate nohighlight">\(f_W(w) = f\big{(}\frac{w-5}{-3}\big{)}\cdot\frac{1}{3}\)</span></p>
+</div>
 </div>
 <div class="section" id="the-normal-densities">
 <h2><span class="section-number">16.1.3. </span>The Normal Densities<a class="headerlink" href="#the-normal-densities" title="Permalink to this headline">¶</a></h2>
@@ -1067,6 +1105,14 @@ f_X(x) ~ &amp;= ~ \phi\big{(} \frac{x-\mu}{\sigma} \big{)} \frac{1}{\sigma} \\ \
 \end{align*}
 \end{split}\]</div>
 <p>Thus every normal random variable is a linear transformation of a standard normal variable.</p>
+<div class="admonition-quick-check admonition">
+<p class="admonition-title">Quick Check</p>
+<p>Let <span class="math notranslate nohighlight">\(X\)</span> have the normal distribution with mean <span class="math notranslate nohighlight">\(0\)</span> and variance <span class="math notranslate nohighlight">\(90\)</span>. Write <span class="math notranslate nohighlight">\(X\)</span> as a linear function of a standard normal random variable.</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Answer</p>
+<p><span class="math notranslate nohighlight">\(X = \sqrt{90}Z\)</span> where <span class="math notranslate nohighlight">\(Z\)</span> is <span class="math notranslate nohighlight">\(X\)</span> in standard units and hence standard normal</p>
+</div>
 </div>
 <div class="section" id="the-uniform-densities-revisited">
 <h2><span class="section-number">16.1.4. </span>The Uniform Densities, Revisited<a class="headerlink" href="#the-uniform-densities-revisited" title="Permalink to this headline">¶</a></h2>

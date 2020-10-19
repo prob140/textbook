@@ -1,4 +1,6 @@
 # HIDDEN
+import warnings
+warnings.filterwarnings('ignore')
 from datascience import *
 from prob140 import *
 import numpy as np
@@ -10,28 +12,22 @@ from scipy import stats
 
 ## Monotone Functions ##
 
-The method we have developed for finding the density of a linear function of a random variable can be extended to non-linear functions. We will start with a setting in which you have seen that applying non-linear functions to a random variable can have useful results.
+If $X$ is discrete, and $g$ is a monotone function, then finding the distribution of the random variable $Y = g(X)$ is straightforward: convert each possible value of $X$ by applying $g$ and leave the probabilities alone.
 
-### Simulation via the CDF ###
-In exercises, you have seen by simulation that you can generate a value of a random variable with a specified distribution by using the cdf of the distribution and a uniform (0, 1) random number. We will now establish the theory that underlies what you discovered by computation. 
+For example, if $X$ is uniform on the three values $0, 1, 2$, and $Y = e^X$, then the you can just augment the distribution table of $X$ by the possible values of $Y$: 
 
-Let $F$ be a differentiable, strictly increasing cdf on the real number line. The differentiability assumption allows you to find the corresponding density by differentiating. 
+|$y$   |$1$          |$e$          |$e^2$          |
+|-----:|:-----------:|:-----------:|:-----------:|
+|$x$   |$0$         |$1$          |$2$          |
+|chance|$\frac{1}{3}$|$\frac{1}{3}$|$\frac{1}{3}$|
 
-Our goal is to generate a value of a random variable that has $F$ as its cdf. The statement below describes the process that you came up with in exercises. Note that because $F$ is continuous and strictly increasing, it has an inverse function.
+The new random variable $Y$ is uniform on the three values $1, e, e^2$.
 
-Let $U$ have the uniform (0, 1) distribution. Define a random variable $X$ by the formula $X = F^{-1}(U)$, and let $F_X$ be the cdf of $X$. We will show that $F_X = F$ and thus that $X$ has the desired distribution.
+But if $X$ has a density then both $X$ and $Y$ have a continuum of values and we have to be more careful.
 
-To prove the result, remember that the cdf $F_U$ of $U$ is given by $F_U(u) = u$ for $0 < u < 1$. Let $x$ be any number. Our goal is to show that $F_X(x) = F(x)$.
+The method we developed in the previous section for finding the density of a linear function of a random variable can be extended to non-linear functions. 
 
-$$
-\begin{align*}
-F_X(x) ~ &= ~ P(X \le x) \\
-&= ~ P(F^{-1}(U) \le x) \\
-&= ~ P(U \le F(x)) ~~~~ \mbox{because } F \mbox{ is increasing} \\
-&= ~ F_U(F(x)) \\
-&= ~ F(x)
-\end{align*}
-$$
+# VIDEO
 
 ### Change of Variable Formula for Density: Increasing Function ###
 The function $F^{-1}$ is differentiable and increasing. We will now develop a general method for finding the density of such a function applied to any random variable that has a density.
@@ -115,6 +111,17 @@ plt.xlabel('$y$')
 plt.ylabel('$f_Y(y)$', rotation = False)
 plt.title('Rayleigh Density');
 
+```{admonition} Quick Check
+$V$ has density $f_V(v) = 2v$ for $v \in (0, 1)$ and 0 elsewhere. Let $W = -\log(V)$. What are the possible values of $W$? What is the density of $W$?
+
+```
+
+```{admonition} Answer
+:class: dropdown
+Exponential $(2)$
+
+```
+
 ### Change of Variable Formula for Density: Monotone Function ###
 Let $g$ be smooth and monotone (that is, either increasing or decreasing). The density of $Y = g(X)$ is given by
 
@@ -167,4 +174,3 @@ plt.xlim(-0.5, 10)
 plt.xlabel('$v$')
 plt.ylabel('$f_V(v)$', rotation=0)
 plt.title('Density of Reciprocal of Uniform (0, 1)');
-

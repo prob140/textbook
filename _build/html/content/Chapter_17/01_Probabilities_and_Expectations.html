@@ -620,8 +620,18 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_16/03_Two_to_One_Functions.html">
-     16.3. Two-to-One Functions
+    <a class="reference internal" href="../Chapter_16/03_Simulation_via_the_CDF.html">
+     16.3. Simulation via the CDF
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_16/04_Two_to_One_Functions.html">
+     16.4. Two-to-One Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_16/05_Exercises.html">
+     16.5. Exercises
     </a>
    </li>
   </ul>
@@ -649,6 +659,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="04_Beta_Densities_with_Integer_Parameters.html">
      17.4. Beta Densities with Integer Parameters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05_Exercises.html">
+     17.5. Exercises
     </a>
    </li>
   </ul>
@@ -1030,12 +1045,14 @@
                 
   <div class="section" id="probabilities-and-expectations">
 <h1><span class="section-number">17.1. </span>Probabilities and Expectations<a class="headerlink" href="#probabilities-and-expectations" title="Permalink to this headline">¶</a></h1>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+</div>
 <p>A function <span class="math notranslate nohighlight">\(f\)</span> on the plane is called a <em>joint density</em> if:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(f(x, y) \ge 0\)</span> for all <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(\int_x \int_y f(x, y)dydx = 1\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\int_{-\infty}^\infty \int_{-\infty}^\infty f(x, y)dydx = 1\)</span></p></li>
 </ul>
-<p>If you think of <span class="math notranslate nohighlight">\(f\)</span> as a surface, then the first condition says that the surface is on or above the plane. The second condition says that the total volume under the surface is 1.</p>
+<p>If you think of <span class="math notranslate nohighlight">\(f\)</span> as a surface, then the first condition says that the surface is on or above the plane. The second condition says that the total volume under the surface is <span class="math notranslate nohighlight">\(1\)</span>.</p>
 <p>Think of probabilities as volumes under the surface, and define <span class="math notranslate nohighlight">\(f\)</span> to be the <em>joint density of random variables <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span></em> if</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1043,6 +1060,20 @@ P((X, Y) \in A) ~ = ~ \mathop{\int \int}_A f(x,y)dydx ~~~~~ \text{for all } A
 \]</div>
 <p>That is, the chance that the random point <span class="math notranslate nohighlight">\((X, Y)\)</span> falls in the region <span class="math notranslate nohighlight">\(A\)</span> is the volume under the joint density surface over the region <span class="math notranslate nohighlight">\(A\)</span>.</p>
 <p>This is a two-dimensional analog of the fact that probabilities involving a single continuous random variable can be thought of as areas under the density curve.</p>
+<div class="admonition-quick-check admonition">
+<p class="admonition-title">Quick Check</p>
+<p>Random variables <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> have joint density <span class="math notranslate nohighlight">\(f\)</span>. Pick all the options that are correct about <span class="math notranslate nohighlight">\(\int_1^2 \int_3^4 f(x,y)dxdy\)</span>.</p>
+<p>(i) Could be any non-negative number</p>
+<p>(ii) Has to be in <span class="math notranslate nohighlight">\([0, 1]\)</span> (this interval includes both endpoints)</p>
+<p>(iii) Has to be in <span class="math notranslate nohighlight">\((0, 1)\)</span> (this interval excludes both endpoints)</p>
+<p>(iv) None of the above</p>
+</div>
+<div class="admonition-answer admonition">
+<p class="admonition-title">Answer</p>
+<p>(ii)</p>
+</div>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+</div>
 <div class="section" id="infinitesimals">
 <h2><span class="section-number">17.1.1. </span>Infinitesimals<a class="headerlink" href="#infinitesimals" title="Permalink to this headline">¶</a></h2>
 <p>Also analogous is the interpretation of the joint density as part of the calculation of the probability of an infinitesimal region.
@@ -1091,15 +1122,17 @@ f(x, y) ~ = ~
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/01_Probabilities_and_Expectations_8_0.png" src="../../_images/01_Probabilities_and_Expectations_8_0.png" />
+<img alt="../../_images/01_Probabilities_and_Expectations_12_0.png" src="../../_images/01_Probabilities_and_Expectations_12_0.png" />
 </div>
 </div>
 <p>The surface has level 0 in the lower right hand triangle because it is not possible for the point <span class="math notranslate nohighlight">\((X, Y)\)</span> to be in that region.</p>
 <p>The possible values of <span class="math notranslate nohighlight">\((X, Y)\)</span> are the blue region shown below. For calculations by hand, we will frequently draw just the possible values and not the surface.</p>
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/01_Probabilities_and_Expectations_10_0.png" src="../../_images/01_Probabilities_and_Expectations_10_0.png" />
+<img alt="../../_images/01_Probabilities_and_Expectations_14_0.png" src="../../_images/01_Probabilities_and_Expectations_14_0.png" />
 </div>
+</div>
+<div class="cell tag_remove-input tag_hide-output docutils container">
 </div>
 </div>
 <div class="section" id="the-total-volume-under-the-surface">
@@ -1129,7 +1162,7 @@ f(x, y) ~ = ~
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/01_Probabilities_and_Expectations_13_0.png" src="../../_images/01_Probabilities_and_Expectations_13_0.png" />
+<img alt="../../_images/01_Probabilities_and_Expectations_18_0.png" src="../../_images/01_Probabilities_and_Expectations_18_0.png" />
 </div>
 </div>
 <p>Displaying the double integral requires a call to <code class="docutils literal notranslate"><span class="pre">Integral</span></code> that specifies the inner integral first and then the outer. The call says:</p>
@@ -1145,7 +1178,7 @@ f(x, y) ~ = ~
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/01_Probabilities_and_Expectations_15_0.png" src="../../_images/01_Probabilities_and_Expectations_15_0.png" />
+<img alt="../../_images/01_Probabilities_and_Expectations_20_0.png" src="../../_images/01_Probabilities_and_Expectations_20_0.png" />
 </div>
 </div>
 <p>To evaluate the integral, use <code class="docutils literal notranslate"><span class="pre">doit()</span></code>:</p>
@@ -1156,8 +1189,27 @@ f(x, y) ~ = ~
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/01_Probabilities_and_Expectations_17_0.png" src="../../_images/01_Probabilities_and_Expectations_17_0.png" />
+<img alt="../../_images/01_Probabilities_and_Expectations_22_0.png" src="../../_images/01_Probabilities_and_Expectations_22_0.png" />
 </div>
+</div>
+<div class="admonition-quick-check admonition">
+<p class="admonition-title">Quick Check</p>
+<p>For <span class="math notranslate nohighlight">\(f\)</span> the joint density in the example above, integrate <span class="math notranslate nohighlight">\(f\)</span> in the other order by replacing each ? with a number.</p>
+<div class="math notranslate nohighlight">
+\[
+\text{total volume} ~ = ~ 
+\int_?^? \int_?^?
+f(x,y)dydx
+\]</div>
+</div>
+<div class="admonition-answer admonition">
+<p class="admonition-title">Answer</p>
+<p>$
+\int_{0}^{1} \int_{x}^{1}
+f(x,y)dxdy
+$</p>
+</div>
+<div class="cell tag_remove-input tag_hide-output docutils container">
 </div>
 </div>
 </div>
@@ -1170,7 +1222,7 @@ f(x, y) ~ = ~
 <p>Suppose you want to find <span class="math notranslate nohighlight">\(P(Y &gt; 4X)\)</span>. The event is the blue region in the graph below.</p>
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/01_Probabilities_and_Expectations_20_0.png" src="../../_images/01_Probabilities_and_Expectations_20_0.png" />
+<img alt="../../_images/01_Probabilities_and_Expectations_28_0.png" src="../../_images/01_Probabilities_and_Expectations_28_0.png" />
 </div>
 </div>
 <p>To find the region of integration, notice that for fixed <span class="math notranslate nohighlight">\(y\)</span>, the value of <span class="math notranslate nohighlight">\(x\)</span> goes from 0 to <span class="math notranslate nohighlight">\(y/4\)</span>. So</p>
@@ -1192,7 +1244,7 @@ P(Y &gt; 4X) ~ &amp;= ~ \int_0^1 \int_0^{y/4} 120x(y-x)(1-y)dxdy \\
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/01_Probabilities_and_Expectations_23_0.png" src="../../_images/01_Probabilities_and_Expectations_23_0.png" />
+<img alt="../../_images/01_Probabilities_and_Expectations_31_0.png" src="../../_images/01_Probabilities_and_Expectations_31_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1202,7 +1254,7 @@ P(Y &gt; 4X) ~ &amp;= ~ \int_0^1 \int_0^{y/4} 120x(y-x)(1-y)dxdy \\
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/01_Probabilities_and_Expectations_24_0.png" src="../../_images/01_Probabilities_and_Expectations_24_0.png" />
+<img alt="../../_images/01_Probabilities_and_Expectations_32_0.png" src="../../_images/01_Probabilities_and_Expectations_32_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1212,7 +1264,7 @@ P(Y &gt; 4X) ~ &amp;= ~ \int_0^1 \int_0^{y/4} 120x(y-x)(1-y)dxdy \\
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/01_Probabilities_and_Expectations_25_0.png" src="../../_images/01_Probabilities_and_Expectations_25_0.png" />
+<img alt="../../_images/01_Probabilities_and_Expectations_33_0.png" src="../../_images/01_Probabilities_and_Expectations_33_0.png" />
 </div>
 </div>
 </div>
@@ -1222,7 +1274,7 @@ P(Y &gt; 4X) ~ &amp;= ~ \int_0^1 \int_0^{y/4} 120x(y-x)(1-y)dxdy \\
 <p>Suppose you want to find <span class="math notranslate nohighlight">\(P(X &gt; 0.25, Y &gt; 0.5)\)</span>. The event is the colored region below.</p>
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/01_Probabilities_and_Expectations_27_0.png" src="../../_images/01_Probabilities_and_Expectations_27_0.png" />
+<img alt="../../_images/01_Probabilities_and_Expectations_35_0.png" src="../../_images/01_Probabilities_and_Expectations_35_0.png" />
 </div>
 </div>
 <p>Now <span class="math notranslate nohighlight">\(P(X &gt; 0.25, Y &gt; 0.5)\)</span> is the integral of the joint density function over this region. Notice that for each fixed value of <span class="math notranslate nohighlight">\(y &gt; 0.5\)</span>, the value of <span class="math notranslate nohighlight">\(x\)</span> in this event goes from <span class="math notranslate nohighlight">\(0.25\)</span> to <span class="math notranslate nohighlight">\(y\)</span>. So let’s integrate <span class="math notranslate nohighlight">\(x\)</span> first and then <span class="math notranslate nohighlight">\(y\)</span>, as we did in the previous calculations.</p>
@@ -1238,7 +1290,7 @@ P(X &gt; 0.25, Y &gt; 0.5) ~ = ~ \int_{0.5}^1 \int_{0.25}^y 120x(y-x)(1-y)dxdy
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/01_Probabilities_and_Expectations_29_0.png" src="../../_images/01_Probabilities_and_Expectations_29_0.png" />
+<img alt="../../_images/01_Probabilities_and_Expectations_37_0.png" src="../../_images/01_Probabilities_and_Expectations_37_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1248,8 +1300,10 @@ P(X &gt; 0.25, Y &gt; 0.5) ~ = ~ \int_{0.5}^1 \int_{0.25}^y 120x(y-x)(1-y)dxdy
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/01_Probabilities_and_Expectations_30_0.png" src="../../_images/01_Probabilities_and_Expectations_30_0.png" />
+<img alt="../../_images/01_Probabilities_and_Expectations_38_0.png" src="../../_images/01_Probabilities_and_Expectations_38_0.png" />
 </div>
+</div>
+<div class="cell tag_remove-input tag_hide-output docutils container">
 </div>
 </div>
 <div class="section" id="expectation">
@@ -1283,7 +1337,7 @@ E\big{(}\frac{Y}{X}\big{)} ~ &amp;= ~ \int_y \int_x g(x, y)f(x, y)dxdy \\ \\
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/01_Probabilities_and_Expectations_32_0.png" src="../../_images/01_Probabilities_and_Expectations_32_0.png" />
+<img alt="../../_images/01_Probabilities_and_Expectations_41_0.png" src="../../_images/01_Probabilities_and_Expectations_41_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1293,7 +1347,7 @@ E\big{(}\frac{Y}{X}\big{)} ~ &amp;= ~ \int_y \int_x g(x, y)f(x, y)dxdy \\ \\
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/01_Probabilities_and_Expectations_33_0.png" src="../../_images/01_Probabilities_and_Expectations_33_0.png" />
+<img alt="../../_images/01_Probabilities_and_Expectations_42_0.png" src="../../_images/01_Probabilities_and_Expectations_42_0.png" />
 </div>
 </div>
 </div>

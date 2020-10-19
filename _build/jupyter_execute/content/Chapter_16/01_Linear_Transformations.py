@@ -1,4 +1,6 @@
 # HIDDEN
+import warnings
+warnings.filterwarnings('ignore')
 from datascience import *
 from prob140 import *
 import numpy as np
@@ -9,6 +11,10 @@ import math
 from scipy import stats
 
 ## Linear Transformations ##
+
+Linear transformations are both simple and ubiquitous: every time you change units of measurement, for example to standard units, you are performing a linear transformation.
+
+### Linear Transformation: Exponential Density ###
 
 Let $T$ have the exponential $(\lambda)$ distribution and let $T_1 = \lambda T$. Then $T_1$ is a linear transformation of $T$. Therefore
 
@@ -29,10 +35,9 @@ To summarize, if $T$ has the exponential $(\lambda)$ distribution then the distr
 
 You can think of the exponential $(1)$ distribution as the fundamental member of the family of exponential distributions. All others in the family can be found by changing the scale of measurement, that is, by multiplying by a constant. 
 
-### Scale Parameter ###
-Conversely if $T_1$ has the exponential $(1)$ distribution, then $T = \frac{1}{\lambda}T_1$ has the exponential $(\lambda)$ distribution. The factor $1/\lambda$ is called the *scale parameter*. 
+If $T_1$ has the exponential $(1)$ distribution, then $T = \frac{1}{\lambda}T_1$ has the exponential $(\lambda)$ distribution. The factor $1/\lambda$ is called the *scale parameter*. 
 
-Here are graphs of the densities of $T_1$ and $T = \frac{1}{2}T_1$. We know that $T$ has the exponential $(2)$ distribution. 
+Here are graphs of the densities of $T_1$ and $T = \frac{1}{2}T_1$. By the paragraph above, $T$ has the exponential $(2)$ distribution. 
 
 # NO CODE
 t = np.arange(0, 5.01, 0.01)
@@ -55,7 +60,22 @@ Let's try to understand the relation between these two densities in a way that w
 The relation between the two random variables is $T = \frac{1}{2}T_1$.
 
 - For any $t$, the chance that $T$ is near $t$ is the same as the chance that $T_1$ is near $s = 2t$. This explains the factor $e^{-2t}$ in the density of $T$.
-- If we think of $T_1$ as a point on the horizontal axis, then to create $T$ you have to divide $T_1$ by 2. So the transformation consists of halving all distances on the horizontal axis. The total area under the density of $T$ must equal 1, so we have to compensate by doubling all distances on the vertical axis. This explains the factor 2 in the density of $T$.
+- If we think of $T_1$ as a point on the horizontal axis, then to create $T$ you have to divide $T_1$ by $2$. So the transformation consists of halving all distances on the horizontal axis. The total area under the density of $T$ must equal $1$, so we have to compensate by doubling all distances on the vertical axis. This explains the factor $2$ in the density of $T$.
+
+```{admonition} Quick Check
+If $T$ is exponential $(\lambda)$ and $c > 0$, then $S = cT$ is exponential with one of the following rates. Which one?
+
+$c\lambda$, $\frac{c}{\lambda}$, $\frac{\lambda}{c}$
+
+```
+
+```{admonition} Answer
+:class: dropdown
+$\frac{\lambda}{c}$
+
+```
+
+# VIDEO
 
 ### Linear Change of Variable Formula for Densities ###
 We use the same idea to find the density of a linear transformation of a random variable.
@@ -97,6 +117,23 @@ f_Y(y) ~ = ~ -f_X\big{(}\frac{y-b}{a}\big{)} \cdot \frac{1}{a}
 ~ = ~ f_X\big{(}\frac{y-b}{a}\big{)} \cdot \frac{1}{\lvert a \rvert}
 $$
 
+```{admonition} Quick Check
+$V$ has density $f$ on the whole real line.
+
+(a) Write the density of $W = 5 + 3V$ in terms of $f$.
+
+(b) Write the density of $W = 5 - 3V$ in terms of $f$.
+
+```
+
+```{admonition} Answer
+:class: dropdown
+(a) For all $w$, $f_W(w) = f\big{(}\frac{w-5}{3}\big{)}\cdot\frac{1}{3}$
+
+(b) For all $w$, $f_W(w) = f\big{(}\frac{w-5}{-3}\big{)}\cdot\frac{1}{3}$
+
+```
+
 ### The Normal Densities ###
 Let $Z$ have the standard normal density 
 
@@ -115,6 +152,17 @@ f_X(x) ~ &= ~ \phi\big{(} \frac{x-\mu}{\sigma} \big{)} \frac{1}{\sigma} \\ \\
 $$
 
 Thus every normal random variable is a linear transformation of a standard normal variable. 
+
+```{admonition} Quick Check
+Let $X$ have the normal distribution with mean $0$ and variance $90$. Write $X$ as a linear function of a standard normal random variable.
+
+```
+
+```{admonition} Answer
+:class: dropdown
+$X = \sqrt{90}Z$ where $Z$ is $X$ in standard units and hence standard normal
+
+```
 
 ### The Uniform Densities, Revisited ###
 Let the distribution of $U$ be uniform on $(0, 1)$ and for constants $b > a$ let $V = (b-a)U + a$. In an earlier section we saw that $V$ has the uniform distribution on $(a, b)$. But let's see what's involved in confirming that result using our new formula.
