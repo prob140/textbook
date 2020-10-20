@@ -13,6 +13,9 @@ init_printing()
 ## Marginal and Conditional Densities ##
 
 # VIDEO
+from IPython.display import YouTubeVideo
+
+YouTubeVideo('K4NlpU_Kd_0')
 
 Let random variables $X$ and $Y$ have the joint density defined by
 
@@ -146,6 +149,7 @@ plt.ylabel('$f_Y(y)$', rotation=0)
 plt.title('$f_Y$: Density of $Y$');
 
 # VIDEO
+YouTubeVideo('T0CkUU6V6CE')
 
 ### Conditional Densities ###
 Consider the conditional probability $P(Y \in dy \mid X \in dx)$. By the division rule, 

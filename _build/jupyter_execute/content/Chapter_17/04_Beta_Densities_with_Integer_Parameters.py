@@ -65,6 +65,9 @@ plt.title('Order Statistics of the Five IID Uniform (0, 1) Variables');
 In general for $1 \le k \le n$, the *$k$th order statistic* of $U_1, U_2, \ldots, U_n$ is the $k$th value when the $U_i$'s are sorted in increasing order. This can also be thought of as the $k$th *ranked* value when the minimum has rank 1. It is denoted $U_{(k)}$.
 
 # VIDEO
+from IPython.display import YouTubeVideo
+
+YouTubeVideo('3AIyXF1kQPA')
 
 ### Joint Density of Two Order Statistics ###
 Let $n = 5$ as above and let's try to work out the joint density of $U_{(2)}$ and $U_{(4)}$. That's the joint density of the second and fourth values on the sorted list.

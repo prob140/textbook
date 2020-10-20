@@ -76,6 +76,9 @@ $\frac{\lambda}{c}$
 ```
 
 # VIDEO
+from IPython.display import YouTubeVideo
+
+YouTubeVideo('MA40E9QPCjU')
 
 ### Linear Change of Variable Formula for Densities ###
 We use the same idea to find the density of a linear transformation of a random variable.

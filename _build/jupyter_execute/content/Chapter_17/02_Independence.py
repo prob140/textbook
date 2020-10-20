@@ -35,6 +35,9 @@ The "unit disc" is the disc of radius 1 centered at the origin. That is, it's th
 ```
 
 # VIDEO
+from IPython.display import YouTubeVideo
+
+YouTubeVideo('jVHgjZBMYq0')
 
 If the set of possible values is rectangular then you have to check independence using the old definition:
 

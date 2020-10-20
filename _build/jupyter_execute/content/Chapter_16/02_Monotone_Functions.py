@@ -28,6 +28,9 @@ But if $X$ has a density then both $X$ and $Y$ have a continuum of values and we
 The method we developed in the previous section for finding the density of a linear function of a random variable can be extended to non-linear functions. 
 
 # VIDEO
+from IPython.display import YouTubeVideo
+
+YouTubeVideo('1fKqhkOXddc')
 
 ### Change of Variable Formula for Density: Increasing Function ###
 The function $F^{-1}$ is differentiable and increasing. We will now develop a general method for finding the density of such a function applied to any random variable that has a density.

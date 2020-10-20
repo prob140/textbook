@@ -8,7 +8,7 @@ $$f(x, y) ~ = ~
 \begin{cases}
 c(x - y), ~~ 0 < y < x < 1 \\
 0 ~~~~~~~~~~~~~~ \text{otherwise}
-\end{cases}$$
+\end{cases}$$.
 
 (a) Draw the region over which $f$ is positive.
 
@@ -47,7 +47,7 @@ $$f(x, y) ~ = ~
 \begin{cases}
 24xy, ~~~ x, y > 0  \text{ and } 0 < x+y < 1 \\
 0 ~~~~~~~~~~~~~ \text{otherwise}
-\end{cases}$$
+\end{cases}$$.
 
 (a) Find the density of $X$. Recognize this as one of the famous ones and state its name and parameters.
 

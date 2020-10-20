@@ -13,6 +13,9 @@ init_printing()
 ## Probabilities and Expectations ##
 
 # VIDEO
+from IPython.display import YouTubeVideo
+
+YouTubeVideo('_DzYX2ia_zs')
 
 A function $f$ on the plane is called a *joint density* if:
 
@@ -50,6 +53,7 @@ Random variables $X$ and $Y$ have joint density $f$. Pick all the options that a
 ```
 
 # VIDEO
+YouTubeVideo('qfwy23iZBwk')
 
 ### Infinitesimals ###
 Also analogous is the interpretation of the joint density as part of the calculation of the probability of an infinitesimal region.
@@ -116,6 +120,7 @@ plt.ylabel('$y$', rotation=0)
 plt.title('Possible Values of $(X, Y)$');
 
 # VIDEO
+YouTubeVideo('IP7qhyvy6qE')
 
 ### The Total Volume Under the Surface ###
 The function $f$ looks like a bit of a mess but it is easy to see that it is non-negative. It's a good idea to check that the total probability under the surface is equal to 1. 
@@ -174,6 +179,7 @@ $
 ```
 
 # VIDEO
+YouTubeVideo('3Ri-wBDfSMI')
 
 ### Probabilities as Volumes ###
 Probabilities are volumes under the joint density surface. In other words, they are double integrals of the function $f$. For each probability, we have to first identify the region of integration, which we will do by geometry and by inspecting the event. Once we have set up the integral, we have to calculate its value, which we will do by calculus or `SymPy`.
@@ -257,6 +263,7 @@ Integral(f, (x, 0.25, y), (y, 0.5, 1))
 Integral(f, (x, 0.25, y), (y, 0.5, 1)).doit()
 
 # VIDEO
+YouTubeVideo('iWDyZg5Ckfo')
 
 ### Expectation ###
 Let $g$ be a function on the plane. Then
