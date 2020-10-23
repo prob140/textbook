@@ -82,6 +82,7 @@ $U$ is uniform on $(0, 1)$. To find the density of $V = U^2$, do you have to tak
 ```
 
 ```{admonition} Answer
+:class: dropdown
 No, the square is one-to-one on $(0, 1)$. For $v \in (0, 1)$, $f_V(v) = 1/2\sqrt{v}$.
 
 ```
@@ -92,6 +93,7 @@ $R$ is uniform on $(-1, 1)$. To find the density of $S = R^2$, do you have to ta
 ```
 
 ```{admonition} Answer
+:class: dropdown
 $f_R(r) = \frac{1}{2}$ for $r \in (-1, 1)$. Yes, the square is two-to-one on $(-1, 1)$. For $s \in (0, 1)$, $f_S(s) = 1/2\sqrt{s}$.
 
 ```

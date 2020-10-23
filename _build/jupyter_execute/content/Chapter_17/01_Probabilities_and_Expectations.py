@@ -48,6 +48,7 @@ Random variables $X$ and $Y$ have joint density $f$. Pick all the options that a
 ```
 
 ```{admonition} Answer
+:class: dropdown
 (ii)
 
 ```
@@ -171,10 +172,8 @@ $$
 ```
 
 ```{admonition} Answer
-$
-\int_{0}^{1} \int_{x}^{1}
-f(x,y)dxdy
-$
+:class: dropdown
+$\int_{0}^{1} \int_{x}^{1}f(x,y)dxdy$
 
 ```
 

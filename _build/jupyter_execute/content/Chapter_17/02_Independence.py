@@ -29,6 +29,7 @@ The "unit disc" is the disc of radius 1 centered at the origin. That is, it's th
 ```
 
 ```{admonition} Answer
+:class: dropdown
 (iii)
 
 
@@ -113,7 +114,7 @@ For some positive constant $c$, the random variables $X$ and $Y$ have joint dens
 
 ```
 
-```{admonition} Quick Check
+```{admonition} Answer
 :class: dropdown
 Yes
 

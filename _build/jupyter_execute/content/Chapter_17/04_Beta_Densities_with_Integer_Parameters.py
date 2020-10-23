@@ -138,6 +138,7 @@ $U_1, U_2, \ldots, U_{10}$ are i.i.d. uniform $(0, 1)$ random variables. Find th
 ```
 
 ```{admonition} Answer
+:class: dropdown
 $f(x,y) = \frac{10!}{2!1!3!1!3!}x^2(y-x)^3(1-y)^3$, $0 < x < y < 1$
 
 ```

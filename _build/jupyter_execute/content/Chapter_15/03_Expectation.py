@@ -24,6 +24,7 @@ Let $X$ have density $f$. Let $g$ be a real valued function on the real line, an
 - "Sum" over all $x$, that is, integrate.
 
 The expectation is
+
 $$
 E(g(X)) ~ = ~ \int_{-\infty}^{\infty} g(x)\cdot f(x)dx
 $$
@@ -41,7 +42,7 @@ $$
 \int_{-\infty}^{\infty} \lvert g(x) \rvert \cdot f(x)dx ~ < ~ \infty
 $$
 
-If it is finite then there is a theorem that says $\int_{-\infty}^{\infty} g(x)\cdot f(x)dx $ exists, so it makes sense to define
+If it is finite then there is a theorem that says $\int_{-\infty}^{\infty} g(x)\cdot f(x)dx$ exists, so it makes sense to define
 
 $$
 E(g(X)) ~ = ~ \int_{-\infty}^{\infty} g(x)\cdot f(x)dx 

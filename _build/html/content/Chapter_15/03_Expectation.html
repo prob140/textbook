@@ -1014,10 +1014,11 @@
 <li><p>Weight <span class="math notranslate nohighlight">\(g(x)\)</span> by the chance that <span class="math notranslate nohighlight">\(X\)</span> is <em>just around <span class="math notranslate nohighlight">\(x\)</span></em>, resulting in the product <span class="math notranslate nohighlight">\(g(x) \cdot f(x)dx\)</span>.</p></li>
 <li><p>“Sum” over all <span class="math notranslate nohighlight">\(x\)</span>, that is, integrate.</p></li>
 </ul>
-<p>The expectation is
-<span class="math notranslate nohighlight">\($
+<p>The expectation is</p>
+<div class="math notranslate nohighlight">
+\[
 E(g(X)) ~ = ~ \int_{-\infty}^{\infty} g(x)\cdot f(x)dx
-$\)</span></p>
+\]</div>
 <p><strong>Technical Note:</strong> We must be careful here as <span class="math notranslate nohighlight">\(g\)</span> is an arbitrary function and the integral above need not exist. If <span class="math notranslate nohighlight">\(g\)</span> is non-negative, then the integral is either finite or diverges to <span class="math notranslate nohighlight">\(+\infty\)</span>, but it doesn’t oscillate. So if <span class="math notranslate nohighlight">\(g\)</span> is non-negative, define</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1029,7 +1030,7 @@ E(g(X)) ~ = ~ \int_{-\infty}^{\infty} g(x)\cdot f(x)dx ~~~
 \[
 \int_{-\infty}^{\infty} \lvert g(x) \rvert \cdot f(x)dx ~ &lt; ~ \infty
 \]</div>
-<p>If it is finite then there is a theorem that says $\int_{-\infty}^{\infty} g(x)\cdot f(x)dx $ exists, so it makes sense to define</p>
+<p>If it is finite then there is a theorem that says <span class="math notranslate nohighlight">\(\int_{-\infty}^{\infty} g(x)\cdot f(x)dx\)</span> exists, so it makes sense to define</p>
 <div class="math notranslate nohighlight">
 \[
 E(g(X)) ~ = ~ \int_{-\infty}^{\infty} g(x)\cdot f(x)dx 
