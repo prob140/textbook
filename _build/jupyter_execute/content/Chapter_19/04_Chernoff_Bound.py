@@ -1,4 +1,6 @@
 # HIDDEN
+import warnings
+warnings.filterwarnings('ignore')
 from datascience import *
 from prob140 import *
 import numpy as np
@@ -20,33 +22,56 @@ $$
 P(X \ge c) ~  \le ~ \frac{\mu}{c}
 $$
 
+This bound depends only on the first moment of $X$ (and the fact that $X$ is non-negative).
+
 #### Chebychev's Bound on Two Tails ####
 
 $$
 P(\lvert X - \mu\rvert \ge c) ~ \le ~ \frac{\sigma^2}{c^2}
 $$
 
-Moment generating functions can help us improve upon these bounds in many cases. In what follows, we will assume that the moment generating function of $X$ is finite over the whole real line. If it is finite only over a smaller interval around 0, the calculations of the mgf below should be confined to that interval.
+This bound depends on the first and second moments of $X$ since $\sigma^2 = E(X^2) - (E(X))^2$. 
 
-### Chernoff Bound on the Right Tail ###
-Observe that if $g$ is an increasing function, then the event $\{ X \ge c \}$ is the same as the event $\{ g(X) \ge g(c)\}$. 
+In cases where both bounds apply, Chebyshev often does better than Markov because it uses two moments instead of one. So it is reasonable to think that the more moments you know, the closer you can get to the tail probabilities. 
 
-For any fixed $t > 0$, the function defined by $g(x) = e^{tx}$ is increasing as well as non-negative. So for each $t > 0$,
+Moment generating functions can help get good bounds on tail probabilities. In what follows, we will assume that the moment generating function of $X$ is finite over the whole real line. If it is finite only over a smaller interval around 0, the calculations of the mgf below should be confined to that interval.
+
+# VIDEO
+from IPython.display import YouTubeVideo
+
+YouTubeVideo('HCEQFjHyLIw')
+
+### Exponential Bounds on Tails ###
+
+Let $X$ be a random variable with mgf $M_X$. We are going to find an upper bound for the right hand tail probability $P(X \ge c)$ for a fixed $c$.
+
+To see how the moment generating function comes in, fix $t > 0$. The function defined by $g(x) = e^{tx}$ is increasing as well as non-negative. Because it is increasing,
+
+$$
+X \ge c ~ \iff ~ e^{tX} \ge e^{tc}
+$$
+
+Since $e^{tX}$ is a non-negative random variable, we can apply Markov's inequality as follows. 
 
 $$
 \begin{align*}
 P(X \ge c) ~ &= P(e^{tX} \ge e^{tc}) \\
 &\le ~ \frac{E(e^{tX})}{e^{tc}} ~~~~ \text{(Markov's bound)} \\
-&= ~ \frac{M_X(t)}{e^{tc}}
+&= ~ \frac{M_X(t)}{e^{tc}} \\
+&=~ M_X(t)e^{-tc}
 \end{align*}
 $$
 
-This is the first step in developing a [Chernoff bound](https://en.wikipedia.org/wiki/Chernoff_bound) on the right hand tail. 
+Since $t$ is fixed, $M_X(t)$ is constant. So we have shown that $P(X \ge c)$ is falling exponentially as a function of $c$.
 
-For the next step, notice that you can choose $t$ to be any positive number. Some choices of $t$ will give sharper bounds than others. Because these are upper bounds, the sharpest among all of the bounds will correspond to the value of $t$ that minimizes the right hand side. So the Chernoff bound has an *optimized* form:
+### Chernoff Bound on the Right Tail ###
+
+The calculation above is the first step in developing a [Chernoff bound](https://en.wikipedia.org/wiki/Chernoff_bound) on the right hand tail probability $P(X \ge c)$ for a fixed $c$.
+
+For the next step, notice that you can choose $t$ to be any positive number. For our fixed $c$, some choices of $t$ will give sharper upper bounds than others. The sharpest among all of the bounds will correspond to the value of $t$ that minimizes the right hand side. So the Chernoff bound has an *optimized* form:
 
 $$
-P(X \ge c) ~ \le ~ \min_{t > 0} \frac{M_X(t)}{e^{tc}}
+P(X \ge c) ~ \le ~ \min_{t > 0} M_X(t)e^{-tc}
 $$
 
 ### Application to the Normal Distribution ###
@@ -63,8 +88,8 @@ The optimized Chernoff bound is
 
 $$
 \begin{align*}
-P(X- \mu \ge c) ~ &\le ~ \min_{t > 0} \frac{M_{X-\mu}(t)}{e^{tc}} \\ \\
-&= ~ \min_{t > 0} \frac{e^{\sigma^2t^2/2}}{e^{tc}} \\ \\
+P(X- \mu \ge c) ~ &\le ~ \min_{t > 0} M_{X-\mu}(t)e^{-tc} \\ \\
+&= ~ \min_{t > 0} e^{\sigma^2t^2/2} \cdot e^{-tc} \\ \\
 &= ~ \min_{t > 0} e^{-ct + \sigma^2t^2/2}
 \end{align*}
 $$

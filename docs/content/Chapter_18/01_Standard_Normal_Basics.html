@@ -693,6 +693,11 @@
      18.4. Chi-Squared Distributions
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05_Exercises.html">
+     18.5. Exercises
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1">
@@ -718,6 +723,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_19/04_Chernoff_Bound.html">
      19.4. Chernoff Bound
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_19/05_Exercises.html">
+     19.5. Exercises
     </a>
    </li>
   </ul>
@@ -991,36 +1001,48 @@
 <h1><span class="section-number">18.1. </span>Standard Normal: The Basics<a class="headerlink" href="#standard-normal-the-basics" title="Permalink to this headline">¶</a></h1>
 <p>Though we have accepted the formula for the standard normal density function since Data 8, we have never proved that it is indeed a density – that it integrates to 1. We have also not checked that its expectation exists, nor that its SD is 1.</p>
 <p>It’s time to do all that and thereby ensure that our calculations involving normal densities are legitimate.</p>
-<p>We will start by recalling some facts about the apparently unrelated Rayleigh distribution, which we encountered as the distribution of the square root of an exponential variable.</p>
-<p>Let <span class="math notranslate nohighlight">\(T\)</span> have the exponential <span class="math notranslate nohighlight">\((1/2)\)</span> distribution. Then we will say that <span class="math notranslate nohighlight">\(R = \sqrt{T}\)</span> has the Rayleigh distribution, with cdf given by</p>
+<p>We will start by recalling some facts about the apparently unrelated Rayleigh distribution, which we encountered as the distribution of the <a class="reference external" href="http://prob140.org/textbook/content/Chapter_16/02_Monotone_Functions.html#applying-the-formula">square root of an exponential variable</a>.</p>
+<p>Let <span class="math notranslate nohighlight">\(T\)</span> have the exponential <span class="math notranslate nohighlight">\((1/2)\)</span> distribution. Then that <span class="math notranslate nohighlight">\(V = \sqrt{T}\)</span> has the Rayleigh distribution, with density given by</p>
 <div class="math notranslate nohighlight">
 \[
-F_R(r) = 1 - e^{-\frac{1}{2}r^2}, ~~~~ r &gt; 0
+f_V(v) = ve^{-\frac{1}{2}v^2}, ~~~~ v &gt; 0
 \]</div>
-<p>and density given by</p>
+<p>and cdf given by</p>
 <div class="math notranslate nohighlight">
 \[
-f_R(r) = re^{-\frac{1}{2}r^2}, ~~~~ r &gt; 0
+F_V(v) = 1 - e^{-\frac{1}{2}v^2}, ~~~~ v &gt; 0
 \]</div>
-<p>In fact, there is a family of Rayleigh distributions, each of whose members has the distribution of <span class="math notranslate nohighlight">\(cR\)</span> for some positive constant <span class="math notranslate nohighlight">\(c\)</span>. But let us define <span class="math notranslate nohighlight">\(R\)</span> to have “the” Rayleigh distribution, and let’s see what <span class="math notranslate nohighlight">\(R\)</span> has to do with standard normal variables.</p>
+<p>In fact there is a family of Rayleigh distributions, each of whose members has the distribution of <span class="math notranslate nohighlight">\(cV\)</span> for some positive constant <span class="math notranslate nohighlight">\(c\)</span>. But let us define <span class="math notranslate nohighlight">\(V\)</span> to have “the” Rayleigh distribution, and let’s see what <span class="math notranslate nohighlight">\(V\)</span> has to do with standard normal variables.</p>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="400"
+    height="300"
+    src="https://www.youtube.com/embed/8vLTUrqS67A"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
 <div class="section" id="the-constant-of-integration">
 <h2><span class="section-number">18.1.1. </span>The Constant of Integration<a class="headerlink" href="#the-constant-of-integration" title="Permalink to this headline">¶</a></h2>
-<p>Let <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> be independent standard normal variables. Since we haven’t yet proved that the constant of integration in the standard normal density should be <span class="math notranslate nohighlight">\(1/\sqrt{2\pi}\)</span>, let’s just call it <span class="math notranslate nohighlight">\(c\)</span> for now. Then the joint density of <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> is</p>
+<p>Let <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> be independent standard normal variables. Since we haven’t yet proved that the constant of integration in the standard normal density should be <span class="math notranslate nohighlight">\(1/\sqrt{2\pi}\)</span>, let’s just call it <span class="math notranslate nohighlight">\(c\)</span>. Then, by independence, the joint density of <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> is</p>
 <div class="math notranslate nohighlight">
 \[
 f(x, y) ~ = ~ c e^{-\frac{1}{2}x^2} \cdot c e^{-\frac{1}{2}y^2} 
 ~ = ~ c^2 e^{-\frac{1}{2}(x^2 + y^2)},
 ~~~~ -\infty &lt; x, y &lt; \infty
 \]</div>
-<p>Regardless of the value of the constant, the joint density has <em>circular symmetry</em>: if two points on the plane are at the same radial distance from the origin, then the joint density is the same at those two points. Let’s make this more clear in our notation.</p>
+<p>The joint density at <span class="math notranslate nohighlight">\((x, y)\)</span> is a function of <span class="math notranslate nohighlight">\(x^+y^2\)</span>. Regardless of the value of the constant <span class="math notranslate nohighlight">\(c\)</span>, the joint density has <em>circular symmetry</em>: if two points on the plane are at the same radial distance from the origin, then the joint density is the same at those two points. Let’s make this more clear in our notation.</p>
 <div class="math notranslate nohighlight">
 \[
 f(x, y) ~ = ~ c^2 e^{-\frac{1}{2}r^2} ~~~~ \text{where } x^2 + y^2 = r^2
 \]</div>
-<p>Now let <span class="math notranslate nohighlight">\(R = \sqrt{X^2 + Y^2}\)</span>. To find the density of <span class="math notranslate nohighlight">\(R\)</span>, let’s try to calculate <span class="math notranslate nohighlight">\(P(R \in dr)\)</span>. The event is shown in the graph below.</p>
+<p>Now let <span class="math notranslate nohighlight">\(R = \sqrt{X^2 + Y^2}\)</span>. To find the density of <span class="math notranslate nohighlight">\(R\)</span>, let’s try to calculate <span class="math notranslate nohighlight">\(P(R \in dr)\)</span>. The event is shown in the diagram below.</p>
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/01_Standard_Normal_Basics_5_0.png" src="../../_images/01_Standard_Normal_Basics_5_0.png" />
+<img alt="../../_images/01_Standard_Normal_Basics_6_0.png" src="../../_images/01_Standard_Normal_Basics_6_0.png" />
 </div>
 </div>
 <p>To find the corresponding volume under the joint density surface, two observations will help.</p>
@@ -1050,7 +1072,7 @@ c = \frac{1}{\sqrt{2\pi}}
 \]</div>
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/01_Standard_Normal_Basics_7_0.png" src="../../_images/01_Standard_Normal_Basics_7_0.png" />
+<img alt="../../_images/01_Standard_Normal_Basics_8_0.png" src="../../_images/01_Standard_Normal_Basics_8_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1064,7 +1086,7 @@ c = \frac{1}{\sqrt{2\pi}}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/01_Standard_Normal_Basics_8_0.png" src="../../_images/01_Standard_Normal_Basics_8_0.png" />
+<img alt="../../_images/01_Standard_Normal_Basics_9_0.png" src="../../_images/01_Standard_Normal_Basics_9_0.png" />
 </div>
 </div>
 </div>
@@ -1094,6 +1116,18 @@ E(\lvert Z \rvert) &amp;= \int_{-\infty}^\infty \lvert z \rvert \phi(z)dz \\ \\
 <li><p><span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> are identically distributed, so <span class="math notranslate nohighlight">\(E(X^2) = E(Y^2)\)</span>.</p></li>
 </ul>
 <p>Therefore <span class="math notranslate nohighlight">\(E(X^2) = 1\)</span>. We know that <span class="math notranslate nohighlight">\(E(X) = 0\)</span>. So <span class="math notranslate nohighlight">\(Var(X) = 1\)</span> and hence <span class="math notranslate nohighlight">\(SD(X) = 1\)</span>.</p>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="400"
+    height="300"
+    src="https://www.youtube.com/embed/190dwmZKKPk"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
 </div>
 </div>
 

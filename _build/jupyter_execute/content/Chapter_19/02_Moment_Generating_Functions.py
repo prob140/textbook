@@ -26,9 +26,25 @@ for all $t$ for which the expectation is finite. It is a fact (which we will not
 
 For $X$ with finitely many non-negative integer values, we had defined the pgf by $G_X(s) = E(s^X)$. Notice that this is a special case of the mgf with $s = e^t$ and hence positive. For a random variable $X$ that has both a pgf $G_X$ and an mgf $M_X$, the two functions are related by $M_X(\log(s)) = G_X(s)$. Therefore the properties of $M_X$ near 0 reflect the properties of $G_X$ near 1.
 
+```{admonition} Quick Check
+The function $h(t) = 2t^2 - t + 5$ for $-\infty < t < \infty$ can't be the mgf of any random variable. How can we tell?
+
+```
+
+```{admonition} Answer
+:class: dropdown
+$h(0) \neq 1$
+
+```
+
 This section presents three ways in which the mgf is useful. Other ways are demonstrated in the subsequent sections of this chapter. Much of what we say about mgf's will not be accompanied by complete proofs as the math required is beyond the scope of this class. But the results should seem reasonable, even without formal proofs.
 
 We will list the three ways first, and then use them all in examples.
+
+# VIDEO
+from IPython.display import YouTubeVideo
+
+YouTubeVideo('uljcfZRj7os')
 
 ### Generating Moments ###
 For non-negative integers $k$, the expectation $E(X^k)$ is called *$k$th moment* of $X$. You saw in Data 8 and again in this course that the mean $E(X)$ is the center of gravity of the probability histogram of $X$. In physics, the center of mass is called the *first moment*. The terminology of moments is used in probability theory as well.
@@ -143,6 +159,21 @@ $$
 That's the mgf of the gamma $(r+s, \lambda)$ distribution. Because the mgf identifies the distribution, $X+Y$ must have the gamma $(r+s, \lambda)$ distribution.
 
 This is what we observed in an earlier section by simulation, using numerical values of $r$ and $\lambda$.
+
+```{admonition} Quick Check
+The random variable $T$ has mgf $M_T(t) = \frac{8}{(2-t)^3}$, $t < 2$. What is the distribution of $T$?
+
+```
+
+```{admonition} Answer
+:class: dropdown
+gamma $(3, 2)$
+
+```
+
+# VIDEO
+
+YouTubeVideo('juRbr3EXnJg')
 
 ### Note on Existence ###
 Let $X$ be a random variable. For all $t$, the random variable $e^{tX}$ is positive, so $M_X(t)$ is either positive or $+\infty$. 

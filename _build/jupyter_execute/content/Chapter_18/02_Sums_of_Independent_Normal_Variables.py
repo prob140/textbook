@@ -110,3 +110,15 @@ var = (0.5*0.5/1000) + 4*(0.27*.73/1000)
 sigma = var**0.5
 1 - stats.norm.cdf(0, mu, sigma)
 
+```{admonition} Quick Check
+$X$ is normal $(20, 5^2)$ and $Y$ is normal $(75, 10^2)$. Assume $X$ and $Y$ are independent. 
+
+Sketch the density of $Y - 2X$. Mark the numerical values of the expectation and SD appropriately on your sketch. You can use the code cell below to calculate them.
+
+```
+
+```{admonition} Answer
+:class: dropdown
+Normal curve centered at 35, points of inflection at 35 $\pm$ 14.14
+
+```

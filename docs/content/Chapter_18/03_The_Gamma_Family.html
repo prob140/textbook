@@ -693,6 +693,11 @@
      18.4. Chi-Squared Distributions
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05_Exercises.html">
+     18.5. Exercises
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1">
@@ -718,6 +723,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_19/04_Chernoff_Bound.html">
      19.4. Chernoff Bound
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_19/05_Exercises.html">
+     19.5. Exercises
     </a>
    </li>
   </ul>
@@ -983,6 +993,11 @@
    18.3.3. Sums of Independent Gamma Variables with the Same Rate
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#integer-shape-parameter">
+   18.3.4. Integer Shape Parameter
+  </a>
+ </li>
 </ul>
 
         </nav>
@@ -1005,7 +1020,7 @@ f_X(x) ~ = ~ \frac{\lambda^r}{\Gamma(r)} x^{r-1}e^{-\lambda x}, ~~~~~ x \ge 0
 \[
 \Gamma(r) ~ = ~ \int_0^\infty x^{r-1}e^{-x} dx
 \]</div>
-<p>is the <em>Gamma</em> function applied to <span class="math notranslate nohighlight">\(r\)</span>, and is part of the constant that makes the density integrate to 1.</p>
+<p>is the <em>Gamma</em> function applied to <span class="math notranslate nohighlight">\(r\)</span>, and is part of the constant that makes the density integrate to <span class="math notranslate nohighlight">\(1\)</span>.</p>
 <p>As you have shown, the key fact about the Gamma function is the recursion</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1030,21 +1045,29 @@ E(X) ~ = ~ \frac{r}{\lambda} ~~~~~~~~~~~~~~ SD(X) ~ = ~ \frac{\sqrt{r}}{\lambda}
 f_Y(y) ~ = ~ f_X(\frac{y}{c}) \cdot \frac{1}{c} ~ = ~ 
 \frac{(\lambda/c)^r}{\Gamma(r)} y^{r-1}e^{-(\lambda/c) y}
 \]</div>
-<p>SciPy calls <span class="math notranslate nohighlight">\(1/\lambda\)</span> the “scale” parameter of the gamma distribution. Because the parameter just determines the scale on the horizontal axis of the graph of the density, it is often taken to be 1. That’s what we will do to study the other parameter <span class="math notranslate nohighlight">\(r\)</span>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">SciPy</span></code> calls <span class="math notranslate nohighlight">\(1/\lambda\)</span> the “scale” parameter of the gamma distribution. Because the parameter just determines the scale on the horizontal axis of the graph of the density, it is often taken to be 1. That’s what we will do to study the other parameter <span class="math notranslate nohighlight">\(r\)</span>.</p>
+<div class="admonition-quick-check admonition">
+<p class="admonition-title">Quick Check</p>
+<p>Suppose <span class="math notranslate nohighlight">\(X\)</span> has the gamma <span class="math notranslate nohighlight">\((2, 3)\)</span> distribution. What is the distribution of <span class="math notranslate nohighlight">\(3X\)</span>?</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Answer</p>
+<p>gamma <span class="math notranslate nohighlight">\((2, 1)\)</span></p>
+</div>
 </div>
 <div class="section" id="the-shape-parameter-r">
 <h2><span class="section-number">18.3.2. </span>The Shape Parameter <span class="math notranslate nohighlight">\(r\)</span><a class="headerlink" href="#the-shape-parameter-r" title="Permalink to this headline">¶</a></h2>
 <p>Here are the graphs of the gamma <span class="math notranslate nohighlight">\((r, 1)\)</span> densities for <span class="math notranslate nohighlight">\(r = 1\)</span>, <span class="math notranslate nohighlight">\(1.5\)</span>, and 2.</p>
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/03_The_Gamma_Family_6_0.png" src="../../_images/03_The_Gamma_Family_6_0.png" />
+<img alt="../../_images/03_The_Gamma_Family_8_0.png" src="../../_images/03_The_Gamma_Family_8_0.png" />
 </div>
 </div>
 <p>When <span class="math notranslate nohighlight">\(r = 1\)</span> the density is exponential. As <span class="math notranslate nohighlight">\(r\)</span> gets larger the density moves to the right and flattens out, consistent with the increasing mean <span class="math notranslate nohighlight">\(r\)</span> and SD <span class="math notranslate nohighlight">\(\sqrt{r}\)</span>.</p>
-<p>When <span class="math notranslate nohighlight">\(r = 10\)</span>, the gamma density looks almost normal. To see why, we will examine sums of independent gamma variables.</p>
+<p>You can see why the gamma family is used for modeling right-skewed distributions. However, when <span class="math notranslate nohighlight">\(r = 10\)</span>, the gamma density looks almost normal. To see why, we will examine sums of independent gamma variables.</p>
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/03_The_Gamma_Family_8_0.png" src="../../_images/03_The_Gamma_Family_8_0.png" />
+<img alt="../../_images/03_The_Gamma_Family_10_0.png" src="../../_images/03_The_Gamma_Family_10_0.png" />
 </div>
 </div>
 </div>
@@ -1074,11 +1097,38 @@ f_Y(y) ~ = ~ f_X(\frac{y}{c}) \cdot \frac{1}{c} ~ = ~
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/03_The_Gamma_Family_10_0.png" src="../../_images/03_The_Gamma_Family_10_0.png" />
+<img alt="../../_images/03_The_Gamma_Family_12_0.png" src="../../_images/03_The_Gamma_Family_12_0.png" />
 </div>
 </div>
-<p>You can now see why the gamma <span class="math notranslate nohighlight">\((r, \lambda)\)</span> distribution is approximately normal for large <span class="math notranslate nohighlight">\(r\)</span>. By the result above, for integer <span class="math notranslate nohighlight">\(r\)</span> the sum of <span class="math notranslate nohighlight">\(r\)</span> i.i.d. exponential <span class="math notranslate nohighlight">\((\lambda)\)</span> random variables has the gamma <span class="math notranslate nohighlight">\((r, \lambda)\)</span> distribution. For fixed <span class="math notranslate nohighlight">\(\lambda\)</span> and increasing <span class="math notranslate nohighlight">\(r\)</span>, the Central Limit Theorem says the distribution of the sum tends to the normal.</p>
-<p>The gamma family is used for modeling right-skewed distributions of non-negative variables. In data science, the gamma family also appears in the context of squaring i.i.d. “centered” normal random variables, that is, normal random variables with mean 0. The next section sets out the details.</p>
+<div class="admonition-quick-check admonition">
+<p class="admonition-title">Quick Check</p>
+<p>If <span class="math notranslate nohighlight">\(X\)</span> has gamma <span class="math notranslate nohighlight">\((2, 3)\)</span> distribution and <span class="math notranslate nohighlight">\(Y\)</span> has gamma <span class="math notranslate nohighlight">\((5, 3)\)</span> distribution independent of <span class="math notranslate nohighlight">\(X\)</span>, what is the distribution of <span class="math notranslate nohighlight">\(X+Y\)</span>?</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Answer</p>
+<p>gamma <span class="math notranslate nohighlight">\((7, 3)\)</span></p>
+</div>
+<div class="cell tag_remove-input tag_hide-ouput docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="400"
+    height="300"
+    src="https://www.youtube.com/embed/BQoIs4eWZa4"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
+</div>
+<div class="section" id="integer-shape-parameter">
+<h2><span class="section-number">18.3.4. </span>Integer Shape Parameter<a class="headerlink" href="#integer-shape-parameter" title="Permalink to this headline">¶</a></h2>
+<p>One of the two most important branches of the gamma family consists of gamma distributions that have an integer as the shape parameter.</p>
+<p>Suppose <span class="math notranslate nohighlight">\(T_1, T_2, T_3, \ldots\)</span> are i.i.d. exponential <span class="math notranslate nohighlight">\((\lambda)\)</span> variables. Then each of them has the gamma <span class="math notranslate nohighlight">\((1, \lambda)\)</span> distribution. These are the fundamental members of the “integer shape parameter” branch.</p>
+<p>By the fact we observed about sums of independent gamma variables, for all integers <span class="math notranslate nohighlight">\(r\)</span> the sum <span class="math notranslate nohighlight">\(S_r = T_1 + T_2 + \cdots + T_r\)</span> has the gamma <span class="math notranslate nohighlight">\((r, \lambda)\)</span> distribution. These are the other members of the branch.</p>
+<p>You can now see why the gamma <span class="math notranslate nohighlight">\((r, \lambda)\)</span> distribution is approximately normal for large <span class="math notranslate nohighlight">\(r\)</span>. For integer <span class="math notranslate nohighlight">\(r\)</span>, the sum of <span class="math notranslate nohighlight">\(r\)</span> i.i.d. exponential <span class="math notranslate nohighlight">\((\lambda)\)</span> random variables has the gamma <span class="math notranslate nohighlight">\((r, \lambda)\)</span> distribution. For fixed <span class="math notranslate nohighlight">\(\lambda\)</span> and large <span class="math notranslate nohighlight">\(r\)</span>, the Central Limit Theorem says the distribution of the sum is approximately normal.</p>
+<p>Gamma distributions with integer shape parameter are a fundamental part of a stochastic process called a <em>Poisson process</em> which you will examine in exercises.</p>
+<p>The other important branch of the gamma family is the topic of the next section.</p>
 </div>
 </div>
 

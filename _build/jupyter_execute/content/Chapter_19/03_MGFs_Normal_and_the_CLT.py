@@ -10,6 +10,11 @@ from scipy import stats
 
 ## MGFs, the Normal, and the CLT ##
 
+# VIDEO
+from IPython.display import YouTubeVideo
+
+YouTubeVideo('SXyYS0ztJ6U')
+
 Let $Z$ be standard normal. Then the mgf of $Z$ is given by
 
 $$
@@ -28,14 +33,16 @@ M_Z(t) ~ &= ~ \int_{-\infty}^\infty e^{tz} \frac{1}{\sqrt{2\pi}} e^{-\frac{1}{2}
 \end{align*}
 $$
 
-because the integral is 1. It is the normal $(t, 1)$ density integrated over the whole real line.
+because the integral is $1$. It is the normal $(t, 1)$ density integrated over the whole real line.
 
-### Normal $(\mu, \sigma^2)$ ###
-It's a good idea to first note that moment generating functions behave well under linear transformations.
+### Linear Transformation ###
+It's handy to note that moment generating functions behave well under linear transformation.
 
 $$
 M_{aX+b}(t) ~ = ~ E(e^{t(aX + b)}) ~ = ~ e^{bt}E(e^{atX}) ~ = ~ e^{bt}M_X(at)
 $$
+
+### Normal $(\mu, \sigma^2)$ ###
 
 Since a normal $(\mu, \sigma^2)$ variable can be written as $\sigma Z + \mu$ where $Z$ is standard normal, its m.g.f. is
 
@@ -44,6 +51,17 @@ M_{\sigma Z + \mu} (t) ~ = ~ e^{\mu t}M_Z(\sigma t) ~ = ~ e^{\mu t +\sigma^2 t^2
 $$
 
 Details aside, what this formula is saying is that if a moment generating function is $\exp(c_1t + c_2t^2)$ for any constant $c_1$ and any positive constant $c_2$, then it is the moment generating function of a normally distributed random variable.
+
+```{admonition} Quick Check
+The random variable $X$ has mgf $M_X(t) = e^{10t^2}$ for all $t$. What is the distribution of $t$?
+
+```
+
+```{admonition} Answer
+:class: dropdown
+normal $(0, 20)$
+
+```
 
 ### Sums of Independent Normal Variables ###
 We can now show that sums of independent normal variables are normal.
@@ -71,7 +89,7 @@ $$
 
 is approximately standard normal.
 
-To show this, we will assume a major result whose proof is well beyond the scope of this class. Suppose $Y_1, Y_2, \ldots $ are random variables and we want to show that the the distribution of the $Y_n$'s converges to the distribution of some random variable $Y$. The result says that it is enough to show that the mgf's of the $Y_n$'s converge to the mgf of $Y$.  
+To show this, we will assume a major result whose proof is well beyond the scope of this class. Suppose $Y_1, Y_2, \ldots$ are random variables and we want to show that the the distribution of the $Y_n$'s converges to the distribution of some random variable $Y$. The result says that it is enough to show that the mgf's of the $Y_n$'s converge to the mgf of $Y$.  
 
 The result requires a careful statement and the proof requires considerable attention to detail. We won't go into that in this course. Instead we'll just point out that it should seem reasonable. Since mgf's determine distributions, it's not difficult to accept that if two mgf's are close to each other then the corresponding distributions should also be close to each other.
 
@@ -109,7 +127,7 @@ Thus for large $n$,
 
 $$
 M_{S_n^*} (t) \approx \Big{(} 1 + \frac{t^2}{2n}\Big{)}^n 
-\to e^{\frac{t^2}{2}} \text{as } n \to \infty
+\to e^{t^2/2} \text{as } n \to \infty
 $$
 
 The limit is the moment generating function of the standard normal distribution. 

@@ -28,4 +28,5 @@ We will then develop a more powerful version of the probability generating funct
 02_Moment_Generating_Functions
 03_MGFs_Normal_and_the_CLT
 04_Chernoff_Bound
+05_Exercises
 ```

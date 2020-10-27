@@ -40,7 +40,7 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="20. Approaches to Estimation" href="../Chapter_20/00_Approaches_to_Estimation.html" />
+    <link rel="next" title="19.5. Exercises" href="05_Exercises.html" />
     <link rel="prev" title="19.3. MGFs, the Normal, and the CLT" href="03_MGFs_Normal_and_the_CLT.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -693,6 +693,11 @@
      18.4. Chi-Squared Distributions
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_18/05_Exercises.html">
+     18.5. Exercises
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1 current active">
@@ -718,6 +723,11 @@
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
      19.4. Chernoff Bound
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05_Exercises.html">
+     19.5. Exercises
     </a>
    </li>
   </ul>
@@ -973,23 +983,28 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exponential-bounds-on-tails">
+   19.4.3. Exponential Bounds on Tails
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#chernoff-bound-on-the-right-tail">
-   19.4.3. Chernoff Bound on the Right Tail
+   19.4.4. Chernoff Bound on the Right Tail
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#application-to-the-normal-distribution">
-   19.4.4. Application to the Normal Distribution
+   19.4.5. Application to the Normal Distribution
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#chernoff-bound-on-the-left-tail">
-   19.4.5. Chernoff Bound on the Left Tail
+   19.4.6. Chernoff Bound on the Left Tail
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#sums-of-independent-random-variables">
-   19.4.6. Sums of Independent Random Variables
+   19.4.7. Sums of Independent Random Variables
   </a>
  </li>
 </ul>
@@ -1013,6 +1028,7 @@
 \[
 P(X \ge c) ~  \le ~ \frac{\mu}{c}
 \]</div>
+<p>This bound depends only on the first moment of <span class="math notranslate nohighlight">\(X\)</span> (and the fact that <span class="math notranslate nohighlight">\(X\)</span> is non-negative).</p>
 </div>
 <div class="section" id="chebychev-s-bound-on-two-tails">
 <h2><span class="section-number">19.4.2. </span>Chebychev’s Bound on Two Tails<a class="headerlink" href="#chebychev-s-bound-on-two-tails" title="Permalink to this headline">¶</a></h2>
@@ -1020,29 +1036,53 @@ P(X \ge c) ~  \le ~ \frac{\mu}{c}
 \[
 P(\lvert X - \mu\rvert \ge c) ~ \le ~ \frac{\sigma^2}{c^2}
 \]</div>
-<p>Moment generating functions can help us improve upon these bounds in many cases. In what follows, we will assume that the moment generating function of <span class="math notranslate nohighlight">\(X\)</span> is finite over the whole real line. If it is finite only over a smaller interval around 0, the calculations of the mgf below should be confined to that interval.</p>
+<p>This bound depends on the first and second moments of <span class="math notranslate nohighlight">\(X\)</span> since <span class="math notranslate nohighlight">\(\sigma^2 = E(X^2) - (E(X))^2\)</span>.</p>
+<p>In cases where both bounds apply, Chebyshev often does better than Markov because it uses two moments instead of one. So it is reasonable to think that the more moments you know, the closer you can get to the tail probabilities.</p>
+<p>Moment generating functions can help get good bounds on tail probabilities. In what follows, we will assume that the moment generating function of <span class="math notranslate nohighlight">\(X\)</span> is finite over the whole real line. If it is finite only over a smaller interval around 0, the calculations of the mgf below should be confined to that interval.</p>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="400"
+    height="300"
+    src="https://www.youtube.com/embed/HCEQFjHyLIw"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
 </div>
-<div class="section" id="chernoff-bound-on-the-right-tail">
-<h2><span class="section-number">19.4.3. </span>Chernoff Bound on the Right Tail<a class="headerlink" href="#chernoff-bound-on-the-right-tail" title="Permalink to this headline">¶</a></h2>
-<p>Observe that if <span class="math notranslate nohighlight">\(g\)</span> is an increasing function, then the event <span class="math notranslate nohighlight">\(\{ X \ge c \}\)</span> is the same as the event <span class="math notranslate nohighlight">\(\{ g(X) \ge g(c)\}\)</span>.</p>
-<p>For any fixed <span class="math notranslate nohighlight">\(t &gt; 0\)</span>, the function defined by <span class="math notranslate nohighlight">\(g(x) = e^{tx}\)</span> is increasing as well as non-negative. So for each <span class="math notranslate nohighlight">\(t &gt; 0\)</span>,</p>
+</div>
+<div class="section" id="exponential-bounds-on-tails">
+<h2><span class="section-number">19.4.3. </span>Exponential Bounds on Tails<a class="headerlink" href="#exponential-bounds-on-tails" title="Permalink to this headline">¶</a></h2>
+<p>Let <span class="math notranslate nohighlight">\(X\)</span> be a random variable with mgf <span class="math notranslate nohighlight">\(M_X\)</span>. We are going to find an upper bound for the right hand tail probability <span class="math notranslate nohighlight">\(P(X \ge c)\)</span> for a fixed <span class="math notranslate nohighlight">\(c\)</span>.</p>
+<p>To see how the moment generating function comes in, fix <span class="math notranslate nohighlight">\(t &gt; 0\)</span>. The function defined by <span class="math notranslate nohighlight">\(g(x) = e^{tx}\)</span> is increasing as well as non-negative. Because it is increasing,</p>
+<div class="math notranslate nohighlight">
+\[
+X \ge c ~ \iff ~ e^{tX} \ge e^{tc}
+\]</div>
+<p>Since <span class="math notranslate nohighlight">\(e^{tX}\)</span> is a non-negative random variable, we can apply Markov’s inequality as follows.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{align*}
 P(X \ge c) ~ &amp;= P(e^{tX} \ge e^{tc}) \\
 &amp;\le ~ \frac{E(e^{tX})}{e^{tc}} ~~~~ \text{(Markov's bound)} \\
-&amp;= ~ \frac{M_X(t)}{e^{tc}}
+&amp;= ~ \frac{M_X(t)}{e^{tc}} \\
+&amp;=~ M_X(t)e^{-tc}
 \end{align*}
 \end{split}\]</div>
-<p>This is the first step in developing a <a class="reference external" href="https://en.wikipedia.org/wiki/Chernoff_bound">Chernoff bound</a> on the right hand tail.</p>
-<p>For the next step, notice that you can choose <span class="math notranslate nohighlight">\(t\)</span> to be any positive number. Some choices of <span class="math notranslate nohighlight">\(t\)</span> will give sharper bounds than others. Because these are upper bounds, the sharpest among all of the bounds will correspond to the value of <span class="math notranslate nohighlight">\(t\)</span> that minimizes the right hand side. So the Chernoff bound has an <em>optimized</em> form:</p>
+<p>Since <span class="math notranslate nohighlight">\(t\)</span> is fixed, <span class="math notranslate nohighlight">\(M_X(t)\)</span> is constant. So we have shown that <span class="math notranslate nohighlight">\(P(X \ge c)\)</span> is falling exponentially as a function of <span class="math notranslate nohighlight">\(c\)</span>.</p>
+</div>
+<div class="section" id="chernoff-bound-on-the-right-tail">
+<h2><span class="section-number">19.4.4. </span>Chernoff Bound on the Right Tail<a class="headerlink" href="#chernoff-bound-on-the-right-tail" title="Permalink to this headline">¶</a></h2>
+<p>The calculation above is the first step in developing a <a class="reference external" href="https://en.wikipedia.org/wiki/Chernoff_bound">Chernoff bound</a> on the right hand tail probability <span class="math notranslate nohighlight">\(P(X \ge c)\)</span> for a fixed <span class="math notranslate nohighlight">\(c\)</span>.</p>
+<p>For the next step, notice that you can choose <span class="math notranslate nohighlight">\(t\)</span> to be any positive number. For our fixed <span class="math notranslate nohighlight">\(c\)</span>, some choices of <span class="math notranslate nohighlight">\(t\)</span> will give sharper upper bounds than others. The sharpest among all of the bounds will correspond to the value of <span class="math notranslate nohighlight">\(t\)</span> that minimizes the right hand side. So the Chernoff bound has an <em>optimized</em> form:</p>
 <div class="math notranslate nohighlight">
 \[
-P(X \ge c) ~ \le ~ \min_{t &gt; 0} \frac{M_X(t)}{e^{tc}}
+P(X \ge c) ~ \le ~ \min_{t &gt; 0} M_X(t)e^{-tc}
 \]</div>
 </div>
 <div class="section" id="application-to-the-normal-distribution">
-<h2><span class="section-number">19.4.4. </span>Application to the Normal Distribution<a class="headerlink" href="#application-to-the-normal-distribution" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">19.4.5. </span>Application to the Normal Distribution<a class="headerlink" href="#application-to-the-normal-distribution" title="Permalink to this headline">¶</a></h2>
 <p>Suppose <span class="math notranslate nohighlight">\(X\)</span> has the normal <span class="math notranslate nohighlight">\((\mu, \sigma^2)\)</span> distribution and we want to get a sense of how far <span class="math notranslate nohighlight">\(X\)</span> can be above the mean. Fix <span class="math notranslate nohighlight">\(c &gt; 0\)</span>. The exact chance that the value of <span class="math notranslate nohighlight">\(X\)</span> is at least <span class="math notranslate nohighlight">\(c\)</span> above the mean is</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1053,15 +1093,15 @@ P(X - \mu \ge c) ~ = ~ 1 - \Phi(c/\sigma)
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{align*}
-P(X- \mu \ge c) ~ &amp;\le ~ \min_{t &gt; 0} \frac{M_{X-\mu}(t)}{e^{tc}} \\ \\
-&amp;= ~ \min_{t &gt; 0} \frac{e^{\sigma^2t^2/2}}{e^{tc}} \\ \\
+P(X- \mu \ge c) ~ &amp;\le ~ \min_{t &gt; 0} M_{X-\mu}(t)e^{-tc} \\ \\
+&amp;= ~ \min_{t &gt; 0} e^{\sigma^2t^2/2} \cdot e^{-tc} \\ \\
 &amp;= ~ \min_{t &gt; 0} e^{-ct + \sigma^2t^2/2}
 \end{align*}
 \end{split}\]</div>
 <p>The curve below is the graph of <span class="math notranslate nohighlight">\(\exp(-ct + \sigma^2t^2/2)\)</span> as a function of <span class="math notranslate nohighlight">\(t\)</span>, in the case <span class="math notranslate nohighlight">\(\sigma = 2\)</span> and <span class="math notranslate nohighlight">\(c = 5\)</span>. The flat line is the exact probability of <span class="math notranslate nohighlight">\(P(X - \mu \ge c)\)</span>. The curve is always above the flat line: no matter what <span class="math notranslate nohighlight">\(t\)</span> is, the bound is an upper bound. The sharpest of all the upper bounds corresponds to the minimizing value <span class="math notranslate nohighlight">\(t^*\)</span> which is somewhere in the 1.2 to 1.3 range.</p>
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/04_Chernoff_Bound_5_0.png" src="../../_images/04_Chernoff_Bound_5_0.png" />
+<img alt="../../_images/04_Chernoff_Bound_7_0.png" src="../../_images/04_Chernoff_Bound_7_0.png" />
 </div>
 </div>
 <p>To find the minimizing value of <span class="math notranslate nohighlight">\(t\)</span> analytically, we will use the standard calculus method of minimization. But first we will simplify our calculations by observing that finding the point at which a positive function is minimized is the same as finding the point at which the log of the function is minimized. This is because <span class="math notranslate nohighlight">\(\log\)</span> is an increasing function.</p>
@@ -1088,12 +1128,12 @@ P(X - \mu \ge c ) \le \frac{\sigma^2}{2c^2}
 <p>When <span class="math notranslate nohighlight">\(c\)</span> is large, the optimized Chernoff bound is quite a bit sharper than Chebychev’s. In the case <span class="math notranslate nohighlight">\(\sigma = 2\)</span>, the graph below shows the exact value of <span class="math notranslate nohighlight">\(P(X - \mu \ge c)\)</span> as a function of <span class="math notranslate nohighlight">\(c\)</span>, along with the Chernoff and Chebychev bounds.</p>
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/04_Chernoff_Bound_7_0.png" src="../../_images/04_Chernoff_Bound_7_0.png" />
+<img alt="../../_images/04_Chernoff_Bound_9_0.png" src="../../_images/04_Chernoff_Bound_9_0.png" />
 </div>
 </div>
 </div>
 <div class="section" id="chernoff-bound-on-the-left-tail">
-<h2><span class="section-number">19.4.5. </span>Chernoff Bound on the Left Tail<a class="headerlink" href="#chernoff-bound-on-the-left-tail" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">19.4.6. </span>Chernoff Bound on the Left Tail<a class="headerlink" href="#chernoff-bound-on-the-left-tail" title="Permalink to this headline">¶</a></h2>
 <p>By an analogous argument we can derive a Chernoff bound on the left tail of a distribution. For a fixed <span class="math notranslate nohighlight">\(t &gt; 0\)</span>, the function <span class="math notranslate nohighlight">\(g(x) = e^{-tx}\)</span> is decreasing and non-negative. So for <span class="math notranslate nohighlight">\(t &gt; 0\)</span> and any fixed <span class="math notranslate nohighlight">\(c\)</span>,</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1106,7 +1146,7 @@ P(X \le c) \le \min_{t &gt; 0} \frac{M_X(-t)}{e^{-tc}}
 \]</div>
 </div>
 <div class="section" id="sums-of-independent-random-variables">
-<h2><span class="section-number">19.4.6. </span>Sums of Independent Random Variables<a class="headerlink" href="#sums-of-independent-random-variables" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">19.4.7. </span>Sums of Independent Random Variables<a class="headerlink" href="#sums-of-independent-random-variables" title="Permalink to this headline">¶</a></h2>
 <p>The Chernoff bound is often applied to sums of independent random variables. Let <span class="math notranslate nohighlight">\(X_1, X_2, \ldots, X_n\)</span> be independent and let <span class="math notranslate nohighlight">\(S_n = X_1 + X_2 + \ldots + X_n\)</span>. Fix any number <span class="math notranslate nohighlight">\(c\)</span>. For every <span class="math notranslate nohighlight">\(t &gt; 0\)</span>,</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1145,7 +1185,7 @@ P(S_n \ge c) \le \frac{M_{S_n}(t)}{e^{tc}} = \frac{\prod_{i=1}^n M_{X_i}(t)}{e^{
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="03_MGFs_Normal_and_the_CLT.html" title="previous page"><span class="section-number">19.3. </span>MGFs, the Normal, and the CLT</a>
-    <a class='right-next' id="next-link" href="../Chapter_20/00_Approaches_to_Estimation.html" title="next page"><span class="section-number">20. </span>Approaches to Estimation</a>
+    <a class='right-next' id="next-link" href="05_Exercises.html" title="next page"><span class="section-number">19.5. </span>Exercises</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

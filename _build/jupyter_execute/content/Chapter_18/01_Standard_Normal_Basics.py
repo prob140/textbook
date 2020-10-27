@@ -14,24 +14,29 @@ Though we have accepted the formula for the standard normal density function sin
 
 It's time to do all that and thereby ensure that our calculations involving normal densities are legitimate. 
 
-We will start by recalling some facts about the apparently unrelated Rayleigh distribution, which we encountered as the distribution of the square root of an exponential variable.
+We will start by recalling some facts about the apparently unrelated Rayleigh distribution, which we encountered as the distribution of the [square root of an exponential variable](http://prob140.org/textbook/content/Chapter_16/02_Monotone_Functions.html#applying-the-formula).
 
-Let $T$ have the exponential $(1/2)$ distribution. Then we will say that $R = \sqrt{T}$ has the Rayleigh distribution, with cdf given by
-
-$$
-F_R(r) = 1 - e^{-\frac{1}{2}r^2}, ~~~~ r > 0
-$$
-
-and density given by
+Let $T$ have the exponential $(1/2)$ distribution. Then that $V = \sqrt{T}$ has the Rayleigh distribution, with density given by
 
 $$
-f_R(r) = re^{-\frac{1}{2}r^2}, ~~~~ r > 0
+f_V(v) = ve^{-\frac{1}{2}v^2}, ~~~~ v > 0
 $$
 
-In fact, there is a family of Rayleigh distributions, each of whose members has the distribution of $cR$ for some positive constant $c$. But let us define $R$ to have "the" Rayleigh distribution, and let's see what $R$ has to do with standard normal variables.
+and cdf given by
+
+$$
+F_V(v) = 1 - e^{-\frac{1}{2}v^2}, ~~~~ v > 0
+$$
+
+In fact there is a family of Rayleigh distributions, each of whose members has the distribution of $cV$ for some positive constant $c$. But let us define $V$ to have "the" Rayleigh distribution, and let's see what $V$ has to do with standard normal variables.
+
+# VIDEO: Constant of Integration
+from IPython.display import YouTubeVideo
+
+YouTubeVideo('8vLTUrqS67A')
 
 ### The Constant of Integration ###
-Let $X$ and $Y$ be independent standard normal variables. Since we haven't yet proved that the constant of integration in the standard normal density should be $1/\sqrt{2\pi}$, let's just call it $c$ for now. Then the joint density of $X$ and $Y$ is
+Let $X$ and $Y$ be independent standard normal variables. Since we haven't yet proved that the constant of integration in the standard normal density should be $1/\sqrt{2\pi}$, let's just call it $c$. Then, by independence, the joint density of $X$ and $Y$ is
 
 $$
 f(x, y) ~ = ~ c e^{-\frac{1}{2}x^2} \cdot c e^{-\frac{1}{2}y^2} 
@@ -39,13 +44,13 @@ f(x, y) ~ = ~ c e^{-\frac{1}{2}x^2} \cdot c e^{-\frac{1}{2}y^2}
 ~~~~ -\infty < x, y < \infty
 $$
 
-Regardless of the value of the constant, the joint density has *circular symmetry*: if two points on the plane are at the same radial distance from the origin, then the joint density is the same at those two points. Let's make this more clear in our notation.
+The joint density at $(x, y)$ is a function of $x^+y^2$. Regardless of the value of the constant $c$, the joint density has *circular symmetry*: if two points on the plane are at the same radial distance from the origin, then the joint density is the same at those two points. Let's make this more clear in our notation.
 
 $$
 f(x, y) ~ = ~ c^2 e^{-\frac{1}{2}r^2} ~~~~ \text{where } x^2 + y^2 = r^2
 $$
 
-Now let $R = \sqrt{X^2 + Y^2}$. To find the density of $R$, let's try to calculate $P(R \in dr)$. The event is shown in the graph below.
+Now let $R = \sqrt{X^2 + Y^2}$. To find the density of $R$, let's try to calculate $P(R \in dr)$. The event is shown in the diagram below.
 
 # NO CODE
 
@@ -138,4 +143,7 @@ We will study this more closely in a later section. For now, let's make two obse
 - $X$ and $Y$ are identically distributed, so $E(X^2) = E(Y^2)$.
 
 Therefore $E(X^2) = 1$. We know that $E(X) = 0$. So $Var(X) = 1$ and hence $SD(X) = 1$.
+
+# VIDEO: Standard Normal Basics
+YouTubeVideo('190dwmZKKPk')
 

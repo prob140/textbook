@@ -693,6 +693,11 @@
      18.4. Chi-Squared Distributions
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_18/05_Exercises.html">
+     18.5. Exercises
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1 current active">
@@ -718,6 +723,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="04_Chernoff_Bound.html">
      19.4. Chernoff Bound
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05_Exercises.html">
+     19.5. Exercises
     </a>
    </li>
   </ul>
@@ -1049,8 +1059,28 @@ M_X(t) ~ = ~ E(e^{tX})
 \]</div>
 <p>for all <span class="math notranslate nohighlight">\(t\)</span> for which the expectation is finite. It is a fact (which we will not prove) that the domain of the mgf has to be an interval, not necessarily finite but necessarily including 0 because <span class="math notranslate nohighlight">\(M_X(0) = 1\)</span>.</p>
 <p>For <span class="math notranslate nohighlight">\(X\)</span> with finitely many non-negative integer values, we had defined the pgf by <span class="math notranslate nohighlight">\(G_X(s) = E(s^X)\)</span>. Notice that this is a special case of the mgf with <span class="math notranslate nohighlight">\(s = e^t\)</span> and hence positive. For a random variable <span class="math notranslate nohighlight">\(X\)</span> that has both a pgf <span class="math notranslate nohighlight">\(G_X\)</span> and an mgf <span class="math notranslate nohighlight">\(M_X\)</span>, the two functions are related by <span class="math notranslate nohighlight">\(M_X(\log(s)) = G_X(s)\)</span>. Therefore the properties of <span class="math notranslate nohighlight">\(M_X\)</span> near 0 reflect the properties of <span class="math notranslate nohighlight">\(G_X\)</span> near 1.</p>
+<div class="admonition-quick-check admonition">
+<p class="admonition-title">Quick Check</p>
+<p>The function <span class="math notranslate nohighlight">\(h(t) = 2t^2 - t + 5\)</span> for <span class="math notranslate nohighlight">\(-\infty &lt; t &lt; \infty\)</span> can’t be the mgf of any random variable. How can we tell?</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Answer</p>
+<p><span class="math notranslate nohighlight">\(h(0) \neq 1\)</span></p>
+</div>
 <p>This section presents three ways in which the mgf is useful. Other ways are demonstrated in the subsequent sections of this chapter. Much of what we say about mgf’s will not be accompanied by complete proofs as the math required is beyond the scope of this class. But the results should seem reasonable, even without formal proofs.</p>
 <p>We will list the three ways first, and then use them all in examples.</p>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="400"
+    height="300"
+    src="https://www.youtube.com/embed/uljcfZRj7os"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
 <div class="section" id="generating-moments">
 <h2><span class="section-number">19.2.1. </span>Generating Moments<a class="headerlink" href="#generating-moments" title="Permalink to this headline">¶</a></h2>
 <p>For non-negative integers <span class="math notranslate nohighlight">\(k\)</span>, the expectation <span class="math notranslate nohighlight">\(E(X^k)\)</span> is called <em><span class="math notranslate nohighlight">\(k\)</span>th moment</em> of <span class="math notranslate nohighlight">\(X\)</span>. You saw in Data 8 and again in this course that the mean <span class="math notranslate nohighlight">\(E(X)\)</span> is the center of gravity of the probability histogram of <span class="math notranslate nohighlight">\(X\)</span>. In physics, the center of mass is called the <em>first moment</em>. The terminology of moments is used in probability theory as well.</p>
@@ -1156,6 +1186,26 @@ M_{X+Y} (t) ~ &amp;= ~ \big{(} \frac{\lambda}{\lambda - t} \big{)}^r \cdot \big{
 \end{split}\]</div>
 <p>That’s the mgf of the gamma <span class="math notranslate nohighlight">\((r+s, \lambda)\)</span> distribution. Because the mgf identifies the distribution, <span class="math notranslate nohighlight">\(X+Y\)</span> must have the gamma <span class="math notranslate nohighlight">\((r+s, \lambda)\)</span> distribution.</p>
 <p>This is what we observed in an earlier section by simulation, using numerical values of <span class="math notranslate nohighlight">\(r\)</span> and <span class="math notranslate nohighlight">\(\lambda\)</span>.</p>
+<div class="admonition-quick-check admonition">
+<p class="admonition-title">Quick Check</p>
+<p>The random variable <span class="math notranslate nohighlight">\(T\)</span> has mgf <span class="math notranslate nohighlight">\(M_T(t) = \frac{8}{(2-t)^3}\)</span>, <span class="math notranslate nohighlight">\(t &lt; 2\)</span>. What is the distribution of <span class="math notranslate nohighlight">\(T\)</span>?</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Answer</p>
+<p>gamma <span class="math notranslate nohighlight">\((3, 2)\)</span></p>
+</div>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="400"
+    height="300"
+    src="https://www.youtube.com/embed/juRbr3EXnJg"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
 </div>
 <div class="section" id="note-on-existence">
 <h2><span class="section-number">19.2.7. </span>Note on Existence<a class="headerlink" href="#note-on-existence" title="Permalink to this headline">¶</a></h2>

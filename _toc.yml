@@ -158,6 +158,7 @@
     - file: content/Chapter_18/02_Sums_of_Independent_Normal_Variables
     - file: content/Chapter_18/03_The_Gamma_Family
     - file: content/Chapter_18/04_Chi_Squared_Distributions
+    - file: content/Chapter_18/05_Exercises
   - file: content/Chapter_19/00_Distributions_of_Sums
     expand_sections: true
     sections:
@@ -165,6 +166,7 @@
     - file: content/Chapter_19/02_Moment_Generating_Functions
     - file: content/Chapter_19/03_MGFs_Normal_and_the_CLT
     - file: content/Chapter_19/04_Chernoff_Bound
+    - file: content/Chapter_19/05_Exercises
   - file: content/Chapter_20/00_Approaches_to_Estimation
     expand_sections: true
     sections:

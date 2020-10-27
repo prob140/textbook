@@ -693,6 +693,11 @@
      18.4. Chi-Squared Distributions
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_18/05_Exercises.html">
+     18.5. Exercises
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1 current active">
@@ -718,6 +723,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="04_Chernoff_Bound.html">
      19.4. Chernoff Bound
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05_Exercises.html">
+     19.5. Exercises
     </a>
    </li>
   </ul>
@@ -963,8 +973,13 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#linear-transformation">
+   19.3.1. Linear Transformation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#normal-mu-sigma-2">
-   19.3.1. Normal
+   19.3.2. Normal
    <span class="math notranslate nohighlight">
     \((\mu, \sigma^2)\)
    </span>
@@ -972,12 +987,12 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#sums-of-independent-normal-variables">
-   19.3.2. Sums of Independent Normal Variables
+   19.3.3. Sums of Independent Normal Variables
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#proof-of-the-central-limit-theorem">
-   19.3.3. “Proof” of the Central Limit Theorem
+   19.3.4. “Proof” of the Central Limit Theorem
   </a>
  </li>
 </ul>
@@ -992,6 +1007,26 @@
                 
   <div class="section" id="mgfs-the-normal-and-the-clt">
 <h1><span class="section-number">19.3. </span>MGFs, the Normal, and the CLT<a class="headerlink" href="#mgfs-the-normal-and-the-clt" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># VIDEO</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">YouTubeVideo</span>
+
+<span class="n">YouTubeVideo</span><span class="p">(</span><span class="s1">&#39;SXyYS0ztJ6U&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="400"
+    height="300"
+    src="https://www.youtube.com/embed/SXyYS0ztJ6U"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
 <p>Let <span class="math notranslate nohighlight">\(Z\)</span> be standard normal. Then the mgf of <span class="math notranslate nohighlight">\(Z\)</span> is given by</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1008,23 +1043,34 @@ M_Z(t) ~ &amp;= ~ \int_{-\infty}^\infty e^{tz} \frac{1}{\sqrt{2\pi}} e^{-\frac{1
 &amp;= ~ e^{t^2/2}
 \end{align*}
 \end{split}\]</div>
-<p>because the integral is 1. It is the normal <span class="math notranslate nohighlight">\((t, 1)\)</span> density integrated over the whole real line.</p>
-<div class="section" id="normal-mu-sigma-2">
-<h2><span class="section-number">19.3.1. </span>Normal <span class="math notranslate nohighlight">\((\mu, \sigma^2)\)</span><a class="headerlink" href="#normal-mu-sigma-2" title="Permalink to this headline">¶</a></h2>
-<p>It’s a good idea to first note that moment generating functions behave well under linear transformations.</p>
+<p>because the integral is <span class="math notranslate nohighlight">\(1\)</span>. It is the normal <span class="math notranslate nohighlight">\((t, 1)\)</span> density integrated over the whole real line.</p>
+<div class="section" id="linear-transformation">
+<h2><span class="section-number">19.3.1. </span>Linear Transformation<a class="headerlink" href="#linear-transformation" title="Permalink to this headline">¶</a></h2>
+<p>It’s handy to note that moment generating functions behave well under linear transformation.</p>
 <div class="math notranslate nohighlight">
 \[
 M_{aX+b}(t) ~ = ~ E(e^{t(aX + b)}) ~ = ~ e^{bt}E(e^{atX}) ~ = ~ e^{bt}M_X(at)
 \]</div>
+</div>
+<div class="section" id="normal-mu-sigma-2">
+<h2><span class="section-number">19.3.2. </span>Normal <span class="math notranslate nohighlight">\((\mu, \sigma^2)\)</span><a class="headerlink" href="#normal-mu-sigma-2" title="Permalink to this headline">¶</a></h2>
 <p>Since a normal <span class="math notranslate nohighlight">\((\mu, \sigma^2)\)</span> variable can be written as <span class="math notranslate nohighlight">\(\sigma Z + \mu\)</span> where <span class="math notranslate nohighlight">\(Z\)</span> is standard normal, its m.g.f. is</p>
 <div class="math notranslate nohighlight">
 \[
 M_{\sigma Z + \mu} (t) ~ = ~ e^{\mu t}M_Z(\sigma t) ~ = ~ e^{\mu t +\sigma^2 t^2/2}
 \]</div>
 <p>Details aside, what this formula is saying is that if a moment generating function is <span class="math notranslate nohighlight">\(\exp(c_1t + c_2t^2)\)</span> for any constant <span class="math notranslate nohighlight">\(c_1\)</span> and any positive constant <span class="math notranslate nohighlight">\(c_2\)</span>, then it is the moment generating function of a normally distributed random variable.</p>
+<div class="admonition-quick-check admonition">
+<p class="admonition-title">Quick Check</p>
+<p>The random variable <span class="math notranslate nohighlight">\(X\)</span> has mgf <span class="math notranslate nohighlight">\(M_X(t) = e^{10t^2}\)</span> for all <span class="math notranslate nohighlight">\(t\)</span>. What is the distribution of <span class="math notranslate nohighlight">\(t\)</span>?</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Answer</p>
+<p>normal <span class="math notranslate nohighlight">\((0, 20)\)</span></p>
+</div>
 </div>
 <div class="section" id="sums-of-independent-normal-variables">
-<h2><span class="section-number">19.3.2. </span>Sums of Independent Normal Variables<a class="headerlink" href="#sums-of-independent-normal-variables" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">19.3.3. </span>Sums of Independent Normal Variables<a class="headerlink" href="#sums-of-independent-normal-variables" title="Permalink to this headline">¶</a></h2>
 <p>We can now show that sums of independent normal variables are normal.</p>
 <p>Let <span class="math notranslate nohighlight">\(X\)</span> have normal <span class="math notranslate nohighlight">\((\mu_X, \sigma_X^2)\)</span> distribution, and let <span class="math notranslate nohighlight">\(Y\)</span> independent of <span class="math notranslate nohighlight">\(X\)</span> have normal <span class="math notranslate nohighlight">\((\mu_Y, \sigma_Y^2)\)</span> distribution. Then</p>
 <div class="math notranslate nohighlight">
@@ -1034,7 +1080,7 @@ M_{X+Y} (t) = e^{\mu_X t + \sigma_X^2 t^2/2} \cdot e^{\mu_Y t + \sigma_Y^2 t^2/2
 <p>That’s the m.g.f. of the normal distribution with mean <span class="math notranslate nohighlight">\(\mu_X + \mu_Y\)</span> and variance <span class="math notranslate nohighlight">\(\sigma_X^2 + \sigma_Y^2\)</span>.</p>
 </div>
 <div class="section" id="proof-of-the-central-limit-theorem">
-<h2><span class="section-number">19.3.3. </span>“Proof” of the Central Limit Theorem<a class="headerlink" href="#proof-of-the-central-limit-theorem" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">19.3.4. </span>“Proof” of the Central Limit Theorem<a class="headerlink" href="#proof-of-the-central-limit-theorem" title="Permalink to this headline">¶</a></h2>
 <p>Another important reason for studying mgf’s is that they can help us identify the limit of a sequence of distributions.</p>
 <p>The main example of convergence that we have seen is the Central Limit Theorem. Now we can indicate a proof.</p>
 <p>Let <span class="math notranslate nohighlight">\(X_1, X_2, \ldots\)</span> be i.i.d. random variables with expectation <span class="math notranslate nohighlight">\(\mu\)</span> and SD <span class="math notranslate nohighlight">\(\sigma\)</span>. For every <span class="math notranslate nohighlight">\(n \ge 1\)</span> let <span class="math notranslate nohighlight">\(S_n = X_1 + X_2 + \cdots + X_n\)</span>.</p>
@@ -1044,7 +1090,7 @@ M_{X+Y} (t) = e^{\mu_X t + \sigma_X^2 t^2/2} \cdot e^{\mu_Y t + \sigma_Y^2 t^2/2
 S_n^* = \frac{S_n - n\mu}{\sqrt{n}\sigma}
 \]</div>
 <p>is approximately standard normal.</p>
-<p>To show this, we will assume a major result whose proof is well beyond the scope of this class. Suppose $Y_1, Y_2, \ldots $ are random variables and we want to show that the the distribution of the <span class="math notranslate nohighlight">\(Y_n\)</span>’s converges to the distribution of some random variable <span class="math notranslate nohighlight">\(Y\)</span>. The result says that it is enough to show that the mgf’s of the <span class="math notranslate nohighlight">\(Y_n\)</span>’s converge to the mgf of <span class="math notranslate nohighlight">\(Y\)</span>.</p>
+<p>To show this, we will assume a major result whose proof is well beyond the scope of this class. Suppose <span class="math notranslate nohighlight">\(Y_1, Y_2, \ldots\)</span> are random variables and we want to show that the the distribution of the <span class="math notranslate nohighlight">\(Y_n\)</span>’s converges to the distribution of some random variable <span class="math notranslate nohighlight">\(Y\)</span>. The result says that it is enough to show that the mgf’s of the <span class="math notranslate nohighlight">\(Y_n\)</span>’s converge to the mgf of <span class="math notranslate nohighlight">\(Y\)</span>.</p>
 <p>The result requires a careful statement and the proof requires considerable attention to detail. We won’t go into that in this course. Instead we’ll just point out that it should seem reasonable. Since mgf’s determine distributions, it’s not difficult to accept that if two mgf’s are close to each other then the corresponding distributions should also be close to each other.</p>
 <p>Let’s use this result to “prove” the CLT. The quotes are because we will use the above result without proof, and also because the argument below involves some hand-waving about approximations.</p>
 <p>First, write the standardized sum in terms of the standardized <span class="math notranslate nohighlight">\(X\)</span>’s.</p>
@@ -1074,7 +1120,7 @@ M_{S_n^*} (t) &amp;= \big{(} M_{X^*}(t/\sqrt{n}) \big{)}^n \\ \\
 <div class="math notranslate nohighlight">
 \[
 M_{S_n^*} (t) \approx \Big{(} 1 + \frac{t^2}{2n}\Big{)}^n 
-\to e^{\frac{t^2}{2}} \text{as } n \to \infty
+\to e^{t^2/2} \text{as } n \to \infty
 \]</div>
 <p>The limit is the moment generating function of the standard normal distribution.</p>
 </div>

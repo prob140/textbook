@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>18.5. Review Problems: Set 4 &#8212; Prob 140 Textbook</title>
+    <title>18.5. Exercises &#8212; Prob 140 Textbook</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
@@ -620,8 +620,18 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_16/03_Two_to_One_Functions.html">
-     16.3. Two-to-One Functions
+    <a class="reference internal" href="../Chapter_16/03_Simulation_via_the_CDF.html">
+     16.3. Simulation via the CDF
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_16/04_Two_to_One_Functions.html">
+     16.4. Two-to-One Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_16/05_Exercises.html">
+     16.5. Exercises
     </a>
    </li>
   </ul>
@@ -649,6 +659,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_17/04_Beta_Densities_with_Integer_Parameters.html">
      17.4. Beta Densities with Integer Parameters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_17/05_Exercises.html">
+     17.5. Exercises
     </a>
    </li>
   </ul>
@@ -680,7 +695,7 @@
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     18.5. Review Problems: Set 4
+     18.5. Exercises
     </a>
    </li>
   </ul>
@@ -708,6 +723,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_19/04_Chernoff_Bound.html">
      19.4. Chernoff Bound
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_19/05_Exercises.html">
+     19.5. Exercises
     </a>
    </li>
   </ul>
@@ -907,7 +927,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/content/Chapter_18/05_Review_Problems_Set_4.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/content/Chapter_18/05_Exercises.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -932,7 +952,7 @@
     <div class="dropdown-buttons">
         
         
-        <a class="jupyterhub-button" href="https://prob140.datahub.berkeley.edu/hub/user-redirect/git-pull?repo=https://github.com/prob140/textbook&urlpath=tree/textbook/content/Chapter_18/05_Review_Problems_Set_4.ipynb&branch=gh-pages"><button type="button"
+        <a class="jupyterhub-button" href="https://prob140.datahub.berkeley.edu/hub/user-redirect/git-pull?repo=https://github.com/prob140/textbook&urlpath=tree/textbook/content/Chapter_18/05_Exercises.ipynb&branch=gh-pages"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
                 data-placement="left"><img class="jupyterhub-button-logo"
                     src="../../_static/images/logo_jupyterhub.svg"
@@ -951,19 +971,7 @@
             <i class="fas fa-list"></i> On this page
         </div>
         <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-basics">
-   18.5.1. The Basics
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#additional-practice">
-   18.5.2. Additional Practice
-  </a>
- </li>
-</ul>
-
+            
         </nav>
     </div>
 </div>
@@ -972,157 +980,44 @@
         
               <div>
                 
-  <div class="section" id="review-problems-set-4">
-<h1><span class="section-number">18.5. </span>Review Problems: Set 4<a class="headerlink" href="#review-problems-set-4" title="Permalink to this headline">¶</a></h1>
-<p>These problems can be solved using the main ideas of Chapters 16 through 18. The Basics set will remind you of the fundamental concepts and some typical calculations. The rest are for you to further develop your problem solving skills and your fluency with the notation and ideas.</p>
-<p>You can leave answers in terms of the standard normal cdf <span class="math notranslate nohighlight">\(\Phi\)</span>. You can also leave answers in terms of the Gamma function <span class="math notranslate nohighlight">\(\Gamma\)</span> unless you are asked for a simplification.</p>
-<div class="section" id="the-basics">
-<h2><span class="section-number">18.5.1. </span>The Basics<a class="headerlink" href="#the-basics" title="Permalink to this headline">¶</a></h2>
-<p><strong>1.</strong>
-Let <span class="math notranslate nohighlight">\(X\)</span> have density <span class="math notranslate nohighlight">\(f_X(x) = 2x\)</span> for <span class="math notranslate nohighlight">\(0 &lt; x &lt; 1\)</span>. Find the density of</p>
-<p>(a) <span class="math notranslate nohighlight">\(5X - 3\)</span></p>
-<p>(b) <span class="math notranslate nohighlight">\(4X^3\)</span></p>
-<p>(c) <span class="math notranslate nohighlight">\(X/(1+X)\)</span></p>
-<p><strong>2.</strong>
-Let <span class="math notranslate nohighlight">\(X\)</span> have density <span class="math notranslate nohighlight">\(f(x) = 2x^{-3}e^{-x^{-2}}\)</span> on the positive real numbers. Find the density of <span class="math notranslate nohighlight">\(X^4\)</span>.</p>
-<p><strong>3.</strong>
-For a fixed <span class="math notranslate nohighlight">\(\alpha &gt; 0\)</span> let <span class="math notranslate nohighlight">\(X\)</span> have the Pareto density given by</p>
-<div class="math notranslate nohighlight">
-\[
-f(x) ~ = ~ \frac{\alpha}{x^{\alpha+1}}, ~~ x &gt; 1
-\]</div>
-<p>Find the density of <span class="math notranslate nohighlight">\(\log(X)\)</span>. Recognize this as one of the famous ones and provide its name and parameters.</p>
-<p><strong>4.</strong>
-A Prob 140 student comes to lecture at a time that is uniformly distributed between 5:09 and 5:14. Independently of the student, the professor begins the lecture at a time that is uniformly distributed between 5:10 and 5:12. What is the chance that the lecture has already begun when the student arrives?</p>
-<p><strong>5.</strong>
-For some constant <span class="math notranslate nohighlight">\(c\)</span> let <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> have a joint density given by</p>
-<div class="math notranslate nohighlight" id="equation-a">
-<span class="eqno">(18.2)<a class="headerlink" href="#equation-a" title="Permalink to this equation">¶</a></span>\[\begin{split}
-f(x, y) ~ = ~ 
-\begin{cases}
-c(x - y), ~~ 0 &lt; y &lt; x &lt; 1 \\
-0 ~~~~~~~~~~~~~~ \text{otherwise}
-\end{cases}
-\end{split}\]</div>
-<p>(b) Find <span class="math notranslate nohighlight">\(c\)</span>.</p>
-<p>(c) Find <span class="math notranslate nohighlight">\(P(X &gt; Y + 0.4)\)</span>. Before you calculate, shade the event on the diagram you drew in (a).</p>
-<p>(d) Find the density of <span class="math notranslate nohighlight">\(X\)</span>.</p>
-<p>(e) Are <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> independent?</p>
-<p>(f) Find <span class="math notranslate nohighlight">\(E(XY)\)</span>.</p>
-<p><strong>6.</strong>
-Let <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> have joint density <span class="math notranslate nohighlight">\(f\)</span> given by</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-f(x, y) ~ = ~ 
-\begin{cases}
-\frac{40}{243}x(3-x)(x-y), ~~~~ 0 &lt; y &lt; x &lt; 3 \\
-0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \text{otherwise}
-\end{cases}
-\end{split}\]</div>
-<p>Write the each of the following in terms of <span class="math notranslate nohighlight">\(f\)</span> but do not simplify the expression. Integrals should not include regions where <span class="math notranslate nohighlight">\(f(x, y) = 0\)</span>.</p>
-<p>(a) <span class="math notranslate nohighlight">\(P(Y &gt; 1)\)</span></p>
-<p>(b) the conditional density of <span class="math notranslate nohighlight">\(X\)</span> given <span class="math notranslate nohighlight">\(Y = 1\)</span> (please be clear about the values on which the density is positive)</p>
-<p>(c) <span class="math notranslate nohighlight">\(E(e^{XY})\)</span></p>
-<p><strong>7.</strong>
-Let <span class="math notranslate nohighlight">\(S\)</span>, <span class="math notranslate nohighlight">\(T\)</span>, and <span class="math notranslate nohighlight">\(R\)</span> be independent standard normal variables. Find the following without using calculus.</p>
+  <div class="section" id="exercises">
+<h1><span class="section-number">18.5. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h1>
+<p><strong>1.</strong> Let <span class="math notranslate nohighlight">\(S\)</span>, <span class="math notranslate nohighlight">\(T\)</span>, and <span class="math notranslate nohighlight">\(R\)</span> be independent standard normal variables. Find the following without using calculus.</p>
 <p>(a) the distribution of <span class="math notranslate nohighlight">\(5S - 7\)</span></p>
 <p>(b) the distribution of <span class="math notranslate nohighlight">\(5(S-T) - 7\)</span></p>
 <p>(c) <span class="math notranslate nohighlight">\(P(S + T &gt; R + 1)\)</span></p>
 <p>(d) <span class="math notranslate nohighlight">\(E(5S - 6T + 8R - 9)\)</span></p>
 <p>(e) <span class="math notranslate nohighlight">\(Var(5S - 6T + 8R - 9)\)</span></p>
-<p><strong>8.</strong>
-Heights of women in a large population are normally distributed with mean 65 inches and SD 3.5 inches. Two women are picked at random. Find the chance that one of the women is more than an inch taller than the other.</p>
-<p><strong>9.</strong>
-Let <span class="math notranslate nohighlight">\(X_i\)</span>, <span class="math notranslate nohighlight">\(1 \le i \le 5\)</span> be i.i.d. exponential <span class="math notranslate nohighlight">\((\lambda)\)</span> lifetimes of electrical components.</p>
+<p><strong>2.</strong> Heights of women in a large population are normally distributed with mean 65 inches and SD 3.5 inches. Two women are picked at random. Find the chance that one of the women is more than an inch taller than the other.</p>
+<p><strong>3.</strong> Let <span class="math notranslate nohighlight">\(X_i\)</span>, <span class="math notranslate nohighlight">\(1 \le i \le 5\)</span> be i.i.d. exponential <span class="math notranslate nohighlight">\((\lambda)\)</span> lifetimes of electrical components.</p>
 <p>(a) Assume that as soon as one component dies it is replaced by another, so that <span class="math notranslate nohighlight">\(T = \sum_{i=1}^5 X_i\)</span> is the total lifetime of all five components. Find the distribution, mean, and SD of <span class="math notranslate nohighlight">\(T\)</span>.</p>
 <p>(b) Find the distribution, mean, and SD of the shortest of the five lifetimes.</p>
-<p><strong>10.</strong>
-Let <span class="math notranslate nohighlight">\(Z\)</span> be standard normal and let <span class="math notranslate nohighlight">\(X\)</span> have the gamma <span class="math notranslate nohighlight">\((r, \lambda)\)</span> density. You shouldn’t have to do any calculation in this exercise if you’ve done the reading or remember what was covered in lecture.</p>
+<p><strong>4.</strong> Let <span class="math notranslate nohighlight">\(Z\)</span> be standard normal and let <span class="math notranslate nohighlight">\(X\)</span> have the gamma <span class="math notranslate nohighlight">\((r, \lambda)\)</span> density. This exercise requires minimal calculation.</p>
 <p>(a) For <span class="math notranslate nohighlight">\(c &gt; 0\)</span>, <span class="math notranslate nohighlight">\(cX\)</span> has the <span class="math notranslate nohighlight">\(\underline{~~~~~~~~~~~~~~~~~~~~~~~~~~~~~}\)</span> distribution.</p>
 <p>(b) Fill in the blanks: <span class="math notranslate nohighlight">\(Z^2\)</span> has the <span class="math notranslate nohighlight">\(\underline{~~~~~~~~~~~~~~~~~~~~~~~~~~~~~}\)</span> distribution.</p>
 <p>(c) Let <span class="math notranslate nohighlight">\(W\)</span> have the normal <span class="math notranslate nohighlight">\((0, \sigma^2)\)</span> density. Fill in the blank: <span class="math notranslate nohighlight">\(W \stackrel{d}{=} \underline{~~~~~~~~~}Z\)</span>.</p>
 <p>(d) Fill in the blank: <span class="math notranslate nohighlight">\(W^2\)</span> has the <span class="math notranslate nohighlight">\(\underline{~~~~~~~~~~~~~~~~~~~~~~~~~~~~~}\)</span> distribution.</p>
-</div>
-<div class="section" id="additional-practice">
-<h2><span class="section-number">18.5.2. </span>Additional Practice<a class="headerlink" href="#additional-practice" title="Permalink to this headline">¶</a></h2>
-<p><strong>11.</strong>
-Let <span class="math notranslate nohighlight">\(X\)</span> be a random variable. Find the density of <span class="math notranslate nohighlight">\(X^2\)</span> if <span class="math notranslate nohighlight">\(X\)</span> has the uniform distribution on</p>
-<p>(a) <span class="math notranslate nohighlight">\((0, 1)\)</span></p>
-<p>(b) <span class="math notranslate nohighlight">\((-1, 1)\)</span></p>
-<p>(c) <span class="math notranslate nohighlight">\((-1, 2)\)</span></p>
-<p><strong>12.</strong>
-Suppose two shots are fired at a target. Assume each shot hits with independent normally distributed coordinates, with the same means and equal unit variances. Let <span class="math notranslate nohighlight">\(D\)</span> be the distance between the point where the two shots strike.</p>
+<p><strong>5.</strong> Suppose two shots are fired at a target. Assume each shot hits with independent normally distributed coordinates, with the same means and equal unit variances. Let <span class="math notranslate nohighlight">\(D\)</span> be the distance between the point where the two shots strike.</p>
 <p>(a) Find the distribution of <span class="math notranslate nohighlight">\(D^2\)</span>.</p>
 <p>(b) Find the distribution of <span class="math notranslate nohighlight">\(D\)</span>.</p>
-<p><strong>13.</strong>
-Let <span class="math notranslate nohighlight">\(Z\)</span> be standard normal.</p>
-<p>(a) Use the change of variable formula to find the density of <span class="math notranslate nohighlight">\(1/Z\)</span>. Why do you not have to worry about the event <span class="math notranslate nohighlight">\(Z = 0\)</span>?</p>
-<p>(b) A student who doesn’t like the change of variable formula decides to first find the cdf of <span class="math notranslate nohighlight">\(1/Z\)</span> and then differentiate it to get the density. That’s a fine plan. The student starts out by writing <span class="math notranslate nohighlight">\(P(1/Z &lt; x) = P(1/x &lt; Z)\)</span> and immediately the course staff say, “Are you sure?” What is the problem with what the student wrote?</p>
-<p>(c) For all <span class="math notranslate nohighlight">\(x\)</span>, find <span class="math notranslate nohighlight">\(P(1/Z &lt; x)\)</span>.</p>
-<p>(d) Check by differentiation that your answer to (c) is consistent with your answer to (a).</p>
-<p><strong>14.</strong>
-The joint density of <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> is</p>
-<div class="math notranslate nohighlight" id="equation-a">
-<span class="eqno">(18.2)<a class="headerlink" href="#equation-a" title="Permalink to this equation">¶</a></span>\[\begin{split}
-f(x, y) ~ = ~
-\begin{cases}
-24xy, ~~~ x, y &gt; 0  \text{ and } 0 &lt; x+y &lt; 1 \\
-0 ~~~~~~~~~~~~~ \text{otherwise}
-\end{cases}
-\end{split}\]</div>
-<p>(b) Without further calculation, find the density of <span class="math notranslate nohighlight">\(Y\)</span> and justify your answer.</p>
-<p>(c) Are <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> independent? Why or why not?</p>
-<p>(d) Find the conditional density of <span class="math notranslate nohighlight">\(X\)</span> given <span class="math notranslate nohighlight">\(Y = 0.75\)</span>. As always, start with the possible values.</p>
-<p>(e) Find <span class="math notranslate nohighlight">\(P(X &gt; 0.2 \mid Y = 0.75)\)</span>.</p>
-<p>(f) Find <span class="math notranslate nohighlight">\(E(X \mid Y = 0.75)\)</span>.</p>
-<p><strong>15.</strong>
-Weights in a population are normally distributed with mean 150 pounds. Just about 5% of the people weigh more than 185 pounds.</p>
+<p><strong>6.</strong> Weights in a population are normally distributed with mean 150 pounds. Just about 5% of the people weigh more than 185 pounds.</p>
 <p>(a) Find the SD of the weights. You can leave your answer in terms of the standard normal cdf <span class="math notranslate nohighlight">\(\Phi\)</span> if you don’t have access to a notebook cell in which to do the numerical calculation.</p>
 <p>(b) Two people are drawn at random. Find the chance that their weights are within 10 pounds of each other. If your answer to (a) isn’t numerical, you can just call it <span class="math notranslate nohighlight">\(\sigma\)</span> for brevity.</p>
-<p><strong>16.</strong>
-[This is Pitman 5.rev.22, with his permission]. In Maxwell’s model of a gas, molecules of mass <span class="math notranslate nohighlight">\(m\)</span> are assumed to have velocity components <span class="math notranslate nohighlight">\(V_x\)</span>, <span class="math notranslate nohighlight">\(V_y,\)</span> and <span class="math notranslate nohighlight">\(V_z\)</span> that are independent, with a joint distribution that is invariant under rotation of the three-dimensional coordinate system. Maxwell showed that <span class="math notranslate nohighlight">\(V_x\)</span>, <span class="math notranslate nohighlight">\(V_y\)</span>, and <span class="math notranslate nohighlight">\(V_z\)</span> must each have the normal <span class="math notranslate nohighlight">\((0, \sigma^2)\)</span> distribution for some <span class="math notranslate nohighlight">\(\sigma\)</span>. Taking this result for granted:</p>
-<p>(a) Find a formula for the density of the kinetic energy</p>
-<div class="math notranslate nohighlight" id="equation-b">
-<span class="eqno">(18.3)<a class="headerlink" href="#equation-b" title="Permalink to this equation">¶</a></span>\[
-K ~ = ~ \frac{1}{2}mV_x^2 + \frac{1}{2}mV_y^2 + \frac{1}{2}mV_z^2
-\]</div>
-<p><strong>17.</strong>
-Let <span class="math notranslate nohighlight">\(U_i\)</span>, <span class="math notranslate nohighlight">\(1 \le i \le 20\)</span> be i.i.d. uniform <span class="math notranslate nohighlight">\((0, 1)\)</span> variables, and let <span class="math notranslate nohighlight">\(U_{(k)}\)</span> be the <span class="math notranslate nohighlight">\(k\)</span>th order statistic.</p>
-<p>(a) What is the density of <span class="math notranslate nohighlight">\(U_{(7)}\)</span>?</p>
-<p>(b) Without integrating the density, find the cdf of <span class="math notranslate nohighlight">\(U_{(7)}\)</span>.</p>
-<p>[Use the idea you used to find the tail probabilities of a sample median (in lab). Draw a line representing the unit interval and put down crosses representing the variables. For <span class="math notranslate nohighlight">\(U_{(7)}\)</span> to be less than <span class="math notranslate nohighlight">\(x\)</span>, how must you distribute the crosses?]</p>
-<p>(c) Find the joint density of <span class="math notranslate nohighlight">\(U_{(7)}\)</span> and <span class="math notranslate nohighlight">\(U_{(12)}\)</span>.</p>
-<p><strong>18.</strong>
-Annual household incomes in City A have a mean of 68,000 dollars and an SD of 40,000 dollars. Annual household incomes in City B have a mean of 75,000 dollars and an SD of 50,000 dollars.</p>
+<p><strong>7.</strong> [This is Pitman 5.rev.22, with his permission]. In Maxwell’s model of a gas, molecules of mass <span class="math notranslate nohighlight">\(m\)</span> are assumed to have velocity components <span class="math notranslate nohighlight">\(V_x\)</span>, <span class="math notranslate nohighlight">\(V_y,\)</span> and <span class="math notranslate nohighlight">\(V_z\)</span> that are independent, with a joint distribution that is invariant under rotation of the three-dimensional coordinate system. Maxwell showed that <span class="math notranslate nohighlight">\(V_x\)</span>, <span class="math notranslate nohighlight">\(V_y\)</span>, and <span class="math notranslate nohighlight">\(V_z\)</span> must each have the normal <span class="math notranslate nohighlight">\((0, \sigma^2)\)</span> distribution for some <span class="math notranslate nohighlight">\(\sigma\)</span>. Taking this result for granted:</p>
+<p>(a) Find a formula for the density of the kinetic energy <span class="math notranslate nohighlight">\(K ~ = ~ \frac{1}{2}mV_x^2 + \frac{1}{2}mV_y^2 + \frac{1}{2}mV_z^2\)</span>.</p>
+<p>(b) Find the mean and mode of the energy distribution.</p>
+<p><strong>8.</strong> Annual household incomes in City A have a mean of 68,000 dollars and an SD of 40,000 dollars. Annual household incomes in City B have a mean of 75,000 dollars and an SD of 50,000 dollars.</p>
 <p>A random sample of 400 households is taken in City A. Independently, a random sample of 625 households in taken in City B. You can assume that the sampling procedures can be well approximated by sampling at random with replacement.</p>
 <p>(a) Is the distribution of annual household incomes in City A approximately normal? Why or why not? What about City B?</p>
 <p>(b) Find or approximate the distribution of the average annual household income in the sample from City A. Justify your answer.</p>
 <p>(c) Find or approximate the chance that the average annual household income is greater in the City B sample than in the City A sample.</p>
 <p>(d) About how large must a sample from City A be so that there is about a 90% chance that the sample average annual household income is within 1000 dollars of the population average?</p>
-<p><strong>19.</strong>
-A random variable <span class="math notranslate nohighlight">\(X\)</span> has the beta <span class="math notranslate nohighlight">\((2, 2)\)</span> density. Given <span class="math notranslate nohighlight">\(X = x\)</span>, the conditional distribution of the random variable <span class="math notranslate nohighlight">\(Y\)</span> is uniform on the interval <span class="math notranslate nohighlight">\((-x, x)\)</span>.</p>
-<p>(a) Find <span class="math notranslate nohighlight">\(P(Y &lt; 0.2 \mid X = 0.6)\)</span>.</p>
-<p>(b) Find <span class="math notranslate nohighlight">\(E(Y)\)</span>.</p>
-<p>(c) Find the joint density of <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span>. Remember to specify the region where it is positive.</p>
-<p>(d) Find <span class="math notranslate nohighlight">\(P(X &lt; 0.3, \vert Y \vert &lt; 0.3X)\)</span>.</p>
-<p><strong>20.</strong>
-As you know, the Gamma function is defined as an integral. It turns out that its numerical values are hard to calculate exactly except in some cases. Here are two of those cases.</p>
+<p><strong>9.</strong> As you know, the Gamma function is defined as an integral. It turns out that its numerical values are hard to calculate exactly except in some cases. Here are two of those cases.</p>
 <p>(a) If <span class="math notranslate nohighlight">\(n\)</span> is an integer, what is the value of <span class="math notranslate nohighlight">\(\Gamma(n)\)</span>?</p>
 <p>(b) Let <span class="math notranslate nohighlight">\(Z\)</span> be standard normal. Use the density of <span class="math notranslate nohighlight">\(Z^2\)</span> to show that <span class="math notranslate nohighlight">\(\Gamma(\frac{1}{2}) = \sqrt{\pi}\)</span>.</p>
 <p>(c) For odd integer <span class="math notranslate nohighlight">\(n\)</span>, find <span class="math notranslate nohighlight">\(\Gamma(\frac{n}{2})\)</span>. [For even <span class="math notranslate nohighlight">\(n\)</span>, <span class="math notranslate nohighlight">\(n/2\)</span> is an integer and you already dealt with that case in Part (a).]</p>
-<p><strong>21.</strong>
-Let <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> be i.i.d. with a joint density.</p>
-<p>(a) Find <span class="math notranslate nohighlight">\(P(Y &gt; X)\)</span>.</p>
-<p>(b) Find <span class="math notranslate nohighlight">\(P(\vert Y \vert &gt; \vert X \vert)\)</span>.</p>
-<p>(c) If <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> are i.i.d. standard normal, find <span class="math notranslate nohighlight">\(P(Y &gt; \vert X \vert)\)</span>.</p>
-<p><strong>22.</strong>
-Two points are placed independently and uniformly at random on the unit interval. This creates three segments of the interval. What is the chance that the three segments can form a triangle?</p>
-<p>[To find probabilities of events determined by two independent uniform <span class="math notranslate nohighlight">\((0,1)\)</span> random variables, it’s a good idea to draw the unit square.]</p>
-<p><strong>23.</strong> Let <span class="math notranslate nohighlight">\(X_i\)</span>, <span class="math notranslate nohighlight">\(i = 1,2\)</span> be independent random variables such that <span class="math notranslate nohighlight">\(X_i\)</span> has the exponential <span class="math notranslate nohighlight">\((\lambda_i)\)</span> distribution. Suppose <span class="math notranslate nohighlight">\(\lambda_1 \ne \lambda_2\)</span>.</p>
-<p>(a) Use the convolution formula to find the density of the sum <span class="math notranslate nohighlight">\(S = X_1 + X_2\)</span>.</p>
-<p>(b) Show by algebra that the expression you got for the density in Part (a) is non-negative for all positive <span class="math notranslate nohighlight">\(\lambda_1 \ne \lambda_2\)</span>.</p>
-<p>(c) For <span class="math notranslate nohighlight">\(i=1, 2\)</span>, let <span class="math notranslate nohighlight">\(f_i\)</span> denote the exponential density of <span class="math notranslate nohighlight">\(X_i\)</span>. Show that the density you got in part (a) is equal to <span class="math notranslate nohighlight">\(c_1f_1 + c_2f_2\)</span> for two constants <span class="math notranslate nohighlight">\(c_1\)</span> and <span class="math notranslate nohighlight">\(c_2\)</span> such that <span class="math notranslate nohighlight">\(c_1+c_2 = 1\)</span>. Are <span class="math notranslate nohighlight">\(c_1\)</span> and <span class="math notranslate nohighlight">\(c_2\)</span> both positive?</p>
-</div>
+<p><strong>10.</strong> Let <span class="math notranslate nohighlight">\(Z\)</span> be standard normal. You have seen a <a class="reference external" href="http://prob140.org/textbook/content/Chapter_18/01_Standard_Normal_Basics.html#variance">probabilistic argument</a> for the fact that <span class="math notranslate nohighlight">\(E(Z^2) = 1\)</span>. Derive the same fact by writing <span class="math notranslate nohighlight">\(E(Z^2)\)</span> as an integral and evaluating the integral.</p>
+<p>[Notice that you are integrating an even function, then make a variable substitution to convert your integral into a gamma integral, then use gamma facts.]</p>
 </div>
 
     <script type="text/x-thebe-config">

@@ -40,7 +40,7 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="19. Distributions of Sums" href="../Chapter_19/00_Distributions_of_Sums.html" />
+    <link rel="next" title="18.5. Exercises" href="05_Exercises.html" />
     <link rel="prev" title="18.3. The Gamma Family" href="03_The_Gamma_Family.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -693,6 +693,11 @@
      18.4. Chi-Squared Distributions
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05_Exercises.html">
+     18.5. Exercises
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1">
@@ -718,6 +723,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_19/04_Chernoff_Bound.html">
      19.4. Chernoff Bound
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_19/05_Exercises.html">
+     19.5. Exercises
     </a>
    </li>
   </ul>
@@ -963,8 +973,16 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#chi-squared-1">
+   18.4.1. Chi-Squared
+   <span class="math notranslate nohighlight">
+    \((1)\)
+   </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#from-chi-squared-1-to-chi-squared-n">
-   18.4.1. From Chi-Squared
+   18.4.2. From Chi-Squared
    <span class="math notranslate nohighlight">
     \((1)\)
    </span>
@@ -975,8 +993,8 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#chi-squared-with-n-degrees-of-freedom">
-   18.4.2. Chi-Squared with
+  <a class="reference internal nav-link" href="#chi-squared-distribution-with-n-degrees-of-freedom">
+   18.4.3. Chi-Squared Distribution with
    <span class="math notranslate nohighlight">
     \(n\)
    </span>
@@ -985,17 +1003,17 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#mean-and-variance">
-   18.4.3. Mean and Variance
+   18.4.4. Mean and Variance
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#estimating-the-normal-variance">
-   18.4.4. Estimating the Normal Variance
+   18.4.5. Estimating the Normal Variance
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#degrees-of-freedom">
-   18.4.5. “Degrees of Freedom”
+   18.4.6. “Degrees of Freedom”
   </a>
  </li>
 </ul>
@@ -1010,21 +1028,45 @@
                 
   <div class="section" id="chi-squared-distributions">
 <h1><span class="section-number">18.4. </span>Chi-Squared Distributions<a class="headerlink" href="#chi-squared-distributions" title="Permalink to this headline">¶</a></h1>
-<p>Let <span class="math notranslate nohighlight">\(Z\)</span> be a standard normal random variable and let <span class="math notranslate nohighlight">\(V = Z^2\)</span>. By the change of variable formula for densities, we found the density of <span class="math notranslate nohighlight">\(V\)</span> to be</p>
+<p>The gamma family has two important branches. The first consists of gamma <span class="math notranslate nohighlight">\((r, \lambda)\)</span> distributions with integer shape parameter <span class="math notranslate nohighlight">\(r\)</span>, as you saw in the previous section.</p>
+<p>The other important branch consists of gamma <span class="math notranslate nohighlight">\((r, \lambda)\)</span> distributions that have <em>half-integer</em> shape parameter <span class="math notranslate nohighlight">\(r\)</span>, that is, when <span class="math notranslate nohighlight">\(r = n/2\)</span> for a positive integer <span class="math notranslate nohighlight">\(n\)</span>. Notice that this branch contains the one above: every integer <span class="math notranslate nohighlight">\(r\)</span> is also half of the integer <span class="math notranslate nohighlight">\(n = 2r\)</span>.</p>
+<div class="section" id="chi-squared-1">
+<h2><span class="section-number">18.4.1. </span>Chi-Squared <span class="math notranslate nohighlight">\((1)\)</span><a class="headerlink" href="#chi-squared-1" title="Permalink to this headline">¶</a></h2>
+<p>We have already seen the fundamental member of the branch. Let <span class="math notranslate nohighlight">\(Z\)</span> be a standard normal random variable and let <span class="math notranslate nohighlight">\(V = Z^2\)</span>. By the change of variable formula for densities, we found the density of <span class="math notranslate nohighlight">\(V\)</span> to be</p>
 <div class="math notranslate nohighlight">
 \[
 f_V(v) ~ = ~ \frac{1}{\sqrt{2\pi}} v^{-\frac{1}{2}} e^{-\frac{1}{2} v}, ~~~~ v &gt; 0
 \]</div>
 <p>That’s the gamma <span class="math notranslate nohighlight">\((1/2, 1/2)\)</span> density. It is also called the <em>chi-squared density with 1 degree of freedom,</em> which we will abbreviate to chi-squared (1).</p>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="400"
+    height="300"
+    src="https://www.youtube.com/embed/TXM-yzqYmwg"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
+</div>
 <div class="section" id="from-chi-squared-1-to-chi-squared-n">
-<h2><span class="section-number">18.4.1. </span>From Chi-Squared <span class="math notranslate nohighlight">\((1)\)</span> to Chi-Squared <span class="math notranslate nohighlight">\((n)\)</span><a class="headerlink" href="#from-chi-squared-1-to-chi-squared-n" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">18.4.2. </span>From Chi-Squared <span class="math notranslate nohighlight">\((1)\)</span> to Chi-Squared <span class="math notranslate nohighlight">\((n)\)</span><a class="headerlink" href="#from-chi-squared-1-to-chi-squared-n" title="Permalink to this headline">¶</a></h2>
 <p>When we were establishing the properties of the standard normal density, we discovered that if <span class="math notranslate nohighlight">\(Z_1\)</span> and <span class="math notranslate nohighlight">\(Z_2\)</span> are independent standard normal then <span class="math notranslate nohighlight">\(Z_1^2 + Z_2^2\)</span> has the exponential <span class="math notranslate nohighlight">\((1/2)\)</span> distribution. We saw this by comparing two different settings in which the Rayleigh distribution arises. But that wasn’t a particularly illuminating reason for why <span class="math notranslate nohighlight">\(Z_1^2 + Z_2^2\)</span> should be exponential.</p>
 <p>But now we know that the sum of independent gamma variables with the same rate is also gamma; the shape parameter adds up and the rate remains the same. Therefore <span class="math notranslate nohighlight">\(Z_1^2 + Z_2^2\)</span> is a gamma <span class="math notranslate nohighlight">\((1, 1/2)\)</span> variable. That’s the same distribution as exponential <span class="math notranslate nohighlight">\((1/2)\)</span>, as you showed in exercises. This explains why the sum of squares of two i.i.d. standard normal variables has the exponential <span class="math notranslate nohighlight">\((1/2)\)</span> distribution.</p>
+<p>If <span class="math notranslate nohighlight">\(Z_1, Z_2, Z_3\)</span> are i.i.d. standard normal variables, then:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(Z_1^2\)</span> has the gamma <span class="math notranslate nohighlight">\((1/2, 1/2)\)</span> distribution</p></li>
+<li><p><span class="math notranslate nohighlight">\(Z_1^2 + Z_2^2\)</span> has the gamma <span class="math notranslate nohighlight">\((1/2 + 1/2, 1/2)\)</span> distribution</p></li>
+<li><p><span class="math notranslate nohighlight">\(Z_1^2 + Z_2^2 + Z_3^2\)</span> has the gamma <span class="math notranslate nohighlight">\((1/2 + 1/2 + 1/2, 1/2)\)</span> distribution</p></li>
+</ul>
 <p>Now let <span class="math notranslate nohighlight">\(Z_1, Z_2, \ldots, Z_n\)</span> be i.i.d. standard normal variables. Then <span class="math notranslate nohighlight">\(Z_1^2, Z_2^2, \ldots, Z_n^2\)</span> are i.i.d. chi-squared <span class="math notranslate nohighlight">\((1)\)</span> variables. That is, each of them has the gamma <span class="math notranslate nohighlight">\((1/2, 1/2)\)</span> distribution.</p>
 <p>By induction, <span class="math notranslate nohighlight">\(Z_1^2 + Z_2^2 + \cdots + Z_n^2\)</span> has the gamma <span class="math notranslate nohighlight">\((n/2, 1/2)\)</span> distribution. This is called the <em>chi-squared distribution with <span class="math notranslate nohighlight">\(n\)</span> degrees of freedom,</em> which we will abbreviate to chi-squared <span class="math notranslate nohighlight">\((n)\)</span>.</p>
+<p>In data science, these distributions often arise when we work with the <em>sum of squares of normal errors</em>. This is usually part of a <em>mean squared error</em> calculation.</p>
 </div>
-<div class="section" id="chi-squared-with-n-degrees-of-freedom">
-<h2><span class="section-number">18.4.2. </span>Chi-Squared with <span class="math notranslate nohighlight">\(n\)</span> Degrees of Freedom<a class="headerlink" href="#chi-squared-with-n-degrees-of-freedom" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="chi-squared-distribution-with-n-degrees-of-freedom">
+<h2><span class="section-number">18.4.3. </span>Chi-Squared Distribution with <span class="math notranslate nohighlight">\(n\)</span> Degrees of Freedom<a class="headerlink" href="#chi-squared-distribution-with-n-degrees-of-freedom" title="Permalink to this headline">¶</a></h2>
 <p>For a positive integer <span class="math notranslate nohighlight">\(n\)</span>, the random variable <span class="math notranslate nohighlight">\(X\)</span> has the <em>chi-squared distribution with <span class="math notranslate nohighlight">\(n\)</span> degrees of freedom</em> if the distribution of <span class="math notranslate nohighlight">\(X\)</span> is gamma <span class="math notranslate nohighlight">\((n/2, 1/2)\)</span>. That is, <span class="math notranslate nohighlight">\(X\)</span> has density</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1033,7 +1075,7 @@ f_X(x) ~ = ~ \frac{\frac{1}{2}^{\frac{n}{2}}}{\Gamma(\frac{n}{2})} x^{\frac{n}{2
 <p>Here are the graphs of the chi-squared densities for degrees of freedom 2 through 5.</p>
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/04_Chi_Squared_Distributions_5_0.png" src="../../_images/04_Chi_Squared_Distributions_5_0.png" />
+<img alt="../../_images/04_Chi_Squared_Distributions_7_0.png" src="../../_images/04_Chi_Squared_Distributions_7_0.png" />
 </div>
 </div>
 <p>The chi-squared (2) distribution is exponential because it is the gamma <span class="math notranslate nohighlight">\((1, 1/2)\)</span> distribution. This distribution has three names:</p>
@@ -1044,7 +1086,7 @@ f_X(x) ~ = ~ \frac{\frac{1}{2}^{\frac{n}{2}}}{\Gamma(\frac{n}{2})} x^{\frac{n}{2
 </ul>
 </div>
 <div class="section" id="mean-and-variance">
-<h2><span class="section-number">18.4.3. </span>Mean and Variance<a class="headerlink" href="#mean-and-variance" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">18.4.4. </span>Mean and Variance<a class="headerlink" href="#mean-and-variance" title="Permalink to this headline">¶</a></h2>
 <p>You know that if <span class="math notranslate nohighlight">\(T\)</span> has the gamma <span class="math notranslate nohighlight">\((r, \lambda)\)</span> density then</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1062,7 +1104,7 @@ SD(X) ~ = ~ \frac{\sqrt{n/2}}{1/2} ~ = ~ \sqrt{2n}
 $\)</span></p>
 </div>
 <div class="section" id="estimating-the-normal-variance">
-<h2><span class="section-number">18.4.4. </span>Estimating the Normal Variance<a class="headerlink" href="#estimating-the-normal-variance" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">18.4.5. </span>Estimating the Normal Variance<a class="headerlink" href="#estimating-the-normal-variance" title="Permalink to this headline">¶</a></h2>
 <p>Suppose <span class="math notranslate nohighlight">\(X_1, X_2, \ldots, X_n\)</span> are i.i.d. normal <span class="math notranslate nohighlight">\((\mu, \sigma^2)\)</span> variables, and that you are in a setting in which you know <span class="math notranslate nohighlight">\(\mu\)</span> and are trying to estimate <span class="math notranslate nohighlight">\(\sigma^2\)</span>.</p>
 <p>Let <span class="math notranslate nohighlight">\(Z_i\)</span> be <span class="math notranslate nohighlight">\(X_i\)</span> in standard units, so that <span class="math notranslate nohighlight">\(Z_i = (X_i - \mu)/\sigma\)</span>. Define the random variable <span class="math notranslate nohighlight">\(T\)</span> as follows:</p>
 <div class="math notranslate nohighlight">
@@ -1081,10 +1123,10 @@ W ~ = ~  \frac{\sigma^2}{n} T ~ = ~ \frac{1}{n} \sum_{i=1}^n (X_i - \mu)^2
 \[
 S^2 ~ = ~ \frac{1}{n-1}\sum_{i=1}^n (X_i - \bar{X})^2
 \]</div>
-<p>is an unbiased estimate of <span class="math notranslate nohighlight">\(\sigma^2\)</span> regardless of the distribution of the <span class="math notranslate nohighlight">\(X_i\)</span>’s. When the <span class="math notranslate nohighlight">\(X_i\)</span>’s are normal, as is the case here, it turns out that <span class="math notranslate nohighlight">\(S^2\)</span> is a linear transformation of a chi-squared <span class="math notranslate nohighlight">\((n-1)\)</span> random variable. The methods of the next chapter can used to understand why.</p>
+<p>is an unbiased estimate of <span class="math notranslate nohighlight">\(\sigma^2\)</span> regardless of the distribution of the <span class="math notranslate nohighlight">\(X_i\)</span>’s. When the <span class="math notranslate nohighlight">\(X_i\)</span>’s are normal, as is the case here, it turns out that <span class="math notranslate nohighlight">\(S^2\)</span> is a linear transformation of a chi-squared <span class="math notranslate nohighlight">\((n-1)\)</span> random variable. We will show that later in the course.</p>
 </div>
 <div class="section" id="degrees-of-freedom">
-<h2><span class="section-number">18.4.5. </span>“Degrees of Freedom”<a class="headerlink" href="#degrees-of-freedom" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">18.4.6. </span>“Degrees of Freedom”<a class="headerlink" href="#degrees-of-freedom" title="Permalink to this headline">¶</a></h2>
 <p>The example above helps explain the strange term “degrees of freedom” for the parameter of the chi-squared distribution.</p>
 <ul class="simple">
 <li><p>When <span class="math notranslate nohighlight">\(\mu\)</span> is known, you have <span class="math notranslate nohighlight">\(n\)</span> independent centered normals <span class="math notranslate nohighlight">\((X_i - \mu)\)</span> that you can use to estimate <span class="math notranslate nohighlight">\(\sigma^2\)</span>. That is, you have <span class="math notranslate nohighlight">\(n\)</span> degrees of freedom in constructing your estimate.</p></li>
@@ -1122,7 +1164,7 @@ S^2 ~ = ~ \frac{1}{n-1}\sum_{i=1}^n (X_i - \bar{X})^2
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="03_The_Gamma_Family.html" title="previous page"><span class="section-number">18.3. </span>The Gamma Family</a>
-    <a class='right-next' id="next-link" href="../Chapter_19/00_Distributions_of_Sums.html" title="next page"><span class="section-number">19. </span>Distributions of Sums</a>
+    <a class='right-next' id="next-link" href="05_Exercises.html" title="next page"><span class="section-number">18.5. </span>Exercises</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

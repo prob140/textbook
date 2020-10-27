@@ -1,11 +1,12 @@
 # HIDDEN
+import warnings
+warnings.filterwarnings('ignore')
 from datascience import *
 from prob140 import *
 import numpy as np
 import matplotlib.pyplot as plt
 plt.style.use('fivethirtyeight')
 %matplotlib inline
-import math
 from scipy import stats
 
 ## The Gamma Family ##
@@ -22,7 +23,7 @@ $$
 \Gamma(r) ~ = ~ \int_0^\infty x^{r-1}e^{-x} dx
 $$
 
-is the *Gamma* function applied to $r$, and is part of the constant that makes the density integrate to 1.
+is the *Gamma* function applied to $r$, and is part of the constant that makes the density integrate to $1$.
 
 As you have shown, the key fact about the Gamma function is the recursion 
 
@@ -52,7 +53,18 @@ f_Y(y) ~ = ~ f_X(\frac{y}{c}) \cdot \frac{1}{c} ~ = ~
 \frac{(\lambda/c)^r}{\Gamma(r)} y^{r-1}e^{-(\lambda/c) y}
 $$
 
-SciPy calls $1/\lambda$ the "scale" parameter of the gamma distribution. Because the parameter just determines the scale on the horizontal axis of the graph of the density, it is often taken to be 1. That's what we will do to study the other parameter $r$.
+`SciPy` calls $1/\lambda$ the "scale" parameter of the gamma distribution. Because the parameter just determines the scale on the horizontal axis of the graph of the density, it is often taken to be 1. That's what we will do to study the other parameter $r$.
+
+```{admonition} Quick Check
+Suppose $X$ has the gamma $(2, 3)$ distribution. What is the distribution of $3X$?
+
+```
+
+```{admonition} Answer
+:class: dropdown
+gamma $(2, 1)$
+
+```
 
 ### The Shape Parameter $r$ ###
 Here are the graphs of the gamma $(r, 1)$ densities for $r = 1$, $1.5$, and 2.
@@ -73,7 +85,7 @@ plt.title('Gamma $(r, 1)$ Densities');
 
 When $r = 1$ the density is exponential. As $r$ gets larger the density moves to the right and flattens out, consistent with the increasing mean $r$ and SD $\sqrt{r}$.
 
-When $r = 10$, the gamma density looks almost normal. To see why, we will examine sums of independent gamma variables.
+You can see why the gamma family is used for modeling right-skewed distributions. However, when $r = 10$, the gamma density looks almost normal. To see why, we will examine sums of independent gamma variables.
 
 # NO CODE
 
@@ -113,7 +125,33 @@ plt.plot(t, dens, color='red', lw=2, label='gamma $(r+s, \lambda)$')
 plt.legend()
 plt.title('$X$ is gamma$(r, \lambda)$; $Y$ is gamma$(s, \lambda)$ independent of $X$');
 
-You can now see why the gamma $(r, \lambda)$ distribution is approximately normal for large $r$. By the result above, for integer $r$ the sum of $r$ i.i.d. exponential $(\lambda)$ random variables has the gamma $(r, \lambda)$ distribution. For fixed $\lambda$ and increasing $r$, the Central Limit Theorem says the distribution of the sum tends to the normal. 
+```{admonition} Quick Check
+If $X$ has gamma $(2, 3)$ distribution and $Y$ has gamma $(5, 3)$ distribution independent of $X$, what is the distribution of $X+Y$?
 
-The gamma family is used for modeling right-skewed distributions of non-negative variables. In data science, the gamma family also appears in the context of squaring i.i.d. "centered" normal random variables, that is, normal random variables with mean 0. The next section sets out the details.
+```
+
+```{admonition} Answer
+:class: dropdown
+gamma $(7, 3)$
+
+```
+
+# VIDEO: Gamma with Integer Shape Parameter
+from IPython.display import YouTubeVideo
+
+YouTubeVideo('BQoIs4eWZa4')
+
+### Integer Shape Parameter ###
+
+One of the two most important branches of the gamma family consists of gamma distributions that have an integer as the shape parameter. 
+
+Suppose $T_1, T_2, T_3, \ldots$ are i.i.d. exponential $(\lambda)$ variables. Then each of them has the gamma $(1, \lambda)$ distribution. These are the fundamental members of the "integer shape parameter" branch.
+
+By the fact we observed about sums of independent gamma variables, for all integers $r$ the sum $S_r = T_1 + T_2 + \cdots + T_r$ has the gamma $(r, \lambda)$ distribution. These are the other members of the branch. 
+
+You can now see why the gamma $(r, \lambda)$ distribution is approximately normal for large $r$. For integer $r$, the sum of $r$ i.i.d. exponential $(\lambda)$ random variables has the gamma $(r, \lambda)$ distribution. For fixed $\lambda$ and large $r$, the Central Limit Theorem says the distribution of the sum is approximately normal. 
+
+Gamma distributions with integer shape parameter are a fundamental part of a stochastic process called a *Poisson process* which you will examine in exercises.
+
+The other important branch of the gamma family is the topic of the next section.
 
