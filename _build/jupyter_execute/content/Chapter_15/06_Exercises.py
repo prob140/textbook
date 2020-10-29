@@ -76,7 +76,7 @@ Use what you know about the exponential density to find, *without integration*,
 
 (c) $Var(X)$
 
-**10.** Let $T$ have the exponential $(\lambda)$ distribution and let $X$ be the integer part of $T$. Find the distribution of $T$. Identify it as one of the famous ones and find its name and parameters.
+**10.** Let $T$ have the exponential $(\lambda)$ distribution and let $X$ be the integer part of $T$. Find the distribution of $X$. Identify it as one of the famous ones and find its name and parameters.
 
 **11.** Let $T$ be a non-negative random variable that has density $f$. For each $t > 0$, let $S(t) = P(T > t)$. Show that $E(T) = \int_0^\infty S(t)dt$.
 
