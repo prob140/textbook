@@ -34,6 +34,7 @@ $$
 $$
 
 ### Beta-Binomial Probabilities ###
+
 So for $k$ in the range 0 through $n$,
 
 $$
@@ -46,8 +47,15 @@ $$
 C(r, s) ~ = ~ \frac{\Gamma(r+s)}{\Gamma(r)\Gamma(s)}
 $$
 
+That's not as awful as it looks. A better way to think of the formula is
+
+$$
+P(S_n = k) ~ = ~ \binom{n}{k} \frac{\text{constant in the prior beta}}{\text{constant in the posterior beta given }k \text{ heads in } n \text{ tosses}}
+$$
 
 This discrete distribution is called the *beta-binomial* distribution with parameters $r$, $s$, and $n$. It is the distribution of the number of heads in $n$ tosses of a coin that lands heads with a probability picked according to the beta $(r, s)$ distribution.
+
+# VIDEO: Number of Heads (Uniform Prior)
 
 One $(r, s)$ pair is particularly interesting: $r = s = 1$. That's the case when $X$ has the uniform prior. The distribution of $S_n$ reduces to
 
@@ -61,6 +69,7 @@ If you choose $p$ uniformly between 0 and 1, then for the conditional distributi
 
 ### Checking by Integration ###
 If you prefer, you can find the distribution of $S_n$ directly, by conditioning on $X$.
+
 $$
 \begin{align*}
 P(S_n = k) ~ &= \int_0^1 P(S_n = k \mid X = p)f_X(p)dp \\ \\

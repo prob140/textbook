@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>20.2. Prior and Posterior &#8212; Prob 140 Textbook</title>
+    <title>21.4. Exercises &#8212; Prob 140 Textbook</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
@@ -40,8 +40,8 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="20.3. Independence, Revisited" href="03_Independence_Revisited.html" />
-    <link rel="prev" title="20.1. Maximum Likelihood" href="01_Maximum_Likelihood.html" />
+    <link rel="next" title="22. Prediction" href="../Chapter_22/00_Prediction.html" />
+    <link rel="prev" title="21.3. Long Run Proportion of Heads" href="03_Long_Run_Proportion_of_Heads.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -732,46 +732,56 @@
    </li>
   </ul>
  </li>
- <li class="toctree-l1 current active">
-  <a class="reference internal" href="00_Approaches_to_Estimation.html">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Chapter_20/00_Approaches_to_Estimation.html">
    20. Approaches to Estimation
   </a>
-  <ul class="current">
+  <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="01_Maximum_Likelihood.html">
+    <a class="reference internal" href="../Chapter_20/01_Maximum_Likelihood.html">
      20.1. Maximum Likelihood
     </a>
    </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     20.2. Prior and Posterior
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_20/02_Independence_Revisited.html">
+     20.2. Independence, Revisited
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="03_Independence_Revisited.html">
-     20.3. Independence, Revisited
+    <a class="reference internal" href="../Chapter_20/03_Prior_and_Posterior.html">
+     20.3. Prior and Posterior
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_20/04_Exercises.html">
+     20.4. Exercises
     </a>
    </li>
   </ul>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../Chapter_21/00_The_Beta_and_the_Binomial.html">
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="00_The_Beta_and_the_Binomial.html">
    21. The Beta and the Binomial
   </a>
-  <ul>
+  <ul class="current">
    <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_21/01_Updating_and_Prediction.html">
+    <a class="reference internal" href="01_Updating_and_Prediction.html">
      21.1. Updating and Prediction
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_21/02_Beta_Binomial_Distribution.html">
+    <a class="reference internal" href="02_Beta_Binomial_Distribution.html">
      21.2. The Beta-Binomial Distribution
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_21/03_Long_Run_Proportion_of_Heads.html">
+    <a class="reference internal" href="03_Long_Run_Proportion_of_Heads.html">
      21.3. Long Run Proportion of Heads
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     21.4. Exercises
     </a>
    </li>
   </ul>
@@ -927,7 +937,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/content/Chapter_20/02_Prior_and_Posterior.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/content/Chapter_21/04_Exercises.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -952,7 +962,7 @@
     <div class="dropdown-buttons">
         
         
-        <a class="jupyterhub-button" href="https://prob140.datahub.berkeley.edu/hub/user-redirect/git-pull?repo=https://github.com/prob140/textbook&urlpath=tree/textbook/content/Chapter_20/02_Prior_and_Posterior.ipynb&branch=gh-pages"><button type="button"
+        <a class="jupyterhub-button" href="https://prob140.datahub.berkeley.edu/hub/user-redirect/git-pull?repo=https://github.com/prob140/textbook&urlpath=tree/textbook/content/Chapter_21/04_Exercises.ipynb&branch=gh-pages"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
                 data-placement="left"><img class="jupyterhub-button-logo"
                     src="../../_static/images/logo_jupyterhub.svg"
@@ -971,38 +981,7 @@
             <i class="fas fa-list"></i> On this page
         </div>
         <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#conditioning-on-a-continuous-variable">
-   20.2.1. Conditioning on a Continuous Variable
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#posterior-density">
-   20.2.2. Posterior Density
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#posterior-distribution-based-on-uniform-0-1-prior">
-   20.2.3. Posterior Distribution Based on Uniform
-   <span class="math notranslate nohighlight">
-    \((0, 1)\)
-   </span>
-   Prior
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#map-estimation-the-posterior-mode">
-   20.2.4. MAP Estimation: The Posterior Mode
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#mle-and-map">
-   20.2.5. MLE and MAP
-  </a>
- </li>
-</ul>
-
+            
         </nav>
     </div>
 </div>
@@ -1011,99 +990,23 @@
         
               <div>
                 
-  <div class="section" id="prior-and-posterior">
-<h1><span class="section-number">20.2. </span>Prior and Posterior<a class="headerlink" href="#prior-and-posterior" title="Permalink to this headline">¶</a></h1>
-<p>You are used to thinking of coin tosses as a sequence of i.i.d. Bernoulli <span class="math notranslate nohighlight">\((p)\)</span> variables for some fixed <span class="math notranslate nohighlight">\(p\)</span>. In an earlier section we showed that the sample proportion of successes <span class="math notranslate nohighlight">\(\hat{p}\)</span> is the MLE of the fixed but unknown <span class="math notranslate nohighlight">\(p\)</span>.</p>
-<p>Instead, suppose we think of <span class="math notranslate nohighlight">\(p\)</span> as the result of a random draw from a distribution on the unit interval. That is, we assume the probability that the coin lands heads is a random variable <span class="math notranslate nohighlight">\(X\)</span> with some density <span class="math notranslate nohighlight">\(f_X\)</span> on <span class="math notranslate nohighlight">\((0, 1)\)</span>. This is called the <em>prior</em> density of <span class="math notranslate nohighlight">\(X\)</span>.</p>
-<p>The prior density reflects our opinion about the unknown parameter before we see the data. For example, if we have no idea what the chance of heads might be, we could use the uniform (0, 1) prior for <span class="math notranslate nohighlight">\(X\)</span>. If for some reason we happen to think that the chance of heads is somewhere around 70%, we might use a beta (7, 3) prior because then the prior expectation of the chance of heads would be <span class="math notranslate nohighlight">\(E(X) = 7/(7+3) = 0.7\)</span>. Or we could use some other beta <span class="math notranslate nohighlight">\((r, s)\)</span> prior such that <span class="math notranslate nohighlight">\(r/(r+s)\)</span> is around 0.7 and the shape of the prior density reflects our opinion about how the chance of heads is distributed around 70%.</p>
-<p>Now suppose you pick a value <span class="math notranslate nohighlight">\(p\)</span> of <span class="math notranslate nohighlight">\(X\)</span> according to the prior density <span class="math notranslate nohighlight">\(f_X\)</span>, and repeatedly toss a coin that has chance <span class="math notranslate nohighlight">\(p\)</span> of landing heads. Then, given that <span class="math notranslate nohighlight">\(X = p\)</span>, the distribution of the number of heads in <span class="math notranslate nohighlight">\(n\)</span> tosses is binomial <span class="math notranslate nohighlight">\((n, p)\)</span>.</p>
-<p>Before we go further, let’s take a careful look at the phrase “given <span class="math notranslate nohighlight">\(X=p\)</span>”. Because <span class="math notranslate nohighlight">\(X\)</span> has a density, the chance that <span class="math notranslate nohighlight">\(X\)</span> is equal to any specified value is 0, so we have to be clear about what we mean by “given <span class="math notranslate nohighlight">\(X=p\)</span>”.</p>
-<div class="section" id="conditioning-on-a-continuous-variable">
-<h2><span class="section-number">20.2.1. </span>Conditioning on a Continuous Variable<a class="headerlink" href="#conditioning-on-a-continuous-variable" title="Permalink to this headline">¶</a></h2>
-<p>Let’s take a moment for a general discussion about conditioning on a continuous variable. Our observations will parallel discussions in an earlier chapter where we found conditional densities.</p>
-<p>Suppose <span class="math notranslate nohighlight">\(X\)</span> is a random variable and <span class="math notranslate nohighlight">\(A\)</span> is an event that depends on <span class="math notranslate nohighlight">\(X\)</span>.</p>
-<p>If <span class="math notranslate nohighlight">\(X\)</span> is a discrete random variable, then for any possible value <span class="math notranslate nohighlight">\(x\)</span> of <span class="math notranslate nohighlight">\(X\)</span> the quantity <span class="math notranslate nohighlight">\(P(A \mid X = x)\)</span> has a clear definition by the division rule:</p>
-<div class="math notranslate nohighlight">
-\[
-P(A \mid X = x) ~ = ~ \frac{P(A, X = x)}{P(X = x)}
-\]</div>
-<p>When <span class="math notranslate nohighlight">\(X\)</span> is continuous, the denominator is 0. In this case there is one main idea to keep in mind:</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(P(A \mid X \in dx)\)</span> is essentially constant regardless of exactly where the infinitesimal interval <span class="math notranslate nohighlight">\(dx\)</span> is placed relative to <span class="math notranslate nohighlight">\(x\)</span>. This constant value will be denoted <span class="math notranslate nohighlight">\(P(A \mid X = x)\)</span>.</p></li>
-</ul>
-<p>So for continuous <span class="math notranslate nohighlight">\(X\)</span>, we will define</p>
-<div class="math notranslate nohighlight">
-\[
-P(A \mid X = x) ~ = ~ P(A \mid X \in dx) ~ \sim ~ \frac{P(A, X \in dx)}{P(X \in dx)} 
-\]</div>
-<p>We are assuming that the limit of the right hand side as <span class="math notranslate nohighlight">\(dx\)</span> goes to 0 exists and doesn’t depend exactly how <span class="math notranslate nohighlight">\(dx\)</span> is defined: around <span class="math notranslate nohighlight">\(x\)</span>, or to the left of <span class="math notranslate nohighlight">\(x\)</span>, or to the right, and so on. This will be true under regularity conditions. You can just assume it works.</p>
-</div>
-<div class="section" id="posterior-density">
-<h2><span class="section-number">20.2.2. </span>Posterior Density<a class="headerlink" href="#posterior-density" title="Permalink to this headline">¶</a></h2>
-<p>Let <span class="math notranslate nohighlight">\(X\)</span> have possible values in the unit interval and probability density function <span class="math notranslate nohighlight">\(f_X\)</span>. Let <span class="math notranslate nohighlight">\(H\)</span> be the number of heads in <span class="math notranslate nohighlight">\(n\)</span> tosses of a coin that lands heads with probability <span class="math notranslate nohighlight">\(X\)</span>. That is, for each <span class="math notranslate nohighlight">\(x\)</span> suppose the conditional distribution of <span class="math notranslate nohighlight">\(H\)</span> given <span class="math notranslate nohighlight">\(X=p\)</span> is binomial <span class="math notranslate nohighlight">\((n, p)\)</span>.</p>
-<p>Note the randomization: we are picking one value <span class="math notranslate nohighlight">\(p\)</span> of <span class="math notranslate nohighlight">\(X\)</span>, and then tossing a <span class="math notranslate nohighlight">\(p\)</span>-coin <span class="math notranslate nohighlight">\(n\)</span> times. We are not picking the coin afresh for each toss.</p>
-<p>The <em>likelihood</em> of the data <span class="math notranslate nohighlight">\(H\)</span> given the parameter is</p>
-<div class="math notranslate nohighlight">
-\[
-Lik(p) ~ = ~  {n \choose k} p^H (1-p)^{n-H}
-\]</div>
-<p>Given <span class="math notranslate nohighlight">\(H=k\)</span>, what is our opinion about <span class="math notranslate nohighlight">\(X\)</span>? The answer is expressed by the <em>posterior density of <span class="math notranslate nohighlight">\(X\)</span> given</em> <span class="math notranslate nohighlight">\(H=k\)</span>. To find it, use Bayes’ Rule:</p>
-<div class="math notranslate nohighlight">
-\[
-f_{X \vert H=k} (p)dp ~ \sim ~ \frac{P(X \in dp, H = k)}{P(H=k)}
-~ \sim ~ \frac{f_X(p)dp \cdot P(H = k \mid X = p)}{P(H = k)}
-\]</div>
-<p>The denominator does not involve <span class="math notranslate nohighlight">\(p\)</span>. It is part of the constant that makes the posterior density integrate to 1. The posterior density is therefore <em>proportional</em> to the numerator:</p>
-<div class="math notranslate nohighlight">
-\[
-f_{X \vert H=k} (p) ~ \propto ~ f_X(p) \cdot P(H = k \mid X = p)
-\]</div>
-<p>As we saw in the discrete case earlier in the course, <strong>the posterior is proportional to the prior times the likelihood</strong>.</p>
-<p>Sometimes, this observation is all that we need in order to identify the posterior distribution of <span class="math notranslate nohighlight">\(X\)</span>. Here is an example.</p>
-</div>
-<div class="section" id="posterior-distribution-based-on-uniform-0-1-prior">
-<h2><span class="section-number">20.2.3. </span>Posterior Distribution Based on Uniform <span class="math notranslate nohighlight">\((0, 1)\)</span> Prior<a class="headerlink" href="#posterior-distribution-based-on-uniform-0-1-prior" title="Permalink to this headline">¶</a></h2>
-<p>Suppose we know nothing about the coin and therefore give <span class="math notranslate nohighlight">\(X\)</span> the uniform (0, 1) prior. Then given <span class="math notranslate nohighlight">\(H = k\)</span>, the posterior density of <span class="math notranslate nohighlight">\(X\)</span> is given by</p>
-<div class="math notranslate nohighlight">
-\[
-f_{X \vert H=k} (p) ~ \propto ~ 1 \cdot p^k(1-p)^{n-k}
-\]</div>
-<p>The factor of <span class="math notranslate nohighlight">\({n \choose k}\)</span> doesn’t involve <span class="math notranslate nohighlight">\(p\)</span> and has been swept into the constant of proportionality.</p>
-<p>Keep in mind that the possible values of <span class="math notranslate nohighlight">\(X\)</span> are in the unit interval. Can you recognize what the posterior density of <span class="math notranslate nohighlight">\(X\)</span> must be?</p>
-<p>That’s right: it’s the beta <span class="math notranslate nohighlight">\((k+1, n-k+1)\)</span> density. The functional form is determined by <span class="math notranslate nohighlight">\(p^k(1-p)^{n-k}\)</span>, where <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(k\)</span> are known from the data and <span class="math notranslate nohighlight">\(p\)</span> is the value of the variable.</p>
-<p>Let’s see what we can say about this beta density.</p>
-<p>Given the data, what do we expect <span class="math notranslate nohighlight">\(X\)</span> to be? That’s <span class="math notranslate nohighlight">\(E(X \mid H = k)\)</span>, that is, the expectation of the beta <span class="math notranslate nohighlight">\((k+1, n-k+1)\)</span> posterior density of <span class="math notranslate nohighlight">\(X\)</span> given the data <span class="math notranslate nohighlight">\(H=k\)</span>. By beta density facts, we get</p>
-<div class="math notranslate nohighlight">
-\[
-E(X \mid H=k) ~ = ~ \frac{k+1}{n+2}
-\]</div>
-<p>which for large <span class="math notranslate nohighlight">\(n\)</span> is pretty close to the observed proportion <span class="math notranslate nohighlight">\(k/n\)</span> but is not exactly the same.</p>
-</div>
-<div class="section" id="map-estimation-the-posterior-mode">
-<h2><span class="section-number">20.2.4. </span>MAP Estimation: The Posterior Mode<a class="headerlink" href="#map-estimation-the-posterior-mode" title="Permalink to this headline">¶</a></h2>
-<p>The posterior distribution of <span class="math notranslate nohighlight">\(X\)</span> reflects our new opinion about <span class="math notranslate nohighlight">\(X\)</span> given the data. If we insist that our estimate of the chance of heads has to be a number rather than a distribution, we could go with the posterior mean that we found above. Or we could use the answer to a different question:</p>
-<p>Given the data, what is <span class="math notranslate nohighlight">\(X\)</span> most likely to be? More precisely, what is the mode of the posterior distribution of <span class="math notranslate nohighlight">\(X\)</span> given the data <span class="math notranslate nohighlight">\(H=k\)</span>?</p>
-<p>That’s the mode of the beta <span class="math notranslate nohighlight">\((k+1, n-k+1)\)</span> density. This is called the <em>maximum a posteriori</em> (MAP) estimate of the chance of heads.</p>
-<p>The mode of the beta <span class="math notranslate nohighlight">\((r, s)\)</span> density is straightforward to find by calculus. When <span class="math notranslate nohighlight">\(r\)</span> and <span class="math notranslate nohighlight">\(s\)</span> are both greater than 1, the mode is <span class="math notranslate nohighlight">\((r-1)/(r+s-2)\)</span>.</p>
-<p>So if <span class="math notranslate nohighlight">\(1 \le k \le n-1\)</span> (that is, apart from the extreme cases <span class="math notranslate nohighlight">\(k = 0\)</span> and <span class="math notranslate nohighlight">\(k = n\)</span>), the mode of the posterior distribution of <span class="math notranslate nohighlight">\(X\)</span> given <span class="math notranslate nohighlight">\(H=k\)</span> is</p>
-<div class="math notranslate nohighlight">
-\[
-\frac{(k+1) - 1}{(n+2) - 2} ~ = ~ \frac{k}{n}
-\]</div>
-<p>which is the observed proportion of heads.</p>
-<p>In the case <span class="math notranslate nohighlight">\(k = 0\)</span>, the posterior mode is 0, which is also the observed proportion of heads. In the case <span class="math notranslate nohighlight">\(k = n\)</span>, the posterior mode is 1, which again is the observed proportion of heads.</p>
-</div>
-<div class="section" id="mle-and-map">
-<h2><span class="section-number">20.2.5. </span>MLE and MAP<a class="headerlink" href="#mle-and-map" title="Permalink to this headline">¶</a></h2>
-<p>We have just shown that if the chance of heads is chosen uniformly over the interval of possible values (0, 1), then the MAP estimate is the same as the MLE that we obtained assuming a fixed probability of heads.</p>
-<p>Let’s see why this makes sense. When the prior is uniform, the posterior density is given by</p>
-<div class="math notranslate nohighlight">
-\[
-f_{X \vert H=k} (p) ~ \propto ~ 1 \cdot p^k(1-p)^{n-k}
-\]</div>
-<p>The right hand side is just the likelihood of <span class="math notranslate nohighlight">\(k\)</span> heads in <span class="math notranslate nohighlight">\(n\)</span> tosses of a <span class="math notranslate nohighlight">\(p\)</span>-coin. Finding the mode of the posterior distribution is therefore equivalent to finding the <span class="math notranslate nohighlight">\(p\)</span> that maximizes the likelihood. That’s exactly what we did when we found the MLE of the chance of heads.</p>
-<p>This equivalence relies on the fact that the uniform prior density is a constant. If we had used some other prior density on (0, 1), then the posterior mode might have been different from the proportion of heads. In the next chapter we will find the posterior density of <span class="math notranslate nohighlight">\(X\)</span> starting with any beta prior. This is the basis of a popular model for clustering, which you will explore in labs.</p>
-</div>
+  <div class="section" id="exercises">
+<h1><span class="section-number">21.4. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h1>
+<p><strong>1.</strong> Show that if <span class="math notranslate nohighlight">\(r &gt; 1\)</span> and <span class="math notranslate nohighlight">\(s &gt; 1\)</span> then the mode of the beta <span class="math notranslate nohighlight">\((r, s)\)</span> distribution is <span class="math notranslate nohighlight">\((r-1)/(r+s-2)\)</span>. Remember to ignore multiplicative constants and take the log before maximizing.</p>
+<p><strong>2.</strong> A coin lands heads with chance <span class="math notranslate nohighlight">\(X\)</span> where <span class="math notranslate nohighlight">\(X\)</span> has the beta <span class="math notranslate nohighlight">\((2, 2)\)</span> density. The coin is tossed five times. That is, for every <span class="math notranslate nohighlight">\(p \in (0, 1)\)</span>, conditionally given <span class="math notranslate nohighlight">\(X=p\)</span> the tosses are i.i.d. Bernoulli <span class="math notranslate nohighlight">\((p)\)</span> random variables.</p>
+<p>(a) What is the chance that the first toss lands heads?</p>
+<p>(b) Given that the first toss lands heads, what is the chance that the second toss lands heads?</p>
+<p>(c) Given that four out of the first five tosses land heads, find the posterior distribution and posterior mean of <span class="math notranslate nohighlight">\(X\)</span>.</p>
+<p>(d) Find the chance that four out of the first five tosses land heads, and compare it with the chance that four out of five tosses of a fair coin land heads.</p>
+<p><strong>3.</strong> The chance of heads of a random coin is picked according to the beta <span class="math notranslate nohighlight">\((r, s)\)</span> distribution. The coin is tossed repeatedly.</p>
+<p>(a) What is the chance that the first three tosses are heads and the next three tosses are tails?</p>
+<p>(b) Given that the first three tosses are heads and the next three tosses are tails, what is the chance that the seventh toss is a head?</p>
+<p>(c) Given that three out of the first six tosses are heads, what is the chance that the seventh toss is a head? Compare with the answer to (b).</p>
+<p><strong>4.</strong> Person A creates a coin by picking its chance of heads uniformly on <span class="math notranslate nohighlight">\((0, 1)\)</span>. In three tosses of that coin, Person A gets two heads.</p>
+<p>Independently of Person A, Person B creates a coin by picking its chance of heads uniformly on <span class="math notranslate nohighlight">\((0, 1)\)</span>. In three tosses of that coin, Person B gets one head.</p>
+<p>(a) Given the data, what is the distribution of the chance of heads of Person A’s coin?</p>
+<p>(b) Given the data, what is the distribution of the chance of heads of Person B’s coin?</p>
+<p>(c) Given the data, what is the probability that Person A’s coin has a higher chance of heads than Person B’s coin? You should be able to do this by using beta facts, without any direct integration.</p>
 </div>
 
     <script type="text/x-thebe-config">
@@ -1119,7 +1022,7 @@ f_{X \vert H=k} (p) ~ \propto ~ 1 \cdot p^k(1-p)^{n-k}
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./content/Chapter_20"
+            path: "./content/Chapter_21"
         },
         predefinedOutput: true
     }
@@ -1134,8 +1037,8 @@ f_{X \vert H=k} (p) ~ \propto ~ 1 \cdot p^k(1-p)^{n-k}
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="01_Maximum_Likelihood.html" title="previous page"><span class="section-number">20.1. </span>Maximum Likelihood</a>
-    <a class='right-next' id="next-link" href="03_Independence_Revisited.html" title="next page"><span class="section-number">20.3. </span>Independence, Revisited</a>
+    <a class='left-prev' id="prev-link" href="03_Long_Run_Proportion_of_Heads.html" title="previous page"><span class="section-number">21.3. </span>Long Run Proportion of Heads</a>
+    <a class='right-next' id="next-link" href="../Chapter_22/00_Prediction.html" title="next page"><span class="section-number">22. </span>Prediction</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

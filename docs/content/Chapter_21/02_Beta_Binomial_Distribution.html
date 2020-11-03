@@ -743,13 +743,18 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_20/02_Prior_and_Posterior.html">
-     20.2. Prior and Posterior
+    <a class="reference internal" href="../Chapter_20/02_Independence_Revisited.html">
+     20.2. Independence, Revisited
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_20/03_Independence_Revisited.html">
-     20.3. Independence, Revisited
+    <a class="reference internal" href="../Chapter_20/03_Prior_and_Posterior.html">
+     20.3. Prior and Posterior
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_20/04_Exercises.html">
+     20.4. Exercises
     </a>
    </li>
   </ul>
@@ -772,6 +777,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="03_Long_Run_Proportion_of_Heads.html">
      21.3. Long Run Proportion of Heads
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04_Exercises.html">
+     21.4. Exercises
     </a>
    </li>
   </ul>
@@ -1038,7 +1048,14 @@ P(S_n = k) ~ = ~  \binom{n}{k} \frac{C(r, s)}{C(r+k, s+n-k)}
 \[
 C(r, s) ~ = ~ \frac{\Gamma(r+s)}{\Gamma(r)\Gamma(s)}
 \]</div>
+<p>That’s not as awful as it looks. A better way to think of the formula is</p>
+<div class="math notranslate nohighlight">
+\[
+P(S_n = k) ~ = ~ \binom{n}{k} \frac{\text{constant in the prior beta}}{\text{constant in the posterior beta given }k \text{ heads in } n \text{ tosses}}
+\]</div>
 <p>This discrete distribution is called the <em>beta-binomial</em> distribution with parameters <span class="math notranslate nohighlight">\(r\)</span>, <span class="math notranslate nohighlight">\(s\)</span>, and <span class="math notranslate nohighlight">\(n\)</span>. It is the distribution of the number of heads in <span class="math notranslate nohighlight">\(n\)</span> tosses of a coin that lands heads with a probability picked according to the beta <span class="math notranslate nohighlight">\((r, s)\)</span> distribution.</p>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+</div>
 <p>One <span class="math notranslate nohighlight">\((r, s)\)</span> pair is particularly interesting: <span class="math notranslate nohighlight">\(r = s = 1\)</span>. That’s the case when <span class="math notranslate nohighlight">\(X\)</span> has the uniform prior. The distribution of <span class="math notranslate nohighlight">\(S_n\)</span> reduces to</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1049,15 +1066,16 @@ P(S_n = k ) ~ = ~ \frac{n!}{k!(n-k)!} \cdot \frac{1!}{0!0!} \cdot \frac{k!(n-k)!
 </div>
 <div class="section" id="checking-by-integration">
 <h2><span class="section-number">21.2.2. </span>Checking by Integration<a class="headerlink" href="#checking-by-integration" title="Permalink to this headline">¶</a></h2>
-<p>If you prefer, you can find the distribution of <span class="math notranslate nohighlight">\(S_n\)</span> directly, by conditioning on <span class="math notranslate nohighlight">\(X\)</span>.
-<span class="math notranslate nohighlight">\($
+<p>If you prefer, you can find the distribution of <span class="math notranslate nohighlight">\(S_n\)</span> directly, by conditioning on <span class="math notranslate nohighlight">\(X\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
 \begin{align*}
 P(S_n = k) ~ &amp;= \int_0^1 P(S_n = k \mid X = p)f_X(p)dp \\ \\
 &amp;= ~ \int_0^1 \binom{n}{k} p^k(1-p)^{n-k}C(r, s)p^{r-1}(1-p)^{s-1}dp \\ \\
 &amp;= ~ \binom{n}{k} C(r, s) \int_0^1 p^{r+k-1}(1-p)^{s+n-k-1} dp \\ \\
 &amp;= ~ \binom{n}{k} C(r, s) \frac{1}{C(r+k, s+n-k)}
 \end{align*}
-$\)</span></p>
+\end{split}\]</div>
 </div>
 <div class="section" id="expectation">
 <h2><span class="section-number">21.2.3. </span>Expectation<a class="headerlink" href="#expectation" title="Permalink to this headline">¶</a></h2>

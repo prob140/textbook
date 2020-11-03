@@ -171,14 +171,16 @@
     expand_sections: true
     sections:
     - file: content/Chapter_20/01_Maximum_Likelihood
-    - file: content/Chapter_20/02_Prior_and_Posterior
-    - file: content/Chapter_20/03_Independence_Revisited
+    - file: content/Chapter_20/02_Independence_Revisited
+    - file: content/Chapter_20/03_Prior_and_Posterior
+    - file: content/Chapter_20/04_Exercises
   - file: content/Chapter_21/00_The_Beta_and_the_Binomial
     expand_sections: true
     sections:
     - file: content/Chapter_21/01_Updating_and_Prediction
     - file: content/Chapter_21/02_Beta_Binomial_Distribution
     - file: content/Chapter_21/03_Long_Run_Proportion_of_Heads
+    - file: content/Chapter_21/04_Exercises
   - file: content/Chapter_22/00_Prediction
     expand_sections: true
     sections:

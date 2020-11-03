@@ -30,4 +30,5 @@ In labs, you will apply this theory to study a model for clustering when the num
 01_Updating_and_Prediction
 02_Beta_Binomial_Distribution
 03_Long_Run_Proportion_of_Heads
+04_Exercises
 ```

@@ -29,6 +29,7 @@ In this chapter we will set out the basic terminology and method of this way of 
 
 
 01_Maximum_Likelihood
-02_Prior_and_Posterior
-03_Independence_Revisited
+02_Independence_Revisited
+03_Prior_and_Posterior
+04_Exercises
 ```
