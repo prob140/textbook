@@ -48,6 +48,9 @@ plt.title('Likelihood of the Data HHHTHT');
 You can see that the value of $p$ that maximizes the likelihood looks suspiciously like $2/3$, the observed proportion of heads in our data HHHTHT. Let's see why that is true.
 
 # VIDEO: Maximizing Likelihood (Discrete Case)
+from IPython.display import YouTubeVideo
+
+YouTubeVideo('AN6y89dfNCM')
 
 ### Maximum Likelihood Estimate of $p$ Based on a Bernoulli $(p)$ Sample ###
 
@@ -126,6 +129,8 @@ Because the MLE $\hat{p}$ is the sample proportion, it is unbiased, has SD $\sqr
 To be very careful, we should check that this calculation yields a maximum and not a minimum, but given the answer you will surely accept that it's a max. You are welcome to take the second derivative of $L$ and check that we do indeed have a maximum.
 
 # VIDEO: Maximizing Likelihood (Density Case)
+
+YouTubeVideo('KPVK4t58zPY')
 
 ### MLE of $\mu$ Based on a Normal $(\mu, \sigma^2)$ Sample ###
 

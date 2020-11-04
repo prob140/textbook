@@ -24,6 +24,9 @@ Then, given that $X = p$, the distribution of $H$ is binomial $(n, p)$.
 Note the randomization: we are picking one value $p$ of $X$, and then tossing a $p$-coin $n$ times. We are not picking the coin afresh for each toss.
 
 # VIDEO: Prior and Posterior Densities
+from IPython.display import YouTubeVideo
+
+YouTubeVideo('EXuoy618B-k')
 
 ### Posterior Density ###
 

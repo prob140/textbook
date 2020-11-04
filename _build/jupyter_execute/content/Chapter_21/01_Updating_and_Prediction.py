@@ -76,6 +76,9 @@ Given $X = p$, let $I_1, I_2, \ldots$ be i.i.d. Bernoulli $(p)$. That is, given 
 Let $S_n = I_1 + I_2 + \cdots + I_n$ be the number of heads in the first $n$ tosses. Then the conditional distribution of $S_n$ given $X = p$ is binomial $(n, p)$. It gives you the likelihood of the observed number of heads given a value of $p$.
 
 # VIDEO: Conjugate Priors
+from IPython.display import YouTubeVideo
+
+YouTubeVideo('NBySphqHwvw')
 
 ### Updating: The Posterior Distribution of $X$ Given $S_n$ ###
 Before running the experiment, our prior opinion is that $X$ has the beta $(r, s)$ distribution. To update that opinion after we have tossed $n$ times and seen the number of heads, we have to find the posterior distribution of $X$ given $S_n = k$.
@@ -110,6 +113,8 @@ $$
 $$
 
 # VIDEO: Prediction
+
+YouTubeVideo('h7FmqsTfSKY')
 
 ### Posterior Mean ###
 The posterior mean of $X$ given $S_n = k$ is the expectation of the beta posterior distribution, which for large $n$ is not far from the mode:

@@ -57,6 +57,10 @@ This discrete distribution is called the *beta-binomial* distribution with param
 
 # VIDEO: Number of Heads (Uniform Prior)
 
+from IPython.display import YouTubeVideo
+
+YouTubeVideo('_cc2xuBG6tY')
+
 One $(r, s)$ pair is particularly interesting: $r = s = 1$. That's the case when $X$ has the uniform prior. The distribution of $S_n$ reduces to
 
 $$
