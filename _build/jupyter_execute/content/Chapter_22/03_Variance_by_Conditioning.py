@@ -27,6 +27,9 @@ def plot_curved_scatter():
 ## Variance by Conditioning ##
 
 # VIDEO: Variance by Conditioning: An Observation
+from IPython.display import YouTubeVideo
+
+YouTubeVideo('H1aOoaIWLQQ')
 
 Iteration allows us to find expectation by conditioning. We now have the tools to find variance by conditioning as well.
 
@@ -63,6 +66,7 @@ plt.xlim(-2, 2)
 plt.ylim(-3, 6);
 
 # VIDEO: Variance by Conditioning: Formula
+YouTubeVideo('EWxRQv5k-uE')
 
 ### Decomposition of Variance ###
 

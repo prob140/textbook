@@ -12,6 +12,9 @@ from scipy import stats
 As the function that picks off the "centers of vertical strips," the conditional expectation $b(X) = E(Y \mid X)$ is a natural estimate or predictor of $Y$ given the value of $X$. We will now see how good $b(X)$ is if we use mean squared error as our criterion.
 
 # VIDEO: Least Squares
+from IPython.display import YouTubeVideo
+
+YouTubeVideo('G_3rcPnInc0')
 
 ### Minimizing the MSE ###
 Let $h(X)$ be any function of $X$, and consider using $h(X)$ to predict $Y$. Define the *mean squared error of the predictor $h(X)$* to be
@@ -43,6 +46,7 @@ The result above shows that the least squares predictor of $Y$ based on $X$ is t
 In terms of the scatter diagram of observed values of $X$ and $Y$, the result is saying that the best predictor of $Y$ given $X$, by the criterion of smallest mean squared error, is the average of the vertical strip at the given value of $X$.
 
 # VIDEO: Conditional Variance: Definition
+YouTubeVideo('J-pCOpndoBI')
 
 ### Conditional Variance ###
 

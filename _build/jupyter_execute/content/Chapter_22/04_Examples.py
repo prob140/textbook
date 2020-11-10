@@ -12,6 +12,9 @@ from scipy import stats
 This section is a workout in finding expectation and variance by conditioning. As before, if you are trying to find a probability, expectation, or variance, and you think, "If only I knew the value of this other random variable, I'd have the answer," then that's a sign that you should consider conditioning on that other random variable.
 
 # VIDEO: A Mixture
+from IPython.display import YouTubeVideo
+
+YouTubeVideo('-uYGQrQCXzM')
 
 ### Mixture of Two Distributions ###
 Let $X$ have mean $\mu_X$ and SD $\sigma_X$. Let $Y$ have mean $\mu_Y$ and SD $\sigma_Y$. Now let $p$ be a number between 0 and 1, and define the random variable $M$ as follows.

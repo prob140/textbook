@@ -108,6 +108,9 @@ E(D_w) ~ = ~ 0 ~~~~~~ \text{and} ~~~~~~ E\big{(}b(X)\big{)} = E(Y)
 $$
 
 # VIDEO: Projection
+from IPython.display import YouTubeVideo
+
+YouTubeVideo('4-kX0R2ckMM')
 
 ### Error is Uncorrelated with Functions of $X$ ###
 
