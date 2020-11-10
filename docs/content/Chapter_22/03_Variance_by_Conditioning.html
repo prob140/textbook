@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>22.3. Examples &#8212; Prob 140 Textbook</title>
+    <title>22.3. Variance by Conditioning &#8212; Prob 140 Textbook</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
@@ -40,8 +40,8 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="22.4. Least Squares Predictor" href="04_Least_Squares_Predictor.html" />
-    <link rel="prev" title="22.2. Variance by Conditioning" href="02_Variance_by_Conditioning.html" />
+    <link rel="next" title="22.4. Examples" href="04_Examples.html" />
+    <link rel="prev" title="22.2. Least Squares Predictor" href="02_Least_Squares_Predictor.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -797,18 +797,23 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="02_Variance_by_Conditioning.html">
-     22.2. Variance by Conditioning
+    <a class="reference internal" href="02_Least_Squares_Predictor.html">
+     22.2. Least Squares Predictor
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     22.3. Examples
+     22.3. Variance by Conditioning
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="04_Least_Squares_Predictor.html">
-     22.4. Least Squares Predictor
+    <a class="reference internal" href="04_Examples.html">
+     22.4. Examples
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05_Exercises.html">
+     22.5. Exercises
     </a>
    </li>
   </ul>
@@ -937,7 +942,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/content/Chapter_22/03_Examples.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/content/Chapter_22/03_Variance_by_Conditioning.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -962,7 +967,7 @@
     <div class="dropdown-buttons">
         
         
-        <a class="jupyterhub-button" href="https://prob140.datahub.berkeley.edu/hub/user-redirect/git-pull?repo=https://github.com/prob140/textbook&urlpath=tree/textbook/content/Chapter_22/03_Examples.ipynb&branch=gh-pages"><button type="button"
+        <a class="jupyterhub-button" href="https://prob140.datahub.berkeley.edu/hub/user-redirect/git-pull?repo=https://github.com/prob140/textbook&urlpath=tree/textbook/content/Chapter_22/03_Variance_by_Conditioning.ipynb&branch=gh-pages"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
                 data-placement="left"><img class="jupyterhub-button-logo"
                     src="../../_static/images/logo_jupyterhub.svg"
@@ -983,23 +988,8 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#mixture-of-two-distributions">
-   22.3.1. Mixture of Two Distributions
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#variance-of-the-geometric-distribution">
-   22.3.2. Variance of the Geometric Distribution
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#normal-with-a-normal-mean">
-   22.3.3. Normal with a Normal Mean
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#random-sum">
-   22.3.4. Random Sum
+  <a class="reference internal nav-link" href="#decomposition-of-variance">
+   22.3.1. Decomposition of Variance
   </a>
  </li>
 </ul>
@@ -1012,157 +1002,71 @@
         
               <div>
                 
-  <div class="section" id="examples">
-<h1><span class="section-number">22.3. </span>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h1>
-<p>This section is a workout in finding expectation and variance by conditioning. As before, if you are trying to find a probability, expectation, or variance, and you think, “If only I knew the value of this other random variable, I’d have the answer,” then that’s a sign that you should consider conditioning on that other random variable.</p>
-<div class="section" id="mixture-of-two-distributions">
-<h2><span class="section-number">22.3.1. </span>Mixture of Two Distributions<a class="headerlink" href="#mixture-of-two-distributions" title="Permalink to this headline">¶</a></h2>
-<p>Let <span class="math notranslate nohighlight">\(X\)</span> have mean <span class="math notranslate nohighlight">\(\mu_X\)</span> and SD <span class="math notranslate nohighlight">\(\sigma_X\)</span>. Let <span class="math notranslate nohighlight">\(Y\)</span> have mean <span class="math notranslate nohighlight">\(\mu_Y\)</span> and SD <span class="math notranslate nohighlight">\(\sigma_Y\)</span>. Now let <span class="math notranslate nohighlight">\(p\)</span> be a number between 0 and 1, and define the random variable <span class="math notranslate nohighlight">\(M\)</span> as follows.</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-M = 
-\begin{cases}
-X ~~ \text{with probability } p \\
-Y ~~ \text{with probability } q = 1 - p \\
-\end{cases}
-\end{split}\]</div>
-<p>The distribution of <span class="math notranslate nohighlight">\(M\)</span> is called a <em>mixture</em> of the distributions of <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span>.</p>
-<p>One way to express the definition of <span class="math notranslate nohighlight">\(M\)</span> compactly is to let <span class="math notranslate nohighlight">\(I_H\)</span> be the indicator of heads in one toss of a <span class="math notranslate nohighlight">\(p\)</span>-coin; then</p>
+  <div class="section" id="variance-by-conditioning">
+<h1><span class="section-number">22.3. </span>Variance by Conditioning<a class="headerlink" href="#variance-by-conditioning" title="Permalink to this headline">¶</a></h1>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+</div>
+<p>Iteration allows us to find expectation by conditioning. We now have the tools to find variance by conditioning as well.</p>
+<p>Recall the notation of the previous section:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> are jointly distributed random variables</p></li>
+<li><p><span class="math notranslate nohighlight">\(b(X) = E(Y \mid X)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(D_w = Y - b(X)\)</span></p></li>
+</ul>
+<p>Define <span class="math notranslate nohighlight">\(D_Y = Y - E(Y)\)</span>. Then</p>
 <div class="math notranslate nohighlight">
 \[
-M = XI_H + Y(1 - I_H)
+D_Y ~ = ~  D_w + (b(X) - E(Y)) ~ = ~ D_w + D_b
 \]</div>
-<p>To find the expectation of <span class="math notranslate nohighlight">\(M\)</span> we can use the expression above, but here we will condition on <span class="math notranslate nohighlight">\(I_H\)</span> because we can continue with that method to find <span class="math notranslate nohighlight">\(Var(M)\)</span>.</p>
-<p>The distribution table of the random variable <span class="math notranslate nohighlight">\(E(M \mid I_H)\)</span> is</p>
-<table class="colwidths-auto table">
-<thead>
-<tr class="row-odd"><th class="head"><p><strong>Value</strong></p></th>
-<th class="head"><p><span class="math notranslate nohighlight">\(\mu_X\)</span></p></th>
-<th class="head"><p><span class="math notranslate nohighlight">\(\mu_Y\)</span></p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><strong>Probability</strong></p></td>
-<td><p><span class="math notranslate nohighlight">\(p\)</span></p></td>
-<td><p><span class="math notranslate nohighlight">\(q\)</span></p></td>
-</tr>
-</tbody>
-</table>
-<p>The distribution table of the random variable <span class="math notranslate nohighlight">\(Var(M \mid I_H)\)</span> is</p>
-<table class="colwidths-auto table">
-<thead>
-<tr class="row-odd"><th class="head"><p><strong>Value</strong></p></th>
-<th class="head"><p><span class="math notranslate nohighlight">\(\sigma_X^2\)</span></p></th>
-<th class="head"><p><span class="math notranslate nohighlight">\(\sigma_Y^2\)</span></p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><strong>Probability</strong></p></td>
-<td><p><span class="math notranslate nohighlight">\(p\)</span></p></td>
-<td><p><span class="math notranslate nohighlight">\(q\)</span></p></td>
-</tr>
-</tbody>
-</table>
-<p>So</p>
-<div class="math notranslate nohighlight">
-\[
-E(M) ~ = ~ E(E(M \mid I_H)) ~ = ~ \mu_Xp + \mu_Yq
-\]</div>
-<p>and</p>
+<p>where <span class="math notranslate nohighlight">\(D_b = b(X) - E(Y)\)</span> is the deviation of the random variable <span class="math notranslate nohighlight">\(b(X)\)</span> from its expectation <span class="math notranslate nohighlight">\(E(Y)\)</span>.</p>
+<p>In the graph below, the black line is at the level <span class="math notranslate nohighlight">\(E(Y)\)</span>, and the dark blue point is a generic point <span class="math notranslate nohighlight">\((X, Y)\)</span> in the scatter plot. Its distance from the black line is <span class="math notranslate nohighlight">\(D_Y\)</span> and is equal to the sum of two lengths:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(D_w\)</span>, the length of the purple segment</p></li>
+<li><p><span class="math notranslate nohighlight">\(D_b\)</span>, the length of the green segment</p></li>
+</ul>
+<div class="cell tag_remove_input docutils container">
+<div class="cell_output docutils container">
+<img alt="../../_images/03_Variance_by_Conditioning_6_0.png" src="../../_images/03_Variance_by_Conditioning_6_0.png" />
+</div>
+</div>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+</div>
+<div class="section" id="decomposition-of-variance">
+<h2><span class="section-number">22.3.1. </span>Decomposition of Variance<a class="headerlink" href="#decomposition-of-variance" title="Permalink to this headline">¶</a></h2>
+<p>The expectation <span class="math notranslate nohighlight">\(E(Y)\)</span> is a constant. That means <span class="math notranslate nohighlight">\(D_b = b(X) - E(Y)\)</span> is a function of <span class="math notranslate nohighlight">\(X\)</span>, and hence <span class="math notranslate nohighlight">\(E(D_wD_b) = 0\)</span>. So</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{align*}
-Var(M) ~ &amp;= ~ E(Var(M \mid I_H)) + Var(E(M \mid I_H)) \\
-&amp;= ~ \sigma_X^2p + \sigma_Y^2q + \big{(} \mu_X^2p + \mu_Y^2q - (E(M))^2 \big{)}
+Var(Y) ~ = ~ E(D_Y^2) ~ &amp;= ~ E\big{(} (D_w + D_b)^2 \big{)} \\
+&amp;= E(D_w^2) + E(D_b^2) + 2 E(D_wD_b) \\
+&amp;= E(D_w^2) + E(D_b^2)
 \end{align*}
 \end{split}\]</div>
-<p>This is true no matter what the distributions of <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> are.</p>
-<p>Notice also that the answer for the variance can be written as</p>
+<p>Let’s take a closer look at the two terms on the right hand side. In the previous section we saw that</p>
 <div class="math notranslate nohighlight">
 \[
-Var(M) ~ = ~ (\mu_X^2 + \sigma_X^2)p + (\mu_Y^2 + \sigma_Y^2)q - (E(M))^2
+E(D_w^2) ~ = ~ MSE(b) ~ = ~ E(Var(Y \mid X))
 \]</div>
-<p>That’s what you would have got had you first found <span class="math notranslate nohighlight">\(E(M^2)\)</span> by conditioning on <span class="math notranslate nohighlight">\(I_H\)</span>.</p>
-</div>
-<div class="section" id="variance-of-the-geometric-distribution">
-<h2><span class="section-number">22.3.2. </span>Variance of the Geometric Distribution<a class="headerlink" href="#variance-of-the-geometric-distribution" title="Permalink to this headline">¶</a></h2>
-<p>We have managed to come quite far into the course without deriving the variance of the geometric distribution. Let’s find it now by using the results about mixtures derived above.</p>
-<p>Toss a coin that lands heads with probability <span class="math notranslate nohighlight">\(p\)</span> and stop when you see a head. The number of tosses <span class="math notranslate nohighlight">\(X\)</span> has the geometric <span class="math notranslate nohighlight">\((p)\)</span> distribution on <span class="math notranslate nohighlight">\(\{ 1, 2, \ldots \}\)</span>. Let <span class="math notranslate nohighlight">\(E(X) = \mu\)</span> and <span class="math notranslate nohighlight">\(Var(X) = \sigma^2\)</span>. We will use conditioning to confirm that <span class="math notranslate nohighlight">\(E(X) = 1/p\)</span> and also to find <span class="math notranslate nohighlight">\(Var(X)\)</span>.</p>
-<p>Now</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-X = 
-\begin{cases} 
-1 ~~~ \text{with probability } p \\
-1 + X^* ~~~ \text{with probability } q = 1-p
-\end{cases}
-\end{split}\]</div>
-<p>where <span class="math notranslate nohighlight">\(X^*\)</span> is an independent copy of <span class="math notranslate nohighlight">\(X\)</span>. By the previous example,</p>
+<p>Thus the first term on the right hand side is the <em>expectation of the conditional variance</em>.</p>
+<p>To understand the second term, note that <span class="math notranslate nohighlight">\(D_b = b(X) - E(Y) = b(X) - E(b(X))\)</span>. So</p>
 <div class="math notranslate nohighlight">
 \[
-\mu ~ = ~ E(X) ~ = ~ 1p + (1+\mu)q
+E(D_b^2) ~ = ~ Var(b(X)) ~ = ~ Var(E(Y \mid X))
 \]</div>
-<p>So <span class="math notranslate nohighlight">\(\mu = 1/p\)</span> as we have known for some time.</p>
-<p>By the variance formula of the previous example,</p>
+<p>Thus the second term on the right is the <em>variance of the conditional expectation</em>.</p>
+<p>We thus have a <em>decomposition of variance</em>:</p>
 <div class="math notranslate nohighlight">
 \[
-\sigma^2 = Var(X) = 0^2p + \sigma^2q + \big{(}1^2p + (1+\frac{1}{p})^2q - \frac{1}{p^2}\big{)}
+Var(Y) ~ = ~ E(Var(Y \mid X)) + Var(E(Y \mid X))
 \]</div>
-<p>So</p>
-<div class="math notranslate nohighlight">
-\[
-\sigma^2p ~ = ~ \frac{p^3 + (p+1)^2q - 1}{p^2} ~ = ~ \frac{p^3 + (1+p)(1-p^2) - 1}{p^2}
-~ = ~ \frac{p(1-p)}{p^2}
-\]</div>
-<p>and so <span class="math notranslate nohighlight">\(Var(X) = \sigma^2 = q/p^2\)</span>.</p>
-</div>
-<div class="section" id="normal-with-a-normal-mean">
-<h2><span class="section-number">22.3.3. </span>Normal with a Normal Mean<a class="headerlink" href="#normal-with-a-normal-mean" title="Permalink to this headline">¶</a></h2>
-<p>Let <span class="math notranslate nohighlight">\(M\)</span> be normal <span class="math notranslate nohighlight">\((\mu, \sigma_M^2)\)</span>, and given <span class="math notranslate nohighlight">\(M = m\)</span>, let <span class="math notranslate nohighlight">\(X\)</span> be normal <span class="math notranslate nohighlight">\((m, \sigma_X^2)\)</span>.</p>
-<p>Then</p>
-<div class="math notranslate nohighlight">
-\[
-E(X \mid M) ~ = ~ M, ~~~~~~ Var(X \mid M) ~ = ~ \sigma_X^2
-\]</div>
-<p>Notice that the conditional variance is a constant; it is the same no matter what the value of <span class="math notranslate nohighlight">\(M\)</span> turns out to be.</p>
-<p>So <span class="math notranslate nohighlight">\(E(X) = E(M) = \mu\)</span> and</p>
-<div class="math notranslate nohighlight">
-\[
-Var(X) ~ = ~ E(\sigma_X^2) + Var(M) ~ = ~ \sigma_X^2 + \sigma_M^2
-\]</div>
-</div>
-<div class="section" id="random-sum">
-<h2><span class="section-number">22.3.4. </span>Random Sum<a class="headerlink" href="#random-sum" title="Permalink to this headline">¶</a></h2>
-<p>Let <span class="math notranslate nohighlight">\(N\)</span> be a random variable with values <span class="math notranslate nohighlight">\(0, 1, 2, \ldots\)</span>, mean <span class="math notranslate nohighlight">\(\mu_N\)</span>, and SD <span class="math notranslate nohighlight">\(\sigma_N\)</span>. Let $X_1, X_2, \ldots $ be i.i.d. with mean <span class="math notranslate nohighlight">\(\mu_X\)</span> and SD <span class="math notranslate nohighlight">\(\sigma_X\)</span>, independent of <span class="math notranslate nohighlight">\(N\)</span>.</p>
-<p>Define the <em>random sum</em> <span class="math notranslate nohighlight">\(S_N\)</span> as</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-S_N = 
-\begin{cases}
-0 ~~ \text{if } N = 0 \\
-X_1 + X_2 + \cdots + X_n ~~ \text{if } N = n &gt; 0
-\end{cases}
-\end{split}\]</div>
-<p>Then as we have seen before, <span class="math notranslate nohighlight">\(E(S_N \mid N = n) = n\mu_X\)</span> for all <span class="math notranslate nohighlight">\(n\)</span> (including <span class="math notranslate nohighlight">\(n = 0\)</span>) and so</p>
-<div class="math notranslate nohighlight">
-\[
-E(S_N \mid N) ~ = ~ N\mu_X
-\]</div>
-<p>Also</p>
-<div class="math notranslate nohighlight">
-\[
-Var(S_N \mid N) ~ = ~ N\sigma_X^2
-\]</div>
-<p>So</p>
-<div class="math notranslate nohighlight">
-\[
-E(S_N) ~ = ~ E(N\mu_X) ~ = ~ \mu_XE(N) ~ = ~ \mu_N\mu_X
-\]</div>
-<p>This is consistent with intuition: you expect to be adding <span class="math notranslate nohighlight">\(\mu_N\)</span> i.i.d. random variables, each with mean <span class="math notranslate nohighlight">\(\mu_X\)</span>. For the variance, intuition needs some guidance, which is provided by our variance decomposition formula.</p>
-<div class="math notranslate nohighlight">
-\[
-Var(S_N) ~ = ~ E(N\sigma_X^2) + Var(N\mu_X) ~ = ~ \mu_N\sigma_X^2 + \mu_X^2\sigma_N^2
-\]</div>
+<p>That is, <strong>the variance is equal to the expectation of the conditional variance plus the variance of the conditional expectation</strong>.</p>
+<p>It makes sense that the two quantities on the right hand side are involved in the calculation of <span class="math notranslate nohighlight">\(Var(Y)\)</span>. The variability of <span class="math notranslate nohighlight">\(Y\)</span> has two components:</p>
+<ul class="simple">
+<li><p>the rough size of the variability within the individual vertical strips, that is, the expectation of the conditional variance</p></li>
+<li><p>the variability between strips, measured by the variance of the centers of the strips.</p></li>
+</ul>
+<p>The variance decomposition show that you can just add the two terms to get <span class="math notranslate nohighlight">\(Var(Y)\)</span>.</p>
+<p>This decomposition is the basis of <em>analysis of variance</em> (ANOVA), widely used in statistics. In this course we are going to use it to find variances by conditioning.</p>
 </div>
 </div>
 
@@ -1194,8 +1098,8 @@ Var(S_N) ~ = ~ E(N\sigma_X^2) + Var(N\mu_X) ~ = ~ \mu_N\sigma_X^2 + \mu_X^2\sigm
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="02_Variance_by_Conditioning.html" title="previous page"><span class="section-number">22.2. </span>Variance by Conditioning</a>
-    <a class='right-next' id="next-link" href="04_Least_Squares_Predictor.html" title="next page"><span class="section-number">22.4. </span>Least Squares Predictor</a>
+    <a class='left-prev' id="prev-link" href="02_Least_Squares_Predictor.html" title="previous page"><span class="section-number">22.2. </span>Least Squares Predictor</a>
+    <a class='right-next' id="next-link" href="04_Examples.html" title="next page"><span class="section-number">22.4. </span>Examples</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

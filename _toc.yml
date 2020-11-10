@@ -185,9 +185,10 @@
     expand_sections: true
     sections:
     - file: content/Chapter_22/01_Conditional_Expectation_Projection
-    - file: content/Chapter_22/02_Variance_by_Conditioning
-    - file: content/Chapter_22/03_Examples
-    - file: content/Chapter_22/04_Least_Squares_Predictor
+    - file: content/Chapter_22/02_Least_Squares_Predictor
+    - file: content/Chapter_22/03_Variance_by_Conditioning
+    - file: content/Chapter_22/04_Examples
+    - file: content/Chapter_22/05_Exercises
   - file: content/Chapter_23/00_Multivariate_Normal_RVs
     expand_sections: true
     sections:

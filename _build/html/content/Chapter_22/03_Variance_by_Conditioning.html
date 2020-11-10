@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>22.4. Least Squares Predictor &#8212; Prob 140 Textbook</title>
+    <title>22.3. Variance by Conditioning &#8212; Prob 140 Textbook</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
@@ -40,8 +40,8 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="23. Jointly Normal Random Variables" href="../Chapter_23/00_Multivariate_Normal_RVs.html" />
-    <link rel="prev" title="22.3. Examples" href="03_Examples.html" />
+    <link rel="next" title="22.4. Examples" href="04_Examples.html" />
+    <link rel="prev" title="22.2. Least Squares Predictor" href="02_Least_Squares_Predictor.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -797,18 +797,23 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="02_Variance_by_Conditioning.html">
-     22.2. Variance by Conditioning
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="03_Examples.html">
-     22.3. Examples
+    <a class="reference internal" href="02_Least_Squares_Predictor.html">
+     22.2. Least Squares Predictor
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     22.4. Least Squares Predictor
+     22.3. Variance by Conditioning
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04_Examples.html">
+     22.4. Examples
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05_Exercises.html">
+     22.5. Exercises
     </a>
    </li>
   </ul>
@@ -937,7 +942,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/content/Chapter_22/04_Least_Squares_Predictor.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/content/Chapter_22/03_Variance_by_Conditioning.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -962,7 +967,7 @@
     <div class="dropdown-buttons">
         
         
-        <a class="jupyterhub-button" href="https://prob140.datahub.berkeley.edu/hub/user-redirect/git-pull?repo=https://github.com/prob140/textbook&urlpath=tree/textbook/content/Chapter_22/04_Least_Squares_Predictor.ipynb&branch=gh-pages"><button type="button"
+        <a class="jupyterhub-button" href="https://prob140.datahub.berkeley.edu/hub/user-redirect/git-pull?repo=https://github.com/prob140/textbook&urlpath=tree/textbook/content/Chapter_22/03_Variance_by_Conditioning.ipynb&branch=gh-pages"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
                 data-placement="left"><img class="jupyterhub-button-logo"
                     src="../../_static/images/logo_jupyterhub.svg"
@@ -983,13 +988,8 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#minimizing-the-mse">
-   22.4.1. Minimizing the MSE
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#best-predictor">
-   22.4.2. Best Predictor
+  <a class="reference internal nav-link" href="#decomposition-of-variance">
+   22.3.1. Decomposition of Variance
   </a>
  </li>
 </ul>
@@ -1002,52 +1002,71 @@
         
               <div>
                 
-  <div class="section" id="least-squares-predictor">
-<h1><span class="section-number">22.4. </span>Least Squares Predictor<a class="headerlink" href="#least-squares-predictor" title="Permalink to this headline">¶</a></h1>
-<p>As the function that picks off the “centers of vertical strips,” the conditional expectation <span class="math notranslate nohighlight">\(b(X) = E(Y \mid X)\)</span> is a natural estimate or predictor of <span class="math notranslate nohighlight">\(Y\)</span> given the value of <span class="math notranslate nohighlight">\(X\)</span>. We will now see how good <span class="math notranslate nohighlight">\(b(X)\)</span> is if we use mean squared error as our criterion.</p>
-<div class="section" id="minimizing-the-mse">
-<h2><span class="section-number">22.4.1. </span>Minimizing the MSE<a class="headerlink" href="#minimizing-the-mse" title="Permalink to this headline">¶</a></h2>
-<p>Let <span class="math notranslate nohighlight">\(h(X)\)</span> be any function of <span class="math notranslate nohighlight">\(X\)</span>, and consider using <span class="math notranslate nohighlight">\(h(X)\)</span> to predict <span class="math notranslate nohighlight">\(Y\)</span>. Define the <em>mean squared error of the predictor <span class="math notranslate nohighlight">\(h(X)\)</span></em> to be</p>
+  <div class="section" id="variance-by-conditioning">
+<h1><span class="section-number">22.3. </span>Variance by Conditioning<a class="headerlink" href="#variance-by-conditioning" title="Permalink to this headline">¶</a></h1>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+</div>
+<p>Iteration allows us to find expectation by conditioning. We now have the tools to find variance by conditioning as well.</p>
+<p>Recall the notation of the previous section:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> are jointly distributed random variables</p></li>
+<li><p><span class="math notranslate nohighlight">\(b(X) = E(Y \mid X)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(D_w = Y - b(X)\)</span></p></li>
+</ul>
+<p>Define <span class="math notranslate nohighlight">\(D_Y = Y - E(Y)\)</span>. Then</p>
 <div class="math notranslate nohighlight">
 \[
-MSE(h) ~ = ~ E\Big{(}\big{(}Y - h(X)\big{)}^2\Big{)}
+D_Y ~ = ~  D_w + (b(X) - E(Y)) ~ = ~ D_w + D_b
 \]</div>
-<p>We will show that <span class="math notranslate nohighlight">\(b(X)\)</span> is the best predictor of <span class="math notranslate nohighlight">\(Y\)</span> based on <span class="math notranslate nohighlight">\(X\)</span>, in the sense that it minimizes this mean squared error over all functions <span class="math notranslate nohighlight">\(h(X)\)</span>.</p>
-<p>Recall our notation <span class="math notranslate nohighlight">\(D_w = Y - b(X)\)</span>. Earlier we showed that:</p>
+<p>where <span class="math notranslate nohighlight">\(D_b = b(X) - E(Y)\)</span> is the deviation of the random variable <span class="math notranslate nohighlight">\(b(X)\)</span> from its expectation <span class="math notranslate nohighlight">\(E(Y)\)</span>.</p>
+<p>In the graph below, the black line is at the level <span class="math notranslate nohighlight">\(E(Y)\)</span>, and the dark blue point is a generic point <span class="math notranslate nohighlight">\((X, Y)\)</span> in the scatter plot. Its distance from the black line is <span class="math notranslate nohighlight">\(D_Y\)</span> and is equal to the sum of two lengths:</p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(E(D_w) = 0\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(D_w\)</span> is uncorrelated with any function of <span class="math notranslate nohighlight">\(X\)</span>. Therefore if <span class="math notranslate nohighlight">\(g(X)\)</span> is any function of <span class="math notranslate nohighlight">\(X\)</span>, then <span class="math notranslate nohighlight">\(E\big{(}D_wg(X)\big{)} = 0\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(D_w\)</span>, the length of the purple segment</p></li>
+<li><p><span class="math notranslate nohighlight">\(D_b\)</span>, the length of the green segment</p></li>
 </ul>
+<div class="cell tag_remove_input docutils container">
+<div class="cell_output docutils container">
+<img alt="../../_images/03_Variance_by_Conditioning_6_0.png" src="../../_images/03_Variance_by_Conditioning_6_0.png" />
+</div>
+</div>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+</div>
+<div class="section" id="decomposition-of-variance">
+<h2><span class="section-number">22.3.1. </span>Decomposition of Variance<a class="headerlink" href="#decomposition-of-variance" title="Permalink to this headline">¶</a></h2>
+<p>The expectation <span class="math notranslate nohighlight">\(E(Y)\)</span> is a constant. That means <span class="math notranslate nohighlight">\(D_b = b(X) - E(Y)\)</span> is a function of <span class="math notranslate nohighlight">\(X\)</span>, and hence <span class="math notranslate nohighlight">\(E(D_wD_b) = 0\)</span>. So</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{align*}
-MSE(h) ~ &amp;= ~ E\Big{(}\big{(}Y - h(X)\big{)}^2\Big{)} \\
-&amp;= ~ E\Big{(}\big{(} (Y - b(X)) + (b(X) - h(X) \big{)}^2 \Big{)} \\
-&amp;= ~ E\Big{(}\big{(}Y - b(X)\big{)}^2\Big{)} + E\Big{(}\big{(}b(X) - h(X)\big{)}^2\Big{)} + 2E\Big{(}D_w\big{(}b(X) - h(X)\big{)}\Big{)} \\
-&amp;= ~ E\Big{(}\big{(}Y - b(X)\big{)}^2\Big{)} + E\Big{(}\big{(}b(X) - h(X)\big{)}^2\Big{)} \\
-&amp;\ge ~ E\Big{(}\big{(}Y - b(X)\big{)}^2\Big{)} \\
-&amp;= ~ MSE(b)
+Var(Y) ~ = ~ E(D_Y^2) ~ &amp;= ~ E\big{(} (D_w + D_b)^2 \big{)} \\
+&amp;= E(D_w^2) + E(D_b^2) + 2 E(D_wD_b) \\
+&amp;= E(D_w^2) + E(D_b^2)
 \end{align*}
 \end{split}\]</div>
-</div>
-<div class="section" id="best-predictor">
-<h2><span class="section-number">22.4.2. </span>Best Predictor<a class="headerlink" href="#best-predictor" title="Permalink to this headline">¶</a></h2>
-<p>The result above shows that the least squares predictor of <span class="math notranslate nohighlight">\(Y\)</span> based on <span class="math notranslate nohighlight">\(X\)</span> is the conditional expectation <span class="math notranslate nohighlight">\(b(X) = E(Y \mid X)\)</span>.</p>
-<p>In terms of the scatter diagram of observed values of <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span>, the result is saying that the best predictor of <span class="math notranslate nohighlight">\(Y\)</span> given <span class="math notranslate nohighlight">\(X\)</span>, by the criterion of smallest mean squared error, is the average of the vertical strip at the given value of <span class="math notranslate nohighlight">\(X\)</span>.</p>
-<p>Given <span class="math notranslate nohighlight">\(X\)</span>, the root mean squared error of this estimate is the <em>SD of the strip</em>, that is, the conditional SD of <span class="math notranslate nohighlight">\(Y\)</span> given <span class="math notranslate nohighlight">\(X\)</span>:</p>
+<p>Let’s take a closer look at the two terms on the right hand side. In the previous section we saw that</p>
 <div class="math notranslate nohighlight">
 \[
-SD(Y \mid X) ~ = ~ \sqrt{Var(Y \mid X)}
+E(D_w^2) ~ = ~ MSE(b) ~ = ~ E(Var(Y \mid X))
 \]</div>
-<p>This is a random variable; its value measures the variability within the strip at the given value of <span class="math notranslate nohighlight">\(X\)</span>.</p>
-<p>Overall across the entire scatter diagram, the root mean squared error of the estimate <span class="math notranslate nohighlight">\(E(Y \mid X)\)</span> is</p>
+<p>Thus the first term on the right hand side is the <em>expectation of the conditional variance</em>.</p>
+<p>To understand the second term, note that <span class="math notranslate nohighlight">\(D_b = b(X) - E(Y) = b(X) - E(b(X))\)</span>. So</p>
 <div class="math notranslate nohighlight">
 \[
-RMSE(b) ~ = ~ \sqrt{E\Big{(}\big{(}Y - b(X)\big{)}^2\Big{)}} ~ = ~ \sqrt{E\big{(} Var(Y \mid X) \big{)}}
+E(D_b^2) ~ = ~ Var(b(X)) ~ = ~ Var(E(Y \mid X))
 \]</div>
-<p>Notice that the result makes no assumption about the joint distribution of <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span>. The scatter diagram of the generated <span class="math notranslate nohighlight">\((X, Y)\)</span> points can have any arbitrary shape.</p>
-<p>It seems as though the question of prediction has been settled once and for all: if you want the least squares predictor, use conditional expectation. However, the functional form of the conditional expectation of <span class="math notranslate nohighlight">\(Y\)</span> given <span class="math notranslate nohighlight">\(X\)</span> depends on the joint distribution of <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> (which also determines the shape of the scatter diagram), and is not always straightforward to find.</p>
-<p>So data scientists also find least squares estimates among smaller classes of estimates, the most common class being the set of linear functions of the given variable. This is called linear regression and is the topic of a later chapter.</p>
+<p>Thus the second term on the right is the <em>variance of the conditional expectation</em>.</p>
+<p>We thus have a <em>decomposition of variance</em>:</p>
+<div class="math notranslate nohighlight">
+\[
+Var(Y) ~ = ~ E(Var(Y \mid X)) + Var(E(Y \mid X))
+\]</div>
+<p>That is, <strong>the variance is equal to the expectation of the conditional variance plus the variance of the conditional expectation</strong>.</p>
+<p>It makes sense that the two quantities on the right hand side are involved in the calculation of <span class="math notranslate nohighlight">\(Var(Y)\)</span>. The variability of <span class="math notranslate nohighlight">\(Y\)</span> has two components:</p>
+<ul class="simple">
+<li><p>the rough size of the variability within the individual vertical strips, that is, the expectation of the conditional variance</p></li>
+<li><p>the variability between strips, measured by the variance of the centers of the strips.</p></li>
+</ul>
+<p>The variance decomposition show that you can just add the two terms to get <span class="math notranslate nohighlight">\(Var(Y)\)</span>.</p>
+<p>This decomposition is the basis of <em>analysis of variance</em> (ANOVA), widely used in statistics. In this course we are going to use it to find variances by conditioning.</p>
 </div>
 </div>
 
@@ -1079,8 +1098,8 @@ RMSE(b) ~ = ~ \sqrt{E\Big{(}\big{(}Y - b(X)\big{)}^2\Big{)}} ~ = ~ \sqrt{E\big{(
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="03_Examples.html" title="previous page"><span class="section-number">22.3. </span>Examples</a>
-    <a class='right-next' id="next-link" href="../Chapter_23/00_Multivariate_Normal_RVs.html" title="next page"><span class="section-number">23. </span>Jointly Normal Random Variables</a>
+    <a class='left-prev' id="prev-link" href="02_Least_Squares_Predictor.html" title="previous page"><span class="section-number">22.2. </span>Least Squares Predictor</a>
+    <a class='right-next' id="next-link" href="04_Examples.html" title="next page"><span class="section-number">22.4. </span>Examples</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

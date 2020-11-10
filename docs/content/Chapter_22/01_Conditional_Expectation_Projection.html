@@ -40,7 +40,7 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="22.2. Variance by Conditioning" href="02_Variance_by_Conditioning.html" />
+    <link rel="next" title="22.2. Least Squares Predictor" href="02_Least_Squares_Predictor.html" />
     <link rel="prev" title="22. Prediction" href="00_Prediction.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -797,18 +797,23 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="02_Variance_by_Conditioning.html">
-     22.2. Variance by Conditioning
+    <a class="reference internal" href="02_Least_Squares_Predictor.html">
+     22.2. Least Squares Predictor
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="03_Examples.html">
-     22.3. Examples
+    <a class="reference internal" href="03_Variance_by_Conditioning.html">
+     22.3. Variance by Conditioning
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="04_Least_Squares_Predictor.html">
-     22.4. Least Squares Predictor
+    <a class="reference internal" href="04_Examples.html">
+     22.4. Examples
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05_Exercises.html">
+     22.5. Exercises
     </a>
    </li>
   </ul>
@@ -988,12 +993,13 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#d-w-and-functions-of-x">
-   22.1.2.
-   <span class="math notranslate nohighlight">
-    \(D_w\)
-   </span>
-   and Functions of
+  <a class="reference internal nav-link" href="#expected-error-is-zero">
+   22.1.2. Expected Error is Zero
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#error-is-uncorrelated-with-functions-of-x">
+   22.1.3. Error is Uncorrelated with Functions of
    <span class="math notranslate nohighlight">
     \(X\)
    </span>
@@ -1024,10 +1030,11 @@
 b(x) ~ = ~ E(Y \mid X = x)
 \]</div>
 <p>We are using the letter <span class="math notranslate nohighlight">\(b\)</span> to signifiy the “best guess” of <span class="math notranslate nohighlight">\(Y\)</span> given the value of <span class="math notranslate nohighlight">\(X\)</span>. Later in this chapter we will make precise the sense in which it is the best.</p>
-<p>In random variable notation,
-<span class="math notranslate nohighlight">\($
+<p>In random variable notation,</p>
+<div class="math notranslate nohighlight">
+\[
 E(Y \mid X) ~ = ~ b(X)
-$\)</span></p>
+\]</div>
 <p>For a point <span class="math notranslate nohighlight">\((X, Y)\)</span>, the error in this guess is</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1051,24 +1058,30 @@ D_w = Y - b(X)
 <li><p><strong>Independence</strong>: If <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> are independent then <span class="math notranslate nohighlight">\(E(Y \mid X) = E(Y)\)</span>, a constant.</p></li>
 <li><p><strong>Iteration</strong>: <span class="math notranslate nohighlight">\(E(Y) = E\big{(}E(Y \mid X)\big{)}\)</span></p></li>
 </ul>
-<p>Now
-<span class="math notranslate nohighlight">\($
+</div>
+<div class="section" id="expected-error-is-zero">
+<h2><span class="section-number">22.1.2. </span>Expected Error is Zero<a class="headerlink" href="#expected-error-is-zero" title="Permalink to this headline">¶</a></h2>
+<p>By additivity,</p>
+<div class="math notranslate nohighlight">
+\[
 E(D_w \mid X) ~ = ~ E(Y \mid X) - E(b(X) \mid X) ~ = ~ b(X) - b(X) = 0
-$\)</span></p>
-<p>In other words, the average of the deviations within a strip is 0.</p>
+\]</div>
+<p>In other words, the average of the deviations within a strip is <span class="math notranslate nohighlight">\(0\)</span>.</p>
 <p>By iteration,
 <span class="math notranslate nohighlight">\($
 E(D_w) ~ = ~ 0 ~~~~~~ \text{and} ~~~~~~ E\big{(}b(X)\big{)} = E(Y)
 $\)</span></p>
+<div class="cell tag_remove-input tag_hide-output docutils container">
 </div>
-<div class="section" id="d-w-and-functions-of-x">
-<h2><span class="section-number">22.1.2. </span><span class="math notranslate nohighlight">\(D_w\)</span> and Functions of <span class="math notranslate nohighlight">\(X\)</span><a class="headerlink" href="#d-w-and-functions-of-x" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="error-is-uncorrelated-with-functions-of-x">
+<h2><span class="section-number">22.1.3. </span>Error is Uncorrelated with Functions of <span class="math notranslate nohighlight">\(X\)</span><a class="headerlink" href="#error-is-uncorrelated-with-functions-of-x" title="Permalink to this headline">¶</a></h2>
 <p>Let <span class="math notranslate nohighlight">\(g(X)\)</span> be any function of <span class="math notranslate nohighlight">\(X\)</span>. Then the covariance of <span class="math notranslate nohighlight">\(g(X)\)</span> and <span class="math notranslate nohighlight">\(D_w\)</span> is</p>
 <div class="math notranslate nohighlight">
 \[
-Cov\big{(}g(X), D_w\big{)} ~ = ~ E\big{(}g(X)D_w\big{)} 
+Cov\big{(}g(X), D_w\big{)} ~ = ~ E\big{(}g(X)D_w\big{)} - E(g(X))E(D_w) ~ = ~ E\big{(}g(X)D_w\big{)}
 \]</div>
-<p>because <span class="math notranslate nohighlight">\(E(D_w) = 0\)</span>. By iteration,</p>
+<p>By iteration,</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{align*}
@@ -1083,7 +1096,7 @@ E(g(X)D_w) ~ &amp;= ~ E\big{(}E(g(X)D_w \mid X)\big{)}\\
 <li><p>The point where the perpendicular hits the table is <span class="math notranslate nohighlight">\(b(X)\)</span>. We say that the conditional expectation of <span class="math notranslate nohighlight">\(Y\)</span> given <span class="math notranslate nohighlight">\(X\)</span> is the <em>projection</em> of <span class="math notranslate nohighlight">\(Y\)</span> on the space of functions of <span class="math notranslate nohighlight">\(X\)</span>.</p></li>
 <li><p><span class="math notranslate nohighlight">\(D_w\)</span> is the perpendicular; it is orthogonal to the table.</p></li>
 </ul>
-<p>Later in this chapter we will see in exactly what sense <span class="math notranslate nohighlight">\(b(X)\)</span> is the best guess for <span class="math notranslate nohighlight">\(Y\)</span>.</p>
+<p>In the next section we will see in exactly what sense <span class="math notranslate nohighlight">\(b(X)\)</span> is the best guess for <span class="math notranslate nohighlight">\(Y\)</span>.</p>
 </div>
 </div>
 
@@ -1116,7 +1129,7 @@ E(g(X)D_w) ~ &amp;= ~ E\big{(}E(g(X)D_w \mid X)\big{)}\\
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="00_Prediction.html" title="previous page"><span class="section-number">22. </span>Prediction</a>
-    <a class='right-next' id="next-link" href="02_Variance_by_Conditioning.html" title="next page"><span class="section-number">22.2. </span>Variance by Conditioning</a>
+    <a class='right-next' id="next-link" href="02_Least_Squares_Predictor.html" title="next page"><span class="section-number">22.2. </span>Least Squares Predictor</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

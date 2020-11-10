@@ -26,6 +26,8 @@ def plot_curved_scatter():
 
 ## Variance by Conditioning ##
 
+# VIDEO: Variance by Conditioning: An Observation
+
 Iteration allows us to find expectation by conditioning. We now have the tools to find variance by conditioning as well.
 
 Recall the notation of the previous section:
@@ -60,33 +62,37 @@ plt.title('$D_Y = D_w + D_b$')
 plt.xlim(-2, 2)
 plt.ylim(-3, 6);
 
+# VIDEO: Variance by Conditioning: Formula
+
 ### Decomposition of Variance ###
-The expectation $E(Y)$ is a constant. That means $D_b = b(X) - E(Y)$ is a function of $X$ and hence is uncorrelated with $D_w$. Because $D_Y = D_w + D_b$, we have a *decomposition of variance*:
 
-$$
-Var(D_Y) ~ = ~ Var(D_w) + Var(D_b)
-$$
-
-Let's take a closer look at these three variances. Shifting a random variable by a constant doesn't affect variance. So:
-
-- $Var(D_Y) = Var(Y - E(Y)) = Var(Y)$
-- $Var(D_b) = Var(b(X) - E(Y)) = Var(b(X))$, the *variance of the conditional expectation*.
-
-Finally, because $E(D_w) = 0$,
+The expectation $E(Y)$ is a constant. That means $D_b = b(X) - E(Y)$ is a function of $X$, and hence $E(D_wD_b) = 0$. So
 
 $$
 \begin{align*}
-Var(D_w) ~ &= ~ E(D_w^2) \\
-&= ~ E\big{(} (Y - b(X))^2 \big{)} \\
-&= ~ E\big{(} E\big{(} (Y - b(X))^2 \mid X \big{)} \big{)}
+Var(Y) ~ = ~ E(D_Y^2) ~ &= ~ E\big{(} (D_w + D_b)^2 \big{)} \\
+&= E(D_w^2) + E(D_b^2) + 2 E(D_wD_b) \\
+&= E(D_w^2) + E(D_b^2)
 \end{align*}
 $$
 
-Because $b(X) = E(Y \mid X)$, the random variable $E\big{(} (Y - b(X))^2 \mid X \big{)}$ is a function of $X$ called the *conditional variance of $Y$ given $X$* and denoted $Var(Y \mid X)$. Its value at $x$ is $Var(Y \mid X=x)$, that is, the variance of the values of $Y$ in the vertical strip at $x$.
+Let's take a closer look at the two terms on the right hand side. In the previous section we saw that
 
-So $Var(D_w) = E(Var(Y \mid X))$ is the *expectation of the conditional variance*.
+$$
+E(D_w^2) ~ = ~ MSE(b) ~ = ~ E(Var(Y \mid X))
+$$
 
-Because of these observations, the variance decomposition above is more commonly written as a decomposition of the variance of $Y$:
+Thus the first term on the right hand side is the *expectation of the conditional variance*.
+
+To understand the second term, note that $D_b = b(X) - E(Y) = b(X) - E(b(X))$. So
+
+$$
+E(D_b^2) ~ = ~ Var(b(X)) ~ = ~ Var(E(Y \mid X))
+$$
+
+Thus the second term on the right is the *variance of the conditional expectation*.
+
+We thus have a *decomposition of variance*:
 
 $$
 Var(Y) ~ = ~ E(Var(Y \mid X)) + Var(E(Y \mid X))
@@ -102,4 +108,3 @@ It makes sense that the two quantities on the right hand side are involved in th
 The variance decomposition show that you can just add the two terms to get $Var(Y)$.
 
 This decomposition is the basis of *analysis of variance* (ANOVA), widely used in statistics. In this course we are going to use it to find variances by conditioning.
-

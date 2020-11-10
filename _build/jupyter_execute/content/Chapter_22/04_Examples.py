@@ -11,6 +11,8 @@ from scipy import stats
 
 This section is a workout in finding expectation and variance by conditioning. As before, if you are trying to find a probability, expectation, or variance, and you think, "If only I knew the value of this other random variable, I'd have the answer," then that's a sign that you should consider conditioning on that other random variable.
 
+# VIDEO: A Mixture
+
 ### Mixture of Two Distributions ###
 Let $X$ have mean $\mu_X$ and SD $\sigma_X$. Let $Y$ have mean $\mu_Y$ and SD $\sigma_Y$. Now let $p$ be a number between 0 and 1, and define the random variable $M$ as follows.
 
@@ -55,19 +57,11 @@ and
 $$
 \begin{align*}
 Var(M) ~ &= ~ E(Var(M \mid I_H)) + Var(E(M \mid I_H)) \\
-&= ~ \sigma_X^2p + \sigma_Y^2q + \big{(} \mu_X^2p + \mu_Y^2q - (E(M))^2 \big{)}
+&= ~ \big{(} \sigma_X^2p + \sigma_Y^2q \big{)}  + \big{(} \mu_X^2p + \mu_Y^2q - (E(M))^2 \big{)}
 \end{align*}
 $$
 
 This is true no matter what the distributions of $X$ and $Y$ are.
-
-Notice also that the answer for the variance can be written as
-
-$$
-Var(M) ~ = ~ (\mu_X^2 + \sigma_X^2)p + (\mu_Y^2 + \sigma_Y^2)q - (E(M))^2
-$$
-
-That's what you would have got had you first found $E(M^2)$ by conditioning on $I_H$.
 
 ### Variance of the Geometric Distribution ###
 We have managed to come quite far into the course without deriving the variance of the geometric distribution. Let's find it now by using the results about mixtures derived above.
@@ -89,12 +83,13 @@ where $X^*$ is an independent copy of $X$. By the previous example,
 $$
 \mu ~ = ~ E(X) ~ = ~ 1p + (1+\mu)q
 $$
+
 So $\mu = 1/p$ as we have known for some time.
 
 By the variance formula of the previous example,
 
 $$
-\sigma^2 = Var(X) = 0^2p + \sigma^2q + \big{(}1^2p + (1+\frac{1}{p})^2q - \frac{1}{p^2}\big{)}
+\sigma^2 = Var(X) = \big{(} 0^2p + \sigma^2q \big{)} + \big{(}1^2p + (1+\frac{1}{p})^2q - \frac{1}{p^2}\big{)}
 $$
 
 So
@@ -115,12 +110,12 @@ $$
 E(X \mid M) ~ = ~ M, ~~~~~~ Var(X \mid M) ~ = ~ \sigma_X^2
 $$
 
-Notice that the conditional variance is a constant; it is the same no matter what the value of $M$ turns out to be.
+Notice that the conditional variance is a constant: it is the same no matter what the value of $M$ turns out to be.
 
-So $E(X) = E(M) = \mu$ and 
+So $E(X) = E(E(X \mid M)) = E(M) = \mu$ and 
 
 $$
-Var(X) ~ = ~ E(\sigma_X^2) + Var(M) ~ = ~ \sigma_X^2 + \sigma_M^2
+Var(X) ~ = ~ E(Var(X \mid M)) + Var(E(X \mid M)) ~ = ~ \sigma_X^2 + Var(M) ~ = ~ \sigma_X^2 + \sigma_M^2
 $$
 
 ### Random Sum ###
@@ -136,19 +131,13 @@ X_1 + X_2 + \cdots + X_n ~~ \text{if } N = n > 0
 \end{cases}
 $$
 
-Then as we have seen before, $E(S_N \mid N = n) = n\mu_X$ for all $n$ (including $n = 0$) and so
+Then as we have [seen before](http://prob140.org/textbook/content/Chapter_09/02_Expectation_by_Conditioning.html#example-random-sums), $E(S_N \mid N = n) = n\mu_X$ for all $n$ (including $n = 0$). So
 
 $$
 E(S_N \mid N) ~ = ~ N\mu_X
 $$
 
-Also
-
-$$
-Var(S_N \mid N) ~ = ~ N\sigma_X^2
-$$
-
-So 
+and hence
 
 $$
 E(S_N) ~ = ~ E(N\mu_X) ~ = ~ \mu_XE(N) ~ = ~ \mu_N\mu_X
@@ -156,7 +145,14 @@ $$
 
 This is consistent with intuition: you expect to be adding $\mu_N$ i.i.d. random variables, each with mean $\mu_X$. For the variance, intuition needs some guidance, which is provided by our variance decomposition formula.
 
+First note that because we are adding i.i.d. random variables, $Var(S_N \mid N = n) = n\sigma_X^2$ for all $n$ (including $n = 0$). That is,
+
+$$
+Var(S_N \mid N) ~ = ~ N\sigma_X^2
+$$
+
+By the variance decomposition formula,
+
 $$
 Var(S_N) ~ = ~ E(N\sigma_X^2) + Var(N\mu_X) ~ = ~ \mu_N\sigma_X^2 + \mu_X^2\sigma_N^2
 $$
-

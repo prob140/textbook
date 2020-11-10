@@ -22,7 +22,8 @@ We will define a criterion for comparing predictions, and identify the best pred
 
 
 01_Conditional_Expectation_Projection
-02_Variance_by_Conditioning
-03_Examples
-04_Least_Squares_Predictor
+02_Least_Squares_Predictor
+03_Variance_by_Conditioning
+04_Examples
+05_Exercises
 ```
