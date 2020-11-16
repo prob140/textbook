@@ -25,5 +25,4 @@ In this chapter we will extend our calculations for simple regression to the cas
 02_Best_Linear_Predictor
 03_Multivariate_Normal_Conditioning
 04_Multiple_Regression
-05_Further_Review_Exercises
 ```

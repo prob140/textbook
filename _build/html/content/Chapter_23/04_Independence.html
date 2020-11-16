@@ -40,7 +40,7 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="24. Simple Linear Regression" href="../Chapter_24/00_Simple_Linear_Regression.html" />
+    <link rel="next" title="23.5. Exercises" href="05_Exercises.html" />
     <link rel="prev" title="23.3. Linear Combinations" href="03_Linear_Combinations.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -843,6 +843,11 @@
      23.4. Independence
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05_Exercises.html">
+     23.5. Exercises
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1">
@@ -895,11 +900,6 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_25/04_Multiple_Regression.html">
      25.4. Multiple Regression
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_25/05_Further_Review_Exercises.html">
-     25.5. Further Review Exercises
     </a>
    </li>
   </ul>
@@ -1004,8 +1004,8 @@
                 
   <div class="section" id="independence">
 <h1><span class="section-number">23.4. </span>Independence<a class="headerlink" href="#independence" title="Permalink to this headline">¶</a></h1>
-<p>If the elements of <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> are mutually independent then <span class="math notranslate nohighlight">\(Cov(X_i, X_j) = 0\)</span> for all <span class="math notranslate nohighlight">\(i \ne j\)</span> and hence the covariance matrix <span class="math notranslate nohighlight">\(\boldsymbol{\Sigma}\)</span> is a diagonal matrix and the <span class="math notranslate nohighlight">\(i\)</span>th diagonal element is <span class="math notranslate nohighlight">\(Var(X_i)\)</span>.</p>
-<p>In the other direction, zero covariance doesn’t imply independence, and pairwise independence doesn’t imply mutual independence. But the multivariate normal is a wonderful distribution:</p>
+<p>If the elements of <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> are mutually independent then <span class="math notranslate nohighlight">\(Cov(X_i, X_j) = 0\)</span> for all <span class="math notranslate nohighlight">\(i \ne j\)</span> and hence the covariance matrix <span class="math notranslate nohighlight">\(\boldsymbol{\Sigma}\)</span> is a diagonal matrix with the <span class="math notranslate nohighlight">\(i\)</span>th diagonal element equal to <span class="math notranslate nohighlight">\(Var(X_i)\)</span>.</p>
+<p>In the other direction, zero covariance doesn’t in general imply independence, and pairwise independence doesn’t imply mutual independence. But once again, the multivariate normal turns out to have a wonderful property:</p>
 <p>If <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> is multivariate normal and its elements are pairwise uncorrelated – that is, <span class="math notranslate nohighlight">\(Cov(X_i, X_j) = 0\)</span> for all
 <span class="math notranslate nohighlight">\(i \ne j\)</span> – then the elements of <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> are mutually independent.</p>
 <p>That is, <strong>multivariate normal random variables are independent if and only if they are uncorrelated.</strong></p>
@@ -1021,6 +1021,8 @@
 \]</div>
 <p>In the constant of integration, <span class="math notranslate nohighlight">\(\det(\boldsymbol{\Sigma}) = \sigma_1^2 \sigma_2^2 \cdots \sigma_n^2\)</span>.</p>
 <p>Therefore the density of <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> is the product of the marginal normal densities.</p>
+<p>Thus for a multivariate normal random vector, “pairwise uncorrelated” is equivalent to “mutually independent” and is a much easier condition to check.</p>
+<p>The result makes it easy to see if two coordinates of a multivariate normal vector are independent. All you have to do is find the covariance between the two. If the covariance is <span class="math notranslate nohighlight">\(0\)</span>, they are independent.</p>
 <div class="section" id="sum-and-difference-revisited">
 <h2><span class="section-number">23.4.1. </span>Sum and Difference, Revisited<a class="headerlink" href="#sum-and-difference-revisited" title="Permalink to this headline">¶</a></h2>
 <p>Let <span class="math notranslate nohighlight">\(\mathbf{X} = [X_1, X_2]^T\)</span> have a bivariate normal distribution. Let <span class="math notranslate nohighlight">\(S = X_1 + X_2\)</span> and <span class="math notranslate nohighlight">\(D = X_1 - X_2\)</span>. We know that <span class="math notranslate nohighlight">\(S\)</span> and <span class="math notranslate nohighlight">\(D\)</span> have a bivariate normal distribution and that</p>
@@ -1063,7 +1065,7 @@ Cov(S, D) ~ = ~ Var(X_1) - Var(X_2)
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="03_Linear_Combinations.html" title="previous page"><span class="section-number">23.3. </span>Linear Combinations</a>
-    <a class='right-next' id="next-link" href="../Chapter_24/00_Simple_Linear_Regression.html" title="next page"><span class="section-number">24. </span>Simple Linear Regression</a>
+    <a class='right-next' id="next-link" href="05_Exercises.html" title="next page"><span class="section-number">23.5. </span>Exercises</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

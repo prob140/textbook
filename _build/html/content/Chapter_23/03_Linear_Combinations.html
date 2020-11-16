@@ -843,6 +843,11 @@
      23.4. Independence
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05_Exercises.html">
+     23.5. Exercises
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1">
@@ -895,11 +900,6 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_25/04_Multiple_Regression.html">
      25.4. Multiple Regression
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_25/05_Further_Review_Exercises.html">
-     25.5. Further Review Exercises
     </a>
    </li>
   </ul>
@@ -1019,10 +1019,24 @@
                 
   <div class="section" id="linear-combinations">
 <h1><span class="section-number">23.3. </span>Linear Combinations<a class="headerlink" href="#linear-combinations" title="Permalink to this headline">¶</a></h1>
-<p>Let <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> be multivariate normal with mean vector <span class="math notranslate nohighlight">\(\boldsymbol{\mu}\)</span> and covariance matrix <span class="math notranslate nohighlight">\(\boldsymbol{\Sigma}\)</span>. Definition 3 says that all linear combinations of elements of <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> are normal too. This makes many calculations straightforward. Here is an example in two dimensions.</p>
+<p>Let <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> be multivariate normal with mean vector <span class="math notranslate nohighlight">\(\boldsymbol{\mu}\)</span> and covariance matrix <span class="math notranslate nohighlight">\(\boldsymbol{\Sigma}\)</span>. Definition 3 says that all linear combinations of elements of <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> are normal too. This makes many calculations straightforward.</p>
+<p>Keep in mind that the mean and variance of a linear combination follow from properties of means and variances – the fact that <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> is multivariate normal doesn’t matter. What we gain from <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> being multivariate normal is the <em>shape of the distribution of the linear combination</em>: it’s normal.</p>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="400"
+    height="300"
+    src="https://www.youtube.com/embed/j6xxeJ3r4iU"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
+<p>Here is an example in two dimensions.</p>
 <div class="section" id="sum-and-difference">
 <h2><span class="section-number">23.3.1. </span>Sum and Difference<a class="headerlink" href="#sum-and-difference" title="Permalink to this headline">¶</a></h2>
-<p>Let <span class="math notranslate nohighlight">\(\mathbf{X} = [X_1 ~ X_2]^T\)</span> have bivariate normal distribution mean vector <span class="math notranslate nohighlight">\(\boldsymbol{\mu} = [\mu_1 ~ \mu_2]^T\)</span> and covariance matrix <span class="math notranslate nohighlight">\(\boldsymbol{\Sigma}\)</span>.</p>
+<p>Let <span class="math notranslate nohighlight">\(\mathbf{X} = [X_1 ~ X_2]^T\)</span> have the bivariate normal distribution mean vector <span class="math notranslate nohighlight">\(\boldsymbol{\mu} = [\mu_1 ~ \mu_2]^T\)</span> and covariance matrix <span class="math notranslate nohighlight">\(\boldsymbol{\Sigma}\)</span>.</p>
 <p>Then the sum <span class="math notranslate nohighlight">\(S = X_1 + X_2\)</span> has the normal distribution with mean <span class="math notranslate nohighlight">\(\mu_1 + \mu_2\)</span> and variance</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1086,7 +1100,7 @@ Cov(S, D) ~ = ~ Cov(X_1 + X_2, X_1 - X_2) ~ = ~ Var(X_1) - Var(X_2)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/03_Linear_Combinations_9_0.png" src="../../_images/03_Linear_Combinations_9_0.png" />
+<img alt="../../_images/03_Linear_Combinations_11_0.png" src="../../_images/03_Linear_Combinations_11_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1099,7 +1113,7 @@ Cov(S, D) ~ = ~ Cov(X_1 + X_2, X_1 - X_2) ~ = ~ Var(X_1) - Var(X_2)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/03_Linear_Combinations_10_0.png" src="../../_images/03_Linear_Combinations_10_0.png" />
+<img alt="../../_images/03_Linear_Combinations_12_0.png" src="../../_images/03_Linear_Combinations_12_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1112,7 +1126,7 @@ Cov(S, D) ~ = ~ Cov(X_1 + X_2, X_1 - X_2) ~ = ~ Var(X_1) - Var(X_2)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/03_Linear_Combinations_11_0.png" src="../../_images/03_Linear_Combinations_11_0.png" />
+<img alt="../../_images/03_Linear_Combinations_13_0.png" src="../../_images/03_Linear_Combinations_13_0.png" />
 </div>
 </div>
 <p>Both marginals are normal but the joint distribution is far from bivariate normal.</p>
@@ -1130,7 +1144,7 @@ Cov(S, D) ~ = ~ Cov(X_1 + X_2, X_1 - X_2) ~ = ~ Var(X_1) - Var(X_2)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/03_Linear_Combinations_13_0.png" src="../../_images/03_Linear_Combinations_13_0.png" />
+<img alt="../../_images/03_Linear_Combinations_15_0.png" src="../../_images/03_Linear_Combinations_15_0.png" />
 </div>
 </div>
 </div>

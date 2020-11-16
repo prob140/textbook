@@ -8,9 +8,9 @@ plt.style.use('fivethirtyeight')
 
 ## Independence ##
 
-If the elements of $\mathbf{X}$ are mutually independent then $Cov(X_i, X_j) = 0$ for all $i \ne j$ and hence the covariance matrix $\boldsymbol{\Sigma}$ is a diagonal matrix and the $i$th diagonal element is $Var(X_i)$.
+If the elements of $\mathbf{X}$ are mutually independent then $Cov(X_i, X_j) = 0$ for all $i \ne j$ and hence the covariance matrix $\boldsymbol{\Sigma}$ is a diagonal matrix with the $i$th diagonal element equal to $Var(X_i)$.
 
-In the other direction, zero covariance doesn't imply independence, and pairwise independence doesn't imply mutual independence. But the multivariate normal is a wonderful distribution: 
+In the other direction, zero covariance doesn't in general imply independence, and pairwise independence doesn't imply mutual independence. But once again, the multivariate normal turns out to have a wonderful property:
 
 If $\mathbf{X}$ is multivariate normal and its elements are pairwise uncorrelated – that is, $Cov(X_i, X_j) = 0$ for all 
 $i \ne j$ – then the elements of $\mathbf{X}$ are mutually independent.
@@ -33,6 +33,10 @@ In the constant of integration, $\det(\boldsymbol{\Sigma}) = \sigma_1^2 \sigma_2
 
 Therefore the density of $\mathbf{X}$ is the product of the marginal normal densities.
 
+Thus for a multivariate normal random vector, "pairwise uncorrelated" is equivalent to "mutually independent" and is a much easier condition to check.
+
+The result makes it easy to see if two coordinates of a multivariate normal vector are independent. All you have to do is find the covariance between the two. If the covariance is $0$, they are independent. 
+
 ### Sum and Difference, Revisited ###
 Let $\mathbf{X} = [X_1, X_2]^T$ have a bivariate normal distribution. Let $S = X_1 + X_2$ and $D = X_1 - X_2$. We know that $S$ and $D$ have a bivariate normal distribution and that
 
@@ -45,4 +49,3 @@ If $X_1$ and $X_2$ have the same variance then $S$ and $D$ are uncorrelated, and
 Thus for example the sum and difference of two i.i.d. normal random variables are independent.
 
 You have shown in exercises that the sum and differences of any two i.i.d. random variables are uncorrelated. If in addition the two variables are normal, then their sum and difference are independent, not just uncorrelated.
-

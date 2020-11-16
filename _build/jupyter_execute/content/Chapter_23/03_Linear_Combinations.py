@@ -1,4 +1,6 @@
 # HIDDEN
+import warnings
+warnings.filterwarnings('ignore')
 from datascience import *
 from prob140 import *
 import numpy as np
@@ -9,10 +11,19 @@ from scipy import stats
 
 ## Linear Combinations ##
 
-Let $\mathbf{X}$ be multivariate normal with mean vector $\boldsymbol{\mu}$ and covariance matrix $\boldsymbol{\Sigma}$. Definition 3 says that all linear combinations of elements of $\mathbf{X}$ are normal too. This makes many calculations straightforward. Here is an example in two dimensions.
+Let $\mathbf{X}$ be multivariate normal with mean vector $\boldsymbol{\mu}$ and covariance matrix $\boldsymbol{\Sigma}$. Definition 3 says that all linear combinations of elements of $\mathbf{X}$ are normal too. This makes many calculations straightforward. 
+
+Keep in mind that the mean and variance of a linear combination follow from properties of means and variances – the fact that $\mathbf{X}$ is multivariate normal doesn't matter. What we gain from $\mathbf{X}$ being multivariate normal is the *shape of the distribution of the linear combination*: it's normal.
+
+# VIDEO: Linear Combinations
+from IPython.display import YouTubeVideo
+
+YouTubeVideo('j6xxeJ3r4iU')
+
+Here is an example in two dimensions.
 
 ### Sum and Difference ###
-Let $\mathbf{X} = [X_1 ~ X_2]^T$ have bivariate normal distribution mean vector $\boldsymbol{\mu} = [\mu_1 ~ \mu_2]^T$ and covariance matrix $\boldsymbol{\Sigma}$.
+Let $\mathbf{X} = [X_1 ~ X_2]^T$ have the bivariate normal distribution mean vector $\boldsymbol{\mu} = [\mu_1 ~ \mu_2]^T$ and covariance matrix $\boldsymbol{\Sigma}$.
 
 Then the sum $S = X_1 + X_2$ has the normal distribution with mean $\mu_1 + \mu_2$ and variance
 
@@ -86,4 +97,3 @@ def new_density(x,y):
         return 0
 
 Plot_3d((-4, 4), (-4, 4), new_density, rstride=4, cstride=5)
-

@@ -1,4 +1,6 @@
 # HIDDEN
+import warnings
+warnings.filterwarnings('ignore')
 from datascience import *
 from prob140 import *
 import numpy as np
@@ -8,6 +10,11 @@ plt.style.use('fivethirtyeight')
 from scipy import stats
 
 ## Multivariate Normal Distribution ##
+
+# VIDEO: Multivariate Normal
+from IPython.display import YouTubeVideo
+
+YouTubeVideo('lUd7UVydEoI')
 
 Let $\boldsymbol{\Sigma}$ be a positive definite matrix. An $n$-dimensional random vector $\mathbf{X}$ has the *multivariate normal distribution with mean vector $\boldsymbol{\mu}$ and covariance matrix $\boldsymbol{\Sigma}$* if the joint density of the elements of $\mathbf{X}$ is given by
 
@@ -22,7 +29,13 @@ You should check that the formula is correct when $n = 1$. In this case $\boldsy
 
 You should also check that the formula is correct in the case when the elements of $\mathbf{X}$ are i.i.d. standard normal. In that case $\mathbf{\mu} = \mathbf{0}$ and $\boldsymbol{\Sigma} = \mathbf{I}_n$, the $n$-dimensional identity matrix.
 
+When $n=2$ the multivariate normal distribution is called *bivariate* normal.
+
 In lab you went through a detailed development of the multivariate normal joint density function, starting with $\mathbf{Z}$ consisting of two i.i.d. standard normal components and then taking linear combinations. It turns out that all multivariate normal random variables can be generated in this way. In fact, there are three useful equivalent definitions of a random vector $\mathbf{X}$ with the multivariate normal distribution.
+
+# VIDEO: Multivariate Normal: Definition
+
+YouTubeVideo('owX4JKA-2F8')
 
 **Definition 1:** $\mathbf{X}$ has the joint density above.
 
@@ -32,7 +45,7 @@ In lab you went through a detailed development of the multivariate normal joint 
 
 At the end of this section there is a note on establishing the equivalences. Parts of it are hard. Just accept that they are true, and let's examine the properties of the distribution.
 
-The key to understanding the multivariate normal is Definition 2: every multivariate normal vector is a linear transformation of i.i.d. standard normals. Let's see what Definition 2 implies for the density.
+**The key to understanding the multivariate normal is Definition 2: every multivariate normal vector is a linear transformation of i.i.d. standard normals.** Let's see what Definition 2 implies for the density.
 
 ### Quadratic Form ###
 The shape of the density is determined by the *quadratic form* $\frac{1}{2}(\mathbf{x} - \boldsymbol{\mu})^T\boldsymbol{\Sigma}^{-1}(\mathbf{x} - \boldsymbol{\mu})$. The level surfaces are ellipsoids; in two dimensions these are the ellipses you saw in lab. 
@@ -120,4 +133,3 @@ So Definitions 1 and 2 are equivalent.
 You already know that linear combinations of independent normal variables are normal. If $\mathbf{X}$ is a linear transformation of i.i.d. standard normal variables $\mathbf{Z}$, then any linear combination of elements of $\mathbf{X}$ is also a linear combination of elements of $\mathbf{Z}$ and hence is normal. This means that Definition 2 implies Definition 3.
 
 Showing that Definition 3 implies Definition 2 requires some math. Multivariate moment generating functions are one way to see why the result is true, if we accept that moment genrating functions determine distributions, but we won't go into that here. 
-

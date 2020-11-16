@@ -24,4 +24,5 @@ In this chapter we will study what it means for a collection of random variables
 02_Multivariate_Normal_Distribution
 03_Linear_Combinations
 04_Independence
+05_Exercises
 ```

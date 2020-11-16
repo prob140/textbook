@@ -1,16 +1,21 @@
 # HIDDEN
+import warnings
+warnings.filterwarnings('ignore')
 from datascience import *
 from prob140 import *
 import numpy as np
 import matplotlib.pyplot as plt
 plt.style.use('fivethirtyeight')
 %matplotlib inline
-import math
 from scipy import stats
 
 ## Random Vectors ##
 
-A *vector valued random variable*, or more simply, a *random vector*, is a list of random variables defined on the same space. We will think of it as a column.
+Vectors and matrices give us a compact way of referring to random sequences like $X_1, X_2, \ldots, X_n$. The algebra of vectors and matrices gives us powerful tools for studying linear combinations of random variables.
+
+In this section we will develop matrix notation for random sequences and then express familiar consequences of linearity of expectation and bilinearity of covariance in matrix notation. The probability theory in this section is not new – it consists of expectation and covariance facts that you have known for some time. But the representation is new and leads us to new insights.
+
+A *vector valued random variable*, or more simply, a *random vector*, is a list of random variables defined on the same space. We will think of it as an $n \times 1$ column vector.
 
 $$
 \mathbf{X} ~ = ~ 
@@ -30,8 +35,83 @@ The *covariance matrix* of $\mathbf{X}$ is the $n \times n$ matrix $\boldsymbol{
 
 The $i$th diagonal element of $\boldsymbol{\Sigma}$ is the variance of $X_i$. The matrix is symmetric because of the symmetry of covariance.
 
+```{admonition} Quick Check
+A random vector $\begin{bmatrix} X \\ Y \end{bmatrix}$ has mean vector $\begin{bmatrix} 0 \\ 0 \end{bmatrix}$ and covariance matrix $\begin{bmatrix} 1 & 2.4 \\ ? & 9\end{bmatrix}$.
+
+Which (if any) of $X$ and $Y$ are in standard units? Pick one option.
+
+(i) Only $X$
+
+(ii) Only $Y$
+
+(iii) Both $X$ and $Y$
+
+(iv) Neither $X$ nor $Y$
+
+(v) There is not enough information to answer.
+
+```
+
+```{admonition} Answer
+:class: dropdown
+(i)
+
+```
+
+```{admonition} Quick Check
+(Continuing the Quick Check above) Fill in the ? in the covariance matrix.
+
+```
+
+```{admonition} Answer
+:class: dropdown
+$2.4$
+
+```
+
+```{admonition} Quick Check
+(Continuing the Quick Check above) Find the correlation between $X$ and $Y$.
+
+```
+
+```{admonition} Answer
+:class: dropdown
+$0.8$
+
+```
+
+# VIDEO: Linear Transformation
+from IPython.display import YouTubeVideo
+
+YouTubeVideo('yE1FWjup0WE')
+
 ### Linear Transformation: Mean Vector ###
-Let $\mathbf{A}$ be an $m \times n$ numerical matrix and $\mathbf{b}$ an $m \times 1$ numerical vector. Consider the $m \times 1$ random vector  $\mathbf{Y} = \mathbf{AX} + \mathbf{b}$. Then the $i$th element of $\mathbf{Y}$ is 
+Let $\mathbf{A}$ be an $m \times n$ numerical matrix and $\mathbf{b}$ an $m \times 1$ numerical vector. Consider the $m \times 1$ random vector  $\mathbf{Y} = \mathbf{AX} + \mathbf{b}$. 
+
+This gives us a compact way to describe multiple linear combinations of $\mathbf{X}$ simultaneously. For example, if $\mathbf{b} = [0 ~~ 0 ~~ 0]^T$ and 
+
+$$
+\mathbf{A} ~ = ~ 
+\begin{bmatrix}
+1 & 0 & 0 & 0 & \cdots & 0 \\
+1 & -1 & 0 & 0 & \cdots & 0 \\
+\frac{1}{n} & \frac{1}{n} & \frac{1}{n} & \frac{1}{n} & \cdots & \frac{1}{n} 
+\end{bmatrix}
+$$
+
+then
+
+$$
+\mathbf{AX} + \mathbf{b} ~ = ~ 
+\mathbf{A} ~ = ~ 
+\begin{bmatrix}
+X_1 \\
+X_1 - X_2 \\
+\bar{X}_n 
+\end{bmatrix}
+$$
+
+In general, if $\mathbf{Y} = \mathbf{AX} + \mathbf{b}$ then the $i$th element of $\mathbf{Y}$ is 
 
 $$
 Y_i ~ = ~ \mathbf{A}_{i*}\mathbf{X} + \mathbf{b}(i)
@@ -58,6 +138,10 @@ $$
 $$
 
 
+# VIDEO: Covariance Matrix of a Linear Transformation
+
+YouTubeVideo('XvQa07eQDj0')
+
 ### Linear Transformation: Covariance Matrix ###
 
 $Cov(Y_i, Y_j)$ can be calculated using bilinearity of covariance.
@@ -77,8 +161,13 @@ $$
 \boldsymbol{\Sigma}_\mathbf{Y} ~ = ~ \mathbf{A} \boldsymbol{\Sigma} \mathbf{A}^T
 $$
 
+# VIDEO: Constraint on Covariance Matrix
+
+YouTubeVideo('75RtwtxoRLw')
+
 ### Constraints on $\boldsymbol{\Sigma}$ ###
-We know that $\boldsymbol{\Sigma}$ has to be symmetric and that all the elements on its main diagonal must be non-negative. Also, no matter what $\mathbf{A}$ is, the diagonal elements of $\boldsymbol{\Sigma}\_\mathbf{Y}$ must all be non-negative as they are the variances of the elements of $\mathbf{Y}$. By the formula for $\boldsymbol{\Sigma}_\mathbf{Y}$ this means
+
+We know that $\boldsymbol{\Sigma}$ has to be symmetric and that all the elements on its main diagonal must be non-negative. Also, no matter what $\mathbf{A}$ is, the diagonal elements of $\boldsymbol{\Sigma}_\mathbf{Y}$ must all be non-negative as they are the variances of the elements of $\mathbf{Y}$. By the formula for $\boldsymbol{\Sigma}_\mathbf{Y}$ this means
 
 $$
 \mathbf{a} \boldsymbol{\Sigma} \mathbf{a}^T ~ \ge ~ 0 ~~~~ \text{for all } 1\times n \text{ vectors } \mathbf{a}
@@ -90,7 +179,4 @@ $$
 \mathbf{a}^T \boldsymbol{\Sigma} \mathbf{a} ~ \ge ~ 0 ~~~~ \text{for all } n\times 1 \text{ vectors } \mathbf{a}
 $$
 
-because $\mathbf{a} \boldsymbol{\Sigma} \mathbf{a}^T$ is a scalar and therefore the same as its transpose.
-
-That is, $\boldsymbol{\Sigma}$ must be positive semidefinite. Usually, we will be working with positive definite covariance matrices, because if $\mathbf{a}^T \boldsymbol{\Sigma} \mathbf{a} = 0$ for some $\mathbf{a}$ then some linear combination of the elements of $\mathbf{X}$ is constant. Hence you can write some of the elements as linear combinations of the others and just study a reduced set of elements.
-
+That is, $\boldsymbol{\Sigma}$ must be *positive semidefinite*. Usually, we will be working with *positive definite* covariance matrices, because if $\mathbf{a}^T \boldsymbol{\Sigma} \mathbf{a} = 0$ for some $\mathbf{a}$ then some linear combination of the elements of $\mathbf{X}$ is constant. Hence you can write some of the elements as linear combinations of the others and just study a reduced set of elements.

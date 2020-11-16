@@ -843,6 +843,11 @@
      23.4. Independence
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05_Exercises.html">
+     23.5. Exercises
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1">
@@ -895,11 +900,6 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_25/04_Multiple_Regression.html">
      25.4. Multiple Regression
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_25/05_Further_Review_Exercises.html">
-     25.5. Further Review Exercises
     </a>
    </li>
   </ul>
@@ -1014,6 +1014,18 @@
                 
   <div class="section" id="multivariate-normal-distribution">
 <h1><span class="section-number">23.2. </span>Multivariate Normal Distribution<a class="headerlink" href="#multivariate-normal-distribution" title="Permalink to this headline">¶</a></h1>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="400"
+    height="300"
+    src="https://www.youtube.com/embed/lUd7UVydEoI"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
 <p>Let <span class="math notranslate nohighlight">\(\boldsymbol{\Sigma}\)</span> be a positive definite matrix. An <span class="math notranslate nohighlight">\(n\)</span>-dimensional random vector <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> has the <em>multivariate normal distribution with mean vector <span class="math notranslate nohighlight">\(\boldsymbol{\mu}\)</span> and covariance matrix <span class="math notranslate nohighlight">\(\boldsymbol{\Sigma}\)</span></em> if the joint density of the elements of <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> is given by</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1023,12 +1035,25 @@ f_\mathbf{X}(\mathbf{x}) ~ = ~ \frac{1}{(\sqrt{2\pi})^n \sqrt{\det(\boldsymbol{\
 <p>We will say that the elements of <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> are <em>jointly normal</em> or <em>jointly Gaussian</em>.</p>
 <p>You should check that the formula is correct when <span class="math notranslate nohighlight">\(n = 1\)</span>. In this case <span class="math notranslate nohighlight">\(\boldsymbol{\Sigma} = [\sigma^2]\)</span> is just a scalar. It is a number, not a larger matrix; its determinant is itself; its inverse is simply <span class="math notranslate nohighlight">\(1/\sigma^2\)</span>. Also, <span class="math notranslate nohighlight">\(\mathbf{x} = x\)</span> and <span class="math notranslate nohighlight">\(\boldsymbol{\mu} = \mu\)</span> are just numbers. The formula above reduces to the familiar normal density function with mean <span class="math notranslate nohighlight">\(\mu\)</span> and variance <span class="math notranslate nohighlight">\(\sigma^2\)</span>.</p>
 <p>You should also check that the formula is correct in the case when the elements of <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> are i.i.d. standard normal. In that case <span class="math notranslate nohighlight">\(\mathbf{\mu} = \mathbf{0}\)</span> and <span class="math notranslate nohighlight">\(\boldsymbol{\Sigma} = \mathbf{I}_n\)</span>, the <span class="math notranslate nohighlight">\(n\)</span>-dimensional identity matrix.</p>
+<p>When <span class="math notranslate nohighlight">\(n=2\)</span> the multivariate normal distribution is called <em>bivariate</em> normal.</p>
 <p>In lab you went through a detailed development of the multivariate normal joint density function, starting with <span class="math notranslate nohighlight">\(\mathbf{Z}\)</span> consisting of two i.i.d. standard normal components and then taking linear combinations. It turns out that all multivariate normal random variables can be generated in this way. In fact, there are three useful equivalent definitions of a random vector <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> with the multivariate normal distribution.</p>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="400"
+    height="300"
+    src="https://www.youtube.com/embed/owX4JKA-2F8"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
 <p><strong>Definition 1:</strong> <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> has the joint density above.</p>
 <p><strong>Definition 2:</strong> <span class="math notranslate nohighlight">\(\mathbf{X} = \mathbf{AZ} + \mathbf{b}\)</span> for some i.i.d. standard normal <span class="math notranslate nohighlight">\(\mathbf{Z}\)</span>, an invertible <span class="math notranslate nohighlight">\(\mathbf{A}\)</span>, and a column vector <span class="math notranslate nohighlight">\(\mathbf{b}\)</span>.</p>
 <p><strong>Definition 3:</strong> Every linear combination of elements of <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> is normally distributed.</p>
 <p>At the end of this section there is a note on establishing the equivalences. Parts of it are hard. Just accept that they are true, and let’s examine the properties of the distribution.</p>
-<p>The key to understanding the multivariate normal is Definition 2: every multivariate normal vector is a linear transformation of i.i.d. standard normals. Let’s see what Definition 2 implies for the density.</p>
+<p><strong>The key to understanding the multivariate normal is Definition 2: every multivariate normal vector is a linear transformation of i.i.d. standard normals.</strong> Let’s see what Definition 2 implies for the density.</p>
 <div class="section" id="quadratic-form">
 <h2><span class="section-number">23.2.1. </span>Quadratic Form<a class="headerlink" href="#quadratic-form" title="Permalink to this headline">¶</a></h2>
 <p>The shape of the density is determined by the <em>quadratic form</em> <span class="math notranslate nohighlight">\(\frac{1}{2}(\mathbf{x} - \boldsymbol{\mu})^T\boldsymbol{\Sigma}^{-1}(\mathbf{x} - \boldsymbol{\mu})\)</span>. The level surfaces are ellipsoids; in two dimensions these are the ellipses you saw in lab.</p>
@@ -1042,7 +1067,7 @@ f_\mathbf{X}(\mathbf{x}) ~ = ~ \frac{1}{(\sqrt{2\pi})^n \sqrt{\det(\boldsymbol{\
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/02_Multivariate_Normal_Distribution_4_0.png" src="../../_images/02_Multivariate_Normal_Distribution_4_0.png" />
+<img alt="../../_images/02_Multivariate_Normal_Distribution_7_0.png" src="../../_images/02_Multivariate_Normal_Distribution_7_0.png" />
 </div>
 </div>
 <p>Note the elliptical contours, and that the probability is concentrated around a straight line.</p>
@@ -1057,7 +1082,7 @@ f_\mathbf{X}(\mathbf{x}) ~ = ~ \frac{1}{(\sqrt{2\pi})^n \sqrt{\det(\boldsymbol{\
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/02_Multivariate_Normal_Distribution_6_0.png" src="../../_images/02_Multivariate_Normal_Distribution_6_0.png" />
+<img alt="../../_images/02_Multivariate_Normal_Distribution_9_0.png" src="../../_images/02_Multivariate_Normal_Distribution_9_0.png" />
 </div>
 </div>
 <p>To see how the quadratic form arises, let <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> be multivariate normal. By Definition 2, <span class="math notranslate nohighlight">\(\mathbf{X} = \mathbf{AZ} + \mathbf{b}\)</span> for some invertible <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> and vector <span class="math notranslate nohighlight">\(\mathbf{b}\)</span>, and some i.i.d. standard normal <span class="math notranslate nohighlight">\(\mathbf{Z}\)</span>.</p>

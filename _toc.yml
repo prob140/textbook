@@ -196,6 +196,7 @@
     - file: content/Chapter_23/02_Multivariate_Normal_Distribution
     - file: content/Chapter_23/03_Linear_Combinations
     - file: content/Chapter_23/04_Independence
+    - file: content/Chapter_23/05_Exercises
   - file: content/Chapter_24/00_Simple_Linear_Regression
     expand_sections: true
     sections:
@@ -210,5 +211,5 @@
     - file: content/Chapter_25/02_Best_Linear_Predictor
     - file: content/Chapter_25/03_Multivariate_Normal_Conditioning
     - file: content/Chapter_25/04_Multiple_Regression
-    - file: content/Chapter_25/05_Further_Review_Exercises
+  #  - file: content/Chapter_25/05_Further_Review_Exercises
   # - file: content/introduction/notebooks

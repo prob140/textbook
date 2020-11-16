@@ -843,6 +843,11 @@
      23.4. Independence
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05_Exercises.html">
+     23.5. Exercises
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1">
@@ -895,11 +900,6 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_25/04_Multiple_Regression.html">
      25.4. Multiple Regression
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_25/05_Further_Review_Exercises.html">
-     25.5. Further Review Exercises
     </a>
    </li>
   </ul>
@@ -1017,7 +1017,9 @@
                 
   <div class="section" id="random-vectors">
 <h1><span class="section-number">23.1. </span>Random Vectors<a class="headerlink" href="#random-vectors" title="Permalink to this headline">¶</a></h1>
-<p>A <em>vector valued random variable</em>, or more simply, a <em>random vector</em>, is a list of random variables defined on the same space. We will think of it as a column.</p>
+<p>Vectors and matrices give us a compact way of referring to random sequences like <span class="math notranslate nohighlight">\(X_1, X_2, \ldots, X_n\)</span>. The algebra of vectors and matrices gives us powerful tools for studying linear combinations of random variables.</p>
+<p>In this section we will develop matrix notation for random sequences and then express familiar consequences of linearity of expectation and bilinearity of covariance in matrix notation. The probability theory in this section is not new – it consists of expectation and covariance facts that you have known for some time. But the representation is new and leads us to new insights.</p>
+<p>A <em>vector valued random variable</em>, or more simply, a <em>random vector</em>, is a list of random variables defined on the same space. We will think of it as an <span class="math notranslate nohighlight">\(n \times 1\)</span> column vector.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \mathbf{X} ~ = ~ 
@@ -1032,9 +1034,73 @@ X_n
 <p>The <em>mean vector</em> of <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> is <span class="math notranslate nohighlight">\(\boldsymbol{\mu} = [\mu_1 ~ \mu_2 ~ \ldots ~ \mu_n]^T\)</span> where <span class="math notranslate nohighlight">\(\mu_i = E(X_i)\)</span>.</p>
 <p>The <em>covariance matrix</em> of <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> is the <span class="math notranslate nohighlight">\(n \times n\)</span> matrix <span class="math notranslate nohighlight">\(\boldsymbol{\Sigma}\)</span> whose <span class="math notranslate nohighlight">\((i, j)\)</span> element is <span class="math notranslate nohighlight">\(Cov(X_i, X_j)\)</span>.</p>
 <p>The <span class="math notranslate nohighlight">\(i\)</span>th diagonal element of <span class="math notranslate nohighlight">\(\boldsymbol{\Sigma}\)</span> is the variance of <span class="math notranslate nohighlight">\(X_i\)</span>. The matrix is symmetric because of the symmetry of covariance.</p>
+<div class="admonition-quick-check admonition">
+<p class="admonition-title">Quick Check</p>
+<p>A random vector <span class="math notranslate nohighlight">\(\begin{bmatrix} X \\ Y \end{bmatrix}\)</span> has mean vector <span class="math notranslate nohighlight">\(\begin{bmatrix} 0 \\ 0 \end{bmatrix}\)</span> and covariance matrix <span class="math notranslate nohighlight">\(\begin{bmatrix} 1 &amp; 2.4 \\ ? &amp; 9\end{bmatrix}\)</span>.</p>
+<p>Which (if any) of <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> are in standard units? Pick one option.</p>
+<p>(i) Only <span class="math notranslate nohighlight">\(X\)</span></p>
+<p>(ii) Only <span class="math notranslate nohighlight">\(Y\)</span></p>
+<p>(iii) Both <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span></p>
+<p>(iv) Neither <span class="math notranslate nohighlight">\(X\)</span> nor <span class="math notranslate nohighlight">\(Y\)</span></p>
+<p>(v) There is not enough information to answer.</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Answer</p>
+<p>(i)</p>
+</div>
+<div class="admonition-quick-check admonition">
+<p class="admonition-title">Quick Check</p>
+<p>(Continuing the Quick Check above) Fill in the ? in the covariance matrix.</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Answer</p>
+<p><span class="math notranslate nohighlight">\(2.4\)</span></p>
+</div>
+<div class="admonition-quick-check admonition">
+<p class="admonition-title">Quick Check</p>
+<p>(Continuing the Quick Check above) Find the correlation between <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span>.</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Answer</p>
+<p><span class="math notranslate nohighlight">\(0.8\)</span></p>
+</div>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="400"
+    height="300"
+    src="https://www.youtube.com/embed/yE1FWjup0WE"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
 <div class="section" id="linear-transformation-mean-vector">
 <h2><span class="section-number">23.1.1. </span>Linear Transformation: Mean Vector<a class="headerlink" href="#linear-transformation-mean-vector" title="Permalink to this headline">¶</a></h2>
-<p>Let <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> be an <span class="math notranslate nohighlight">\(m \times n\)</span> numerical matrix and <span class="math notranslate nohighlight">\(\mathbf{b}\)</span> an <span class="math notranslate nohighlight">\(m \times 1\)</span> numerical vector. Consider the <span class="math notranslate nohighlight">\(m \times 1\)</span> random vector  <span class="math notranslate nohighlight">\(\mathbf{Y} = \mathbf{AX} + \mathbf{b}\)</span>. Then the <span class="math notranslate nohighlight">\(i\)</span>th element of <span class="math notranslate nohighlight">\(\mathbf{Y}\)</span> is</p>
+<p>Let <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> be an <span class="math notranslate nohighlight">\(m \times n\)</span> numerical matrix and <span class="math notranslate nohighlight">\(\mathbf{b}\)</span> an <span class="math notranslate nohighlight">\(m \times 1\)</span> numerical vector. Consider the <span class="math notranslate nohighlight">\(m \times 1\)</span> random vector  <span class="math notranslate nohighlight">\(\mathbf{Y} = \mathbf{AX} + \mathbf{b}\)</span>.</p>
+<p>This gives us a compact way to describe multiple linear combinations of <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> simultaneously. For example, if <span class="math notranslate nohighlight">\(\mathbf{b} = [0 ~~ 0 ~~ 0]^T\)</span> and</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{A} ~ = ~ 
+\begin{bmatrix}
+1 &amp; 0 &amp; 0 &amp; 0 &amp; \cdots &amp; 0 \\
+1 &amp; -1 &amp; 0 &amp; 0 &amp; \cdots &amp; 0 \\
+\frac{1}{n} &amp; \frac{1}{n} &amp; \frac{1}{n} &amp; \frac{1}{n} &amp; \cdots &amp; \frac{1}{n} 
+\end{bmatrix}
+\end{split}\]</div>
+<p>then</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{AX} + \mathbf{b} ~ = ~ 
+\mathbf{A} ~ = ~ 
+\begin{bmatrix}
+X_1 \\
+X_1 - X_2 \\
+\bar{X}_n 
+\end{bmatrix}
+\end{split}\]</div>
+<p>In general, if <span class="math notranslate nohighlight">\(\mathbf{Y} = \mathbf{AX} + \mathbf{b}\)</span> then the <span class="math notranslate nohighlight">\(i\)</span>th element of <span class="math notranslate nohighlight">\(\mathbf{Y}\)</span> is</p>
 <div class="math notranslate nohighlight">
 \[
 Y_i ~ = ~ \mathbf{A}_{i*}\mathbf{X} + \mathbf{b}(i)
@@ -1055,6 +1121,18 @@ E(Y_i) ~ = ~ \mathbf{A}_{i*} \boldsymbol{\mu} + \mathbf{b}(i)
 \[
 \boldsymbol{\mu}_\mathbf{Y} ~ = ~ \mathbf{A} \boldsymbol{\mu} + \mathbf{b}
 \]</div>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="400"
+    height="300"
+    src="https://www.youtube.com/embed/XvQa07eQDj0"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
 </div>
 <div class="section" id="linear-transformation-covariance-matrix">
 <h2><span class="section-number">23.1.2. </span>Linear Transformation: Covariance Matrix<a class="headerlink" href="#linear-transformation-covariance-matrix" title="Permalink to this headline">¶</a></h2>
@@ -1073,10 +1151,22 @@ Cov(Y_i, Y_j) ~ &amp;= ~ Cov(\mathbf{A}_{i*}\mathbf{X}, \mathbf{A}_{j*}\mathbf{X
 \[
 \boldsymbol{\Sigma}_\mathbf{Y} ~ = ~ \mathbf{A} \boldsymbol{\Sigma} \mathbf{A}^T
 \]</div>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="400"
+    height="300"
+    src="https://www.youtube.com/embed/75RtwtxoRLw"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
 </div>
 <div class="section" id="constraints-on-boldsymbol-sigma">
 <h2><span class="section-number">23.1.3. </span>Constraints on <span class="math notranslate nohighlight">\(\boldsymbol{\Sigma}\)</span><a class="headerlink" href="#constraints-on-boldsymbol-sigma" title="Permalink to this headline">¶</a></h2>
-<p>We know that <span class="math notranslate nohighlight">\(\boldsymbol{\Sigma}\)</span> has to be symmetric and that all the elements on its main diagonal must be non-negative. Also, no matter what <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> is, the diagonal elements of <span class="math notranslate nohighlight">\(\boldsymbol{\Sigma}\_\mathbf{Y}\)</span> must all be non-negative as they are the variances of the elements of <span class="math notranslate nohighlight">\(\mathbf{Y}\)</span>. By the formula for <span class="math notranslate nohighlight">\(\boldsymbol{\Sigma}_\mathbf{Y}\)</span> this means</p>
+<p>We know that <span class="math notranslate nohighlight">\(\boldsymbol{\Sigma}\)</span> has to be symmetric and that all the elements on its main diagonal must be non-negative. Also, no matter what <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> is, the diagonal elements of <span class="math notranslate nohighlight">\(\boldsymbol{\Sigma}_\mathbf{Y}\)</span> must all be non-negative as they are the variances of the elements of <span class="math notranslate nohighlight">\(\mathbf{Y}\)</span>. By the formula for <span class="math notranslate nohighlight">\(\boldsymbol{\Sigma}_\mathbf{Y}\)</span> this means</p>
 <div class="math notranslate nohighlight">
 \[
 \mathbf{a} \boldsymbol{\Sigma} \mathbf{a}^T ~ \ge ~ 0 ~~~~ \text{for all } 1\times n \text{ vectors } \mathbf{a}
@@ -1086,8 +1176,7 @@ Cov(Y_i, Y_j) ~ &amp;= ~ Cov(\mathbf{A}_{i*}\mathbf{X}, \mathbf{A}_{j*}\mathbf{X
 \[
 \mathbf{a}^T \boldsymbol{\Sigma} \mathbf{a} ~ \ge ~ 0 ~~~~ \text{for all } n\times 1 \text{ vectors } \mathbf{a}
 \]</div>
-<p>because <span class="math notranslate nohighlight">\(\mathbf{a} \boldsymbol{\Sigma} \mathbf{a}^T\)</span> is a scalar and therefore the same as its transpose.</p>
-<p>That is, <span class="math notranslate nohighlight">\(\boldsymbol{\Sigma}\)</span> must be positive semidefinite. Usually, we will be working with positive definite covariance matrices, because if <span class="math notranslate nohighlight">\(\mathbf{a}^T \boldsymbol{\Sigma} \mathbf{a} = 0\)</span> for some <span class="math notranslate nohighlight">\(\mathbf{a}\)</span> then some linear combination of the elements of <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> is constant. Hence you can write some of the elements as linear combinations of the others and just study a reduced set of elements.</p>
+<p>That is, <span class="math notranslate nohighlight">\(\boldsymbol{\Sigma}\)</span> must be <em>positive semidefinite</em>. Usually, we will be working with <em>positive definite</em> covariance matrices, because if <span class="math notranslate nohighlight">\(\mathbf{a}^T \boldsymbol{\Sigma} \mathbf{a} = 0\)</span> for some <span class="math notranslate nohighlight">\(\mathbf{a}\)</span> then some linear combination of the elements of <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> is constant. Hence you can write some of the elements as linear combinations of the others and just study a reduced set of elements.</p>
 </div>
 </div>
 
