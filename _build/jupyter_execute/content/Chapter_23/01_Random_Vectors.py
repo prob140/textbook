@@ -103,7 +103,6 @@ then
 
 $$
 \mathbf{AX} + \mathbf{b} ~ = ~ 
-\mathbf{A} ~ = ~ 
 \begin{bmatrix}
 X_1 \\
 X_1 - X_2 \\
@@ -173,10 +172,12 @@ $$
 \mathbf{a} \boldsymbol{\Sigma} \mathbf{a}^T ~ \ge ~ 0 ~~~~ \text{for all } 1\times n \text{ vectors } \mathbf{a}
 $$
 
-which is the same as saying
+That is, $\boldsymbol{\Sigma}$ must be *positive semidefinite*. 
+
+Usually, we will be working with covariance matrices that are *positive definite*, defined by
 
 $$
-\mathbf{a}^T \boldsymbol{\Sigma} \mathbf{a} ~ \ge ~ 0 ~~~~ \text{for all } n\times 1 \text{ vectors } \mathbf{a}
+\mathbf{a} \boldsymbol{\Sigma} \mathbf{a}^T ~ > ~ 0 ~~~~ \text{for all } 1\times n \text{ vectors } \mathbf{a}
 $$
 
-That is, $\boldsymbol{\Sigma}$ must be *positive semidefinite*. Usually, we will be working with *positive definite* covariance matrices, because if $\mathbf{a}^T \boldsymbol{\Sigma} \mathbf{a} = 0$ for some $\mathbf{a}$ then some linear combination of the elements of $\mathbf{X}$ is constant. Hence you can write some of the elements as linear combinations of the others and just study a reduced set of elements.
+The reason is that if $\mathbf{a} \boldsymbol{\Sigma} \mathbf{a}^T = 0$ for some $\mathbf{a}$ then some linear combination of the elements of $\mathbf{X}$ is constant. Hence you can write some of the elements as linear combinations of the others and just study a reduced set of elements.

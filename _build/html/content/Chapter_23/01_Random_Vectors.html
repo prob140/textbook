@@ -1093,7 +1093,6 @@ X_n
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \mathbf{AX} + \mathbf{b} ~ = ~ 
-\mathbf{A} ~ = ~ 
 \begin{bmatrix}
 X_1 \\
 X_1 - X_2 \\
@@ -1171,12 +1170,13 @@ Cov(Y_i, Y_j) ~ &amp;= ~ Cov(\mathbf{A}_{i*}\mathbf{X}, \mathbf{A}_{j*}\mathbf{X
 \[
 \mathbf{a} \boldsymbol{\Sigma} \mathbf{a}^T ~ \ge ~ 0 ~~~~ \text{for all } 1\times n \text{ vectors } \mathbf{a}
 \]</div>
-<p>which is the same as saying</p>
+<p>That is, <span class="math notranslate nohighlight">\(\boldsymbol{\Sigma}\)</span> must be <em>positive semidefinite</em>.</p>
+<p>Usually, we will be working with covariance matrices that are <em>positive definite</em>, defined by</p>
 <div class="math notranslate nohighlight">
 \[
-\mathbf{a}^T \boldsymbol{\Sigma} \mathbf{a} ~ \ge ~ 0 ~~~~ \text{for all } n\times 1 \text{ vectors } \mathbf{a}
+\mathbf{a} \boldsymbol{\Sigma} \mathbf{a}^T ~ &gt; ~ 0 ~~~~ \text{for all } 1\times n \text{ vectors } \mathbf{a}
 \]</div>
-<p>That is, <span class="math notranslate nohighlight">\(\boldsymbol{\Sigma}\)</span> must be <em>positive semidefinite</em>. Usually, we will be working with <em>positive definite</em> covariance matrices, because if <span class="math notranslate nohighlight">\(\mathbf{a}^T \boldsymbol{\Sigma} \mathbf{a} = 0\)</span> for some <span class="math notranslate nohighlight">\(\mathbf{a}\)</span> then some linear combination of the elements of <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> is constant. Hence you can write some of the elements as linear combinations of the others and just study a reduced set of elements.</p>
+<p>The reason is that if <span class="math notranslate nohighlight">\(\mathbf{a} \boldsymbol{\Sigma} \mathbf{a}^T = 0\)</span> for some <span class="math notranslate nohighlight">\(\mathbf{a}\)</span> then some linear combination of the elements of <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> is constant. Hence you can write some of the elements as linear combinations of the others and just study a reduced set of elements.</p>
 </div>
 </div>
 
