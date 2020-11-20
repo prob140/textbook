@@ -101,13 +101,13 @@ any constant. Prove the *sum of squares decomposition*
 
 $$
 \sum_{i=1}^n (X_i - \alpha)^2 ~=~ \sum_{i=1}^n (X_i - \bar{X})^2 ~+~ n(\bar{X} - \alpha)^2
-$$
+$$.
 
 (d) Now let $X_1, X_2, \ldots , X_n$ be i.i.d. normal with mean $\mu$ and variance $\sigma^2 > 0$. Let $S^2$ be the "sample variance" defined by 
 
 $$
 S^2 ~=~ \frac{1}{n-1} \sum_{i=1}^n (X_i - \bar{X})^2
-$$
+$$.
 
 Find a constant $c$ such that $cS^2$ has a chi-squared distribution. Provide the degrees of freedom.
 
