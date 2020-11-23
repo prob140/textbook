@@ -112,8 +112,13 @@ Notice the parallel with the formula for the length of the sum of two vectors, w
 Later in this section, we will visualize this idea in the case where the joint distribution of $X$ and $Y$ is bivariate normal.
 
 # VIDEO: Construction: Bivariate Normal
+from IPython.display import YouTubeVideo
+
+YouTubeVideo('d-ucYswhZ_Q')
 
 # VIDEO: Construction: Standard Bivariate Normal
+
+YouTubeVideo('GQ9nsyr3umI')
 
 ### Constructing the Standard Bivariate Normal ###
 

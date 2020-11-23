@@ -14,6 +14,9 @@ In this section we are going to see if we can identify the best among all linear
 For jointly distributed random variables $X$ and $Y$, you know that $E(Y \mid X)$ is the least squares predictor of $Y$ based on functions of $X$. We will now *restrict the allowed functions to linear functions* and see if we can find the best among those. In later sections we will see the connection between this best linear predictor, the best among all predictors, and the bivariate normal distribution.
 
 # VIDEO: Simple Regression
+from IPython.display import YouTubeVideo
+
+YouTubeVideo('p-Dmvjh7MP4')
 
 ### Minimizing Mean Squared Error ###
 Let $h(X) = aX + b$ for constants $a$ and $b$, and let $MSE(a, b)$ denote $MSE(h)$.

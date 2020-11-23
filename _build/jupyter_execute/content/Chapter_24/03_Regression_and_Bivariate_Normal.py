@@ -63,6 +63,9 @@ You saw such plots in Data 8 but run the cell a few times anyway to refresh your
 bivariate_normal_regression(0.6, 1000)
 
 # VIDEO: Bivariate Normal: Prediction
+from IPython.display import YouTubeVideo
+
+YouTubeVideo('akPEba4L-wo')
 
 ### Prediction Error ###
 By definition, $Y$ is equal to a "signal" that is a linear function of $X$, plus some noise equal to $\sqrt{1 - \rho^2}Z$. The best predictor of $Y$ based on $X$ is the linear function $\rho X$. 

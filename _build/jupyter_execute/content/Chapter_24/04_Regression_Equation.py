@@ -51,6 +51,9 @@ which is approximately 12.4%.
 1 - stats.norm.cdf(2, 0.5*2, np.sqrt(1-0.5**2))
 
 # VIDEO: Regression Equation
+from IPython.display import YouTubeVideo
+
+YouTubeVideo('hlAaKwSAXp8')
 
 ### In the Original Units ###
 Usually, you want to make predictions in the units in which the data were measured. Before changing units in the formulas above, keep in mind that conditioning on $X$ is equivalent to conditioning on $X_{su}$. If you know the value of either of $X$ or $X_{su}$, you also know the other.
@@ -85,6 +88,7 @@ $$
 The conditional distribution of $Y$ given $X$ is normal with the mean and variance calculated above.
 
 # VIDEO: Alternative Form I
+YouTubeVideo('SCY7fbSHnX8')
 
 ### Regression Equation: Alternative Form I ###
 
@@ -103,6 +107,7 @@ $$
 This form shows that the regression line passes through the point $(\mu_X, \mu_Y)$ and that $E(\hat{Y}) = \mu_Y$. The predicted values and the actual values are the same *on average*.
 
 # VIDEO: Alternative Form II
+YouTubeVideo('2kll2o4BZjI')
 
 ### Regression Equation: Alternative Form II ###
 When there are just two variables, matrix formulations are hardly necessary. But it is worth writing the regression estimate and the conditional variance using only the mean vector and covariance matrix, and replacing division with multipliciation by an inverse. This effort will be rewarded in the next chapter because exactly analogous formulas will work for multiple regression. 
