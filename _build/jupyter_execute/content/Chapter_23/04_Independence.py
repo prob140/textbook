@@ -17,6 +17,8 @@ $i \ne j$ – then the elements of $\mathbf{X}$ are mutually independent.
 
 That is, **multivariate normal random variables are independent if and only if they are uncorrelated.**
 
+# VIDEO: Independence
+
 This is easy to see from the form of the density of $\mathbf{X}$. If $\boldsymbol{\Sigma}$ is a diagonal matrix then so is $\boldsymbol{\Sigma}^{-1}$. The $i$th diagonal element of $\boldsymbol{\Sigma}^{-1}$ is $1/\sigma_i^2$ where $\sigma_i^2 = Var(X_i)$. So
 
 $$

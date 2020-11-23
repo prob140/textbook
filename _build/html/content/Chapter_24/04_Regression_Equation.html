@@ -856,13 +856,13 @@
   </a>
   <ul class="current">
    <li class="toctree-l2">
-    <a class="reference internal" href="01_Bivariate_Normal_Distribution.html">
-     24.1. Bivariate Normal Distribution
+    <a class="reference internal" href="01_Linear_Least_Squares.html">
+     24.1. Least Squares Linear Predictor
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="02_Linear_Least_Squares.html">
-     24.2. Least Squares Linear Predictor
+    <a class="reference internal" href="02_Bivariate_Normal_Distribution.html">
+     24.2. Bivariate Normal Distribution
     </a>
    </li>
    <li class="toctree-l2">
@@ -998,8 +998,13 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#an-alternative-form">
-   24.4.3. An Alternative Form
+  <a class="reference internal nav-link" href="#regression-equation-alternative-form-i">
+   24.4.3. Regression Equation: Alternative Form I
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#regression-equation-alternative-form-ii">
+   24.4.4. Regression Equation: Alternative Form II
   </a>
  </li>
 </ul>
@@ -1018,31 +1023,31 @@
 <p>Let <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> be bivariate normal with parameters <span class="math notranslate nohighlight">\((\mu_X, \mu_Y, \sigma_X^2, \sigma_Y^2, \rho)\)</span>. Then, as we have seen, the best predictor <span class="math notranslate nohighlight">\(E(Y \mid X)\)</span> is a linear function of <span class="math notranslate nohighlight">\(X\)</span> and hence the formula for <span class="math notranslate nohighlight">\(E(Y \mid X)\)</span> is also the equation of the regression line.</p>
 <div class="section" id="in-standard-units">
 <h2><span class="section-number">24.4.1. </span>In Standard Units<a class="headerlink" href="#in-standard-units" title="Permalink to this headline">¶</a></h2>
-<p>Let <span class="math notranslate nohighlight">\(X^\*\)</span> be <span class="math notranslate nohighlight">\(X\)</span> in standard units and <span class="math notranslate nohighlight">\(Y^\*\)</span> be <span class="math notranslate nohighlight">\(Y\)</span> in standard units. The regression equation is</p>
+<p>Let <span class="math notranslate nohighlight">\(X_{su}\)</span> be <span class="math notranslate nohighlight">\(X\)</span> in standard units and <span class="math notranslate nohighlight">\(Y_{su}\)</span> be <span class="math notranslate nohighlight">\(Y\)</span> in standard units. The regression equation is</p>
 <div class="math notranslate nohighlight">
 \[
-E(Y^* \mid X^*) ~ = ~ \rho X^*
+E(Y_{su} \mid X_{su}) ~ = ~ \rho X_{su}
 \]</div>
 <p>and the amount of error in the prediction is measured by</p>
 <div class="math notranslate nohighlight">
 \[
-SD(Y^* \mid X^*) ~ = ~ \sqrt{1 - \rho^2}
+SD(Y_{su} \mid X_{su}) ~ = ~ \sqrt{1 - \rho^2}
 \]</div>
 <p>The conditional SD is in the same units as the prediction. The conditional variance is</p>
 <div class="math notranslate nohighlight">
 \[
-Var(Y^* \mid X^*) ~ = ~ 1 - \rho^2
+Var(Y_{su} \mid X_{su}) ~ = ~ 1 - \rho^2
 \]</div>
-<p>We know more than just the conditional expectation and conditional variance. We know that the conditional distribution of <span class="math notranslate nohighlight">\(Y^\*\)</span> given <span class="math notranslate nohighlight">\(X^\*\)</span> is normal. This allows us to find conditional probabilities given <span class="math notranslate nohighlight">\(X^\*\)</span>, by the usual normal curve methods. For example,</p>
+<p>We know more than just the conditional expectation and conditional variance. We know that the conditional distribution of <span class="math notranslate nohighlight">\(Y_{su}\)</span> given <span class="math notranslate nohighlight">\(X_{su}\)</span> is normal. This allows us to find conditional probabilities given <span class="math notranslate nohighlight">\(X_{su}\)</span>, by the usual normal curve methods. For example,</p>
 <div class="math notranslate nohighlight">
 \[
-P(Y^* &lt; y^* \mid X^* = x^*) ~ = ~ \Phi \big{(} \frac{y^* - \rho x^*}{\sqrt{1-\rho^2}} \big{)}
+P(Y_{su} &lt; y_{su} \mid X_{su} = x_{su}) ~ = ~ \Phi \big{(} \frac{y_{su} - \rho x_{su}}{\sqrt{1-\rho^2}} \big{)}
 \]</div>
 <p>In one of Galton’s famous data sets, the distribution of the heights of father-son pairs was roughly bivariate normal with a correlation of 0.5. Of the fathers whose heights were two SDs above average, about what percent had sons whose heights were more than 2 SDs above average?</p>
-<p>By the regression effect, you know this answer has to be less than 50%. If <span class="math notranslate nohighlight">\(Y^\*\)</span> denotes the height of a randomly picked son in standard units, and <span class="math notranslate nohighlight">\(X^\*\)</span> the height of his father in standard units, then the proportion is approximately</p>
+<p>By the regression effect, you know this answer has to be less than 50%. If <span class="math notranslate nohighlight">\(Y_{su}\)</span> denotes the height of a randomly picked son in standard units, and <span class="math notranslate nohighlight">\(X_{su}\)</span> the height of his father in standard units, then the proportion is approximately</p>
 <div class="math notranslate nohighlight">
 \[
-P(Y^* &gt; 2 \mid X^* = 2) ~ = ~ 1 - \Phi \big{(} \frac{2 - 0.5\times2}{\sqrt{1-0.5^2}} \big{)}
+P(Y_{su} &gt; 2 \mid X_{su} = 2) ~ = ~ 1 - \Phi \big{(} \frac{2 - 0.5\times2}{\sqrt{1-0.5^2}} \big{)}
 \]</div>
 <p>which is approximately 12.4%.</p>
 <div class="cell docutils container">
@@ -1057,26 +1062,29 @@ P(Y^* &gt; 2 \mid X^* = 2) ~ = ~ 1 - \Phi \big{(} \frac{2 - 0.5\times2}{\sqrt{1-
 </div>
 </div>
 </div>
+<div class="cell tag_remove-input tag_hide-ouput docutils container">
+</div>
 </div>
 <div class="section" id="in-the-original-units">
 <h2><span class="section-number">24.4.2. </span>In the Original Units<a class="headerlink" href="#in-the-original-units" title="Permalink to this headline">¶</a></h2>
-<p>Usually, you want to make predictions in the units in which the data were measured. Before changing units in the formulas above, keep in mind that conditioning on <span class="math notranslate nohighlight">\(X\)</span> is equivalent to conditioning on <span class="math notranslate nohighlight">\(X^\*\)</span>. If you know the value of either of <span class="math notranslate nohighlight">\(X\)</span> or <span class="math notranslate nohighlight">\(X^\*\)</span>, you also know the other.</p>
+<p>Usually, you want to make predictions in the units in which the data were measured. Before changing units in the formulas above, keep in mind that conditioning on <span class="math notranslate nohighlight">\(X\)</span> is equivalent to conditioning on <span class="math notranslate nohighlight">\(X_{su}\)</span>. If you know the value of either of <span class="math notranslate nohighlight">\(X\)</span> or <span class="math notranslate nohighlight">\(X_{su}\)</span>, you also know the other.</p>
 <p>The regression equation is</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{align*}
-E(Y \mid X) ~ &amp;= ~ E(\sigma_Y Y^* + \mu_Y \mid X) \\
-&amp;= ~ \sigma_Y E(Y^* \mid X) + \mu_Y \\
+E(Y \mid X) ~ &amp;= ~ E(Y \mid X_{su}) \\
+&amp;= ~ E(\sigma_Y Y_{su} + \mu_Y \mid X_{su}) \\
+&amp;= ~ \sigma_Y E(Y_{su} \mid X_{su}) + \mu_Y \\
 &amp;= ~ \sigma_Y \rho \big{(} \frac{X - \mu_X}{\sigma_X} \big{)} + \mu_Y \\
 &amp;= ~ \rho \frac{\sigma_Y}{\sigma_X} X + \big{(} \mu_Y - \rho\frac{\sigma_Y}{\sigma_X}\mu_X \big{)}
 \end{align*}
 \end{split}\]</div>
 <p>which is the same as the equation of the least squares line we had derived earlier without any assumptions about the joint distribution of <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span>. This confirms our observation that if <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> are bivariate normal, the best linear predictor is the best among all predictors.</p>
-<p>The amount of error in the prediction is measured by</p>
+<p>The amount of error in the prediction is measured by <span class="math notranslate nohighlight">\(SD(Y \mid X)\)</span> which is the same as</p>
 <div class="math notranslate nohighlight">
 \[
-SD(Y \mid X) ~ = ~ SD(\sigma_Y Y^* + \mu_Y \mid X) ~ = ~ 
-\sigma_Y SD(Y^* \mid X) ~ = ~ \sqrt{1-\rho^2}\sigma_Y
+SD(Y \mid X_{su}) ~ = ~ SD(\sigma_Y Y_{su} + \mu_Y \mid X_{su}) ~ = ~ 
+\sigma_Y SD(Y_{su} \mid X_{su}) ~ = ~ \sqrt{1-\rho^2}\sigma_Y
 \]</div>
 <p>and</p>
 <div class="math notranslate nohighlight">
@@ -1084,24 +1092,42 @@ SD(Y \mid X) ~ = ~ SD(\sigma_Y Y^* + \mu_Y \mid X) ~ = ~
 Var(Y \mid X) = (1 - \rho^2)\sigma_Y^2
 \]</div>
 <p>The conditional distribution of <span class="math notranslate nohighlight">\(Y\)</span> given <span class="math notranslate nohighlight">\(X\)</span> is normal with the mean and variance calculated above.</p>
+<div class="cell tag_remove-input tag_hide-output docutils container">
 </div>
-<div class="section" id="an-alternative-form">
-<h2><span class="section-number">24.4.3. </span>An Alternative Form<a class="headerlink" href="#an-alternative-form" title="Permalink to this headline">¶</a></h2>
-<p>When there are just two variables, the matrix formulation of the bivariate normal is hardly necessary. But it is worth writing the regression estimate and the conditional variance using only the parameters of the multivariate normal: the mean vector and covariance matrix. This effort will be rewarded in the next chapter because exactly analogous formulas will work for multiple regression.</p>
-<p>Define <span class="math notranslate nohighlight">\(\sigma_{X,Y} = Cov(X, Y)\)</span>. Then <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> have have the multivariate normal distribution with mean vector <span class="math notranslate nohighlight">\([\mu_X, ~ \mu_Y]^T\)</span> and covariance matrix</p>
+</div>
+<div class="section" id="regression-equation-alternative-form-i">
+<h2><span class="section-number">24.4.3. </span>Regression Equation: Alternative Form I<a class="headerlink" href="#regression-equation-alternative-form-i" title="Permalink to this headline">¶</a></h2>
+<p>Regardless of the joint distribution of <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span>, the regression equation is</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{Y} ~ = ~ a^*X + b^* ~~~ \text{where } a^* = \rho \frac{\sigma_X}{\sigma_Y} \text{ and } b^* = \mu_Y - a^*\mu_X
+\]</div>
+<p>This is equivalent to</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{Y} ~ = ~ a^*(X - \mu_X) + \mu_Y
+\]</div>
+<p>This form shows that the regression line passes through the point <span class="math notranslate nohighlight">\((\mu_X, \mu_Y)\)</span> and that <span class="math notranslate nohighlight">\(E(\hat{Y}) = \mu_Y\)</span>. The predicted values and the actual values are the same <em>on average</em>.</p>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+</div>
+</div>
+<div class="section" id="regression-equation-alternative-form-ii">
+<h2><span class="section-number">24.4.4. </span>Regression Equation: Alternative Form II<a class="headerlink" href="#regression-equation-alternative-form-ii" title="Permalink to this headline">¶</a></h2>
+<p>When there are just two variables, matrix formulations are hardly necessary. But it is worth writing the regression estimate and the conditional variance using only the mean vector and covariance matrix, and replacing division with multipliciation by an inverse. This effort will be rewarded in the next chapter because exactly analogous formulas will work for multiple regression.</p>
+<p>Define <span class="math notranslate nohighlight">\(\sigma_{X,Y} = Cov(X, Y) = \sigma_{Y,X}\)</span>. Then <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> have mean vector <span class="math notranslate nohighlight">\([\mu_X, ~ \mu_Y]^T\)</span> and covariance matrix</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{bmatrix}
-\sigma_X^2 &amp; \sigma_{X,Y} \\
-\sigma_{Y,X} &amp; \sigma_Y^2
+\sigma_X^2 &amp; \sigma_{Y,X} \\
+\sigma_{X,Y} &amp; \sigma_Y^2
 \end{bmatrix}
 \end{split}\]</div>
-<p>Now</p>
+<p>We know that</p>
 <div class="math notranslate nohighlight">
 \[
 \rho ~ = ~ \frac{\sigma_{X,Y}}{\sigma_X \sigma_Y}
 \]</div>
-<p>and the regression equation can be written as</p>
+<p>The regression equation can therefore be written as</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{align*}

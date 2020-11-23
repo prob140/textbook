@@ -50,7 +50,7 @@ because $Z$ is independent of $X$ and $E(Z) = 0$.
 
 Because $E(Y \mid X)$ is a linear function of $X$, we have shown:
 
-**If $X$ and $Y$ have a standard bivariate normal distribution, then the best predictor of $Y$ based on $X$ is linear,** and has the equation of the regression line derived in the previous section.
+**If $X$ and $Y$ have a standard bivariate normal distribution, then the best predictor of $Y$ based on $X$ is linear,** and has the equation of the regression line derived earlier.
 
 Every bivariate normal distribution can be constructed by linear transformations of standard bivariate normal variables. Therefore:
 
@@ -61,6 +61,8 @@ The function `bivariate_normal_regression` takes $\rho$ and $n$ as its arguments
 You saw such plots in Data 8 but run the cell a few times anyway to refresh your memory. You can see the regression effect when $\rho > 0$: the green line is flatter than the red "equal standard units" 45 degree line. 
 
 bivariate_normal_regression(0.6, 1000)
+
+# VIDEO: Bivariate Normal: Prediction
 
 ### Prediction Error ###
 By definition, $Y$ is equal to a "signal" that is a linear function of $X$, plus some noise equal to $\sqrt{1 - \rho^2}Z$. The best predictor of $Y$ based on $X$ is the linear function $\rho X$. 
@@ -101,4 +103,3 @@ stats.norm.cdf(standard_units_predicted_y)
 Don't worry about decimal points and great accuracy in such settings. The calculation is based on a probabilistic model about data; deviations from that model will have a much larger effect on the quality of the prediction than whether your answer is the 67th percentile instead of the 66th.
 
 You should notice, however, that the regression effect is clearly visible in the answer. The student's predicted math score is closer to average than their verbal score.
-

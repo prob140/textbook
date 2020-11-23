@@ -72,19 +72,19 @@ def projection_trig():
 
 ## Bivariate Normal Distribution ##
 
-The multivariate normal distribution is defined in terms of a mean vector and a covariance matrix. The units of covariance are often hard to understand, as they are the product of the units of the two variables.
+When the joint distribution of $X$ and $Y$ is bivariate normal, the regression line of the previous section does even better than just being the best among all linear predictors of $Y$ based on $X$. In this section we will construct a bivariate normal pair $(X, Y)$ from i.i.d. standard normal variables. In the next section, we will identify the main property of the regression line for bivariate normal $(X, Y)$.
 
-Normalizing the covariance so that it is easier to interpret is a good idea. As you have seen in exercises, for jointly distributed random variables $X$ and $Y$ the *correlation* between $X$ and $Y$ is defined as
+The multivariate normal distribution is defined in terms of a mean vector and a covariance matrix. As you know, normalizing the covariance makes it is easier to interpret. You have shown in exercises that for jointly distributed random variables $X$ and $Y$ the *correlation* between $X$ and $Y$ is defined as
 
 $$
 r_{X,Y} ~ = ~ \frac{Cov(X, Y)}{\sigma_X\sigma_Y} ~ = ~ 
 E\Big{(}  \frac{X-\mu_X}{\sigma_X}  \cdot \frac{Y-\mu_Y}{\sigma_Y}  \Big{)}
-~ = ~ E(X^*Y^*)
+~ = ~ E(X_{su}Y_{su})
 $$
 
-where $X^\*$ is $X$ in standard units and $Y^\*$ is $Y$ in standard units.
+where $X_{su}$ is $X$ in standard units and $Y_{su}$ is $Y$ in standard units.
 
-#### Properties of Correlation ####
+### Properties of Correlation ###
 You showed all of these in exercises.
 
 - $r_{X,Y}$ depends only on standard units and hence is a pure number with no units
@@ -94,7 +94,7 @@ You showed all of these in exercises.
 
 We say that $r_{X,Y}$ measures the *linear association* between $X$ and $Y$. 
 
-#### Variance of a Sum ####
+### Correlation as a Cosine ###
 Rewrite the formula for correlation to see that 
 
 $$
@@ -109,9 +109,132 @@ $$
 
 Notice the parallel with the formula for the length of the sum of two vectors, with correlation playing the role of the cosine of the angle between two vectors. If the angle is 90 degrees, the the cosine is 0. This corresponds to correlation being zero and hence the random variables being uncorrelated. 
 
-We will visualize this idea in the case where the joint distribution of $X$ and $Y$ is bivariate normal.
+Later in this section, we will visualize this idea in the case where the joint distribution of $X$ and $Y$ is bivariate normal.
 
-### Standard Bivariate Normal Distribution ###
+# VIDEO: Construction: Bivariate Normal
+
+# VIDEO: Construction: Standard Bivariate Normal
+
+### Constructing the Standard Bivariate Normal ###
+
+The goal is to construct $X$ and $Y$ that have the multivariate normal distribution with mean vector $[0 ~ 0]^T$ and covariance matrix 
+$\begin{bmatrix}
+1 & \rho \\
+\rho & 1
+\end{bmatrix}$
+for some $\rho$ such that $0 < \rho < 1$. We will say that $X$ and $Y$ have the *standard bivariate normal distribution with correlation $\rho$*.
+
+Any bivariate normal vector is a linear transformation of an i.i.d. standard normal vector. Start with two i.i.d. standard normal random variables $X$ and $Z$. We will construct the required bivariate normal random vector $[X ~ Y]^T$ as a linear transformation of the random vector $[X ~ Z]^T$.
+
+First note that since all three of $X$, $Y$, and $Z$ must have mean $0$, the linear transformation has no shift term. We just need to identify numbers $a$, $b$, $c$, and $d$ such that
+
+$$
+\begin{bmatrix}
+X \\
+Y
+\end{bmatrix}
+~ = ~
+\begin{bmatrix}
+a & b \\
+c & d
+\end{bmatrix}
+\begin{bmatrix}
+X \\
+Z
+\end{bmatrix}
+$$
+
+Taking $a=1$ and $b=0$ is a good start because it gives us the right first coordinate.
+
+$$
+\begin{bmatrix}
+1 & 0 \\
+c & d
+\end{bmatrix}
+\begin{bmatrix}
+X \\
+Z
+\end{bmatrix}
+~=~
+\begin{bmatrix}
+X \\
+cX+dZ
+\end{bmatrix}
+$$
+
+Since both $X$ and $Y$ must have variance $1$, the covariance of $X$ and $Y$ is equal to the correlation. So, by the independence of $X$ and $Z$,
+
+$$
+\rho ~ = ~ Cov(X, cX+dZ) ~ = ~ cVar(X) = c
+$$
+
+So now we have
+
+$$
+\begin{bmatrix}
+1 & 0 \\
+\rho & d
+\end{bmatrix}
+\begin{bmatrix}
+X \\
+Z
+\end{bmatrix}
+~=~
+\begin{bmatrix}
+X \\
+\rho X+dZ
+\end{bmatrix}
+~ = ~ 
+\begin{bmatrix}
+X \\
+Y
+\end{bmatrix}
+$$
+
+Since $Var(Y) = 1$, the final condition is $1 = Var(\rho X + dZ) = \rho^2Var(X) + d^2Var(Z) = rho^2 + d^2$. So $d = \sqrt{1 - \rho^2}$ will work, and we have the following result.
+
+- Let $X$ be standard normal.
+- Let $Z$ be standard normal, independent of $X$.
+- Let $Y = \rho X + \sqrt{1-\rho^2}Z$. 
+- Then $X$ and $Y$ have the standard bivariate normal distribution with correlation $\rho$.
+
+It is also true that if $X$ and $Y$ are standard bivariate normal with correlation $\rho$, then there is a standard normal $Z$ independent of $X$ such that $Y = \rho X + \sqrt{1-\rho^2}Z$. The proof is an exercise.
+
+The graph below shows the empirical distribution of 1000 $(X, Y)$ points in the case $\rho = 0.6$. You can change the value of $rho$ and see how the scatter diagram changes. It will remind you of numerous such simulations in Data 8.
+
+# Plotting parameters
+plt.figure(figsize=(5, 5))
+plt.axes().set_aspect('equal')
+plt.xlabel('$X$')
+plt.ylabel('$Y$', rotation=0)
+plt.xticks(np.arange(-4, 4.1))
+plt.yticks(np.arange(-4, 4.1))
+
+# X, Z, and Y
+x = stats.norm.rvs(0, 1, size=1000)
+z = stats.norm.rvs(0, 1, size=1000)
+rho = 0.6
+y = rho*x + np.sqrt((1-rho**2))*z
+plt.scatter(x, y, color='darkblue', s=10);
+
+### Representations of the Bivariate Normal ###
+
+When we are working with just two variables $X$ and $Y$, matrix representations are usually unnecessary. We will use the following three representations interchangeably.
+
+- $X$ and $Y$ are bivariate normal with parameters $(\mu_X, \mu_Y, \sigma_X^2, \sigma_Y^2, \rho)$
+- The standardized variables $X_{su}$ and $Y_{su}$ are standard bivariate normal with correlation $\rho$. Then $Y_{su} = \rho X_{su} + \sqrt{1-\rho^2}Z$ for some standard normal $Z$ that is independent of $X_{su}$. This follows from Definition 2 of the multivariate normal.
+- $X$ and $Y$ have the multivariate normal distribution with mean vector $[\mu_X ~ \mu_Y]^T$ and covariance matrix
+
+$$
+\begin{bmatrix}
+\sigma_X^2 & \rho\sigma_X\sigma_Y \\
+\rho\sigma_X\sigma_Y & \sigma_Y^2
+\end{bmatrix}
+$$
+
+### Standard Bivariate Normal: Matrix Approach ###
+In lab, you used a matrix approach to constructing standard bivariate normal $X$ and $Y$ with correlation $\rho$. Here is a summary of the construction. The end result is the same as what we developed above.
+
 Let $X$ and $Z$ be independent standard normal variables, that is, bivariate normal random variables with mean vector $\mathbf{0}$ and covariance matrix equal to the identity. Now fix a number $\rho$ (that's the Greek letter rho, the lower case r) so that $-1 < \rho < 1$, and let
 
 $$
@@ -165,26 +288,7 @@ $$
 \end{bmatrix}
 $$
 
-We say that $X$ and $Y$ have the *standard bivariate normal distribution with correlation $\rho$*.
-
-The graph below shows the empirical distribution of 1000 $(X, Y)$ points in the case $\rho = 0.6$. You can change the value of $rho$ and see how the scatter diagram changes. It will remind you of numerous such simulations in Data 8.
-
-# Plotting parameters
-plt.figure(figsize=(5, 5))
-plt.axes().set_aspect('equal')
-plt.xlabel('$X$')
-plt.ylabel('$Y$', rotation=0)
-plt.xticks(np.arange(-4, 4.1))
-plt.yticks(np.arange(-4, 4.1))
-
-# X, Z, and Y
-x = stats.norm.rvs(0, 1, size=1000)
-z = stats.norm.rvs(0, 1, size=1000)
-rho = 0.6
-y = rho*x + np.sqrt((1-rho**2))*z
-plt.scatter(x, y, color='darkblue', s=10);
-
-### Correlation as a Cosine ###
+### Correlation as a Cosine: Geometry in the Bivariate Normal Case ###
 We have defined
 
 $$
@@ -267,18 +371,3 @@ projection_1_2(theta)
 When $\theta = 90$ degrees, $\cos(\theta) = 0$. The joint density surface of $(X, Y)$ is the same as that of $(X, Z)$ and has circular symmetry.
 
 If you think of $\rho X$ as a "signal" and $\sqrt{1-\rho^2}Z$ as "noise", then $Y$ can be thought of as an observation whose value is "signal plus noise". In the rest of the chapter we will see if we can separate the signal from the noise.
-
-### Representations of the Bivariate Normal ###
-When we are working with just two variables $X$ and $Y$, matrix representations are often unnecessary. We will use the following three representations interchangeably.
-
-- $X_1$ and $X_2$ are bivariate normal with parameters $(\mu_1, \mu_2, \sigma_1^2, \sigma_2^2, \rho)$
-- The standardized variables $X_1^\*$ and $X_2^\*$ are standard bivariate normal with correlation $\rho$. Then $X_2^\* = \rho X_1^\* + \sqrt{1-\rho^2}Z$ for some standard normal $Z$ that is independent of $X_1^\*$. This follows from Definition 2 of the multivariate normal.
-- $X_1$ and $X_2$ have the multivariate normal distribution with mean vector $[\mu_1 ~ \mu_2]^T$ and covariance matrix
-
-$$
-\begin{bmatrix}
-\sigma_1^2 & \rho\sigma_1\sigma_2 \\
-\rho\sigma_1\sigma_2 & \sigma_2^2
-\end{bmatrix}
-$$
-

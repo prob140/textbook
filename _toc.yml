@@ -200,8 +200,8 @@
   - file: content/Chapter_24/00_Simple_Linear_Regression
     expand_sections: true
     sections:
-    - file: content/Chapter_24/01_Bivariate_Normal_Distribution
-    - file: content/Chapter_24/02_Linear_Least_Squares
+    - file: content/Chapter_24/01_Linear_Least_Squares
+    - file: content/Chapter_24/02_Bivariate_Normal_Distribution
     - file: content/Chapter_24/03_Regression_and_Bivariate_Normal
     - file: content/Chapter_24/04_Regression_Equation
   - file: content/Chapter_25/00_Multiple_Regression

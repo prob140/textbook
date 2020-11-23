@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>24.1. Bivariate Normal Distribution &#8212; Prob 140 Textbook</title>
+    <title>24.2. Bivariate Normal Distribution &#8212; Prob 140 Textbook</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
@@ -40,8 +40,8 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="24.2. Least Squares Linear Predictor" href="02_Linear_Least_Squares.html" />
-    <link rel="prev" title="24. Simple Linear Regression" href="00_Simple_Linear_Regression.html" />
+    <link rel="next" title="24.3. Regression and the Bivariate Normal" href="03_Regression_and_Bivariate_Normal.html" />
+    <link rel="prev" title="24.1. Least Squares Linear Predictor" href="01_Linear_Least_Squares.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -855,14 +855,14 @@
    24. Simple Linear Regression
   </a>
   <ul class="current">
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     24.1. Bivariate Normal Distribution
+   <li class="toctree-l2">
+    <a class="reference internal" href="01_Linear_Least_Squares.html">
+     24.1. Least Squares Linear Predictor
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="02_Linear_Least_Squares.html">
-     24.2. Least Squares Linear Predictor
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     24.2. Bivariate Normal Distribution
     </a>
    </li>
    <li class="toctree-l2">
@@ -942,7 +942,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/content/Chapter_24/01_Bivariate_Normal_Distribution.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/content/Chapter_24/02_Bivariate_Normal_Distribution.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -967,7 +967,7 @@
     <div class="dropdown-buttons">
         
         
-        <a class="jupyterhub-button" href="https://prob140.datahub.berkeley.edu/hub/user-redirect/git-pull?repo=https://github.com/prob140/textbook&urlpath=tree/textbook/content/Chapter_24/01_Bivariate_Normal_Distribution.ipynb&branch=gh-pages"><button type="button"
+        <a class="jupyterhub-button" href="https://prob140.datahub.berkeley.edu/hub/user-redirect/git-pull?repo=https://github.com/prob140/textbook&urlpath=tree/textbook/content/Chapter_24/02_Bivariate_Normal_Distribution.ipynb&branch=gh-pages"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
                 data-placement="left"><img class="jupyterhub-button-logo"
                     src="../../_static/images/logo_jupyterhub.svg"
@@ -989,27 +989,37 @@
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#properties-of-correlation">
-   24.1.1. Properties of Correlation
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#variance-of-a-sum">
-   24.1.2. Variance of a Sum
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#standard-bivariate-normal-distribution">
-   24.1.3. Standard Bivariate Normal Distribution
+   24.2.1. Properties of Correlation
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#correlation-as-a-cosine">
-   24.1.4. Correlation as a Cosine
+   24.2.2. Correlation as a Cosine
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#constructing-the-standard-bivariate-normal">
+   24.2.3. Constructing the Standard Bivariate Normal
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#representations-of-the-bivariate-normal">
+   24.2.4. Representations of the Bivariate Normal
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#standard-bivariate-normal-matrix-approach">
+   24.2.5. Standard Bivariate Normal: Matrix Approach
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#correlation-as-a-cosine-geometry-in-the-bivariate-normal-case">
+   24.2.6. Correlation as a Cosine: Geometry in the Bivariate Normal Case
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#small-theta">
-   24.1.5. Small
+   24.2.7. Small
    <span class="math notranslate nohighlight">
     \(\theta\)
    </span>
@@ -1017,12 +1027,7 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#orthogonality-and-independence">
-   24.1.6. Orthogonality and Independence
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#representations-of-the-bivariate-normal">
-   24.1.7. Representations of the Bivariate Normal
+   24.2.8. Orthogonality and Independence
   </a>
  </li>
 </ul>
@@ -1036,18 +1041,18 @@
               <div>
                 
   <div class="section" id="bivariate-normal-distribution">
-<h1><span class="section-number">24.1. </span>Bivariate Normal Distribution<a class="headerlink" href="#bivariate-normal-distribution" title="Permalink to this headline">¶</a></h1>
-<p>The multivariate normal distribution is defined in terms of a mean vector and a covariance matrix. The units of covariance are often hard to understand, as they are the product of the units of the two variables.</p>
-<p>Normalizing the covariance so that it is easier to interpret is a good idea. As you have seen in exercises, for jointly distributed random variables <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> the <em>correlation</em> between <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> is defined as</p>
+<h1><span class="section-number">24.2. </span>Bivariate Normal Distribution<a class="headerlink" href="#bivariate-normal-distribution" title="Permalink to this headline">¶</a></h1>
+<p>When the joint distribution of <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> is bivariate normal, the regression line of the previous section does even better than just being the best among all linear predictors of <span class="math notranslate nohighlight">\(Y\)</span> based on <span class="math notranslate nohighlight">\(X\)</span>. In this section we will construct a bivariate normal pair <span class="math notranslate nohighlight">\((X, Y)\)</span> from i.i.d. standard normal variables. In the next section, we will identify the main property of the regression line for bivariate normal <span class="math notranslate nohighlight">\((X, Y)\)</span>.</p>
+<p>The multivariate normal distribution is defined in terms of a mean vector and a covariance matrix. As you know, normalizing the covariance makes it is easier to interpret. You have shown in exercises that for jointly distributed random variables <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> the <em>correlation</em> between <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> is defined as</p>
 <div class="math notranslate nohighlight">
 \[
 r_{X,Y} ~ = ~ \frac{Cov(X, Y)}{\sigma_X\sigma_Y} ~ = ~ 
 E\Big{(}  \frac{X-\mu_X}{\sigma_X}  \cdot \frac{Y-\mu_Y}{\sigma_Y}  \Big{)}
-~ = ~ E(X^*Y^*)
+~ = ~ E(X_{su}Y_{su})
 \]</div>
-<p>where <span class="math notranslate nohighlight">\(X^\*\)</span> is <span class="math notranslate nohighlight">\(X\)</span> in standard units and <span class="math notranslate nohighlight">\(Y^\*\)</span> is <span class="math notranslate nohighlight">\(Y\)</span> in standard units.</p>
+<p>where <span class="math notranslate nohighlight">\(X_{su}\)</span> is <span class="math notranslate nohighlight">\(X\)</span> in standard units and <span class="math notranslate nohighlight">\(Y_{su}\)</span> is <span class="math notranslate nohighlight">\(Y\)</span> in standard units.</p>
 <div class="section" id="properties-of-correlation">
-<h2><span class="section-number">24.1.1. </span>Properties of Correlation<a class="headerlink" href="#properties-of-correlation" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">24.2.1. </span>Properties of Correlation<a class="headerlink" href="#properties-of-correlation" title="Permalink to this headline">¶</a></h2>
 <p>You showed all of these in exercises.</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(r_{X,Y}\)</span> depends only on standard units and hence is a pure number with no units</p></li>
@@ -1057,8 +1062,8 @@ E\Big{(}  \frac{X-\mu_X}{\sigma_X}  \cdot \frac{Y-\mu_Y}{\sigma_Y}  \Big{)}
 </ul>
 <p>We say that <span class="math notranslate nohighlight">\(r_{X,Y}\)</span> measures the <em>linear association</em> between <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span>.</p>
 </div>
-<div class="section" id="variance-of-a-sum">
-<h2><span class="section-number">24.1.2. </span>Variance of a Sum<a class="headerlink" href="#variance-of-a-sum" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="correlation-as-a-cosine">
+<h2><span class="section-number">24.2.2. </span>Correlation as a Cosine<a class="headerlink" href="#correlation-as-a-cosine" title="Permalink to this headline">¶</a></h2>
 <p>Rewrite the formula for correlation to see that</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1070,10 +1075,134 @@ Cov(X, Y) ~ = ~ r_{X,Y}\sigma_X\sigma_Y
 \sigma_{X+Y}^2 ~ = ~ \sigma_X^2 + \sigma_Y^2 + 2r_{X,Y}\sigma_X\sigma_Y
 \]</div>
 <p>Notice the parallel with the formula for the length of the sum of two vectors, with correlation playing the role of the cosine of the angle between two vectors. If the angle is 90 degrees, the the cosine is 0. This corresponds to correlation being zero and hence the random variables being uncorrelated.</p>
-<p>We will visualize this idea in the case where the joint distribution of <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> is bivariate normal.</p>
+<p>Later in this section, we will visualize this idea in the case where the joint distribution of <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> is bivariate normal.</p>
+<div class="cell tag_remove-input tag_hide-ouput docutils container">
 </div>
-<div class="section" id="standard-bivariate-normal-distribution">
-<h2><span class="section-number">24.1.3. </span>Standard Bivariate Normal Distribution<a class="headerlink" href="#standard-bivariate-normal-distribution" title="Permalink to this headline">¶</a></h2>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+</div>
+</div>
+<div class="section" id="constructing-the-standard-bivariate-normal">
+<h2><span class="section-number">24.2.3. </span>Constructing the Standard Bivariate Normal<a class="headerlink" href="#constructing-the-standard-bivariate-normal" title="Permalink to this headline">¶</a></h2>
+<p>The goal is to construct <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> that have the multivariate normal distribution with mean vector <span class="math notranslate nohighlight">\([0 ~ 0]^T\)</span> and covariance matrix
+<span class="math notranslate nohighlight">\(\begin{bmatrix}
+1 &amp; \rho \\
+\rho &amp; 1
+\end{bmatrix}\)</span>
+for some <span class="math notranslate nohighlight">\(\rho\)</span> such that <span class="math notranslate nohighlight">\(0 &lt; \rho &lt; 1\)</span>. We will say that <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> have the <em>standard bivariate normal distribution with correlation <span class="math notranslate nohighlight">\(\rho\)</span></em>.</p>
+<p>Any bivariate normal vector is a linear transformation of an i.i.d. standard normal vector. Start with two i.i.d. standard normal random variables <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Z\)</span>. We will construct the required bivariate normal random vector <span class="math notranslate nohighlight">\([X ~ Y]^T\)</span> as a linear transformation of the random vector <span class="math notranslate nohighlight">\([X ~ Z]^T\)</span>.</p>
+<p>First note that since all three of <span class="math notranslate nohighlight">\(X\)</span>, <span class="math notranslate nohighlight">\(Y\)</span>, and <span class="math notranslate nohighlight">\(Z\)</span> must have mean <span class="math notranslate nohighlight">\(0\)</span>, the linear transformation has no shift term. We just need to identify numbers <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(b\)</span>, <span class="math notranslate nohighlight">\(c\)</span>, and <span class="math notranslate nohighlight">\(d\)</span> such that</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix}
+X \\
+Y
+\end{bmatrix}
+~ = ~
+\begin{bmatrix}
+a &amp; b \\
+c &amp; d
+\end{bmatrix}
+\begin{bmatrix}
+X \\
+Z
+\end{bmatrix}
+\end{split}\]</div>
+<p>Taking <span class="math notranslate nohighlight">\(a=1\)</span> and <span class="math notranslate nohighlight">\(b=0\)</span> is a good start because it gives us the right first coordinate.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix}
+1 &amp; 0 \\
+c &amp; d
+\end{bmatrix}
+\begin{bmatrix}
+X \\
+Z
+\end{bmatrix}
+~=~
+\begin{bmatrix}
+X \\
+cX+dZ
+\end{bmatrix}
+\end{split}\]</div>
+<p>Since both <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> must have variance <span class="math notranslate nohighlight">\(1\)</span>, the covariance of <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> is equal to the correlation. So, by the independence of <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Z\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[
+\rho ~ = ~ Cov(X, cX+dZ) ~ = ~ cVar(X) = c
+\]</div>
+<p>So now we have</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix}
+1 &amp; 0 \\
+\rho &amp; d
+\end{bmatrix}
+\begin{bmatrix}
+X \\
+Z
+\end{bmatrix}
+~=~
+\begin{bmatrix}
+X \\
+\rho X+dZ
+\end{bmatrix}
+~ = ~ 
+\begin{bmatrix}
+X \\
+Y
+\end{bmatrix}
+\end{split}\]</div>
+<p>Since <span class="math notranslate nohighlight">\(Var(Y) = 1\)</span>, the final condition is <span class="math notranslate nohighlight">\(1 = Var(\rho X + dZ) = \rho^2Var(X) + d^2Var(Z) = rho^2 + d^2\)</span>. So <span class="math notranslate nohighlight">\(d = \sqrt{1 - \rho^2}\)</span> will work, and we have the following result.</p>
+<ul class="simple">
+<li><p>Let <span class="math notranslate nohighlight">\(X\)</span> be standard normal.</p></li>
+<li><p>Let <span class="math notranslate nohighlight">\(Z\)</span> be standard normal, independent of <span class="math notranslate nohighlight">\(X\)</span>.</p></li>
+<li><p>Let <span class="math notranslate nohighlight">\(Y = \rho X + \sqrt{1-\rho^2}Z\)</span>.</p></li>
+<li><p>Then <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> have the standard bivariate normal distribution with correlation <span class="math notranslate nohighlight">\(\rho\)</span>.</p></li>
+</ul>
+<p>It is also true that if <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> are standard bivariate normal with correlation <span class="math notranslate nohighlight">\(\rho\)</span>, then there is a standard normal <span class="math notranslate nohighlight">\(Z\)</span> independent of <span class="math notranslate nohighlight">\(X\)</span> such that <span class="math notranslate nohighlight">\(Y = \rho X + \sqrt{1-\rho^2}Z\)</span>. The proof is an exercise.</p>
+<p>The graph below shows the empirical distribution of 1000 <span class="math notranslate nohighlight">\((X, Y)\)</span> points in the case <span class="math notranslate nohighlight">\(\rho = 0.6\)</span>. You can change the value of <span class="math notranslate nohighlight">\(rho\)</span> and see how the scatter diagram changes. It will remind you of numerous such simulations in Data 8.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plotting parameters</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">()</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;$X$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;$Y$&#39;</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mf">4.1</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mf">4.1</span><span class="p">))</span>
+
+<span class="c1"># X, Z, and Y</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">rho</span> <span class="o">=</span> <span class="mf">0.6</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">rho</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="mi">1</span><span class="o">-</span><span class="n">rho</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span><span class="o">*</span><span class="n">z</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;darkblue&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">10</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/02_Bivariate_Normal_Distribution_8_0.png" src="../../_images/02_Bivariate_Normal_Distribution_8_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="representations-of-the-bivariate-normal">
+<h2><span class="section-number">24.2.4. </span>Representations of the Bivariate Normal<a class="headerlink" href="#representations-of-the-bivariate-normal" title="Permalink to this headline">¶</a></h2>
+<p>When we are working with just two variables <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span>, matrix representations are usually unnecessary. We will use the following three representations interchangeably.</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> are bivariate normal with parameters <span class="math notranslate nohighlight">\((\mu_X, \mu_Y, \sigma_X^2, \sigma_Y^2, \rho)\)</span></p></li>
+<li><p>The standardized variables <span class="math notranslate nohighlight">\(X_{su}\)</span> and <span class="math notranslate nohighlight">\(Y_{su}\)</span> are standard bivariate normal with correlation <span class="math notranslate nohighlight">\(\rho\)</span>. Then <span class="math notranslate nohighlight">\(Y_{su} = \rho X_{su} + \sqrt{1-\rho^2}Z\)</span> for some standard normal <span class="math notranslate nohighlight">\(Z\)</span> that is independent of <span class="math notranslate nohighlight">\(X_{su}\)</span>. This follows from Definition 2 of the multivariate normal.</p></li>
+<li><p><span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> have the multivariate normal distribution with mean vector <span class="math notranslate nohighlight">\([\mu_X ~ \mu_Y]^T\)</span> and covariance matrix</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix}
+\sigma_X^2 &amp; \rho\sigma_X\sigma_Y \\
+\rho\sigma_X\sigma_Y &amp; \sigma_Y^2
+\end{bmatrix}
+\end{split}\]</div>
+</div>
+<div class="section" id="standard-bivariate-normal-matrix-approach">
+<h2><span class="section-number">24.2.5. </span>Standard Bivariate Normal: Matrix Approach<a class="headerlink" href="#standard-bivariate-normal-matrix-approach" title="Permalink to this headline">¶</a></h2>
+<p>In lab, you used a matrix approach to constructing standard bivariate normal <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> with correlation <span class="math notranslate nohighlight">\(\rho\)</span>. Here is a summary of the construction. The end result is the same as what we developed above.</p>
 <p>Let <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Z\)</span> be independent standard normal variables, that is, bivariate normal random variables with mean vector <span class="math notranslate nohighlight">\(\mathbf{0}\)</span> and covariance matrix equal to the identity. Now fix a number <span class="math notranslate nohighlight">\(\rho\)</span> (that’s the Greek letter rho, the lower case r) so that <span class="math notranslate nohighlight">\(-1 &lt; \rho &lt; 1\)</span>, and let</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -1124,34 +1253,9 @@ Z
 \rho &amp; 1
 \end{bmatrix}
 \end{split}\]</div>
-<p>We say that <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> have the <em>standard bivariate normal distribution with correlation <span class="math notranslate nohighlight">\(\rho\)</span></em>.</p>
-<p>The graph below shows the empirical distribution of 1000 <span class="math notranslate nohighlight">\((X, Y)\)</span> points in the case <span class="math notranslate nohighlight">\(\rho = 0.6\)</span>. You can change the value of <span class="math notranslate nohighlight">\(rho\)</span> and see how the scatter diagram changes. It will remind you of numerous such simulations in Data 8.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plotting parameters</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">()</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;$X$&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;$Y$&#39;</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mf">4.1</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mf">4.1</span><span class="p">))</span>
-
-<span class="c1"># X, Z, and Y</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
-<span class="n">z</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
-<span class="n">rho</span> <span class="o">=</span> <span class="mf">0.6</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">rho</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="mi">1</span><span class="o">-</span><span class="n">rho</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span><span class="o">*</span><span class="n">z</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;darkblue&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">10</span><span class="p">);</span>
-</pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../_images/01_Bivariate_Normal_Distribution_5_0.png" src="../../_images/01_Bivariate_Normal_Distribution_5_0.png" />
-</div>
-</div>
-</div>
-<div class="section" id="correlation-as-a-cosine">
-<h2><span class="section-number">24.1.4. </span>Correlation as a Cosine<a class="headerlink" href="#correlation-as-a-cosine" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="correlation-as-a-cosine-geometry-in-the-bivariate-normal-case">
+<h2><span class="section-number">24.2.6. </span>Correlation as a Cosine: Geometry in the Bivariate Normal Case<a class="headerlink" href="#correlation-as-a-cosine-geometry-in-the-bivariate-normal-case" title="Permalink to this headline">¶</a></h2>
 <p>We have defined</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1161,7 +1265,7 @@ Y ~ = ~ \rho X + \sqrt{1 - \rho^2} Z
 <p>Let’s understand this construction geometrically. A good place to start is the joint density of <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Z\)</span>, which has circular symmetry.</p>
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/01_Bivariate_Normal_Distribution_7_0.png" src="../../_images/01_Bivariate_Normal_Distribution_7_0.png" />
+<img alt="../../_images/02_Bivariate_Normal_Distribution_12_0.png" src="../../_images/02_Bivariate_Normal_Distribution_12_0.png" />
 </div>
 </div>
 <p>The <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Z\)</span> axes are orthogonal. Let’s see what happens if we twist them.</p>
@@ -1177,7 +1281,7 @@ Y ~ = ~ \rho X + \sqrt{1 - \rho^2} Z
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/01_Bivariate_Normal_Distribution_9_0.png" src="../../_images/01_Bivariate_Normal_Distribution_9_0.png" />
+<img alt="../../_images/02_Bivariate_Normal_Distribution_14_0.png" src="../../_images/02_Bivariate_Normal_Distribution_14_0.png" />
 </div>
 </div>
 <p>Let <span class="math notranslate nohighlight">\(Y\)</span> be the length of the red segment, and remember that <span class="math notranslate nohighlight">\(X\)</span> is the length of the blue segment. When <span class="math notranslate nohighlight">\(\theta\)</span> is very small, <span class="math notranslate nohighlight">\(Y\)</span> is almost equal to <span class="math notranslate nohighlight">\(X\)</span>. When <span class="math notranslate nohighlight">\(\theta\)</span> approaches 90 degrees, <span class="math notranslate nohighlight">\(Y\)</span> is almost equal to <span class="math notranslate nohighlight">\(Z\)</span>.</p>
@@ -1189,7 +1293,7 @@ Y ~ = ~ \rho X + \sqrt{1 - \rho^2} Z
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/01_Bivariate_Normal_Distribution_11_0.png" src="../../_images/01_Bivariate_Normal_Distribution_11_0.png" />
+<img alt="../../_images/02_Bivariate_Normal_Distribution_16_0.png" src="../../_images/02_Bivariate_Normal_Distribution_16_0.png" />
 </div>
 </div>
 <p>Thus</p>
@@ -1207,7 +1311,7 @@ Y ~ = ~ X\cos(\theta) + Z\sin(\theta) ~ = ~ \rho X + \sqrt{1 - \rho^2}Z
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/01_Bivariate_Normal_Distribution_13_0.png" src="../../_images/01_Bivariate_Normal_Distribution_13_0.png" />
+<img alt="../../_images/02_Bivariate_Normal_Distribution_18_0.png" src="../../_images/02_Bivariate_Normal_Distribution_18_0.png" />
 </div>
 </div>
 <p>The bivariate normal distribution is the joint distribution of the blue and red lengths <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> when the original point <span class="math notranslate nohighlight">\((X, Z)\)</span> has i.i.d. standard normal coordinates. This transforms the circular contours of the joint density surface of <span class="math notranslate nohighlight">\((X, Z)\)</span> into the elliptical contours of the joint density surface of <span class="math notranslate nohighlight">\((X, Y)\)</span>.</p>
@@ -1232,12 +1336,12 @@ Y ~ = ~ X\cos(\theta) + Z\sin(\theta) ~ = ~ \rho X + \sqrt{1 - \rho^2}Z
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/01_Bivariate_Normal_Distribution_16_0.png" src="../../_images/01_Bivariate_Normal_Distribution_16_0.png" />
+<img alt="../../_images/02_Bivariate_Normal_Distribution_21_0.png" src="../../_images/02_Bivariate_Normal_Distribution_21_0.png" />
 </div>
 </div>
 </div>
 <div class="section" id="small-theta">
-<h2><span class="section-number">24.1.5. </span>Small <span class="math notranslate nohighlight">\(\theta\)</span><a class="headerlink" href="#small-theta" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">24.2.7. </span>Small <span class="math notranslate nohighlight">\(\theta\)</span><a class="headerlink" href="#small-theta" title="Permalink to this headline">¶</a></h2>
 <p>As we observed earlier, when <span class="math notranslate nohighlight">\(\theta\)</span> is very small there is hardly any change in the position of the axis. So <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> are almost equal.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1247,7 +1351,7 @@ Y ~ = ~ X\cos(\theta) + Z\sin(\theta) ~ = ~ \rho X + \sqrt{1 - \rho^2}Z
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/01_Bivariate_Normal_Distribution_18_0.png" src="../../_images/01_Bivariate_Normal_Distribution_18_0.png" />
+<img alt="../../_images/02_Bivariate_Normal_Distribution_23_0.png" src="../../_images/02_Bivariate_Normal_Distribution_23_0.png" />
 </div>
 </div>
 <p>The bivariate normal density of <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span>, therefore, is essentially confined to the <span class="math notranslate nohighlight">\(X = Y\)</span> line. The correlation <span class="math notranslate nohighlight">\(\cos(\theta)\)</span> is large because <span class="math notranslate nohighlight">\(\theta\)</span> is small; it is more than 0.999.</p>
@@ -1272,12 +1376,12 @@ Y ~ = ~ X\cos(\theta) + Z\sin(\theta) ~ = ~ \rho X + \sqrt{1 - \rho^2}Z
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/01_Bivariate_Normal_Distribution_21_0.png" src="../../_images/01_Bivariate_Normal_Distribution_21_0.png" />
+<img alt="../../_images/02_Bivariate_Normal_Distribution_26_0.png" src="../../_images/02_Bivariate_Normal_Distribution_26_0.png" />
 </div>
 </div>
 </div>
 <div class="section" id="orthogonality-and-independence">
-<h2><span class="section-number">24.1.6. </span>Orthogonality and Independence<a class="headerlink" href="#orthogonality-and-independence" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">24.2.8. </span>Orthogonality and Independence<a class="headerlink" href="#orthogonality-and-independence" title="Permalink to this headline">¶</a></h2>
 <p>When <span class="math notranslate nohighlight">\(\theta\)</span> is 90 degrees, the gold axis is orthogonal to the <span class="math notranslate nohighlight">\(X\)</span> axis and <span class="math notranslate nohighlight">\(Y\)</span> is equal to <span class="math notranslate nohighlight">\(Z\)</span> which is independent of <span class="math notranslate nohighlight">\(X\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1287,27 +1391,11 @@ Y ~ = ~ X\cos(\theta) + Z\sin(\theta) ~ = ~ \rho X + \sqrt{1 - \rho^2}Z
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/01_Bivariate_Normal_Distribution_23_0.png" src="../../_images/01_Bivariate_Normal_Distribution_23_0.png" />
+<img alt="../../_images/02_Bivariate_Normal_Distribution_28_0.png" src="../../_images/02_Bivariate_Normal_Distribution_28_0.png" />
 </div>
 </div>
 <p>When <span class="math notranslate nohighlight">\(\theta = 90\)</span> degrees, <span class="math notranslate nohighlight">\(\cos(\theta) = 0\)</span>. The joint density surface of <span class="math notranslate nohighlight">\((X, Y)\)</span> is the same as that of <span class="math notranslate nohighlight">\((X, Z)\)</span> and has circular symmetry.</p>
 <p>If you think of <span class="math notranslate nohighlight">\(\rho X\)</span> as a “signal” and <span class="math notranslate nohighlight">\(\sqrt{1-\rho^2}Z\)</span> as “noise”, then <span class="math notranslate nohighlight">\(Y\)</span> can be thought of as an observation whose value is “signal plus noise”. In the rest of the chapter we will see if we can separate the signal from the noise.</p>
-</div>
-<div class="section" id="representations-of-the-bivariate-normal">
-<h2><span class="section-number">24.1.7. </span>Representations of the Bivariate Normal<a class="headerlink" href="#representations-of-the-bivariate-normal" title="Permalink to this headline">¶</a></h2>
-<p>When we are working with just two variables <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span>, matrix representations are often unnecessary. We will use the following three representations interchangeably.</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(X_1\)</span> and <span class="math notranslate nohighlight">\(X_2\)</span> are bivariate normal with parameters <span class="math notranslate nohighlight">\((\mu_1, \mu_2, \sigma_1^2, \sigma_2^2, \rho)\)</span></p></li>
-<li><p>The standardized variables <span class="math notranslate nohighlight">\(X_1^\*\)</span> and <span class="math notranslate nohighlight">\(X_2^\*\)</span> are standard bivariate normal with correlation <span class="math notranslate nohighlight">\(\rho\)</span>. Then <span class="math notranslate nohighlight">\(X_2^\* = \rho X_1^\* + \sqrt{1-\rho^2}Z\)</span> for some standard normal <span class="math notranslate nohighlight">\(Z\)</span> that is independent of <span class="math notranslate nohighlight">\(X_1^\*\)</span>. This follows from Definition 2 of the multivariate normal.</p></li>
-<li><p><span class="math notranslate nohighlight">\(X_1\)</span> and <span class="math notranslate nohighlight">\(X_2\)</span> have the multivariate normal distribution with mean vector <span class="math notranslate nohighlight">\([\mu_1 ~ \mu_2]^T\)</span> and covariance matrix</p></li>
-</ul>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{bmatrix}
-\sigma_1^2 &amp; \rho\sigma_1\sigma_2 \\
-\rho\sigma_1\sigma_2 &amp; \sigma_2^2
-\end{bmatrix}
-\end{split}\]</div>
 </div>
 </div>
 
@@ -1339,8 +1427,8 @@ Y ~ = ~ X\cos(\theta) + Z\sin(\theta) ~ = ~ \rho X + \sqrt{1 - \rho^2}Z
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="00_Simple_Linear_Regression.html" title="previous page"><span class="section-number">24. </span>Simple Linear Regression</a>
-    <a class='right-next' id="next-link" href="02_Linear_Least_Squares.html" title="next page"><span class="section-number">24.2. </span>Least Squares Linear Predictor</a>
+    <a class='left-prev' id="prev-link" href="01_Linear_Least_Squares.html" title="previous page"><span class="section-number">24.1. </span>Least Squares Linear Predictor</a>
+    <a class='right-next' id="next-link" href="03_Regression_and_Bivariate_Normal.html" title="next page"><span class="section-number">24.3. </span>Regression and the Bivariate Normal</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

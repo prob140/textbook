@@ -21,8 +21,8 @@ When the joint distribution of the attribute $X$ and the response $Y$ is bivaria
 :titlesonly:
 
 
-01_Bivariate_Normal_Distribution
-02_Linear_Least_Squares
+01_Linear_Least_Squares
+02_Bivariate_Normal_Distribution
 03_Regression_and_Bivariate_Normal
 04_Regression_Equation
 ```

@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>24.2. Least Squares Linear Predictor &#8212; Prob 140 Textbook</title>
+    <title>24.1. Least Squares Linear Predictor &#8212; Prob 140 Textbook</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
@@ -40,8 +40,8 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="24.3. Regression and the Bivariate Normal" href="03_Regression_and_Bivariate_Normal.html" />
-    <link rel="prev" title="24.1. Bivariate Normal Distribution" href="01_Bivariate_Normal_Distribution.html" />
+    <link rel="next" title="24.2. Bivariate Normal Distribution" href="02_Bivariate_Normal_Distribution.html" />
+    <link rel="prev" title="24. Simple Linear Regression" href="00_Simple_Linear_Regression.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -855,14 +855,14 @@
    24. Simple Linear Regression
   </a>
   <ul class="current">
-   <li class="toctree-l2">
-    <a class="reference internal" href="01_Bivariate_Normal_Distribution.html">
-     24.1. Bivariate Normal Distribution
-    </a>
-   </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     24.2. Least Squares Linear Predictor
+     24.1. Least Squares Linear Predictor
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02_Bivariate_Normal_Distribution.html">
+     24.2. Bivariate Normal Distribution
     </a>
    </li>
    <li class="toctree-l2">
@@ -942,7 +942,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/content/Chapter_24/02_Linear_Least_Squares.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/content/Chapter_24/01_Linear_Least_Squares.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -967,7 +967,7 @@
     <div class="dropdown-buttons">
         
         
-        <a class="jupyterhub-button" href="https://prob140.datahub.berkeley.edu/hub/user-redirect/git-pull?repo=https://github.com/prob140/textbook&urlpath=tree/textbook/content/Chapter_24/02_Linear_Least_Squares.ipynb&branch=gh-pages"><button type="button"
+        <a class="jupyterhub-button" href="https://prob140.datahub.berkeley.edu/hub/user-redirect/git-pull?repo=https://github.com/prob140/textbook&urlpath=tree/textbook/content/Chapter_24/01_Linear_Least_Squares.ipynb&branch=gh-pages"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
                 data-placement="left"><img class="jupyterhub-button-logo"
                     src="../../_static/images/logo_jupyterhub.svg"
@@ -989,34 +989,34 @@
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#minimizing-mean-squared-error">
-   24.2.1. Minimizing Mean Squared Error
+   24.1.1. Minimizing Mean Squared Error
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#step-1">
-     24.2.1.1. Step 1
+     24.1.1.1. Step 1
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#step-2">
-     24.2.1.2. Step 2
+     24.1.1.2. Step 2
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#slope-and-intercept-of-the-regression-line">
-   24.2.2. Slope and Intercept of the Regression Line
+   24.1.2. Slope and Intercept of the Regression Line
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#regression-in-standard-units">
-   24.2.3. Regression in Standard Units
+   24.1.3. Regression in Standard Units
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#the-line-and-the-shape-of-the-scatter-diagram">
-   24.2.4. The Line and the Shape of the Scatter Diagram
+   24.1.4. The Line and the Shape of the Scatter Diagram
   </a>
  </li>
 </ul>
@@ -1030,11 +1030,13 @@
               <div>
                 
   <div class="section" id="least-squares-linear-predictor">
-<h1><span class="section-number">24.2. </span>Least Squares Linear Predictor<a class="headerlink" href="#least-squares-linear-predictor" title="Permalink to this headline">¶</a></h1>
-<p>In this section we are going to step away from the bivariate normal distribution and see if we can identify the best among all linear predictors of one numerical variable based on another, regardless of the joint distribution of the two variables.</p>
-<p>For jointly distributed random variables <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span>, you know that <span class="math notranslate nohighlight">\(E(Y \mid X)\)</span> is the least squares predictor of <span class="math notranslate nohighlight">\(Y\)</span> based on functions of <span class="math notranslate nohighlight">\(X\)</span>. We will now restrict the allowed functions to linear functions and see if we can find the best among those. In the next section we will see the connection between this best linear predictor, the best among all predictors, and the bivariate normal distribution.</p>
+<h1><span class="section-number">24.1. </span>Least Squares Linear Predictor<a class="headerlink" href="#least-squares-linear-predictor" title="Permalink to this headline">¶</a></h1>
+<p>In this section we are going to see if we can identify the best among all linear predictors of one numerical variable based on another, regardless of the joint distribution of the two variables.</p>
+<p>For jointly distributed random variables <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span>, you know that <span class="math notranslate nohighlight">\(E(Y \mid X)\)</span> is the least squares predictor of <span class="math notranslate nohighlight">\(Y\)</span> based on functions of <span class="math notranslate nohighlight">\(X\)</span>. We will now <em>restrict the allowed functions to linear functions</em> and see if we can find the best among those. In later sections we will see the connection between this best linear predictor, the best among all predictors, and the bivariate normal distribution.</p>
+<div class="cell tag_remove-input tag_hide-ouput docutils container">
+</div>
 <div class="section" id="minimizing-mean-squared-error">
-<h2><span class="section-number">24.2.1. </span>Minimizing Mean Squared Error<a class="headerlink" href="#minimizing-mean-squared-error" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">24.1.1. </span>Minimizing Mean Squared Error<a class="headerlink" href="#minimizing-mean-squared-error" title="Permalink to this headline">¶</a></h2>
 <p>Let <span class="math notranslate nohighlight">\(h(X) = aX + b\)</span> for constants <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>, and let <span class="math notranslate nohighlight">\(MSE(a, b)\)</span> denote <span class="math notranslate nohighlight">\(MSE(h)\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1042,11 +1044,11 @@ MSE(a, b) ~ = ~ E\big{(} (Y - (aX + b))^2 \big{)}
 \]</div>
 <p>To find the <em>least squares linear predictor</em>, we have to minimize this MSE over all <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>. We will do this using calculus, in two steps:</p>
 <ul class="simple">
-<li><p>Fix <span class="math notranslate nohighlight">\(a\)</span> and find the value <span class="math notranslate nohighlight">\(b_a^\*\)</span> that minimizes <span class="math notranslate nohighlight">\(MSE(a, b)\)</span> for that fixed value of <span class="math notranslate nohighlight">\(a\)</span>.</p></li>
-<li><p>Then plug in the minimizing value <span class="math notranslate nohighlight">\(b_a^\*\)</span> in place of <span class="math notranslate nohighlight">\(b\)</span> and minimize <span class="math notranslate nohighlight">\(MSE(a, b_a^\*)\)</span> with respect to <span class="math notranslate nohighlight">\(a\)</span>.</p></li>
+<li><p>Fix <span class="math notranslate nohighlight">\(a\)</span> and find the value <span class="math notranslate nohighlight">\(b_a^*\)</span> that minimizes <span class="math notranslate nohighlight">\(MSE(a, b)\)</span> for that fixed value of <span class="math notranslate nohighlight">\(a\)</span>.</p></li>
+<li><p>Then plug in the minimizing value <span class="math notranslate nohighlight">\(b_a^*\)</span> in place of <span class="math notranslate nohighlight">\(b\)</span> and minimize <span class="math notranslate nohighlight">\(MSE(a, b_a^*)\)</span> with respect to <span class="math notranslate nohighlight">\(a\)</span>.</p></li>
 </ul>
 <div class="section" id="step-1">
-<h3><span class="section-number">24.2.1.1. </span>Step 1<a class="headerlink" href="#step-1" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">24.1.1.1. </span>Step 1<a class="headerlink" href="#step-1" title="Permalink to this headline">¶</a></h3>
 <p>Fix <span class="math notranslate nohighlight">\(a\)</span> and minimize <span class="math notranslate nohighlight">\(MSE(a, b)\)</span> with respect to <span class="math notranslate nohighlight">\(b\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -1067,7 +1069,7 @@ b_a^* ~ = ~ E(Y-aX) ~ = ~ E(Y) - aE(X)
 \]</div>
 </div>
 <div class="section" id="step-2">
-<h3><span class="section-number">24.2.1.2. </span>Step 2<a class="headerlink" href="#step-2" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">24.1.1.2. </span>Step 2<a class="headerlink" href="#step-2" title="Permalink to this headline">¶</a></h3>
 <p>Now we have to minimize the following function with respect to <span class="math notranslate nohighlight">\(a\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -1076,7 +1078,7 @@ E\big{(} (Y - (aX + b_a^*))^2 \big{)} ~ &amp;= ~
 E\big{(} (Y - (aX + E(Y) - aE(X)))^2 \big{)} \\
 &amp;= ~ E\Big{(} \big{(} (Y - E(Y)) - a(X - E(X))\big{)}^2 \Big{)} \\
 &amp;= ~ E\big{(} (Y - E(Y))^2 \big{)} - 2aE\big{(} (Y - E(Y))(X - E(X)) \big{)} + a^2E\big{(} (X - E(X))^2 \big{)} \\
-&amp;= ~ Var(Y) - 2aCov(X, Y) + a^2Var(X)
+&amp;= ~ Var(Y) - 2aCov(X, Y) + a^2Var(X) \\
 \end{align*}
 \end{split}\]</div>
 <p>The derivative with respect to <span class="math notranslate nohighlight">\(a\)</span> is <span class="math notranslate nohighlight">\(-2Cov(X, Y) + 2aVar(X)\)</span>. Thus the minimizing value of <span class="math notranslate nohighlight">\(a\)</span> is</p>
@@ -1088,7 +1090,7 @@ a^* ~ = ~ \frac{Cov(X, Y)}{Var(X)}
 </div>
 </div>
 <div class="section" id="slope-and-intercept-of-the-regression-line">
-<h2><span class="section-number">24.2.2. </span>Slope and Intercept of the Regression Line<a class="headerlink" href="#slope-and-intercept-of-the-regression-line" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">24.1.2. </span>Slope and Intercept of the Regression Line<a class="headerlink" href="#slope-and-intercept-of-the-regression-line" title="Permalink to this headline">¶</a></h2>
 <p>The least squares straight line is called the <em>regression line</em>.You now have a proof of its equation, familiar to you from Data 8. Let <span class="math notranslate nohighlight">\(r_{X,Y}\)</span> be the correlation between <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span>. Then the slope and intercept are given by</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -1099,12 +1101,12 @@ a^* ~ = ~ \frac{Cov(X, Y)}{Var(X)}
 \end{split}\]</div>
 </div>
 <div class="section" id="regression-in-standard-units">
-<h2><span class="section-number">24.2.3. </span>Regression in Standard Units<a class="headerlink" href="#regression-in-standard-units" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">24.1.3. </span>Regression in Standard Units<a class="headerlink" href="#regression-in-standard-units" title="Permalink to this headline">¶</a></h2>
 <p>If both <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> are measured in standard units, then the slope of the regression line is the correlation <span class="math notranslate nohighlight">\(r_{X,Y}\)</span> and the intercept is 0.</p>
 <p>In other words, given that <span class="math notranslate nohighlight">\(X = x\)</span> standard units, the predicted value of <span class="math notranslate nohighlight">\(Y\)</span> is <span class="math notranslate nohighlight">\(r_{X,Y}x\)</span> standard units. When <span class="math notranslate nohighlight">\(r_{X,Y}\)</span> is positive but not 1, this result is called the <em>regression effect</em>: the predicted value of <span class="math notranslate nohighlight">\(Y\)</span> is closer to 0 than the given value of <span class="math notranslate nohighlight">\(X\)</span>.</p>
 </div>
 <div class="section" id="the-line-and-the-shape-of-the-scatter-diagram">
-<h2><span class="section-number">24.2.4. </span>The Line and the Shape of the Scatter Diagram<a class="headerlink" href="#the-line-and-the-shape-of-the-scatter-diagram" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">24.1.4. </span>The Line and the Shape of the Scatter Diagram<a class="headerlink" href="#the-line-and-the-shape-of-the-scatter-diagram" title="Permalink to this headline">¶</a></h2>
 <p>The calculations above show that:</p>
 <ul class="simple">
 <li><p>The regression line goes through the point <span class="math notranslate nohighlight">\((E(X), E(Y))\)</span>.</p></li>
@@ -1142,8 +1144,8 @@ a^* ~ = ~ \frac{Cov(X, Y)}{Var(X)}
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="01_Bivariate_Normal_Distribution.html" title="previous page"><span class="section-number">24.1. </span>Bivariate Normal Distribution</a>
-    <a class='right-next' id="next-link" href="03_Regression_and_Bivariate_Normal.html" title="next page"><span class="section-number">24.3. </span>Regression and the Bivariate Normal</a>
+    <a class='left-prev' id="prev-link" href="00_Simple_Linear_Regression.html" title="previous page"><span class="section-number">24. </span>Simple Linear Regression</a>
+    <a class='right-next' id="next-link" href="02_Bivariate_Normal_Distribution.html" title="next page"><span class="section-number">24.2. </span>Bivariate Normal Distribution</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

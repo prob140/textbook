@@ -31,6 +31,8 @@ You should also check that the formula is correct in the case when the elements 
 
 When $n=2$ the multivariate normal distribution is called *bivariate* normal.
 
+# VIDEO: Multivariate Normal: Parameters
+
 In lab you went through a detailed development of the multivariate normal joint density function, starting with $\mathbf{Z}$ consisting of two i.i.d. standard normal components and then taking linear combinations. It turns out that all multivariate normal random variables can be generated in this way. In fact, there are three useful equivalent definitions of a random vector $\mathbf{X}$ with the multivariate normal distribution.
 
 # VIDEO: Multivariate Normal: Definition
@@ -46,6 +48,10 @@ YouTubeVideo('owX4JKA-2F8')
 At the end of this section there is a note on establishing the equivalences. Parts of it are hard. Just accept that they are true, and let's examine the properties of the distribution.
 
 **The key to understanding the multivariate normal is Definition 2: every multivariate normal vector is a linear transformation of i.i.d. standard normals.** Let's see what Definition 2 implies for the density.
+
+# VIDEO: Multivariate Normal: Density
+
+# VIDEO: Quadratic Form
 
 ### Quadratic Form ###
 The shape of the density is determined by the *quadratic form* $\frac{1}{2}(\mathbf{x} - \boldsymbol{\mu})^T\boldsymbol{\Sigma}^{-1}(\mathbf{x} - \boldsymbol{\mu})$. The level surfaces are ellipsoids; in two dimensions these are the ellipses you saw in lab. 
@@ -98,6 +104,8 @@ $$
 $$
 
 So the quadratic form in the density of $\mathbf{X}$ becomes $\frac{1}{2} (\mathbf{x} - \mathbf{\mu_X})^T \boldsymbol{\Sigma}_\mathbf{X}^{-1} (\mathbf{x} - \mathbf{\mu_X})$.
+
+# VIDEO: Volume
 
 ### Constant of Integration ###
 By linear change of variable, the density of $\mathbf{X}$ is given by
