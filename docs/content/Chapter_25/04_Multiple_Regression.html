@@ -874,6 +874,11 @@
      24.4. The Regression Equation
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_24/05_Exercises.html">
+     24.5. Exercises
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1 current active">
@@ -990,35 +995,20 @@
   <a class="reference internal nav-link" href="#the-model">
    25.4.1. The Model
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#p-1-prediction-by-a-constant">
-     25.4.1.1.
-     <span class="math notranslate nohighlight">
-      \(p = 1\)
-     </span>
-     : Prediction by a Constant
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#p-2-simple-linear-regression">
-     25.4.1.2.
-     <span class="math notranslate nohighlight">
-      \(p = 2\)
-     </span>
-     : Simple Linear Regression
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#ordinary-least-squares">
-   25.4.2. Ordinary Least Squares
+  <a class="reference internal nav-link" href="#signal-and-noise-matrix-representation">
+   25.4.2. Signal and Noise: Matrix Representation
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#estimate-of-boldsymbol-beta">
-   25.4.3. Estimate of
+  <a class="reference internal nav-link" href="#ordinary-least-squares">
+   25.4.3. Ordinary Least Squares
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#guessing-the-best-estimate-of-boldsymbol-beta">
+   25.4.4. Guessing the Best Estimate of
    <span class="math notranslate nohighlight">
     \(\boldsymbol{\beta}\)
    </span>
@@ -1026,28 +1016,31 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#projection">
-   25.4.4. Projection
+   25.4.5. Projection
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#least-squares">
-   25.4.5. Least Squares
+   25.4.6. Least Squares
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#signal-and-noise-revisited">
+   25.4.7. Signal and Noise, Revisited
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#estimate-of-sigma-2">
-   25.4.6. Estimate of
+   25.4.8. Estimate of
    <span class="math notranslate nohighlight">
     \(\sigma^2\)
    </span>
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#special-case">
-     25.4.6.1. Special Case
-    </a>
-   </li>
-  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#confidence-intervals">
+   25.4.9. Confidence Intervals
+  </a>
  </li>
 </ul>
 
@@ -1090,13 +1083,13 @@ Y_i = \beta_0 + \beta_1x_{i,1} + \beta_2x_{i,2} + \cdots + \beta_{p-1}x_{i,p-1} 
 </ul>
 <p>We will assume that <span class="math notranslate nohighlight">\(n &gt; p\)</span>, that is, we will assume we have more individuals than parameters. Indeed in this course it is fine for you to think of <span class="math notranslate nohighlight">\(n\)</span> as much larger than <span class="math notranslate nohighlight">\(p\)</span>.</p>
 <p>Two special cases are already familiar.</p>
-<div class="section" id="p-1-prediction-by-a-constant">
-<h3><span class="section-number">25.4.1.1. </span><span class="math notranslate nohighlight">\(p = 1\)</span>: Prediction by a Constant<a class="headerlink" href="#p-1-prediction-by-a-constant" title="Permalink to this headline">¶</a></h3>
+<p><strong><span class="math notranslate nohighlight">\(p = 1\)</span>: Prediction by a Constant</strong></p>
 <p>When <span class="math notranslate nohighlight">\(p = 1\)</span> there is just one parameter: the intercept. There are no predictor variables at all. The model says that for each individual <span class="math notranslate nohighlight">\(i\)</span>, the response is <span class="math notranslate nohighlight">\(Y_i = \beta_0 + \epsilon_i\)</span>. This is a case of trying to estimate the response by a constant.</p>
-</div>
-<div class="section" id="p-2-simple-linear-regression">
-<h3><span class="section-number">25.4.1.2. </span><span class="math notranslate nohighlight">\(p = 2\)</span>: Simple Linear Regression<a class="headerlink" href="#p-2-simple-linear-regression" title="Permalink to this headline">¶</a></h3>
+<p><strong><span class="math notranslate nohighlight">\(p = 2\)</span>: Simple Linear Regression</strong></p>
 <p>The two parameters are the intercept and a slope. The model says that for each individual <span class="math notranslate nohighlight">\(i\)</span>, the response is <span class="math notranslate nohighlight">\(Y_i = \beta_0 + \beta_1x_{i,1} + \epsilon_i\)</span>. That is, the response is the value on a hidden straight line, plus some normal noise. This is the simple regression model you used in Data 8.</p>
+</div>
+<div class="section" id="signal-and-noise-matrix-representation">
+<h2><span class="section-number">25.4.2. </span>Signal and Noise: Matrix Representation<a class="headerlink" href="#signal-and-noise-matrix-representation" title="Permalink to this headline">¶</a></h2>
 <p>For any <span class="math notranslate nohighlight">\(p\)</span>, the model can be written compactly as</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1110,9 +1103,8 @@ Y_i = \beta_0 + \beta_1x_{i,1} + \beta_2x_{i,2} + \cdots + \beta_{p-1}x_{i,p-1} 
 <li><p>The <em>response vector</em> <span class="math notranslate nohighlight">\(\mathbf{Y}\)</span> is a random vector that is the sum of the linear signal <span class="math notranslate nohighlight">\(\mathbf{X}\boldsymbol{\beta}\)</span> and the normal noise <span class="math notranslate nohighlight">\(\boldsymbol{\epsilon}\)</span>.</p></li>
 </ul>
 </div>
-</div>
 <div class="section" id="ordinary-least-squares">
-<h2><span class="section-number">25.4.2. </span>Ordinary Least Squares<a class="headerlink" href="#ordinary-least-squares" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">25.4.3. </span>Ordinary Least Squares<a class="headerlink" href="#ordinary-least-squares" title="Permalink to this headline">¶</a></h2>
 <p>Based on the observations of the predictor variables and the response, the goal is to find the best estimates of the intercept and slopes in the model.</p>
 <p>These estimates can then be used to predict the response of a new individuals, assuming that the model holds for the new individual as well.</p>
 <p>We must select a criterion by which we will decide whether one estimate is better than another. To develop one such criterion, start by noting that any linear function of the predictor variables can be written as <span class="math notranslate nohighlight">\(\mathbf{X}\boldsymbol{\gamma}\)</span> where <span class="math notranslate nohighlight">\(\boldsymbol{\gamma}\)</span> is some <span class="math notranslate nohighlight">\(p \times 1\)</span> vector of coefficients. Think of <span class="math notranslate nohighlight">\(\mathbf{X}\boldsymbol{\gamma}\)</span> as an estimate of <span class="math notranslate nohighlight">\(\mathbf{Y}\)</span>. Then the error in the estimate is <span class="math notranslate nohighlight">\(\mathbf{Y} - \mathbf{X}\boldsymbol{\gamma}\)</span>.</p>
@@ -1134,10 +1126,12 @@ SSE(\boldsymbol{\gamma}) ~ = ~ \sum_{i=1}^n (Y_i - (\mathbf{X}\boldsymbol{\gamma
 <p>which is sometimes called the <em>squared norm</em> of <span class="math notranslate nohighlight">\(\mathbf{w}\)</span>.</p>
 <p>In this notation, the goal of OLS is to find the <span class="math notranslate nohighlight">\(p \times 1\)</span> vector <span class="math notranslate nohighlight">\(\hat{\boldsymbol{\beta}}\)</span> that minimizes <span class="math notranslate nohighlight">\(\| \mathbf{Y} - \mathbf{X}\boldsymbol{\gamma}\|^2\)</span> over all vectors <span class="math notranslate nohighlight">\(\boldsymbol{\gamma}\)</span>.</p>
 <p>Typically you will also have to estimate the unknown error variance <span class="math notranslate nohighlight">\(\sigma^2\)</span>. But we will not cover that in this class except in the case <span class="math notranslate nohighlight">\(p = 1\)</span>.</p>
+<div class="cell tag_remove-input tag_hide-output docutils container">
 </div>
-<div class="section" id="estimate-of-boldsymbol-beta">
-<h2><span class="section-number">25.4.3. </span>Estimate of <span class="math notranslate nohighlight">\(\boldsymbol{\beta}\)</span><a class="headerlink" href="#estimate-of-boldsymbol-beta" title="Permalink to this headline">¶</a></h2>
-<p>Remember that we have assumed <span class="math notranslate nohighlight">\(n &gt; p\)</span>. Assume also that <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> is of full column rank <span class="math notranslate nohighlight">\(p\)</span>, that is, none of the predictor variables is a linear combination of the others. By a theorem in linear algebra, it follows that the square matrix <span class="math notranslate nohighlight">\(\mathbf{X}^T\mathbf{X}\)</span> has full rank <span class="math notranslate nohighlight">\(p\)</span> and is therefore invertible.</p>
+</div>
+<div class="section" id="guessing-the-best-estimate-of-boldsymbol-beta">
+<h2><span class="section-number">25.4.4. </span>Guessing the Best Estimate of <span class="math notranslate nohighlight">\(\boldsymbol{\beta}\)</span><a class="headerlink" href="#guessing-the-best-estimate-of-boldsymbol-beta" title="Permalink to this headline">¶</a></h2>
+<p>Remember that we have assumed <span class="math notranslate nohighlight">\(n &gt; p\)</span>. Assume also that <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> is of full column rank <span class="math notranslate nohighlight">\(p\)</span>, that is, none of the predictor variables is a linear combination of the others. By a theorem in linear algebra, it follows that the <span class="math notranslate nohighlight">\(p \times p\)</span> matrix <span class="math notranslate nohighlight">\(\mathbf{X}^T\mathbf{X}\)</span> has full rank <span class="math notranslate nohighlight">\(p\)</span> and is therefore invertible.</p>
 <p>The claim is that OLS estimate of <span class="math notranslate nohighlight">\(\boldsymbol{\beta}\)</span> is the vector <span class="math notranslate nohighlight">\(\hat{\boldsymbol{\beta}}\)</span> defined by</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1148,9 +1142,20 @@ SSE(\boldsymbol{\gamma}) ~ = ~ \sum_{i=1}^n (Y_i - (\mathbf{X}\boldsymbol{\gamma
 \[
 \mathbf{b} ~ = ~ \boldsymbol{\Sigma}_\mathbf{X}^{-1}\boldsymbol{\Sigma}_\mathbf{XY}
 \]</div>
-<p>for the coefficients of the least squares linear predictor a random variable <span class="math notranslate nohighlight">\(Y\)</span> based on a random vector <span class="math notranslate nohighlight">\(\mathbf{X}\)</span>. In fact the new formula is an application of the old one but we will prove it afresh in our new setting.</p>
-<p>Before we begin the proof, notice that <span class="math notranslate nohighlight">\(\hat{\boldsymbol{\beta}}\)</span> is a linear function of <span class="math notranslate nohighlight">\(\mathbf{Y}\)</span>. This makes it straightforward to identify its distribution, which you will do in exercises.</p>
-<p>Also note that the estimated <span class="math notranslate nohighlight">\(\mathbf{Y}\)</span> is</p>
+<p>for the coefficients of the least squares linear predictor a random variable <span class="math notranslate nohighlight">\(Y\)</span> based on a random vector <span class="math notranslate nohighlight">\(\mathbf{X}\)</span>. In fact the new formula is an application of the old one. But we will derive it afresh in our new setting.</p>
+<p>The key idea is that of projection: the best <span class="math notranslate nohighlight">\(\hat{\boldsymbol{\beta}}\)</span> should be such that the error in the estimate is orthogonal to the linear space spanned by <span class="math notranslate nohighlight">\(\mathbf{X}\)</span>.</p>
+<p>The error in the best estimate is <span class="math notranslate nohighlight">\(\mathbf{Y} - \hat{\mathbf{Y}} = \mathbf{Y} - \mathbf{X}\hat{\boldsymbol{\beta}}\)</span>. For this error to be orthogonal to linear transformations of <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> we must have</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{X}^T (Y - \mathbf{X}\hat{\boldsymbol{\beta}}) = 0 ~ \implies \mathbf{X}^T Y ~ = ~ \mathbf{X}^T \mathbf{X}\hat{\boldsymbol{\beta}}
+\]</div>
+<p>We have assumed that <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> has full column rank, so <span class="math notranslate nohighlight">\(\mathbf{X}^T \mathbf{X}\)</span> is invertible. So the natural guess for the best estimator <span class="math notranslate nohighlight">\(\hat{\boldsymbol{\beta}}\)</span> is</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{\boldsymbol{\beta}} ~ = ~ (\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^T\mathbf{Y}
+\]</div>
+<p>Before we go further, notice that <span class="math notranslate nohighlight">\(\hat{\boldsymbol{\beta}}\)</span> is a linear function of <span class="math notranslate nohighlight">\(\mathbf{Y}\)</span>. This makes it straightforward to identify its distribution, which you will do in exercises.</p>
+<p>Also note that the estimate of <span class="math notranslate nohighlight">\(\mathbf{Y}\)</span> is</p>
 <div class="math notranslate nohighlight">
 \[
 \hat{\mathbf{Y}} ~ = ~ \mathbf{X}\hat{\boldsymbol{\beta}} ~ = ~ \mathbf{X}(\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^T\mathbf{Y}
@@ -1158,7 +1163,7 @@ SSE(\boldsymbol{\gamma}) ~ = ~ \sum_{i=1}^n (Y_i - (\mathbf{X}\boldsymbol{\gamma
 <p>which is also a linear function of <span class="math notranslate nohighlight">\(\mathbf{Y}\)</span>.</p>
 </div>
 <div class="section" id="projection">
-<h2><span class="section-number">25.4.4. </span>Projection<a class="headerlink" href="#projection" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">25.4.5. </span>Projection<a class="headerlink" href="#projection" title="Permalink to this headline">¶</a></h2>
 <p>Define the <span class="math notranslate nohighlight">\(i\)</span>th <em>residual</em> as the prediction error <span class="math notranslate nohighlight">\(e_i = Y_i - \hat{Y}_i\)</span>. Then the <span class="math notranslate nohighlight">\(n \times 1\)</span> vector of residuals is</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1166,19 +1171,14 @@ SSE(\boldsymbol{\gamma}) ~ = ~ \sum_{i=1}^n (Y_i - (\mathbf{X}\boldsymbol{\gamma
 \]</div>
 <p>As we have seen repeatedly, the key to least squares is that the prediction error is orthogonal to the space of allowed functions. Our space of allowed functions is all linear functions of <span class="math notranslate nohighlight">\(\mathbf{X}\)</span>. So we will show:</p>
 <p><strong>The residual vector is orthogonal to each column of <span class="math notranslate nohighlight">\(\mathbf{X}\)</span>.</strong></p>
-<p>To see this, calculate the <span class="math notranslate nohighlight">\(p \times 1\)</span> vector <span class="math notranslate nohighlight">\(\mathbf{X}^T\mathbf{e}\)</span>. Each of its elements is the dot product of <span class="math notranslate nohighlight">\(\mathbf{e}\)</span> and one column of <span class="math notranslate nohighlight">\(\mathbf{X}\)</span>. We will show that each of the elements is 0.</p>
+<p>This is essentially true by construction. Formally, calculate the <span class="math notranslate nohighlight">\(p \times 1\)</span> vector <span class="math notranslate nohighlight">\(\mathbf{X}^T\mathbf{e}\)</span>. Each of its elements is the dot product of <span class="math notranslate nohighlight">\(\mathbf{e}\)</span> and one column of <span class="math notranslate nohighlight">\(\mathbf{X}\)</span>. We will show that each of the elements is 0.</p>
 <div class="math notranslate nohighlight">
 \[
 \mathbf{X}^T\mathbf{e} ~ = ~ \mathbf{X}^T(\mathbf{Y} - \hat{\mathbf{Y}}) ~ = ~ \mathbf{X}^T\mathbf{Y} - \mathbf{X}^T\hat{\mathbf{Y}} ~ = ~ \mathbf{X}^T\mathbf{Y} - \mathbf{X}^T\mathbf{X}(\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^T\mathbf{Y} ~ = ~ \mathbf{X}^T\mathbf{Y} - \mathbf{X}^T\mathbf{Y} ~ = ~ 0
 \]</div>
-<p>It is important to keep in mind the distinction between the residual vector <span class="math notranslate nohighlight">\(\mathbf{e}\)</span> and the error vector <span class="math notranslate nohighlight">\(\boldsymbol{\epsilon}\)</span> in the model.</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(\mathbf{e}\)</span> is an observable random vector consisting of the deviations of <span class="math notranslate nohighlight">\(\mathbf{Y}\)</span> from the estimated plane <span class="math notranslate nohighlight">\(\mathbf{X}\hat{\boldsymbol{\beta}}\)</span>. Elements of <span class="math notranslate nohighlight">\(\mathbf{e}\)</span> are not independent of each other.</p></li>
-<li><p><span class="math notranslate nohighlight">\(\boldsymbol{\epsilon}\)</span> is an unobservable random vector consisting of the deviations of <span class="math notranslate nohighlight">\(\mathbf{Y}\)</span> from the true plane <span class="math notranslate nohighlight">\(\mathbf{X}\boldsymbol{\beta}\)</span>. Elements of <span class="math notranslate nohighlight">\(\boldsymbol{\epsilon}\)</span> are mutually independent.</p></li>
-</ul>
 </div>
 <div class="section" id="least-squares">
-<h2><span class="section-number">25.4.5. </span>Least Squares<a class="headerlink" href="#least-squares" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">25.4.6. </span>Least Squares<a class="headerlink" href="#least-squares" title="Permalink to this headline">¶</a></h2>
 <p>Let <span class="math notranslate nohighlight">\(\boldsymbol{\gamma}\)</span> be any <span class="math notranslate nohighlight">\(p \times 1\)</span> vector. Then</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -1192,11 +1192,42 @@ SSE(\boldsymbol{\gamma}) ~  &amp;= ~ \| \mathbf{Y} - \mathbf{X}\boldsymbol{\gamm
 &amp;\ge ~ SSE(\hat{\boldsymbol{\beta}})
 \end{align*}
 \end{split}\]</div>
-<p>In exercises you will find the distributions of <span class="math notranslate nohighlight">\(\hat{\boldsymbol{\beta}}\)</span> of <span class="math notranslate nohighlight">\(\hat{\mathbf{Y}}\)</span>. Both will depend on the unknown error variance <span class="math notranslate nohighlight">\(\sigma^2\)</span>.</p>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+</div>
+</div>
+<div class="section" id="signal-and-noise-revisited">
+<h2><span class="section-number">25.4.7. </span>Signal and Noise, Revisited<a class="headerlink" href="#signal-and-noise-revisited" title="Permalink to this headline">¶</a></h2>
+<p>Our regression model is</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{Y} ~ = ~ \mathbf{X}\boldsymbol{\beta} + \boldsymbol{\epsilon}
+\]</div>
+<p>Here</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\mathbf{X}\boldsymbol{\beta}\)</span> is the unobservable but non-random true signal</p></li>
+<li><p><span class="math notranslate nohighlight">\(\boldsymbol{\epsilon}\)</span> is an unobservable random vector consisting of the deviations of <span class="math notranslate nohighlight">\(\mathbf{Y}\)</span> from the true plane <span class="math notranslate nohighlight">\(\mathbf{X}\boldsymbol{\beta}\)</span>. Elements of <span class="math notranslate nohighlight">\(\boldsymbol{\epsilon}\)</span> are mutually independent.</p></li>
+</ul>
+<p>Once we have carried out the regression, our estimate of the response vector <span class="math notranslate nohighlight">\(\mathbf{Y}\)</span> is the vector <span class="math notranslate nohighlight">\(\hat{\mathbf{Y}} = \mathbf{X}\boldsymbol{\hat{\boldsymbol{\beta}}}\)</span>.</p>
+<p>The residual vector is</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{e} ~ = ~ \mathbf{Y} - \hat{\mathbf{Y}} ~ = ~ \mathbf{Y} - \mathbf{X}\boldsymbol{\hat{\boldsymbol{\beta}}}
+\]</div>
+<p>Therefore we have another expression for the response vector <span class="math notranslate nohighlight">\(\mathbf{Y}\)</span>. This expression is our best attempt at separating the signal from the noise.</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{Y} ~ = ~ \mathbf{X}\boldsymbol{\hat{\boldsymbol{\beta}}} + \mathbf{e}
+\]</div>
+<p>It is important to note the distinction between this identity and the model.</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\mathbf{X}\boldsymbol{\hat{\boldsymbol{\beta}}}\)</span> is the <em>observable random estimated</em> signal.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbf{e}\)</span> is the <em>observable</em> random vector consisting of the deviations of <span class="math notranslate nohighlight">\(\mathbf{Y}\)</span> from the estimated plane <span class="math notranslate nohighlight">\(\mathbf{X}\hat{\boldsymbol{\beta}}\)</span>. Elements of <span class="math notranslate nohighlight">\(\mathbf{e}\)</span> are <em>not independent</em> of each other, because they add up to <span class="math notranslate nohighlight">\(0\)</span>.</p></li>
+</ul>
+<p>In exercises you will show that <span class="math notranslate nohighlight">\(\hat{\boldsymbol{\beta}}\)</span> is an unbiased estimator of <span class="math notranslate nohighlight">\(\boldsymbol{\beta}\)</span> and that both <span class="math notranslate nohighlight">\(\hat{\boldsymbol{\beta}}\)</span> of <span class="math notranslate nohighlight">\(\hat{\mathbf{Y}}\)</span> have normal (or multivariate normal) distributions. Both distributions have variance and covariance parameters that depend on the unknown error variance <span class="math notranslate nohighlight">\(\sigma^2\)</span>.</p>
 </div>
 <div class="section" id="estimate-of-sigma-2">
-<h2><span class="section-number">25.4.6. </span>Estimate of <span class="math notranslate nohighlight">\(\sigma^2\)</span><a class="headerlink" href="#estimate-of-sigma-2" title="Permalink to this headline">¶</a></h2>
-<p>It should come as no surprise that under the multiple regression model, the best estimate of <span class="math notranslate nohighlight">\(\sigma^2\)</span> has a chi-squared distribution. There is some work involved in establishing that the estimate is</p>
+<h2><span class="section-number">25.4.8. </span>Estimate of <span class="math notranslate nohighlight">\(\sigma^2\)</span><a class="headerlink" href="#estimate-of-sigma-2" title="Permalink to this headline">¶</a></h2>
+<p>It should come as no surprise that under the multiple regression model, there is an unbiased estimator of <span class="math notranslate nohighlight">\(\sigma^2\)</span> that has a chi-squared distribution. There is some work involved in establishing that this estimate is</p>
 <div class="math notranslate nohighlight">
 \[
 S^2 ~ = ~ \frac{1}{n-p} \sum_{i=1}^n (Y_i - \hat{Y}_i)^2 ~ = ~ \frac{1}{n-p} \| \mathbf{e} \|^2
@@ -1205,19 +1236,24 @@ S^2 ~ = ~ \frac{1}{n-p} \sum_{i=1}^n (Y_i - \hat{Y}_i)^2 ~ = ~ \frac{1}{n-p} \| 
 <p>We’ll leave that work for another course. For now, just notice that if the number of data points <span class="math notranslate nohighlight">\(n\)</span> is large compared to the number of parameters <span class="math notranslate nohighlight">\(p\)</span>, then</p>
 <div class="math notranslate nohighlight">
 \[
-S^2 ~ = ~ \frac{1}{n-p} \sum_{i=1}^n (Y_i - \hat{Y}_i)^2 ~ \approx ~ \frac{1}{n} \sum_{i=1}^n (Y_i - \hat{Y}_i)^2
+S^2 ~ = ~ \frac{1}{n-p} \sum_{i=1}^n (Y_i - \hat{Y}_i)^2 ~ \approx ~ \frac{1}{n} \sum_{i=1}^n (Y_i - \hat{Y}_i)^2 ~ = ~ \hat{\sigma}^2
 \]</div>
-<p>which is the natural mean squared error.</p>
-<div class="section" id="special-case">
-<h3><span class="section-number">25.4.6.1. </span>Special Case<a class="headerlink" href="#special-case" title="Permalink to this headline">¶</a></h3>
+<p>which is the natural mean squared error. If you have a lot of data, you don’t have to worry about fine points like dividing by <span class="math notranslate nohighlight">\(n-p\)</span> instead of <span class="math notranslate nohighlight">\(n\)</span>.</p>
+<p><strong>Special Case</strong></p>
 <p>As noted earlier, in the case <span class="math notranslate nohighlight">\(p = 1\)</span> you are trying to find the best constant by which to estimate <span class="math notranslate nohighlight">\(Y\)</span>.</p>
 <p>You know that the least squares constant is <span class="math notranslate nohighlight">\(\bar{Y}\)</span>, and you showed in exercises that</p>
 <div class="math notranslate nohighlight">
 \[
 S^2 ~ = ~ \frac{1}{n-1} \sum_{i=1}^n (Y_i - \bar{Y})^2
 \]</div>
-<p>is an unbiased estimate of <span class="math notranslate nohighlight">\(\sigma^2\)</span>. Another exercise is to show that <span class="math notranslate nohighlight">\(\frac{n-1}{\sigma^2}S^2\)</span> has the chi-squared <span class="math notranslate nohighlight">\(n-1\)</span> distribution under the assumption of normality. This is the special case of the result stated above for general <span class="math notranslate nohighlight">\(p\)</span>.</p>
+<p>is an unbiased estimate of <span class="math notranslate nohighlight">\(\sigma^2\)</span>. You have shown in exercises that <span class="math notranslate nohighlight">\(\frac{n-1}{\sigma^2}S^2\)</span> has the chi-squared <span class="math notranslate nohighlight">\(n-1\)</span> distribution under the assumption that the data are i.i.d. normal variables. This is the special case of the result stated above for general <span class="math notranslate nohighlight">\(p\)</span>.</p>
 </div>
+<div class="section" id="confidence-intervals">
+<h2><span class="section-number">25.4.9. </span>Confidence Intervals<a class="headerlink" href="#confidence-intervals" title="Permalink to this headline">¶</a></h2>
+<p>The upshot of this discussion is that if <span class="math notranslate nohighlight">\(n\)</span> is large compared to <span class="math notranslate nohighlight">\(p\)</span> – that is, if you have a lot of observations compared to the number of predictors – then you can use ordinary normal theory to construct confidence intervals for the parameters <span class="math notranslate nohighlight">\(\hat{\beta}\)</span>.</p>
+<p>For example, a 95% confidence interval for the parameter <span class="math notranslate nohighlight">\(\beta_i\)</span> is <span class="math notranslate nohighlight">\(\hat{\boldsymbol{\beta}} [i] \pm 2SD(\hat{\boldsymbol{\beta}} [i])\)</span>.</p>
+<p>Here <span class="math notranslate nohighlight">\(\hat{\boldsymbol{\beta}}[i]\)</span> is the <span class="math notranslate nohighlight">\(i\)</span>th element of the estimate vector <span class="math notranslate nohighlight">\(\hat{\boldsymbol{\beta}}\)</span>.</p>
+<p>The variance of <span class="math notranslate nohighlight">\(\hat{\boldsymbol{\beta}}[i]\)</span> is the <span class="math notranslate nohighlight">\(i\)</span>th diagonal element of the covariance matrix of <span class="math notranslate nohighlight">\(\hat{\boldsymbol{\beta}}\)</span>. You will see in exercises that this involves the error variance <span class="math notranslate nohighlight">\(\sigma^2\)</span>. Typically, <span class="math notranslate nohighlight">\(\sigma^2\)</span> is unknown. But you can estimate it by the mean squared error <span class="math notranslate nohighlight">\(\hat{\sigma}^2\)</span> to get an approximate 95% confidence interval for <span class="math notranslate nohighlight">\(\beta_i\)</span>.</p>
 </div>
 </div>
 

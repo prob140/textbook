@@ -25,4 +25,5 @@ When the joint distribution of the attribute $X$ and the response $Y$ is bivaria
 02_Bivariate_Normal_Distribution
 03_Regression_and_Bivariate_Normal
 04_Regression_Equation
+05_Exercises
 ```
