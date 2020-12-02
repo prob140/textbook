@@ -106,6 +106,9 @@ In this notation, the goal of OLS is to find the $p \times 1$ vector $\hat{\bold
 Typically you will also have to estimate the unknown error variance $\sigma^2$. But we will not cover that in this class except in the case $p = 1$.
 
 # VIDEO: Estimate: Motivation
+from IPython.display import YouTubeVideo
+
+YouTubeVideo('VLIDNbHL8u8')
 
 ### Guessing the Best Estimate of $\boldsymbol{\beta}$ ###
 
@@ -184,6 +187,8 @@ SSE(\boldsymbol{\gamma}) ~  &= ~ \| \mathbf{Y} - \mathbf{X}\boldsymbol{\gamma} \
 $$
 
 # VIDEO: Signal and Noise
+
+YouTubeVideo('qQG-yyUPgGE')
 
 ### Signal and Noise, Revisited ###
 
