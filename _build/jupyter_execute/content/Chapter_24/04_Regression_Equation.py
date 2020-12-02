@@ -95,7 +95,7 @@ YouTubeVideo('SCY7fbSHnX8')
 Regardless of the joint distribution of $X$ and $Y$, the regression equation is 
 
 $$
-\hat{Y} ~ = ~ a^*X + b^* ~~~ \text{where } a^* = \rho \frac{\sigma_X}{\sigma_Y} \text{ and } b^* = \mu_Y - a^*\mu_X
+\hat{Y} ~ = ~ a^*X + b^* ~~~ \text{where } a^* = \rho \frac{\sigma_Y}{\sigma_X} \text{ and } b^* = \mu_Y - a^*\mu_X
 $$
 
 This is equivalent to
