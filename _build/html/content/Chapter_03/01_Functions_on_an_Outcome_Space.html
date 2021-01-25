@@ -1006,13 +1006,6 @@
   <a class="reference internal nav-link" href="#a-function-on-the-outcome-space">
    3.1.3. A Function on the Outcome Space
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#functions-of-random-variables">
-     3.1.3.1. Functions of Random Variables
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#events-determined-by-s">
@@ -1043,7 +1036,7 @@
 <div class="section" id="product-spaces">
 <h2><span class="section-number">3.1.1. </span>Product Spaces<a class="headerlink" href="#product-spaces" title="Permalink to this headline">¶</a></h2>
 <p>The <em>product</em> of two sets <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> is the set of all pairs <span class="math notranslate nohighlight">\((a, b)\)</span> where <span class="math notranslate nohighlight">\(a \in A\)</span> and <span class="math notranslate nohighlight">\(b \in B\)</span>. This concept is exactly what we need to describe spaces representing multiple trials.</p>
-<p>For example, the space representing the outcome of one toss of a coin is $ \Omega_1 = { H, T }$. The <em>product</em> of <span class="math notranslate nohighlight">\(\Omega_1\)</span> with itself is the set of pairs <span class="math notranslate nohighlight">\((H, H)\)</span>, <span class="math notranslate nohighlight">\((H, T)\)</span>, <span class="math notranslate nohighlight">\((T, H)\)</span>, and <span class="math notranslate nohighlight">\((T, T)\)</span>, which you will recognize as the outcomes of two tosses of a coin. The product of this new space and <span class="math notranslate nohighlight">\(\Omega_1\)</span> is the space representing three tosses. And so on.</p>
+<p>For example, the space representing the outcome of one toss of a coin is <span class="math notranslate nohighlight">\(\Omega_1 = \{ H, T \}\)</span>. The <em>product</em> of <span class="math notranslate nohighlight">\(\Omega_1\)</span> with itself is the set of pairs <span class="math notranslate nohighlight">\((H, H)\)</span>, <span class="math notranslate nohighlight">\((H, T)\)</span>, <span class="math notranslate nohighlight">\((T, H)\)</span>, and <span class="math notranslate nohighlight">\((T, T)\)</span>, which you will recognize as the outcomes of two tosses of a coin. The product of this new space and <span class="math notranslate nohighlight">\(\Omega_1\)</span> is the space representing three tosses. And so on.</p>
 <p>The Python module <code class="docutils literal notranslate"><span class="pre">itertools</span></code> contains a function <code class="docutils literal notranslate"><span class="pre">product</span></code> that constructs product spaces. Let’s import it.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1337,8 +1330,7 @@ S: \Omega \rightarrow \{ 5, 6, \ldots, 30 \}
 <p>(i) Yes.</p>
 <p>(ii) No. The description gets stuck at the outcome <span class="math notranslate nohighlight">\(TTT\)</span>. It doesn’t say what to do in this case. Even if you decide to use <span class="math notranslate nohighlight">\(\infty\)</span> for this outcome, you don’t get a random variable because <span class="math notranslate nohighlight">\(\infty\)</span> isn’t a real number.</p>
 </div>
-<div class="section" id="functions-of-random-variables">
-<h3><span class="section-number">3.1.3.1. </span>Functions of Random Variables<a class="headerlink" href="#functions-of-random-variables" title="Permalink to this headline">¶</a></h3>
+<p><strong>Functions of Random Variables</strong></p>
 <p>A random variable is a numerical function on <span class="math notranslate nohighlight">\(\Omega\)</span>. Therefore by composition, a numerical function of a random variable is also a random variable.</p>
 <p>For example, <span class="math notranslate nohighlight">\(S^2\)</span> is a random variable, calculated as follows:</p>
 <div class="math notranslate nohighlight">
@@ -1367,7 +1359,6 @@ S^2(\omega) = \big{(} S(\omega)\big{)}^2
     allowfullscreen
 ></iframe>
 </div></div>
-</div>
 </div>
 </div>
 <div class="section" id="events-determined-by-s">

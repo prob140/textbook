@@ -22,7 +22,7 @@ If you were tossing 10 times, the outcome space would consist of the $2^{10}$ se
 ### Product Spaces ###
 The *product* of two sets $A$ and $B$ is the set of all pairs $(a, b)$ where $a \in A$ and $b \in B$. This concept is exactly what we need to describe spaces representing multiple trials.
 
-For example, the space representing the outcome of one toss of a coin is $ \Omega_1 = \{ H, T \}$. The *product* of $\Omega_1$ with itself is the set of pairs $(H, H)$, $(H, T)$, $(T, H)$, and $(T, T)$, which you will recognize as the outcomes of two tosses of a coin. The product of this new space and $\Omega_1$ is the space representing three tosses. And so on.
+For example, the space representing the outcome of one toss of a coin is $\Omega_1 = \{ H, T \}$. The *product* of $\Omega_1$ with itself is the set of pairs $(H, H)$, $(H, T)$, $(T, H)$, and $(T, T)$, which you will recognize as the outcomes of two tosses of a coin. The product of this new space and $\Omega_1$ is the space representing three tosses. And so on.
 
 The Python module `itertools` contains a function `product` that constructs product spaces. Let's import it.
 
@@ -123,7 +123,8 @@ A standard probability space for three tosses of a coin consists of the outcome 
 (ii) No. The description gets stuck at the outcome $TTT$. It doesn't say what to do in this case. Even if you decide to use $\infty$ for this outcome, you don't get a random variable because $\infty$ isn't a real number.
 ```
 
-#### Functions of Random Variables ####
+**Functions of Random Variables**
+
 A random variable is a numerical function on $\Omega$. Therefore by composition, a numerical function of a random variable is also a random variable. 
 
 For example, $S^2$ is a random variable, calculated as follows:

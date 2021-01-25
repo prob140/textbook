@@ -239,7 +239,8 @@ $0.05$
 ### The Complement ###
 If an event has chance 40%, what's the chance that it doesn't happen? The "obvious" answer of 60% is a special case of the difference rule.
 
-#### Complement Rule ####
+**Complement Rule**
+
 For any event $B$, $P(B^c) = 1 - P(B)$.
 
 **Proof.** The Venn diagram below shows what to do. Take $A = \Omega$ in the formula for the difference, and remember the second axiom $P(\Omega) = 1$. Alternatively, redo the argument for the difference rule in this special case.

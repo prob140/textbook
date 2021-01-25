@@ -91,20 +91,22 @@ That looks exactly like the table we had before except that it has more readable
 
 Plot(dist_S)
 
-#### Notes on `Plot` ####
+**Notes on `Plot`**
+
 - Recall that `hist` in the `datascience` library displays a histogram of raw data contained in a column of a table. `Plot` in the `prob140` library displays a probability histogram based on a probability distribution as the input.
 
 - `Plot` only works on probability distribution objects created using the `values` and `probabilities` methods. It won't work on a general member of the `Table` class.
 
 - `Plot` works well with random variables that have integer values. Many of the random variables you will encounter in the next few chapters will be integer-valued. For displaying the distributions of other random variables, binning decisions are more complicated.
 
-#### Notes on the Distribution of $S$ ####
+**Notes on the Distribution of $S$**
+
 Here we have the bell shaped curve appearing as the distribution of the sum of five rolls of a die. Notice two differences between this histogram and the bell shaped distributions you saw in Data 8.
 - This one displays an exact distribution. It was computed based on *all* the possible outcomes of the experiment. It is not an approximation nor an empirical histogram.
 - The statement of the Central Limit Theorem in Data 8 said that the distribution of the sum of a *large* random sample is roughly normal. But here you're seeing a bell shaped distribution for the sum of only five rolls. If you start out with a uniform distribution (which is the distribution of a single roll), then you don't need a large sample before the probability distribution of the sum starts to look normal.
 
 # VIDEO: Probability Histogram
-from IPython.display import YouTubeVideo
+#from IPython.display import YouTubeVideo
 
 YouTubeVideo("jOLQGfccbhs")
 
@@ -130,7 +132,7 @@ To find the numerical value of the probability without displaying all the outcom
 dist_S.event(np.arange(14, 22, 1));
 
 # VIDEO: Notation and Calculation
-from IPython.display import YouTubeVideo
+#from IPython.display import YouTubeVideo
 
 YouTubeVideo("QiTc-HKnlFc")
 

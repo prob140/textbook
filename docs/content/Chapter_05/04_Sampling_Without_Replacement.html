@@ -1083,7 +1083,7 @@ P(X_i = k, X_j = l) = \frac{1}{n} \cdot \frac{1}{n-1}, ~~
 <p>A <em>simple random sample</em> is a sample drawn at random without replacement from a finite population. The sample is a random subset of the population, not a rearrangement of the entire population. If you take a simple random sample of 5 cards from a standard deck of 52, then the resulting “hand” is the subset of five cards that you get. The five cards could have appeared in your hand in any sequence, but the sequence doesn’t matter. All that matters is the set of five cards.</p>
 <p>To find the chance of getting a particular subset of five cards in your hand, you have to count the number of sequences that result in that hand.</p>
 <ul class="simple">
-<li><p>There are $ 52 \times 51 \times 50 \times 49 \times 48 $ sequences of five cards.</p></li>
+<li><p>There are <span class="math notranslate nohighlight">\(52 \times 51 \times 50 \times 49 \times 48\)</span> sequences of five cards.</p></li>
 <li><p>To get the particular set of 5 in the hand, put one of them in Position 1; you can do this in 5 ways. Then put the next in Position 4, and so on.</p></li>
 </ul>
 <p>Thus the chance of a particular hand is</p>
@@ -1143,7 +1143,7 @@ P(X_i = k, X_j = l) = \frac{1}{n} \cdot \frac{1}{n-1}, ~~
 <p>The chance of getting <span class="math notranslate nohighlight">\(g\)</span> good elements in the sample is</p>
 <div class="math notranslate nohighlight">
 \[
-\binom{G}{g}\binom{N-G}{n-g} \big{/} \binom{N}{n} 
+\frac {\binom{G}{g}\binom{N-G}{n-g}} { \binom{N}{n} }
 \]</div>
 <p>These are called <em>hypergeometric</em> probabilities because the formula is related to the hypergeometric series of mathematics. We won’t be dealing with that series in this course, but we can still use the impressive name. We will have a lot more to do with these probabilities later in the course.</p>
 <p><strong>Technical Note:</strong>

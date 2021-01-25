@@ -996,26 +996,6 @@
   <a class="reference internal nav-link" href="#probability-histogram">
    3.2.1. Probability Histogram
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#notes-on-plot">
-     3.2.1.1. Notes on
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       Plot
-      </span>
-     </code>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#notes-on-the-distribution-of-s">
-     3.2.1.2. Notes on the Distribution of
-     <span class="math notranslate nohighlight">
-      \(S\)
-     </span>
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#visualizing-probabilities-of-events">
@@ -1271,16 +1251,13 @@
 <img alt="../../_images/02_Distributions_19_0.png" src="../../_images/02_Distributions_19_0.png" />
 </div>
 </div>
-<div class="section" id="notes-on-plot">
-<h3><span class="section-number">3.2.1.1. </span>Notes on <code class="docutils literal notranslate"><span class="pre">Plot</span></code><a class="headerlink" href="#notes-on-plot" title="Permalink to this headline">¶</a></h3>
+<p><strong>Notes on <code class="docutils literal notranslate"><span class="pre">Plot</span></code></strong></p>
 <ul class="simple">
 <li><p>Recall that <code class="docutils literal notranslate"><span class="pre">hist</span></code> in the <code class="docutils literal notranslate"><span class="pre">datascience</span></code> library displays a histogram of raw data contained in a column of a table. <code class="docutils literal notranslate"><span class="pre">Plot</span></code> in the <code class="docutils literal notranslate"><span class="pre">prob140</span></code> library displays a probability histogram based on a probability distribution as the input.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Plot</span></code> only works on probability distribution objects created using the <code class="docutils literal notranslate"><span class="pre">values</span></code> and <code class="docutils literal notranslate"><span class="pre">probabilities</span></code> methods. It won’t work on a general member of the <code class="docutils literal notranslate"><span class="pre">Table</span></code> class.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Plot</span></code> works well with random variables that have integer values. Many of the random variables you will encounter in the next few chapters will be integer-valued. For displaying the distributions of other random variables, binning decisions are more complicated.</p></li>
 </ul>
-</div>
-<div class="section" id="notes-on-the-distribution-of-s">
-<h3><span class="section-number">3.2.1.2. </span>Notes on the Distribution of <span class="math notranslate nohighlight">\(S\)</span><a class="headerlink" href="#notes-on-the-distribution-of-s" title="Permalink to this headline">¶</a></h3>
+<p><strong>Notes on the Distribution of <span class="math notranslate nohighlight">\(S\)</span></strong></p>
 <p>Here we have the bell shaped curve appearing as the distribution of the sum of five rolls of a die. Notice two differences between this histogram and the bell shaped distributions you saw in Data 8.</p>
 <ul class="simple">
 <li><p>This one displays an exact distribution. It was computed based on <em>all</em> the possible outcomes of the experiment. It is not an approximation nor an empirical histogram.</p></li>
@@ -1297,7 +1274,6 @@
     allowfullscreen
 ></iframe>
 </div></div>
-</div>
 </div>
 </div>
 <div class="section" id="visualizing-probabilities-of-events">

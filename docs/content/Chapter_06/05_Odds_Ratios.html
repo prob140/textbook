@@ -1025,15 +1025,7 @@
   <div class="section" id="odds-ratios">
 <h1><span class="section-number">6.5. </span>Odds Ratios<a class="headerlink" href="#odds-ratios" title="Permalink to this headline">¶</a></h1>
 <p>Binomial <span class="math notranslate nohighlight">\((n, p)\)</span> probabilities involve powers and factorials, both of which are difficult to compute when <span class="math notranslate nohighlight">\(n\)</span> is large. This section is about simplifying the computation of the entire distribution. The result also helps us understand the shape of binomial histograms.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># VIDEO: Consecutive Odds</span>
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">YouTubeVideo</span>
-
-<span class="n">YouTubeVideo</span><span class="p">(</span><span class="s2">&quot;-5suvosCTCE&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
+<div class="cell tag_remove-input tag_hide-output docutils container">
 <div class="cell_output docutils container">
 <div class="output text_html">
 <iframe
@@ -1070,14 +1062,7 @@ P(2) &amp;= P(1)R(2)
 \end{split}\]</div>
 <p>and so on.</p>
 <p>Even though we already have a formula for the binomial probabilities, building the distribution using consecutive ratios is better computationally and also helps us understand the shape of the distribution.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># VIDEO: Binomial Consecutive Odds</span>
-
-<span class="n">YouTubeVideo</span><span class="p">(</span><span class="s2">&quot;F8lx8OmLsXE&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
+<div class="cell tag_remove-input tag_hide-output docutils container">
 <div class="cell_output docutils container">
 <div class="output text_html">
 <iframe
@@ -1137,14 +1122,7 @@ R(k) = \big{(} \frac{n+1}{k} - 1 \big{)} \cdot \frac{p}{1-p}
 <p>tells us the the ratios are a <em>decreasing function of <span class="math notranslate nohighlight">\(k\)</span></em>. In the formula, <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(p\)</span> are the parameters of the distribution and hence constant. It is <span class="math notranslate nohighlight">\(k\)</span> that varies, and <span class="math notranslate nohighlight">\(k\)</span> appears in the denominator.</p>
 <p>This implies that once <span class="math notranslate nohighlight">\(R(k) &lt; 1\)</span> for some <span class="math notranslate nohighlight">\(k\)</span>, it will remain less than 1 for all larger <span class="math notranslate nohighlight">\(k\)</span>. In other words, once the histogram starts going down, it will keep going down. It cannot come back up again.</p>
 <p>That is why binomial histograms are either non-increasing or non-decreasing, or they go up and come down. But they can’t look like waves on the seashore. They can’t go up, come down, and go up again.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># VIDEO: Odds and the Mode</span>
-
-<span class="n">YouTubeVideo</span><span class="p">(</span><span class="s2">&quot;--V_Z2QBc4w&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
+<div class="cell tag_remove-input tag_hide-output docutils container">
 <div class="cell_output docutils container">
 <div class="output text_html">
 <iframe

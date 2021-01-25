@@ -3,6 +3,7 @@
 **Standard deck of cards:** From now on we will assume the following unless otherwise specified.
 
 - Cards being dealt from a deck means that the cards are drawn at random without replacement.
+- A *hand* of cards is a subset dealt from the deck. The order in which the cards appear in the hand doesn't matter.
 - A standard deck consists of 52 cards.
     - There are 13 cards in each of 4 *suits*: clubs, spades, hearts, and diamonds. Clubs and spades are black. Hearts and diamonds are red.
     - Each suit has 13 different *ranks*: Ace, 2, 3, 4, 5, 6, 7, 8, 9, 10, Jack, Queen, King.

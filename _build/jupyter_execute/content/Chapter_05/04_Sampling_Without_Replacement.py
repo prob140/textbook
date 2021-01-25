@@ -82,7 +82,7 @@ A *simple random sample* is a sample drawn at random without replacement from a 
 
 To find the chance of getting a particular subset of five cards in your hand, you have to count the number of sequences that result in that hand.
 
-- There are $ 52 \times 51 \times 50 \times 49 \times 48 $ sequences of five cards.
+- There are $52 \times 51 \times 50 \times 49 \times 48$ sequences of five cards.
 - To get the particular set of 5 in the hand, put one of them in Position 1; you can do this in 5 ways. Then put the next in Position 4, and so on.
 
 Thus the chance of a particular hand is
@@ -134,7 +134,7 @@ $$
 The chance of getting $g$ good elements in the sample is
 
 $$
-\binom{G}{g}\binom{N-G}{n-g} \big{/} \binom{N}{n} 
+\frac {\binom{G}{g}\binom{N-G}{n-g}} { \binom{N}{n} }
 $$
 
 These are called *hypergeometric* probabilities because the formula is related to the hypergeometric series of mathematics. We won't be dealing with that series in this course, but we can still use the impressive name. We will have a lot more to do with these probabilities later in the course.
