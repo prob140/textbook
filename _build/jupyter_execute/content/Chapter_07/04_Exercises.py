@@ -44,10 +44,10 @@ Let $A_n = S_n/n$ be the *sample average*. For a non-negative integer $k$, find 
 **7.** Each car that I see has chance 0.2 of being a hybrid and chance 0.1 of being electric, independently of all other cars. 
 
 (a) Suppose I see $15$ cars. Find the chance that I see 3 hybrid cars, 2 electric cars,
-and 8 cars of other types.
+and 10 cars of other types.
 
 (b) Suppose the number of cars I see has the Poisson $(15)$ distribution. Find the chance that I see 3 hybrid cars, 2 electric cars,
-and 8 cars of other types.
+and 10 cars of other types.
 
 **8.** Suppose you have $N$ balls where $N$ has the Poisson $(\lambda)$ distribution. Each ball is thrown into into one of $m$ bins chosen uniformly at random, independent of all other balls. Find $P(\text{there is an empty bin})$.
 
