@@ -1148,7 +1148,7 @@ E(X) = \sum_{\text{all }x} xP(X=x)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>2.8379
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>2.8684
 </pre></div>
 </div>
 </div>
@@ -1176,13 +1176,13 @@ E(X) = \sum_{\text{all }x} xP(X=x)
 E(X) = \sum_{\text{all }x} xP(X=x) ~~~~ \text{provided }
 \sum_{\text{all }x} |x|P(X=x) &lt; \infty
 \]</div>
-<p>That’s a bit technical for this level of course, and you will almost never have to deal with non-existent expectations in Prob140. Just keep in mind that expectation isn’t always finite or even well defined.</p>
-<p>Here is an example in which you can see that the expectation can’t be finite. First notice that the sequence $1/2^n, ~n = 1, 2, 3, \ldots $ is a probability distribution: by summing the geometric series you get 1.</p>
+<p>That’s a bit technical for this level of course, and you will almost never have to deal with non-existent expectations in this course. Just keep in mind that expectation isn’t always finite or even well defined.</p>
+<p>Here is an example in which you can see that the expectation can’t be finite. First notice that the sequence <span class="math notranslate nohighlight">\(1/2^n, ~n = 1, 2, 3, \ldots\)</span> is a probability distribution: by summing the geometric series you get 1.</p>
 <div class="math notranslate nohighlight">
 \[
 \sum_{k=1}^\infty (\frac{1}{2^n}) ~ = ~ \frac{1}{2} \cdot \frac{1}{1 - \frac{1}{2}} ~ = ~ 1
 \]</div>
-<p>Now suppose the random variable <span class="math notranslate nohighlight">\(X\)</span> has values <span class="math notranslate nohighlight">\(2, 4, 8, 16 \ldots\)</span> so that <span class="math notranslate nohighlight">\(P(X = 2^n) = 1/2^n\)</span> for $n = 1, 2, 3, \ldots $. Then for every possible value <span class="math notranslate nohighlight">\(x\)</span>, the product <span class="math notranslate nohighlight">\(xP(X=x) = 1\)</span>. If you try to add infinitely many 1’s, the only sensible answer is infinity.</p>
+<p>Now suppose the random variable <span class="math notranslate nohighlight">\(X\)</span> has values <span class="math notranslate nohighlight">\(2, 4, 8, 16 \ldots\)</span> so that <span class="math notranslate nohighlight">\(P(X = 2^n) = 1/2^n\)</span> for <span class="math notranslate nohighlight">\(n = 1, 2, 3, \ldots\)</span>. Then for every possible value <span class="math notranslate nohighlight">\(x\)</span>, the product <span class="math notranslate nohighlight">\(xP(X=x) = 1\)</span>. If you try to add infinitely many 1’s, the only sensible answer is infinity.</p>
 <p>This problem with expectation happens when the distribution has “mass drifting off to infinity” at a rate that makes it impossible to balance the probability histogram anywhere on the horizontal axis.</p>
 <div class="admonition-quick-check admonition">
 <p class="admonition-title">Quick Check</p>

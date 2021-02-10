@@ -63,6 +63,23 @@ $$
 
 Sum the two sides over all $\omega \in \Omega$ to prove additivty of expecation.
 
+```{admonition} Quick Check
+Let $X$ and $Y$ be random variables on the same space, with $E(X) = 5$ and $E(Y) = 3$.
+
+(a) Find $E(X-Y)$.
+
+(b) Find $E(2X-8Y+7)$.
+
+```
+
+```{admonition} Answer
+:class: dropdown
+(a) $2$ because $X-Y = X+(-Y)$
+
+(b) $-7$
+
+```
+
 By induction, additivity extends to any finite number of random variables. If $X_1, X_2, \ldots , X_n$ are random variables defined on the same probability space, then
 
 $$

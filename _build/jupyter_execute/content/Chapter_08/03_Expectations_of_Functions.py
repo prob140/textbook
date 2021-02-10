@@ -45,19 +45,15 @@ For example, $E(2X - 3) = 2E(X) - 3$. Also $E(X/2) = E(X)/2$, and $E(1 - X) = 1 
 The expectation of a linear transformation of $X$ is the linear transformation of the expectation of $X$. This is a handy result as we will often be transforming variables linearly.
 
 ```{admonition} Quick Check
-Let $X$ and $Y$ be random variables on the same space, with $E(X) = 5$ and $E(Y) = 3$.
+Let $X$ be a random variable with $E(X) = 5$.
 
-(a) Find $E(X-Y)$.
-
-(b) Find $E(2X-8Y+7)$.
+Find $E(20 + 2X - (10 - X))$.
 
 ```
 
 ```{admonition} Answer
 :class: dropdown
-(a) $2$ because $X-Y = X+(-Y)$
-
-(b) $-7$
+$25$
 
 ```
 

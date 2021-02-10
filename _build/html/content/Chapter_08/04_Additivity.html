@@ -1086,6 +1086,17 @@ E(X+Y) = E(X) + E(Y)
 Y(\omega)P(\omega )
 \]</div>
 <p>Sum the two sides over all <span class="math notranslate nohighlight">\(\omega \in \Omega\)</span> to prove additivty of expecation.</p>
+<div class="admonition-quick-check admonition">
+<p class="admonition-title">Quick Check</p>
+<p>Let <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> be random variables on the same space, with <span class="math notranslate nohighlight">\(E(X) = 5\)</span> and <span class="math notranslate nohighlight">\(E(Y) = 3\)</span>.</p>
+<p>(a) Find <span class="math notranslate nohighlight">\(E(X-Y)\)</span>.</p>
+<p>(b) Find <span class="math notranslate nohighlight">\(E(2X-8Y+7)\)</span>.</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Answer</p>
+<p>(a) <span class="math notranslate nohighlight">\(2\)</span> because <span class="math notranslate nohighlight">\(X-Y = X+(-Y)\)</span></p>
+<p>(b) <span class="math notranslate nohighlight">\(-7\)</span></p>
+</div>
 <p>By induction, additivity extends to any finite number of random variables. If <span class="math notranslate nohighlight">\(X_1, X_2, \ldots , X_n\)</span> are random variables defined on the same probability space, then</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1288,7 +1299,7 @@ E(T_2) ~ = ~ E(M)\cdot\frac{n+1}{n}  -  1 ~ = ~ (N+1)\frac{n}{n+1}\cdot\frac{n+1
 <p>We will quantify this later in the course. For now, here is a simulation of distributions of the two estimators in the case <span class="math notranslate nohighlight">\(N = 300\)</span> and <span class="math notranslate nohighlight">\(n=30\)</span>. The simulation is based on <span class="math notranslate nohighlight">\(5000\)</span> repetitions of drawing a simple random sample of size <span class="math notranslate nohighlight">\(30\)</span> from the integers <span class="math notranslate nohighlight">\(1\)</span> through <span class="math notranslate nohighlight">\(300\)</span>.</p>
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/04_Additivity_20_0.png" src="../../_images/04_Additivity_20_0.png" />
+<img alt="../../_images/04_Additivity_23_0.png" src="../../_images/04_Additivity_23_0.png" />
 </div>
 </div>
 <p>You can see why <span class="math notranslate nohighlight">\(T_2\)</span> is a better estimator than <span class="math notranslate nohighlight">\(T_1\)</span>.</p>
