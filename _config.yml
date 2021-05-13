@@ -75,9 +75,9 @@ repository:
   branch: gh-pages
 
 # Tells Jupyter Book to add JupyterHub links to pages
-launch_buttons:
-  notebook_interface: classic
-  jupyterhub_url: https://prob140.datahub.berkeley.edu
+# launch_buttons:
+#   notebook_interface: classic
+#   jupyterhub_url: https://prob140.datahub.berkeley.edu
 
 # General interact settings
 use_jupyterlab: false                     # If 'true', interact links will use JupyterLab as the interface
