@@ -42,7 +42,7 @@ from scipy import stats
 # 
 # by our calculation above. Thus every probability is an expectation. We will use this heavily in later sections.
 
-# In[2]:
+# In[3]:
 
 
 x = [0, 1]
@@ -84,7 +84,7 @@ plt.title('Bernoulli (0.25)');
 # E(X) = \frac{n}{2}
 # $$
 
-# In[3]:
+# In[4]:
 
 
 x = np.arange(10)
@@ -111,7 +111,7 @@ plt.title('Uniform on Integers 0, 1, 2, ..., 9');
 # 
 # ```
 
-# In[4]:
+# In[1]:
 
 
 # VIDEO: Expectation: Poisson
@@ -166,7 +166,7 @@ plt.title('Poisson (2)');
 # 
 # ```
 
-# In[6]:
+# In[2]:
 
 
 # VIDEO: Tail Sum Formula
@@ -228,7 +228,7 @@ YouTubeVideo('ctcoolPNZjE')
 # E(X) ~ = ~ \sum_{k=0}^\infty q^k ~ = ~ \frac{1}{1-q} ~ = ~ \frac{1}{p}
 # $$
 
-# In[7]:
+# In[3]:
 
 
 # VIDEO: Expectation: Geometric

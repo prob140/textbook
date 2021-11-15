@@ -30,7 +30,7 @@ init_printing()
 # ### Order Statistics of IID Uniform $(0, 1)$ Variables ###
 # Let $U_1, U_2, \ldots, U_n$ be i.i.d. uniform on $(0, 1)$. Imagine each $U_i$ as the position of a dart thrown at the unit interval. The graph below shows the positions of five such darts, each shown as a star.
 
-# In[2]:
+# In[29]:
 
 
 # NO CODE
@@ -58,7 +58,7 @@ plt.title('Five IID Uniform (0, 1) Variables');
 # 
 # Remember that because the $U_i$'s are independent random variables with densities, there can't be ties: the chance that two of them are equal is 0.
 
-# In[3]:
+# In[30]:
 
 
 # NO CODE
@@ -79,7 +79,7 @@ plt.title('Order Statistics of the Five IID Uniform (0, 1) Variables');
 
 # In general for $1 \le k \le n$, the *$k$th order statistic* of $U_1, U_2, \ldots, U_n$ is the $k$th value when the $U_i$'s are sorted in increasing order. This can also be thought of as the $k$th *ranked* value when the minimum has rank 1. It is denoted $U_{(k)}$.
 
-# In[4]:
+# In[1]:
 
 
 # VIDEO
@@ -93,7 +93,7 @@ YouTubeVideo('3AIyXF1kQPA')
 # 
 # The graph below shows the event $\{U_{(2)} \in dx, U_{(4)} \in dy\}$ for values $x$ and $y$ such that $0 < x < y < 1$.
 
-# In[5]:
+# In[31]:
 
 
 # NO CODE
@@ -173,7 +173,7 @@ plt.title('$n = 5$; $\{ U_{(2)} \in dx, U_{(4)} \in dy \}$');
 # - One of the variables $U_1, U_2, \ldots, U_n$ has to be in $dx$.
 # - Of the remaining $n-1$ variables, $k-1$ must have values in $(0, x)$ and the rest in $(x, 1)$.
 
-# In[6]:
+# In[32]:
 
 
 # NO CODE
@@ -232,7 +232,7 @@ plt.title('$\{ U_{(k)} \in dx \}$');
 # 
 # The graph below shows some beta density curves. As you would expect, the beta $(3, 3)$ density is symmetric about 0.5. 
 
-# In[7]:
+# In[34]:
 
 
 x = np.arange(0, 1.01, 0.01)

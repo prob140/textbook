@@ -18,7 +18,7 @@ from scipy import stats
 
 # ## Density and CDF ##
 
-# In[2]:
+# In[1]:
 
 
 # VIDEO: Introduction to Density
@@ -143,7 +143,7 @@ plt.title('Gold Area = $P(0.6 < X \leq 0.8)$');
 # 
 # ```
 
-# In[6]:
+# In[2]:
 
 
 # VIDEO: CDF

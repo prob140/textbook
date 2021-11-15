@@ -34,7 +34,7 @@ from scipy import stats
 
 # The method we developed in the previous section for finding the density of a linear function of a random variable can be extended to non-linear functions. 
 
-# In[2]:
+# In[1]:
 
 
 # VIDEO
@@ -182,7 +182,7 @@ plt.title('Rayleigh Density');
 # 
 # The density $f_V$ belongs to the *Pareto* family of densities, much used in economics.
 
-# In[4]:
+# In[3]:
 
 
 # NO CODE

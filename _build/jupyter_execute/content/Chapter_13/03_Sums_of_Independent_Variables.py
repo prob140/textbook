@@ -20,7 +20,7 @@ get_ipython().run_line_magic('matplotlib', 'inline')
 
 # After the dry, algebraic discussion of the previous section it is a relief to finally be able to compute some variances.
 
-# In[2]:
+# In[7]:
 
 
 # VIDEO: Variance of a Sum
@@ -73,7 +73,7 @@ YouTubeVideo('M3Y_oBn2o7Y')
 # 
 # When the random variables are i.i.d., this simplifies even further.
 
-# In[3]:
+# In[8]:
 
 
 # VIDEO: Variance of IID Sample Sum
@@ -133,7 +133,7 @@ YouTubeVideo('jHcdiO5N0ng')
 # 
 # Here is the distribution of $X$. You can see that there is almost no probability outside the range $E(X) \pm 3SD(X)$.
 
-# In[4]:
+# In[9]:
 
 
 k = np.arange(25, 75, 1)
@@ -153,7 +153,7 @@ Plot(binom_dist, show_ev=True, show_sd=True)
 # 
 # ```
 
-# In[5]:
+# In[10]:
 
 
 # VIDEO: Binomial and Poisson Variance

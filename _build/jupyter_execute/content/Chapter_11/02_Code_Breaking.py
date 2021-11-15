@@ -79,7 +79,7 @@ bigrams = MarkovChain.from_table(Table().states(alph).transition_probability(row
 
 # We can use Markov chains that have detailed balance to solve a class of problems that are intractable by other methods and are apparently unrelated to Markov chains. In this section we present an example of how such problems arise. In the next section we discuss a solution.
 
-# In[7]:
+# In[1]:
 
 
 # VIDEO: Assumptions
@@ -99,7 +99,7 @@ YouTubeVideo('C18hs5sHf0Y')
 # 
 # So we need data about which sequences of letters are common. Such data are now increasingly easy to gather; see for example this [web page](http://norvig.com/ngrams/) by [Peter Norvig](http://norvig.com), a Director of Research at Google. 
 
-# In[8]:
+# In[2]:
 
 
 # VIDEO: Decoders
@@ -132,13 +132,13 @@ YouTubeVideo('MUdZWq3b0mg')
 # 
 # Notice that in each decoded message, a letter appears twice, at indices 1 and 3. That's the letter being used to decode t in atdt. A feature of substitution codes is that each letter *original* is coded by a letter *code*, with the same letter *code* being used every time the letter *original* appears in the text. So the decoder must have the same feature.
 
-# In[9]:
+# In[7]:
 
 
 decoding
 
 
-# In[10]:
+# In[3]:
 
 
 # VIDEO: Bigrams
@@ -152,13 +152,13 @@ YouTubeVideo('OrLjMVjpryY')
 # 
 # It makes sense that the 'aa' transitions are rare; we don't use words like aardvark very often. Even 2% seems large until you remember that it is the proportion of 'aa' transitions only among transitions 'aa', 'ad', and 'at', because we have restricted the alphabet. If you look at its proportion among all $26\times26$ bigrams, that will be much lower.
 
-# In[11]:
+# In[8]:
 
 
 bigrams
 
 
-# In[12]:
+# In[5]:
 
 
 # VIDEO: Score of a Decoder
@@ -174,7 +174,7 @@ YouTubeVideo('pi36R1lN8ww')
 # 
 # In the same way, we can give each decoder a score based on the probability of its decoded text. Higher scores correspond to better decoders.
 
-# In[13]:
+# In[9]:
 
 
 # score of decoder ['t', 'd', 'a']
@@ -183,13 +183,13 @@ YouTubeVideo('pi36R1lN8ww')
 
 # To automate such calcuations we can use the `prob_of_path` method. Remember that its first argument is the initial state, and the second argument is a list or array consisting of the remaining states in sequence.
 
-# In[14]:
+# In[10]:
 
 
 bigrams.prob_of_path('t', ['a', 'd', 'a'])
 
 
-# In[15]:
+# In[4]:
 
 
 # VIDEO: The Best Decoder
@@ -203,7 +203,7 @@ YouTubeVideo('zCAeQUaPf1E')
 # 
 # Let's define a function `score` that will take a list or array of characters and return the probability of the corresponding path using the `bigrams` transition matrix. In our example, this is the same as returning the score of the corresponding decoder.
 
-# In[16]:
+# In[11]:
 
 
 def score(x):
@@ -212,14 +212,14 @@ def score(x):
 
 # Here are the results in decreasing order of score. There is a clear winner: the decoder ['d', 't', 'a'] corresponding to the message 'data' has more than twice the score of any other decoder.
 
-# In[17]:
+# In[12]:
 
 
 decoding = decoding.with_column('Score of Decoder', decoding.apply(score, 1))
 decoding.sort('Score of Decoder', descending=True)
 
 
-# In[18]:
+# In[6]:
 
 
 # VIDEO: Larger Alphabet
@@ -232,7 +232,7 @@ YouTubeVideo('XLd2MuMIlR4')
 # 
 # Here is the number 70!. That's a lot of decoders. Our computing system can't handle that many, and other systems will have the same problem.
 
-# In[19]:
+# In[6]:
 
 
 int(special.factorial(70))

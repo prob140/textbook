@@ -102,7 +102,7 @@ YouTubeVideo('Z1TU6n3ZdSg')
 # 
 # The result says that the pgf of the sum of two independent random variables is the product of the two pgfs. This extends easily to more than two random variables and yields a simple formula for the pgf of the sum of i.i.d. variables.
 
-# In[3]:
+# In[4]:
 
 
 # VIDEO: PGF of a Sum

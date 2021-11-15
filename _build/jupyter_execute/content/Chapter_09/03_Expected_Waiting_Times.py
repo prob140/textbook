@@ -23,7 +23,7 @@ from scipy import stats
 # 
 # We know that $W_H$ has the geometric $(p)$ distribution on $1, 2, 3, \ldots $. We derived its expectation earlier by using the Tail Sum Formula. Here is a quick way to derive $E(W_H)$ without using the formula for the probabilities.
 
-# In[2]:
+# In[1]:
 
 
 # VIDEO: Expectation of the Geometric, Revisited
@@ -111,7 +111,7 @@ YouTubeVideo('MxeioidxzTA')
 # - With probability $p$, the toss after $W_H$ is a head, so $V = 1$.
 # - With probability $q$, the toss after $W_H$ is a tail, so $V = 1 + W^*$ where $W^*$ is an independent copy of $W_{HH}$.
 
-# In[3]:
+# In[2]:
 
 
 # VIDEO: Tree diagram for Answer 2

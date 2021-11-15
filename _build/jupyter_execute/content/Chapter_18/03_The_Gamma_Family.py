@@ -76,7 +76,7 @@ from scipy import stats
 # ### The Shape Parameter $r$ ###
 # Here are the graphs of the gamma $(r, 1)$ densities for $r = 1$, $1.5$, and 2.
 
-# In[2]:
+# In[3]:
 
 
 # NO CODE
@@ -98,7 +98,7 @@ plt.title('Gamma $(r, 1)$ Densities');
 # 
 # You can see why the gamma family is used for modeling right-skewed distributions. However, when $r = 10$, the gamma density looks almost normal. To see why, we will examine sums of independent gamma variables.
 
-# In[3]:
+# In[4]:
 
 
 # NO CODE
@@ -124,7 +124,7 @@ plt.title('Gamma $(r, 1)$ Densities');
 # 
 # We will prove this result in the next chapter along with the corresponding result for sums of independent normal variables. For now, let's test out the result by simulation just as we did with the sums of normals. The first three lines in the cell below set the values of $\lambda$, $r$, and $s$. The rest simulates 10000 values of $X+Y$ and plots the gamma $(r+s, \lambda)$ density over the simulated values.
 
-# In[4]:
+# In[7]:
 
 
 # Change these three parameters as you wish.
@@ -155,7 +155,7 @@ plt.title('$X$ is gamma$(r, \lambda)$; $Y$ is gamma$(s, \lambda)$ independent of
 # 
 # ```
 
-# In[5]:
+# In[1]:
 
 
 # VIDEO: Gamma with Integer Shape Parameter

@@ -19,7 +19,7 @@ init_printing()
 
 # ## Probabilities and Expectations ##
 
-# In[2]:
+# In[1]:
 
 
 # VIDEO
@@ -64,7 +64,7 @@ YouTubeVideo('_DzYX2ia_zs')
 # 
 # ```
 
-# In[3]:
+# In[2]:
 
 
 # VIDEO
@@ -103,7 +103,7 @@ YouTubeVideo('qfwy23iZBwk')
 # ### Plotting the Surface ###
 # To do this, we will use a 3-dimensional plotting routine. First, we define the joint density function. For use in our plotting routine, this function must take $x$ and $y$ as its inputs and return the value $f(x, y)$ as defined above.
 
-# In[4]:
+# In[3]:
 
 
 def joint(x,y):
@@ -115,7 +115,7 @@ def joint(x,y):
 
 # Now we will call `Plot_3d` to plot the surface. The arguments are the limits on the $x$ and $y$ axes, the name of the function to be plotted, and two optional arguments `rstride` and `cstride` that determine how many grid lines to use. Larger numbers correspond to less frequent grid lines.
 
-# In[5]:
+# In[4]:
 
 
 Plot_3d(x_limits=(0,1), y_limits=(0,1), f=joint, cstride=4, rstride=4)
@@ -125,7 +125,7 @@ Plot_3d(x_limits=(0,1), y_limits=(0,1), f=joint, cstride=4, rstride=4)
 # 
 # The possible values of $(X, Y)$ are the blue region shown below. For calculations by hand, we will frequently draw just the possible values and not the surface.
 
-# In[6]:
+# In[7]:
 
 
 # NO CODE
@@ -147,7 +147,7 @@ plt.ylabel('$y$', rotation=0)
 plt.title('Possible Values of $(X, Y)$');
 
 
-# In[7]:
+# In[3]:
 
 
 # VIDEO
@@ -172,7 +172,7 @@ YouTubeVideo('IP7qhyvy6qE')
 # #### By `SymPy` ####
 # To use `SymPy` we must create two symbolic variables. As our variables are positive, we can specify that as well. Then we can assign the expression that defines the function to the name `f`. This specification doesn't say that $x < y$ but we will enforce that condition when we integrate.
 
-# In[8]:
+# In[2]:
 
 
 x = Symbol('x', positive=True)
@@ -188,7 +188,7 @@ f
 # - The inner integral is over the variable $x$ which goes from $0$ to y.
 # - The outer integral is over the variable $y$ which goes from 0 to 1.
 
-# In[9]:
+# In[3]:
 
 
 Integral(f, (x, 0, y), (y, 0, 1))
@@ -196,7 +196,7 @@ Integral(f, (x, 0, y), (y, 0, 1))
 
 # To evaluate the integral, use `doit()`:
 
-# In[10]:
+# In[4]:
 
 
 Integral(f, (x, 0, y), (y, 0, 1)).doit()
@@ -220,7 +220,7 @@ Integral(f, (x, 0, y), (y, 0, 1)).doit()
 # 
 # ```
 
-# In[11]:
+# In[4]:
 
 
 # VIDEO
@@ -233,7 +233,7 @@ YouTubeVideo('3Ri-wBDfSMI')
 # ### Example 1 ###
 # Suppose you want to find $P(Y > 4X)$. The event is the blue region in the graph below.
 
-# In[12]:
+# In[8]:
 
 
 # NO CODE
@@ -268,19 +268,19 @@ plt.title('$Y > 4X$');
 
 # #### By `SymPy` ####
 
-# In[13]:
+# In[5]:
 
 
 Integral(f, (x, 0, y/4), (y, 0, 1))
 
 
-# In[14]:
+# In[6]:
 
 
 Integral(f, (x, 0, y/4), (y, 0, 1)).doit()
 
 
-# In[15]:
+# In[12]:
 
 
 5/32
@@ -289,7 +289,7 @@ Integral(f, (x, 0, y/4), (y, 0, 1)).doit()
 # ### Example 2 ###
 # Suppose you want to find $P(X > 0.25, Y > 0.5)$. The event is the colored region below. 
 
-# In[16]:
+# In[9]:
 
 
 # NO CODE
@@ -324,19 +324,19 @@ plt.title('$X > 0.25, Y > 0.5$');
 # 
 # You can crank that out by hand or use `SymPy`.
 
-# In[17]:
+# In[7]:
 
 
 Integral(f, (x, 0.25, y), (y, 0.5, 1))
 
 
-# In[18]:
+# In[8]:
 
 
 Integral(f, (x, 0.25, y), (y, 0.5, 1)).doit()
 
 
-# In[19]:
+# In[5]:
 
 
 # VIDEO
@@ -369,14 +369,14 @@ YouTubeVideo('iWDyZg5Ckfo')
 # #### By `SymPy` ####
 # Remember that `x` and `y` have already been defined as symbolic variables that are positive.
 
-# In[20]:
+# In[9]:
 
 
 ev_y_over_x = Integral((y/x)*f, (x, 0, y), (y, 0, 1))
 ev_y_over_x
 
 
-# In[21]:
+# In[10]:
 
 
 ev_y_over_x.doit()

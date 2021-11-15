@@ -17,7 +17,7 @@ from scipy import stats
 
 # ## Definition ##
 
-# In[2]:
+# In[1]:
 
 
 # VIDEO: Two Equivalent Definitions
@@ -66,7 +66,7 @@ YouTubeVideo('jhKL5nVe0Mk')
 # ### Center of Gravity ###
 # Suppose $X$ has the distribution given below.
 
-# In[3]:
+# In[2]:
 
 
 x = np.arange(1, 6)
@@ -77,7 +77,7 @@ Plot(example_dist)
 
 # Then by the formula on the range of $X$, we have $E(X) = 2.85$.
 
-# In[4]:
+# In[3]:
 
 
 ev_X = sum(x*probs)
@@ -86,7 +86,7 @@ ev_X
 
 # You can also call the `prob140` function `ev` to calculate $E(X)$:
 
-# In[5]:
+# In[4]:
 
 
 example_dist.ev()
@@ -96,7 +96,7 @@ example_dist.ev()
 # 
 # But then what does the expected value represent? To see this, first visualize $E(X)$ using the `show_ev=True` option to `Plot`.
 
-# In[6]:
+# In[5]:
 
 
 Plot(example_dist, show_ev=True)
@@ -124,7 +124,7 @@ Plot(example_dist, show_ev=True)
 # 
 # You can use the `emp_dist` method to convert the array of simulated values to a distribution object which you can then use with `Plot` and other `prob140` functions. The `show_ave=True` option of `Plot` displays the average of the simulated values. 
 
-# In[7]:
+# In[6]:
 
 
 simulated_X = example_dist.sample_from_dist(10000)
@@ -135,7 +135,7 @@ plt.title('Empirical Distribution');
 
 # The average of the 10,000 simulated values of $X$ is very close to $E(X)$ but not exactly equal.
 
-# In[8]:
+# In[7]:
 
 
 np.mean(simulated_X)
@@ -145,7 +145,7 @@ np.mean(simulated_X)
 # 
 # The similarity of the two histograms is because of the Law of Averages that you saw in Data 8 and that we will establish formally in this course.
 
-# In[9]:
+# In[2]:
 
 
 # VIDEO: Existence

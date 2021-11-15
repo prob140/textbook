@@ -43,7 +43,7 @@ from scipy import stats
 # 
 # Moment generating functions can help get good bounds on tail probabilities. In what follows, we will assume that the moment generating function of $X$ is finite over the whole real line. If it is finite only over a smaller interval around 0, the calculations of the mgf below should be confined to that interval.
 
-# In[2]:
+# In[1]:
 
 
 # VIDEO

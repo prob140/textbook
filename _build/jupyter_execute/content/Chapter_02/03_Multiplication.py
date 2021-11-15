@@ -98,7 +98,7 @@ show_intersection()
 # P(\{ \text{GR} \}) = \frac{1}{6} = \frac{1}{3} \times \frac{1}{2}
 # $$
 
-# In[5]:
+# In[1]:
 
 
 # NO CODE
@@ -150,7 +150,7 @@ YouTubeVideo("Nd_gWqoMah4")
 # 
 # We are dividing by $P(A)$, and the more careful among you might be wondering what happens if $P(A) = 0$. Well, in that case we wouldn't be given that $A$ happened, because $A$ can't happen. So that's not a case we have to worry about.
 
-# In[6]:
+# In[2]:
 
 
 # NO CODE

@@ -86,7 +86,7 @@ YouTubeVideo('mc9r6cgXaHY')
 # ### An Interpretation of the Parameter ###
 # To understand the parameter $\mu$ of the Poisson distribution, a first step is to notice that mode of the distribution is just around $\mu$. Here is an example where $\mu = 3.74$. No computing system can calculate infinitely many probabilities, so we have just calculated the Poisson probabilities till the sum is close enough to 1 that the `prob140` library considers it a Distribution object. 
 
-# In[3]:
+# In[4]:
 
 
 mu = 3.74
@@ -101,7 +101,7 @@ plt.title('Poisson (3.74)');
 # 
 # The **mode** of the Poisson distribution is the integer part of $\mu$. That is, the most likely value is $\mu$ rounded *down* to an integer. If $\mu$ is an integer, both $\mu$ and $\mu - 1$ are modes.
 
-# In[4]:
+# In[5]:
 
 
 mu = 4
@@ -114,7 +114,7 @@ plt.title('Poisson (4)');
 
 # In later chapters we will learn a lot more about the parameter $\mu$ of the Poisson distribution. For now, just keep in mind that the most likely value is essentially $\mu$.
 
-# In[5]:
+# In[3]:
 
 
 # VIDEO: Sum of Independent Poissons

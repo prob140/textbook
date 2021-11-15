@@ -15,7 +15,7 @@ import math
 from scipy import stats
 
 
-# In[2]:
+# In[3]:
 
 
 # HIDDEN
@@ -31,7 +31,7 @@ die56 = range(4)
 dist1 = Table().values(die1, die56).probability_function(joint)
 
 
-# In[3]:
+# In[5]:
 
 
 # HIDDEN
@@ -41,7 +41,7 @@ pp = [0.1, 0.2, 0.3, 0.1, 0.2, 0.1]
 dist2 = Table().values(xx, yy).probabilities(pp)
 
 
-# In[4]:
+# In[6]:
 
 
 # HIDDEN
@@ -61,7 +61,7 @@ dist3 = Table().values(xxx, yyy).probability_function(p_ind)
 # ### Dependence ###
 # Here is the joint distribution of two random variables $X$ and $Y$. From this, what can we say about whether $X$ and $Y$ are dependent or independent?
 
-# In[5]:
+# In[7]:
 
 
 dist1
@@ -71,7 +71,7 @@ dist1
 
 # Here is an example in which you can't quickly determine dependence or independence by just looking at the possible values.
 
-# In[6]:
+# In[8]:
 
 
 dist2
@@ -79,7 +79,7 @@ dist2
 
 # But you can tell by looking at the conditional distributions of $X$ given $Y$. Two of them are the same, but the third is different. Knowing the value of $Y$ affects the chances for $X$. 
 
-# In[7]:
+# In[11]:
 
 
 dist2.conditional_dist('X', 'Y')
@@ -89,7 +89,7 @@ dist2.conditional_dist('X', 'Y')
 # 
 # In this example, all three conditional distributions of $Y$ given the three different values of $X$ are different from each other.
 
-# In[8]:
+# In[12]:
 
 
 dist2.conditional_dist('Y', 'X')
@@ -99,7 +99,7 @@ dist2.conditional_dist('Y', 'X')
 
 # Here is a joint distribution table in which you can't immediately tell whether there is dependence. 
 
-# In[9]:
+# In[13]:
 
 
 dist3
@@ -107,7 +107,7 @@ dist3
 
 # But look what happens when you condition $X$ on $Y$.
 
-# In[10]:
+# In[14]:
 
 
 dist3.conditional_dist('X', 'Y')
@@ -119,13 +119,13 @@ dist3.conditional_dist('X', 'Y')
 # 
 # You could have drawn the same conclusion by conditioning $Y$ on $X$:
 
-# In[11]:
+# In[15]:
 
 
 dist3.conditional_dist('Y', 'X')
 
 
-# In[12]:
+# In[1]:
 
 
 # VIDEO: Independence: Formal Definition

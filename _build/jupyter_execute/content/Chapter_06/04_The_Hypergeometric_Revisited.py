@@ -50,7 +50,7 @@ from scipy import stats
 # 
 # The `stats.hypergeom.pmf` function allows us to calculate hypergeometric probabilities. The first argument is the set of possible values for which we want the probabilities. Then come the parameters, in the order population size, number of good elements, sample size.
 
-# In[2]:
+# In[17]:
 
 
 k = np.arange(5)
@@ -62,7 +62,7 @@ stats.hypergeom.pmf(k, N, G, n)
 
 # Those are the chances of all the different possible numbers of aces in a poker hand. They are rather hard to read, so let's try rounding them.
 
-# In[3]:
+# In[18]:
 
 
 np.round(stats.hypergeom.pmf(k, N, G, n), 3)
@@ -70,7 +70,7 @@ np.round(stats.hypergeom.pmf(k, N, G, n), 3)
 
 # The number of aces among 5 cards is overwhelmingly likely to be 0 or 1. The histogram of the distribution can be drawn using `Plot`.
 
-# In[4]:
+# In[19]:
 
 
 ace_probs = stats.hypergeom.pmf(k, N, G, n)
@@ -82,7 +82,7 @@ plt.title('Number of Aces in a 5-Card Hand');
 # ### Red Cards in a Bridge Hand ###
 # Here is the distribution of the number of red cards in a bridge hand of 13 cards:
 
-# In[5]:
+# In[20]:
 
 
 k = np.arange(14)
@@ -109,7 +109,7 @@ plt.title('Number of Red Cards in a 13-Card Hand');
 # 
 # To see whether this intuition can be confirmed by calculation, let's visualize some hypergeometric distributions and the corresponding binomial approximations. You can change the parameters in the code below. Just make sure that $n$ is small relative to $N$.
 
-# In[6]:
+# In[21]:
 
 
 N = 100
@@ -146,7 +146,7 @@ Plots('Hypergeometric (100, 30, 10)', hyp_dist, 'Binomial (10, 0.3)', bin_dist)
 # - n = 15, the size of the treatment group
 # - g = 11 or more
 
-# In[7]:
+# In[22]:
 
 
 sum(stats.hypergeom.pmf([11, 12, 13], 31, 13, 15))
@@ -172,7 +172,7 @@ sum(stats.hypergeom.pmf([11, 12, 13], 31, 13, 15))
 # 
 # The SciPy module `special` allows you to calculate binomial coefficients, so let's import it.
 
-# In[8]:
+# In[23]:
 
 
 from scipy import special
@@ -180,7 +180,7 @@ from scipy import special
 
 # The expression `special.comb(n, k)` evaluates to $\binom{n}{k}$. This allows us to calculate the joint distribution of $H$ and $S$.
 
-# In[9]:
+# In[24]:
 
 
 def joint_prob(h, s):
@@ -198,7 +198,7 @@ joint_dist
 
 # The distribution of $H$ can be obtained by summing along the columns, or by using the `marginal` method:
 
-# In[10]:
+# In[25]:
 
 
 joint_dist.marginal('H')
@@ -206,7 +206,7 @@ joint_dist.marginal('H')
 
 # But $H$ is the number of hearts in a five-card hand, so we already know that $H$ has the hypergeometric $(52, 13, 5)$ distribution. Let's confirm that this is the same as the marginal distribution above.
 
-# In[11]:
+# In[26]:
 
 
 stats.hypergeom.pmf(k, 52, 13, 5)
@@ -214,7 +214,7 @@ stats.hypergeom.pmf(k, 52, 13, 5)
 
 # If you know how many spades are in the hand, then what is the conditional distribution of $H$?
 
-# In[12]:
+# In[27]:
 
 
 joint_dist.conditional_dist('H', 'S')
@@ -239,7 +239,7 @@ joint_dist.conditional_dist('H', 'S')
 # 
 # This is the hypergeometric $(39, 13, 4)$ distribution: given that there is one spade in the hand, the other four cards are like a simple random sample drawn from the 39 hearts, diamonds, and clubs.
 
-# In[13]:
+# In[28]:
 
 
 stats.hypergeom.pmf(np.arange(5), 39, 13, 4)

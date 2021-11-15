@@ -59,7 +59,7 @@ from scipy import stats
 # ### Sum of Two IID Uniform $(0, 1)$ Random Variables ###
 # Let $S = U_1 + U_2$ where the $U_i$'s are i.i.d. uniform on $(0, 1)$. The gold stripes in the graph below show the events $\{ S \in ds \}$ for various values of $S$.
 
-# In[2]:
+# In[3]:
 
 
 # NO CODE
@@ -79,7 +79,7 @@ plt.ylabel('$U_2$', rotation=0);
 
 # The joint density surface is flat. So the shape of the density of $S$ depends only on the lengths of the stripes, which increase linearly between $s = 0$ and $s = 1$ and then decrease linearly between $s = 1$ and $s = 2$. So the joint density of $S$ is triangular. The height of the triangle is 1 since the area of the triangle has to be 1.
 
-# In[3]:
+# In[4]:
 
 
 # NO CODE

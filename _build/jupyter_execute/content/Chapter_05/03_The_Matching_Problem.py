@@ -73,7 +73,7 @@ YouTubeVideo("wM-DD_j2npE")
 # ### No Matches ###
 # If letters falling in the right envelopes are good events, then the worst possible event is every letter falling in a wrong envelope. That is the event that there are no matches, and is called a *derangement*. Let's find the chance of a derangement.
 
-# In[3]:
+# In[2]:
 
 
 # VIDEO: Derangement

@@ -26,7 +26,7 @@ from scipy import stats
 # 
 # However, something remarkable happens when the *number of trials is itself random and has a Poisson distribution.* After we see what happens, we will be able to understand why it matters.
 
-# In[2]:
+# In[1]:
 
 
 # VIDEO: Poisson Number of Trials
@@ -52,7 +52,7 @@ YouTubeVideo('lnLUsr24r88')
 # 
 # We can sum the terms in this joint distribution appropriately to get the marginal distribution of $S$.
 
-# In[3]:
+# In[2]:
 
 
 # VIDEO: Poisson Number of Successes
@@ -109,7 +109,7 @@ YouTubeVideo('JQT1NQNbxsQ')
 # 
 # ```
 
-# In[4]:
+# In[3]:
 
 
 # VIDEO: Successes and Failures
@@ -167,7 +167,7 @@ YouTubeVideo('2qLF6nNWPiw')
 # 
 # This is just over 5%.
 
-# In[5]:
+# In[4]:
 
 
 (1 - stats.poisson.cdf(4, 18))*(1 - stats.poisson.cdf(4, 2))

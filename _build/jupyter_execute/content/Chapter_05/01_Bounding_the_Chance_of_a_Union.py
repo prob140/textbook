@@ -75,7 +75,7 @@ show_intersection()
 # - The complement of the union is the event that none of them occurs, that is, the event that all of them don't occur.
 # - If the chance of a union is at most $p$, then the chance of its complement is at least $1-p$.
 
-# In[4]:
+# In[ ]:
 
 
 # VIDEO: Bounds on the chance of a union

@@ -27,7 +27,7 @@ import descartes
 # P(A \cup B) = P(A) + P(B) - P(AB)
 # $$
 
-# In[2]:
+# In[1]:
 
 
 # VIDEO: Inclusion-Exclusion: Three Events
@@ -49,7 +49,7 @@ YouTubeVideo("HdLtwQ1R4m8")
 # \end{align*}
 # $$
 
-# In[3]:
+# In[2]:
 
 
 # VIDEO: Inclusion-Exclusion Formula
@@ -88,7 +88,7 @@ YouTubeVideo("Y5CeWFc3l-c")
 # ### The Number of Terms in Each Sum ###
 # To end the section we will count the number of terms in each of the sums in the inclusion-exclusion formula, so we know the extent of the work that has to be done to apply it.
 
-# In[4]:
+# In[3]:
 
 
 # VIDEO: Number of Terms

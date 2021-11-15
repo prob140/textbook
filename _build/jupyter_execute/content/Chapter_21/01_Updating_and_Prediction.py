@@ -86,7 +86,7 @@ def plot_prior_and_posterior(r, s, n, k):
 # 
 # Let $S_n = I_1 + I_2 + \cdots + I_n$ be the number of heads in the first $n$ tosses. Then the conditional distribution of $S_n$ given $X = p$ is binomial $(n, p)$. It gives you the likelihood of the observed number of heads given a value of $p$.
 
-# In[3]:
+# In[1]:
 
 
 # VIDEO: Conjugate Priors
@@ -127,7 +127,7 @@ YouTubeVideo('NBySphqHwvw')
 # \frac{r+k-1}{r+s+n-2}
 # $$
 
-# In[4]:
+# In[2]:
 
 
 # VIDEO: Prediction
@@ -150,7 +150,7 @@ YouTubeVideo('h7FmqsTfSKY')
 # 
 # Also try other values of the parameters as well as $n$ and $k$, including values where the observed proportion is quite different from the mean of the prior.
 
-# In[5]:
+# In[3]:
 
 
 # Prior: beta (r, s)

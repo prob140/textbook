@@ -67,7 +67,7 @@ YouTubeVideo('ao4fqXghbmI')
 
 # In lab you went through a detailed development of the multivariate normal joint density function, starting with $\mathbf{Z}$ consisting of two i.i.d. standard normal components and then taking linear combinations. It turns out that all non-degenerate multivariate normal random vectors can be generated in this way. In fact, there are three useful equivalent definitions of a random vector $\mathbf{X}$ with the multivariate normal density.
 
-# In[4]:
+# In[2]:
 
 
 # VIDEO: Multivariate Normal: Definition
@@ -85,14 +85,14 @@ YouTubeVideo('owX4JKA-2F8')
 # 
 # **The key to understanding the multivariate normal is Definition 1: every multivariate normal vector that has a density is an invertible linear transformation of i.i.d. standard normals.** Let's see what Definition 1 implies for the density.
 
-# In[5]:
+# In[4]:
 
 
 # VIDEO: Multivariate Normal: Density
 YouTubeVideo('tIvp_0HPeIo')
 
 
-# In[6]:
+# In[5]:
 
 
 # VIDEO: Quadratic Form
@@ -104,7 +104,7 @@ YouTubeVideo('rITtghijhb4')
 # 
 # Here is the joint density surface of standard normal variables $X_1$ and $X_2$ that are jointly normal with $Cov(X_1, X_2) = 0.8$. The call is `Plot_bivariate_normal(mu, cov)` where the mean vector `mu` is a list and the covariance matrix is a list of lists specifying the rows.
 
-# In[7]:
+# In[3]:
 
 
 mu = [0, 0]
@@ -118,7 +118,7 @@ Plot_bivariate_normal(mu, cov)
 # 
 # The call is `Scatter_multivariate_normal(mu, cov, n)` where `n` is the number of points to generate. The function checks whether the specified matrix is positive semidefinite.
 
-# In[8]:
+# In[4]:
 
 
 mu2 = [0, 0, 0]
@@ -159,7 +159,7 @@ Scatter_multivariate_normal(mu2, cov2, 1000)
 # 
 # So the quadratic form in the density of $\mathbf{X}$ becomes $\frac{1}{2} (\mathbf{x} - \mathbf{\mu_X})^T \boldsymbol{\Sigma}_\mathbf{X}^{-1} (\mathbf{x} - \mathbf{\mu_X})$.
 
-# In[9]:
+# In[6]:
 
 
 # VIDEO: Volume

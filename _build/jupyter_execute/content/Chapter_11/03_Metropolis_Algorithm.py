@@ -17,7 +17,7 @@ get_ipython().run_line_magic('matplotlib', 'inline')
 
 # The goal of Markov Chain Monte Carlo (MCMC) is to generate random samples from complicated high dimensional distributions about which we have incomplete information. For example, it might be that we don't know the normalizing constant of the distribution, as we saw in the code breaking example of the previous section.
 
-# In[2]:
+# In[1]:
 
 
 # VIDEO: Metropolis: Setup
@@ -82,7 +82,7 @@ YouTubeVideo('LwkIn66bkXc')
 # 
 # The alogrithm says that this steady state distribution is the same as the distribution $\pi$ that was used to define the ratios $r(i, j)$.
 
-# In[3]:
+# In[2]:
 
 
 # VIDEO: Metropolis Algorithm

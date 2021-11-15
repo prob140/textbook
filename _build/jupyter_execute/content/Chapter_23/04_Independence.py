@@ -24,7 +24,7 @@ get_ipython().run_line_magic('matplotlib', 'inline')
 # 
 # That is, **multivariate normal random variables are independent if and only if they are pairwise uncorrelated.**
 
-# In[2]:
+# In[1]:
 
 
 # VIDEO: Independence

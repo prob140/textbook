@@ -107,7 +107,7 @@ stats.norm.ppf(.975)
 
 # That's $z = 1.96$, which we have been calling $2$. It's good enough, but $z = 1.96$ is also commonly used for constructing 95% confidence intervals.
 
-# In[7]:
+# In[4]:
 
 
 # VIDEO: Confidence Interval for Population Mean
@@ -202,7 +202,7 @@ ci_95_pop_mean
 
 # No bootstrapping required! 
 
-# In[14]:
+# In[6]:
 
 
 # VIDEO: Estimating the SD of the Sample Mean

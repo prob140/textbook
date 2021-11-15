@@ -32,7 +32,7 @@ from scipy import stats
 # 
 # That's the gamma $(1/2, 1/2)$ density. It is also called the *chi-squared density with 1 degree of freedom,* which we will abbreviate to chi-squared (1).
 
-# In[2]:
+# In[1]:
 
 
 # VIDEO: Chi-Squared Distributions

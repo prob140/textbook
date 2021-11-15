@@ -14,7 +14,7 @@ plt.style.use('fivethirtyeight')
 get_ipython().run_line_magic('matplotlib', 'inline')
 
 
-# In[2]:
+# In[3]:
 
 
 # HIDDEN
@@ -38,7 +38,7 @@ joint_table = Table().values('X', k_x, 'Y', k_y).probability_function(joint_prob
 # 
 # Everything, of course. Let's see how.
 
-# In[3]:
+# In[1]:
 
 
 # VIDEO: Marginal Distribution

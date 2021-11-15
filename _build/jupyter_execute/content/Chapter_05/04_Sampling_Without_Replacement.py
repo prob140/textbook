@@ -103,13 +103,13 @@ from scipy import misc
 
 # The `special` module in `scipy` allows you to compute these combinatorial terms.
 
-# In[2]:
+# In[3]:
 
 
 from scipy import special
 
 
-# In[3]:
+# In[4]:
 
 
 special.comb(52, 5)
@@ -170,7 +170,7 @@ special.comb(52, 5)
 # 
 # ```
 
-# In[4]:
+# In[1]:
 
 
 # VIDEO: Counting Categories

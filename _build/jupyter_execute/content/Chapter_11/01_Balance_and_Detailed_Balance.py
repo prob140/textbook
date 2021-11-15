@@ -21,7 +21,7 @@ get_ipython().run_line_magic('matplotlib', 'inline')
 # 
 # In this section we will see where the term *balance* comes from, and identify a condition under which it is easy to solve the balance equations.
 
-# In[2]:
+# In[1]:
 
 
 # VIDEO: Balance
@@ -67,7 +67,7 @@ YouTubeVideo('SfH-oJ-PTC4')
 # 
 # Detailed balance turns out to be a stronger condition than balance. 
 
-# In[3]:
+# In[2]:
 
 
 # VIDEO: Detailed Balance
@@ -101,7 +101,7 @@ YouTubeVideo('KEOTepEQCrU')
 # 
 # But there is an important class of Markov chains for which it is easy to see that the detailed balance equations must have a solution. Therefore for those chains we have an easy way at finding the stationary distribution.
 
-# In[4]:
+# In[3]:
 
 
 # VIDEO: Birth-and-Death Chains

@@ -13,7 +13,7 @@ plt.style.use('fivethirtyeight')
 import numpy as np
 
 
-# In[2]:
+# In[3]:
 
 
 # HIDDEN
@@ -22,7 +22,7 @@ import shapely.geometry as sg
 import descartes
 
 
-# In[3]:
+# In[4]:
 
 
 # HIDDEN
@@ -58,7 +58,7 @@ def show_disjoint_union():
     ax.set_aspect('equal')
 
 
-# In[4]:
+# In[5]:
 
 
 # HIDDEN
@@ -95,7 +95,7 @@ def show_difference():
     ax.set_aspect('equal')
 
 
-# In[5]:
+# In[6]:
 
 
 # HIDDEN
@@ -140,7 +140,7 @@ def show_complement():
 # 
 # What's the big deal about mutually exclusive events? To understand this, start by thinking about the event that the selected student is a freshman or a sophomore. In the language of set theory, that's the *union* of the two events "freshman" and "sophomore". It is a great idea to use Venn diagrams to visualize events. In the diagram below, imagine $A$ and $B$ to be two mutually exclusive events shown as blue and gold circles. Because the events are mutually exclusive, the corresponding circles don't overlap. The union is the set of all the points in the two circles.
 
-# In[6]:
+# In[7]:
 
 
 # NO CODE
@@ -170,7 +170,7 @@ show_disjoint_union()
 # 
 # This is sometimes called the axiom of *finite additivity*. Kolmogorov actually specified countable additivity. We'll come to that later.
 
-# In[7]:
+# In[1]:
 
 
 # NO CODE
@@ -225,7 +225,7 @@ show_difference()
 
 # What's the chance that the student is in the bright blue difference? If you answered, "50% - 40% = 10%", you are right, and it's great that your intuition is saying that probabilities behave just like areas. They do. In fact the calculation follows from the axiom of additivity, which we also motivated by looking at areas.
 
-# In[9]:
+# In[2]:
 
 
 # NO CODE
@@ -284,7 +284,7 @@ YouTubeVideo("eEoogMY8z60")
 # 
 # **Proof.** The Venn diagram below shows what to do. Take $A = \Omega$ in the formula for the difference, and remember the second axiom $P(\Omega) = 1$. Alternatively, redo the argument for the difference rule in this special case.
 
-# In[10]:
+# In[9]:
 
 
 # NO CODE

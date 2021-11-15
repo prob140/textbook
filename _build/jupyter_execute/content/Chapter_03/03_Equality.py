@@ -33,7 +33,7 @@ from itertools import product
 # 
 # We write this simply as $N_H = M$. Equivalently, $N_H = 3 - N_T$.
 
-# In[2]:
+# In[1]:
 
 
 # VIDEO: Two Kinds of Equality
@@ -53,7 +53,7 @@ YouTubeVideo("Z-_RSmBktHM")
 # 
 # The outcome space is `three_tosses`:
 
-# In[3]:
+# In[12]:
 
 
 coin = make_array('H', 'T')
@@ -63,7 +63,7 @@ three_tosses
 
 # There are only eight outcomes, so it is easy to inspect the table and write the distributions of $N_H$ and $N_T$. Both take the values $0, 1, 2, 3$ with probabilities $1/8, 3/8, 3/8, 1/8$ respectively. This distribution is shown in the table below.
 
-# In[4]:
+# In[13]:
 
 
 dist = Table().values(np.arange(4)).probabilities(make_array(1, 3, 3, 1)/8)
@@ -140,7 +140,7 @@ dist
 # 
 # When a distribution is defined by a formula like this, you can define a function that does what the formula says:
 
-# In[5]:
+# In[14]:
 
 
 def prob1(i):
@@ -151,7 +151,7 @@ def prob1(i):
 # 
 # The argument to `probability_function` is the name of the function that takes $i$ as its argument and returns $P(X_1 = i)$.
 
-# In[6]:
+# In[15]:
 
 
 possible_i = np.arange(1, 5, 1)
@@ -161,7 +161,7 @@ dist_X1
 
 # Convince yourself that the function `prob2` below returns $P(X_2 = i)$ for each $i$. The event has been partitioned according to the value of $X_1$.
 
-# In[7]:
+# In[16]:
 
 
 def prob2(i):
@@ -171,7 +171,7 @@ def prob2(i):
         return (i/10)*((i-1)/9) + ((10-i)/10)*(i/9)
 
 
-# In[8]:
+# In[17]:
 
 
 dist_X2 = Table().values(possible_i).probability_function(prob2)

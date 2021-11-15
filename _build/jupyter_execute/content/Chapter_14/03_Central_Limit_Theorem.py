@@ -91,7 +91,7 @@ plt.title('Normal Curve, mean $\mu$, SD $\sigma$');
 # 
 # Now for the reason why the normal curve is important:
 
-# In[4]:
+# In[2]:
 
 
 # VIDEO: Central Limit Theorem
@@ -127,7 +127,7 @@ YouTubeVideo('xf7-Cy4JWjE')
 # 
 # A complete proof of this theorem is beyond the scope of this course. A calculation in a later chapter will bring you closer to a proof. For now, just accept it. You have seen plenty of evidence for it in the simulations done in Data 8 and in the exact distributions of sums computed in the previous section.
 
-# In[5]:
+# In[14]:
 
 
 # NO CODE
@@ -160,7 +160,7 @@ plt.title('Large $n$: Approximate Distribution of $S_n$');
 # 
 # ```
 
-# In[6]:
+# In[3]:
 
 
 # VIDEO: Probabilities and the Standard Normal Curve
@@ -182,7 +182,7 @@ YouTubeVideo('ufuTZYneoJc')
 # 
 # Note that at this stage of the course, the term *standard normal cdf* is being used only by analogy with the concept of a discrete cdf. In the next chapter we will show that the standard normal cdf is the cdf of a random variable that has values on the entire real line.
 
-# In[7]:
+# In[6]:
 
 
 Plot_norm([-4,4], 0, 1, right_end=1)
@@ -209,7 +209,7 @@ plt.title('Gold Area = $\Phi(1) = \int_{-\infty}^1 \phi(z)dz$');
 # 
 # Here are two binomial histograms, both of which have large $n$ but rather different shapes.
 
-# In[8]:
+# In[7]:
 
 
 k1 = np.arange(25, 76)
@@ -219,7 +219,7 @@ Plot(binom_fair)
 plt.title('Binomial (100, 0.5)');
 
 
-# In[9]:
+# In[8]:
 
 
 k2 = np.arange(0, 11)
@@ -239,7 +239,7 @@ plt.title('Binomial (100, 0.1)');
 
 # Here is the binomial $(100, 0.5)$ distribution and the approximating normal curve. The parameters of the curve are $np = 50$ and $\sqrt{npq} = 5$.
 
-# In[10]:
+# In[9]:
 
 
 Plot(binom_fair)

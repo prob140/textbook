@@ -33,7 +33,7 @@ import numpy as np
 # 
 # The Python module `itertools` contains a function `product` that constructs product spaces. Let's import it.
 
-# In[2]:
+# In[17]:
 
 
 from itertools import product
@@ -41,7 +41,7 @@ from itertools import product
 
 # To see how `product` works, we will start with the outcomes of one toss of a coin. We are creating an array using `make_array` but you could use any other way of creating an array or list.
 
-# In[3]:
+# In[18]:
 
 
 one_toss = make_array('H', 'T')
@@ -49,7 +49,7 @@ one_toss = make_array('H', 'T')
 
 # To use `product`, we have to specify the base space and the number of repetitions, and then covert the result to a list.
 
-# In[4]:
+# In[19]:
 
 
 two_tosses = list(product(one_toss, repeat=2))
@@ -58,7 +58,7 @@ two_tosses
 
 # For three tosses, just change the number of repetitions:
 
-# In[5]:
+# In[20]:
 
 
 three_tosses = list(product(one_toss, repeat=3))
@@ -68,7 +68,7 @@ three_tosses
 # ### Probability Space ###
 # A *probability space* is an outcome space accompanied by the probabilities of all the outcomes. If you assume all eight outcomes of three tosses are equally likely, the probabilities are all 1/8:
 
-# In[6]:
+# In[21]:
 
 
 three_toss_probs = (1/8)*np.ones(8)
@@ -76,7 +76,7 @@ three_toss_probs = (1/8)*np.ones(8)
 
 # The corresponding probability space:
 
-# In[7]:
+# In[22]:
 
 
 three_toss_space = Table().with_columns(
@@ -88,7 +88,7 @@ three_toss_space
 
 # Product spaces get large very quickly. If you roll a die 5 times, there are almost 8,000 possible outcomes:
 
-# In[8]:
+# In[23]:
 
 
 6**5
@@ -96,7 +96,7 @@ three_toss_space
 
 # But we have `product` so we can still list them all! Here is a probability space representing 5 rolls of a die.
 
-# In[9]:
+# In[24]:
 
 
 die = np.arange(1, 7, 1)
@@ -113,7 +113,7 @@ five_rolls_space = Table().with_columns(
 five_rolls_space
 
 
-# In[10]:
+# In[2]:
 
 
 # VIDEO: Random Variable
@@ -139,7 +139,7 @@ YouTubeVideo("h8k0M1ubIxk")
 
 # From a computational perspective, the elements of $\Omega$ are in the column `omega` of `five_roll_space`. Let's apply this function and create a larger table.
 
-# In[11]:
+# In[25]:
 
 
 five_rolls_sum = five_rolls_space.with_columns(
@@ -151,7 +151,7 @@ five_rolls_sum
 
 # We now have every possible outcome of five rolls of a die, along with its total number of spots. You can see that the first row of the table shows the smallest possible number of spots, corresponding to all the rolls showing 1 spot. The 7776th row shows the largest:
 
-# In[12]:
+# In[26]:
 
 
 five_rolls_sum.take(7775)
@@ -200,7 +200,7 @@ five_rolls_sum.take(7775)
 # 
 # ```
 
-# In[13]:
+# In[3]:
 
 
 # VIDEO: Events Determined by S
@@ -230,7 +230,7 @@ YouTubeVideo("OJZDPWSKIbw")
 # 
 # It is natural to ask about the chance the sum is a particular value, say 10. That's not easy to read off the table, but we can access the corresponding rows:
 
-# In[14]:
+# In[27]:
 
 
 five_rolls_sum.where('S(omega)', are.equal_to(10))

@@ -61,7 +61,7 @@ from scipy import stats
 1 - stats.norm.cdf(2, 0.5*2, np.sqrt(1-0.5**2))
 
 
-# In[3]:
+# In[1]:
 
 
 # VIDEO: Regression Equation
@@ -102,7 +102,7 @@ YouTubeVideo('hlAaKwSAXp8')
 # 
 # The conditional distribution of $Y$ given $X$ is normal with the mean and variance calculated above.
 
-# In[4]:
+# In[2]:
 
 
 # VIDEO: Alternative Form I
@@ -125,7 +125,7 @@ YouTubeVideo('SCY7fbSHnX8')
 # 
 # This form shows that the regression line passes through the point $(\mu_X, \mu_Y)$ and that $E(\hat{Y}) = \mu_Y$. The predicted values and the actual values are the same *on average*.
 
-# In[5]:
+# In[3]:
 
 
 # VIDEO: Alternative Form II
