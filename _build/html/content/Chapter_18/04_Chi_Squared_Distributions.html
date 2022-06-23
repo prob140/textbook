@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>18.4. Chi-Squared Distributions &#8212; Prob 140 Textbook</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,40 +20,39 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/headers.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="18.5. Exercises" href="05_Exercises.html" />
@@ -63,7 +64,21 @@
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -72,9 +87,10 @@
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -92,14 +108,15 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../README.html">
-   Prob 140
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../README.html">
+                    Prob 140
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Introduction
  </span>
@@ -1060,91 +1077,182 @@
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/content/Chapter_18/04_Chi_Squared_Distributions.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/prob140/textbook/gh-pages?urlpath=tree/content/Chapter_18/04_Chi_Squared_Distributions.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/prob140/textbook/gh-pages?urlpath=tree/content/Chapter_18/04_Chi_Squared_Distributions.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://prob140.datahub.berkeley.edu/hub/user-redirect/git-pull?repo=https://github.com/prob140/textbook&urlpath=tree/textbook/content/Chapter_18/04_Chi_Squared_Distributions.ipynb&branch=gh-pages"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on JupyterHub"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="headerbtn__text-container">JupyterHub</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/content/Chapter_18/04_Chi_Squared_Distributions.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#chi-squared-1">
    18.4.1. Chi-Squared
@@ -1191,21 +1299,83 @@
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Chi-Squared Distributions</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#chi-squared-1">
+   18.4.1. Chi-Squared
+   <span class="math notranslate nohighlight">
+    \((1)\)
+   </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#from-chi-squared-1-to-chi-squared-n">
+   18.4.2. From Chi-Squared
+   <span class="math notranslate nohighlight">
+    \((1)\)
+   </span>
+   to Chi-Squared
+   <span class="math notranslate nohighlight">
+    \((n)\)
+   </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#chi-squared-distribution-with-n-degrees-of-freedom">
+   18.4.3. Chi-Squared Distribution with
+   <span class="math notranslate nohighlight">
+    \(n\)
+   </span>
+   Degrees of Freedom
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mean-and-variance">
+   18.4.4. Mean and Variance
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#estimating-the-normal-variance">
+   18.4.5. Estimating the Normal Variance
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#degrees-of-freedom">
+   18.4.6. “Degrees of Freedom”
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="section" id="chi-squared-distributions">
-<h1><span class="section-number">18.4. </span>Chi-Squared Distributions<a class="headerlink" href="#chi-squared-distributions" title="Permalink to this headline">¶</a></h1>
+  <section id="chi-squared-distributions">
+<h1><span class="section-number">18.4. </span>Chi-Squared Distributions<a class="headerlink" href="#chi-squared-distributions" title="Permalink to this headline">#</a></h1>
 <p>The gamma family has two important branches. The first consists of gamma <span class="math notranslate nohighlight">\((r, \lambda)\)</span> distributions with integer shape parameter <span class="math notranslate nohighlight">\(r\)</span>, as you saw in the previous section.</p>
 <p>The other important branch consists of gamma <span class="math notranslate nohighlight">\((r, \lambda)\)</span> distributions that have <em>half-integer</em> shape parameter <span class="math notranslate nohighlight">\(r\)</span>, that is, when <span class="math notranslate nohighlight">\(r = n/2\)</span> for a positive integer <span class="math notranslate nohighlight">\(n\)</span>. Notice that this branch contains the one above: every integer <span class="math notranslate nohighlight">\(r\)</span> is also half of the integer <span class="math notranslate nohighlight">\(n = 2r\)</span>.</p>
-<div class="section" id="chi-squared-1">
-<h2><span class="section-number">18.4.1. </span>Chi-Squared <span class="math notranslate nohighlight">\((1)\)</span><a class="headerlink" href="#chi-squared-1" title="Permalink to this headline">¶</a></h2>
+<section id="chi-squared-1">
+<h2><span class="section-number">18.4.1. </span>Chi-Squared <span class="math notranslate nohighlight">\((1)\)</span><a class="headerlink" href="#chi-squared-1" title="Permalink to this headline">#</a></h2>
 <p>We have already seen the fundamental member of the branch. Let <span class="math notranslate nohighlight">\(Z\)</span> be a standard normal random variable and let <span class="math notranslate nohighlight">\(V = Z^2\)</span>. By the change of variable formula for densities, we found the density of <span class="math notranslate nohighlight">\(V\)</span> to be</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1221,12 +1391,13 @@ f_V(v) ~ = ~ \frac{1}{\sqrt{2\pi}} v^{-\frac{1}{2}} e^{-\frac{1}{2} v}, ~~~~ v &
     src="https://www.youtube.com/embed/TXM-yzqYmwg"
     frameborder="0"
     allowfullscreen
+
 ></iframe>
 </div></div>
 </div>
-</div>
-<div class="section" id="from-chi-squared-1-to-chi-squared-n">
-<h2><span class="section-number">18.4.2. </span>From Chi-Squared <span class="math notranslate nohighlight">\((1)\)</span> to Chi-Squared <span class="math notranslate nohighlight">\((n)\)</span><a class="headerlink" href="#from-chi-squared-1-to-chi-squared-n" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="from-chi-squared-1-to-chi-squared-n">
+<h2><span class="section-number">18.4.2. </span>From Chi-Squared <span class="math notranslate nohighlight">\((1)\)</span> to Chi-Squared <span class="math notranslate nohighlight">\((n)\)</span><a class="headerlink" href="#from-chi-squared-1-to-chi-squared-n" title="Permalink to this headline">#</a></h2>
 <p>When we were establishing the properties of the standard normal density, we discovered that if <span class="math notranslate nohighlight">\(Z_1\)</span> and <span class="math notranslate nohighlight">\(Z_2\)</span> are independent standard normal then <span class="math notranslate nohighlight">\(Z_1^2 + Z_2^2\)</span> has the exponential <span class="math notranslate nohighlight">\((1/2)\)</span> distribution. We saw this by comparing two different settings in which the Rayleigh distribution arises. But that wasn’t a particularly illuminating reason for why <span class="math notranslate nohighlight">\(Z_1^2 + Z_2^2\)</span> should be exponential.</p>
 <p>But now we know that the sum of independent gamma variables with the same rate is also gamma; the shape parameter adds up and the rate remains the same. Therefore <span class="math notranslate nohighlight">\(Z_1^2 + Z_2^2\)</span> is a gamma <span class="math notranslate nohighlight">\((1, 1/2)\)</span> variable. That’s the same distribution as exponential <span class="math notranslate nohighlight">\((1/2)\)</span>, as you showed in exercises. This explains why the sum of squares of two i.i.d. standard normal variables has the exponential <span class="math notranslate nohighlight">\((1/2)\)</span> distribution.</p>
 <p>If <span class="math notranslate nohighlight">\(Z_1, Z_2, Z_3\)</span> are i.i.d. standard normal variables, then:</p>
@@ -1238,9 +1409,9 @@ f_V(v) ~ = ~ \frac{1}{\sqrt{2\pi}} v^{-\frac{1}{2}} e^{-\frac{1}{2} v}, ~~~~ v &
 <p>Now let <span class="math notranslate nohighlight">\(Z_1, Z_2, \ldots, Z_n\)</span> be i.i.d. standard normal variables. Then <span class="math notranslate nohighlight">\(Z_1^2, Z_2^2, \ldots, Z_n^2\)</span> are i.i.d. chi-squared <span class="math notranslate nohighlight">\((1)\)</span> variables. That is, each of them has the gamma <span class="math notranslate nohighlight">\((1/2, 1/2)\)</span> distribution.</p>
 <p>By induction, <span class="math notranslate nohighlight">\(Z_1^2 + Z_2^2 + \cdots + Z_n^2\)</span> has the gamma <span class="math notranslate nohighlight">\((n/2, 1/2)\)</span> distribution. This is called the <em>chi-squared distribution with <span class="math notranslate nohighlight">\(n\)</span> degrees of freedom,</em> which we will abbreviate to chi-squared <span class="math notranslate nohighlight">\((n)\)</span>.</p>
 <p>In data science, these distributions often arise when we work with the <em>sum of squares of normal errors</em>. This is usually part of a <em>mean squared error</em> calculation.</p>
-</div>
-<div class="section" id="chi-squared-distribution-with-n-degrees-of-freedom">
-<h2><span class="section-number">18.4.3. </span>Chi-Squared Distribution with <span class="math notranslate nohighlight">\(n\)</span> Degrees of Freedom<a class="headerlink" href="#chi-squared-distribution-with-n-degrees-of-freedom" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="chi-squared-distribution-with-n-degrees-of-freedom">
+<h2><span class="section-number">18.4.3. </span>Chi-Squared Distribution with <span class="math notranslate nohighlight">\(n\)</span> Degrees of Freedom<a class="headerlink" href="#chi-squared-distribution-with-n-degrees-of-freedom" title="Permalink to this headline">#</a></h2>
 <p>For a positive integer <span class="math notranslate nohighlight">\(n\)</span>, the random variable <span class="math notranslate nohighlight">\(X\)</span> has the <em>chi-squared distribution with <span class="math notranslate nohighlight">\(n\)</span> degrees of freedom</em> if the distribution of <span class="math notranslate nohighlight">\(X\)</span> is gamma <span class="math notranslate nohighlight">\((n/2, 1/2)\)</span>. That is, <span class="math notranslate nohighlight">\(X\)</span> has density</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1258,9 +1429,9 @@ f_X(x) ~ = ~ \frac{\frac{1}{2}^{\frac{n}{2}}}{\Gamma(\frac{n}{2})} x^{\frac{n}{2
 <li><p>gamma (1, 1/2)</p></li>
 <li><p>exponential (1/2)</p></li>
 </ul>
-</div>
-<div class="section" id="mean-and-variance">
-<h2><span class="section-number">18.4.4. </span>Mean and Variance<a class="headerlink" href="#mean-and-variance" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="mean-and-variance">
+<h2><span class="section-number">18.4.4. </span>Mean and Variance<a class="headerlink" href="#mean-and-variance" title="Permalink to this headline">#</a></h2>
 <p>You know that if <span class="math notranslate nohighlight">\(T\)</span> has the gamma <span class="math notranslate nohighlight">\((r, \lambda)\)</span> density then</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1276,9 +1447,9 @@ E(X) ~ = ~ \frac{n/2}{1/2} ~ = ~ n
 $<span class="math notranslate nohighlight">\(
 SD(X) ~ = ~ \frac{\sqrt{n/2}}{1/2} ~ = ~ \sqrt{2n}
 \)</span>$</p>
-</div>
-<div class="section" id="estimating-the-normal-variance">
-<h2><span class="section-number">18.4.5. </span>Estimating the Normal Variance<a class="headerlink" href="#estimating-the-normal-variance" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="estimating-the-normal-variance">
+<h2><span class="section-number">18.4.5. </span>Estimating the Normal Variance<a class="headerlink" href="#estimating-the-normal-variance" title="Permalink to this headline">#</a></h2>
 <p>Suppose <span class="math notranslate nohighlight">\(X_1, X_2, \ldots, X_n\)</span> are i.i.d. normal <span class="math notranslate nohighlight">\((\mu, \sigma^2)\)</span> variables, and that you are in a setting in which you know <span class="math notranslate nohighlight">\(\mu\)</span> and are trying to estimate <span class="math notranslate nohighlight">\(\sigma^2\)</span>.</p>
 <p>Let <span class="math notranslate nohighlight">\(Z_i\)</span> be <span class="math notranslate nohighlight">\(X_i\)</span> in standard units, so that <span class="math notranslate nohighlight">\(Z_i = (X_i - \mu)/\sigma\)</span>. Define the random variable <span class="math notranslate nohighlight">\(T\)</span> as follows:</p>
 <div class="math notranslate nohighlight">
@@ -1298,16 +1469,16 @@ W ~ = ~  \frac{\sigma^2}{n} T ~ = ~ \frac{1}{n} \sum_{i=1}^n (X_i - \mu)^2
 S^2 ~ = ~ \frac{1}{n-1}\sum_{i=1}^n (X_i - \bar{X})^2
 \]</div>
 <p>is an unbiased estimate of <span class="math notranslate nohighlight">\(\sigma^2\)</span> regardless of the distribution of the <span class="math notranslate nohighlight">\(X_i\)</span>’s. When the <span class="math notranslate nohighlight">\(X_i\)</span>’s are normal, as is the case here, it turns out that <span class="math notranslate nohighlight">\(S^2\)</span> is a linear transformation of a chi-squared <span class="math notranslate nohighlight">\((n-1)\)</span> random variable. We will show that later in the course.</p>
-</div>
-<div class="section" id="degrees-of-freedom">
-<h2><span class="section-number">18.4.6. </span>“Degrees of Freedom”<a class="headerlink" href="#degrees-of-freedom" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="degrees-of-freedom">
+<h2><span class="section-number">18.4.6. </span>“Degrees of Freedom”<a class="headerlink" href="#degrees-of-freedom" title="Permalink to this headline">#</a></h2>
 <p>The example above helps explain the strange term “degrees of freedom” for the parameter of the chi-squared distribution.</p>
 <ul class="simple">
 <li><p>When <span class="math notranslate nohighlight">\(\mu\)</span> is known, you have <span class="math notranslate nohighlight">\(n\)</span> independent centered normals <span class="math notranslate nohighlight">\((X_i - \mu)\)</span> that you can use to estimate <span class="math notranslate nohighlight">\(\sigma^2\)</span>. That is, you have <span class="math notranslate nohighlight">\(n\)</span> degrees of freedom in constructing your estimate.</p></li>
 <li><p>When <span class="math notranslate nohighlight">\(\mu\)</span> is not known, you are using all <span class="math notranslate nohighlight">\(n\)</span> of <span class="math notranslate nohighlight">\(X_1 - \bar{X}, X_2 - \bar{X}, \ldots, X_n - \bar{X}\)</span> in your estimate, but they are not independent. They are the deviations of the list <span class="math notranslate nohighlight">\(X_1, X_2, \ldots , X_n\)</span> from their average <span class="math notranslate nohighlight">\(\bar{X}\)</span>, and hence their sum is 0. If you know <span class="math notranslate nohighlight">\(n-1\)</span> of them, the final one is determined. So you only have <span class="math notranslate nohighlight">\(n-1\)</span> degrees of freedom.</p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1331,9 +1502,11 @@ S^2 ~ = ~ \frac{1}{n-1}\sum_{i=1}^n (X_i - \bar{X})^2
 
               </div>
               
-        
-            <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="03_The_Gamma_Family.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -1349,32 +1522,34 @@ S^2 ~ = ~ \frac{1}{n-1}\sum_{i=1}^n (X_i - \bar{X})^2
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-        
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-    <div class="container">
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Ani Adhikari<br/>
+  
+      &copy; Copyright 2022.<br/>
+    <div class="extra_footer">
       <p>
-        
-          By Ani Adhikari<br/>
-        
-            &copy; Copyright 2021.<br/>
-          <div class="extra_footer">
-            <p>
 License: CC BY-NC-ND 4.0
 </p>
 
-          </div>
-      </p>
     </div>
-  </footer>
-</main>
+</p>
+        </footer>
+    </div>
+    
+</div>
 
 
       </div>
     </div>
   
-  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

@@ -62,7 +62,7 @@ from scipy import stats
 # 
 # This discrete distribution is called the *beta-binomial* distribution with parameters $r$, $s$, and $n$. It is the distribution of the number of heads in $n$ tosses of a coin that lands heads with a probability picked according to the beta $(r, s)$ distribution.
 
-# In[1]:
+# In[2]:
 
 
 # VIDEO: Number of Heads (Uniform Prior)

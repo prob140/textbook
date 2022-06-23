@@ -77,7 +77,7 @@ def bivariate_normal_regression(rho, n):
 bivariate_normal_regression(0.6, 1000)
 
 
-# In[1]:
+# In[4]:
 
 
 # VIDEO: Bivariate Normal: Prediction
@@ -109,7 +109,7 @@ YouTubeVideo('akPEba4L-wo')
 # 
 # Given that the student is on the 80th percentile of verbal scores, we know they are at what Python calls the 80 percent point of the standard normal curve. So their score in standard units is approximately 0.84:
 
-# In[4]:
+# In[5]:
 
 
 standard_units_x = stats.norm.ppf(0.8)
@@ -118,7 +118,7 @@ standard_units_x
 
 # The regression prediction of the math score in standard units is $0.5 \times 0.84 = 0.42$.
 
-# In[5]:
+# In[6]:
 
 
 rho = 0.5
@@ -128,7 +128,7 @@ standard_units_predicted_y
 
 # The area to the left of 0.42 under the standard normal curve is about 66%, so your prediction is that the student will be on roughly the 66th percentile of math scores.
 
-# In[6]:
+# In[7]:
 
 
 stats.norm.cdf(standard_units_predicted_y)

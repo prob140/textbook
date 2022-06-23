@@ -26,7 +26,7 @@ from scipy import stats
 # - the mean
 # - the SD
 
-# In[61]:
+# In[2]:
 
 
 Plot_norm([-4, 4], 0, 1)
@@ -34,7 +34,7 @@ Plot_norm([-4, 4], 0, 1)
 
 # You can shade all the area to the left of a point $x$, by providing the point $x$ as the `right_end` of the interval $(-\infty, x]$.
 
-# In[62]:
+# In[3]:
 
 
 Plot_norm([-4, 4], 0, 1, right_end=1.5)
@@ -42,7 +42,7 @@ Plot_norm([-4, 4], 0, 1, right_end=1.5)
 
 # All the area to the right of a point:
 
-# In[63]:
+# In[4]:
 
 
 Plot_norm([-4, 4], 0, 1, left_end=1.5)
@@ -50,7 +50,7 @@ Plot_norm([-4, 4], 0, 1, left_end=1.5)
 
 # The area between two points:
 
-# In[64]:
+# In[5]:
 
 
 Plot_norm([-4, 4], 0, 1, right_end=-1, left_end=1.5)
@@ -70,7 +70,7 @@ Plot_norm([-4, 4], 0, 1, right_end=-1, left_end=1.5)
 # 
 # For each $x$, the value of $\Phi(x)$ is an area under the standard normal curve. The function $\Phi$ takes a real number $x$ as its argument and returns a proportion $p$ which is all the area to the left of $x$ under the standard normal curve.
 
-# In[65]:
+# In[6]:
 
 
 Plot_norm([-4, 4], 0, 1, right_end=0.5)
@@ -86,7 +86,7 @@ plt.text(-0.8, 0.155, '$p = \Phi(x)$', size=12);
 # 
 # For each $p$ in the interval $(0, 1)$, the value of $\Phi^{-1}(p)$ is a point on the horizontal axis of the graph of the standard normal curve.
 
-# In[66]:
+# In[7]:
 
 
 Plot_norm([-4, 4], 0, 1, right_end=0.5)
@@ -102,7 +102,7 @@ plt.text(-0.5, 0.155, '$p$', size=12);
 # 
 # The area to the left of $1$ under the standard normal curve:
 
-# In[67]:
+# In[8]:
 
 
 stats.norm.cdf(1)
@@ -110,7 +110,7 @@ stats.norm.cdf(1)
 
 # The area between $-1$ and $1$ under the standard normal curve can be found by using the cdf and subtraction in a familiar way:
 
-# In[68]:
+# In[9]:
 
 
 stats.norm.cdf(1) - stats.norm.cdf(-1)
@@ -120,13 +120,13 @@ stats.norm.cdf(1) - stats.norm.cdf(-1)
 # 
 # For example, if you want $x$ such that $\Phi(x) = 0.9$, you can use the *percent point function* `stats.norm.ppf`. The name comes from the expression "90% point" of the distribution, or equivalently, the 90th percentile.
 
-# In[69]:
+# In[10]:
 
 
 stats.norm.ppf(0.9)
 
 
-# In[70]:
+# In[11]:
 
 
 Plot_norm([-4, 4], 0, 1, right_end=stats.norm.ppf(0.9))
@@ -136,7 +136,7 @@ plt.text(-0.2, 0.15, '90%', size=12);
 
 # By the definition of an inverse, we should have $\Phi(\Phi^{-1}(0.9)) = 0.9$. Let's check that.
 
-# In[71]:
+# In[12]:
 
 
 stats.norm.cdf(stats.norm.ppf(0.9))
@@ -147,7 +147,7 @@ stats.norm.cdf(stats.norm.ppf(0.9))
 # 
 # Who cares about the total weight of a random group of people? Ask those who construct stadiums, elevators, and airplanes.
 
-# In[72]:
+# In[13]:
 
 
 # Approximate distribution of total weight
@@ -166,7 +166,7 @@ Plot_norm(plot_interval, mean, sd)
 
 # The chance that the total weight of the sampled people is less than 15,100 pounds is approximately the gold area below. The CLT allows us to use the normal curve as an approximation to the unknown exact distribution of the total weight.
 
-# In[73]:
+# In[14]:
 
 
 Plot_norm(plot_interval, mean, sd, right_end=15100)
@@ -174,7 +174,7 @@ Plot_norm(plot_interval, mean, sd, right_end=15100)
 
 # The function `stats.norm.cdf` takes the mean and SD as optional arguments. Remember that the names `mean` and `sd` were assigned in an earlier cell. Also remember that the answer below is not exact but an approximation based on the CLT.
 
-# In[74]:
+# In[15]:
 
 
 stats.norm.cdf(15100, mean, sd)
@@ -182,7 +182,7 @@ stats.norm.cdf(15100, mean, sd)
 
 # To find the approximate 90th percentile of the distribution of weights, you can use `stats.norm.ppf` with the mean and SD as arguments.
 
-# In[75]:
+# In[16]:
 
 
 stats.norm.ppf(0.9, mean, sd)
@@ -206,7 +206,7 @@ stats.norm.ppf(0.9, mean, sd)
 # 
 # The calculation gives the same answer as before.
 
-# In[76]:
+# In[17]:
 
 
 z = (15100 - mean)/sd
@@ -216,7 +216,7 @@ stats.norm.cdf(z)
 
 # To find 90th percentile of the approximate distribution of the $S$, first find the 90th percentile of the standard normal curve. This value is the 90th percentile of any normal curve, measured in standard units.
 
-# In[77]:
+# In[18]:
 
 
 z = stats.norm.ppf(0.9)
@@ -225,7 +225,7 @@ z
 
 # Now convert the standard units back to pounds. The 90th percentile of the distribution of $S$ is approximately $\Phi^{-1}(0.9)\cdot200 + 15000$. The numerical answer is the same as before.
 
-# In[78]:
+# In[19]:
 
 
 x = z*sd + mean

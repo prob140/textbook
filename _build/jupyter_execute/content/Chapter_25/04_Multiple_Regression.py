@@ -112,7 +112,7 @@ from scipy import stats
 # 
 # Typically you will also have to estimate the unknown error variance $\sigma^2$. But we will not cover that in this class except in the case $p = 1$.
 
-# In[1]:
+# In[2]:
 
 
 # VIDEO: Estimate: Motivation
@@ -197,7 +197,7 @@ YouTubeVideo('VLIDNbHL8u8')
 # \end{align*}
 # $$
 
-# In[2]:
+# In[3]:
 
 
 # VIDEO: Signal and Noise

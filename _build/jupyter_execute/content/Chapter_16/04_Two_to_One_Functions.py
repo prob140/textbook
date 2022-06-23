@@ -25,7 +25,7 @@ from scipy import stats
 # ### Density of $Y = X^2$ ###
 # If $X$ can take both positive and negative values, we have to account for the fact that there can be two mutually exclusive ways in which the event $\{ Y \in dy \}$ can happen: either $X$ has to be near the positive square root of $y$ or near the negative square root of $y$.
 
-# In[3]:
+# In[2]:
 
 
 # NO CODE

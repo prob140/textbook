@@ -75,9 +75,9 @@ repository:
   branch: gh-pages
 
 # Tells Jupyter Book to add JupyterHub links to pages
-# launch_buttons:
-#   notebook_interface: classic
-#   jupyterhub_url: https://prob140.datahub.berkeley.edu
+launch_buttons:
+  notebook_interface: classic
+  jupyterhub_url: https://prob140.datahub.berkeley.edu
 
 # General interact settings
 use_jupyterlab: false                     # If 'true', interact links will use JupyterLab as the interface
@@ -107,8 +107,7 @@ use_show_widgets_button: true                # If 'true', display a button to al
 # Download settings
 use_download_button: true                # If 'true', display a button to download a zip file for the notebook
 download_button_text: ''                      # The text that download buttons will contain
-download_page_header: This is a section from Probability for Data Science by Ani Adhikari
-  and Jim Pitman, provided under the license (CC BY-NC-ND 4.0) # A header that will be displayed at the top of and PDF-printed page
+download_page_header: This is a section from Probability for Data Science by Ani Adhikari and Jim Pitman, provided under the license (CC BY-NC-ND 4.0) # A header that will be displayed at the top of and PDF-printed page
 
 #######################################################################################
 # Jupyter book extensions and additional features
@@ -123,6 +122,7 @@ scholar:
 # Navigate to https://analytics.google.com, add a new property for your jupyter book and copy the tracking id here.
 google_analytics:
   mytrackingcode:
+
 #######################################################################################
 # Jupyter book settings you probably don't need to change
 

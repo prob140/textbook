@@ -67,7 +67,7 @@ get_ipython().run_line_magic('matplotlib', 'inline')
 # 
 # We can display this in a joint distribution table. 
 
-# In[5]:
+# In[2]:
 
 
 spots = np.arange(1, 7)                     # possible values of F; same set for S
@@ -85,7 +85,7 @@ two_dice
 
 # Define the indicator function of the event $\{S > F + 2 \}$ and then use the `event` method.
 
-# In[12]:
+# In[3]:
 
 
 def indicator(i, j):
@@ -111,7 +111,7 @@ two_dice.event(indicator, 'F', 'S')
 # 
 # **Answer:** The goal is to find $P(\vert F - S \vert \le 1)$. We defined `two_dice`, the joint distribution of $F$ and $S$, in the previous problem. So now our work is simple.
 
-# In[6]:
+# In[4]:
 
 
 def indicator_absdiff_atmost_1(i, j):
@@ -151,7 +151,7 @@ two_dice.event(indicator_absdiff_atmost_1, 'F', 'S')
 # 
 # We can check the answer by computation.
 
-# In[14]:
+# In[5]:
 
 
 def indicator_sum_7(i, j):

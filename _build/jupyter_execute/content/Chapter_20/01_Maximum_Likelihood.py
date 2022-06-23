@@ -42,7 +42,7 @@ from scipy import stats
 # 
 # Here is a graph of this function of $p$. Clearly, $0.6$ is a better choice of estimate of $p$ than $0.2$. But there's one that's even better.
 
-# In[6]:
+# In[2]:
 
 
 # NO CODE 
@@ -58,7 +58,7 @@ plt.title('Likelihood of the Data HHHTHT');
 
 # You can see that the value of $p$ that maximizes the likelihood looks suspiciously like $2/3$, the observed proportion of heads in our data HHHTHT. Let's see why that is true.
 
-# In[1]:
+# In[3]:
 
 
 # VIDEO: Maximizing Likelihood (Discrete Case)
@@ -143,7 +143,7 @@ YouTubeVideo('AN6y89dfNCM')
 # 
 # To be very careful, we should check that this calculation yields a maximum and not a minimum, but given the answer you will surely accept that it's a max. You are welcome to take the second derivative of $L$ and check that we do indeed have a maximum.
 
-# In[2]:
+# In[4]:
 
 
 # VIDEO: Maximizing Likelihood (Density Case)
@@ -189,7 +189,7 @@ YouTubeVideo('KPVK4t58zPY')
 # 
 # Because $\log(C)$ doesn't affect the maximization, and nor does $\sigma$, we have defined a function to calculate $L - \log(C)$ for the sample 52.8, 51.1, 54.2, and 52.5 drawn from the normal $(\mu, 1)$ distribution. Remember that we began this section by comparing 32 and 52 as estimates of $\mu$, based on this sample.
 
-# In[4]:
+# In[5]:
 
 
 sample = make_array(52.8, 51.1, 54.2, 52.5)
@@ -199,7 +199,7 @@ def shifted_log_lik(mu):
 
 # Here is a graph of the function for $\mu$ in the interval $(30, 70)$.
 
-# In[5]:
+# In[6]:
 
 
 # NO CODE
@@ -229,7 +229,7 @@ plt.ylim(-1200, 100);
 # 
 # We have shown that the MLE of $\mu$ is the sample mean $\bar{X}$, regardless of the population SD $\sigma$. In the case of the sample we used for the plot above, $\bar{X} = 52.65$.
 
-# In[6]:
+# In[7]:
 
 
 np.mean(sample)

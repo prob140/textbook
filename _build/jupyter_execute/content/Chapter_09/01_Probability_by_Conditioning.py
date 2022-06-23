@@ -19,7 +19,7 @@ from scipy import stats
 
 # The theory in this section isn't new. It's the old familiar multiplication rule. We are just going to use it in the context of processes indexed by time, in a method that we are going to call *conditioning on early moves*.
 
-# In[1]:
+# In[2]:
 
 
 # VIDEO: Conditioning on Early Moves
@@ -80,7 +80,7 @@ YouTubeVideo('BCx-DlphihU')
 # 
 # It's a good idea to start visualizing the random trajectory of the gambler's net gain as a *path*. Here are two graphs that assume $a = 3$ and $b = 7$. The first graph shows a path that leads to the gambler reaching a net gain of $\\$b$. The second shows a path to ruin.
 
-# In[2]:
+# In[3]:
 
 
 # NO CODE
@@ -100,7 +100,7 @@ plt.ylabel('Net Gain')
 plt.title('$a = 3$, $b = 7$: A Path to Fortune');
 
 
-# In[3]:
+# In[4]:
 
 
 # NO CODE

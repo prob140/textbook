@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>19.2. Moment Generating Functions &#8212; Prob 140 Textbook</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,40 +20,39 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/headers.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="19.3. MGFs, the Normal, and the CLT" href="03_MGFs_Normal_and_the_CLT.html" />
@@ -63,7 +64,21 @@
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -72,9 +87,10 @@
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -92,14 +108,15 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../README.html">
-   Prob 140
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../README.html">
+                    Prob 140
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Introduction
  </span>
@@ -1060,91 +1077,182 @@
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/content/Chapter_19/02_Moment_Generating_Functions.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/prob140/textbook/gh-pages?urlpath=tree/content/Chapter_19/02_Moment_Generating_Functions.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/prob140/textbook/gh-pages?urlpath=tree/content/Chapter_19/02_Moment_Generating_Functions.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://prob140.datahub.berkeley.edu/hub/user-redirect/git-pull?repo=https://github.com/prob140/textbook&urlpath=tree/textbook/content/Chapter_19/02_Moment_Generating_Functions.ipynb&branch=gh-pages"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on JupyterHub"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="headerbtn__text-container">JupyterHub</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/content/Chapter_19/02_Moment_Generating_Functions.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#generating-moments">
    19.2.1. Generating Moments
@@ -1212,17 +1320,100 @@
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Moment Generating Functions</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#generating-moments">
+   19.2.1. Generating Moments
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#identifying-the-distribution">
+   19.2.2. Identifying the Distribution
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#working-well-with-sums">
+   19.2.3. Working Well with Sums
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mgfs-of-some-discrete-random-variables">
+   19.2.4. MGFs of Some Discrete Random Variables
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bernoulli-p">
+     19.2.4.1. Bernoulli
+     <span class="math notranslate nohighlight">
+      \((p)\)
+     </span>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#binomial-n-p">
+     19.2.4.2. Binomial
+     <span class="math notranslate nohighlight">
+      \((n, p)\)
+     </span>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#poisson-mu">
+     19.2.4.3. Poisson
+     <span class="math notranslate nohighlight">
+      \((\mu)\)
+     </span>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mgf-of-a-gamma-r-lambda-random-variable">
+   19.2.5. MGF of a Gamma
+   <span class="math notranslate nohighlight">
+    \((r, \lambda )\)
+   </span>
+   Random Variable
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sums-of-independent-gamma-variables-with-the-same-rate">
+   19.2.6. Sums of Independent Gamma Variables with the Same Rate
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#note-on-existence">
+   19.2.7. Note on Existence
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="section" id="moment-generating-functions">
-<h1><span class="section-number">19.2. </span>Moment Generating Functions<a class="headerlink" href="#moment-generating-functions" title="Permalink to this headline">¶</a></h1>
+  <section id="moment-generating-functions">
+<h1><span class="section-number">19.2. </span>Moment Generating Functions<a class="headerlink" href="#moment-generating-functions" title="Permalink to this headline">#</a></h1>
 <p>The probability mass function and probability density, cdf, and survival functions are all ways of specifying the probability distribution of a random variable. They are all defined as probabilities or as probability per unit length, and thus have natural interpretations and visualizations.</p>
 <p>But there are also more abstract ways of describing distributions. One that you have encountered is the probability generating function (pgf), which we defined for random variables with finitely many non-negative integer values.</p>
 <p>We now define another such <em>transform</em> of a distribution. More general than the pgf, it is a powerful tool for studying distributions.</p>
@@ -1252,11 +1443,12 @@ M_X(t) ~ = ~ E(e^{tX})
     src="https://www.youtube.com/embed/uljcfZRj7os"
     frameborder="0"
     allowfullscreen
+
 ></iframe>
 </div></div>
 </div>
-<div class="section" id="generating-moments">
-<h2><span class="section-number">19.2.1. </span>Generating Moments<a class="headerlink" href="#generating-moments" title="Permalink to this headline">¶</a></h2>
+<section id="generating-moments">
+<h2><span class="section-number">19.2.1. </span>Generating Moments<a class="headerlink" href="#generating-moments" title="Permalink to this headline">#</a></h2>
 <p>For non-negative integers <span class="math notranslate nohighlight">\(k\)</span>, the expectation <span class="math notranslate nohighlight">\(E(X^k)\)</span> is called <em><span class="math notranslate nohighlight">\(k\)</span>th moment</em> of <span class="math notranslate nohighlight">\(X\)</span>. You saw in Data 8 and again in this course that the mean <span class="math notranslate nohighlight">\(E(X)\)</span> is the center of gravity of the probability histogram of <span class="math notranslate nohighlight">\(X\)</span>. In physics, the center of mass is called the <em>first moment</em>. The terminology of moments is used in probability theory as well.</p>
 <p>In this course we are only going to work with mgf’s that are finite in some interval around 0. The interval could be the entire real line. It is a fact that if the mgf is finite around 0 (not just to one side of 0), then all the moments exist.</p>
 <p>Expand <span class="math notranslate nohighlight">\(e^{tX}\)</span> to see that</p>
@@ -1284,16 +1476,16 @@ M^{(1)} (0) ~ = ~ E(X)
 M^{(n)} (0) ~ = ~ E(X^n), ~~~~ n = 1, 2, 3, \ldots
 \]</div>
 <p>Hence we can <em>generate the moments of <span class="math notranslate nohighlight">\(X\)</span></em> by evaluating successive derivatives of <span class="math notranslate nohighlight">\(M_X\)</span> at <span class="math notranslate nohighlight">\(t=0\)</span>. This is one way in which mgf’s are helpful.</p>
-</div>
-<div class="section" id="identifying-the-distribution">
-<h2><span class="section-number">19.2.2. </span>Identifying the Distribution<a class="headerlink" href="#identifying-the-distribution" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="identifying-the-distribution">
+<h2><span class="section-number">19.2.2. </span>Identifying the Distribution<a class="headerlink" href="#identifying-the-distribution" title="Permalink to this headline">#</a></h2>
 <p>In this class we have made heavy use of the first and second moments, and no use at all of the higher moments. That will continue to be the case. But mgf’s do involve all the moments, and this results in a property that is very useful for proving facts about distributions.</p>
 <p><strong>If two distributions have the same mgf, then they must be the same distribution.</strong> This property is valid if the mgf exists in an interval around 0, which we assumed earlier in this section.</p>
 <p>For example, if you recognize the mgf of a random variable as the mgf of a normal distribution, then the random variable must be normal.</p>
 <p>By contrast, if you know the expectation of a random variable you can’t identify the distribution of the random variable; even if you know both the mean and the SD (equivalently, the first and second moments), you can’t identify the distribution. But if you know the moment generating function, and hence all the moments, then you can.</p>
-</div>
-<div class="section" id="working-well-with-sums">
-<h2><span class="section-number">19.2.3. </span>Working Well with Sums<a class="headerlink" href="#working-well-with-sums" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="working-well-with-sums">
+<h2><span class="section-number">19.2.3. </span>Working Well with Sums<a class="headerlink" href="#working-well-with-sums" title="Permalink to this headline">#</a></h2>
 <p>The third reason mgf’s are useful is that like the pgf, the mgf of the sum of independent random variables is easily computed as a product.</p>
 <p>Let <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> be independent. Then</p>
 <div class="math notranslate nohighlight">
@@ -1306,37 +1498,37 @@ M_{X+Y} (t) ~ = ~ E(e^{t(X+Y)}) ~ = ~ E(e^{tX} \cdot e^{tY})
 M_{X+Y}(t) ~ = ~ M_X(t) M_Y(t)
 \]</div>
 <p>It’s time for some examples. Remember that the mgf of <span class="math notranslate nohighlight">\(X\)</span> is the expectation of a function of <span class="math notranslate nohighlight">\(X\)</span>. In some cases we will calculate it using the non-linear function rule for expectations. In other cases we will use the multiplicative property of the mgf of the sum of independent random variables.</p>
-</div>
-<div class="section" id="mgfs-of-some-discrete-random-variables">
-<h2><span class="section-number">19.2.4. </span>MGFs of Some Discrete Random Variables<a class="headerlink" href="#mgfs-of-some-discrete-random-variables" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="bernoulli-p">
-<h3><span class="section-number">19.2.4.1. </span>Bernoulli <span class="math notranslate nohighlight">\((p)\)</span><a class="headerlink" href="#bernoulli-p" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="mgfs-of-some-discrete-random-variables">
+<h2><span class="section-number">19.2.4. </span>MGFs of Some Discrete Random Variables<a class="headerlink" href="#mgfs-of-some-discrete-random-variables" title="Permalink to this headline">#</a></h2>
+<section id="bernoulli-p">
+<h3><span class="section-number">19.2.4.1. </span>Bernoulli <span class="math notranslate nohighlight">\((p)\)</span><a class="headerlink" href="#bernoulli-p" title="Permalink to this headline">#</a></h3>
 <p><span class="math notranslate nohighlight">\(P(X = 1) = p\)</span> and <span class="math notranslate nohighlight">\(P(X = 0) = 1 - p = q\)</span>. So</p>
 <div class="math notranslate nohighlight">
 \[
 M_X(t) ~ = ~ qe^{t \cdot 0} + pe^{t \cdot 1} ~ = ~ q + pe^t ~ = ~ 1 + p(e^t - 1)  ~~~ \text{for all } t 
 \]</div>
-</div>
-<div class="section" id="binomial-n-p">
-<h3><span class="section-number">19.2.4.2. </span>Binomial <span class="math notranslate nohighlight">\((n, p)\)</span><a class="headerlink" href="#binomial-n-p" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="binomial-n-p">
+<h3><span class="section-number">19.2.4.2. </span>Binomial <span class="math notranslate nohighlight">\((n, p)\)</span><a class="headerlink" href="#binomial-n-p" title="Permalink to this headline">#</a></h3>
 <p>A binomial random variable is the sum of <span class="math notranslate nohighlight">\(n\)</span> i.i.d. indicators. So</p>
 <div class="math notranslate nohighlight">
 \[
 M_X(t) ~ = ~ (q + pe^t)^n ~~~ \text{for all } t 
 \]</div>
-</div>
-<div class="section" id="poisson-mu">
-<h3><span class="section-number">19.2.4.3. </span>Poisson <span class="math notranslate nohighlight">\((\mu)\)</span><a class="headerlink" href="#poisson-mu" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="poisson-mu">
+<h3><span class="section-number">19.2.4.3. </span>Poisson <span class="math notranslate nohighlight">\((\mu)\)</span><a class="headerlink" href="#poisson-mu" title="Permalink to this headline">#</a></h3>
 <p>This one is an exercise.</p>
 <div class="math notranslate nohighlight">
 \[
 M_X(t) ~ = ~ e^{\mu(e^t - 1)} ~~~ \text{for all } t
 \]</div>
 <p>You can also use this to show that the sum of independent Poisson variables is Poisson.</p>
-</div>
-</div>
-<div class="section" id="mgf-of-a-gamma-r-lambda-random-variable">
-<h2><span class="section-number">19.2.5. </span>MGF of a Gamma <span class="math notranslate nohighlight">\((r, \lambda )\)</span> Random Variable<a class="headerlink" href="#mgf-of-a-gamma-r-lambda-random-variable" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="mgf-of-a-gamma-r-lambda-random-variable">
+<h2><span class="section-number">19.2.5. </span>MGF of a Gamma <span class="math notranslate nohighlight">\((r, \lambda )\)</span> Random Variable<a class="headerlink" href="#mgf-of-a-gamma-r-lambda-random-variable" title="Permalink to this headline">#</a></h2>
 <p>Let <span class="math notranslate nohighlight">\(X\)</span> have the gamma <span class="math notranslate nohighlight">\((r, \lambda)\)</span> distribution. Then</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -1347,9 +1539,9 @@ M_X(t) ~ &amp;= ~ \int_0^\infty e^{tx} \frac{\lambda^r}{\Gamma(r)} x^{r-1} e^{-\
 &amp;= \big{(} \frac{\lambda}{\lambda - t} \big{)}^r ~~~~ t &lt; \lambda
 \end{align*} 
 \end{split}\]</div>
-</div>
-<div class="section" id="sums-of-independent-gamma-variables-with-the-same-rate">
-<h2><span class="section-number">19.2.6. </span>Sums of Independent Gamma Variables with the Same Rate<a class="headerlink" href="#sums-of-independent-gamma-variables-with-the-same-rate" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="sums-of-independent-gamma-variables-with-the-same-rate">
+<h2><span class="section-number">19.2.6. </span>Sums of Independent Gamma Variables with the Same Rate<a class="headerlink" href="#sums-of-independent-gamma-variables-with-the-same-rate" title="Permalink to this headline">#</a></h2>
 <p>If <span class="math notranslate nohighlight">\(X\)</span> has gamma <span class="math notranslate nohighlight">\((r, \lambda)\)</span> distribution and <span class="math notranslate nohighlight">\(Y\)</span> independent of <span class="math notranslate nohighlight">\(X\)</span> has gamma <span class="math notranslate nohighlight">\((s, \lambda)\)</span> distribution, then</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -1377,20 +1569,21 @@ M_{X+Y} (t) ~ &amp;= ~ \big{(} \frac{\lambda}{\lambda - t} \big{)}^r \cdot \big{
     src="https://www.youtube.com/embed/juRbr3EXnJg"
     frameborder="0"
     allowfullscreen
+
 ></iframe>
 </div></div>
 </div>
-</div>
-<div class="section" id="note-on-existence">
-<h2><span class="section-number">19.2.7. </span>Note on Existence<a class="headerlink" href="#note-on-existence" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="note-on-existence">
+<h2><span class="section-number">19.2.7. </span>Note on Existence<a class="headerlink" href="#note-on-existence" title="Permalink to this headline">#</a></h2>
 <p>Let <span class="math notranslate nohighlight">\(X\)</span> be a random variable. For all <span class="math notranslate nohighlight">\(t\)</span>, the random variable <span class="math notranslate nohighlight">\(e^{tX}\)</span> is positive, so <span class="math notranslate nohighlight">\(M_X(t)\)</span> is either positive or <span class="math notranslate nohighlight">\(+\infty\)</span>.</p>
 <p>The rough statements below should give you a sense of the connection between the tails of the distribution of <span class="math notranslate nohighlight">\(X\)</span> and the existence of the mgf. We will not cover the proofs.</p>
 <p>If <span class="math notranslate nohighlight">\(t &gt; 0\)</span> then <span class="math notranslate nohighlight">\(e^{tX}\)</span> is large for large positive values of <span class="math notranslate nohighlight">\(X\)</span>. So if <span class="math notranslate nohighlight">\(M_X(t)\)</span> is finite for a positive <span class="math notranslate nohighlight">\(t\)</span>, then the right hand tail of the distribution of <span class="math notranslate nohighlight">\(X\)</span> can’t be heavy.</p>
 <p>If <span class="math notranslate nohighlight">\(t &lt; 0\)</span> then <span class="math notranslate nohighlight">\(e^{tX}\)</span> is large for large negative values of <span class="math notranslate nohighlight">\(X\)</span>. So if <span class="math notranslate nohighlight">\(M_X(t)\)</span> is finite for a negative <span class="math notranslate nohighlight">\(t\)</span>, then the left hand tail of the distribution of <span class="math notranslate nohighlight">\(X\)</span> can’t be heavy.</p>
 <p>So if <span class="math notranslate nohighlight">\(M_X(t)\)</span> is finite for a positive value of <span class="math notranslate nohighlight">\(t\)</span> as well as for a negative value of <span class="math notranslate nohighlight">\(t\)</span>, then both of the tails aren’t heavy.</p>
 <p>It can be shown that if <span class="math notranslate nohighlight">\(M_X(t)\)</span> is finite for some <span class="math notranslate nohighlight">\(t\)</span>, then <span class="math notranslate nohighlight">\(M_X(s)\)</span> is finite for all <span class="math notranslate nohighlight">\(s\)</span> between 0 and <span class="math notranslate nohighlight">\(t\)</span>. So <span class="math notranslate nohighlight">\(M_X(t)\)</span> being finite for a positive <span class="math notranslate nohighlight">\(t\)</span> as well as for a negative <span class="math notranslate nohighlight">\(t\)</span> is equivalent to <span class="math notranslate nohighlight">\(M_X\)</span> being finite on an interval around 0. The interval might be very small, but as long as it straddles 0 all the properties listed in this section hold.</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1414,9 +1607,11 @@ M_{X+Y} (t) ~ &amp;= ~ \big{(} \frac{\lambda}{\lambda - t} \big{)}^r \cdot \big{
 
               </div>
               
-        
-            <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="01_Convolution_Formula.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -1432,32 +1627,34 @@ M_{X+Y} (t) ~ &amp;= ~ \big{(} \frac{\lambda}{\lambda - t} \big{)}^r \cdot \big{
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-        
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-    <div class="container">
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Ani Adhikari<br/>
+  
+      &copy; Copyright 2022.<br/>
+    <div class="extra_footer">
       <p>
-        
-          By Ani Adhikari<br/>
-        
-            &copy; Copyright 2021.<br/>
-          <div class="extra_footer">
-            <p>
 License: CC BY-NC-ND 4.0
 </p>
 
-          </div>
-      </p>
     </div>
-  </footer>
-</main>
+</p>
+        </footer>
+    </div>
+    
+</div>
 
 
       </div>
     </div>
   
-  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

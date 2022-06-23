@@ -14,7 +14,7 @@ plt.style.use('fivethirtyeight')
 get_ipython().run_line_magic('matplotlib', 'inline')
 
 
-# In[18]:
+# In[2]:
 
 
 # HIDDEN
@@ -36,7 +36,7 @@ joint_table = Table().values('X', k_x, 'Y', k_y).probability_function(joint_prob
 
 # To understand the relation between two variables we must examine the conditional behavior of each of them given the value of the other. Towards this goal, we will start by examining the example of the previous section and then develop the general theory.
 
-# In[1]:
+# In[3]:
 
 
 # VIDEO: Conditional Distribution: Example
@@ -47,7 +47,7 @@ YouTubeVideo("CnFSQPrm8Js")
 
 # In our example, the joint distribution of $X$ and $Y$ is given by `joint_table`. Here we also display the marginal distribution of $X$.
 
-# In[19]:
+# In[4]:
 
 
 joint_table.marginal('X')
@@ -55,7 +55,7 @@ joint_table.marginal('X')
 
 # Now suppose we know that $Y = 3$. Then the outcome space is reduced to just the cells in the row labeled `Y=3`.
 
-# In[20]:
+# In[5]:
 
 
 def indicator_Y_equals_3(i, j):
@@ -116,7 +116,7 @@ joint_table.event(indicator_Y_equals_3, 'X', 'Y')
 # ### Conditional Distribution of $X$ given $Y = y$ ###
 # The `conditional_dist` method operates on a joint distribution object and displays conditional distributions, as follows.
 
-# In[21]:
+# In[6]:
 
 
 # conditional distribution of X given each different value of Y
@@ -135,7 +135,7 @@ joint_table.conditional_dist('X', 'Y')
 # ### The Theory ###
 # We can now generalize the calculations we did in the example above.
 
-# In[2]:
+# In[7]:
 
 
 # VIDEO: Conditional Distribution: Notation and Calculation

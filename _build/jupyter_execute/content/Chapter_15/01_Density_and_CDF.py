@@ -18,7 +18,7 @@ from scipy import stats
 
 # ## Density and CDF ##
 
-# In[1]:
+# In[2]:
 
 
 # VIDEO: Introduction to Density
@@ -143,7 +143,7 @@ plt.title('Gold Area = $P(0.6 < X \leq 0.8)$');
 # 
 # ```
 
-# In[2]:
+# In[6]:
 
 
 # VIDEO: CDF
@@ -200,7 +200,7 @@ plt.title('Gold Area $= P(X \leq 0.8) = F(0.8)$');
 
 
 # $$
-# P(X \le 0.8) ~ = ~  F(0.8) ~ = ~ 3\cdot0.8^3 - 2\cdot0.8^2 ~ = ~ 0.896
+# P(X \le 0.8) ~ = ~  F(0.8) ~ = ~ 3\cdot0.8^2 - 2\cdot0.8^3 ~ = ~ 0.896
 # $$
 
 # As before, the cdf can be used to find probabilities of intervals. For every pair $a < b$,

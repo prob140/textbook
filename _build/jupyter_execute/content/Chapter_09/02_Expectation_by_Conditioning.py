@@ -21,7 +21,7 @@ get_ipython().run_line_magic('matplotlib', 'inline')
 # 
 # We will start with a simple example to illustrate the ideas. 
 
-# In[1]:
+# In[2]:
 
 
 # VIDEO: Expectation by Conditioning
@@ -32,7 +32,7 @@ YouTubeVideo('GrM0Ve-a010')
 
 # Let the joint distribution of $T$ and $S$ be as in the table below.
 
-# In[2]:
+# In[3]:
 
 
 t = [3, 4]
@@ -46,7 +46,7 @@ jt_dist
 # 
 # Notice that to find $E(T)$, you could use the joint distribution table and the definition of expectation as follows:
 
-# In[3]:
+# In[4]:
 
 
 3*(0.3 + 0.2 + 0.1) + 4*(0.1 + 0.2 + 0.1) 
@@ -56,7 +56,7 @@ jt_dist
 # 
 # Let's condition on $S$:
 
-# In[4]:
+# In[5]:
 
 
 jt_dist.conditional_dist('T', 'S')
@@ -64,7 +64,7 @@ jt_dist.conditional_dist('T', 'S')
 
 # Each of the three conditional distributions is a distribution in its own right. Therefore its histogram has a balance point, just as the marginal distribution of $T$ does.
 
-# In[5]:
+# In[6]:
 
 
 jt_dist.conditional_dist('T', 'S', show_ev=True)
@@ -77,7 +77,7 @@ jt_dist.conditional_dist('T', 'S', show_ev=True)
 # 
 # This defines a *function of $S$*: for each value $s$ of $S$, the function returns $E(T \mid S=s)$.
 
-# In[6]:
+# In[7]:
 
 
 ev_T_given_S = Table().with_columns(
@@ -92,7 +92,7 @@ ev_T_given_S
 # 
 # As it's a random variable, it has an expectation, which we can calculate using the non-linear function rule. The answer is a quantity that you will recognize.
 
-# In[7]:
+# In[8]:
 
 
 ev = sum(ev_T_given_S.column('E(T | S = s)')*ev_T_given_S.column('P(S = s)'))
@@ -138,7 +138,7 @@ ev
 # 
 # ```
 
-# In[ ]:
+# In[9]:
 
 
 # VIDEO: Conditional Expectation

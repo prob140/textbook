@@ -15,7 +15,7 @@ plt.style.use('fivethirtyeight')
 get_ipython().run_line_magic('matplotlib', 'inline')
 
 
-# In[3]:
+# In[2]:
 
 
 # HIDDEN
@@ -54,7 +54,7 @@ reflecting_walk = MarkovChain.from_transition_function(s, refl_walk_probs)
 
 # Every irreducible and aperiodic Markov Chain on a finite state space exhibits astonishing regularity after it has run for a while. The proof of the convergence theorem below is beyond the scope of this course, but in examples you have seen the result by computation. All the results are true in greater generality for some classes of Markov Chains on infinitely many states. 
 
-# In[1]:
+# In[3]:
 
 
 # VIDEO: The Big Theorem
@@ -90,7 +90,7 @@ YouTubeVideo('5ulR-5VcgLQ')
 # 
 # We will assume that the convergence theorem is true; you have observed in numerically in examples. The other properties follow rather easily. In the remainder of this section we will establish the properties and see how they are used.
 
-# In[2]:
+# In[4]:
 
 
 # VIDEO: Balance Equations
@@ -170,7 +170,7 @@ YouTubeVideo('Qxg5EAP90dw')
 # 
 # Here is the transition matrix $\mathbb{P}$.
 
-# In[4]:
+# In[5]:
 
 
 reflecting_walk
@@ -178,7 +178,7 @@ reflecting_walk
 
 # The `MarkovChain` method `steady_state` returns the stationary distribution $\pi$. You saw earlier that this is the limit of the rows of $\mathbb{P}$.
 
-# In[5]:
+# In[6]:
 
 
 reflecting_walk.steady_state()
@@ -224,7 +224,7 @@ reflecting_walk.steady_state()
 # \pi = \big{[} \frac{1}{8}, \frac{2}{8}, \frac{2}{8}, \frac{2}{8}, \frac{1}{8} \big{]}
 # $$
 
-# In[4]:
+# In[7]:
 
 
 # VIDEO: Steady State
@@ -295,7 +295,7 @@ YouTubeVideo('LIXffVd1wic')
 # 
 # At every step, the next move is determined by a random choice from among three options and by the chain's current location, not on how it got to that location. So the process is a Markov chain. Let's call it $X_0, X_1, X_2, \ldots $ and define its transition matrix.
 
-# In[6]:
+# In[8]:
 
 
 s = np.arange(1, 6)
@@ -313,7 +313,7 @@ def circle_walk_probs(i, j):
 circle_walk = MarkovChain.from_transition_function(s, circle_walk_probs)
 
 
-# In[7]:
+# In[9]:
 
 
 circle_walk
@@ -321,7 +321,7 @@ circle_walk
 
 # Because of the symmetry of the transition behavior across all the states, in the long run no state should be occupied more than any other state. Hence all the $\pi(j)$'s should be equal. This is confirmed by `steady_state`, and you can also confirm it by checking that the vector $\pi = [0.2, 0.2, 0.2, 0.2, 0.2]$ solves the balance equations. Remember that the steady state distribution is unique, so there is nothing more to check. 
 
-# In[8]:
+# In[10]:
 
 
 circle_walk.steady_state()

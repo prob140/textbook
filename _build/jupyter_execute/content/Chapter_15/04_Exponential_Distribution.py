@@ -41,7 +41,7 @@ plt.ylabel('$f_T(t)$', rotation=False)
 plt.title('Density of $T$');
 
 
-# In[2]:
+# In[3]:
 
 
 # VIDEO: Exponential Distribution
@@ -201,7 +201,7 @@ plt.title('CDF and Survival Function of $T$');
 # 
 # ```
 
-# In[3]:
+# In[6]:
 
 
 # VIDEO: Memoryless Property
