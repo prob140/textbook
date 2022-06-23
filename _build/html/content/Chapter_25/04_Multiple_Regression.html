@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>25.4. Multiple Regression &#8212; Prob 140 Textbook</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,40 +20,39 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/headers.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="prev" title="25.3. Conditioning and the Multivariate Normal" href="03_Multivariate_Normal_Conditioning.html" />
@@ -62,7 +63,21 @@
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -71,9 +86,10 @@
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -91,14 +107,15 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../README.html">
-   Prob 140
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../README.html">
+                    Prob 140
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Introduction
  </span>
@@ -1059,91 +1076,182 @@
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/content/Chapter_25/04_Multiple_Regression.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/prob140/textbook/gh-pages?urlpath=tree/content/Chapter_25/04_Multiple_Regression.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/prob140/textbook/gh-pages?urlpath=tree/content/Chapter_25/04_Multiple_Regression.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://prob140.datahub.berkeley.edu/hub/user-redirect/git-pull?repo=https://github.com/prob140/textbook&urlpath=tree/textbook/content/Chapter_25/04_Multiple_Regression.ipynb&branch=gh-pages"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on JupyterHub"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="headerbtn__text-container">JupyterHub</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/content/Chapter_25/04_Multiple_Regression.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#the-model">
    25.4.1. The Model
@@ -1197,17 +1305,86 @@
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Multiple Regression</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-model">
+   25.4.1. The Model
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#signal-and-noise-matrix-representation">
+   25.4.2. Signal and Noise: Matrix Representation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ordinary-least-squares">
+   25.4.3. Ordinary Least Squares
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#guessing-the-best-estimate-of-boldsymbol-beta">
+   25.4.4. Guessing the Best Estimate of
+   <span class="math notranslate nohighlight">
+    \(\boldsymbol{\beta}\)
+   </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#projection">
+   25.4.5. Projection
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#least-squares">
+   25.4.6. Least Squares
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#signal-and-noise-revisited">
+   25.4.7. Signal and Noise, Revisited
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#estimate-of-sigma-2">
+   25.4.8. Estimate of
+   <span class="math notranslate nohighlight">
+    \(\sigma^2\)
+   </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#confidence-intervals">
+   25.4.9. Confidence Intervals
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="section" id="multiple-regression">
-<h1><span class="section-number">25.4. </span>Multiple Regression<a class="headerlink" href="#multiple-regression" title="Permalink to this headline">¶</a></h1>
+  <section id="multiple-regression">
+<h1><span class="section-number">25.4. </span>Multiple Regression<a class="headerlink" href="#multiple-regression" title="Permalink to this headline">#</a></h1>
 <p>Regression provides one way of predicting a numerical variable, called a <em>response</em>, based on other variables called <em>predictor variables</em>. The multiple regression model says in essence that</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1220,8 +1397,8 @@
 \beta_0 + \beta_1x_1 + \beta_2x_2 ~ = ~ \beta_0 + \beta_1x + \beta_2x^2
 \]</div>
 <p>is a quadratic function of <span class="math notranslate nohighlight">\(x\)</span>. But it is linear in the coefficients, and it is a linear combination of the two predictor variables <span class="math notranslate nohighlight">\(x_1\)</span> and <span class="math notranslate nohighlight">\(x_2\)</span>.</p>
-<div class="section" id="the-model">
-<h2><span class="section-number">25.4.1. </span>The Model<a class="headerlink" href="#the-model" title="Permalink to this headline">¶</a></h2>
+<section id="the-model">
+<h2><span class="section-number">25.4.1. </span>The Model<a class="headerlink" href="#the-model" title="Permalink to this headline">#</a></h2>
 <p>As in all of statistical inference, properties of estimates depend on the assumptions under which they are calculated. The <em>multiple regression model</em> is a commonly used set of assumptions that describes a particular kind of linear relation between a numerical response variable and a set of predictor variables. You should use it only if you believe that it makes sense for your data.</p>
 <p>The model assumes that there are <span class="math notranslate nohighlight">\(n\)</span> individuals, on each of whom you have measured the response and the predictor variables. For <span class="math notranslate nohighlight">\(1 \le i \le n\)</span>, the relation between the variables is assumed to be</p>
 <div class="math notranslate nohighlight">
@@ -1241,9 +1418,9 @@ Y_i = \beta_0 + \beta_1x_{i,1} + \beta_2x_{i,2} + \cdots + \beta_{p-1}x_{i,p-1} 
 <p>When <span class="math notranslate nohighlight">\(p = 1\)</span> there is just one parameter: the intercept. There are no predictor variables at all. The model says that for each individual <span class="math notranslate nohighlight">\(i\)</span>, the response is <span class="math notranslate nohighlight">\(Y_i = \beta_0 + \epsilon_i\)</span>. This is a case of trying to estimate the response by a constant.</p>
 <p><strong><span class="math notranslate nohighlight">\(p = 2\)</span>: Simple Linear Regression</strong></p>
 <p>The two parameters are the intercept and a slope. The model says that for each individual <span class="math notranslate nohighlight">\(i\)</span>, the response is <span class="math notranslate nohighlight">\(Y_i = \beta_0 + \beta_1x_{i,1} + \epsilon_i\)</span>. That is, the response is the value on a hidden straight line, plus some normal noise. This is the simple regression model you used in Data 8.</p>
-</div>
-<div class="section" id="signal-and-noise-matrix-representation">
-<h2><span class="section-number">25.4.2. </span>Signal and Noise: Matrix Representation<a class="headerlink" href="#signal-and-noise-matrix-representation" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="signal-and-noise-matrix-representation">
+<h2><span class="section-number">25.4.2. </span>Signal and Noise: Matrix Representation<a class="headerlink" href="#signal-and-noise-matrix-representation" title="Permalink to this headline">#</a></h2>
 <p>For any <span class="math notranslate nohighlight">\(p\)</span>, the model can be written compactly as</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1256,9 +1433,9 @@ Y_i = \beta_0 + \beta_1x_{i,1} + \beta_2x_{i,2} + \cdots + \beta_{p-1}x_{i,p-1} 
 <li><p>The <em>error vector</em> <span class="math notranslate nohighlight">\(\boldsymbol{\epsilon}\)</span> is an <span class="math notranslate nohighlight">\(n \times 1\)</span> multivariate normal <span class="math notranslate nohighlight">\((\mathbf{0}, \sigma^2\mathbf{I}_n)\)</span> random vector. Its mean vector is an <span class="math notranslate nohighlight">\(n \times 1\)</span> vector of 0’s and <span class="math notranslate nohighlight">\(\mathbf{I}_n\)</span> is the <span class="math notranslate nohighlight">\(n \times n\)</span> identity matrix.</p></li>
 <li><p>The <em>response vector</em> <span class="math notranslate nohighlight">\(\mathbf{Y}\)</span> is a random vector that is the sum of the linear signal <span class="math notranslate nohighlight">\(\mathbf{X}\boldsymbol{\beta}\)</span> and the normal noise <span class="math notranslate nohighlight">\(\boldsymbol{\epsilon}\)</span>.</p></li>
 </ul>
-</div>
-<div class="section" id="ordinary-least-squares">
-<h2><span class="section-number">25.4.3. </span>Ordinary Least Squares<a class="headerlink" href="#ordinary-least-squares" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="ordinary-least-squares">
+<h2><span class="section-number">25.4.3. </span>Ordinary Least Squares<a class="headerlink" href="#ordinary-least-squares" title="Permalink to this headline">#</a></h2>
 <p>Based on the observations of the predictor variables and the response, the goal is to find the best estimates of the intercept and slopes in the model.</p>
 <p>These estimates can then be used to predict the response of a new individuals, assuming that the model holds for the new individual as well.</p>
 <p>We must select a criterion by which we will decide whether one estimate is better than another. To develop one such criterion, start by noting that any linear function of the predictor variables can be written as <span class="math notranslate nohighlight">\(\mathbf{X}\boldsymbol{\gamma}\)</span> where <span class="math notranslate nohighlight">\(\boldsymbol{\gamma}\)</span> is some <span class="math notranslate nohighlight">\(p \times 1\)</span> vector of coefficients. Think of <span class="math notranslate nohighlight">\(\mathbf{X}\boldsymbol{\gamma}\)</span> as an estimate of <span class="math notranslate nohighlight">\(\mathbf{Y}\)</span>. Then the error in the estimate is <span class="math notranslate nohighlight">\(\mathbf{Y} - \mathbf{X}\boldsymbol{\gamma}\)</span>.</p>
@@ -1289,12 +1466,13 @@ SSE(\boldsymbol{\gamma}) ~ = ~ \sum_{i=1}^n (Y_i - (\mathbf{X}\boldsymbol{\gamma
     src="https://www.youtube.com/embed/VLIDNbHL8u8"
     frameborder="0"
     allowfullscreen
+
 ></iframe>
 </div></div>
 </div>
-</div>
-<div class="section" id="guessing-the-best-estimate-of-boldsymbol-beta">
-<h2><span class="section-number">25.4.4. </span>Guessing the Best Estimate of <span class="math notranslate nohighlight">\(\boldsymbol{\beta}\)</span><a class="headerlink" href="#guessing-the-best-estimate-of-boldsymbol-beta" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="guessing-the-best-estimate-of-boldsymbol-beta">
+<h2><span class="section-number">25.4.4. </span>Guessing the Best Estimate of <span class="math notranslate nohighlight">\(\boldsymbol{\beta}\)</span><a class="headerlink" href="#guessing-the-best-estimate-of-boldsymbol-beta" title="Permalink to this headline">#</a></h2>
 <p>Remember that we have assumed <span class="math notranslate nohighlight">\(n &gt; p\)</span>. Assume also that <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> is of full column rank <span class="math notranslate nohighlight">\(p\)</span>, that is, none of the predictor variables is a linear combination of the others. By a theorem in linear algebra, it follows that the <span class="math notranslate nohighlight">\(p \times p\)</span> matrix <span class="math notranslate nohighlight">\(\mathbf{X}^T\mathbf{X}\)</span> has full rank <span class="math notranslate nohighlight">\(p\)</span> and is therefore invertible.</p>
 <p>The claim is that OLS estimate of <span class="math notranslate nohighlight">\(\boldsymbol{\beta}\)</span> is the vector <span class="math notranslate nohighlight">\(\hat{\boldsymbol{\beta}}\)</span> defined by</p>
 <div class="math notranslate nohighlight">
@@ -1325,9 +1503,9 @@ SSE(\boldsymbol{\gamma}) ~ = ~ \sum_{i=1}^n (Y_i - (\mathbf{X}\boldsymbol{\gamma
 \hat{\mathbf{Y}} ~ = ~ \mathbf{X}\hat{\boldsymbol{\beta}} ~ = ~ \mathbf{X}(\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^T\mathbf{Y}
 \]</div>
 <p>which is also a linear function of <span class="math notranslate nohighlight">\(\mathbf{Y}\)</span>.</p>
-</div>
-<div class="section" id="projection">
-<h2><span class="section-number">25.4.5. </span>Projection<a class="headerlink" href="#projection" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="projection">
+<h2><span class="section-number">25.4.5. </span>Projection<a class="headerlink" href="#projection" title="Permalink to this headline">#</a></h2>
 <p>Define the <span class="math notranslate nohighlight">\(i\)</span>th <em>residual</em> as the prediction error <span class="math notranslate nohighlight">\(e_i = Y_i - \hat{Y}_i\)</span>. Then the <span class="math notranslate nohighlight">\(n \times 1\)</span> vector of residuals is</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1340,9 +1518,9 @@ SSE(\boldsymbol{\gamma}) ~ = ~ \sum_{i=1}^n (Y_i - (\mathbf{X}\boldsymbol{\gamma
 \[
 \mathbf{X}^T\mathbf{e} ~ = ~ \mathbf{X}^T(\mathbf{Y} - \hat{\mathbf{Y}}) ~ = ~ \mathbf{X}^T\mathbf{Y} - \mathbf{X}^T\hat{\mathbf{Y}} ~ = ~ \mathbf{X}^T\mathbf{Y} - \mathbf{X}^T\mathbf{X}(\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^T\mathbf{Y} ~ = ~ \mathbf{X}^T\mathbf{Y} - \mathbf{X}^T\mathbf{Y} ~ = ~ 0
 \]</div>
-</div>
-<div class="section" id="least-squares">
-<h2><span class="section-number">25.4.6. </span>Least Squares<a class="headerlink" href="#least-squares" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="least-squares">
+<h2><span class="section-number">25.4.6. </span>Least Squares<a class="headerlink" href="#least-squares" title="Permalink to this headline">#</a></h2>
 <p>Let <span class="math notranslate nohighlight">\(\boldsymbol{\gamma}\)</span> be any <span class="math notranslate nohighlight">\(p \times 1\)</span> vector. Then</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -1365,12 +1543,13 @@ SSE(\boldsymbol{\gamma}) ~  &amp;= ~ \| \mathbf{Y} - \mathbf{X}\boldsymbol{\gamm
     src="https://www.youtube.com/embed/qQG-yyUPgGE"
     frameborder="0"
     allowfullscreen
+
 ></iframe>
 </div></div>
 </div>
-</div>
-<div class="section" id="signal-and-noise-revisited">
-<h2><span class="section-number">25.4.7. </span>Signal and Noise, Revisited<a class="headerlink" href="#signal-and-noise-revisited" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="signal-and-noise-revisited">
+<h2><span class="section-number">25.4.7. </span>Signal and Noise, Revisited<a class="headerlink" href="#signal-and-noise-revisited" title="Permalink to this headline">#</a></h2>
 <p>Our regression model is</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1398,9 +1577,9 @@ SSE(\boldsymbol{\gamma}) ~  &amp;= ~ \| \mathbf{Y} - \mathbf{X}\boldsymbol{\gamm
 <li><p><span class="math notranslate nohighlight">\(\mathbf{e}\)</span> is the <em>observable</em> random vector consisting of the deviations of <span class="math notranslate nohighlight">\(\mathbf{Y}\)</span> from the estimated plane <span class="math notranslate nohighlight">\(\mathbf{X}\hat{\boldsymbol{\beta}}\)</span>. Elements of <span class="math notranslate nohighlight">\(\mathbf{e}\)</span> are <em>not independent</em> of each other, because they add up to <span class="math notranslate nohighlight">\(0\)</span>.</p></li>
 </ul>
 <p>In exercises you will show that <span class="math notranslate nohighlight">\(\hat{\boldsymbol{\beta}}\)</span> is an unbiased estimator of <span class="math notranslate nohighlight">\(\boldsymbol{\beta}\)</span> and that both <span class="math notranslate nohighlight">\(\hat{\boldsymbol{\beta}}\)</span> of <span class="math notranslate nohighlight">\(\hat{\mathbf{Y}}\)</span> have normal (or multivariate normal) distributions. Both distributions have variance and covariance parameters that depend on the unknown error variance <span class="math notranslate nohighlight">\(\sigma^2\)</span>.</p>
-</div>
-<div class="section" id="estimate-of-sigma-2">
-<h2><span class="section-number">25.4.8. </span>Estimate of <span class="math notranslate nohighlight">\(\sigma^2\)</span><a class="headerlink" href="#estimate-of-sigma-2" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="estimate-of-sigma-2">
+<h2><span class="section-number">25.4.8. </span>Estimate of <span class="math notranslate nohighlight">\(\sigma^2\)</span><a class="headerlink" href="#estimate-of-sigma-2" title="Permalink to this headline">#</a></h2>
 <p>It should come as no surprise that under the multiple regression model, there is an unbiased estimator of <span class="math notranslate nohighlight">\(\sigma^2\)</span> that has a chi-squared distribution. There is some work involved in establishing that this estimate is</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1421,15 +1600,15 @@ S^2 ~ = ~ \frac{1}{n-p} \sum_{i=1}^n (Y_i - \hat{Y}_i)^2 ~ \approx ~ \frac{1}{n}
 S^2 ~ = ~ \frac{1}{n-1} \sum_{i=1}^n (Y_i - \bar{Y})^2
 \]</div>
 <p>is an unbiased estimate of <span class="math notranslate nohighlight">\(\sigma^2\)</span>. You have shown in exercises that <span class="math notranslate nohighlight">\(\frac{n-1}{\sigma^2}S^2\)</span> has the chi-squared <span class="math notranslate nohighlight">\(n-1\)</span> distribution under the assumption that the data are i.i.d. normal variables. This is the special case of the result stated above for general <span class="math notranslate nohighlight">\(p\)</span>.</p>
-</div>
-<div class="section" id="confidence-intervals">
-<h2><span class="section-number">25.4.9. </span>Confidence Intervals<a class="headerlink" href="#confidence-intervals" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="confidence-intervals">
+<h2><span class="section-number">25.4.9. </span>Confidence Intervals<a class="headerlink" href="#confidence-intervals" title="Permalink to this headline">#</a></h2>
 <p>The upshot of this discussion is that if <span class="math notranslate nohighlight">\(n\)</span> is large compared to <span class="math notranslate nohighlight">\(p\)</span> – that is, if you have a lot of observations compared to the number of predictors – then you can use ordinary normal theory to construct confidence intervals for the parameters <span class="math notranslate nohighlight">\(\hat{\beta}\)</span>.</p>
 <p>For example, a 95% confidence interval for the parameter <span class="math notranslate nohighlight">\(\beta_i\)</span> is <span class="math notranslate nohighlight">\(\hat{\boldsymbol{\beta}} [i] \pm 2SD(\hat{\boldsymbol{\beta}} [i])\)</span>.</p>
 <p>Here <span class="math notranslate nohighlight">\(\hat{\boldsymbol{\beta}}[i]\)</span> is the <span class="math notranslate nohighlight">\(i\)</span>th element of the estimate vector <span class="math notranslate nohighlight">\(\hat{\boldsymbol{\beta}}\)</span>.</p>
 <p>The variance of <span class="math notranslate nohighlight">\(\hat{\boldsymbol{\beta}}[i]\)</span> is the <span class="math notranslate nohighlight">\(i\)</span>th diagonal element of the covariance matrix of <span class="math notranslate nohighlight">\(\hat{\boldsymbol{\beta}}\)</span>. You will see in exercises that this involves the error variance <span class="math notranslate nohighlight">\(\sigma^2\)</span>. Typically, <span class="math notranslate nohighlight">\(\sigma^2\)</span> is unknown. But you can estimate it by the mean squared error <span class="math notranslate nohighlight">\(\hat{\sigma}^2\)</span> to get an approximate 95% confidence interval for <span class="math notranslate nohighlight">\(\beta_i\)</span>.</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1453,9 +1632,11 @@ S^2 ~ = ~ \frac{1}{n-1} \sum_{i=1}^n (Y_i - \bar{Y})^2
 
               </div>
               
-        
-            <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="03_Multivariate_Normal_Conditioning.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -1464,32 +1645,34 @@ S^2 ~ = ~ \frac{1}{n-1} \sum_{i=1}^n (Y_i - \bar{Y})^2
         </div>
     </a>
 </div>
-        
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-    <div class="container">
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Ani Adhikari<br/>
+  
+      &copy; Copyright 2022.<br/>
+    <div class="extra_footer">
       <p>
-        
-          By Ani Adhikari<br/>
-        
-            &copy; Copyright 2021.<br/>
-          <div class="extra_footer">
-            <p>
 License: CC BY-NC-ND 4.0
 </p>
 
-          </div>
-      </p>
     </div>
-  </footer>
-</main>
+</p>
+        </footer>
+    </div>
+    
+</div>
 
 
       </div>
     </div>
   
-  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

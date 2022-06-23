@@ -66,7 +66,7 @@ from scipy import misc
 
 # But expectation behaves differently under non-linear transformation.
 
-# In[6]:
+# In[2]:
 
 
 # VIDEO: Non-linear Function: Observation
@@ -114,7 +114,7 @@ YouTubeVideo('BWNa1Ri7eII')
 # 
 # The crucial thing to note about this method is that **we didn't have to first find the distribution of $Y$**. That saves us a lot of work. 
 
-# In[5]:
+# In[3]:
 
 
 # VIDEO: Non-linear Function: Calculation
@@ -127,7 +127,7 @@ YouTubeVideo('jVBrCMCzO3o')
 # ### $Y = \vert X-3 \vert$ ###
 # Let $X$ have a distribution we worked with earlier:
 
-# In[2]:
+# In[4]:
 
 
 x = np.arange(1, 6)
@@ -141,7 +141,7 @@ dist
 # 
 # To calculate $E(Y)$, we first have to create a column that transforms the values of $X$ into values of $Y$:
 
-# In[3]:
+# In[5]:
 
 
 dist_with_Y = dist.with_column('g(x)', np.abs(dist.column('x')-3)).move_to_end('P(X=x)')
@@ -151,7 +151,7 @@ dist_with_Y
 
 # To get $E(Y)$, find the appropriate weighed average: multiply the `g(x)` and `P(X=x)` columns, and add. The calculation shows that $E(Y) = 0.95$.
 
-# In[4]:
+# In[6]:
 
 
 ev_Y = sum(dist_with_Y.column('g(x)') * dist_with_Y.column('P(X=x)'))
@@ -161,7 +161,7 @@ ev_Y
 # ### $Y = \min(X, 3)$ ###
 # Let $X$ be as above, but now let $Y = \min(X, 3)$. We want $E(Y)$. What we know is the distribution of $X$:
 
-# In[5]:
+# In[7]:
 
 
 dist
@@ -169,7 +169,7 @@ dist
 
 # To find $E(Y)$ we can just go row by row and replace the value of $x$ by the value of $\min(x, 3)$, and then find the weighted average:
 
-# In[6]:
+# In[8]:
 
 
 ev_Y = 1*0.15 + 2*0.25 + 3*0.3 + 3*0.2 + 3*0.1

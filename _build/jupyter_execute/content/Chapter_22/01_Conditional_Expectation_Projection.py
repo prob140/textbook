@@ -16,7 +16,7 @@ get_ipython().run_line_magic('matplotlib', 'inline')
 from scipy import stats
 
 
-# In[ ]:
+# In[2]:
 
 
 # HIDDEN
@@ -29,7 +29,7 @@ xmin = min(z)
 xmax = max(z)
 
 
-# In[2]:
+# In[3]:
 
 
 # HIDDEN
@@ -126,11 +126,12 @@ plt.ylim(-3, 6);
 # In other words, the average of the deviations within a strip is $0$.
 # 
 # By iteration,
+# 
 # $$
 # E(D_w) ~ = ~ 0 ~~~~~~ \text{and} ~~~~~~ E\big{(}b(X)\big{)} = E(Y)
 # $$
 
-# In[4]:
+# In[6]:
 
 
 # VIDEO: Projection

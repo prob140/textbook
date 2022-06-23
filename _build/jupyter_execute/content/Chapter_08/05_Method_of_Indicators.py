@@ -43,7 +43,7 @@ from scipy import misc
 # 
 # It is important to note that the additivity works regardless of whether the trials are dependent or independent. 
 
-# In[1]:
+# In[2]:
 
 
 # VIDEO: Method of Indicators
@@ -73,7 +73,7 @@ YouTubeVideo('hOIcQUYUNsM')
 # - The expected number of heads in 25 tosses is 12.5. Remember that the expectation of an integer-valued random variable need not be an integer. 
 # - The expected number of times green pockets win in 20 independent spins of a roulette wheel is $20 \times \frac{2}{38} = 1.053$, roughly.
 
-# In[2]:
+# In[3]:
 
 
 k = np.arange(11)
@@ -85,7 +85,7 @@ plt.title('Binomial (10, 0.75)');
 
 # Notice that we didn't use independence. Additivity of expectation works whether or not the random variables being added are independent. This will be very helpful in the next example.
 
-# In[5]:
+# In[4]:
 
 
 # VIDEO: Expectation: Binomial and Hypergeometric
@@ -118,7 +118,7 @@ YouTubeVideo('lz-UuQqvUOE')
 # 
 # These answers are intuitively clear, and we now have a theoretical justification for them.
 
-# In[3]:
+# In[5]:
 
 
 # Number of hearts in a poker hand 

@@ -122,7 +122,7 @@ def projection_trig():
 # 
 # Later in this section, we will visualize this idea in the case where the joint distribution of $X$ and $Y$ is bivariate normal.
 
-# In[2]:
+# In[3]:
 
 
 # VIDEO: Construction: Bivariate Normal
@@ -131,7 +131,7 @@ from IPython.display import YouTubeVideo
 YouTubeVideo('d-ucYswhZ_Q')
 
 
-# In[3]:
+# In[4]:
 
 
 # VIDEO: Construction: Standard Bivariate Normal
@@ -226,7 +226,7 @@ YouTubeVideo('GQ9nsyr3umI')
 # 
 # The graph below shows the empirical distribution of 1000 $(X, Y)$ points in the case $\rho = 0.6$. You can change the value of $rho$ and see how the scatter diagram changes. It will remind you of numerous such simulations in Data 8.
 
-# In[3]:
+# In[5]:
 
 
 # Plotting parameters
@@ -326,7 +326,7 @@ plt.scatter(x, y, color='darkblue', s=10);
 # 
 # Let's understand this construction geometrically. A good place to start is the joint density of $X$ and $Z$, which has circular symmetry.
 
-# In[3]:
+# In[6]:
 
 
 # NO CODE
@@ -348,7 +348,7 @@ plt.title('Standard Bivariate Normal Distribution, Correlation = 0');
 # 
 # Vary the values of $\theta$ in the cell below to see how the projection changes as the gold axis rotates.
 
-# In[5]:
+# In[7]:
 
 
 theta = 20
@@ -359,7 +359,7 @@ projection_1_2(theta)
 # 
 # A little trigonometry shows that $Y ~ = ~ X \cos(\theta) + Z\sin(\theta)$.
 
-# In[6]:
+# In[8]:
 
 
 projection_trig()
@@ -375,7 +375,7 @@ projection_trig()
 # 
 # The sequence of graphs below illustrates the transformation for $\theta = 30$ degrees.
 
-# In[5]:
+# In[9]:
 
 
 theta = 30
@@ -384,13 +384,13 @@ projection_1_2(theta)
 
 # The bivariate normal distribution is the joint distribution of the blue and red lengths $X$ and $Y$ when the original point $(X, Z)$ has i.i.d. standard normal coordinates. This transforms the circular contours of the joint density surface of $(X, Z)$ into the elliptical contours of the joint density surface of $(X, Y)$. 
 
-# In[6]:
+# In[10]:
 
 
 cos(theta), (3**0.5)/2
 
 
-# In[7]:
+# In[11]:
 
 
 rho = cos(theta)
@@ -402,7 +402,7 @@ plt.title('Standard Bivariate Normal Distribution, Correlation = '+str(round(rho
 # 
 # As we observed earlier, when $\theta$ is very small there is hardly any change in the position of the axis. So $X$ and $Y$ are almost equal. 
 
-# In[10]:
+# In[12]:
 
 
 theta = 2
@@ -413,14 +413,14 @@ projection_1_2(theta)
 # 
 # You can see the plotting function having trouble rendering this joint density surface.
 
-# In[11]:
+# In[13]:
 
 
 rho = cos(theta)
 rho
 
 
-# In[12]:
+# In[14]:
 
 
 Plot_bivariate_normal([0, 0], [[1, rho], [rho, 1]])
@@ -429,7 +429,7 @@ Plot_bivariate_normal([0, 0], [[1, rho], [rho, 1]])
 # ### Orthogonality and Independence ###
 # When $\theta$ is 90 degrees, the gold axis is orthogonal to the $X$ axis and $Y$ is equal to $Z$ which is independent of $X$.
 
-# In[13]:
+# In[15]:
 
 
 theta = 90

@@ -85,7 +85,7 @@ YouTubeVideo('gJkb-5YXly4')
 # \end{cases}
 # $$
 
-# In[15]:
+# In[3]:
 
 
 # NO CODE
@@ -115,7 +115,7 @@ plt.title('Density');
 # \end{cases}
 # $$
 
-# In[16]:
+# In[4]:
 
 
 # NO CODE
@@ -204,7 +204,7 @@ plt.title('CDF of $U$');
 # 
 # 
 
-# In[17]:
+# In[5]:
 
 
 np.pi * (4/12 + 1)
@@ -218,7 +218,7 @@ np.pi * (4/12 + 1)
 # SD(\bar{R}) = \frac{\sqrt{4/12}}{\sqrt{100}} ~ = ~ 0.0577 ~ \mbox{cm}
 # $$ 
 
-# In[18]:
+# In[6]:
 
 
 sd_rbar = ((4/12)**0.5)/(100**0.5)
@@ -227,7 +227,7 @@ sd_rbar
 
 # By the Central Limit Theorem, the distribution of $\bar{R}$ is approximately normal. Let's draw it using `Plot_norm`.
 
-# In[19]:
+# In[7]:
 
 
 Plot_norm((0.8, 1.2), 1, sd_rbar)
@@ -237,14 +237,14 @@ plt.title('Approximate Distribution of Sample Mean Radius');
 
 # We are looking for $c$ such that there is about 99% chance that $\bar{R}$ is in the interval $(1-c, 1+c)$. Therefore $1 + c$ is the 99.5th (not 99th) percent point of the curve above, from which you can find $c$.
 
-# In[20]:
+# In[8]:
 
 
 z = stats.norm.ppf(0.995)
 z
 
 
-# In[21]:
+# In[9]:
 
 
 c = z*sd_rbar
@@ -253,13 +253,13 @@ c
 
 # We can now get the endpoints of the interval. The graph below shows the corresponding area of 99%.
 
-# In[22]:
+# In[10]:
 
 
 1-c, 1+c
 
 
-# In[23]:
+# In[11]:
 
 
 Plot_norm((0.8, 1.2), 1, sd_rbar, left_end = 1-c, right_end = 1+c)

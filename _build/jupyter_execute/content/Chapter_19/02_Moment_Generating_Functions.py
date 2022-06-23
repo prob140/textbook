@@ -48,7 +48,7 @@ from scipy import stats
 # 
 # We will list the three ways first, and then use them all in examples.
 
-# In[1]:
+# In[2]:
 
 
 # VIDEO
@@ -182,7 +182,7 @@ YouTubeVideo('uljcfZRj7os')
 # 
 # ```
 
-# In[2]:
+# In[3]:
 
 
 # VIDEO

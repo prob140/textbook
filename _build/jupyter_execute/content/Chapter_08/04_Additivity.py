@@ -16,7 +16,7 @@ get_ipython().run_line_magic('matplotlib', 'inline')
 from scipy import stats
 
 
-# In[3]:
+# In[2]:
 
 
 # NO CODE
@@ -52,7 +52,7 @@ def compare_T1_T2(N, n, repetitions):
 # 
 # And now note that **there are no assumptions about the relation between $X$ and $Y$**. They could be dependent or independent. Regardless, the expectation of the sum is the sum of the expectations. This makes the result powerful.
 
-# In[1]:
+# In[3]:
 
 
 # VIDEO: Additivity of Expectation
@@ -192,7 +192,7 @@ YouTubeVideo('HzZEhM4NHUQ')
 # 
 # ```
 
-# In[2]:
+# In[4]:
 
 
 # VIDEO: Example of an Unbiased Estimator
@@ -355,7 +355,7 @@ YouTubeVideo('ruEpGZJwHmw')
 # 
 # We will quantify this later in the course. For now, here is a simulation of distributions of the two estimators in the case $N = 300$ and $n=30$. The simulation is based on $5000$ repetitions of drawing a simple random sample of size $30$ from the integers $1$ through $300$.
 
-# In[4]:
+# In[5]:
 
 
 compare_T1_T2(300, 30, 5000)

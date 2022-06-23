@@ -23,7 +23,7 @@ from scipy import stats
 # 
 # We will prove the fact in a later section using moment generating functions. For now, we will just run a quick simulation and then see how to use the fact in examples.
 
-# In[3]:
+# In[2]:
 
 
 mu_X = 10
@@ -70,7 +70,7 @@ plt.title('$X$ is normal (10, $2^2$); $Y$ is normal (15, $3^2$) independent of $
 # 
 # because $H_A - H_B$ is normal with mean 0 and SD $\sqrt{3^2 + 3^2} = \sqrt{18} = 4.24$ inches.
 
-# In[4]:
+# In[3]:
 
 
 # NO CODE

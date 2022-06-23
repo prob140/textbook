@@ -48,7 +48,7 @@ five_rolls_sum = five_rolls_space.with_columns(
 five_rolls_sum
 
 
-# In[1]:
+# In[4]:
 
 
 # VIDEO: Distribution of a Random Variable
@@ -61,7 +61,7 @@ YouTubeVideo("7ZznCAYa48Q")
 
 # To do this, we will start by dropping the `omega` column. Then we will `group` the table by the distinct values of `S(omega)`, and use `sum` to add up all the probabilities in each group.
 
-# In[4]:
+# In[5]:
 
 
 dist_S = five_rolls_sum.drop('omega').group('S(omega)', sum)
@@ -74,7 +74,7 @@ dist_S
 # 
 # Let's check this, to make sure that all the $\omega$'s in the outcome space have been accounted for in the column of probabilities.
 
-# In[20]:
+# In[6]:
 
 
 dist_S.column(1).sum()
@@ -106,7 +106,7 @@ dist_S.column(1).sum()
 # 
 # To keep the code easily readable, let's extract the possible values and probabilities separately as arrays:
 
-# In[5]:
+# In[7]:
 
 
 s = dist_S.column(0)
@@ -115,7 +115,7 @@ p_s = dist_S.column(1)
 
 # To turn these into a probability distribution object, start with an empty table and use the `values` and `probabilities` Table methods. The argument of `values` is a list or an array of possible values, and the argument of `probabilities` is a list or an array of the corresponding probabilities. 
 
-# In[6]:
+# In[8]:
 
 
 dist_S = Table().values(s).probabilities(p_s)
@@ -124,7 +124,7 @@ dist_S
 
 # That looks exactly like the table we had before except that it has more readable column labels. But now for the benefit: to visualize the distribution in a histogram, just use the `prob140` method `Plot` as follows. The resulting histogram is called the *probability histogram* of $S$.
 
-# In[7]:
+# In[9]:
 
 
 Plot(dist_S)
@@ -144,7 +144,7 @@ Plot(dist_S)
 # - This one displays an exact distribution. It was computed based on *all* the possible outcomes of the experiment. It is not an approximation nor an empirical histogram.
 # - The statement of the Central Limit Theorem in Data 8 said that the distribution of the sum of a *large* random sample is roughly normal. But here you're seeing a bell shaped distribution for the sum of only five rolls. If you start out with a uniform distribution (which is the distribution of a single roll), then you don't need a large sample before the probability distribution of the sum starts to look normal.
 
-# In[2]:
+# In[10]:
 
 
 # VIDEO: Probability Histogram
@@ -158,7 +158,7 @@ YouTubeVideo("jOLQGfccbhs")
 # 
 # The `event` argument of `Plot` lets you visualize the probability of the event, as follows.
 
-# In[8]:
+# In[11]:
 
 
 Plot(dist_S, event = np.arange(14, 22, 1))
@@ -170,7 +170,7 @@ Plot(dist_S, event = np.arange(14, 22, 1))
 # 
 # To find $P(14 \le S \le 21)$, use `event` as follows.
 
-# In[9]:
+# In[12]:
 
 
 dist_S.event(np.arange(14, 22, 1))
@@ -180,13 +180,13 @@ dist_S.event(np.arange(14, 22, 1))
 # 
 # To find the numerical value of the probability without displaying all the outcomes in the event, use `event` as above and put a semi-colon at the end of the line. This suppresses the table display.
 
-# In[11]:
+# In[13]:
 
 
 dist_S.event(np.arange(14, 22, 1));
 
 
-# In[3]:
+# In[14]:
 
 
 # VIDEO: Notation and Calculation
@@ -208,7 +208,7 @@ YouTubeVideo("QiTc-HKnlFc")
 # This one means:
 # - First extract the event $\{ S = s\}$ for each value $s$ in the range 14 through 21:
 
-# In[26]:
+# In[15]:
 
 
 event_table = dist_S.where(0, are.between(14, 22))
@@ -217,7 +217,7 @@ event_table
 
 # - Then add the probabilities of all those events:
 
-# In[27]:
+# In[16]:
 
 
 event_table.column('Probability').sum()
@@ -225,7 +225,7 @@ event_table.column('Probability').sum()
 
 # The `event` method does all this in one step. Here it is again, for comparison.
 
-# In[28]:
+# In[17]:
 
 
 dist_S.event(np.arange(14, 22, 1))
@@ -247,7 +247,7 @@ dist_S.event(np.arange(14, 22, 1))
 # P(S \ge 20) = \sum_{s=20}^{30} P(S = s)
 # $$
 
-# In[12]:
+# In[18]:
 
 
 dist_S.event(np.arange(20, 31, 1));
@@ -260,7 +260,7 @@ dist_S.event(np.arange(20, 31, 1));
 # P(\big{\vert} S - 10 \big{|} \le 6) ~ = ~ P(4 \le S \le 16) ~ = ~ \sum_{s=4}^{16} P(S=s)
 # $$
 
-# In[13]:
+# In[19]:
 
 
 dist_S.event(np.arange(4, 17, 1));

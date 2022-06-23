@@ -24,7 +24,7 @@ get_ipython().run_line_magic('matplotlib', 'inline')
 # Let $X_{0} = a$, and for $n > 0$ let $X_{n+1} = X_n + I_n$ where $I_1, I_2, \ldots$ is an i.i.d. sequence of increments, each taking the value $+1$ or $-1$ with chance $1/2$. The state space of this random walk $X_0, X_1, X_2, 
 # \dots$ is the set of all integers. In this course we will restrict the state space to be discrete and typically finite.
 
-# In[1]:
+# In[2]:
 
 
 # VIDEO: Markov Property
@@ -100,7 +100,7 @@ YouTubeVideo('YVGKlWO9ANk')
 # ~ = ~ P(X_0 = i_0)P(i_0, i_1)P(i_1, i_2) \cdots P(i_{n-1}, i_n)
 # $$
 
-# In[2]:
+# In[3]:
 
 
 # VIDEO: Transitions
@@ -133,7 +133,7 @@ YouTubeVideo('G_g-45W7yYk')
 # 
 # To start constructing the matrix, we set the array `s` to be the set of states and the transition function `refl_walk_probs` to take arguments $i$ and $j$ and return $P(i, j)$.
 
-# In[3]:
+# In[4]:
 
 
 s = np.arange(1, 6)
@@ -171,7 +171,7 @@ def refl_walk_probs(i, j):
 # 
 # and displays the one-step transition matrix of a `MarkovChain` object.
 
-# In[4]:
+# In[5]:
 
 
 reflecting_walk = MarkovChain.from_transition_function(s, refl_walk_probs)
@@ -202,7 +202,7 @@ reflecting_walk
 # P(1, 2)P(2, 2)P(2, 3)P(3, 4)P(4, 3) \approx 0.4\%
 # $$
 
-# In[5]:
+# In[6]:
 
 
 0.5 * 0.5 * 0.25 * 0.25 * 0.25
@@ -210,13 +210,13 @@ reflecting_walk
 
 # The `MarkovChain` method `prob_of_path` saves you the trouble of doing the multiplication. It takes as its arguments the starting state and the rest of the path (in a list or array), and returns the probability of the path given the starting state.
 
-# In[6]:
+# In[7]:
 
 
 reflecting_walk.prob_of_path(1, [2, 2, 3, 4, 3])
 
 
-# In[7]:
+# In[8]:
 
 
 reflecting_walk.prob_of_path(1, [2, 2, 3, 4, 3, 5])
@@ -235,19 +235,19 @@ reflecting_walk.prob_of_path(1, [2, 2, 3, 4, 3, 5])
 
 # You can simulate paths of the chain using the `simulate_path` method. It takes two arguments: the starting state and the number of steps of the path. By default it returns an array consisting of the sequence of states in the path. The optional argument `plot_path=True` plots the simulated path. Run the cells below a few times and see how the output changes.
 
-# In[8]:
+# In[9]:
 
 
 reflecting_walk.simulate_path(1, 7)
 
 
-# In[19]:
+# In[10]:
 
 
 reflecting_walk.simulate_path(1, 10, plot_path=True)
 
 
-# In[3]:
+# In[11]:
 
 
 # VIDEO: n-Step Transition Matrix
@@ -268,7 +268,7 @@ YouTubeVideo('YQziLVkV_Ro')
 # 
 # The `MarkovChain` method `transition_matrix` takes $n$ as its argument and displays the $n$-step transition matrix. Here is the 2-step transition matrix of the reflecting walk defined earlier in this section.
 
-# In[10]:
+# In[12]:
 
 
 reflecting_walk.transition_matrix(2)
@@ -318,7 +318,7 @@ reflecting_walk.transition_matrix(2)
 
 # Here is a display of the 5-step transition matrix of the reflecting walk.
 
-# In[11]:
+# In[13]:
 
 
 reflecting_walk.transition_matrix(5)
@@ -328,7 +328,7 @@ reflecting_walk.transition_matrix(5)
 # 
 # For the reflecting walk, we will start by extracting $\mathbb{P}$ as the matrix `refl_walk_P`.
 
-# In[12]:
+# In[14]:
 
 
 refl_walk_P = reflecting_walk.get_transition_matrix(1)
@@ -337,7 +337,7 @@ refl_walk_P
 
 # Let's check that the 5-step transition matrix displayed earlier is the same as $\mathbb{P}^5$. You can use `np.linalg.matrix_power` to raise a matrix to a non-negative integer power. The first argument is the matrix, the second is the power.
 
-# In[13]:
+# In[15]:
 
 
 np.linalg.matrix_power(refl_walk_P, 5)
@@ -353,19 +353,19 @@ np.linalg.matrix_power(refl_walk_P, 5)
 # 
 # Here is the display of $\mathbb{P}^n$ for the reflecting walk, for $n = 25, 50$, and $100$. Keep your eyes on the rows of the matrices as $n$ changes.
 
-# In[14]:
+# In[16]:
 
 
 reflecting_walk.transition_matrix(25)
 
 
-# In[15]:
+# In[17]:
 
 
 reflecting_walk.transition_matrix(50)
 
 
-# In[16]:
+# In[18]:
 
 
 reflecting_walk.transition_matrix(100)

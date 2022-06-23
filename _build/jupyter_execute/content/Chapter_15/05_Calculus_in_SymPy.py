@@ -33,7 +33,7 @@ from scipy import stats
 # 
 # As you can see from its graph below, $f$ could be used to model the distribution of a random proportion that you think is likely to be somewhere between 0.2 and 0.4.
 
-# In[3]:
+# In[2]:
 
 
 # NO CODE
@@ -48,7 +48,7 @@ plt.ylabel('$f(x)$', rotation=0);
 # 
 # First, we will import all the functions in `SymPy` and set up some printing methods that make the output look nicer than the retro typewritten pgf output you saw in a previous section. In future sections of this text, you can assume that this importing and initialization will have been done at the start.
 
-# In[4]:
+# In[3]:
 
 
 from sympy import *
@@ -57,7 +57,7 @@ init_printing()
 
 # Next, we have to create tell Python that an object is symbolic. In our example, the variable $x$ is the natural candidate to be a symbol. You can use `Symbol` for this, by using the argument `'x'`. We have assinged the symbol to the name `x`.
 
-# In[6]:
+# In[4]:
 
 
 x = Symbol('x')
@@ -65,7 +65,7 @@ x = Symbol('x')
 
 # Now we will assign the name `density` to the expression that defines $f$. The expression looks just like a numerical calculation, but the output is algebraic!
 
-# In[7]:
+# In[5]:
 
 
 density = 105 * x**2 * (1-x)**4
@@ -76,7 +76,7 @@ density
 # 
 # Let's not simply accept that this function is a density. Let's check that it is a density by integrating it from 0 to 1. To display this, we use the method `Integral` that takes the name of a function and a *tuple* (a sequence in parentheses) consisting of the variable of integration and the lower and upper limits of integration. We have assigned this integral to the name `total_area`.
 
-# In[8]:
+# In[6]:
 
 
 total_area = Integral(density, (x, 0, 1))
@@ -85,7 +85,7 @@ total_area
 
 # The output of displays the integral, which is nice, but what we really want is its numerical value. In `SymPy`, this is achieved by abruptly instructing the method to `doit()`.
 
-# In[9]:
+# In[7]:
 
 
 total_area.doit()
@@ -95,7 +95,7 @@ total_area.doit()
 # 
 # We can use `Integral` to find the chance that $X$ is in any interval. Here is $P(0.2 < X < 0.4)$.
 
-# In[10]:
+# In[8]:
 
 
 prob_02_04 = Integral(density, (x, 0.2, 0.4)).doit()
@@ -112,7 +112,7 @@ prob_02_04
 # 
 # To get the indefinite integral, simply ask `SymPy` to integrate the density; there are no limits of integration.
 
-# In[11]:
+# In[9]:
 
 
 indefinite = Integral(density).doit()
@@ -123,14 +123,14 @@ indefinite
 # 
 # To evaluate $I(0)$, `SymPy` must substitute $x$ with 0 in the expression for $I$. This is achieved by the method `subs` that takes the variable as its first argument and the specified value as the second.
 
-# In[12]:
+# In[10]:
 
 
 I_0 = indefinite.subs(x, 0)
 I_0
 
 
-# In[13]:
+# In[11]:
 
 
 cdf = indefinite - I_0
@@ -139,7 +139,7 @@ cdf
 
 # To find the value of the cdf at a specified point, say 0.4, we have to substitute $x$ with 0.4 in the formula for the cdf. 
 
-# In[14]:
+# In[12]:
 
 
 cdf_at_04 = cdf.subs(x, 0.4)
@@ -148,7 +148,7 @@ cdf_at_04
 
 # Thus $P(X \le 0.4)$ is roughly 58%. Earlier we calulated $P(0.2 < X < 0.4) = 43.2\%$, which we can confirm by using the cdf:
 
-# In[15]:
+# In[13]:
 
 
 cdf_at_02 = cdf.subs(x, 0.2)
@@ -157,7 +157,7 @@ cdf_at_04 - cdf_at_02
 
 # The expectation $E(X)$ is a definite integral from 0 to 1:
 
-# In[16]:
+# In[14]:
 
 
 expectation = Integral(x*density, (x, 0, 1)).doit()
@@ -168,7 +168,7 @@ expectation
 # 
 # Here is $E(X^2)$, which turns out to be another simple fraction. Clearly, the density $f$ has interesting properties. We will study them later. For now, let's just get the numerical answers.
 
-# In[17]:
+# In[15]:
 
 
 expected_square = Integral((x**2)*density, (x, 0, 1)).doit()
@@ -177,7 +177,7 @@ expected_square
 
 # Now you can find $SD(X)$.
 
-# In[18]:
+# In[16]:
 
 
 sd = (expected_square - expectation**2)**0.5
@@ -193,7 +193,7 @@ sd
 # 
 # The density is 0 on the negative numbers. Here is its graph when $\lambda = 3$.
 
-# In[19]:
+# In[17]:
 
 
 # NO CODE
@@ -211,7 +211,7 @@ plt.title('Exponential Density, Rate $\lambda = 3$');
 # 
 # Note the use of `positive=True` to specify that the symbol can take on only positive values.
 
-# In[21]:
+# In[18]:
 
 
 t = Symbol('t', positive=True)
@@ -220,7 +220,7 @@ lamda = Symbol('lamda', positive=True)
 
 # Next we construct the expression for the density. Notice the use of `exp` for the exponential function. 
 
-# In[22]:
+# In[19]:
 
 
 expon_density = lamda * exp(-lamda * t)
@@ -229,7 +229,7 @@ expon_density
 
 # To see that the function is a density, we can check that its integral from 0 to $\infty$ is 1. The symbol that `SymPy` uses for $\infty$ is `oo`, a double lower case o. It looks very much like $\infty$.
 
-# In[23]:
+# In[20]:
 
 
 Integral(expon_density, (t, 0, oo)).doit()
@@ -250,7 +250,7 @@ Integral(expon_density, (t, 0, oo)).doit()
 # 
 # where $I$ is the indefinite integral of the density. To get this indefinite integral we will use `Integral` as before, except that this time we must specify `t` as the variable of integration. That is because `SymPy` sees two symbols `t` and `lamda` in the density, and doesn't know which one is the variable unless we tell it.
 
-# In[24]:
+# In[21]:
 
 
 indefinite = Integral(expon_density, t).doit()
@@ -259,14 +259,14 @@ indefinite
 
 # Now use $F_T(t) = I(t) - I(0)$:
 
-# In[25]:
+# In[22]:
 
 
 I_0 = indefinite.subs(t, 0)
 I_0
 
 
-# In[26]:
+# In[23]:
 
 
 cdf = indefinite - I_0
@@ -287,7 +287,7 @@ cdf
 # 
 # which you can check by integration by parts. But `SymPy` is faster:
 
-# In[27]:
+# In[24]:
 
 
 expectation = Integral(t*expon_density, (t, 0, oo)).doit()
@@ -296,7 +296,7 @@ expectation
 
 # Calculating $E(T^2)$ is just as easy.
 
-# In[28]:
+# In[25]:
 
 
 expected_square = Integral(t**2 * expon_density, (t, 0, oo)).doit()
@@ -305,14 +305,14 @@ expected_square
 
 # The variance and SD follow directly.
 
-# In[29]:
+# In[26]:
 
 
 variance = expected_square - (expectation ** 2)
 variance
 
 
-# In[31]:
+# In[27]:
 
 
 sd = variance ** 0.5
