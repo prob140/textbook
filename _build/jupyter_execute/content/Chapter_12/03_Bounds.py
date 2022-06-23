@@ -61,7 +61,7 @@ plt.yticks([0, 1]);
 plt.title('$g(x) = x/c$,  $h(x) = I(x \geq c)$');
 
 
-# In[2]:
+# In[4]:
 
 
 # VIDEO: Markov's Inequality
@@ -152,7 +152,7 @@ dist2 = Table().values(x).probabilities(poi)
 Plot(dist2, event=np.append(np.arange(4), np.arange(15, 31, 1)), show_ev=True, show_sd=True)
 
 
-# In[4]:
+# In[7]:
 
 
 # VIDEO: Chebyshev's Inequality
@@ -242,7 +242,7 @@ plt.title('$g(x) = (x - \mu_X)^2/c^2$,  $h(x) = I(|x - \mu_X| \geq c)$');
 # 
 # If you happen to know more about the distribution then of course you can do better than Chebyshev's bound. But in general Chebyshev's bound is as well as you can do without making further assumptions.
 
-# In[6]:
+# In[9]:
 
 
 # VIDEO: Standard Units

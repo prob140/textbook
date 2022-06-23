@@ -45,7 +45,7 @@ get_ipython().run_line_magic('matplotlib', 'inline')
 # 
 # The constraints on $x$ and $y$ are that each must be in the range $\{0, 1, 2\}$ and $\vert x - y \vert < 2$. 
 
-# In[1]:
+# In[2]:
 
 
 # VIDEO: Joint Distribution
@@ -58,7 +58,7 @@ YouTubeVideo("5utr7G2OXXA")
 # 
 # The `prob140` library contains a method for displaying the joint distribution of two random variables. As a first step, you need the possible values of each of the two variables. In our example, both $X$ and $Y$ have values $\{0, 1, 2\}$ and so the same list or array will serve for both.
 
-# In[2]:
+# In[3]:
 
 
 k = np.arange(3)
@@ -66,7 +66,7 @@ k = np.arange(3)
 
 # Now let's define a function that takes $x$ and $y$ as its arguments and returns $P(X = x, Y = y)$. We found the probabilities by counting, above.
 
-# In[3]:
+# In[4]:
 
 
 def joint_probability(x, y):
@@ -86,7 +86,7 @@ def joint_probability(x, y):
 # 
 # where `function_name` is a function that takes $x$ and $y$ as arguments and returns $P(X = x, Y = y)$.
 
-# In[4]:
+# In[5]:
 
 
 joint_dist = Table().values('X', k, 'Y', k).probability_function(joint_probability)
@@ -112,7 +112,7 @@ joint_dist.total_probability()
 # ### Finding Probabilities ###
 # The table contains complete information about the relation between $X$ and $Y$. To find the probabiilty of any event determined by $X$ and $Y$, simply identify the cells that make the event happen, and add up their chances. This is an application of the fundamental method of finding probabilities by partitioning an event.
 
-# In[2]:
+# In[7]:
 
 
 # VIDEO: Events and Probabilities
@@ -135,7 +135,7 @@ YouTubeVideo("ePADXFKYmh4")
 # 
 # We will use a method that is of fundamental importance to everything that follows in this course: we will define a function called the *indicator of the event*. The function just returns a Boolean: 1 if the event occurs, and 0 otherwise. In this example, for any pair $(i, j)$ it returns 1 if $i = j$ and 0 otherwise. 
 
-# In[5]:
+# In[8]:
 
 
 def indicator_equal(i, j):
@@ -148,7 +148,7 @@ def indicator_equal(i, j):
 # - The name of the random variable whose value is the first co-ordinate `a`
 # - The name of the random variable whose value is the second co-ordinate `b`
 
-# In[8]:
+# In[9]:
 
 
 joint_dist.event(indicator_equal, 'X', 'Y')
@@ -160,13 +160,13 @@ joint_dist.event(indicator_equal, 'X', 'Y')
 # 
 # However, if you just want to see the probability of the event without the table display, add a semicolon at the end of the line. That prevents the returned table from being printed.
 
-# In[9]:
+# In[10]:
 
 
 joint_dist.event(indicator_equal, 'X', 'Y');
 
 
-# In[10]:
+# In[11]:
 
 
 def indicator_y_at_least_x(i, j):

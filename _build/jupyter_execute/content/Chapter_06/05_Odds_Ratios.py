@@ -18,7 +18,7 @@ from scipy import stats
 
 # Binomial $(n, p)$ probabilities involve powers and factorials, both of which are difficult to compute when $n$ is large. This section is about simplifying the computation of the entire distribution. The result also helps us understand the shape of binomial histograms.
 
-# In[1]:
+# In[2]:
 
 
 # VIDEO: Consecutive Odds
@@ -58,7 +58,7 @@ YouTubeVideo("-5suvosCTCE")
 # 
 # Even though we already have a formula for the binomial probabilities, building the distribution using consecutive ratios is better computationally and also helps us understand the shape of the distribution.
 
-# In[2]:
+# In[3]:
 
 
 # VIDEO: Binomial Consecutive Odds
@@ -121,7 +121,7 @@ YouTubeVideo("F8lx8OmLsXE")
 # 
 # That is why binomial histograms are either non-increasing or non-decreasing, or they go up and come down. But they can't look like waves on the seashore. They can't go up, come down, and go up again.
 
-# In[3]:
+# In[4]:
 
 
 # VIDEO: Odds and the Mode
@@ -131,7 +131,7 @@ YouTubeVideo("--V_Z2QBc4w")
 
 # Let's visualize this for a $n = 23$ and $p = 0.7$, two parameters that have no significance other than being our choice to use in this example.
 
-# In[2]:
+# In[5]:
 
 
 n = 23
@@ -142,7 +142,7 @@ bin_dist = Table().values(k).probabilities(bin_23_7)
 Plot(bin_dist)
 
 
-# In[3]:
+# In[6]:
 
 
 # It is important to define k as an array here,
@@ -189,7 +189,7 @@ k = np.arange(1, n+1, 1)
 # 
 # To see that this is consistent with what we observed in our numerical example above, let's calculate $(n+1)p$ in that case.
 
-# In[4]:
+# In[7]:
 
 
 (n+1) * p

@@ -18,7 +18,7 @@ from scipy import stats
 
 # This section is a workout in finding expectation and variance by conditioning. As before, if you are trying to find a probability, expectation, or variance, and you think, "If only I knew the value of this other random variable, I'd have the answer," then that's a sign that you should consider conditioning on that other random variable.
 
-# In[1]:
+# In[2]:
 
 
 # VIDEO: A Mixture

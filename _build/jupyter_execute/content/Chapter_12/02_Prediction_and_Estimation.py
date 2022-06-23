@@ -31,7 +31,7 @@ get_ipython().run_line_magic('matplotlib', 'inline')
 # MSE(\mu_X) ~ = ~ E[(X-\mu_X)^2] ~ = ~ \sigma_X^2
 # $$
 
-# In[1]:
+# In[2]:
 
 
 # VIDEO: Least Squares Constant Predictor
@@ -91,7 +91,7 @@ YouTubeVideo('hnm1Ht5DiWk')
 # 
 # Here are simulated distributions of $T_1$ and $T_2$ in the case $N = 300$ and $n = 30$, based on 5000 repetitions.
 
-# In[42]:
+# In[3]:
 
 
 def simulate_T1_T2(N, n):
@@ -124,14 +124,14 @@ plt.title('$N =$'+str(N)+', $n =$'+str(n)+' ('+str(repetitions)+' repetitions)')
 # 
 # The empirical values of the two means and standard deviations based on this simulation are calculated below.
 
-# In[43]:
+# In[4]:
 
 
 t1 = comparison.column(0)
 np.mean(t1), np.std(t1)
 
 
-# In[44]:
+# In[5]:
 
 
 t2 = comparison.column(1)

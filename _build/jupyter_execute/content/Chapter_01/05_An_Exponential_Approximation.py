@@ -30,7 +30,7 @@ import numpy as np
 # 
 # The main steps in the approximation will be used repeatedly in this course, so we will set them out in some detail here.
 
-# In[1]:
+# In[2]:
 
 
 # VIDEO: Approximate Chance of Collision

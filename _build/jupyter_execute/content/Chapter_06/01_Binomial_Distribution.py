@@ -64,7 +64,7 @@ from scipy import stats
 # 
 # Parameters of a distribution are constants associated with it. The Bernoulli $(p)$ distribution has parameter $p$. The binomial distribution defined above has parameters $n$ and $p$ and is referred to as the binomial $(n, p)$ distribution for short. You should check that the Bernoulli $(p)$ distribution is the same as the binomial $(1, p)$ distribution.
 
-# In[1]:
+# In[2]:
 
 
 # VIDEO: Binomial Distribution
@@ -147,7 +147,7 @@ YouTubeVideo("K2Rsnx8YbJQ")
 # ### Binomial Probabilities in Python ###
 # `SciPy` is a system for scientific computing, based on Python. The `stats` submodule of `scipy` does numerous calculations in probability and statistics. We will be importing it at the start of every notebook from now on.
 
-# In[2]:
+# In[3]:
 
 
 from scipy import stats
@@ -160,7 +160,7 @@ from scipy import stats
 # The chance of 3 sixes in 7 rolls of a die is
 # $\binom{7}{3}(1/6)^3(5/6)^4$ by the binomial formula, which works out to about 8% by the calculation below.
 
-# In[3]:
+# In[4]:
 
 
 stats.binom.pmf(3, 7, 1/6)
@@ -168,7 +168,7 @@ stats.binom.pmf(3, 7, 1/6)
 
 # You can also specify an array or list of values of $k$, and `stats.binom.pmf` will return an array consisting of all their probabilities.
 
-# In[4]:
+# In[5]:
 
 
 stats.binom.pmf([2, 3, 4], 7, 1/6)
@@ -176,13 +176,13 @@ stats.binom.pmf([2, 3, 4], 7, 1/6)
 
 # Thus to find $P(2 \le S_7 \le 4)$, you can use
 
-# In[5]:
+# In[6]:
 
 
 sum(stats.binom.pmf([2, 3, 4], 7, 1/6))
 
 
-# In[2]:
+# In[7]:
 
 
 # VIDEO: CDF
@@ -193,7 +193,7 @@ YouTubeVideo('MoBXF8icYkM')
 # 
 # To visualize binomial distributions we will use the `prob140` method `Plot`, by first using `stats.binom.pmf` to calculate the binomial probabilities. The cell below plots the distribution of $S_7$ above. Notice how we start by specifying all the possible values of $S_7$ in the array `k`.
 
-# In[2]:
+# In[8]:
 
 
 n = 7
@@ -206,7 +206,7 @@ Plot(binom_7_1_6_dist)
 
 # Very often, we need probabilities of the form $P(X > x)$ or $P(X \le x)$. For example, for $X$ with the binomial $(7, 1/6)$ distribution above, here is the event $\{ X \le 2 \}$.
 
-# In[6]:
+# In[9]:
 
 
 Plot(binom_7_1_6_dist, event=np.arange(0, 3))
@@ -234,7 +234,7 @@ Plot(binom_7_1_6_dist, event=np.arange(0, 3))
 1 - stats.binom.cdf(2, 7, 1/6)
 
 
-# In[7]:
+# In[11]:
 
 
 stats.binom.cdf(2, 7, 1/6)
@@ -242,7 +242,7 @@ stats.binom.cdf(2, 7, 1/6)
 
 # Here is the event $P(5 < Y \le 10)$ for a random variable $Y$ that has the binomial $(20, 0.4)$ distribution.
 
-# In[8]:
+# In[12]:
 
 
 k = np.arange(21)
@@ -259,7 +259,7 @@ Plot(binom_20_point4, event=np.arange(6, 11))
 # 
 # That's about 74.7%.
 
-# In[11]:
+# In[13]:
 
 
 stats.binom.cdf(10, 20, 0.4) - stats.binom.cdf(5, 20, 0.4)
@@ -269,7 +269,7 @@ stats.binom.cdf(10, 20, 0.4) - stats.binom.cdf(5, 20, 0.4)
 # 
 # Here is the histogram of the binomial $(7, 1/6)$ distribution again. Not surprisingly, the graph shows that in 7 rolls of a die you are most likely to get around 1 six.
 
-# In[9]:
+# In[14]:
 
 
 Plot(binom_7_1_6_dist)
@@ -283,7 +283,7 @@ Plot(binom_7_1_6_dist)
 
 
 
-# In[7]:
+# In[15]:
 
 
 n = 600
@@ -298,7 +298,7 @@ Plot(binom_600_1_6_dist)
 # 
 # Also notice that while the the *possible* values of the number of sixes range from 0 to 600, the *probable* values are in a much smaller range. The `plt.xlim` function allows us to zoom in on the probable values. The semicolon is just to prevent Python giving us a message that clutters up the graph. The `edges=True` option forces `Plot` to draw lines separating the bars; by default, it stops doing that if the number of bars is large.
 
-# In[8]:
+# In[16]:
 
 
 Plot(binom_600_1_6_dist, edges=True)
@@ -309,7 +309,7 @@ plt.xlim(70, 130);
 # 
 # Something quite different happens if for example your random variable is the number of successes in 600 independent trials that have probability 1/600 of success on each trial. Then the distribution of the number of successes is binomial $(600, 1/600)$, which looks like this:
 
-# In[9]:
+# In[17]:
 
 
 n = 600
@@ -322,7 +322,7 @@ Plot(binom_600_1_600_dist)
 
 # We really can't see that at all! Let's zoom in. When we set the limits on the horizontal axis, we have to account for the bar at 0 being centered at the 0 and hence starting at -0.5.
 
-# In[11]:
+# In[18]:
 
 
 Plot(binom_600_1_600_dist, edges=True)

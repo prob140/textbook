@@ -19,7 +19,7 @@ init_printing()
 
 # ## Marginal and Conditional Densities ##
 
-# In[1]:
+# In[2]:
 
 
 # VIDEO
@@ -38,7 +38,7 @@ YouTubeVideo('K4NlpU_Kd_0')
 # \end{cases}
 # $$
 
-# In[2]:
+# In[3]:
 
 
 def jt_dens(x,y):
@@ -52,7 +52,7 @@ Plot_3d(x_limits=(0,1), y_limits=(0,1), f=jt_dens, cstride=4, rstride=4)
 
 # Then the possible values of $(X, Y)$ are in the upper right hand triangle of the unit square.
 
-# In[3]:
+# In[4]:
 
 
 # NO CODE
@@ -102,7 +102,7 @@ Integral(joint_density, (y, x, 1), (x, 0, 1)).doit()
 # 
 # You can see the reasoning behind this calculation in the graph below. The blue strip shows the event $\{ X \in dx \}$ for a value of $x$ very near 0.25. To find the volume $P(X \in dx)$, we hold $x$ fixed and add over all $y$. 
 
-# In[4]:
+# In[7]:
 
 
 # NO CODE
@@ -144,7 +144,7 @@ plt.title('$X \in dx$');
 # 
 # Here is the joint density surface again. You can see that $X$ is much more likely to be near 0 than near 1. 
 
-# In[7]:
+# In[8]:
 
 
 Plot_3d(x_limits=(0,1), y_limits=(0,1), f=jt_dens, cstride=4, rstride=4)
@@ -152,7 +152,7 @@ Plot_3d(x_limits=(0,1), y_limits=(0,1), f=jt_dens, cstride=4, rstride=4)
 
 # That can be seen in the shape of the density of $X$.
 
-# In[8]:
+# In[9]:
 
 
 # NO CODE
@@ -179,7 +179,7 @@ plt.title('$f_X$: Density of $X$');
 # f_Y(y) ~ = ~ \int_0^y 30(y-x)^4dx ~ = ~ 6y^5
 # $$
 
-# In[9]:
+# In[10]:
 
 
 # NO CODE
@@ -191,7 +191,7 @@ plt.ylabel('$f_Y(y)$', rotation=0)
 plt.title('$f_Y$: Density of $Y$');
 
 
-# In[2]:
+# In[11]:
 
 
 # VIDEO
@@ -236,7 +236,7 @@ YouTubeVideo('T0CkUU6V6CE')
 # 
 # This is a density on $(0.4, 1)$:
 
-# In[8]:
+# In[12]:
 
 
 y = Symbol('y', positive=True)
@@ -248,7 +248,7 @@ Integral(conditional_density_Y_given_X_is_04, (y, 0.4, 1)).doit()
 
 # The figure below shows the overlaid graphs of the density of $Y$ and the conditional density of $Y$ given $X = 0.4$. You can see that the conditional density is more concentrated on large values of $Y$, because under the condition $X = 0.4$ you know that $Y$ can't be small.
 
-# In[11]:
+# In[13]:
 
 
 # NO CODE
@@ -270,7 +270,7 @@ plt.xlabel('$y$');
 # 
 # The answer is about 60%. 
 
-# In[9]:
+# In[14]:
 
 
 Integral(conditional_density_Y_given_X_is_04, (y, 0.9, 1)).doit()
@@ -282,7 +282,7 @@ Integral(conditional_density_Y_given_X_is_04, (y, 0.9, 1)).doit()
 # E(Y \mid X = 0.4) ~ = ~ \int_{0.4}^1 y \frac{5}{0.6^5} (y - 0.4)^4 dy ~ = ~ 0.9
 # $$
 
-# In[10]:
+# In[15]:
 
 
 Integral(y*conditional_density_Y_given_X_is_04, (y, 0.4, 1)).doit()

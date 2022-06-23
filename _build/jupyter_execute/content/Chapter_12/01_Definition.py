@@ -155,7 +155,7 @@ dist4 = Table().values(-4*x).probability(probs)
 Plots('-4X', dist4, '4X', dist3 )
 
 
-# In[4]:
+# In[11]:
 
 
 # VIDEO: SD: Linear Functions
@@ -234,7 +234,7 @@ YouTubeVideo('zF-_2JwObjQ')
 # 
 # ```
 
-# In[5]:
+# In[12]:
 
 
 # VIDEO: Variance of Indicator

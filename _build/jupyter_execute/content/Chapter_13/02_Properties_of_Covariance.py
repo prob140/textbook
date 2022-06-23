@@ -69,7 +69,7 @@ get_ipython().run_line_magic('matplotlib', 'inline')
 # 
 # This result simplifies proofs of facts about covariance, as you will see below. But as a computational tool, it is only useful when the distributions of $X$ and $Y$ are very simple – for example, when each has just a few possible values. In other calculations of covariance it is rarely a good idea to try to use this result. Rather, we will use the bilinearity property described at the end of this section.
 
-# In[6]:
+# In[2]:
 
 
 # VIDEO: Uncorrelated but Not Independent
@@ -113,7 +113,7 @@ YouTubeVideo('_FG4CxA6_9A')
 # 
 # To summarize, independent random variables are uncorrelated. But it is not true that uncorrelated random variables have to be independent.
 
-# In[7]:
+# In[3]:
 
 
 # VIDEO: Independent Implies Uncorrelated
@@ -141,7 +141,7 @@ YouTubeVideo('y8GIvXI7b-s')
 # 
 # ```
 
-# In[8]:
+# In[4]:
 
 
 # VIDEO: Bilinearity of Covariance

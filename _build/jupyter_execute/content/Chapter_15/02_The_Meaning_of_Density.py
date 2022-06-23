@@ -54,7 +54,7 @@ def simulate_f(n):
 # 
 # Being able to drop the equal sign like this is a major departure from calculations involving discrete random variables; $P(X = k)$ has disappeared. But it does have an analog if we think in terms of infinitesimals.
 
-# In[1]:
+# In[3]:
 
 
 # VIDEO: Meaning of Density

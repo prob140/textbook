@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>14.5. The Sample Mean &#8212; Prob 140 Textbook</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,40 +20,39 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/headers.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="14.6. Confidence Intervals" href="06_Confidence_Intervals.html" />
@@ -63,7 +64,21 @@
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -72,9 +87,10 @@
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -92,14 +108,15 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../README.html">
-   Prob 140
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../README.html">
+                    Prob 140
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Introduction
  </span>
@@ -1060,91 +1077,182 @@
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/content/Chapter_14/05_The_Sample_Mean.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/prob140/textbook/gh-pages?urlpath=tree/content/Chapter_14/05_The_Sample_Mean.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/prob140/textbook/gh-pages?urlpath=tree/content/Chapter_14/05_The_Sample_Mean.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://prob140.datahub.berkeley.edu/hub/user-redirect/git-pull?repo=https://github.com/prob140/textbook&urlpath=tree/textbook/content/Chapter_14/05_The_Sample_Mean.ipynb&branch=gh-pages"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on JupyterHub"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="headerbtn__text-container">JupyterHub</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/content/Chapter_14/05_The_Sample_Mean.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#the-mean-of-an-iid-sample">
    14.5.1. The Mean of an IID Sample
@@ -1172,17 +1280,60 @@
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>The Sample Mean</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-mean-of-an-iid-sample">
+   14.5.1. The Mean of an IID Sample
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#square-root-law">
+   14.5.2. Square Root Law
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#weak-law-of-large-numbers">
+   14.5.3. Weak Law of Large Numbers
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#related-laws">
+   14.5.4. Related Laws
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-shape-of-the-distribution">
+   14.5.5. The Shape of the Distribution
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="section" id="the-sample-mean">
-<h1><span class="section-number">14.5. </span>The Sample Mean<a class="headerlink" href="#the-sample-mean" title="Permalink to this headline">¶</a></h1>
+  <section id="the-sample-mean">
+<h1><span class="section-number">14.5. </span>The Sample Mean<a class="headerlink" href="#the-sample-mean" title="Permalink to this headline">#</a></h1>
 <p>What’s central about the Central Limit Theorem? One answer is that it allows us to make inferences based on random samples when we don’t know much about the distribution of the population. For data scientists, that’s very valuable.</p>
 <p>In Data 8 you saw that if we want estimate the mean of a population, we can construct confidence intervals for the parameter based on the mean of a large random sample. In that course you used the bootstrap to generate an empirical distribution of the sample mean, and then used the empirical distribution to create the confidence interval. You will recall that those empirical distributions were invariably bell shaped.</p>
 <p>In this section we will study the probability distribution of the sample mean and show that you can use it to construct confidence intervals for the population mean without any resampling.</p>
@@ -1221,11 +1372,12 @@ E(S_n) = n\mu ~~~~~~~~~~  SD(S_n) = \sqrt{n}\sigma
     src="https://www.youtube.com/embed/UjxM2o6nlbc"
     frameborder="0"
     allowfullscreen
+
 ></iframe>
 </div></div>
 </div>
-<div class="section" id="the-mean-of-an-iid-sample">
-<h2><span class="section-number">14.5.1. </span>The Mean of an IID Sample<a class="headerlink" href="#the-mean-of-an-iid-sample" title="Permalink to this headline">¶</a></h2>
+<section id="the-mean-of-an-iid-sample">
+<h2><span class="section-number">14.5.1. </span>The Mean of an IID Sample<a class="headerlink" href="#the-mean-of-an-iid-sample" title="Permalink to this headline">#</a></h2>
 <p>Let <span class="math notranslate nohighlight">\(\bar{X}_n\)</span> be the sample mean, that is,</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1249,9 +1401,9 @@ SD(\bar{X}_n) = \frac{SD(S_n)}{n} = \frac{\sqrt{n}\sigma}{n} = \frac{\sigma}{\sq
 <img alt="../../_images/05_The_Sample_Mean_8_0.png" src="../../_images/05_The_Sample_Mean_8_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="square-root-law">
-<h2><span class="section-number">14.5.2. </span>Square Root Law<a class="headerlink" href="#square-root-law" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="square-root-law">
+<h2><span class="section-number">14.5.2. </span>Square Root Law<a class="headerlink" href="#square-root-law" title="Permalink to this headline">#</a></h2>
 <p>Accuracy doesn’t come cheap. The SD of the i.i.d. sample mean decreases according to the square root of the sample size. Therefore if you want to decrease the SD of the sample mean by a factor of 3, you have to increase the sample size by a factor of <span class="math notranslate nohighlight">\(3^2 = 9\)</span>.</p>
 <p>The general result is usually stated in the reverse.</p>
 <p><strong>Square Root Law:</strong>
@@ -1265,12 +1417,13 @@ If you multiply the sample size by a factor, then the SD of the i.i.d. sample me
     src="https://www.youtube.com/embed/WowLqZku3X8"
     frameborder="0"
     allowfullscreen
+
 ></iframe>
 </div></div>
 </div>
-</div>
-<div class="section" id="weak-law-of-large-numbers">
-<h2><span class="section-number">14.5.3. </span>Weak Law of Large Numbers<a class="headerlink" href="#weak-law-of-large-numbers" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="weak-law-of-large-numbers">
+<h2><span class="section-number">14.5.3. </span>Weak Law of Large Numbers<a class="headerlink" href="#weak-law-of-large-numbers" title="Permalink to this headline">#</a></h2>
 <p>The sample mean is an unbiased estimator of the population mean and has a small SD when the sample size is large. So the mean of a large sample is close to the population mean with high probability.</p>
 <p>The formal result is called the <em>Weak Law of Large Numbers</em>.</p>
 <p>Let <span class="math notranslate nohighlight">\(X_1, X_2, \ldots, X_n\)</span> be i.i.d., each with mean <span class="math notranslate nohighlight">\(\mu\)</span> and SD <span class="math notranslate nohighlight">\(\sigma\)</span>, and let <span class="math notranslate nohighlight">\(\bar{X}_n\)</span> be the sample mean. Fix any number <span class="math notranslate nohighlight">\(\epsilon &gt; 0\)</span>; it is best to imagine <span class="math notranslate nohighlight">\(\epsilon\)</span> to be very small. Then</p>
@@ -1288,23 +1441,23 @@ P(\vert \bar{X}_n - \mu \vert \ge \epsilon)~ \le ~ \frac{\sigma_{\bar{X}_n}^2}{\
 <p>In the terminology of probability theory, the result above is the same as saying that the i.i.d. sample mean <em>converges in probability</em> to the population mean. In the terminology of statistical inference, the result says that the i.i.d. sample mean is a <em>consistent</em> estimator of the population mean.</p>
 <div class="admonition-quick-check admonition">
 <p class="admonition-title">Quick Check</p>
-<p><span class="math notranslate nohighlight">\(X_1, X_2, \ldots \)</span> are i.i.d. Poisson <span class="math notranslate nohighlight">\((5)\)</span> random variables. When <span class="math notranslate nohighlight">\(n\)</span> is large, the value of <span class="math notranslate nohighlight">\(\frac{1}{n}\sum_{i=1}^n X_i\)</span> is highly likely to be close to one number. What’s that number, and why?</p>
+<p><span class="math notranslate nohighlight">\(X_1, X_2, \ldots\)</span> are i.i.d. Poisson <span class="math notranslate nohighlight">\((5)\)</span> random variables. When <span class="math notranslate nohighlight">\(n\)</span> is large, the value of <span class="math notranslate nohighlight">\(\frac{1}{n}\sum_{i=1}^n X_i\)</span> is highly likely to be close to one number. What’s that number, and why?</p>
 </div>
 <div class="dropdown admonition">
 <p class="admonition-title">Answer</p>
 <p>5 by the Weak Law</p>
 </div>
-</div>
-<div class="section" id="related-laws">
-<h2><span class="section-number">14.5.4. </span>Related Laws<a class="headerlink" href="#related-laws" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="related-laws">
+<h2><span class="section-number">14.5.4. </span>Related Laws<a class="headerlink" href="#related-laws" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p><strong>Strong Law of Large Numbers.</strong> This says that if you have a large iid then sample, then with probability 1 the running sample averages converge to a limit, and that limit is the constant <span class="math notranslate nohighlight">\(\mu\)</span>. See <a class="reference external" href="https://terrytao.wordpress.com/2008/06/18/the-strong-law-of-large-numbers/">this blog post by Fields Medalist Terence Tao</a>. He states the laws in the case where the underlying SDs may not exist. Note that our proof of the Weak Law is not valid in that case; the result is still true but the proof needs more care.</p></li>
 <li><p><strong>Law of Small Numbers.</strong> This is the title of a book by <a class="reference external" href="https://en.wikipedia.org/wiki/Ladislaus_Bortkiewicz">Ladislaus Bortkiewicz</a> (1868-1931) in which he described the Poisson approximation to distributions of rare events. That’s why Section 6.4 of these notes is called the Law of Small Numbers.</p></li>
 <li><p><strong>Law of Averages.</strong> This is a common name for the Weak Law in the case where the population is binary and the sample mean is just the proportion of successes in the sample. In common usage, people sometimes forget that the law is a limit statement. If you are tossing a fair coin and have seen 10 heads in a row, the chance that the next toss is a head is still 1/2. The law of averages does not say that you are “due for a tail”. It doesn’t apply to finite sets of tosses.</p></li>
 </ul>
-</div>
-<div class="section" id="the-shape-of-the-distribution">
-<h2><span class="section-number">14.5.5. </span>The Shape of the Distribution<a class="headerlink" href="#the-shape-of-the-distribution" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="the-shape-of-the-distribution">
+<h2><span class="section-number">14.5.5. </span>The Shape of the Distribution<a class="headerlink" href="#the-shape-of-the-distribution" title="Permalink to this headline">#</a></h2>
 <p>The Central Limit Theorem tells us that for large samples, the distribution of the sample mean is roughly normal. The sample mean is a linear transformation of the the sample sum. So if the distribution of the sample sum is roughly normal, the distribution of the sample mean is roughly normal as well, though with different parameters. Specifically, for large <span class="math notranslate nohighlight">\(n\)</span>,</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1312,12 +1465,52 @@ P(\bar{X}_n \le x) ~ \approx ~ \Phi \big{(} \frac{x - \mu}{\sigma/\sqrt{n}} \big
 \]</div>
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/05_The_Sample_Mean_16_0.png" src="../../_images/05_The_Sample_Mean_16_0.png" />
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="nn">Input In [7],</span> in <span class="ni">&lt;cell line: 3&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># NO CODE</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">Plot_norm</span><span class="p">(</span><span class="n">x_limits</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">mu</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.401</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="mi">7</span><span class="o">*</span><span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">]))</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mf">4.1</span><span class="p">),[</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;$\mu - \sigma/\sqrt</span><span class="si">{n}</span><span class="s1">$&#39;</span><span class="p">,</span> <span class="s1">&#39;$\mu$&#39;</span><span class="p">,</span> <span class="s1">&#39;$\mu+\sigma/\sqrt</span><span class="si">{n}</span><span class="s1">$&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">])</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Approximate Distribution of Sample Mean&#39;</span><span class="p">)</span>
+
+<span class="nn">File ~/.local/lib/python3.8/site-packages/matplotlib/pyplot.py:1876,</span> in <span class="ni">yticks</span><span class="nt">(ticks, labels, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1874</span>         <span class="n">l</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1875</span> <span class="k">else</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1876</span>     <span class="n">labels</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1878</span> <span class="k">return</span> <span class="n">locs</span><span class="p">,</span> <span class="n">labels</span>
+
+<span class="nn">File ~/.local/lib/python3.8/site-packages/matplotlib/axes/_base.py:75,</span> in <span class="ni">_axis_method_wrapper.__set_name__.&lt;locals&gt;.wrapper</span><span class="nt">(self, *args, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">74</span> <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="ne">---&gt; </span><span class="mi">75</span>     <span class="k">return</span> <span class="n">get_method</span><span class="p">(</span><span class="bp">self</span><span class="p">)(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File ~/.local/lib/python3.8/site-packages/matplotlib/axis.py:1798,</span> in <span class="ni">Axis._set_ticklabels</span><span class="nt">(self, labels, fontdict, minor, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1796</span> <span class="k">if</span> <span class="n">fontdict</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1797</span>     <span class="n">kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">fontdict</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1798</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">set_ticklabels</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">minor</span><span class="o">=</span><span class="n">minor</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File ~/.local/lib/python3.8/site-packages/matplotlib/axis.py:1720,</span> in <span class="ni">Axis.set_ticklabels</span><span class="nt">(self, ticklabels, minor, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1716</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">locator</span><span class="p">,</span> <span class="n">mticker</span><span class="o">.</span><span class="n">FixedLocator</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1717</span>     <span class="c1"># Passing [] as a list of ticklabels is often used as a way to</span>
+<span class="g g-Whitespace">   </span><span class="mi">1718</span>     <span class="c1"># remove all tick labels, so only error for &gt; 0 ticklabels</span>
+<span class="g g-Whitespace">   </span><span class="mi">1719</span>     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">locator</span><span class="o">.</span><span class="n">locs</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ticklabels</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">ticklabels</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1720</span>         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1721</span>             <span class="s2">&quot;The number of FixedLocator locations&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1722</span>             <span class="sa">f</span><span class="s2">&quot; (</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">locator</span><span class="o">.</span><span class="n">locs</span><span class="p">)</span><span class="si">}</span><span class="s2">), usually from a call to&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1723</span>             <span class="s2">&quot; set_ticks, does not match&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1724</span>             <span class="sa">f</span><span class="s2">&quot; the number of ticklabels (</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">ticklabels</span><span class="p">)</span><span class="si">}</span><span class="s2">).&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1725</span>     <span class="n">tickd</span> <span class="o">=</span> <span class="p">{</span><span class="n">loc</span><span class="p">:</span> <span class="n">lab</span> <span class="k">for</span> <span class="n">loc</span><span class="p">,</span> <span class="n">lab</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">locator</span><span class="o">.</span><span class="n">locs</span><span class="p">,</span> <span class="n">ticklabels</span><span class="p">)}</span>
+<span class="g g-Whitespace">   </span><span class="mi">1726</span>     <span class="n">func</span> <span class="o">=</span> <span class="n">functools</span><span class="o">.</span><span class="n">partial</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_format_with_dict</span><span class="p">,</span> <span class="n">tickd</span><span class="p">)</span>
+
+<span class="ne">ValueError</span>: The number of FixedLocator locations (9), usually from a call to set_ticks, does not match the number of ticklabels (7).
+</pre></div>
+</div>
+<img alt="../../_images/05_The_Sample_Mean_16_1.png" src="../../_images/05_The_Sample_Mean_16_1.png" />
 </div>
 </div>
 <p>The expectation stays the same no matter what <span class="math notranslate nohighlight">\(n\)</span> is. But as <span class="math notranslate nohighlight">\(n\)</span> gets large, the SD of the sample mean gets smaller. So the curve above starts looking like a spike at <span class="math notranslate nohighlight">\(\mu\)</span>.</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1341,9 +1534,11 @@ P(\bar{X}_n \le x) ~ \approx ~ \Phi \big{(} \frac{x - \mu}{\sigma/\sqrt{n}} \big
 
               </div>
               
-        
-            <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="04_SciPy_and_Normal_Curves.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -1359,32 +1554,34 @@ P(\bar{X}_n \le x) ~ \approx ~ \Phi \big{(} \frac{x - \mu}{\sigma/\sqrt{n}} \big
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-        
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-    <div class="container">
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Ani Adhikari<br/>
+  
+      &copy; Copyright 2022.<br/>
+    <div class="extra_footer">
       <p>
-        
-          By Ani Adhikari<br/>
-        
-            &copy; Copyright 2021.<br/>
-          <div class="extra_footer">
-            <p>
 License: CC BY-NC-ND 4.0
 </p>
 
-          </div>
-      </p>
     </div>
-  </footer>
-</main>
+</p>
+        </footer>
+    </div>
+    
+</div>
 
 
       </div>
     </div>
   
-  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

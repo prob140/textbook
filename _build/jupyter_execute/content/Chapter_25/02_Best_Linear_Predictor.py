@@ -109,7 +109,7 @@ from scipy import stats
 # \end{align*}
 # $$
 
-# ### Regression Equation and Predicted Values###
+# ### Regression Equation and Predicted Values ###
 # The least squares linear predictor is given by
 # 
 # $$
@@ -167,9 +167,3 @@ from scipy import stats
 # This is a special case of the more general formula that we have established here. The bivariate normal assumption isn't needed.
 
 # As in the case of simple regression, we have made no assumption about the joint distribution of $Y$ and $\mathbf{X}$ other than to say that $\boldsymbol{\Sigma}_\mathbf{X}$ is positive definite. Regardless, there is a unique best linear predictor of $Y$ based on $\mathbf{X}$.
-
-# In[2]:
-
-
-
-
