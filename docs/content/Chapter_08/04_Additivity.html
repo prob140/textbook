@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>8.4. Additivity &#8212; Prob 140 Textbook</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,40 +20,39 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/headers.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="8.5. Method of Indicators" href="05_Method_of_Indicators.html" />
@@ -63,7 +64,21 @@
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -72,9 +87,10 @@
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -92,14 +108,15 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../README.html">
-   Prob 140
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../README.html">
+                    Prob 140
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Introduction
  </span>
@@ -1060,91 +1077,182 @@
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/content/Chapter_08/04_Additivity.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/prob140/textbook/gh-pages?urlpath=tree/content/Chapter_08/04_Additivity.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/prob140/textbook/gh-pages?urlpath=tree/content/Chapter_08/04_Additivity.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://prob140.datahub.berkeley.edu/hub/user-redirect/git-pull?repo=https://github.com/prob140/textbook&urlpath=tree/textbook/content/Chapter_08/04_Additivity.ipynb&branch=gh-pages"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on JupyterHub"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="headerbtn__text-container">JupyterHub</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/content/Chapter_08/04_Additivity.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#additivity-of-expectation">
    8.4.1. Additivity of Expectation
@@ -1194,20 +1302,85 @@
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Additivity</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#additivity-of-expectation">
+   8.4.1. Additivity of Expectation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#e-x-2-for-a-poisson-variable-x">
+   8.4.2.
+   <span class="math notranslate nohighlight">
+    \(E(X^2)\)
+   </span>
+   for a Poisson Variable
+   <span class="math notranslate nohighlight">
+    \(X\)
+   </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sample-sum">
+   8.4.3. Sample Sum
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#unbiased-estimator">
+   8.4.4. Unbiased Estimator
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#unbiased-estimators-of-a-population-mean">
+   8.4.5. Unbiased Estimators of a Population Mean
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#first-unbiased-estimator-of-a-maximum-possible-value">
+   8.4.6. First Unbiased Estimator of a Maximum Possible Value
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#second-unbiased-estimator-of-the-maximum-possible-value">
+   8.4.7. Second Unbiased Estimator of the Maximum Possible Value
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#which-estimator-to-use">
+   8.4.8. Which Estimator to Use?
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="section" id="additivity">
-<h1><span class="section-number">8.4. </span>Additivity<a class="headerlink" href="#additivity" title="Permalink to this headline">¶</a></h1>
+  <section id="additivity">
+<h1><span class="section-number">8.4. </span>Additivity<a class="headerlink" href="#additivity" title="Permalink to this headline">#</a></h1>
 <p>Calculating expectation by plugging into the definition works in simple cases, but often it can be cumbersome or lack insight. The most powerful result for calculating expectation turns out not to be the definition. It looks rather innocuous:</p>
-<div class="section" id="additivity-of-expectation">
-<h2><span class="section-number">8.4.1. </span>Additivity of Expectation<a class="headerlink" href="#additivity-of-expectation" title="Permalink to this headline">¶</a></h2>
+<section id="additivity-of-expectation">
+<h2><span class="section-number">8.4.1. </span>Additivity of Expectation<a class="headerlink" href="#additivity-of-expectation" title="Permalink to this headline">#</a></h2>
 <p>Let <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> be two random variables defined on the same probability space. Then</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1224,6 +1397,7 @@ E(X+Y) = E(X) + E(Y)
     src="https://www.youtube.com/embed/HzZEhM4NHUQ"
     frameborder="0"
     allowfullscreen
+
 ></iframe>
 </div></div>
 </div>
@@ -1258,9 +1432,9 @@ E(X_1 + X_2 + \cdots + X_n) = E(X_1) + E(X_2) + \cdots + E(X_n)
 \]</div>
 <p>regardless of the dependence structure of <span class="math notranslate nohighlight">\(X_1, X_2, \ldots, X_n\)</span>.</p>
 <p>If you are trying to find an expectation, then the way to use additivity is to write your random variable as a sum of simpler variables whose expectations you know or can calculate easily.</p>
-</div>
-<div class="section" id="e-x-2-for-a-poisson-variable-x">
-<h2><span class="section-number">8.4.2. </span><span class="math notranslate nohighlight">\(E(X^2)\)</span> for a Poisson Variable <span class="math notranslate nohighlight">\(X\)</span><a class="headerlink" href="#e-x-2-for-a-poisson-variable-x" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="e-x-2-for-a-poisson-variable-x">
+<h2><span class="section-number">8.4.2. </span><span class="math notranslate nohighlight">\(E(X^2)\)</span> for a Poisson Variable <span class="math notranslate nohighlight">\(X\)</span><a class="headerlink" href="#e-x-2-for-a-poisson-variable-x" title="Permalink to this headline">#</a></h2>
 <p>Let <span class="math notranslate nohighlight">\(X\)</span> have the Poisson <span class="math notranslate nohighlight">\(\mu\)</span> distribution. In earlier sections we showed that <span class="math notranslate nohighlight">\(E(X) = \mu\)</span> and <span class="math notranslate nohighlight">\(E(X(X-1)) = \mu^2\)</span>.</p>
 <p>Now <span class="math notranslate nohighlight">\(X^2 = X(X-1) + X\)</span>. The random variables <span class="math notranslate nohighlight">\(X(X-1)\)</span> and <span class="math notranslate nohighlight">\(X\)</span> are both functions of <span class="math notranslate nohighlight">\(X\)</span>, so they are not independent of each other. But additivity of expectation doesn’t require independence, so we can use it to see that</p>
 <div class="math notranslate nohighlight">
@@ -1274,9 +1448,9 @@ E(X^2) ~ = ~ E(X(X-1)) + E(X) ~ = ~ \mu^2 + \mu
 E(X^2) ~ = ~ \sum_{k=0}^\infty k^2 e^{-\mu}\frac{\mu^k}{k!}
 \]</div>
 <p>is not an easy sum to simplify.</p>
-</div>
-<div class="section" id="sample-sum">
-<h2><span class="section-number">8.4.3. </span>Sample Sum<a class="headerlink" href="#sample-sum" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="sample-sum">
+<h2><span class="section-number">8.4.3. </span>Sample Sum<a class="headerlink" href="#sample-sum" title="Permalink to this headline">#</a></h2>
 <p>Let <span class="math notranslate nohighlight">\(X_1, X_2, \ldots , X_n\)</span> be a sample drawn at random from a numerical population that has mean <span class="math notranslate nohighlight">\(\mu\)</span>, and let the sample sum be</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1289,9 +1463,9 @@ S_n = X_1 + X_2 + \cdots + X_n
 E(S_n) = E(X_1) + E(X_2) + \cdots + E(X_n) = n\mu
 \]</div>
 <p>We can use this to estimate a population mean based on a sample mean.</p>
-</div>
-<div class="section" id="unbiased-estimator">
-<h2><span class="section-number">8.4.4. </span>Unbiased Estimator<a class="headerlink" href="#unbiased-estimator" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="unbiased-estimator">
+<h2><span class="section-number">8.4.4. </span>Unbiased Estimator<a class="headerlink" href="#unbiased-estimator" title="Permalink to this headline">#</a></h2>
 <p>Suppose a random variable <span class="math notranslate nohighlight">\(X\)</span> is being used to estimate a fixed numerical parameter <span class="math notranslate nohighlight">\(\theta\)</span>. Then <span class="math notranslate nohighlight">\(X\)</span> is called an <em>estimator</em> of <span class="math notranslate nohighlight">\(\theta\)</span>.</p>
 <p>The <em>bias</em> of <span class="math notranslate nohighlight">\(X\)</span> is the difference <span class="math notranslate nohighlight">\(E(X) - \theta\)</span>. The bias measures the amount by which the estimator exceeds the parameter, on average. The bias can be negative if the estimator tends to underestimate the parameter.</p>
 <p>If the bias of an estimator is <span class="math notranslate nohighlight">\(0\)</span> then the estimator is called <em>unbiased</em>. So <span class="math notranslate nohighlight">\(X\)</span> is an unbiased estimator of <span class="math notranslate nohighlight">\(\theta\)</span> if <span class="math notranslate nohighlight">\(E(X) = \theta\)</span>.</p>
@@ -1299,9 +1473,9 @@ E(S_n) = E(X_1) + E(X_2) + \cdots + E(X_n) = n\mu
 <p>In practical terms, if a data scientist wants to estimate an unknown parameter based on a random sample <span class="math notranslate nohighlight">\(X_1, X_2, \ldots, X_n\)</span>, the data scientist has to come up with a <em>statistic</em> to use as the estimator.</p>
 <p>Recall from Data 8 that a statistic is a number computed from the sample. In other words, a statistic is a numerical function of <span class="math notranslate nohighlight">\(X_1, X_2, \ldots, X_n\)</span>.</p>
 <p>Constructing an unbiased estimator of a parameter <span class="math notranslate nohighlight">\(\theta\)</span> therefore amounts to finding a statistic <span class="math notranslate nohighlight">\(T = g(X_1, X_2, \ldots, X_n)\)</span> for a function <span class="math notranslate nohighlight">\(g\)</span> such that <span class="math notranslate nohighlight">\(E(T) = \theta\)</span>.</p>
-</div>
-<div class="section" id="unbiased-estimators-of-a-population-mean">
-<h2><span class="section-number">8.4.5. </span>Unbiased Estimators of a Population Mean<a class="headerlink" href="#unbiased-estimators-of-a-population-mean" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="unbiased-estimators-of-a-population-mean">
+<h2><span class="section-number">8.4.5. </span>Unbiased Estimators of a Population Mean<a class="headerlink" href="#unbiased-estimators-of-a-population-mean" title="Permalink to this headline">#</a></h2>
 <p>As in the sample sum example above, let <span class="math notranslate nohighlight">\(S_n\)</span> be the sum of a sample <span class="math notranslate nohighlight">\(X_1, X_2, \ldots , X_n\)</span> drawn at random from a population that has mean <span class="math notranslate nohighlight">\(\mu\)</span>. The standard statistical notation for the average of <span class="math notranslate nohighlight">\(X_1, X_2, \ldots , X_n\)</span> is <span class="math notranslate nohighlight">\(\bar{X}_n\)</span>. So</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1336,12 +1510,13 @@ E(\bar{X}_n) &amp;= \frac{E(S_n)}{n} ~~~~ \text{(linear function rule)} \\
     src="https://www.youtube.com/embed/ruEpGZJwHmw"
     frameborder="0"
     allowfullscreen
+
 ></iframe>
 </div></div>
 </div>
-</div>
-<div class="section" id="first-unbiased-estimator-of-a-maximum-possible-value">
-<h2><span class="section-number">8.4.6. </span>First Unbiased Estimator of a Maximum Possible Value<a class="headerlink" href="#first-unbiased-estimator-of-a-maximum-possible-value" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="first-unbiased-estimator-of-a-maximum-possible-value">
+<h2><span class="section-number">8.4.6. </span>First Unbiased Estimator of a Maximum Possible Value<a class="headerlink" href="#first-unbiased-estimator-of-a-maximum-possible-value" title="Permalink to this headline">#</a></h2>
 <p>Suppose we have a sample <span class="math notranslate nohighlight">\(X_1, X_2, \ldots , X_n\)</span> drawn at random from <span class="math notranslate nohighlight">\(1, 2, \ldots , N\)</span> for some fixed <span class="math notranslate nohighlight">\(N\)</span>, and we are trying to estimate <span class="math notranslate nohighlight">\(N\)</span>.</p>
 <p>How can we use the sample to construct an unbiased estimator of <span class="math notranslate nohighlight">\(N\)</span>? By definition, such an estimator must be a function of the sample and its expectation must be <span class="math notranslate nohighlight">\(N\)</span>.</p>
 <p>In other words, we have to construct a statistic that has expectation <span class="math notranslate nohighlight">\(N\)</span>.</p>
@@ -1369,9 +1544,9 @@ E(\bar{X}_n) = \frac{N+1}{2}
 <p class="admonition-title">Answer</p>
 <p><span class="math notranslate nohighlight">\(1\)</span>; overestimate</p>
 </div>
-</div>
-<div class="section" id="second-unbiased-estimator-of-the-maximum-possible-value">
-<h2><span class="section-number">8.4.7. </span>Second Unbiased Estimator of the Maximum Possible Value<a class="headerlink" href="#second-unbiased-estimator-of-the-maximum-possible-value" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="second-unbiased-estimator-of-the-maximum-possible-value">
+<h2><span class="section-number">8.4.7. </span>Second Unbiased Estimator of the Maximum Possible Value<a class="headerlink" href="#second-unbiased-estimator-of-the-maximum-possible-value" title="Permalink to this headline">#</a></h2>
 <p>The calculation above stems from a problem the Allied forces faced in World War II. Germany had a seemingly never-ending fleet of Panzer tanks, and the Allies needed to estimate how many they had. They decided to base their estimates on the serial numbers of the tanks that they saw.</p>
 <p>Here is a picture of one from <a class="reference external" href="https://en.wikipedia.org/wiki/Panzer_IV">Wikipedia</a>.</p>
 <p><img alt="Panzer Tank" src="../../_images/panzer.png" /></p>
@@ -1446,9 +1621,9 @@ E(T_2) ~ = ~ E(M)\cdot\frac{n+1}{n}  -  1 ~ = ~ (N+1)\frac{n}{n+1}\cdot\frac{n+1
 <p class="admonition-title">Answer</p>
 <p><span class="math notranslate nohighlight">\(3\)</span></p>
 </div>
-</div>
-<div class="section" id="which-estimator-to-use">
-<h2><span class="section-number">8.4.8. </span>Which Estimator to Use?<a class="headerlink" href="#which-estimator-to-use" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="which-estimator-to-use">
+<h2><span class="section-number">8.4.8. </span>Which Estimator to Use?<a class="headerlink" href="#which-estimator-to-use" title="Permalink to this headline">#</a></h2>
 <p>The Allied statisticians thus had two unbiased estimators of <span class="math notranslate nohighlight">\(N\)</span> from which to choose. They went with <span class="math notranslate nohighlight">\(T_2\)</span> instead of <span class="math notranslate nohighlight">\(T_1\)</span> because <span class="math notranslate nohighlight">\(T_2\)</span> has less variability.</p>
 <p>We will quantify this later in the course. For now, here is a simulation of distributions of the two estimators in the case <span class="math notranslate nohighlight">\(N = 300\)</span> and <span class="math notranslate nohighlight">\(n=30\)</span>. The simulation is based on <span class="math notranslate nohighlight">\(5000\)</span> repetitions of drawing a simple random sample of size <span class="math notranslate nohighlight">\(30\)</span> from the integers <span class="math notranslate nohighlight">\(1\)</span> through <span class="math notranslate nohighlight">\(300\)</span>.</p>
 <div class="cell tag_remove_input docutils container">
@@ -1462,8 +1637,8 @@ E(T_2) ~ = ~ E(M)\cdot\frac{n+1}{n}  -  1 ~ = ~ (N+1)\frac{n}{n+1}\cdot\frac{n+1
 <li><p>The emipirical distribution of <span class="math notranslate nohighlight">\(T_2\)</span> is clustered much closer to the true value <span class="math notranslate nohighlight">\(300\)</span> than the empirical distribution of <span class="math notranslate nohighlight">\(T_1\)</span>.</p></li>
 </ul>
 <p>For a recap, take another look at the <a class="reference external" href="https://en.wikipedia.org/wiki/German_tank_problem#Specific_data">accuracy table</a> of the Allied statisticians’ estimator <span class="math notranslate nohighlight">\(T_2\)</span>. Not bad for an estimator based on a model that assumes nothing more complicated than simple random sampling!</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1487,9 +1662,11 @@ E(T_2) ~ = ~ E(M)\cdot\frac{n+1}{n}  -  1 ~ = ~ (N+1)\frac{n}{n+1}\cdot\frac{n+1
 
               </div>
               
-        
-            <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="03_Expectations_of_Functions.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -1505,32 +1682,34 @@ E(T_2) ~ = ~ E(M)\cdot\frac{n+1}{n}  -  1 ~ = ~ (N+1)\frac{n}{n+1}\cdot\frac{n+1
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-        
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-    <div class="container">
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Ani Adhikari<br/>
+  
+      &copy; Copyright 2022.<br/>
+    <div class="extra_footer">
       <p>
-        
-          By Ani Adhikari<br/>
-        
-            &copy; Copyright 2021.<br/>
-          <div class="extra_footer">
-            <p>
 License: CC BY-NC-ND 4.0
 </p>
 
-          </div>
-      </p>
     </div>
-  </footer>
-</main>
+</p>
+        </footer>
+    </div>
+    
+</div>
 
 
       </div>
     </div>
   
-  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

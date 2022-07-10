@@ -75,7 +75,7 @@ x.scatter('X1', 'X2')
 # 
 # What we gain from $\mathbf{X}$ being multivariate normal are the *shapes* of the distributions of linear transformations: they are normal. This allows us to find probabilities using the normal curve.
 
-# In[ ]:
+# In[3]:
 
 
 # VIDEO: Linear Combinations

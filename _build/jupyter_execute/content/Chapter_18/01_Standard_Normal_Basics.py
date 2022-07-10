@@ -63,7 +63,7 @@ YouTubeVideo('8vLTUrqS67A')
 # 
 # Now let $R = \sqrt{X^2 + Y^2}$. To find the density of $R$, let's try to calculate $P(R \in dr)$. The event is shown in the diagram below.
 
-# In[4]:
+# In[3]:
 
 
 # NO CODE
@@ -115,7 +115,7 @@ plt.title('$\{R \in dr \}$');
 # \phi(z) ~ = ~ \frac{1}{\sqrt{2\pi}} e^{-\frac{1}{2}z^2}, ~~~~ -\infty < z < \infty
 # $$
 
-# In[3]:
+# In[4]:
 
 
 # NO CODE
@@ -167,7 +167,7 @@ plt.title('Joint Density of $X$ and $Y$');
 # 
 # Therefore $E(X^2) = 1$. We know that $E(X) = 0$. So $Var(X) = 1$ and hence $SD(X) = 1$.
 
-# In[3]:
+# In[6]:
 
 
 # VIDEO: Standard Normal Basics

@@ -16,7 +16,7 @@ get_ipython().run_line_magic('matplotlib', 'inline')
 from scipy import stats
 
 
-# In[3]:
+# In[2]:
 
 
 # HIDDEN
@@ -64,7 +64,7 @@ def dist_sum(n, probs_0_through_N):
 # 
 # You can see this in the graph below. The graph shows the distributions of the sum of 5 rolls and the sum of 20 rolls of a die. The distributions are exact, calculated using the function `dist_sum` defined using pgf methods earlier in this chapter.
 
-# In[4]:
+# In[3]:
 
 
 die = np.append(0, (1/6)*np.ones(6))
@@ -83,7 +83,7 @@ Plots('Sum of 5 dice', dist_sum_5, 'Sum of 20 dice', dist_sum_20)
 # 
 # The *average* of the sample behaves differently.
 
-# In[1]:
+# In[4]:
 
 
 # VIDEO: IID Sample Mean
@@ -117,7 +117,7 @@ YouTubeVideo('UjxM2o6nlbc')
 # 
 # The graph below shows the distributions of the means of 5 rolls of a die and of 20 rolls. Both are centered at 3.5 but the distribution of the mean of the larger sample is narrower. You saw this frequently in Data 8: as the sample size increases, the distribution of the sample mean gets more concentrated around the population mean.
 
-# In[6]:
+# In[5]:
 
 
 # NO CODE
@@ -140,7 +140,7 @@ Plots('Mean of 5 dice', dist_mean_5, 'Mean of 20 dice', dist_mean_20, width=0.2)
 # **Square Root Law:**
 # If you multiply the sample size by a factor, then the SD of the i.i.d. sample mean decreases by the square root of the factor.
 
-# In[3]:
+# In[6]:
 
 
 # VIDEO: Weak Law of Large Numbers
@@ -171,7 +171,7 @@ YouTubeVideo('WowLqZku3X8')
 # In the terminology of probability theory, the result above is the same as saying that the i.i.d. sample mean *converges in probability* to the population mean. In the terminology of statistical inference, the result says that the i.i.d. sample mean is a *consistent* estimator of the population mean.
 
 # ```{admonition} Quick Check
-# $X_1, X_2, \ldots $ are i.i.d. Poisson $(5)$ random variables. When $n$ is large, the value of $\frac{1}{n}\sum_{i=1}^n X_i$ is highly likely to be close to one number. What's that number, and why?
+# $X_1, X_2, \ldots$ are i.i.d. Poisson $(5)$ random variables. When $n$ is large, the value of $\frac{1}{n}\sum_{i=1}^n X_i$ is highly likely to be close to one number. What's that number, and why?
 # 
 # ```
 
@@ -195,7 +195,7 @@ YouTubeVideo('WowLqZku3X8')
 # 
 # 
 
-# In[5]:
+# In[7]:
 
 
 # NO CODE

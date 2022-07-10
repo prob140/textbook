@@ -67,7 +67,7 @@ Plot(binom_dist)
 # 
 # when $n$ is large, because $p_n \sim 0$ and $np_n \sim \mu$.
 
-# In[2]:
+# In[3]:
 
 
 # VIDEO: Recursive Formula
@@ -111,7 +111,7 @@ YouTubeVideo("TmKepZHdOg0")
 # 
 # if $n$ is large, under all the additional conditions we have assumed. Here is a formal statement.
 
-# In[3]:
+# In[4]:
 
 
 # VIDEO: Poisson Approximation
@@ -157,7 +157,7 @@ YouTubeVideo("5w1SnSOSTOo")
 # 
 # Suppose $n = 1000$ and $p = 2/1000$. Then the exact binomial chance of 3 successes is
 
-# In[3]:
+# In[5]:
 
 
 stats.binom.pmf(3, 1000, 2/1000)
@@ -165,7 +165,7 @@ stats.binom.pmf(3, 1000, 2/1000)
 
 # The approximating Poisson distribution has parameter $1000 \times (2/1000) = 2$, and so the Poisson approximation to the probability above is
 
-# In[4]:
+# In[6]:
 
 
 stats.poisson.pmf(3, 2)
@@ -173,7 +173,7 @@ stats.poisson.pmf(3, 2)
 
 # Not bad. To compare the entire distributions, first create the two distribution objects:
 
-# In[5]:
+# In[7]:
 
 
 k = range(16)
@@ -187,7 +187,7 @@ poi_dist = Table().values(k).probabilities(poi_probs)
 
 # The `prob140` function that draws overlaid histograms is called `Plots` (note the plural). The syntax has alternating arguments: a string label you provide for a distribution, followed by that distribution, then a string label for the second distribution, then that distribution.
 
-# In[6]:
+# In[8]:
 
 
 Plots('Binomial (1000, 2/1000)', bin_dist, 'Poisson (2)', poi_dist)
@@ -195,13 +195,13 @@ Plots('Binomial (1000, 2/1000)', bin_dist, 'Poisson (2)', poi_dist)
 
 # Does it look as though there is only one histogram? That's because the approximation is great! Here are the two histograms individually.
 
-# In[7]:
+# In[9]:
 
 
 Plot(bin_dist)
 
 
-# In[8]:
+# In[10]:
 
 
 Plot(poi_dist)

@@ -37,13 +37,13 @@ YouTubeVideo('e3ItAqkAhj4')
 
 # Let's start with an example. Suppose the distribution of $X_1$ is given by $p_0 = 0.1$, $p_1 = 0.5$, $p_2 = 0.4$. Let `probs_X1` be an array containing the probabilities of the values 0, 1, and 2.
 
-# In[2]:
+# In[3]:
 
 
 probs_X1 = make_array(0.1, 0.5, 0.4)
 
 
-# In[3]:
+# In[4]:
 
 
 dist_X1 = Table().values(np.arange(3)).probabilities(probs_X1)
@@ -64,7 +64,7 @@ Plot(dist_X1)
 # 
 # The method `np.flipud` reverses the array of probabilities to be consistent with this order of coefficients. The `ud` in the name is for "up down". `NumPy` is thinking of the array as a column.
 
-# In[4]:
+# In[5]:
 
 
 coeffs_X1 = np.flipud(probs_X1)
@@ -73,7 +73,7 @@ coeffs_X1
 
 # The method `np.poly1d` takes the array of coefficients as its argument and constructs the polynomial. The `1d` in the name stands for "one dimensional".
 
-# In[5]:
+# In[6]:
 
 
 pgf_X1 = np.poly1d(coeffs_X1)
@@ -82,7 +82,7 @@ print(pgf_X1)
 
 # The call to `print` displays the polynomial in retro typewriter style, using $x$ where we have been using $s$. Keep in mind that the final term is the coefficient of $x^0$.
 
-# In[4]:
+# In[7]:
 
 
 # VIDEO: PGF of a Sum of IID Random Variables
@@ -91,7 +91,7 @@ YouTubeVideo('dJCAW5CRJlc')
 
 # Now suppose $S_3$ is the sum of three i.i.d. copies of $X_1$. The pgf of $S_3$ is the cube of the pgf of $X_1$ and can be calculated just as you would hope.
 
-# In[6]:
+# In[8]:
 
 
 pgf_S3 = pgf_X1 ** 3
@@ -102,7 +102,7 @@ print(pgf_S3)
 # 
 # You can extract an array of the coefficients by using a polynomial attribute called `c` for "coefficients".
 
-# In[7]:
+# In[9]:
 
 
 coeffs_S3 = pgf_S3.c
@@ -111,7 +111,7 @@ coeffs_S3
 
 # These are the probabilities of the values 6 down to 0. In probability theory it is more natural to think of the probabilities of values in the sequence 0 through 6, so use `np.flipud` again:
 
-# In[8]:
+# In[10]:
 
 
 probs_S3 = np.flipud(coeffs_S3)
@@ -120,7 +120,7 @@ probs_S3
 
 # You now have the inputs you need for drawing the probability histogram of $S_3$.
 
-# In[9]:
+# In[11]:
 
 
 dist_S3 = Table().values(np.arange(7)).probabilities(probs_S3)
@@ -132,7 +132,7 @@ Plot(dist_S3)
 # 
 # Remember that $X_1$ must have a finite number of non-negative integer values.
 
-# In[10]:
+# In[12]:
 
 
 def dist_sum(n, probs_0_through_N):
@@ -162,20 +162,20 @@ def dist_sum(n, probs_0_through_N):
 # 
 # We have to start with the distribution of the number of spots on a single roll, for which it is important to remember to include 0 as the probability of 0 spots. Otherwise the pgf will be wrong because `NumPy` won't know that it is not supposed to include a term of degree 0.
 
-# In[11]:
+# In[13]:
 
 
 die = np.append(0, (1/6)*np.ones(6))
 die
 
 
-# In[12]:
+# In[14]:
 
 
 Plot(dist_sum(1, die))
 
 
-# In[13]:
+# In[15]:
 
 
 Plot(dist_sum(10, die))
@@ -186,7 +186,7 @@ Plot(dist_sum(10, die))
 # 
 # To explore this question, let $X_1$ have the distribution given by $p_1 = p_2 = p_9 = 1/3$.
 
-# In[14]:
+# In[16]:
 
 
 probs_X1 = make_array(0, 1/3, 1/3, 0, 0, 0, 0, 0, 0, 1/3)
@@ -194,7 +194,7 @@ probs_X1 = make_array(0, 1/3, 1/3, 0, 0, 0, 0, 0, 0, 1/3)
 
 # Here is the distribution of $X_1$.
 
-# In[15]:
+# In[17]:
 
 
 Plot(dist_sum(1, probs_X1))
@@ -202,7 +202,7 @@ Plot(dist_sum(1, probs_X1))
 
 # The probability histogram of $S_{10}$ shows that sums don't always have smooth distributions.
 
-# In[16]:
+# In[18]:
 
 
 Plot(dist_sum(10, probs_X1))
@@ -210,7 +210,7 @@ Plot(dist_sum(10, probs_X1))
 
 # The distribution of $S_{30}$ looks like a stegosaurus having a bad hair day.
 
-# In[17]:
+# In[19]:
 
 
 Plot(dist_sum(30, probs_X1))
@@ -218,7 +218,7 @@ Plot(dist_sum(30, probs_X1))
 
 # And the distribution of $S_{100}$ is ...
 
-# In[18]:
+# In[20]:
 
 
 Plot(dist_sum(100, probs_X1))

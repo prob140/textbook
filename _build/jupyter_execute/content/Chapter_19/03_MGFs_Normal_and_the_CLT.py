@@ -17,7 +17,7 @@ from scipy import stats
 
 # ## MGFs, the Normal, and the CLT ##
 
-# In[1]:
+# In[2]:
 
 
 # VIDEO

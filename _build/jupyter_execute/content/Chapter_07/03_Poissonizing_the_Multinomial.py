@@ -50,7 +50,7 @@ from scipy import stats
 # 
 # For example, the chance that you will get at least 3 individuals in Class A, at least 5 in Class B, and at least 8 in Class C is about 42.5%.
 
-# In[3]:
+# In[2]:
 
 
 (1 - stats.poisson.cdf(2, 4))*(1-stats.poisson.cdf(4, 6))*(1-stats.poisson.cdf(7, 10))

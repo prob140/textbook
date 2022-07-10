@@ -41,7 +41,7 @@ def plot_curved_scatter():
 
 # ## Variance by Conditioning ##
 
-# In[1]:
+# In[4]:
 
 
 # VIDEO: Variance by Conditioning: An Observation
@@ -69,7 +69,7 @@ YouTubeVideo('H1aOoaIWLQQ')
 # - $D_w$, the length of the purple segment
 # - $D_b$, the length of the green segment
 
-# In[4]:
+# In[5]:
 
 
 # NO CODE
@@ -88,7 +88,7 @@ plt.xlim(-2, 2)
 plt.ylim(-3, 6);
 
 
-# In[2]:
+# In[6]:
 
 
 # VIDEO: Variance by Conditioning: Formula

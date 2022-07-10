@@ -46,7 +46,7 @@ from scipy import stats
 # 
 # Here are graphs of the densities of $T_1$ and $T = \frac{1}{2}T_1$. By the paragraph above, $T$ has the exponential $(2)$ distribution. 
 
-# In[3]:
+# In[2]:
 
 
 # NO CODE
@@ -86,7 +86,7 @@ plt.legend();
 # 
 # ```
 
-# In[1]:
+# In[3]:
 
 
 # VIDEO

@@ -30,7 +30,7 @@ from scipy import stats
 # 
 # Note the randomization: we are picking one value $p$ of $X$, and then tossing a $p$-coin $n$ times. We are not picking the coin afresh for each toss.
 
-# In[1]:
+# In[2]:
 
 
 # VIDEO: Prior and Posterior Densities
@@ -135,7 +135,7 @@ YouTubeVideo('EXuoy618B-k')
 # 
 # Notice that it puts more mass on the higher values of $p$, compared to the original uniform prior. Given that the first toss landed heads, our opinion has shifted away from uniform to a higher values of the chance of heads.
 
-# In[2]:
+# In[3]:
 
 
 # NO CODE

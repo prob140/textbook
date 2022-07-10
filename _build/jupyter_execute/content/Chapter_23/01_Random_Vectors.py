@@ -87,7 +87,7 @@ from scipy import stats
 # 
 # ```
 
-# In[1]:
+# In[2]:
 
 
 # VIDEO: Linear Transformation
@@ -150,7 +150,7 @@ YouTubeVideo('yE1FWjup0WE')
 # $$
 # 
 
-# In[2]:
+# In[3]:
 
 
 # VIDEO: Covariance Matrix of a Linear Transformation
@@ -177,7 +177,7 @@ YouTubeVideo('XvQa07eQDj0')
 # \boldsymbol{\Sigma}_\mathbf{Y} ~ = ~ \mathbf{A} \boldsymbol{\Sigma} \mathbf{A}^T
 # $$
 
-# In[3]:
+# In[4]:
 
 
 # VIDEO: Constraint on Covariance Matrix
