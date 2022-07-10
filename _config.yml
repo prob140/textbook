@@ -80,7 +80,7 @@ launch_buttons:
   jupyterhub_url: https://prob140.datahub.berkeley.edu
 
 # General interact settings
-use_jupyterlab: false                     # If 'true', interact links will use JupyterLab as the interface
+use_jupyterlab: true                     # If 'true', interact links will use JupyterLab as the interface
 
 # Jupyterhub link settings
 use_jupyterhub_button: true               # If 'true', display a button that will direct users to a JupyterHub (that you provide)
@@ -110,12 +110,6 @@ download_button_text: ''                      # The text that download buttons w
 download_page_header: This is a section from Probability for Data Science by Ani Adhikari
   and Jim Pitman, provided under the license (CC BY-NC-ND 4.0) # A header that will be displayed at the top of and PDF-printed page
 
-#######################################################################################
-# Jupyter book extensions and additional features
-
-# Bibliography and citation settings. See https://github.com/inukshuk/jekyll-scholar#configuration for options
-scholar:
-  style: apa
 
 #######################################################################################
 # Option to add a Goggle analytics tracking code
@@ -123,61 +117,7 @@ scholar:
 # Navigate to https://analytics.google.com, add a new property for your jupyter book and copy the tracking id here.
 google_analytics:
   mytrackingcode:
-#######################################################################################
-# Jupyter book settings you probably don't need to change
 
-content_folder_name: content           # The folder where your raw content (notebooks/markdown files) are located
-images_url: /assets/images                   # Path to static image files
-css_url: /assets/css                      # Path to static CSS files
-js_url: /assets/js                       # Path to JS files
-custom_static_url: /assets/custom            # Path to user's custom CSS/JS files
-
-
-#######################################################################################
-# Jekyll build settings (only modify if you know what you're doing)
-
-# Site settings
-defaults:
-- scope:
-    path: ''
-  values:
-    layout: default
-    toc: true
-    toc_label: '  On this page'
-    toc_icon: list-ul
-
-favicon_path: images/logo/favicon.ico
-
-# Markdown Processing
-markdown: kramdown
-kramdown:
-  input: GFM
-  syntax_highlighter: rouge
-
-sass:
-  style: compressed
-
-collections:
-  build:
-    output: true
-    permalink: /:path.html
-
-# Exclude from processing.
-# The following items will not be processed, by default. Create a custom list
-# to override the default setting.
-exclude:
-- scripts/
-- Gemfile
-- Gemfile.lock
-- node_modules
-- vendor/bundle/
-- vendor/cache/
-- vendor/gems/
-- vendor/ruby/
-
-plugins:
-- jekyll-redirect-from
-- jekyll-scholar
 
 # Jupyter Book version - DO NOT CHANGE THIS. It is generated when a new book is created
 jupyter_book_version: 0.6.4
