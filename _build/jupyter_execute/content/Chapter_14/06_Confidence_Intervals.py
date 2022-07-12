@@ -41,8 +41,8 @@ YouTubeVideo('-t8E1SW0wsg')
 
 # NO CODE
 Plot_norm(x_limits=(-4, 4), mu=0, sigma=1, left_end=-2, right_end=2)
-plt.yticks(np.arange(0, 0.401, 0.05), np.array(7*['']))
-plt.xticks(np.arange(-4, 4.1),['','','$\mu - 2\sigma/\sqrt{n}$', '', '$\mu$', '', '$\mu+2\sigma/\sqrt{n}$',''])
+plt.yticks(np.arange(0, 0.401, 0.05), '')
+plt.xticks(np.arange(-4, 4.1),['','','$\mu - 2\sigma/\sqrt{n}$', '', '$\mu$', '', '$\mu+2\sigma/\sqrt{n}$','', ''])
 plt.xlabel('Sample Mean')
 plt.title('Gold Area: Approximately 95%');
 
@@ -82,7 +82,7 @@ plt.title('Gold Area: Approximately 95%');
 
 # NO CODE
 Plot_norm(x_limits=(-4, 4), mu=0, sigma=1, left_end=-1.28, right_end=1.28)
-plt.yticks(np.arange(0, 0.401, 0.05), np.array(7*['']))
+plt.yticks(np.arange(0, 0.401, 0.05), '')
 plt.xticks(make_array(-1.28, 0, 1.28),['$-z$', '0', '$z$'])
 plt.title('Gold Area: Approximately 80%');
 
@@ -107,7 +107,7 @@ stats.norm.ppf(.975)
 
 # That's $z = 1.96$, which we have been calling $2$. It's good enough, but $z = 1.96$ is also commonly used for constructing 95% confidence intervals.
 
-# In[4]:
+# In[7]:
 
 
 # VIDEO: Confidence Interval for Population Mean
@@ -202,7 +202,7 @@ ci_95_pop_mean
 
 # No bootstrapping required! 
 
-# In[6]:
+# In[14]:
 
 
 # VIDEO: Estimating the SD of the Sample Mean

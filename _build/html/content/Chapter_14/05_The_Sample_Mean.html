@@ -1465,47 +1465,7 @@ P(\bar{X}_n \le x) ~ \approx ~ \Phi \big{(} \frac{x - \mu}{\sigma/\sqrt{n}} \big
 \]</div>
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="nn">Input In [7],</span> in <span class="ni">&lt;cell line: 3&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># NO CODE</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">Plot_norm</span><span class="p">(</span><span class="n">x_limits</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">mu</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.401</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="mi">7</span><span class="o">*</span><span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">]))</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mf">4.1</span><span class="p">),[</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;$\mu - \sigma/\sqrt</span><span class="si">{n}</span><span class="s1">$&#39;</span><span class="p">,</span> <span class="s1">&#39;$\mu$&#39;</span><span class="p">,</span> <span class="s1">&#39;$\mu+\sigma/\sqrt</span><span class="si">{n}</span><span class="s1">$&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">])</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Approximate Distribution of Sample Mean&#39;</span><span class="p">)</span>
-
-<span class="nn">File ~/.local/lib/python3.8/site-packages/matplotlib/pyplot.py:1876,</span> in <span class="ni">yticks</span><span class="nt">(ticks, labels, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1874</span>         <span class="n">l</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1875</span> <span class="k">else</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1876</span>     <span class="n">labels</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1878</span> <span class="k">return</span> <span class="n">locs</span><span class="p">,</span> <span class="n">labels</span>
-
-<span class="nn">File ~/.local/lib/python3.8/site-packages/matplotlib/axes/_base.py:75,</span> in <span class="ni">_axis_method_wrapper.__set_name__.&lt;locals&gt;.wrapper</span><span class="nt">(self, *args, **kwargs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">74</span> <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span class="ne">---&gt; </span><span class="mi">75</span>     <span class="k">return</span> <span class="n">get_method</span><span class="p">(</span><span class="bp">self</span><span class="p">)(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-
-<span class="nn">File ~/.local/lib/python3.8/site-packages/matplotlib/axis.py:1798,</span> in <span class="ni">Axis._set_ticklabels</span><span class="nt">(self, labels, fontdict, minor, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1796</span> <span class="k">if</span> <span class="n">fontdict</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1797</span>     <span class="n">kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">fontdict</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">1798</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">set_ticklabels</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">minor</span><span class="o">=</span><span class="n">minor</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-
-<span class="nn">File ~/.local/lib/python3.8/site-packages/matplotlib/axis.py:1720,</span> in <span class="ni">Axis.set_ticklabels</span><span class="nt">(self, ticklabels, minor, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1716</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">locator</span><span class="p">,</span> <span class="n">mticker</span><span class="o">.</span><span class="n">FixedLocator</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">1717</span>     <span class="c1"># Passing [] as a list of ticklabels is often used as a way to</span>
-<span class="g g-Whitespace">   </span><span class="mi">1718</span>     <span class="c1"># remove all tick labels, so only error for &gt; 0 ticklabels</span>
-<span class="g g-Whitespace">   </span><span class="mi">1719</span>     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">locator</span><span class="o">.</span><span class="n">locs</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ticklabels</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">ticklabels</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1720</span>         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1721</span>             <span class="s2">&quot;The number of FixedLocator locations&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">1722</span>             <span class="sa">f</span><span class="s2">&quot; (</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">locator</span><span class="o">.</span><span class="n">locs</span><span class="p">)</span><span class="si">}</span><span class="s2">), usually from a call to&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">1723</span>             <span class="s2">&quot; set_ticks, does not match&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">1724</span>             <span class="sa">f</span><span class="s2">&quot; the number of ticklabels (</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">ticklabels</span><span class="p">)</span><span class="si">}</span><span class="s2">).&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1725</span>     <span class="n">tickd</span> <span class="o">=</span> <span class="p">{</span><span class="n">loc</span><span class="p">:</span> <span class="n">lab</span> <span class="k">for</span> <span class="n">loc</span><span class="p">,</span> <span class="n">lab</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">locator</span><span class="o">.</span><span class="n">locs</span><span class="p">,</span> <span class="n">ticklabels</span><span class="p">)}</span>
-<span class="g g-Whitespace">   </span><span class="mi">1726</span>     <span class="n">func</span> <span class="o">=</span> <span class="n">functools</span><span class="o">.</span><span class="n">partial</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_format_with_dict</span><span class="p">,</span> <span class="n">tickd</span><span class="p">)</span>
-
-<span class="ne">ValueError</span>: The number of FixedLocator locations (9), usually from a call to set_ticks, does not match the number of ticklabels (7).
-</pre></div>
-</div>
-<img alt="../../_images/05_The_Sample_Mean_16_1.png" src="../../_images/05_The_Sample_Mean_16_1.png" />
+<img alt="../../_images/05_The_Sample_Mean_16_0.png" src="../../_images/05_The_Sample_Mean_16_0.png" />
 </div>
 </div>
 <p>The expectation stays the same no matter what <span class="math notranslate nohighlight">\(n\)</span> is. But as <span class="math notranslate nohighlight">\(n\)</span> gets large, the SD of the sample mean gets smaller. So the curve above starts looking like a spike at <span class="math notranslate nohighlight">\(\mu\)</span>.</p>
@@ -1525,7 +1485,7 @@ P(\bar{X}_n \le x) ~ \approx ~ \Phi \big{(} \frac{x - \mu}{\sigma/\sqrt{n}} \big
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./content/Chapter_14"
+            path: "./content\Chapter_14"
         },
         predefinedOutput: true
     }

@@ -200,8 +200,8 @@ YouTubeVideo('WowLqZku3X8')
 
 # NO CODE
 Plot_norm(x_limits=(-4, 4), mu=0, sigma=1)
-plt.yticks(np.arange(0, 0.401, 0.05), np.array(7*['']))
-plt.xticks(np.arange(-4, 4.1),['','','','$\mu - \sigma/\sqrt{n}$', '$\mu$', '$\mu+\sigma/\sqrt{n}$','',''])
+plt.yticks(np.arange(0, 0.401, 0.05), '')
+plt.xticks(np.arange(-4, 4.1),['','','','$\mu - \sigma/\sqrt{n}$', '$\mu$', '$\mu+\sigma/\sqrt{n}$','','', ''])
 plt.title('Approximate Distribution of Sample Mean');
 
 

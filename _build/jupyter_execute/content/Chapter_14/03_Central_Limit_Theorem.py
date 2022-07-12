@@ -48,6 +48,7 @@ from scipy import stats
 Plot_norm(x_limits=(-4, 4), mu=0, sigma=1)
 plt.xlabel('$z$')
 plt.ylabel('$\phi(z)$', rotation=0)
+plt.yticks(np.arange(0, 0.401, 0.05), '')
 plt.title('Standard Normal Curve');
 
 
@@ -82,8 +83,8 @@ plt.title('Standard Normal Curve');
 Plot_norm(x_limits=(-4, 4), mu=0, sigma=1)
 plt.xlabel('$x$')
 plt.ylabel('$f(x)$', rotation=0)
-plt.yticks(np.arange(0, 0.401, 0.05), np.array(7*['']))
-plt.xticks(np.arange(-4, 4.1), ['','','$\mu-2\sigma$', '$\mu - \sigma$', '$\mu$', '$\mu+\sigma$','$\mu+2\sigma$',''])
+plt.yticks(np.arange(0, 0.401, 0.05), '')
+plt.xticks(np.arange(-4, 4.1), ['','','$\mu-2\sigma$', '$\mu - \sigma$', '$\mu$', '$\mu+\sigma$','$\mu+2\sigma$','', ''])
 plt.title('Normal Curve, mean $\mu$, SD $\sigma$');
 
 
@@ -91,7 +92,7 @@ plt.title('Normal Curve, mean $\mu$, SD $\sigma$');
 # 
 # Now for the reason why the normal curve is important:
 
-# In[2]:
+# In[4]:
 
 
 # VIDEO: Central Limit Theorem
@@ -127,7 +128,7 @@ YouTubeVideo('xf7-Cy4JWjE')
 # 
 # A complete proof of this theorem is beyond the scope of this course. A calculation in a later chapter will bring you closer to a proof. For now, just accept it. You have seen plenty of evidence for it in the simulations done in Data 8 and in the exact distributions of sums computed in the previous section.
 
-# In[14]:
+# In[5]:
 
 
 # NO CODE
