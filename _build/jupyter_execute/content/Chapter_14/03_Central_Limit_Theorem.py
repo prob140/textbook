@@ -47,7 +47,7 @@ from scipy import stats
 # NO CODE
 Plot_norm(x_limits=(-4, 4), mu=0, sigma=1)
 plt.xlabel('$z$')
-plt.ylabel('$\phi(z)$', rotation=0)
+plt.ylabel('$\phi(z)$', rotation=0, labelpad = 10)
 plt.yticks(np.arange(0, 0.401, 0.05), '')
 plt.title('Standard Normal Curve');
 
@@ -82,9 +82,9 @@ plt.title('Standard Normal Curve');
 # NO CODE
 Plot_norm(x_limits=(-4, 4), mu=0, sigma=1)
 plt.xlabel('$x$')
-plt.ylabel('$f(x)$', rotation=0)
+plt.ylabel('$f(x)$', rotation=0, labelpad = 10)
 plt.yticks(np.arange(0, 0.401, 0.05), '')
-plt.xticks(np.arange(-4, 4.1), ['','','$\mu-2\sigma$', '$\mu - \sigma$', '$\mu$', '$\mu+\sigma$','$\mu+2\sigma$','', ''])
+plt.xticks(np.arange(-4, 4.1), ['','','$\mu-2\sigma$', '$\mu - \sigma$', '$\mu$', '$\mu+\sigma$','$\mu+2\sigma$','',''])
 plt.title('Normal Curve, mean $\mu$, SD $\sigma$');
 
 
@@ -134,8 +134,8 @@ YouTubeVideo('xf7-Cy4JWjE')
 # NO CODE
 Plot_norm(x_limits=(-4, 4), mu=0, sigma=1)
 plt.ylabel("")
-plt.yticks(np.arange(0, 0.401, 0.05), np.array(7*['']))
-plt.xticks(np.arange(-4, 4.1), ['','','', '$n\mu - \sqrt{n}\sigma$', '$n\mu$', '$n\mu+\sqrt{n}\sigma$','',''])
+plt.yticks(np.arange(0, 0.401, 0.05), '')
+plt.xticks(np.arange(-4, 4.1), ['','','', '$n\mu - \sqrt{n}\sigma$', '$n\mu$', '$n\mu+\sqrt{n}\sigma$','','', ''])
 plt.title('Large $n$: Approximate Distribution of $S_n$');
 
 
@@ -161,7 +161,7 @@ plt.title('Large $n$: Approximate Distribution of $S_n$');
 # 
 # ```
 
-# In[3]:
+# In[6]:
 
 
 # VIDEO: Probabilities and the Standard Normal Curve
@@ -183,7 +183,7 @@ YouTubeVideo('ufuTZYneoJc')
 # 
 # Note that at this stage of the course, the term *standard normal cdf* is being used only by analogy with the concept of a discrete cdf. In the next chapter we will show that the standard normal cdf is the cdf of a random variable that has values on the entire real line.
 
-# In[6]:
+# In[7]:
 
 
 Plot_norm([-4,4], 0, 1, right_end=1)
@@ -210,7 +210,7 @@ plt.title('Gold Area = $\Phi(1) = \int_{-\infty}^1 \phi(z)dz$');
 # 
 # Here are two binomial histograms, both of which have large $n$ but rather different shapes.
 
-# In[7]:
+# In[8]:
 
 
 k1 = np.arange(25, 76)
@@ -220,7 +220,7 @@ Plot(binom_fair)
 plt.title('Binomial (100, 0.5)');
 
 
-# In[8]:
+# In[9]:
 
 
 k2 = np.arange(0, 11)
@@ -240,7 +240,7 @@ plt.title('Binomial (100, 0.1)');
 
 # Here is the binomial $(100, 0.5)$ distribution and the approximating normal curve. The parameters of the curve are $np = 50$ and $\sqrt{npq} = 5$.
 
-# In[9]:
+# In[10]:
 
 
 Plot(binom_fair)

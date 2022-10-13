@@ -132,7 +132,7 @@ YouTubeVideo('jVBrCMCzO3o')
 
 x = np.arange(1, 6)
 probs = make_array(0.15, 0.25, 0.3, 0.2, 0.1)
-dist = Table().values(x).probability(probs)
+dist = Table().values(x).probabilities(probs)
 dist = dist.relabel('Value', 'x').relabel('Probability', 'P(X=x)')
 dist
 

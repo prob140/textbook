@@ -1435,47 +1435,7 @@ E(S_n) = n\mu ~~~~~~~~~~ SD(S_n) = \sqrt{n}\sigma
 <p>A complete proof of this theorem is beyond the scope of this course. A calculation in a later chapter will bring you closer to a proof. For now, just accept it. You have seen plenty of evidence for it in the simulations done in Data 8 and in the exact distributions of sums computed in the previous section.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Temp</span>\<span class="n">ipykernel_24084</span>\<span class="mf">2932243531.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">Plot_norm</span><span class="p">(</span><span class="n">x_limits</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">mu</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-<span class="ne">----&gt; </span><span class="mi">4</span> <span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.401</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="mi">7</span><span class="o">*</span><span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">]))</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mf">4.1</span><span class="p">),</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;$n\mu - \sqrt</span><span class="si">{n}</span><span class="s1">\sigma$&#39;</span><span class="p">,</span> <span class="s1">&#39;$n\mu$&#39;</span><span class="p">,</span> <span class="s1">&#39;$n\mu+\sqrt</span><span class="si">{n}</span><span class="s1">\sigma$&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">])</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Large $n$: Approximate Distribution of $S_n$&#39;</span><span class="p">);</span>
-
-<span class="nn">~\Anaconda3\lib\site-packages\matplotlib\pyplot.py</span> in <span class="ni">yticks</span><span class="nt">(ticks, labels, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1853</span>             <span class="n">l</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1854</span>     <span class="k">else</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1855</span>         <span class="n">labels</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1856</span> 
-<span class="g g-Whitespace">   </span><span class="mi">1857</span>     <span class="k">return</span> <span class="n">locs</span><span class="p">,</span> <span class="n">labels</span>
-
-<span class="nn">~\Anaconda3\lib\site-packages\matplotlib\axes\_base.py</span> in <span class="ni">wrapper</span><span class="nt">(self, *args, **kwargs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">73</span> 
-<span class="g g-Whitespace">     </span><span class="mi">74</span>         <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span class="ne">---&gt; </span><span class="mi">75</span>             <span class="k">return</span> <span class="n">get_method</span><span class="p">(</span><span class="bp">self</span><span class="p">)(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">76</span> 
-<span class="g g-Whitespace">     </span><span class="mi">77</span>         <span class="n">wrapper</span><span class="o">.</span><span class="vm">__module__</span> <span class="o">=</span> <span class="n">owner</span><span class="o">.</span><span class="vm">__module__</span>
-
-<span class="nn">~\Anaconda3\lib\site-packages\matplotlib\axis.py</span> in <span class="ni">_set_ticklabels</span><span class="nt">(self, labels, fontdict, minor, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1796</span>         <span class="k">if</span> <span class="n">fontdict</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1797</span>             <span class="n">kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">fontdict</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">1798</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">set_ticklabels</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">minor</span><span class="o">=</span><span class="n">minor</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1799</span> 
-<span class="g g-Whitespace">   </span><span class="mi">1800</span>     <span class="k">def</span> <span class="nf">_set_tick_locations</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ticks</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">minor</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-
-<span class="nn">~\Anaconda3\lib\site-packages\matplotlib\axis.py</span> in <span class="ni">set_ticklabels</span><span class="nt">(self, ticklabels, minor, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1719</span>             <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">locator</span><span class="o">.</span><span class="n">locs</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ticklabels</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">ticklabels</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1720</span>                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-<span class="ne">-&gt; </span><span class="mi">1721</span>                     <span class="s2">&quot;The number of FixedLocator locations&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">1722</span>                     <span class="sa">f</span><span class="s2">&quot; (</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">locator</span><span class="o">.</span><span class="n">locs</span><span class="p">)</span><span class="si">}</span><span class="s2">), usually from a call to&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">1723</span>                     <span class="s2">&quot; set_ticks, does not match&quot;</span>
-
-<span class="ne">ValueError</span>: The number of FixedLocator locations (9), usually from a call to set_ticks, does not match the number of ticklabels (7).
-</pre></div>
-</div>
-<img alt="../../_images/03_Central_Limit_Theorem_11_1.png" src="../../_images/03_Central_Limit_Theorem_11_1.png" />
+<img alt="../../_images/03_Central_Limit_Theorem_11_0.png" src="../../_images/03_Central_Limit_Theorem_11_0.png" />
 </div>
 </div>
 <div class="admonition-quick-check admonition">
@@ -1503,6 +1463,7 @@ E(S_n) = n\mu ~~~~~~~~~~ SD(S_n) = \sqrt{n}\sigma
     src="https://www.youtube.com/embed/ufuTZYneoJc"
     frameborder="0"
     allowfullscreen
+
 ></iframe>
 </div></div>
 </div>
