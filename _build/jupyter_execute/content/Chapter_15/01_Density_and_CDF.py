@@ -226,7 +226,7 @@ plt.title('Gold Area $= P(0.6 < X \leq 0.8) = F(0.8) - F(0.6)$');
 
 # $$
 # \begin{align*}
-# F(0.6) ~ &= ~ 3\cdot0.6^3 - 2\cdot0.6^2 ~ = ~ 0.648 \\
+# F(0.6) ~ &= ~ 3\cdot0.6^2 - 2\cdot0.6^3 ~ = ~ 0.648 \\
 # F(0.8) - F(0.6) ~ &= ~ 0.896 - 0.648 ~ = ~ 0.248
 # \end{align*}
 # $$
@@ -246,9 +246,3 @@ plt.title('Gold Area $= P(0.6 < X \leq 0.8) = F(0.8) - F(0.6)$');
 # - $F(x) \to 0$ as $x \to -\infty$
 # - $F$ is non-decreasing
 # - $F(x) \to 1$ as $x \to \infty$
-
-# In[ ]:
-
-
-
-

@@ -96,7 +96,7 @@ YouTubeVideo('jVHgjZBMYq0')
 # 
 # Here is a graph of the joint density surface.
 
-# In[2]:
+# In[3]:
 
 
 def indep_standard_normals(x,y):
@@ -147,7 +147,7 @@ Plot_3d((-4, 4), (-4, 4), indep_standard_normals, rstride=4, cstride=4)
 # 
 # The graph below shows the joint density surface in the case $\lambda = 0.5$ and $\mu = 0.25$, so that $E(X) = 2$ and $E(Y) = 4$.
 
-# In[3]:
+# In[4]:
 
 
 def independent_exp(x, y):
@@ -158,7 +158,7 @@ Plot_3d((0, 10), (0, 10), independent_exp)
 
 # To find $P(Y > X)$ we must integrate the joint density over the upper triangle of the first quadrant, a portion of which is shown below.
 
-# In[3]:
+# In[5]:
 
 
 # NO CODE
@@ -243,7 +243,7 @@ plt.title('$Y > X$ (portion of infinite region)');
 # 
 # Let's take the easy way out by using `SymPy` to confirm that we will get the same answer.
 
-# In[20]:
+# In[6]:
 
 
 # Create the symbols; they are all positive
@@ -254,7 +254,7 @@ lamda = Symbol('lamda', positive=True)
 mu = Symbol('mu', positive=True)
 
 
-# In[21]:
+# In[7]:
 
 
 # Construct the expression for the joint density
@@ -265,7 +265,7 @@ joint_density = f_X * f_Y
 joint_density
 
 
-# In[22]:
+# In[8]:
 
 
 # Display the integral – first x, then y
@@ -273,7 +273,7 @@ joint_density
 Integral(joint_density, (x, 0, y), (y, 0, oo))
 
 
-# In[23]:
+# In[9]:
 
 
 # Evaluate the integral
@@ -282,7 +282,7 @@ answer = Integral(joint_density, (x, 0, y), (y, 0, oo)).doit()
 answer
 
 
-# In[24]:
+# In[10]:
 
 
 # Confirm that it is the same 
