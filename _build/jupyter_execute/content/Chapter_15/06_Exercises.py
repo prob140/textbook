@@ -45,7 +45,7 @@
 
 # **7.** For fixed $\alpha > 2$, a random variable $T$ has the *Pareto* distribution with shape parameter $\alpha$ and possible values $(1, \infty)$ if the density of $T$ is given by
 # 
-# $$f_T(t) ~ = ~ c t^{-(\alpha + 1)}, ~~~ t > 1$$.
+# $$f_T(t) ~ = ~ c t^{-(\alpha + 1)}, ~~~ t > 1.$$
 # 
 # (a) Find $c$.
 # 
