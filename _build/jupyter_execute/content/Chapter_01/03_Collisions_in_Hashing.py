@@ -7,7 +7,7 @@
 # 
 # What if the hash values were just assigned at random, without taking into account which of them have already been assigned? If there are a large number of distinct values and a relatively small number of individuals, then it seems reasonable to think that the chance of a collision will be small. For example, if there are 1,000 available hash values and only 5 individuals, it doesn't seem likely that you'll get a collision if you just pick a random sequence of 5 values for the 5 individuals.
 
-# In[1]:
+# In[4]:
 
 
 # VIDEO: Probability Model
@@ -30,7 +30,7 @@ YouTubeVideo("uFLsmVFcHXw")
 # 
 # If you look back to Part (i) in the example about random number generators in the previous section, you will find that it is the same as our current question, in the case where $N = 10$ and $n=2$. We can just follow the same process to get our solution here.
 
-# In[2]:
+# In[6]:
 
 
 # NO CODE

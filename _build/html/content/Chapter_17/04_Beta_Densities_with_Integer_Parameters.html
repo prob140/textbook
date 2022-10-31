@@ -1357,7 +1357,7 @@ f(x, y) = 120x(y-x)(1-y), ~~~~ 0 &lt; x &lt; y &lt; 1
 <section id="order-statistics-of-iid-uniform-0-1-variables">
 <h2><span class="section-number">17.4.1. </span>Order Statistics of IID Uniform <span class="math notranslate nohighlight">\((0, 1)\)</span> Variables<a class="headerlink" href="#order-statistics-of-iid-uniform-0-1-variables" title="Permalink to this headline">#</a></h2>
 <p>Let <span class="math notranslate nohighlight">\(U_1, U_2, \ldots, U_n\)</span> be i.i.d. uniform on <span class="math notranslate nohighlight">\((0, 1)\)</span>. Imagine each <span class="math notranslate nohighlight">\(U_i\)</span> as the position of a dart thrown at the unit interval. The graph below shows the positions of five such darts, each shown as a star.</p>
-<div class="cell tag_remove_input docutils container">
+<div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <img alt="../../_images/04_Beta_Densities_with_Integer_Parameters_4_0.png" src="../../_images/04_Beta_Densities_with_Integer_Parameters_4_0.png" />
 </div>
@@ -1366,7 +1366,7 @@ f(x, y) = 120x(y-x)(1-y), ~~~~ 0 &lt; x &lt; y &lt; 1
 <p>What you <em>can</em> see, however, is the list of <span class="math notranslate nohighlight">\(U_i\)</span>’s <em>sorted in increasing order</em>. You can see the value of the minimum, the second on the sorted list, the third, the fourth, and finally the fifth which is the maximum.</p>
 <p>These are called the <em>order statistics</em> of <span class="math notranslate nohighlight">\(U_1, U_2, U_3, U_4, U_5\)</span>, and are denoted <span class="math notranslate nohighlight">\(U_{(1)}, U_{(2)}, U_{(3)}, U_{(4)}, U_{(5)}\)</span>.</p>
 <p>Remember that because the <span class="math notranslate nohighlight">\(U_i\)</span>’s are independent random variables with densities, there can’t be ties: the chance that two of them are equal is 0.</p>
-<div class="cell tag_remove_input docutils container">
+<div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <img alt="../../_images/04_Beta_Densities_with_Integer_Parameters_6_0.png" src="../../_images/04_Beta_Densities_with_Integer_Parameters_6_0.png" />
 </div>
@@ -1390,7 +1390,7 @@ f(x, y) = 120x(y-x)(1-y), ~~~~ 0 &lt; x &lt; y &lt; 1
 <h2><span class="section-number">17.4.2. </span>Joint Density of Two Order Statistics<a class="headerlink" href="#joint-density-of-two-order-statistics" title="Permalink to this headline">#</a></h2>
 <p>Let <span class="math notranslate nohighlight">\(n = 5\)</span> as above and let’s try to work out the joint density of <span class="math notranslate nohighlight">\(U_{(2)}\)</span> and <span class="math notranslate nohighlight">\(U_{(4)}\)</span>. That’s the joint density of the second and fourth values on the sorted list.</p>
 <p>The graph below shows the event <span class="math notranslate nohighlight">\(\{U_{(2)} \in dx, U_{(4)} \in dy\}\)</span> for values <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> such that <span class="math notranslate nohighlight">\(0 &lt; x &lt; y &lt; 1\)</span>.</p>
-<div class="cell tag_remove_input docutils container">
+<div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <img alt="../../_images/04_Beta_Densities_with_Integer_Parameters_10_0.png" src="../../_images/04_Beta_Densities_with_Integer_Parameters_10_0.png" />
 </div>
@@ -1446,7 +1446,7 @@ f(x, y) = 120x(y-x)(1-y), ~~~ 0 &lt; x &lt; y &lt; 1
 <li><p>One of the variables <span class="math notranslate nohighlight">\(U_1, U_2, \ldots, U_n\)</span> has to be in <span class="math notranslate nohighlight">\(dx\)</span>.</p></li>
 <li><p>Of the remaining <span class="math notranslate nohighlight">\(n-1\)</span> variables, <span class="math notranslate nohighlight">\(k-1\)</span> must have values in <span class="math notranslate nohighlight">\((0, x)\)</span> and the rest in <span class="math notranslate nohighlight">\((x, 1)\)</span>.</p></li>
 </ul>
-<div class="cell tag_remove_input docutils container">
+<div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <img alt="../../_images/04_Beta_Densities_with_Integer_Parameters_15_0.png" src="../../_images/04_Beta_Densities_with_Integer_Parameters_15_0.png" />
 </div>
@@ -1481,15 +1481,7 @@ f(x) ~ = ~ \frac{(r+s-1)!}{(r-1)!(s-1)!} x^{r-1}(1-x)^{s-1}, ~~~ 0 &lt; x &lt; 1
 <p>The shape of the density is determined by the two factors that involve <span class="math notranslate nohighlight">\(x\)</span>. All the factorials are just parts of the constant that make the density integrate to 1.</p>
 <p>Notice that the uniform <span class="math notranslate nohighlight">\((0, 1)\)</span> density is the same as the beta density with parameters <span class="math notranslate nohighlight">\(r = 1\)</span> and <span class="math notranslate nohighlight">\(s = 1\)</span>. The uniform <span class="math notranslate nohighlight">\((0, 1)\)</span> density is a member of the <em>beta family</em>.</p>
 <p>The graph below shows some beta density curves. As you would expect, the beta <span class="math notranslate nohighlight">\((3, 3)\)</span> density is symmetric about 0.5.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.01</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">stats</span><span class="o">.</span><span class="n">beta</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="mi">6</span><span class="o">-</span><span class="n">i</span><span class="p">),</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Beta $(i, 6-i)$ densities for $1 \leq i \leq 5$&#39;</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
+<div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <img alt="../../_images/04_Beta_Densities_with_Integer_Parameters_18_0.png" src="../../_images/04_Beta_Densities_with_Integer_Parameters_18_0.png" />
 </div>
