@@ -59,7 +59,7 @@
 # 
 # Assume that $X$ has the density, expectation, and variance given below. (This is a *lognormal* distribution, which you will encounter later in the course.)
 # 
-# $$f_X(x) = \frac{1}{x\sqrt{2\pi}} e^{-\frac{(\ln x)^2}{2}}, ~~ x > 0 ~~~~~~~~~~~E(X) = 1 ~~~~~~~~~~~ Var(X) = e^2-e$$.
+# $$f_X(x) = \frac{1}{x\sqrt{2\pi}} e^{-\frac{(\ln x)^2}{2}}, ~~ x > 0 ~~~~~~~~~~~E(X) = 1 ~~~~~~~~~~~ Var(X) = e^2-e.$$
 # 
 # (a) Let $F_X$ be the cdf of $X$ and $F_Y$ the cdf of $Y$. Without doing any integrals, write $F_Y$ in terms of $F_X$.
 # 
@@ -69,7 +69,7 @@
 
 # **9.** Let $X$ have the *bilateral exponential* density given by
 # 
-# $$f_X(x) ~ = ~  \frac{1}{2}e^{-|x|}, ~~~~ -\infty < x < \infty$$
+# $$f_X(x) ~ = ~  \frac{1}{2}e^{-|x|}, ~~~~ -\infty < x < \infty.$$
 # 
 # Use what you know about the exponential density to find, *without integration*,
 # 
