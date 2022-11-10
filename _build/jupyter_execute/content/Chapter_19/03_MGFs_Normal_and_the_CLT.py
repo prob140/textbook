@@ -64,7 +64,7 @@ YouTubeVideo('SXyYS0ztJ6U')
 # Details aside, what this formula is saying is that if a moment generating function is $\exp(c_1t + c_2t^2)$ for any constant $c_1$ and any positive constant $c_2$, then it is the moment generating function of a normally distributed random variable.
 
 # ```{admonition} Quick Check
-# The random variable $X$ has mgf $M_X(t) = e^{10t^2}$ for all $t$. What is the distribution of $t$?
+# The random variable $X$ has mgf $M_X(t) = e^{10t^2}$ for all $t$. What is the distribution of $X$?
 # 
 # ```
 
