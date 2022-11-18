@@ -36,7 +36,7 @@ def bivariate_normal_regression(rho, n):
     # Axes, labels, and titles
     plt.xlim(-4, 4)
     plt.ylim(-4, 4)
-    plt.axes().set_aspect('equal')
+    plt.gca().set_aspect('equal')
     plt.legend(bbox_to_anchor=(2, 1.02))
     plt.xlabel('$X$')
     plt.ylabel('$Y$', rotation=0)
