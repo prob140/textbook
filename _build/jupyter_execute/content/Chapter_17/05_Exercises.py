@@ -10,8 +10,8 @@
 # $$f(x, y) ~ = ~ 
 # \begin{cases}
 # c(x - y), ~~ 0 < y < x < 1 \\
-# 0 ~~~~~~~~~~~~~~ \text{otherwise}
-# \end{cases}$$.
+# 0 ~~~~~~~~~~~~~~ \text{otherwise.}
+# \end{cases}$$
 # 
 # (a) Draw the region over which $f$ is positive.
 # 
@@ -31,7 +31,7 @@
 # $$f(x, y) ~ = ~ 
 # \begin{cases}
 # \frac{40}{243}x(3-x)(x-y), ~~~~ 0 < y < x < 3 \\
-# 0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \text{otherwise}
+# 0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \text{otherwise.}
 # \end{cases}$$
 # 
 # Write the each of the following in terms of $f$ but do not simplify the
@@ -49,8 +49,8 @@
 # $$f(x, y) ~ = ~
 # \begin{cases}
 # 24xy, ~~~ x, y > 0  \text{ and } 0 < x+y < 1 \\
-# 0 ~~~~~~~~~~~~~ \text{otherwise}
-# \end{cases}$$.
+# 0 ~~~~~~~~~~~~~ \text{otherwise.}
+# \end{cases}$$
 # 
 # (a) Find the density of $X$. Recognize this as one of the famous ones and state its name and parameters.
 # 
