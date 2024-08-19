@@ -52,7 +52,7 @@
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
@@ -700,7 +700,7 @@ SSE(\boldsymbol{\gamma}) ~ = ~ \sum_{i=1}^n (Y_i - (\mathbf{X}\boldsymbol{\gamma
 <p>The error in the best estimate is <span class="math notranslate nohighlight">\(\mathbf{Y} - \hat{\mathbf{Y}} = \mathbf{Y} - \mathbf{X}\hat{\boldsymbol{\beta}}\)</span>. For this error to be orthogonal to linear transformations of <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> we must have</p>
 <div class="math notranslate nohighlight">
 \[
-\mathbf{X}^T (Y - \mathbf{X}\hat{\boldsymbol{\beta}}) = 0 ~ \implies \mathbf{X}^T Y ~ = ~ \mathbf{X}^T \mathbf{X}\hat{\boldsymbol{\beta}}
+\mathbf{X}^T (\mathbf{Y} - \mathbf{X}\hat{\boldsymbol{\beta}}) = 0 ~ \implies \mathbf{X}^T \mathbf{Y} ~ = ~ \mathbf{X}^T \mathbf{X}\hat{\boldsymbol{\beta}}
 \]</div>
 <p>We have assumed that <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> has full column rank, so <span class="math notranslate nohighlight">\(\mathbf{X}^T \mathbf{X}\)</span> is invertible. So the natural guess for the best estimator <span class="math notranslate nohighlight">\(\hat{\boldsymbol{\beta}}\)</span> is</p>
 <div class="math notranslate nohighlight">
@@ -792,7 +792,7 @@ SSE(\boldsymbol{\gamma}) ~  &amp;= ~ \| \mathbf{Y} - \mathbf{X}\boldsymbol{\gamm
 <li><p><span class="math notranslate nohighlight">\(\mathbf{X}\boldsymbol{\hat{\boldsymbol{\beta}}}\)</span> is the <em>observable random estimated</em> signal.</p></li>
 <li><p><span class="math notranslate nohighlight">\(\mathbf{e}\)</span> is the <em>observable</em> random vector consisting of the deviations of <span class="math notranslate nohighlight">\(\mathbf{Y}\)</span> from the estimated plane <span class="math notranslate nohighlight">\(\mathbf{X}\hat{\boldsymbol{\beta}}\)</span>. Elements of <span class="math notranslate nohighlight">\(\mathbf{e}\)</span> are <em>not independent</em> of each other, because they add up to <span class="math notranslate nohighlight">\(0\)</span>.</p></li>
 </ul>
-<p>In exercises you will show that <span class="math notranslate nohighlight">\(\hat{\boldsymbol{\beta}}\)</span> is an unbiased estimator of <span class="math notranslate nohighlight">\(\boldsymbol{\beta}\)</span> and that both <span class="math notranslate nohighlight">\(\hat{\boldsymbol{\beta}}\)</span> of <span class="math notranslate nohighlight">\(\hat{\mathbf{Y}}\)</span> have normal (or multivariate normal) distributions. Both distributions have variance and covariance parameters that depend on the unknown error variance <span class="math notranslate nohighlight">\(\sigma^2\)</span>.</p>
+<p>In exercises you will show that <span class="math notranslate nohighlight">\(\hat{\boldsymbol{\beta}}\)</span> is an unbiased estimator of <span class="math notranslate nohighlight">\(\boldsymbol{\beta}\)</span> and that both <span class="math notranslate nohighlight">\(\hat{\boldsymbol{\beta}}\)</span> and <span class="math notranslate nohighlight">\(\hat{\mathbf{Y}}\)</span> have normal (or multivariate normal) distributions. Both distributions have variance and covariance parameters that depend on the unknown error variance <span class="math notranslate nohighlight">\(\sigma^2\)</span>.</p>
 </section>
 <section id="estimate-of-sigma-2">
 <h2><span class="section-number">25.4.8. </span>Estimate of <span class="math notranslate nohighlight">\(\sigma^2\)</span><a class="headerlink" href="#estimate-of-sigma-2" title="Link to this heading">#</a></h2>

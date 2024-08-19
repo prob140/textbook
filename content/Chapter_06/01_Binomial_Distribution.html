@@ -52,7 +52,7 @@
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
@@ -805,11 +805,12 @@ chance that all the trials are successes.</p>
 <img alt="../../_images/312cdea8a205dd0da5c32c6f48448021b6dc54592f8ae3b74a91f689ab65edc9.png" src="../../_images/312cdea8a205dd0da5c32c6f48448021b6dc54592f8ae3b74a91f689ab65edc9.png" />
 </div>
 </div>
-<p>The <em>cumulative distribution function</em> or c.d.f. of any random variable is a function that calculates this “area to the left” of any point. If you denote the c.d.f. by <span class="math notranslate nohighlight">\(F\)</span>, then
-$<span class="math notranslate nohighlight">\(
+<p>The <em>cumulative distribution function</em> or c.d.f. of any random variable is a function that calculates this “area to the left” of any point. If you denote the c.d.f. by <span class="math notranslate nohighlight">\(F\)</span>, then</p>
+<div class="math notranslate nohighlight">
+\[
 F(x) = P(X \le x)
-\)</span>$
-for any x.</p>
+\]</div>
+<p>for any x.</p>
 <p>We will get to know this function better later in the course. For now, note that <code class="docutils literal notranslate"><span class="pre">stats</span></code> lets you calculate it directly without having to use <code class="docutils literal notranslate"><span class="pre">pmf</span></code> and then summing. The function is called <code class="docutils literal notranslate"><span class="pre">stats.distribution_name.cdf</span></code> where <code class="docutils literal notranslate"><span class="pre">distribution_name</span></code> could be <code class="docutils literal notranslate"><span class="pre">binom</span></code> or <code class="docutils literal notranslate"><span class="pre">hypergeom</span></code> or any other distribution name that <code class="docutils literal notranslate"><span class="pre">stats</span></code> recognizes. The first argument is <span class="math notranslate nohighlight">\(x\)</span>, followed by the parameters of the distribution in a specified order.</p>
 <p>For <span class="math notranslate nohighlight">\(X\)</span> a binomial <span class="math notranslate nohighlight">\((7, 1/6)\)</span> random variable, the gold area above is <span class="math notranslate nohighlight">\(F(2)\)</span> which is about 90.4%.</p>
 <p>To find <span class="math notranslate nohighlight">\(P(X &gt; 2)\)</span>, we can use the cdf again:</p>
