@@ -52,7 +52,7 @@
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
@@ -647,10 +647,11 @@ f(x, y) = f_X(x)f_Y(y)
 \[
 f(x, y) = \frac{1}{\sqrt{2\pi}} e^{-\frac{1}{2}x^2} \cdot \frac{1}{\sqrt{2\pi}} e^{-\frac{1}{2}y^2}, ~~~~ -\infty &lt; x, y &lt; \infty
 \]</div>
-<p>Equivalently,
-$<span class="math notranslate nohighlight">\(
+<p>Equivalently,</p>
+<div class="math notranslate nohighlight">
+\[
 f(x, y) = \frac{1}{2\pi} e^{-\frac{1}{2}(x^2 + y^2)}, ~~~~ -\infty &lt; x, y &lt; \infty
-\)</span>$</p>
+\]</div>
 <p>Here is a graph of the joint density surface.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -713,10 +714,11 @@ f(x, y) ~ = ~ \lambda e^{-\lambda x} \mu e^{-\mu y}, ~~~~ x &gt; 0, ~ y &gt; 0
 <img alt="../../_images/8bebdf751e7ab4f4334ce853de51a51e2ad712735ee5e65a82ab77dd450b3eb2.png" src="../../_images/8bebdf751e7ab4f4334ce853de51a51e2ad712735ee5e65a82ab77dd450b3eb2.png" />
 </div>
 </div>
-<p>The probability is therefore
-$<span class="math notranslate nohighlight">\(
+<p>The probability is therefore</p>
+<div class="math notranslate nohighlight">
+\[
 P(Y &gt; X) ~ = ~ \int_0^\infty \int_x^\infty \lambda e^{-\lambda x} \mu e^{-\mu y} dy dx
-\)</span>$</p>
+\]</div>
 <p>We can do this double integral without much calculus, just by using probability facts. As you calculate, try to involve densities as much as possible, and remember that the integral of a density over an interval is the probability of that interval.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}

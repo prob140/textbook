@@ -52,7 +52,7 @@
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
@@ -667,7 +667,7 @@ P(X \ge c) ~ \le ~ \frac{E(X)}{c}
 </div>
 <div class="dropdown admonition">
 <p class="admonition-title">Answer</p>
-<p>Between <span class="math notranslate nohighlight">\(0\)</span> and <span class="math notranslate nohighlight">\(1/3\)</span></p>
+<p>Between <span class="math notranslate nohighlight">\(0\)</span> and <span class="math notranslate nohighlight">\(4/13\)</span></p>
 </div>
 </section>
 <section id="another-way-of-writing-markov-s-inequality">
@@ -775,10 +775,10 @@ P(\vert X - \mu_X \vert \ge z\sigma_X) ~ \le ~ \frac{\sigma_X^2}{z^2\sigma_X^2} 
 <p>This is the form in which you saw Chebyshev’s Inequality in Data 8.</p>
 <p>Chebyshev’s Inequality makes no assumptions about the shape of the distribution. It implies that no matter what the distribution of <span class="math notranslate nohighlight">\(X\)</span> looks like,</p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(P(\mu_X - 2\sigma_X &lt; X &lt; \mu_X + 2\sigma_X) &gt; 1 - 1/4 = 75\%\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(P(\mu_X - 3\sigma_X &lt; X &lt; \mu_X + 3\sigma_X) &gt; 1 - 1/9 = 88.88...\%\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(P(\mu_X - 4\sigma_X &lt; X &lt; \mu_X + 4\sigma_X) &gt; 1 - 1/16 = 93.75\%\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(P(\mu_X - 5\sigma_X &lt; X &lt; \mu_X + 5\sigma_X) &gt; 1 - 1/25 = 96\%\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(P(\mu_X - 2\sigma_X &lt; X &lt; \mu_X + 2\sigma_X) \ge 1 - 1/4 = 75\%\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(P(\mu_X - 3\sigma_X &lt; X &lt; \mu_X + 3\sigma_X) \ge 1 - 1/9 = 88.88...\%\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(P(\mu_X - 4\sigma_X &lt; X &lt; \mu_X + 4\sigma_X) \ge 1 - 1/16 = 93.75\%\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(P(\mu_X - 5\sigma_X &lt; X &lt; \mu_X + 5\sigma_X) \ge 1 - 1/25 = 96\%\)</span></p></li>
 </ul>
 <p>That is, <em>no matter what the shape of the distribution</em>, the bulk of the probability is in the interval “expected value plus or minus a few SDs”.</p>
 <p>This is one reason why the SD is a good measure of spread. No matter what the distribution, if you know the expectation and the SD then you have a pretty good sense of where the bulk of the probability is located.</p>
