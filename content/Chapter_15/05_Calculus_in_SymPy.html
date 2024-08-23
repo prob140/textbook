@@ -601,7 +601,7 @@ f(x) =
 <p>As you can see from its graph below, <span class="math notranslate nohighlight">\(f\)</span> could be used to model the distribution of a random proportion that you think is likely to be somewhere between 0.2 and 0.4.</p>
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/76e4b9930f267855dd39ca4edf6fc7b48e6be467d682d821d12e8f63344d3df2.png" src="../../_images/76e4b9930f267855dd39ca4edf6fc7b48e6be467d682d821d12e8f63344d3df2.png" />
+<img alt="../../_images/fb7b5fbdf771f23e9732739788a7ae555b28a53e5b23efff0bea672394dacb3d.png" src="../../_images/fb7b5fbdf771f23e9732739788a7ae555b28a53e5b23efff0bea672394dacb3d.png" />
 </div>
 </div>
 <p>The density <span class="math notranslate nohighlight">\(f\)</span> is a polynomial on the unit interval, and in principle the algebra and calculus involved in integrating it are straightforward. But they are tedious. So let’s get <code class="docutils literal notranslate"><span class="pre">SymPy</span></code> to do the work.</p>
@@ -631,7 +631,7 @@ f(x) =
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/781dd015239fd6f931b11cf0955a5c9e65f04f865a7136cc212858585fc1da3c.png" src="../../_images/781dd015239fd6f931b11cf0955a5c9e65f04f865a7136cc212858585fc1da3c.png" />
+<img alt="../../_images/583cece87a7879f52db58fc34b05d5aaeb96524e18edac8ae38fb1e6442bb7b8.png" src="../../_images/583cece87a7879f52db58fc34b05d5aaeb96524e18edac8ae38fb1e6442bb7b8.png" />
 </div>
 </div>
 <p>That’s the expression for <span class="math notranslate nohighlight">\(f(x)\)</span> defined by the equation at the start of the section. Notice that what we naturally think of as <span class="math notranslate nohighlight">\(1 - x\)</span> is expressed as <span class="math notranslate nohighlight">\(-x + 1\)</span>. That’s because <code class="docutils literal notranslate"><span class="pre">SymPy</span></code> is writing the polynomial leading with the term of highest degree.</p>
@@ -644,7 +644,7 @@ f(x) =
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/760ccb13f04758bc4cba3409910ce9cdecc14c8fb7bf38e2e77e5213ec82ea38.png" src="../../_images/760ccb13f04758bc4cba3409910ce9cdecc14c8fb7bf38e2e77e5213ec82ea38.png" />
+<img alt="../../_images/344eb67a1bfc43bb9cf002c5298316db3a81d16d228923bc49e1022c1594caa9.png" src="../../_images/344eb67a1bfc43bb9cf002c5298316db3a81d16d228923bc49e1022c1594caa9.png" />
 </div>
 </div>
 <p>The output of displays the integral, which is nice, but what we really want is its numerical value. In <code class="docutils literal notranslate"><span class="pre">SymPy</span></code>, this is achieved by abruptly instructing the method to <code class="docutils literal notranslate"><span class="pre">doit()</span></code>.</p>
@@ -655,7 +655,7 @@ f(x) =
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/52cbe5efef2420fdb0e5fcec22993b051304ec02c9c6bdf85b0b8f0bc0ced260.png" src="../../_images/52cbe5efef2420fdb0e5fcec22993b051304ec02c9c6bdf85b0b8f0bc0ced260.png" />
+<img alt="../../_images/d81096050bd44ce57b5d5fe4208dfd494a47c011aecee7a2c422785cd87b6ef4.png" src="../../_images/d81096050bd44ce57b5d5fe4208dfd494a47c011aecee7a2c422785cd87b6ef4.png" />
 </div>
 </div>
 <p>This confirms that the function <span class="math notranslate nohighlight">\(f\)</span> is a density.</p>
@@ -668,7 +668,7 @@ f(x) =
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/9f246ba1ca7ba6463122664956f02f328a61802b5181cba17fb6e29dea3e24d2.png" src="../../_images/9f246ba1ca7ba6463122664956f02f328a61802b5181cba17fb6e29dea3e24d2.png" />
+<img alt="../../_images/bcf6945a4490379a7276e2710a01e4fe54684af648bd926c15385cfb58cad075.png" src="../../_images/bcf6945a4490379a7276e2710a01e4fe54684af648bd926c15385cfb58cad075.png" />
 </div>
 </div>
 <p>For <span class="math notranslate nohighlight">\(x\)</span> in the unit interval, the cdf of <span class="math notranslate nohighlight">\(X\)</span> is</p>
@@ -686,7 +686,7 @@ F(x) ~ = ~ P(X \le x) ~ = ~ \int_0^x f(s)ds ~ = ~ I(s)~ \Big{\rvert}_0^x ~ = ~ I
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/d7d0ead28be419f92d25fee21fe5ef2847173bc04ac1e37e96c392e41ea8a745.png" src="../../_images/d7d0ead28be419f92d25fee21fe5ef2847173bc04ac1e37e96c392e41ea8a745.png" />
+<img alt="../../_images/0c614d227f4ed72071f362899d0685bb5f9a67c091584cc5c8787bfbccd96e4b.png" src="../../_images/0c614d227f4ed72071f362899d0685bb5f9a67c091584cc5c8787bfbccd96e4b.png" />
 </div>
 </div>
 <p>Now <span class="math notranslate nohighlight">\(F(x) = I(x) - I(0)\)</span>. You can see at a glance that <span class="math notranslate nohighlight">\(I(0) = 0\)</span> but here is how <code class="docutils literal notranslate"><span class="pre">SymPy</span></code> would figure that out.</p>
@@ -699,7 +699,7 @@ F(x) ~ = ~ P(X \le x) ~ = ~ \int_0^x f(s)ds ~ = ~ I(s)~ \Big{\rvert}_0^x ~ = ~ I
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/0b67bd069bf038d3718874d99438d97a4ff23aa412293394fe0e8a880149e8b4.png" src="../../_images/0b67bd069bf038d3718874d99438d97a4ff23aa412293394fe0e8a880149e8b4.png" />
+<img alt="../../_images/702ba12f4bf2cef7092842f0bdd4dc2b8bfdc07d13bc79cc481075cd1cc7c88c.png" src="../../_images/702ba12f4bf2cef7092842f0bdd4dc2b8bfdc07d13bc79cc481075cd1cc7c88c.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -710,7 +710,7 @@ F(x) ~ = ~ P(X \le x) ~ = ~ \int_0^x f(s)ds ~ = ~ I(s)~ \Big{\rvert}_0^x ~ = ~ I
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/d7d0ead28be419f92d25fee21fe5ef2847173bc04ac1e37e96c392e41ea8a745.png" src="../../_images/d7d0ead28be419f92d25fee21fe5ef2847173bc04ac1e37e96c392e41ea8a745.png" />
+<img alt="../../_images/0c614d227f4ed72071f362899d0685bb5f9a67c091584cc5c8787bfbccd96e4b.png" src="../../_images/0c614d227f4ed72071f362899d0685bb5f9a67c091584cc5c8787bfbccd96e4b.png" />
 </div>
 </div>
 <p>To find the value of the cdf at a specified point, say 0.4, we have to substitute <span class="math notranslate nohighlight">\(x\)</span> with 0.4 in the formula for the cdf.</p>
@@ -722,7 +722,7 @@ F(x) ~ = ~ P(X \le x) ~ = ~ \int_0^x f(s)ds ~ = ~ I(s)~ \Big{\rvert}_0^x ~ = ~ I
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/60c52d8ea89c3b9d464c60ec12820e270afa1f2c49b633bc87d8ac60da16d412.png" src="../../_images/60c52d8ea89c3b9d464c60ec12820e270afa1f2c49b633bc87d8ac60da16d412.png" />
+<img alt="../../_images/e1010e533c18c9410621d4db2c0352aa78fe6200922c1eb3095f35c24e1b5f50.png" src="../../_images/e1010e533c18c9410621d4db2c0352aa78fe6200922c1eb3095f35c24e1b5f50.png" />
 </div>
 </div>
 <p>Thus <span class="math notranslate nohighlight">\(P(X \le 0.4)\)</span> is roughly 58%. Earlier we calulated <span class="math notranslate nohighlight">\(P(0.2 &lt; X &lt; 0.4) = 43.2\%\)</span>, which we can confirm by using the cdf:</p>
@@ -734,7 +734,7 @@ F(x) ~ = ~ P(X \le x) ~ = ~ \int_0^x f(s)ds ~ = ~ I(s)~ \Big{\rvert}_0^x ~ = ~ I
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/9f246ba1ca7ba6463122664956f02f328a61802b5181cba17fb6e29dea3e24d2.png" src="../../_images/9f246ba1ca7ba6463122664956f02f328a61802b5181cba17fb6e29dea3e24d2.png" />
+<img alt="../../_images/bcf6945a4490379a7276e2710a01e4fe54684af648bd926c15385cfb58cad075.png" src="../../_images/bcf6945a4490379a7276e2710a01e4fe54684af648bd926c15385cfb58cad075.png" />
 </div>
 </div>
 <p>The expectation <span class="math notranslate nohighlight">\(E(X)\)</span> is a definite integral from 0 to 1:</p>
@@ -746,7 +746,7 @@ F(x) ~ = ~ P(X \le x) ~ = ~ \int_0^x f(s)ds ~ = ~ I(s)~ \Big{\rvert}_0^x ~ = ~ I
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/c7722dfc52b30ef690008ffc240bedd0956fac0f13897c9b7233b784e9167e77.png" src="../../_images/c7722dfc52b30ef690008ffc240bedd0956fac0f13897c9b7233b784e9167e77.png" />
+<img alt="../../_images/f4d60503cbcc0f12e2d8896d3c6e0f145a81955d9f2ade7b4b9d38a2c7be4356.png" src="../../_images/f4d60503cbcc0f12e2d8896d3c6e0f145a81955d9f2ade7b4b9d38a2c7be4356.png" />
 </div>
 </div>
 <p>Notice how simple the answer is. Later in the course, you will see why.</p>
@@ -759,7 +759,7 @@ F(x) ~ = ~ P(X \le x) ~ = ~ \int_0^x f(s)ds ~ = ~ I(s)~ \Big{\rvert}_0^x ~ = ~ I
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/2fd18670f06eb232041c904c6f06c2959a03dfb727b931ea7ecb71c9dd92eee4.png" src="../../_images/2fd18670f06eb232041c904c6f06c2959a03dfb727b931ea7ecb71c9dd92eee4.png" />
+<img alt="../../_images/9cf3ab377dccb50aebb23a3c27e24b511392b6e5cdf0de2b7578b4e439fce215.png" src="../../_images/9cf3ab377dccb50aebb23a3c27e24b511392b6e5cdf0de2b7578b4e439fce215.png" />
 </div>
 </div>
 <p>Now you can find <span class="math notranslate nohighlight">\(SD(X)\)</span>.</p>
@@ -771,7 +771,7 @@ F(x) ~ = ~ P(X \le x) ~ = ~ \int_0^x f(s)ds ~ = ~ I(s)~ \Big{\rvert}_0^x ~ = ~ I
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/6ecf33cbf92ccbb773bbfd6f53daca3f995f1b204e41ec55df449093a9d913c2.png" src="../../_images/6ecf33cbf92ccbb773bbfd6f53daca3f995f1b204e41ec55df449093a9d913c2.png" />
+<img alt="../../_images/eab9672c7ed5bf83a18b69cc0d92c77fa77e40e135bc0fcfb9ce7dcf9237c2c8.png" src="../../_images/eab9672c7ed5bf83a18b69cc0d92c77fa77e40e135bc0fcfb9ce7dcf9237c2c8.png" />
 </div>
 </div>
 <section id="sympy-and-the-exponential-density">
@@ -784,7 +784,7 @@ f(t) ~ = \lambda e^{-\lambda t}, ~~~ t \ge 0
 <p>The density is 0 on the negative numbers. Here is its graph when <span class="math notranslate nohighlight">\(\lambda = 3\)</span>.</p>
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/60d8db74b8ad3ef6875f42abd2ae22cba9ca8894e7098ed0095c65cd4f5a95e9.png" src="../../_images/60d8db74b8ad3ef6875f42abd2ae22cba9ca8894e7098ed0095c65cd4f5a95e9.png" />
+<img alt="../../_images/95bd8fbc0f86006aff19052239d1813f63e3d74d0c85c75c7bfc0dc0e1091cbb.png" src="../../_images/95bd8fbc0f86006aff19052239d1813f63e3d74d0c85c75c7bfc0dc0e1091cbb.png" />
 </div>
 </div>
 <p>To check that <span class="math notranslate nohighlight">\(f\)</span> is a density, we have to confirm that its integral is 1. We will start by constructing two symbols, <code class="docutils literal notranslate"><span class="pre">t</span></code> and <code class="docutils literal notranslate"><span class="pre">lamda</span></code>. Notice the incorrectly spelled <code class="docutils literal notranslate"><span class="pre">lamda</span></code> instead of <code class="docutils literal notranslate"><span class="pre">lambda</span></code>. That is because <code class="docutils literal notranslate"><span class="pre">lambda</span></code> has another meaning in Python, as some of you might know.</p>
@@ -806,7 +806,7 @@ f(t) ~ = \lambda e^{-\lambda t}, ~~~ t \ge 0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/9da4be18e095670e274ed535960114c8068c3a06f0efb8f736e0ae5bc523708b.png" src="../../_images/9da4be18e095670e274ed535960114c8068c3a06f0efb8f736e0ae5bc523708b.png" />
+<img alt="../../_images/c7c77d8c21d69fb32b6269495b14d7606f4b4fa69d696fb8af4a3aba9a3351de.png" src="../../_images/c7c77d8c21d69fb32b6269495b14d7606f4b4fa69d696fb8af4a3aba9a3351de.png" />
 </div>
 </div>
 <p>To see that the function is a density, we can check that its integral from 0 to <span class="math notranslate nohighlight">\(\infty\)</span> is 1. The symbol that <code class="docutils literal notranslate"><span class="pre">SymPy</span></code> uses for <span class="math notranslate nohighlight">\(\infty\)</span> is <code class="docutils literal notranslate"><span class="pre">oo</span></code>, a double lower case o. It looks very much like <span class="math notranslate nohighlight">\(\infty\)</span>.</p>
@@ -817,7 +817,7 @@ f(t) ~ = \lambda e^{-\lambda t}, ~~~ t \ge 0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/52cbe5efef2420fdb0e5fcec22993b051304ec02c9c6bdf85b0b8f0bc0ced260.png" src="../../_images/52cbe5efef2420fdb0e5fcec22993b051304ec02c9c6bdf85b0b8f0bc0ced260.png" />
+<img alt="../../_images/d81096050bd44ce57b5d5fe4208dfd494a47c011aecee7a2c422785cd87b6ef4.png" src="../../_images/d81096050bd44ce57b5d5fe4208dfd494a47c011aecee7a2c422785cd87b6ef4.png" />
 </div>
 </div>
 <p>Suppose <span class="math notranslate nohighlight">\(T\)</span> has the exponential <span class="math notranslate nohighlight">\((\lambda)\)</span> density. Then for <span class="math notranslate nohighlight">\(t \ge 0\)</span> the cdf of <span class="math notranslate nohighlight">\(T\)</span> is</p>
@@ -840,7 +840,7 @@ We will use the same method that we used to find the cdf in the previous example
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/c14435570d8f4dfb25c33e39293e475732fb24eaec7d0444b2f2232a9b75185a.png" src="../../_images/c14435570d8f4dfb25c33e39293e475732fb24eaec7d0444b2f2232a9b75185a.png" />
+<img alt="../../_images/350d9dc97c3c1da62fbbb4f841dac914d2c8711a375e57e1c0be5415476b0a1b.png" src="../../_images/350d9dc97c3c1da62fbbb4f841dac914d2c8711a375e57e1c0be5415476b0a1b.png" />
 </div>
 </div>
 <p>Now use <span class="math notranslate nohighlight">\(F_T(t) = I(t) - I(0)\)</span>:</p>
@@ -852,7 +852,7 @@ We will use the same method that we used to find the cdf in the previous example
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/d330e969207fb831513ccad017fef47b0fcc91925eaf8d4f90b4489b9c693949.png" src="../../_images/d330e969207fb831513ccad017fef47b0fcc91925eaf8d4f90b4489b9c693949.png" />
+<img alt="../../_images/d42ce757c38d93f08ca9ba5ba51bc1dbb529ac27fbdf9ae82e39d2572c183f67.png" src="../../_images/d42ce757c38d93f08ca9ba5ba51bc1dbb529ac27fbdf9ae82e39d2572c183f67.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -863,7 +863,7 @@ We will use the same method that we used to find the cdf in the previous example
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/68186b2d7c3c9fd619b35084b951baef6b1e854d80d7921250de04a5c7290866.png" src="../../_images/68186b2d7c3c9fd619b35084b951baef6b1e854d80d7921250de04a5c7290866.png" />
+<img alt="../../_images/92d44310bf0c0eab61910e5e8bb0d175f8538e8f9f1b08bddcaa9139b0198042.png" src="../../_images/92d44310bf0c0eab61910e5e8bb0d175f8538e8f9f1b08bddcaa9139b0198042.png" />
 </div>
 </div>
 <p>Thus the cdf of <span class="math notranslate nohighlight">\(T\)</span> is</p>
@@ -885,7 +885,7 @@ E(T) ~ = ~ \int_0^\infty t \lambda e^{-\lambda t} dt ~ = ~ \frac{1}{\lambda}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/5e6c5a22dc5541f700d28e9e7d4c3af0dcacf905e1b79a2d386b93239e3dfe84.png" src="../../_images/5e6c5a22dc5541f700d28e9e7d4c3af0dcacf905e1b79a2d386b93239e3dfe84.png" />
+<img alt="../../_images/0df04309b839c1a12b8cd860344de6e8f7d3f55ea9d501b4462ef41d546983c3.png" src="../../_images/0df04309b839c1a12b8cd860344de6e8f7d3f55ea9d501b4462ef41d546983c3.png" />
 </div>
 </div>
 <p>Calculating <span class="math notranslate nohighlight">\(E(T^2)\)</span> is just as easy.</p>
@@ -897,7 +897,7 @@ E(T) ~ = ~ \int_0^\infty t \lambda e^{-\lambda t} dt ~ = ~ \frac{1}{\lambda}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/5d6d943023007ff6bd40dc54641700fc67d4d1c1b68ea82b8626b26250892a24.png" src="../../_images/5d6d943023007ff6bd40dc54641700fc67d4d1c1b68ea82b8626b26250892a24.png" />
+<img alt="../../_images/218338beb4b49852d620d26eb4c8f6bcbec4fd5c6572bdda1689fdc53730c35e.png" src="../../_images/218338beb4b49852d620d26eb4c8f6bcbec4fd5c6572bdda1689fdc53730c35e.png" />
 </div>
 </div>
 <p>The variance and SD follow directly.</p>
@@ -909,7 +909,7 @@ E(T) ~ = ~ \int_0^\infty t \lambda e^{-\lambda t} dt ~ = ~ \frac{1}{\lambda}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/13c8889e50d103a684ac64a3017b3bbcc7678846e79e2999df19dab3feb25bdf.png" src="../../_images/13c8889e50d103a684ac64a3017b3bbcc7678846e79e2999df19dab3feb25bdf.png" />
+<img alt="../../_images/536ca7ffdef5b52e34ab7f33b421dd92a1816a917f1e90c8608028658dc7f96e.png" src="../../_images/536ca7ffdef5b52e34ab7f33b421dd92a1816a917f1e90c8608028658dc7f96e.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -920,7 +920,7 @@ E(T) ~ = ~ \int_0^\infty t \lambda e^{-\lambda t} dt ~ = ~ \frac{1}{\lambda}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/3b62c0d6915fb1b718a47741fc2b610ee213fe21f00e0cd64c69befca2304616.png" src="../../_images/3b62c0d6915fb1b718a47741fc2b610ee213fe21f00e0cd64c69befca2304616.png" />
+<img alt="../../_images/1ea01c0ce75b64ab28363c270c078c5a81d083997a9371eb125f61964158c700.png" src="../../_images/1ea01c0ce75b64ab28363c270c078c5a81d083997a9371eb125f61964158c700.png" />
 </div>
 </div>
 <p>That’s a pretty funny way of writing <span class="math notranslate nohighlight">\(\frac{1}{\lambda}\)</span> but we’ll take it. It’s a small price to pay for not having to do all the integrals by hand.</p>

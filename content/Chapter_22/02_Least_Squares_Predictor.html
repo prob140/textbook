@@ -589,25 +589,21 @@ document.write(`
   <section id="least-squares-predictor">
 <h1><span class="section-number">22.2. </span>Least Squares Predictor<a class="headerlink" href="#least-squares-predictor" title="Link to this heading">#</a></h1>
 <p>As the function that picks off the “centers of vertical strips,” the conditional expectation <span class="math notranslate nohighlight">\(b(X) = E(Y \mid X)\)</span> is a natural estimate or predictor of <span class="math notranslate nohighlight">\(Y\)</span> given the value of <span class="math notranslate nohighlight">\(X\)</span>. We will now see how good <span class="math notranslate nohighlight">\(b(X)\)</span> is if we use mean squared error as our criterion.</p>
-<div class="cell tag_remove-input tag_hide-output docutils container">
-<details class="hide above-output">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell outputs</span>
-<span class="expanded">Hide code cell outputs</span>
-</summary>
-<div class="cell_output docutils container">
-<div class="output text_html">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-video" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 3.75C0 2.784.784 2 1.75 2h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 14H1.75A1.75 1.75 0 0 1 0 12.25Zm1.75-.25a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25Z"></path><path d="M6 10.559V5.442a.25.25 0 0 1 .379-.215l4.264 2.559a.25.25 0 0 1 0 .428l-4.264 2.559A.25.25 0 0 1 6 10.559Z"></path></svg></span><span class="sd-summary-text">See More</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="output text_html">
         <iframe
             width="400"
             height="300"
             src="https://www.youtube.com/embed/G_3rcPnInc0"
             frameborder="0"
             allowfullscreen
+            
         ></iframe>
-        </div></div>
-</details>
+        </span></p>
 </div>
-<section id="minimizing-the-mse">
+</details><section id="minimizing-the-mse">
 <h2><span class="section-number">22.2.1. </span>Minimizing the MSE<a class="headerlink" href="#minimizing-the-mse" title="Link to this heading">#</a></h2>
 <p>Let <span class="math notranslate nohighlight">\(h(X)\)</span> be any function of <span class="math notranslate nohighlight">\(X\)</span>, and consider using <span class="math notranslate nohighlight">\(h(X)\)</span> to predict <span class="math notranslate nohighlight">\(Y\)</span>. Define the <em>mean squared error of the predictor <span class="math notranslate nohighlight">\(h(X)\)</span></em> to be</p>
 <div class="math notranslate nohighlight">
@@ -634,25 +630,21 @@ MSE(h) ~ &amp;= ~ E\big{(}\big{(}Y - h(X)\big{)}^2\big{)} \\
 <h2><span class="section-number">22.2.2. </span>Best Predictor<a class="headerlink" href="#best-predictor" title="Link to this heading">#</a></h2>
 <p>The result above shows that the least squares predictor of <span class="math notranslate nohighlight">\(Y\)</span> based on <span class="math notranslate nohighlight">\(X\)</span> is the conditional expectation <span class="math notranslate nohighlight">\(b(X) = E(Y \mid X)\)</span>.</p>
 <p>In terms of the scatter diagram of observed values of <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span>, the result is saying that the best predictor of <span class="math notranslate nohighlight">\(Y\)</span> given <span class="math notranslate nohighlight">\(X\)</span>, by the criterion of smallest mean squared error, is the average of the vertical strip at the given value of <span class="math notranslate nohighlight">\(X\)</span>.</p>
-<div class="cell tag_remove-input tag_hide-output docutils container">
-<details class="hide above-output">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell outputs</span>
-<span class="expanded">Hide code cell outputs</span>
-</summary>
-<div class="cell_output docutils container">
-<div class="output text_html">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-video" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 3.75C0 2.784.784 2 1.75 2h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 14H1.75A1.75 1.75 0 0 1 0 12.25Zm1.75-.25a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25Z"></path><path d="M6 10.559V5.442a.25.25 0 0 1 .379-.215l4.264 2.559a.25.25 0 0 1 0 .428l-4.264 2.559A.25.25 0 0 1 6 10.559Z"></path></svg></span><span class="sd-summary-text">See More</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="output text_html">
         <iframe
             width="400"
             height="300"
             src="https://www.youtube.com/embed/J-pCOpndoBI"
             frameborder="0"
             allowfullscreen
+            
         ></iframe>
-        </div></div>
-</details>
+        </span></p>
 </div>
-</section>
+</details></section>
 <section id="conditional-variance">
 <h2><span class="section-number">22.2.3. </span>Conditional Variance<a class="headerlink" href="#conditional-variance" title="Link to this heading">#</a></h2>
 <p>Calculations “within a vertical strip” are calculations given the value of <span class="math notranslate nohighlight">\(X\)</span>. For example, to predict <span class="math notranslate nohighlight">\(Y\)</span> for a given value of <span class="math notranslate nohighlight">\(X\)</span>, the least squares predictor is the “center of the vertical strip” <span class="math notranslate nohighlight">\(b(X) = E(Y \mid X)\)</span>.</p>

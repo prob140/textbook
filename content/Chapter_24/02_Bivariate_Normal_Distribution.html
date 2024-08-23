@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -625,43 +625,35 @@ Cov(X, Y) ~ = ~ r_{X,Y}\sigma_X\sigma_Y
 \]</div>
 <p>Notice the parallel with the formula for the length of the sum of two vectors, with correlation playing the role of the cosine of the angle between two vectors. If the angle is 90 degrees, the the cosine is 0. This corresponds to correlation being zero and hence the random variables being uncorrelated.</p>
 <p>Later in this section, we will visualize this idea in the case where the joint distribution of <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> is bivariate normal.</p>
-<div class="cell tag_remove-input tag_hide-output docutils container">
-<details class="hide above-output">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell outputs</span>
-<span class="expanded">Hide code cell outputs</span>
-</summary>
-<div class="cell_output docutils container">
-<div class="output text_html">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-video" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 3.75C0 2.784.784 2 1.75 2h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 14H1.75A1.75 1.75 0 0 1 0 12.25Zm1.75-.25a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25Z"></path><path d="M6 10.559V5.442a.25.25 0 0 1 .379-.215l4.264 2.559a.25.25 0 0 1 0 .428l-4.264 2.559A.25.25 0 0 1 6 10.559Z"></path></svg></span><span class="sd-summary-text">See More</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="output text_html">
         <iframe
             width="400"
             height="300"
             src="https://www.youtube.com/embed/d-ucYswhZ_Q"
             frameborder="0"
             allowfullscreen
+            
         ></iframe>
-        </div></div>
-</details>
+        </span></p>
 </div>
-<div class="cell tag_remove-input tag_hide-output docutils container">
-<details class="hide above-output">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell outputs</span>
-<span class="expanded">Hide code cell outputs</span>
-</summary>
-<div class="cell_output docutils container">
-<div class="output text_html">
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-video" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 3.75C0 2.784.784 2 1.75 2h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 14H1.75A1.75 1.75 0 0 1 0 12.25Zm1.75-.25a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25Z"></path><path d="M6 10.559V5.442a.25.25 0 0 1 .379-.215l4.264 2.559a.25.25 0 0 1 0 .428l-4.264 2.559A.25.25 0 0 1 6 10.559Z"></path></svg></span><span class="sd-summary-text">See More</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="output text_html">
         <iframe
             width="400"
             height="300"
             src="https://www.youtube.com/embed/GQ9nsyr3umI"
             frameborder="0"
             allowfullscreen
+            
         ></iframe>
-        </div></div>
-</details>
+        </span></p>
 </div>
-</section>
+</details></section>
 <section id="constructing-the-standard-bivariate-normal">
 <h2><span class="section-number">24.2.3. </span>Constructing the Standard Bivariate Normal<a class="headerlink" href="#constructing-the-standard-bivariate-normal" title="Link to this heading">#</a></h2>
 <p>The goal is to construct <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> that have the multivariate normal distribution with mean vector <span class="math notranslate nohighlight">\([0 ~ 0]^T\)</span> and covariance matrix
@@ -761,7 +753,7 @@ Y
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/f62a637dee5df2261a5d97b4af1f088489bc1c75aa7f9db2460c1541ea17c0ce.png" src="../../_images/f62a637dee5df2261a5d97b4af1f088489bc1c75aa7f9db2460c1541ea17c0ce.png" />
+<img alt="../../_images/9192ff2af5fd13b10f543085994f777ed64dc937f9d023992bd02a99c5254ab8.png" src="../../_images/9192ff2af5fd13b10f543085994f777ed64dc937f9d023992bd02a99c5254ab8.png" />
 </div>
 </div>
 </section>
@@ -846,7 +838,7 @@ Y ~ = ~ \rho X + \sqrt{1 - \rho^2} Z
 <p>Let’s understand this construction geometrically. A good place to start is the joint density of <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Z\)</span>, which has circular symmetry.</p>
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/3728c60f3aceda9229926710f29471401d72ba474d1e3bef82b15ad71bb54626.png" src="../../_images/3728c60f3aceda9229926710f29471401d72ba474d1e3bef82b15ad71bb54626.png" />
+<img alt="../../_images/294bea9f924568acb5e2ceae2ddf8a53c76f663a5547f799554014c425b1a3a6.png" src="../../_images/294bea9f924568acb5e2ceae2ddf8a53c76f663a5547f799554014c425b1a3a6.png" />
 </div>
 </div>
 <p>The <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Z\)</span> axes are orthogonal. Let’s see what happens if we twist them.</p>
@@ -862,7 +854,7 @@ Y ~ = ~ \rho X + \sqrt{1 - \rho^2} Z
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/5634908e19a4a5c709f19aa22575a7a2bda6a3b61c0fcde32e192d4994ebd0ed.png" src="../../_images/5634908e19a4a5c709f19aa22575a7a2bda6a3b61c0fcde32e192d4994ebd0ed.png" />
+<img alt="../../_images/7dd7991bfc9b7660a48af85fe20afe96b0dff4bf6a65942ce19bc44078bd7db2.png" src="../../_images/7dd7991bfc9b7660a48af85fe20afe96b0dff4bf6a65942ce19bc44078bd7db2.png" />
 </div>
 </div>
 <p>Let <span class="math notranslate nohighlight">\(Y\)</span> be the length of the red segment, and remember that <span class="math notranslate nohighlight">\(X\)</span> is the length of the blue segment. When <span class="math notranslate nohighlight">\(\theta\)</span> is very small, <span class="math notranslate nohighlight">\(Y\)</span> is almost equal to <span class="math notranslate nohighlight">\(X\)</span>. When <span class="math notranslate nohighlight">\(\theta\)</span> approaches 90 degrees, <span class="math notranslate nohighlight">\(Y\)</span> is almost equal to <span class="math notranslate nohighlight">\(Z\)</span>.</p>
@@ -874,7 +866,7 @@ Y ~ = ~ \rho X + \sqrt{1 - \rho^2} Z
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/8a72a37d419651f9c4ee94e8aeb6e132f1445c3876220f05d5bbf6c59b7d6a50.png" src="../../_images/8a72a37d419651f9c4ee94e8aeb6e132f1445c3876220f05d5bbf6c59b7d6a50.png" />
+<img alt="../../_images/5bf3abad6ac279f3a13d8a266604fac4f48e60c83bbdf1bb675192f74289fcee.png" src="../../_images/5bf3abad6ac279f3a13d8a266604fac4f48e60c83bbdf1bb675192f74289fcee.png" />
 </div>
 </div>
 <p>Thus</p>
@@ -892,7 +884,7 @@ Y ~ = ~ X\cos(\theta) + Z\sin(\theta) ~ = ~ \rho X + \sqrt{1 - \rho^2}Z
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/81bde35c1ffabd23e43f0be9685f9429e1cc3fbb97eb74e5df7e2bde73527921.png" src="../../_images/81bde35c1ffabd23e43f0be9685f9429e1cc3fbb97eb74e5df7e2bde73527921.png" />
+<img alt="../../_images/0faa6eeba8fb34079c1a8a7a85cc8cbf9d142f60c472b88e2920a936a0c9b510.png" src="../../_images/0faa6eeba8fb34079c1a8a7a85cc8cbf9d142f60c472b88e2920a936a0c9b510.png" />
 </div>
 </div>
 <p>The bivariate normal distribution is the joint distribution of the blue and red lengths <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> when the original point <span class="math notranslate nohighlight">\((X, Z)\)</span> has i.i.d. standard normal coordinates. This transforms the circular contours of the joint density surface of <span class="math notranslate nohighlight">\((X, Z)\)</span> into the elliptical contours of the joint density surface of <span class="math notranslate nohighlight">\((X, Y)\)</span>.</p>
@@ -903,7 +895,7 @@ Y ~ = ~ X\cos(\theta) + Z\sin(\theta) ~ = ~ \rho X + \sqrt{1 - \rho^2}Z
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.8660254037844387, 0.8660254037844386)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.86602540378443871, 0.8660254037844386)
 </pre></div>
 </div>
 </div>
@@ -917,7 +909,7 @@ Y ~ = ~ X\cos(\theta) + Z\sin(\theta) ~ = ~ \rho X + \sqrt{1 - \rho^2}Z
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/e52126dcf2d1f08f4406779b0eb5ea9bb90405765d8c057562c4bd3388c2b4e2.png" src="../../_images/e52126dcf2d1f08f4406779b0eb5ea9bb90405765d8c057562c4bd3388c2b4e2.png" />
+<img alt="../../_images/19695d73f5f2e6f2f58638b3ff32e81aa9e9226dcbc4e9a79dc0a0b0d38a4ee3.png" src="../../_images/19695d73f5f2e6f2f58638b3ff32e81aa9e9226dcbc4e9a79dc0a0b0d38a4ee3.png" />
 </div>
 </div>
 </section>
@@ -932,7 +924,7 @@ Y ~ = ~ X\cos(\theta) + Z\sin(\theta) ~ = ~ \rho X + \sqrt{1 - \rho^2}Z
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/94be8dbbcc4a27edd91495c637702df5fc3a7337d81902e51b78bc92a3c93fd2.png" src="../../_images/94be8dbbcc4a27edd91495c637702df5fc3a7337d81902e51b78bc92a3c93fd2.png" />
+<img alt="../../_images/631a73083b2269c5072245a3a6713fd75097642636346c720b3bb583a72a7ff5.png" src="../../_images/631a73083b2269c5072245a3a6713fd75097642636346c720b3bb583a72a7ff5.png" />
 </div>
 </div>
 <p>The bivariate normal density of <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span>, therefore, is essentially confined to the <span class="math notranslate nohighlight">\(X = Y\)</span> line. The correlation <span class="math notranslate nohighlight">\(\cos(\theta)\)</span> is large because <span class="math notranslate nohighlight">\(\theta\)</span> is small; it is more than 0.999.</p>
@@ -957,7 +949,7 @@ Y ~ = ~ X\cos(\theta) + Z\sin(\theta) ~ = ~ \rho X + \sqrt{1 - \rho^2}Z
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/72589b041cf44b891946cde020fa1c8b8d7cf8fbbb973c2ac953dcc91ef148bd.png" src="../../_images/72589b041cf44b891946cde020fa1c8b8d7cf8fbbb973c2ac953dcc91ef148bd.png" />
+<img alt="../../_images/772703439e535173120ba14c4da2f6447ede18705607e7c0009161af80fd1aaa.png" src="../../_images/772703439e535173120ba14c4da2f6447ede18705607e7c0009161af80fd1aaa.png" />
 </div>
 </div>
 </section>
@@ -972,7 +964,7 @@ Y ~ = ~ X\cos(\theta) + Z\sin(\theta) ~ = ~ \rho X + \sqrt{1 - \rho^2}Z
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/e1a6ca090e52fb4a63d1ca7aea9b4d7661c5acfef162ff01da9933ecf5c62d51.png" src="../../_images/e1a6ca090e52fb4a63d1ca7aea9b4d7661c5acfef162ff01da9933ecf5c62d51.png" />
+<img alt="../../_images/17fbe33362d9e145a402b7a83dbde8f7462855570be9cf61e018d919169ca401.png" src="../../_images/17fbe33362d9e145a402b7a83dbde8f7462855570be9cf61e018d919169ca401.png" />
 </div>
 </div>
 <p>When <span class="math notranslate nohighlight">\(\theta = 90\)</span> degrees, <span class="math notranslate nohighlight">\(\cos(\theta) = 0\)</span>. The joint density surface of <span class="math notranslate nohighlight">\((X, Y)\)</span> is the same as that of <span class="math notranslate nohighlight">\((X, Z)\)</span> and has circular symmetry.</p>

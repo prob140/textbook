@@ -625,25 +625,21 @@ P(S_7 = 3) &amp;= \text{(number of sequences that have three S and four F)} \cdo
 P(S_n = k) = \binom{n}{k} p^k (1-p)^{n-k}, ~~~ k = 0, 1, \ldots, n
 \]</div>
 <p>Parameters of a distribution are constants associated with it. The Bernoulli <span class="math notranslate nohighlight">\((p)\)</span> distribution has parameter <span class="math notranslate nohighlight">\(p\)</span>. The binomial distribution defined above has parameters <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(p\)</span> and is referred to as the binomial <span class="math notranslate nohighlight">\((n, p)\)</span> distribution for short. You should check that the Bernoulli <span class="math notranslate nohighlight">\((p)\)</span> distribution is the same as the binomial <span class="math notranslate nohighlight">\((1, p)\)</span> distribution.</p>
-<div class="cell tag_remove-input tag_hide-output docutils container">
-<details class="hide above-output">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell outputs</span>
-<span class="expanded">Hide code cell outputs</span>
-</summary>
-<div class="cell_output docutils container">
-<div class="output text_html">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-video" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 3.75C0 2.784.784 2 1.75 2h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 14H1.75A1.75 1.75 0 0 1 0 12.25Zm1.75-.25a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25Z"></path><path d="M6 10.559V5.442a.25.25 0 0 1 .379-.215l4.264 2.559a.25.25 0 0 1 0 .428l-4.264 2.559A.25.25 0 0 1 6 10.559Z"></path></svg></span><span class="sd-summary-text">See More</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="output text_html">
         <iframe
             width="400"
             height="300"
             src="https://www.youtube.com/embed/K2Rsnx8YbJQ"
             frameborder="0"
             allowfullscreen
+            
         ></iframe>
-        </div></div>
-</details>
+        </span></p>
 </div>
-<p>Before we get going on calculations with the binomial distribution, let’s make a few observations.</p>
+</details><p>Before we get going on calculations with the binomial distribution, let’s make a few observations.</p>
 <ul class="simple">
 <li><p>The functional form of the probabilities is symmetric in successes and failures, because</p></li>
 </ul>
@@ -726,7 +722,7 @@ chance that all the trials are successes.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.07814286122542294
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.078142861225423008
 </pre></div>
 </div>
 </div>
@@ -739,7 +735,7 @@ chance that all the trials are successes.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.23442858, 0.07814286, 0.01562857])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.23442858,  0.07814286,  0.01562857])
 </pre></div>
 </div>
 </div>
@@ -752,30 +748,26 @@ chance that all the trials are successes.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.3282000171467765
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.32820001714677643
 </pre></div>
 </div>
 </div>
 </div>
-<div class="cell tag_remove-input tag_hide-output docutils container">
-<details class="hide above-output">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell outputs</span>
-<span class="expanded">Hide code cell outputs</span>
-</summary>
-<div class="cell_output docutils container">
-<div class="output text_html">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-video" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 3.75C0 2.784.784 2 1.75 2h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 14H1.75A1.75 1.75 0 0 1 0 12.25Zm1.75-.25a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25Z"></path><path d="M6 10.559V5.442a.25.25 0 0 1 .379-.215l4.264 2.559a.25.25 0 0 1 0 .428l-4.264 2.559A.25.25 0 0 1 6 10.559Z"></path></svg></span><span class="sd-summary-text">See More</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="output text_html">
         <iframe
             width="400"
             height="300"
             src="https://www.youtube.com/embed/MoBXF8icYkM"
             frameborder="0"
             allowfullscreen
+            
         ></iframe>
-        </div></div>
-</details>
+        </span></p>
 </div>
-</section>
+</details></section>
 <section id="cumulative-distribution-function-cdf">
 <h2><span class="section-number">6.1.4. </span>Cumulative Distribution Function (cdf)<a class="headerlink" href="#cumulative-distribution-function-cdf" title="Link to this heading">#</a></h2>
 <p>To visualize binomial distributions we will use the <code class="docutils literal notranslate"><span class="pre">prob140</span></code> method <code class="docutils literal notranslate"><span class="pre">Plot</span></code>, by first using <code class="docutils literal notranslate"><span class="pre">stats.binom.pmf</span></code> to calculate the binomial probabilities. The cell below plots the distribution of <span class="math notranslate nohighlight">\(S_7\)</span> above. Notice how we start by specifying all the possible values of <span class="math notranslate nohighlight">\(S_7\)</span> in the array <code class="docutils literal notranslate"><span class="pre">k</span></code>.</p>
@@ -791,7 +783,7 @@ chance that all the trials are successes.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/b128f9f36965c8531d88ade26c3033c0c1cf41cc7e4f9340ba55f01152ecb898.png" src="../../_images/b128f9f36965c8531d88ade26c3033c0c1cf41cc7e4f9340ba55f01152ecb898.png" />
+<img alt="../../_images/6dd83eb35312c3c7398e3ad81838815e31cedf5ed58f64085090c330ed5c041a.png" src="../../_images/6dd83eb35312c3c7398e3ad81838815e31cedf5ed58f64085090c330ed5c041a.png" />
 </div>
 </div>
 <p>Very often, we need probabilities of the form <span class="math notranslate nohighlight">\(P(X &gt; x)\)</span> or <span class="math notranslate nohighlight">\(P(X \le x)\)</span>. For example, for <span class="math notranslate nohighlight">\(X\)</span> with the binomial <span class="math notranslate nohighlight">\((7, 1/6)\)</span> distribution above, here is the event <span class="math notranslate nohighlight">\(\{ X \le 2 \}\)</span>.</p>
@@ -802,7 +794,7 @@ chance that all the trials are successes.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/312cdea8a205dd0da5c32c6f48448021b6dc54592f8ae3b74a91f689ab65edc9.png" src="../../_images/312cdea8a205dd0da5c32c6f48448021b6dc54592f8ae3b74a91f689ab65edc9.png" />
+<img alt="../../_images/5ff813297995191e1fafc876e223b211906ab615386679093a3031b1be4539d9.png" src="../../_images/5ff813297995191e1fafc876e223b211906ab615386679093a3031b1be4539d9.png" />
 </div>
 </div>
 <p>The <em>cumulative distribution function</em> or c.d.f. of any random variable is a function that calculates this “area to the left” of any point. If you denote the c.d.f. by <span class="math notranslate nohighlight">\(F\)</span>, then</p>
@@ -825,7 +817,7 @@ P(X &gt; 2) ~ = ~ 1 - P(X \le 2) ~ = ~ 1 - F(2)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.09577546296296291
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.095775462962963021
 </pre></div>
 </div>
 </div>
@@ -837,7 +829,7 @@ P(X &gt; 2) ~ = ~ 1 - P(X \le 2) ~ = ~ 1 - F(2)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9042245370370371
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.90422453703703698
 </pre></div>
 </div>
 </div>
@@ -853,7 +845,7 @@ P(X &gt; 2) ~ = ~ 1 - P(X \le 2) ~ = ~ 1 - F(2)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/3b7be04d50cdae93bc3631de86d292f772b2c26350858143843f48d79b25be27.png" src="../../_images/3b7be04d50cdae93bc3631de86d292f772b2c26350858143843f48d79b25be27.png" />
+<img alt="../../_images/44c8dfbee002ae7a2bbd855c5157f0fe23ac883ac0986d59dae37547938fad7c.png" src="../../_images/44c8dfbee002ae7a2bbd855c5157f0fe23ac883ac0986d59dae37547938fad7c.png" />
 </div>
 </div>
 <p>To find <span class="math notranslate nohighlight">\(P(5 &lt; Y \le 10)\)</span> we can sum the areas of the gold bars. But we can also use the cdf:</p>
@@ -869,7 +861,7 @@ P(5 &lt; Y \le 10) ~ = ~ P(Y \le 10) - P(Y \le 5)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7468797811297461
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.74687978112974585
 </pre></div>
 </div>
 </div>
@@ -885,7 +877,7 @@ P(5 &lt; Y \le 10) ~ = ~ P(Y \le 10) - P(Y \le 5)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/b128f9f36965c8531d88ade26c3033c0c1cf41cc7e4f9340ba55f01152ecb898.png" src="../../_images/b128f9f36965c8531d88ade26c3033c0c1cf41cc7e4f9340ba55f01152ecb898.png" />
+<img alt="../../_images/6dd83eb35312c3c7398e3ad81838815e31cedf5ed58f64085090c330ed5c041a.png" src="../../_images/6dd83eb35312c3c7398e3ad81838815e31cedf5ed58f64085090c330ed5c041a.png" />
 </div>
 </div>
 <p>This distribution is not symmetric, as you would expect. But something interesting happens to the distribution of the number of sixes when you increase the number of rolls.</p>
@@ -901,7 +893,7 @@ P(5 &lt; Y \le 10) ~ = ~ P(Y \le 10) - P(Y \le 5)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/1c8f32ae5007129461462e2121db30dabe6ff9c7d9d15335807bf6b948adc2f4.png" src="../../_images/1c8f32ae5007129461462e2121db30dabe6ff9c7d9d15335807bf6b948adc2f4.png" />
+<img alt="../../_images/fa3df2b67f6cbfe7fb79205ff078cf010628ddb9762788bf9cb249be413cfc8f.png" src="../../_images/fa3df2b67f6cbfe7fb79205ff078cf010628ddb9762788bf9cb249be413cfc8f.png" />
 </div>
 </div>
 <p>This distribution is close to symmetric, even though the die has only a 1/6 chance of showing a six.</p>
@@ -914,7 +906,7 @@ P(5 &lt; Y \le 10) ~ = ~ P(Y \le 10) - P(Y \le 5)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/dd800918701a76cd0421889b31db398367d5d52eaeecc87130d5344864bc1800.png" src="../../_images/dd800918701a76cd0421889b31db398367d5d52eaeecc87130d5344864bc1800.png" />
+<img alt="../../_images/0902cd922b6f496f4b83291bd7040e2bef0f81b5a72620f70ffddfa4b6772ce3.png" src="../../_images/0902cd922b6f496f4b83291bd7040e2bef0f81b5a72620f70ffddfa4b6772ce3.png" />
 </div>
 </div>
 <p>But the binomial <span class="math notranslate nohighlight">\((n, p)\)</span> distribution doesn’t always look bell shaped if <span class="math notranslate nohighlight">\(n\)</span> is large.</p>
@@ -931,7 +923,7 @@ P(5 &lt; Y \le 10) ~ = ~ P(Y \le 10) - P(Y \le 5)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/72656edf37b0ea5be182e21c786ff70ea56d52a765465fe3e725bdfe873e7514.png" src="../../_images/72656edf37b0ea5be182e21c786ff70ea56d52a765465fe3e725bdfe873e7514.png" />
+<img alt="../../_images/7c682f70d14694aedbd8f3185a3f3857c7fbb55a493248206657e15c95e7bd13.png" src="../../_images/7c682f70d14694aedbd8f3185a3f3857c7fbb55a493248206657e15c95e7bd13.png" />
 </div>
 </div>
 <p>We really can’t see that at all! Let’s zoom in. When we set the limits on the horizontal axis, we have to account for the bar at 0 being centered at the 0 and hence starting at -0.5.</p>
@@ -943,7 +935,7 @@ P(5 &lt; Y \le 10) ~ = ~ P(Y \le 10) - P(Y \le 5)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/20c9d01080b99a3bef7ed0588d4c05370815c0bb8105db3ea17e1fd094cc3606.png" src="../../_images/20c9d01080b99a3bef7ed0588d4c05370815c0bb8105db3ea17e1fd094cc3606.png" />
+<img alt="../../_images/a987bdbd74377283a28bc7d2b1511715b4e441b3380fdbd86faaf06c26ab5eb5.png" src="../../_images/a987bdbd74377283a28bc7d2b1511715b4e441b3380fdbd86faaf06c26ab5eb5.png" />
 </div>
 </div>
 <p>Now you can see that in 600 independent trials with probability 1/600 of success on each trial, you are most likely to get no successes or 1 success. There is some chance that you get 2 through 4 successes, but the chance of any number of successes greater than 4 is barely visible on the scale of the graph.</p>

@@ -594,25 +594,21 @@ document.write(`
 <p>For example, consider a <em>random walk</em> where a gambler starts with a fortune of <span class="math notranslate nohighlight">\(a\)</span> dollars for some positive integer <span class="math notranslate nohighlight">\(a\)</span>, and bets on successive tosses of a fair coin. If the coin lands heads he gains a dollar, and if it lands tails he loses a dollar.</p>
 <p>Let <span class="math notranslate nohighlight">\(X_{0} = a\)</span>, and for <span class="math notranslate nohighlight">\(n &gt; 0\)</span> let <span class="math notranslate nohighlight">\(X_{n+1} = X_n + I_n\)</span> where <span class="math notranslate nohighlight">\(I_1, I_2, \ldots\)</span> is an i.i.d. sequence of increments, each taking the value <span class="math notranslate nohighlight">\(+1\)</span> or <span class="math notranslate nohighlight">\(-1\)</span> with chance <span class="math notranslate nohighlight">\(1/2\)</span>. The state space of this random walk <span class="math notranslate nohighlight">\(X_0, X_1, X_2, 
 \dots\)</span> is the set of all integers. In this course we will restrict the state space to be discrete and typically finite.</p>
-<div class="cell tag_remove-input tag_hide-output docutils container">
-<details class="hide above-output">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell outputs</span>
-<span class="expanded">Hide code cell outputs</span>
-</summary>
-<div class="cell_output docutils container">
-<div class="output text_html">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-video" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 3.75C0 2.784.784 2 1.75 2h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 14H1.75A1.75 1.75 0 0 1 0 12.25Zm1.75-.25a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25Z"></path><path d="M6 10.559V5.442a.25.25 0 0 1 .379-.215l4.264 2.559a.25.25 0 0 1 0 .428l-4.264 2.559A.25.25 0 0 1 6 10.559Z"></path></svg></span><span class="sd-summary-text">See More</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="output text_html">
         <iframe
             width="400"
             height="300"
             src="https://www.youtube.com/embed/YVGKlWO9ANk"
             frameborder="0"
             allowfullscreen
+            
         ></iframe>
-        </div></div>
-</details>
+        </span></p>
 </div>
-<section id="markov-property">
+</details><section id="markov-property">
 <h2><span class="section-number">10.1.1. </span>Markov Property<a class="headerlink" href="#markov-property" title="Link to this heading">#</a></h2>
 <p>Consider a stochastic process <span class="math notranslate nohighlight">\(X_0, X_1, X_2, \ldots\)</span>. The <em>Markov property</em> formalizes the idea that the future of the process depends only on where the process is at present, not on how it got there.</p>
 <ul class="simple">
@@ -668,25 +664,21 @@ P(i, j) ~ = ~ P(X_{n+1} = j \mid X_n = i) ~ = ~ P(X_1 = j \mid X_0 = i)
 P(X_0 = i_0, X_1 = i_1, X_2 = i_2, \ldots, X_n = i_n)
 ~ = ~ P(X_0 = i_0)P(i_0, i_1)P(i_1, i_2) \cdots P(i_{n-1}, i_n)
 \]</div>
-<div class="cell tag_remove-input tag_hide-output docutils container">
-<details class="hide above-output">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell outputs</span>
-<span class="expanded">Hide code cell outputs</span>
-</summary>
-<div class="cell_output docutils container">
-<div class="output text_html">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-video" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 3.75C0 2.784.784 2 1.75 2h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 14H1.75A1.75 1.75 0 0 1 0 12.25Zm1.75-.25a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25Z"></path><path d="M6 10.559V5.442a.25.25 0 0 1 .379-.215l4.264 2.559a.25.25 0 0 1 0 .428l-4.264 2.559A.25.25 0 0 1 6 10.559Z"></path></svg></span><span class="sd-summary-text">See More</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="output text_html">
         <iframe
             width="400"
             height="300"
             src="https://www.youtube.com/embed/G_g-45W7yYk"
             frameborder="0"
             allowfullscreen
+            
         ></iframe>
-        </div></div>
-</details>
+        </span></p>
 </div>
-</section>
+</details></section>
 <section id="one-step-transition-matrix">
 <h2><span class="section-number">10.1.4. </span>One-Step Transition Matrix<a class="headerlink" href="#one-step-transition-matrix" title="Link to this heading">#</a></h2>
 <p>The one-step transition probabilities can be represented as elements of a matrix. This isn’t just for compactness of notation – it leads to a powerful theory.</p>
@@ -897,7 +889,7 @@ P(1, 2)P(2, 2)P(2, 3)P(3, 4)P(4, 3) \approx 0.4\%
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 1, 1, 2, 1, 1, 2, 1])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 1, 1, 1, 2, 1, 1, 1])
 </pre></div>
 </div>
 </div>
@@ -909,28 +901,24 @@ P(1, 2)P(2, 2)P(2, 3)P(3, 4)P(4, 3) \approx 0.4\%
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/62d7d374d79e23d36fa3b3da08ab7f11cd554c2e0847e15575f896d390030f85.png" src="../../_images/62d7d374d79e23d36fa3b3da08ab7f11cd554c2e0847e15575f896d390030f85.png" />
+<img alt="../../_images/cc01b3ffb3647618c3bbfdb5f8649b5fa6193c56d6acf1f09de6c05851b81477.png" src="../../_images/cc01b3ffb3647618c3bbfdb5f8649b5fa6193c56d6acf1f09de6c05851b81477.png" />
 </div>
 </div>
-<div class="cell tag_remove-input tag_hide-output docutils container">
-<details class="hide above-output">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell outputs</span>
-<span class="expanded">Hide code cell outputs</span>
-</summary>
-<div class="cell_output docutils container">
-<div class="output text_html">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-video" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 3.75C0 2.784.784 2 1.75 2h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 14H1.75A1.75 1.75 0 0 1 0 12.25Zm1.75-.25a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25Z"></path><path d="M6 10.559V5.442a.25.25 0 0 1 .379-.215l4.264 2.559a.25.25 0 0 1 0 .428l-4.264 2.559A.25.25 0 0 1 6 10.559Z"></path></svg></span><span class="sd-summary-text">See More</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="output text_html">
         <iframe
             width="400"
             height="300"
             src="https://www.youtube.com/embed/YQziLVkV_Ro"
             frameborder="0"
             allowfullscreen
+            
         ></iframe>
-        </div></div>
-</details>
+        </span></p>
 </div>
-</section>
+</details></section>
 <section id="n-step-transition-matrix">
 <h2><span class="section-number">10.1.6. </span><span class="math notranslate nohighlight">\(n\)</span>-Step Transition Matrix<a class="headerlink" href="#n-step-transition-matrix" title="Link to this heading">#</a></h2>
 <p>For states <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(j\)</span>, the chance of getting from <span class="math notranslate nohighlight">\(i\)</span> to <span class="math notranslate nohighlight">\(j\)</span> in <span class="math notranslate nohighlight">\(n\)</span> steps is called the <span class="math notranslate nohighlight">\(n\)</span>-step transition probability from <span class="math notranslate nohighlight">\(i\)</span> to <span class="math notranslate nohighlight">\(j\)</span>. Formally, the <span class="math notranslate nohighlight">\(n\)</span>-step transition probability is</p>
@@ -1139,11 +1127,11 @@ P_n(i, j) ~ = ~ P(X_n = j \mid X_0 = i) ~ = ~ (i, j) \text{ element of } \mathbb
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.5 , 0.5 , 0.  , 0.  , 0.  ],
-       [0.25, 0.5 , 0.25, 0.  , 0.  ],
-       [0.  , 0.25, 0.5 , 0.25, 0.  ],
-       [0.  , 0.  , 0.25, 0.5 , 0.25],
-       [0.  , 0.  , 0.  , 0.5 , 0.5 ]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.5 ,  0.5 ,  0.  ,  0.  ,  0.  ],
+       [ 0.25,  0.5 ,  0.25,  0.  ,  0.  ],
+       [ 0.  ,  0.25,  0.5 ,  0.25,  0.  ],
+       [ 0.  ,  0.  ,  0.25,  0.5 ,  0.25],
+       [ 0.  ,  0.  ,  0.  ,  0.5 ,  0.5 ]])
 </pre></div>
 </div>
 </div>
@@ -1156,11 +1144,11 @@ P_n(i, j) ~ = ~ P(X_n = j \mid X_0 = i) ~ = ~ (i, j) \text{ element of } \mathbb
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.24609375, 0.41015625, 0.234375  , 0.08984375, 0.01953125],
-       [0.20507812, 0.36328125, 0.25      , 0.13671875, 0.04492188],
-       [0.1171875 , 0.25      , 0.265625  , 0.25      , 0.1171875 ],
-       [0.04492188, 0.13671875, 0.25      , 0.36328125, 0.20507812],
-       [0.01953125, 0.08984375, 0.234375  , 0.41015625, 0.24609375]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.24609375,  0.41015625,  0.234375  ,  0.08984375,  0.01953125],
+       [ 0.20507812,  0.36328125,  0.25      ,  0.13671875,  0.04492188],
+       [ 0.1171875 ,  0.25      ,  0.265625  ,  0.25      ,  0.1171875 ],
+       [ 0.04492188,  0.13671875,  0.25      ,  0.36328125,  0.20507812],
+       [ 0.01953125,  0.08984375,  0.234375  ,  0.41015625,  0.24609375]])
 </pre></div>
 </div>
 </div>

@@ -592,9 +592,9 @@ document.write(`
 <h1><span class="section-number">12.3. </span>Tail Bounds<a class="headerlink" href="#tail-bounds" title="Link to this heading">#</a></h1>
 <p>If you know <span class="math notranslate nohighlight">\(E(X)\)</span> and <span class="math notranslate nohighlight">\(SD(X)\)</span> you can get some idea of how much probability there is in the tails of the distribution of <span class="math notranslate nohighlight">\(X\)</span>.</p>
 <p>In this section we are going to get upper bounds on probabilities such as the gold area in the graph below. That’s <span class="math notranslate nohighlight">\(P(X \ge 20)\)</span> for the random variable <span class="math notranslate nohighlight">\(X\)</span> whose distribution is displayed in the histogram.</p>
-<div class="cell tag_remove_input docutils container">
+<div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/b4ae32927ad381596a94a81430866a41411a9ef59e46f1e07fd2032a51251e56.png" src="../../_images/b4ae32927ad381596a94a81430866a41411a9ef59e46f1e07fd2032a51251e56.png" />
+<img alt="../../_images/aa6d76deebfa09e11d2181eed9fdfc279b345e1b27305529074db87a12a9dfe5.png" src="../../_images/aa6d76deebfa09e11d2181eed9fdfc279b345e1b27305529074db87a12a9dfe5.png" />
 </div>
 </div>
 <section id="monotonicity">
@@ -608,30 +608,26 @@ document.write(`
 (g \circ X)(\omega)P(\omega) \ge (h \circ X)(\omega)P(\omega)
 \]</div>
 <p>Now suppose <span class="math notranslate nohighlight">\(X\)</span> is a non-negative random variable, and let <span class="math notranslate nohighlight">\(c\)</span> be a positive number. Consider the two functions <span class="math notranslate nohighlight">\(g\)</span> and <span class="math notranslate nohighlight">\(h\)</span> graphed below.</p>
-<div class="cell tag_remove_input docutils container">
+<div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/a2674fd55a1d6df939134ea464a406e22de484625969314a61a1570356599689.png" src="../../_images/a2674fd55a1d6df939134ea464a406e22de484625969314a61a1570356599689.png" />
+<img alt="../../_images/9548d5b55f2c544f832b5b1f955279eb839acd4f53ce54fd69a4a1317cb21a1d.png" src="../../_images/9548d5b55f2c544f832b5b1f955279eb839acd4f53ce54fd69a4a1317cb21a1d.png" />
 </div>
 </div>
-<div class="cell tag_remove-input tag_hide-output docutils container">
-<details class="hide above-output">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell outputs</span>
-<span class="expanded">Hide code cell outputs</span>
-</summary>
-<div class="cell_output docutils container">
-<div class="output text_html">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-video" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 3.75C0 2.784.784 2 1.75 2h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 14H1.75A1.75 1.75 0 0 1 0 12.25Zm1.75-.25a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25Z"></path><path d="M6 10.559V5.442a.25.25 0 0 1 .379-.215l4.264 2.559a.25.25 0 0 1 0 .428l-4.264 2.559A.25.25 0 0 1 6 10.559Z"></path></svg></span><span class="sd-summary-text">See More</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="output text_html">
         <iframe
             width="400"
             height="300"
             src="https://www.youtube.com/embed/WIokPScne_8"
             frameborder="0"
             allowfullscreen
+            
         ></iframe>
-        </div></div>
-</details>
+        </span></p>
 </div>
-<p>The function <span class="math notranslate nohighlight">\(h\)</span> is the indicator defined by <span class="math notranslate nohighlight">\(h(x) = I(x \ge c)\)</span>. So <span class="math notranslate nohighlight">\(h(X) = I(X \ge c)\)</span> and <span class="math notranslate nohighlight">\(E(h(X)) = P(X \ge c)\)</span>.</p>
+</details><p>The function <span class="math notranslate nohighlight">\(h\)</span> is the indicator defined by <span class="math notranslate nohighlight">\(h(x) = I(x \ge c)\)</span>. So <span class="math notranslate nohighlight">\(h(X) = I(X \ge c)\)</span> and <span class="math notranslate nohighlight">\(E(h(X)) = P(X \ge c)\)</span>.</p>
 <p>The function <span class="math notranslate nohighlight">\(g\)</span> is constructed so that the graph of <span class="math notranslate nohighlight">\(g\)</span> is a straight line that is at or above the graph of <span class="math notranslate nohighlight">\(h\)</span> on <span class="math notranslate nohighlight">\([0, \infty)\)</span>, with the two graphs meeting at <span class="math notranslate nohighlight">\(x = 0\)</span> and <span class="math notranslate nohighlight">\(x = c\)</span>. The equation of the straight line is <span class="math notranslate nohighlight">\(g(x) = x/c\)</span>.</p>
 <p>Thus <span class="math notranslate nohighlight">\(g(X) = X/c\)</span> and hence <span class="math notranslate nohighlight">\(E(g(X)) = E(X/c) = E(X)/c\)</span>.</p>
 <p>By construction, <span class="math notranslate nohighlight">\(g(x) \ge h(x)\)</span> for <span class="math notranslate nohighlight">\(x \ge 0\)</span>. Since <span class="math notranslate nohighlight">\(X\)</span> is a non-negative random variable, <span class="math notranslate nohighlight">\(P(g(X) \ge h(X)) = 1\)</span>.</p>
@@ -656,9 +652,9 @@ P(X \ge c) ~ \le ~ \frac{E(X)}{c}
 \frac{6.5}{20} = 0.325
 \]</div>
 <p>You can see that the bound is pretty crude. The gold area is clearly quite a bit less than 0.325.</p>
-<div class="cell tag_remove_input docutils container">
+<div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/b4ae32927ad381596a94a81430866a41411a9ef59e46f1e07fd2032a51251e56.png" src="../../_images/b4ae32927ad381596a94a81430866a41411a9ef59e46f1e07fd2032a51251e56.png" />
+<img alt="../../_images/aa6d76deebfa09e11d2181eed9fdfc279b345e1b27305529074db87a12a9dfe5.png" src="../../_images/aa6d76deebfa09e11d2181eed9fdfc279b345e1b27305529074db87a12a9dfe5.png" />
 </div>
 </div>
 <div class="admonition-quick-check admonition">
@@ -688,30 +684,26 @@ P(X \ge k\mu_X) ~ \le ~ \frac{1}{k} ~~~ \text{for all } k &gt; 0
 <section id="chebyshev-s-inequality">
 <h2><span class="section-number">12.3.4. </span>Chebyshev’s Inequality<a class="headerlink" href="#chebyshev-s-inequality" title="Link to this heading">#</a></h2>
 <p>Markov’s bound only uses <span class="math notranslate nohighlight">\(E(X)\)</span>, not <span class="math notranslate nohighlight">\(SD(X)\)</span>. To get bounds on tails it seems better to use <span class="math notranslate nohighlight">\(SD(X)\)</span> if we can. <em>Chebyshev’s Inequality</em> does just that. It provides a bound on the two tails outside an interval that is symmetric about <span class="math notranslate nohighlight">\(E(X)\)</span> as in the following graph.</p>
-<div class="cell tag_remove_input docutils container">
+<div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/eb4038a96638e635e526c87ab47eb4196c2c471009ba0916fb7d4a2a2a7f3660.png" src="../../_images/eb4038a96638e635e526c87ab47eb4196c2c471009ba0916fb7d4a2a2a7f3660.png" />
+<img alt="../../_images/625397a4020514b3447c48b47c9f3e743ec5848809838121dc05b7c14c4301f2.png" src="../../_images/625397a4020514b3447c48b47c9f3e743ec5848809838121dc05b7c14c4301f2.png" />
 </div>
 </div>
-<div class="cell tag_remove-input tag_hide-output docutils container">
-<details class="hide above-output">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell outputs</span>
-<span class="expanded">Hide code cell outputs</span>
-</summary>
-<div class="cell_output docutils container">
-<div class="output text_html">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-video" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 3.75C0 2.784.784 2 1.75 2h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 14H1.75A1.75 1.75 0 0 1 0 12.25Zm1.75-.25a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25Z"></path><path d="M6 10.559V5.442a.25.25 0 0 1 .379-.215l4.264 2.559a.25.25 0 0 1 0 .428l-4.264 2.559A.25.25 0 0 1 6 10.559Z"></path></svg></span><span class="sd-summary-text">See More</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="output text_html">
         <iframe
             width="400"
             height="300"
             src="https://www.youtube.com/embed/n6DilL4PzAQ"
             frameborder="0"
             allowfullscreen
+            
         ></iframe>
-        </div></div>
-</details>
+        </span></p>
 </div>
-<p>The red arrow marks <span class="math notranslate nohighlight">\(\mu_X\)</span> as usual, and now the two blue arrows are at a distance of <span class="math notranslate nohighlight">\(SD(X)\)</span> on either side of the mean. The gold tails start at the same constant <span class="math notranslate nohighlight">\(c\)</span> on either side of <span class="math notranslate nohighlight">\(\mu\)</span>. We will get an upper bound on the gold area by applying Markov’s Inequality to the non-negative random variable <span class="math notranslate nohighlight">\((X - \mu_X)^2\)</span>.</p>
+</details><p>The red arrow marks <span class="math notranslate nohighlight">\(\mu_X\)</span> as usual, and now the two blue arrows are at a distance of <span class="math notranslate nohighlight">\(SD(X)\)</span> on either side of the mean. The gold tails start at the same constant <span class="math notranslate nohighlight">\(c\)</span> on either side of <span class="math notranslate nohighlight">\(\mu\)</span>. We will get an upper bound on the gold area by applying Markov’s Inequality to the non-negative random variable <span class="math notranslate nohighlight">\((X - \mu_X)^2\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{align*}
@@ -723,25 +715,9 @@ P\big{(}|X - \mu_X| \ge c\big{)} &amp;= P\big{(}(X-\mu_X)^2 \ge c^2\big{)} \\ \\
 <p>The figure below is analogous to the figure drawn earlier to illustrate the derivation of Markov’s inequality.</p>
 <p>The graph of the quadratic function <span class="math notranslate nohighlight">\(g(x) = (x - \mu_X)^2/c^2\)</span> is always at or above the graph of the indicator function <span class="math notranslate nohighlight">\(h(x) = I(\vert x - \mu_X \vert \ge c)\)</span>.</p>
 <p>Chebyshev’s Inequality is just a restatement of the fact that <span class="math notranslate nohighlight">\(E(g(X)) ~ \ge ~ E(h(X)) ~ = ~ P(\vert X - \mu_X \vert \ge c)\)</span>.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># NO CODE</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mf">5.01</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="mi">9</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;h&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.2</span><span class="p">,</span> <span class="mi">5</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;$\mu_X -c$&#39;</span><span class="p">,</span> <span class="s1">&#39;$\mu_X$&#39;</span><span class="p">,</span> <span class="s1">&#39;$\mu_X +c$&#39;</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]);</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;$g(x) = (x - \mu_X)^2/c^2$,  $h(x) = I(|x - \mu_X| \geq c)$&#39;</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
+<div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/e5c274afe7e16742683fb387b1dc3b5f9b1372b8e1fed65b8ca1f6442895e7ae.png" src="../../_images/e5c274afe7e16742683fb387b1dc3b5f9b1372b8e1fed65b8ca1f6442895e7ae.png" />
+<img alt="../../_images/1289faee25871c815a1d59d4ce729b983261b02a4a4c53843a043010f58e4651.png" src="../../_images/1289faee25871c815a1d59d4ce729b983261b02a4a4c53843a043010f58e4651.png" />
 </div>
 </div>
 </section>
@@ -783,25 +759,21 @@ P(\vert X - \mu_X \vert \ge z\sigma_X) ~ \le ~ \frac{\sigma_X^2}{z^2\sigma_X^2} 
 <p>That is, <em>no matter what the shape of the distribution</em>, the bulk of the probability is in the interval “expected value plus or minus a few SDs”.</p>
 <p>This is one reason why the SD is a good measure of spread. No matter what the distribution, if you know the expectation and the SD then you have a pretty good sense of where the bulk of the probability is located.</p>
 <p>If you happen to know more about the distribution then of course you can do better than Chebyshev’s bound. But in general Chebyshev’s bound is as well as you can do without making further assumptions.</p>
-<div class="cell tag_remove-input tag_hide-output docutils container">
-<details class="hide above-output">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell outputs</span>
-<span class="expanded">Hide code cell outputs</span>
-</summary>
-<div class="cell_output docutils container">
-<div class="output text_html">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-video" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 3.75C0 2.784.784 2 1.75 2h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 14H1.75A1.75 1.75 0 0 1 0 12.25Zm1.75-.25a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25Z"></path><path d="M6 10.559V5.442a.25.25 0 0 1 .379-.215l4.264 2.559a.25.25 0 0 1 0 .428l-4.264 2.559A.25.25 0 0 1 6 10.559Z"></path></svg></span><span class="sd-summary-text">See More</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="output text_html">
         <iframe
             width="400"
             height="300"
             src="https://www.youtube.com/embed/y6RF-WBJciY"
             frameborder="0"
             allowfullscreen
+            
         ></iframe>
-        </div></div>
-</details>
+        </span></p>
 </div>
-</section>
+</details></section>
 <section id="standard-units">
 <h2><span class="section-number">12.3.7. </span>Standard Units<a class="headerlink" href="#standard-units" title="Link to this heading">#</a></h2>
 <p>To formalize the notion of “setting <span class="math notranslate nohighlight">\(\mu_X\)</span> as the origin and measuring distances in units of <span class="math notranslate nohighlight">\(\sigma_X\)</span>, we define a random variable <span class="math notranslate nohighlight">\(Z\)</span> called “<span class="math notranslate nohighlight">\(X\)</span> in standard units” as follows:</p>

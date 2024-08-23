@@ -592,7 +592,7 @@ document.write(`
 <p>What’s the big deal about mutually exclusive events? To understand this, start by thinking about the event that the selected student is a freshman or a sophomore. In the language of set theory, that’s the <em>union</em> of the two events “freshman” and “sophomore”. It is a great idea to use Venn diagrams to visualize events. In the diagram below, imagine <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> to be two mutually exclusive events shown as blue and gold circles. Because the events are mutually exclusive, the corresponding circles don’t overlap. The union is the set of all the points in the two circles.</p>
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/3a430f7d0eb17ec07e9ac567c975a2df18652d4bba4477e1275535d3f9cf8086.png" src="../../_images/3a430f7d0eb17ec07e9ac567c975a2df18652d4bba4477e1275535d3f9cf8086.png" />
+<img alt="../../_images/4e864fe25c16a72b995156b583e94d9ca1628efee66a6b87681594f7ba8cda3f.png" src="../../_images/4e864fe25c16a72b995156b583e94d9ca1628efee66a6b87681594f7ba8cda3f.png" />
 </div>
 </div>
 <p>What’s the chance that the student is a freshman or a sophomore? In the population, 40% are freshmen and 20% are sophomores, so a natural answer is 60%. That’s the percent of students who satisfy our criterion of “freshman or sophomore”. The simple addition works because the two groups are disjoint.</p>
@@ -616,25 +616,21 @@ A \cap B = \phi
 P\big{(} \bigcup_{i=1}^n A_i \big{)} = \sum_{i=1}^n P(A_i)
 \]</div>
 <p>This is sometimes called the axiom of <em>finite additivity</em>. Kolmogorov actually specified countable additivity. We’ll come to that later.</p>
-<div class="cell tag_remove-input tag_hide-output docutils container">
-<details class="hide above-output">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell outputs</span>
-<span class="expanded">Hide code cell outputs</span>
-</summary>
-<div class="cell_output docutils container">
-<div class="output text_html">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-video" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 3.75C0 2.784.784 2 1.75 2h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 14H1.75A1.75 1.75 0 0 1 0 12.25Zm1.75-.25a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25Z"></path><path d="M6 10.559V5.442a.25.25 0 0 1 .379-.215l4.264 2.559a.25.25 0 0 1 0 .428l-4.264 2.559A.25.25 0 0 1 6 10.559Z"></path></svg></span><span class="sd-summary-text">See More</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="output text_html">
         <iframe
             width="400"
             height="300"
             src="https://www.youtube.com/embed/KaOriB3Zep8"
             frameborder="0"
             allowfullscreen
+            
         ></iframe>
-        </div></div>
-</details>
+        </span></p>
 </div>
-<p>The typical use of the addition rule is when you <em>list the ways</em> an event can occur, splitting it up into disjoint pieces whose probabilities you know how to find. This is called <em>partitioning</em> the event, a fundamentally important technique to master.</p>
+</details><p>The typical use of the addition rule is when you <em>list the ways</em> an event can occur, splitting it up into disjoint pieces whose probabilities you know how to find. This is called <em>partitioning</em> the event, a fundamentally important technique to master.</p>
 <div class="admonition-quick-check admonition">
 <p class="admonition-title">Quick Check</p>
 <p>A box contains two red tickets and one blue ticket. If you draw two tickets at random with replacement, what is the chance that the same color appears on both draws?</p>
@@ -665,29 +661,27 @@ A \backslash B = A \cap B^c
 <p>where <span class="math notranslate nohighlight">\(B^c\)</span> is the complement of <span class="math notranslate nohighlight">\(B\)</span>. The difference is the bright blue ring on the right.</p>
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/06c4c0444a7fb07b235e51218371a8742e81ac74c43c56da37c53663df55f2a0.png" src="../../_images/06c4c0444a7fb07b235e51218371a8742e81ac74c43c56da37c53663df55f2a0.png" />
+<img alt="../../_images/507ea15e9c2ea4c9eab31413834e2579e64410f8bc9544229a200ef5f4682cd4.png" src="../../_images/507ea15e9c2ea4c9eab31413834e2579e64410f8bc9544229a200ef5f4682cd4.png" />
 </div>
 </div>
 <p>What’s the chance that the student is in the bright blue difference? If you answered, “50% - 40% = 10%”, you are right, and it’s great that your intuition is saying that probabilities behave just like areas. They do. In fact the calculation follows from the axiom of additivity, which we also motivated by looking at areas.</p>
 <div class="cell tag_remove-input tag_hide-output docutils container">
-<details class="hide above-output">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell outputs</span>
-<span class="expanded">Hide code cell outputs</span>
-</summary>
-<div class="cell_output docutils container">
-<div class="output text_html">
+</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-video" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 3.75C0 2.784.784 2 1.75 2h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 14H1.75A1.75 1.75 0 0 1 0 12.25Zm1.75-.25a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25Z"></path><path d="M6 10.559V5.442a.25.25 0 0 1 .379-.215l4.264 2.559a.25.25 0 0 1 0 .428l-4.264 2.559A.25.25 0 0 1 6 10.559Z"></path></svg></span><span class="sd-summary-text">See More</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="output text_html">
         <iframe
             width="400"
             height="300"
             src="https://www.youtube.com/embed/eEoogMY8z60"
             frameborder="0"
             allowfullscreen
+            
         ></iframe>
-        </div></div>
-</details>
+        </span></p>
 </div>
-</section>
+</details></section>
 <section id="difference-rule">
 <h2><span class="section-number">2.1.3. </span>Difference Rule<a class="headerlink" href="#difference-rule" title="Link to this heading">#</a></h2>
 <p>Suppose <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are events such that <span class="math notranslate nohighlight">\(B \subseteq A\)</span>. Then <span class="math notranslate nohighlight">\(P(A \backslash B) = P(A) - P(B)\)</span>.</p>
@@ -731,7 +725,7 @@ P(A \backslash B) = P(A) - P(B)
 <p><strong>Proof.</strong> The Venn diagram below shows what to do. Take <span class="math notranslate nohighlight">\(A = \Omega\)</span> in the formula for the difference, and remember the second axiom <span class="math notranslate nohighlight">\(P(\Omega) = 1\)</span>. Alternatively, redo the argument for the difference rule in this special case.</p>
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/c8944f4342eb8e1bf8f07631d34a7be50912b94b5b5c88fd616a1414ed5b6598.png" src="../../_images/c8944f4342eb8e1bf8f07631d34a7be50912b94b5b5c88fd616a1414ed5b6598.png" />
+<img alt="../../_images/8026846c42cf966df14e48e65d0c250344d6afcb05ca0fa991f184ed1dde1275.png" src="../../_images/8026846c42cf966df14e48e65d0c250344d6afcb05ca0fa991f184ed1dde1275.png" />
 </div>
 </div>
 <p>When you see a minus sign in a calculation of probabilities, as in the Complement Rule above, you will often find that the minus sign is due to a rearrangement of terms in an application of the addition rule.</p>
