@@ -584,25 +584,21 @@ document.write(`
                   
   <section id="variance-by-conditioning">
 <h1><span class="section-number">22.3. </span>Variance by Conditioning<a class="headerlink" href="#variance-by-conditioning" title="Link to this heading">#</a></h1>
-<div class="cell tag_remove-input tag_hide-output docutils container">
-<details class="hide above-output">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell outputs</span>
-<span class="expanded">Hide code cell outputs</span>
-</summary>
-<div class="cell_output docutils container">
-<div class="output text_html">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-video" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 3.75C0 2.784.784 2 1.75 2h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 14H1.75A1.75 1.75 0 0 1 0 12.25Zm1.75-.25a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25Z"></path><path d="M6 10.559V5.442a.25.25 0 0 1 .379-.215l4.264 2.559a.25.25 0 0 1 0 .428l-4.264 2.559A.25.25 0 0 1 6 10.559Z"></path></svg></span><span class="sd-summary-text">See More</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="output text_html">
         <iframe
             width="400"
             height="300"
             src="https://www.youtube.com/embed/H1aOoaIWLQQ"
             frameborder="0"
             allowfullscreen
+            
         ></iframe>
-        </div></div>
-</details>
+        </span></p>
 </div>
-<p>Iteration allows us to find expectation by conditioning. We now have the tools to find variance by conditioning as well.</p>
+</details><p>Iteration allows us to find expectation by conditioning. We now have the tools to find variance by conditioning as well.</p>
 <p>Recall the notation of the previous section:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> are jointly distributed random variables</p></li>
@@ -622,28 +618,24 @@ D_Y ~ = ~  D_w + (b(X) - E(Y)) ~ = ~ D_w + D_b
 </ul>
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/5658eb1a24f541f49de6c39bc2e1745e308b10d493791e53e0e2aadde281244f.png" src="../../_images/5658eb1a24f541f49de6c39bc2e1745e308b10d493791e53e0e2aadde281244f.png" />
+<img alt="../../_images/bbc4e639b00d35755579ad79621c9931c120a95ddfcec5c3a4caa760a387ec12.png" src="../../_images/bbc4e639b00d35755579ad79621c9931c120a95ddfcec5c3a4caa760a387ec12.png" />
 </div>
 </div>
-<div class="cell tag_remove-input tag_hide-output docutils container">
-<details class="hide above-output">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell outputs</span>
-<span class="expanded">Hide code cell outputs</span>
-</summary>
-<div class="cell_output docutils container">
-<div class="output text_html">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-video" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 3.75C0 2.784.784 2 1.75 2h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 14H1.75A1.75 1.75 0 0 1 0 12.25Zm1.75-.25a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25Z"></path><path d="M6 10.559V5.442a.25.25 0 0 1 .379-.215l4.264 2.559a.25.25 0 0 1 0 .428l-4.264 2.559A.25.25 0 0 1 6 10.559Z"></path></svg></span><span class="sd-summary-text">See More</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="output text_html">
         <iframe
             width="400"
             height="300"
             src="https://www.youtube.com/embed/EWxRQv5k-uE"
             frameborder="0"
             allowfullscreen
+            
         ></iframe>
-        </div></div>
-</details>
+        </span></p>
 </div>
-<section id="decomposition-of-variance">
+</details><section id="decomposition-of-variance">
 <h2><span class="section-number">22.3.1. </span>Decomposition of Variance<a class="headerlink" href="#decomposition-of-variance" title="Link to this heading">#</a></h2>
 <p>The expectation <span class="math notranslate nohighlight">\(E(Y)\)</span> is a constant. That means <span class="math notranslate nohighlight">\(D_b = b(X) - E(Y)\)</span> is a function of <span class="math notranslate nohighlight">\(X\)</span>, and hence <span class="math notranslate nohighlight">\(E(D_wD_b) = 0\)</span>. So</p>
 <div class="math notranslate nohighlight">

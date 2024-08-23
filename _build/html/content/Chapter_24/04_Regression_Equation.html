@@ -625,30 +625,26 @@ P(Y_{su} &gt; 2 \mid X_{su} = 2) ~ = ~ 1 - \Phi \big{(} \frac{2 - 0.5\times2}{\s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.12410653949496186
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.12410653949496175
 </pre></div>
 </div>
 </div>
 </div>
-<div class="cell tag_remove-input tag_hide-output docutils container">
-<details class="hide above-output">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell outputs</span>
-<span class="expanded">Hide code cell outputs</span>
-</summary>
-<div class="cell_output docutils container">
-<div class="output text_html">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-video" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 3.75C0 2.784.784 2 1.75 2h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 14H1.75A1.75 1.75 0 0 1 0 12.25Zm1.75-.25a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25Z"></path><path d="M6 10.559V5.442a.25.25 0 0 1 .379-.215l4.264 2.559a.25.25 0 0 1 0 .428l-4.264 2.559A.25.25 0 0 1 6 10.559Z"></path></svg></span><span class="sd-summary-text">See More</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="output text_html">
         <iframe
             width="400"
             height="300"
             src="https://www.youtube.com/embed/hlAaKwSAXp8"
             frameborder="0"
             allowfullscreen
+            
         ></iframe>
-        </div></div>
-</details>
+        </span></p>
 </div>
-</section>
+</details></section>
 <section id="in-the-original-units">
 <h2><span class="section-number">24.4.2. </span>In the Original Units<a class="headerlink" href="#in-the-original-units" title="Link to this heading">#</a></h2>
 <p>Usually, you want to make predictions in the units in which the data were measured. Before changing units in the formulas above, keep in mind that conditioning on <span class="math notranslate nohighlight">\(X\)</span> is equivalent to conditioning on <span class="math notranslate nohighlight">\(X_{su}\)</span>. If you know the value of either of <span class="math notranslate nohighlight">\(X\)</span> or <span class="math notranslate nohighlight">\(X_{su}\)</span>, you also know the other.</p>
@@ -676,25 +672,21 @@ SD(Y \mid X_{su}) ~ = ~ SD(\sigma_Y Y_{su} + \mu_Y \mid X_{su}) ~ = ~
 Var(Y \mid X) = (1 - \rho^2)\sigma_Y^2
 \]</div>
 <p>The conditional distribution of <span class="math notranslate nohighlight">\(Y\)</span> given <span class="math notranslate nohighlight">\(X\)</span> is normal with the mean and variance calculated above.</p>
-<div class="cell tag_remove-input tag_hide-output docutils container">
-<details class="hide above-output">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell outputs</span>
-<span class="expanded">Hide code cell outputs</span>
-</summary>
-<div class="cell_output docutils container">
-<div class="output text_html">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-video" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 3.75C0 2.784.784 2 1.75 2h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 14H1.75A1.75 1.75 0 0 1 0 12.25Zm1.75-.25a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25Z"></path><path d="M6 10.559V5.442a.25.25 0 0 1 .379-.215l4.264 2.559a.25.25 0 0 1 0 .428l-4.264 2.559A.25.25 0 0 1 6 10.559Z"></path></svg></span><span class="sd-summary-text">See More</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="output text_html">
         <iframe
             width="400"
             height="300"
             src="https://www.youtube.com/embed/SCY7fbSHnX8"
             frameborder="0"
             allowfullscreen
+            
         ></iframe>
-        </div></div>
-</details>
+        </span></p>
 </div>
-</section>
+</details></section>
 <section id="regression-equation-alternative-form-i">
 <h2><span class="section-number">24.4.3. </span>Regression Equation: Alternative Form I<a class="headerlink" href="#regression-equation-alternative-form-i" title="Link to this heading">#</a></h2>
 <p>Regardless of the joint distribution of <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span>, the regression equation is</p>
@@ -708,25 +700,21 @@ Var(Y \mid X) = (1 - \rho^2)\sigma_Y^2
 \hat{Y} ~ = ~ a^*(X - \mu_X) + \mu_Y
 \]</div>
 <p>This form shows that the regression line passes through the point <span class="math notranslate nohighlight">\((\mu_X, \mu_Y)\)</span> and that <span class="math notranslate nohighlight">\(E(\hat{Y}) = \mu_Y\)</span>. The predicted values and the actual values are the same <em>on average</em>.</p>
-<div class="cell tag_remove-input tag_hide-output docutils container">
-<details class="hide above-output">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell outputs</span>
-<span class="expanded">Hide code cell outputs</span>
-</summary>
-<div class="cell_output docutils container">
-<div class="output text_html">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-video" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 3.75C0 2.784.784 2 1.75 2h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 14H1.75A1.75 1.75 0 0 1 0 12.25Zm1.75-.25a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25Z"></path><path d="M6 10.559V5.442a.25.25 0 0 1 .379-.215l4.264 2.559a.25.25 0 0 1 0 .428l-4.264 2.559A.25.25 0 0 1 6 10.559Z"></path></svg></span><span class="sd-summary-text">See More</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="output text_html">
         <iframe
             width="400"
             height="300"
             src="https://www.youtube.com/embed/2kll2o4BZjI"
             frameborder="0"
             allowfullscreen
+            
         ></iframe>
-        </div></div>
-</details>
+        </span></p>
 </div>
-</section>
+</details></section>
 <section id="regression-equation-alternative-form-ii">
 <h2><span class="section-number">24.4.4. </span>Regression Equation: Alternative Form II<a class="headerlink" href="#regression-equation-alternative-form-ii" title="Link to this heading">#</a></h2>
 <p>When there are just two variables, matrix formulations are hardly necessary. But it is worth writing the regression estimate and the conditional variance using only the mean vector and covariance matrix, and replacing division with multipliciation by an inverse. This effort will be rewarded in the next chapter because exactly analogous formulas will work for multiple regression.</p>

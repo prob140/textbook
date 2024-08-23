@@ -587,25 +587,21 @@ document.write(`
   <section id="probability-by-conditioning">
 <h1><span class="section-number">9.1. </span>Probability by Conditioning<a class="headerlink" href="#probability-by-conditioning" title="Link to this heading">#</a></h1>
 <p>The theory in this section isn’t new. It’s the old familiar multiplication rule. We are just going to use it in the context of processes indexed by time, in a method that we are going to call <em>conditioning on early moves</em>.</p>
-<div class="cell tag_remove-input tag_hide-output docutils container">
-<details class="hide above-output">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell outputs</span>
-<span class="expanded">Hide code cell outputs</span>
-</summary>
-<div class="cell_output docutils container">
-<div class="output text_html">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-video" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 3.75C0 2.784.784 2 1.75 2h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 14H1.75A1.75 1.75 0 0 1 0 12.25Zm1.75-.25a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25Z"></path><path d="M6 10.559V5.442a.25.25 0 0 1 .379-.215l4.264 2.559a.25.25 0 0 1 0 .428l-4.264 2.559A.25.25 0 0 1 6 10.559Z"></path></svg></span><span class="sd-summary-text">See More</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="output text_html">
         <iframe
             width="400"
             height="300"
             src="https://www.youtube.com/embed/BCx-DlphihU"
             frameborder="0"
             allowfullscreen
+            
         ></iframe>
-        </div></div>
-</details>
+        </span></p>
 </div>
-<section id="winning-a-game-of-dice">
+</details><section id="winning-a-game-of-dice">
 <h2><span class="section-number">9.1.1. </span>Winning a Game of Dice<a class="headerlink" href="#winning-a-game-of-dice" title="Link to this heading">#</a></h2>
 <p>Suppose Jo and Bo play the following game. Jo rolls a die, then Bo rolls it, then Jo rolls again, and so on, until the first time one of them gets the face with six spots. That person is the winner.</p>
 <p><strong>Question.</strong> What is the chance that Jo wins?</p>
@@ -647,12 +643,12 @@ x = \frac{1}{6} + \big{(}\frac{5}{6}\big{)}^2 x
 <p>It’s a good idea to start visualizing the random trajectory of the gambler’s net gain as a <em>path</em>. Here are two graphs that assume <span class="math notranslate nohighlight">\(a = 3\)</span> and <span class="math notranslate nohighlight">\(b = 7\)</span>. The first graph shows a path that leads to the gambler reaching a net gain of <span class="math notranslate nohighlight">\(b\)</span>. The second shows a path to ruin.</p>
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/6cf095f5a3eace43f9f75805b0ac17e6eb1dbd5899b64aee0bff6c5a39832437.png" src="../../_images/6cf095f5a3eace43f9f75805b0ac17e6eb1dbd5899b64aee0bff6c5a39832437.png" />
+<img alt="../../_images/1eb85fa86d638fe3e59de3da65fc33e3035c8439dea8c9bdcf7e14dbe8d421cc.png" src="../../_images/1eb85fa86d638fe3e59de3da65fc33e3035c8439dea8c9bdcf7e14dbe8d421cc.png" />
 </div>
 </div>
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/b4c6b602cf510b9e0293ed43fda41ac8275ee559a5150f9688bf90cbb5a6e9fd.png" src="../../_images/b4c6b602cf510b9e0293ed43fda41ac8275ee559a5150f9688bf90cbb5a6e9fd.png" />
+<img alt="../../_images/d7225a2d58f54f6c689abd0405eff3082d128b869a7f31d6795b65c1e2a94f7b.png" src="../../_images/d7225a2d58f54f6c689abd0405eff3082d128b869a7f31d6795b65c1e2a94f7b.png" />
 </div>
 </div>
 <p><strong>Question.</strong> What is the probability that the gambler is ruined?</p>
@@ -678,7 +674,7 @@ p_k - p_{k-1} = p_{k+1} - p_k
 <p>Here is the line assuming <span class="math notranslate nohighlight">\(a= 3\)</span> and <span class="math notranslate nohighlight">\(b = 7\)</span> as before. The red lines show that <span class="math notranslate nohighlight">\(p_0 = 0.7\)</span>.</p>
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/09a7210282c486ca010a12393d598097f460454fe56d5142391b3c2ef45e8107.png" src="../../_images/09a7210282c486ca010a12393d598097f460454fe56d5142391b3c2ef45e8107.png" />
+<img alt="../../_images/496f125a5f1d94bdc4425ea8665927aae058cec63292e2f487aaeceedb527ac2.png" src="../../_images/496f125a5f1d94bdc4425ea8665927aae058cec63292e2f487aaeceedb527ac2.png" />
 </div>
 </div>
 <p>For general <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>, the line starts at <span class="math notranslate nohighlight">\((-a, 1)\)</span> and has slope <span class="math notranslate nohighlight">\(-1/(a+b)\)</span>. So
@@ -725,7 +721,7 @@ p_0 ~ =  ~ \frac{r^a - r^{a+b}}{1 - r^{a+b}}
 <p>Here is a graph of the ruin probabilities, for <span class="math notranslate nohighlight">\(a = 3\)</span> and <span class="math notranslate nohighlight">\(b = 10\)</span> as before, but now with a coin that is biased towards heads with <span class="math notranslate nohighlight">\(p = 0.6\)</span>. Not surprisingly, as the initial fortune increases the probability of ruin falls more sharply for this coin than for the fair coin. Even when the gambler starts with only <span class="math notranslate nohighlight">\(\\\)</span>3$, his chance of ruin is less than 30%.</p>
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/41416fe115d1e57ca70dae0467cb39c023cb0833b4f0dfc7a5f7424239865302.png" src="../../_images/41416fe115d1e57ca70dae0467cb39c023cb0833b4f0dfc7a5f7424239865302.png" />
+<img alt="../../_images/4b8cc0bcc9b23d8c6f494e1e387ceb55a4ae3f0a4e63ef9beac20d33ba25cd17.png" src="../../_images/4b8cc0bcc9b23d8c6f494e1e387ceb55a4ae3f0a4e63ef9beac20d33ba25cd17.png" />
 </div>
 </div>
 </section>

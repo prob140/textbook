@@ -605,25 +605,21 @@ Var(S_n) ~ = ~ nVar(X_1) + n(n-1)Cov(X_1, X_2)
 \]</div>
 <p>That looks much simpler. In the examples below we will see a couple of different ways of using this simple form when we have symmetry.</p>
 <p>Before we apply the formula, let’s start out by finding the covariance of two indicators. We will need this when we find the variance of a sum of indicators.</p>
-<div class="cell tag_remove-input tag_hide-output docutils container">
-<details class="hide above-output">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell outputs</span>
-<span class="expanded">Hide code cell outputs</span>
-</summary>
-<div class="cell_output docutils container">
-<div class="output text_html">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-video" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 3.75C0 2.784.784 2 1.75 2h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 14H1.75A1.75 1.75 0 0 1 0 12.25Zm1.75-.25a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25Z"></path><path d="M6 10.559V5.442a.25.25 0 0 1 .379-.215l4.264 2.559a.25.25 0 0 1 0 .428l-4.264 2.559A.25.25 0 0 1 6 10.559Z"></path></svg></span><span class="sd-summary-text">See More</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="output text_html">
         <iframe
             width="400"
             height="300"
             src="https://www.youtube.com/embed/9j8VwhEsWrk"
             frameborder="0"
             allowfullscreen
+            
         ></iframe>
-        </div></div>
-</details>
+        </span></p>
 </div>
-<section id="indicators">
+</details><section id="indicators">
 <h2><span class="section-number">13.4.1. </span>Indicators<a class="headerlink" href="#indicators" title="Link to this heading">#</a></h2>
 <p>Let <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> be two events. Let <span class="math notranslate nohighlight">\(I_A\)</span> be the indicator of <span class="math notranslate nohighlight">\(A\)</span> and let <span class="math notranslate nohighlight">\(I_B\)</span> be the indicator of  <span class="math notranslate nohighlight">\(B\)</span>. This is going to be one of the rare instances where we use an expected product to find a covariance. That’s because we know that products of indicators are themselves indicators.</p>
 <div class="math notranslate nohighlight">
@@ -679,25 +675,21 @@ Var(X) ~ = ~ Var(Y) ~ &amp;= 12Var(I_1) + 12 \cdot 11 \cdot Cov(I_1, I_2) \\
 12 \cdot 11 \cdot \Big{(} \big{(} \frac{10}{12} \big{)}^n - \big{(} \frac{11}{12} \big{)}^n\big{(} \frac{11}{12} \big{)}^n \Big{)}
 \end{align*}
 \end{split}\]</div>
-<div class="cell tag_remove-input tag_hide-output docutils container">
-<details class="hide above-output">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell outputs</span>
-<span class="expanded">Hide code cell outputs</span>
-</summary>
-<div class="cell_output docutils container">
-<div class="output text_html">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-video" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 3.75C0 2.784.784 2 1.75 2h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 14H1.75A1.75 1.75 0 0 1 0 12.25Zm1.75-.25a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25Z"></path><path d="M6 10.559V5.442a.25.25 0 0 1 .379-.215l4.264 2.559a.25.25 0 0 1 0 .428l-4.264 2.559A.25.25 0 0 1 6 10.559Z"></path></svg></span><span class="sd-summary-text">See More</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="output text_html">
         <iframe
             width="400"
             height="300"
             src="https://www.youtube.com/embed/XWHrPZOgD0A"
             frameborder="0"
             allowfullscreen
+            
         ></iframe>
-        </div></div>
-</details>
+        </span></p>
 </div>
-</section>
+</details></section>
 <section id="variance-of-a-simple-random-sample-sum">
 <h2><span class="section-number">13.4.3. </span>Variance of a Simple Random Sample Sum<a class="headerlink" href="#variance-of-a-simple-random-sample-sum" title="Link to this heading">#</a></h2>
 <p>Suppose we have a numerical population of size <span class="math notranslate nohighlight">\(N\)</span>, and let the population have mean <span class="math notranslate nohighlight">\(\mu\)</span> and standard deviation <span class="math notranslate nohighlight">\(\sigma\)</span>. Draw a simple random sample of size <span class="math notranslate nohighlight">\(n\)</span> from the population. For <span class="math notranslate nohighlight">\(j\)</span> in the range 1 through <span class="math notranslate nohighlight">\(n\)</span>, let <span class="math notranslate nohighlight">\(X_j\)</span> be the <span class="math notranslate nohighlight">\(j\)</span>th value drawn.</p>
@@ -729,25 +721,21 @@ n\sigma^2 \Big{(} 1 - \frac{n-1}{N-1} \Big{)} ~ = ~
 n\sigma^2 \frac{N-n}{N-1}
 \]</div>
 <p>Recall that when the sample is drawn with replacement, the variance of the sample sum is <span class="math notranslate nohighlight">\(n\sigma^2\)</span>. When the sample is drawn without replacement, the formula is the same apart from the factor of <span class="math notranslate nohighlight">\(\frac{N-n}{N-1}\)</span>. In the next section we will examine this factor.</p>
-<div class="cell tag_remove-input tag_hide-output docutils container">
-<details class="hide above-output">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell outputs</span>
-<span class="expanded">Hide code cell outputs</span>
-</summary>
-<div class="cell_output docutils container">
-<div class="output text_html">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-video" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 3.75C0 2.784.784 2 1.75 2h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 14H1.75A1.75 1.75 0 0 1 0 12.25Zm1.75-.25a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25Z"></path><path d="M6 10.559V5.442a.25.25 0 0 1 .379-.215l4.264 2.559a.25.25 0 0 1 0 .428l-4.264 2.559A.25.25 0 0 1 6 10.559Z"></path></svg></span><span class="sd-summary-text">See More</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="output text_html">
         <iframe
             width="400"
             height="300"
             src="https://www.youtube.com/embed/SJ2X0h2XdiY"
             frameborder="0"
             allowfullscreen
+            
         ></iframe>
-        </div></div>
-</details>
+        </span></p>
 </div>
-</section>
+</details></section>
 <section id="example-variance-of-the-hypergeometric">
 <h2><span class="section-number">13.4.4. </span>Example: Variance of the Hypergeometric<a class="headerlink" href="#example-variance-of-the-hypergeometric" title="Link to this heading">#</a></h2>
 <p>A important special case is when the numbers in the population are either <span class="math notranslate nohighlight">\(0\)</span> or <span class="math notranslate nohighlight">\(1\)</span>. This models the situation in which some of the elements in the population are “good” and we are counting the number of good elements in a simple random sample.</p>

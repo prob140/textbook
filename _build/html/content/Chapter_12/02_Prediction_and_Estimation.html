@@ -596,25 +596,21 @@ MSE(c) ~ = ~ E[(X-c)^2]
 \[
 MSE(\mu_X) ~ = ~ E[(X-\mu_X)^2] ~ = ~ \sigma_X^2
 \]</div>
-<div class="cell tag_remove-input tag_hide-output docutils container">
-<details class="hide above-output">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell outputs</span>
-<span class="expanded">Hide code cell outputs</span>
-</summary>
-<div class="cell_output docutils container">
-<div class="output text_html">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-video" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 3.75C0 2.784.784 2 1.75 2h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 14H1.75A1.75 1.75 0 0 1 0 12.25Zm1.75-.25a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25Z"></path><path d="M6 10.559V5.442a.25.25 0 0 1 .379-.215l4.264 2.559a.25.25 0 0 1 0 .428l-4.264 2.559A.25.25 0 0 1 6 10.559Z"></path></svg></span><span class="sd-summary-text">See More</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="output text_html">
         <iframe
             width="400"
             height="300"
             src="https://www.youtube.com/embed/hnm1Ht5DiWk"
             frameborder="0"
             allowfullscreen
+            
         ></iframe>
-        </div></div>
-</details>
+        </span></p>
 </div>
-<p>We will now show that <span class="math notranslate nohighlight">\(\mu_X\)</span> is the <em>least squares</em> constant predictor, that is, it has the smallest mean squared error among all constant predictors. Since we have guessed that <span class="math notranslate nohighlight">\(\mu_X\)</span> is the best choice, we will organize the algebra around that value.</p>
+</details><p>We will now show that <span class="math notranslate nohighlight">\(\mu_X\)</span> is the <em>least squares</em> constant predictor, that is, it has the smallest mean squared error among all constant predictors. Since we have guessed that <span class="math notranslate nohighlight">\(\mu_X\)</span> is the best choice, we will organize the algebra around that value.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{align*}
@@ -683,7 +679,7 @@ MSE(c) ~ = ~ E\big{[}(X - c)^2\big{]} &amp;= E\big{[} \big{(} (X - \mu_X) + (\mu
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/8b33adce90160aed758f6c9edc4f48b856dedc2e08bb94960aef9b8225946792.png" src="../../_images/8b33adce90160aed758f6c9edc4f48b856dedc2e08bb94960aef9b8225946792.png" />
+<img alt="../../_images/792fa8509c431c04d3d84d4a6b7dd8c4dfb7518d33c2a654293d809147a426a1.png" src="../../_images/792fa8509c431c04d3d84d4a6b7dd8c4dfb7518d33c2a654293d809147a426a1.png" />
 </div>
 </div>
 <p>We know that both estimators are unbiased: <span class="math notranslate nohighlight">\(E(T_1) = N = E(T_2)\)</span>. But is clear from the simulation that <span class="math notranslate nohighlight">\(SD(T_1) &gt; SD(T_2)\)</span> and hence <span class="math notranslate nohighlight">\(T_2\)</span> is a better estimator than <span class="math notranslate nohighlight">\(T_1\)</span>.</p>
@@ -696,7 +692,7 @@ MSE(c) ~ = ~ E\big{[}(X - c)^2\big{]} &amp;= E\big{[} \big{(} (X - \mu_X) + (\mu
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(299.95684000000006, 29.99859216498445)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(299.80678666666665, 29.453433939526381)
 </pre></div>
 </div>
 </div>
@@ -709,7 +705,7 @@ MSE(c) ~ = ~ E\big{[}(X - c)^2\big{]} &amp;= E\big{[} \big{(} (X - \mu_X) + (\mu
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(299.9418, 9.258092549164154)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(299.97238666666669, 9.3716278055652857)
 </pre></div>
 </div>
 </div>

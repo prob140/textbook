@@ -599,25 +599,21 @@ E(X - \mu_X) = E(X) - \mu_X = \mu_X - \mu_X = 0
 <p>This cancellation prevents us from understanding how big the deviations are regardless of their sign. But that’s what we need to measure, if we want to measure the distance between the random variable <span class="math notranslate nohighlight">\(X\)</span> and its expectation <span class="math notranslate nohighlight">\(\mu_X\)</span>.</p>
 <p>We have to get rid of the sign of the deviation somehow. One time-honored way of getting rid of the sign of a number is to take the absolute value. The other is to square the number. That’s the method we will use. As you will see, it results in a measure of spread that is crucial for understanding the sums and averages of large samples.</p>
 <p>Measuring the rough size of the squared deviations has the advantage that it avoids cancellation between positive and negative errors. The disadvantage is that squared deviations have units that are difficult to understand. The measure of spread that we are about to define takes care of this problem.</p>
-<div class="cell tag_remove-input tag_hide-output docutils container">
-<details class="hide above-output">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell outputs</span>
-<span class="expanded">Hide code cell outputs</span>
-</summary>
-<div class="cell_output docutils container">
-<div class="output text_html">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-video" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 3.75C0 2.784.784 2 1.75 2h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 14H1.75A1.75 1.75 0 0 1 0 12.25Zm1.75-.25a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25Z"></path><path d="M6 10.559V5.442a.25.25 0 0 1 .379-.215l4.264 2.559a.25.25 0 0 1 0 .428l-4.264 2.559A.25.25 0 0 1 6 10.559Z"></path></svg></span><span class="sd-summary-text">See More</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="output text_html">
         <iframe
             width="400"
             height="300"
             src="https://www.youtube.com/embed/9h34zgXmuqo"
             frameborder="0"
             allowfullscreen
+            
         ></iframe>
-        </div></div>
-</details>
+        </span></p>
 </div>
-<section id="standard-deviation">
+</details><section id="standard-deviation">
 <h2><span class="section-number">12.1.1. </span>Standard Deviation<a class="headerlink" href="#standard-deviation" title="Link to this heading">#</a></h2>
 <p>Let <span class="math notranslate nohighlight">\(X\)</span> be a random variable with expectation <span class="math notranslate nohighlight">\(\mu_X\)</span>. The <em>standard deviation</em> of <span class="math notranslate nohighlight">\(X\)</span>, denoted <span class="math notranslate nohighlight">\(SD(X)\)</span> or <span class="math notranslate nohighlight">\(\sigma_X\)</span>, is the <em>root mean square (rms) of deviations from the mean</em>:</p>
 <div class="math notranslate nohighlight">
@@ -668,7 +664,7 @@ Var(X) = \sigma_X^2 = E\big{(} (X-\mu_X)^2 \big{)}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.1
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.0999999999999996
 </pre></div>
 </div>
 </div>
@@ -714,7 +710,7 @@ Var(X) = \sigma_X^2 = E\big{(} (X-\mu_X)^2 \big{)}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.69999999999999996
 </pre></div>
 </div>
 </div>
@@ -757,7 +753,7 @@ Var(X) = \sigma_X^2 = E\big{(} (X-\mu_X)^2 \big{)}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/0e2cb09507de0bfc2d067719c314a68e4664ce6f1da2139b5786093b8a7b757b.png" src="../../_images/0e2cb09507de0bfc2d067719c314a68e4664ce6f1da2139b5786093b8a7b757b.png" />
+<img alt="../../_images/c3f2f3e7514ab363396c2c66b3e36e1c3c57c8f6021a9c8db282d171ed016638.png" src="../../_images/c3f2f3e7514ab363396c2c66b3e36e1c3c57c8f6021a9c8db282d171ed016638.png" />
 </div>
 </div>
 <p>On the other hand, multiplying <span class="math notranslate nohighlight">\(X\)</span> by a constant results in a distribution that should have a different spread. Here is the distribution of <span class="math notranslate nohighlight">\(X\)</span> along with the distribution of <span class="math notranslate nohighlight">\(4X\)</span>. The spread of the distribution of <span class="math notranslate nohighlight">\(4X\)</span> appears to be four times as large as that of <span class="math notranslate nohighlight">\(X\)</span>.</p>
@@ -770,7 +766,7 @@ Var(X) = \sigma_X^2 = E\big{(} (X-\mu_X)^2 \big{)}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/61ab2d05b9b7a17160a7384f31ecc4d32f913f4c6c9910602a3618c268d0cf8a.png" src="../../_images/61ab2d05b9b7a17160a7384f31ecc4d32f913f4c6c9910602a3618c268d0cf8a.png" />
+<img alt="../../_images/36bf512f85c20e5c281b20814553ea79c10590525d3b843d686d6755b0135f02.png" src="../../_images/36bf512f85c20e5c281b20814553ea79c10590525d3b843d686d6755b0135f02.png" />
 </div>
 </div>
 <p>Multiplying by <span class="math notranslate nohighlight">\(-4\)</span> should have the same effect on the spread as multiplying by 4, as the figure below shows. One histogram is just the mirror image of the other about the vertical axis at 0. There is no change in spread.</p>
@@ -782,28 +778,24 @@ Var(X) = \sigma_X^2 = E\big{(} (X-\mu_X)^2 \big{)}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/a0286f92f19937bb8eb5b2d15f66897f92073ff8555ff0414e4c91ce55cf03e8.png" src="../../_images/a0286f92f19937bb8eb5b2d15f66897f92073ff8555ff0414e4c91ce55cf03e8.png" />
+<img alt="../../_images/a2e8af48e0c5963207acc87ee38525dc73fbcbef9351fc3427a449c643f4c72f.png" src="../../_images/a2e8af48e0c5963207acc87ee38525dc73fbcbef9351fc3427a449c643f4c72f.png" />
 </div>
 </div>
-<div class="cell tag_remove-input tag_hide-output docutils container">
-<details class="hide above-output">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell outputs</span>
-<span class="expanded">Hide code cell outputs</span>
-</summary>
-<div class="cell_output docutils container">
-<div class="output text_html">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-video" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 3.75C0 2.784.784 2 1.75 2h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 14H1.75A1.75 1.75 0 0 1 0 12.25Zm1.75-.25a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25Z"></path><path d="M6 10.559V5.442a.25.25 0 0 1 .379-.215l4.264 2.559a.25.25 0 0 1 0 .428l-4.264 2.559A.25.25 0 0 1 6 10.559Z"></path></svg></span><span class="sd-summary-text">See More</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="output text_html">
         <iframe
             width="400"
             height="300"
             src="https://www.youtube.com/embed/zF-_2JwObjQ"
             frameborder="0"
             allowfullscreen
+            
         ></iframe>
-        </div></div>
-</details>
+        </span></p>
 </div>
-</section>
+</details></section>
 <section id="linear-functions">
 <h2><span class="section-number">12.1.3. </span>Linear Functions<a class="headerlink" href="#linear-functions" title="Link to this heading">#</a></h2>
 <p>The graphs above help us visualize what happens to the SD when the random variable is transformed linearly, for example when changing units of measurement. Let <span class="math notranslate nohighlight">\(Y = aX + b\)</span>. Then</p>
@@ -861,25 +853,21 @@ E(X^2) ~ \ge ~ (E(X))^2
 <p class="admonition-title">Answer</p>
 <p><span class="math notranslate nohighlight">\(2\)</span></p>
 </div>
-<div class="cell tag_remove-input tag_hide-output docutils container">
-<details class="hide above-output">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell outputs</span>
-<span class="expanded">Hide code cell outputs</span>
-</summary>
-<div class="cell_output docutils container">
-<div class="output text_html">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-video" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 3.75C0 2.784.784 2 1.75 2h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 14H1.75A1.75 1.75 0 0 1 0 12.25Zm1.75-.25a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25Z"></path><path d="M6 10.559V5.442a.25.25 0 0 1 .379-.215l4.264 2.559a.25.25 0 0 1 0 .428l-4.264 2.559A.25.25 0 0 1 6 10.559Z"></path></svg></span><span class="sd-summary-text">See More</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="output text_html">
         <iframe
             width="400"
             height="300"
             src="https://www.youtube.com/embed/lfJWb_s3MSI"
             frameborder="0"
             allowfullscreen
+            
         ></iframe>
-        </div></div>
-</details>
+        </span></p>
 </div>
-</section>
+</details></section>
 <section id="indicator">
 <h2><span class="section-number">12.1.5. </span>Indicator<a class="headerlink" href="#indicator" title="Link to this heading">#</a></h2>
 <p>The values of an indicator random variable are 0 and 1. Each of those two numbers is equal to its square. So if <span class="math notranslate nohighlight">\(I\)</span> is an indicator, then <span class="math notranslate nohighlight">\(I^2 = I\)</span>, and thus</p>

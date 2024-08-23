@@ -604,29 +604,25 @@ p ~ \to ~ p \cdot p \cdot p \cdot (1-p) \cdot p \cdot (1-p) ~ = ~ p^4(1-p)^2
 <p>Here is a graph of this function of <span class="math notranslate nohighlight">\(p\)</span>. Clearly, <span class="math notranslate nohighlight">\(0.6\)</span> is a better choice of estimate of <span class="math notranslate nohighlight">\(p\)</span> than <span class="math notranslate nohighlight">\(0.2\)</span>. But there’s one that’s even better.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/a7ce7234c9e7eab3f1b247ffdff7f6687b076e1279915a4c01b84b9261bd766a.png" src="../../_images/a7ce7234c9e7eab3f1b247ffdff7f6687b076e1279915a4c01b84b9261bd766a.png" />
+<img alt="../../_images/9fb05dfef86f2b55a7d324fe8b6a22fc5af44e1ba059d57ebd257e5ed0429e03.png" src="../../_images/9fb05dfef86f2b55a7d324fe8b6a22fc5af44e1ba059d57ebd257e5ed0429e03.png" />
 </div>
 </div>
 <p>You can see that the value of <span class="math notranslate nohighlight">\(p\)</span> that maximizes the likelihood looks suspiciously like <span class="math notranslate nohighlight">\(2/3\)</span>, the observed proportion of heads in our data HHHTHT. Let’s see why that is true.</p>
-<div class="cell tag_remove-input tag_hide-output docutils container">
-<details class="hide above-output">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell outputs</span>
-<span class="expanded">Hide code cell outputs</span>
-</summary>
-<div class="cell_output docutils container">
-<div class="output text_html">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-video" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 3.75C0 2.784.784 2 1.75 2h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 14H1.75A1.75 1.75 0 0 1 0 12.25Zm1.75-.25a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25Z"></path><path d="M6 10.559V5.442a.25.25 0 0 1 .379-.215l4.264 2.559a.25.25 0 0 1 0 .428l-4.264 2.559A.25.25 0 0 1 6 10.559Z"></path></svg></span><span class="sd-summary-text">See More</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="output text_html">
         <iframe
             width="400"
             height="300"
             src="https://www.youtube.com/embed/AN6y89dfNCM"
             frameborder="0"
             allowfullscreen
+            
         ></iframe>
-        </div></div>
-</details>
+        </span></p>
 </div>
-<section id="maximum-likelihood-estimate-of-p-based-on-a-bernoulli-p-sample">
+</details><section id="maximum-likelihood-estimate-of-p-based-on-a-bernoulli-p-sample">
 <h2><span class="section-number">20.1.1. </span>Maximum Likelihood Estimate of <span class="math notranslate nohighlight">\(p\)</span> Based on a Bernoulli <span class="math notranslate nohighlight">\((p)\)</span> Sample<a class="headerlink" href="#maximum-likelihood-estimate-of-p-based-on-a-bernoulli-p-sample" title="Link to this heading">#</a></h2>
 <p>Let <span class="math notranslate nohighlight">\(X_1, X_2, \ldots, X_n\)</span> be an i.i.d. Bernoulli <span class="math notranslate nohighlight">\((p)\)</span> sample. Our goal is to find the MLE of <span class="math notranslate nohighlight">\(p\)</span>.</p>
 <p>The random variables are discrete, so the likelihood function is defined as the joint probability mass function evaluated at the sample, as a function of <span class="math notranslate nohighlight">\(p\)</span>.</p>
@@ -679,25 +675,21 @@ L(p) = X\log(p) + (n-X)\log(1-p)
 <p>That is, the MLE of <span class="math notranslate nohighlight">\(p\)</span> is the sample proportion of 1’s. To compute this estimate, all you need is the number of 1’s in the sample. You don’t need to see the entire sample as a sequence of 0’s and 1’s.</p>
 <p>Because the MLE <span class="math notranslate nohighlight">\(\hat{p}\)</span> is the sample proportion, it is unbiased, has SD <span class="math notranslate nohighlight">\(\sqrt{p(1-p)/n}\)</span>, and is asymptotically normal. When <span class="math notranslate nohighlight">\(n\)</span> is large you can estimate the SD based on the sample and therefore construct confidence intervals for <span class="math notranslate nohighlight">\(p\)</span>.</p>
 <p>To be very careful, we should check that this calculation yields a maximum and not a minimum, but given the answer you will surely accept that it’s a max. You are welcome to take the second derivative of <span class="math notranslate nohighlight">\(L\)</span> and check that we do indeed have a maximum.</p>
-<div class="cell tag_remove-input tag_hide-output docutils container">
-<details class="hide above-output">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell outputs</span>
-<span class="expanded">Hide code cell outputs</span>
-</summary>
-<div class="cell_output docutils container">
-<div class="output text_html">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-video" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 3.75C0 2.784.784 2 1.75 2h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 14H1.75A1.75 1.75 0 0 1 0 12.25Zm1.75-.25a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25Z"></path><path d="M6 10.559V5.442a.25.25 0 0 1 .379-.215l4.264 2.559a.25.25 0 0 1 0 .428l-4.264 2.559A.25.25 0 0 1 6 10.559Z"></path></svg></span><span class="sd-summary-text">See More</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="output text_html">
         <iframe
             width="400"
             height="300"
             src="https://www.youtube.com/embed/KPVK4t58zPY"
             frameborder="0"
             allowfullscreen
+            
         ></iframe>
-        </div></div>
-</details>
+        </span></p>
 </div>
-</section>
+</details></section>
 <section id="mle-of-mu-based-on-a-normal-mu-sigma-2-sample">
 <h2><span class="section-number">20.1.2. </span>MLE of <span class="math notranslate nohighlight">\(\mu\)</span> Based on a Normal <span class="math notranslate nohighlight">\((\mu, \sigma^2)\)</span> Sample<a class="headerlink" href="#mle-of-mu-based-on-a-normal-mu-sigma-2-sample" title="Link to this heading">#</a></h2>
 <p>Let <span class="math notranslate nohighlight">\(X_1, X_2, \ldots, X_n\)</span> be an i.i.d. normal <span class="math notranslate nohighlight">\((\mu, \sigma^2)\)</span> sample. The sample mean is a pretty good estimate of <span class="math notranslate nohighlight">\(\mu\)</span>, as you know. In this example we will show that it is the maximum likelihood estimate of <span class="math notranslate nohighlight">\(\mu\)</span>.</p>
@@ -737,7 +729,7 @@ L(\mu) ~ = ~ \log(C) - \frac{1}{2\sigma^2}\sum_{i=1}^n (X_i - \mu)^2
 <p>Here is a graph of the function for <span class="math notranslate nohighlight">\(\mu\)</span> in the interval <span class="math notranslate nohighlight">\((30, 70)\)</span>.</p>
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/04ec66a6f58e9845187e218b72a9a5589f6dba04baf3014d2002cb2a65eed174.png" src="../../_images/04ec66a6f58e9845187e218b72a9a5589f6dba04baf3014d2002cb2a65eed174.png" />
+<img alt="../../_images/f4b9a0856fd8d65594fa279f2a4a26858361401e8a1108a2b44ca032ed7fde58.png" src="../../_images/f4b9a0856fd8d65594fa279f2a4a26858361401e8a1108a2b44ca032ed7fde58.png" />
 </div>
 </div>
 <p>The maximizing value of <span class="math notranslate nohighlight">\(\mu\)</span> is somewhere around <span class="math notranslate nohighlight">\(52.5\)</span>. To find exactly where it is, we have to complete the maximizatin.</p>

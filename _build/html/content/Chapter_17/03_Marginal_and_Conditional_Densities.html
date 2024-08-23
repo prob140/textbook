@@ -587,25 +587,21 @@ document.write(`
                   
   <section id="marginal-and-conditional-densities">
 <h1><span class="section-number">17.3. </span>Marginal and Conditional Densities<a class="headerlink" href="#marginal-and-conditional-densities" title="Link to this heading">#</a></h1>
-<div class="cell tag_remove-input tag_hide-output docutils container">
-<details class="hide above-output">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell outputs</span>
-<span class="expanded">Hide code cell outputs</span>
-</summary>
-<div class="cell_output docutils container">
-<div class="output text_html">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-video" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 3.75C0 2.784.784 2 1.75 2h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 14H1.75A1.75 1.75 0 0 1 0 12.25Zm1.75-.25a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25Z"></path><path d="M6 10.559V5.442a.25.25 0 0 1 .379-.215l4.264 2.559a.25.25 0 0 1 0 .428l-4.264 2.559A.25.25 0 0 1 6 10.559Z"></path></svg></span><span class="sd-summary-text">See More</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="output text_html">
         <iframe
             width="400"
             height="300"
             src="https://www.youtube.com/embed/K4NlpU_Kd_0"
             frameborder="0"
             allowfullscreen
+            
         ></iframe>
-        </div></div>
-</details>
+        </span></p>
 </div>
-<p>Let random variables <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> have the joint density defined by</p>
+</details><p>Let random variables <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> have the joint density defined by</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 f(x, y) ~ = ~ 
@@ -627,13 +623,13 @@ f(x, y) ~ = ~
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/892fa40c715ed1b5ab63e222847442c7490fa9018718dd94a216b7f02a1251a1.png" src="../../_images/892fa40c715ed1b5ab63e222847442c7490fa9018718dd94a216b7f02a1251a1.png" />
+<img alt="../../_images/83a74d78718b1a814dd3c46470ae045277f4cb5ce62809ea51e146ee8bd85af4.png" src="../../_images/83a74d78718b1a814dd3c46470ae045277f4cb5ce62809ea51e146ee8bd85af4.png" />
 </div>
 </div>
 <p>Then the possible values of <span class="math notranslate nohighlight">\((X, Y)\)</span> are in the upper right hand triangle of the unit square.</p>
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/8f8f628a98adf4041abe916cd71e73b7684dfcc6e6655e842b2f130900ce08d5.png" src="../../_images/8f8f628a98adf4041abe916cd71e73b7684dfcc6e6655e842b2f130900ce08d5.png" />
+<img alt="../../_images/aaae06a7a690beb661d72da71db3eb205d6f8a2f55219d58e263e4d0afc50fd2.png" src="../../_images/aaae06a7a690beb661d72da71db3eb205d6f8a2f55219d58e263e4d0afc50fd2.png" />
 </div>
 </div>
 <p>Here is a quick check by <code class="docutils literal notranslate"><span class="pre">SymPy</span></code> to see that the function <span class="math notranslate nohighlight">\(f\)</span> is indeed a joint density.</p>
@@ -654,7 +650,7 @@ f(x, y) ~ = ~
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/52cbe5efef2420fdb0e5fcec22993b051304ec02c9c6bdf85b0b8f0bc0ced260.png" src="../../_images/52cbe5efef2420fdb0e5fcec22993b051304ec02c9c6bdf85b0b8f0bc0ced260.png" />
+<img alt="../../_images/d81096050bd44ce57b5d5fe4208dfd494a47c011aecee7a2c422785cd87b6ef4.png" src="../../_images/d81096050bd44ce57b5d5fe4208dfd494a47c011aecee7a2c422785cd87b6ef4.png" />
 </div>
 </div>
 <section id="marginal-density-of-x">
@@ -672,7 +668,13 @@ f_X(x)dx &amp;\sim P(X \in dx) \\
 <p>You can see the reasoning behind this calculation in the graph below. The blue strip shows the event <span class="math notranslate nohighlight">\(\{ X \in dx \}\)</span> for a value of <span class="math notranslate nohighlight">\(x\)</span> very near 0.25. To find the volume <span class="math notranslate nohighlight">\(P(X \in dx)\)</span>, we hold <span class="math notranslate nohighlight">\(x\)</span> fixed and add over all <span class="math notranslate nohighlight">\(y\)</span>.</p>
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/e41de54f667de349cb2ad0d732805ef1cb53bac6231cc9bf8a4829e1af796efe.png" src="../../_images/e41de54f667de349cb2ad0d732805ef1cb53bac6231cc9bf8a4829e1af796efe.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;&gt;:15: SyntaxWarning: invalid escape sequence &#39;\i&#39;
+&lt;&gt;:15: SyntaxWarning: invalid escape sequence &#39;\i&#39;
+/var/folders/g7/vpsqt6yn74z6qv_c_2x7jsg80000gn/T/ipykernel_103/4176870377.py:15: SyntaxWarning: invalid escape sequence &#39;\i&#39;
+  plt.title(&#39;$X \in dx$&#39;);
+</pre></div>
+</div>
+<img alt="../../_images/b1aa6f9d666112bb0a87838969d511cae3ca0316cb4b6f7dc1092e8177942171.png" src="../../_images/b1aa6f9d666112bb0a87838969d511cae3ca0316cb4b6f7dc1092e8177942171.png" />
 </div>
 </div>
 <p>So the density of <span class="math notranslate nohighlight">\(X\)</span> is given by</p>
@@ -699,13 +701,13 @@ f_X(x) &amp;= \int_x^1 30(y-x)^4 dy \\
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/892fa40c715ed1b5ab63e222847442c7490fa9018718dd94a216b7f02a1251a1.png" src="../../_images/892fa40c715ed1b5ab63e222847442c7490fa9018718dd94a216b7f02a1251a1.png" />
+<img alt="../../_images/83a74d78718b1a814dd3c46470ae045277f4cb5ce62809ea51e146ee8bd85af4.png" src="../../_images/83a74d78718b1a814dd3c46470ae045277f4cb5ce62809ea51e146ee8bd85af4.png" />
 </div>
 </div>
 <p>That can be seen in the shape of the density of <span class="math notranslate nohighlight">\(X\)</span>.</p>
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/10b77e420e790cbccf5791ddc6aa66e9ababdb4f36d139cb8f7d20161e697edc.png" src="../../_images/10b77e420e790cbccf5791ddc6aa66e9ababdb4f36d139cb8f7d20161e697edc.png" />
+<img alt="../../_images/faae952feb64ce92854b5cf90a95a4a08be3739d42e5b2395cb681096845f233.png" src="../../_images/faae952feb64ce92854b5cf90a95a4a08be3739d42e5b2395cb681096845f233.png" />
 </div>
 </div>
 </section>
@@ -724,28 +726,24 @@ f_Y(y) ~ = ~ \int_0^y 30(y-x)^4dx ~ = ~ 6y^5
 \]</div>
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/8c63738c89b7fdc4c29be8d373caece718b267599e4542a04a157ea1b32f7d25.png" src="../../_images/8c63738c89b7fdc4c29be8d373caece718b267599e4542a04a157ea1b32f7d25.png" />
+<img alt="../../_images/cfa92404631a0262c273a62f2d3f613b5e98b48f6c2d97f18f905a8e2a75c655.png" src="../../_images/cfa92404631a0262c273a62f2d3f613b5e98b48f6c2d97f18f905a8e2a75c655.png" />
 </div>
 </div>
-<div class="cell tag_remove-input tag_hide-output docutils container">
-<details class="hide above-output">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell outputs</span>
-<span class="expanded">Hide code cell outputs</span>
-</summary>
-<div class="cell_output docutils container">
-<div class="output text_html">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-video" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 3.75C0 2.784.784 2 1.75 2h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 14H1.75A1.75 1.75 0 0 1 0 12.25Zm1.75-.25a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25Z"></path><path d="M6 10.559V5.442a.25.25 0 0 1 .379-.215l4.264 2.559a.25.25 0 0 1 0 .428l-4.264 2.559A.25.25 0 0 1 6 10.559Z"></path></svg></span><span class="sd-summary-text">See More</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="output text_html">
         <iframe
             width="400"
             height="300"
             src="https://www.youtube.com/embed/T0CkUU6V6CE"
             frameborder="0"
             allowfullscreen
+            
         ></iframe>
-        </div></div>
-</details>
+        </span></p>
 </div>
-</section>
+</details></section>
 <section id="conditional-densities">
 <h2><span class="section-number">17.3.3. </span>Conditional Densities<a class="headerlink" href="#conditional-densities" title="Link to this heading">#</a></h2>
 <p>Consider the conditional probability <span class="math notranslate nohighlight">\(P(Y \in dy \mid X \in dx)\)</span>. By the division rule,</p>
@@ -788,13 +786,13 @@ f_{Y \mid X=0.4} (y) = \frac{30(y - 0.4)^4}{6(1 - 0.4)^5} =
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/953b9567b3988d097dd67a1138fc57ba6188879984f6244eae54f25aafc04031.png" src="../../_images/953b9567b3988d097dd67a1138fc57ba6188879984f6244eae54f25aafc04031.png" />
+<img alt="../../_images/e3c8cd12917b747484d57e8756847083d3283a9d42e90669bd15e5fd049dd1b6.png" src="../../_images/e3c8cd12917b747484d57e8756847083d3283a9d42e90669bd15e5fd049dd1b6.png" />
 </div>
 </div>
 <p>The figure below shows the overlaid graphs of the density of <span class="math notranslate nohighlight">\(Y\)</span> and the conditional density of <span class="math notranslate nohighlight">\(Y\)</span> given <span class="math notranslate nohighlight">\(X = 0.4\)</span>. You can see that the conditional density is more concentrated on large values of <span class="math notranslate nohighlight">\(Y\)</span>, because under the condition <span class="math notranslate nohighlight">\(X = 0.4\)</span> you know that <span class="math notranslate nohighlight">\(Y\)</span> can’t be small.</p>
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/8e3cc8f57346ea62f913ee88f28cf65bfd11e1df0129dd00b45e740cacefe6af.png" src="../../_images/8e3cc8f57346ea62f913ee88f28cf65bfd11e1df0129dd00b45e740cacefe6af.png" />
+<img alt="../../_images/01839c3ff57a8d93cc6361364faa2a38cdea0159c1c7d218cef7a2e37b4b99de.png" src="../../_images/01839c3ff57a8d93cc6361364faa2a38cdea0159c1c7d218cef7a2e37b4b99de.png" />
 </div>
 </div>
 </section>
@@ -813,7 +811,7 @@ P(Y &gt; 0.9 \mid X = 0.4) = \int_{0.9}^1 \frac{5}{0.6^5} (y - 0.4)^4 dy
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/b7fbff83091a9f4d243624bad17fa9b78ed9214fb0eabb9dc7513aa1899eb440.png" src="../../_images/b7fbff83091a9f4d243624bad17fa9b78ed9214fb0eabb9dc7513aa1899eb440.png" />
+<img alt="../../_images/67a59b10a889fa4af81b8fefc0038a1b920bb89d54506293e200bf33cc6817cb.png" src="../../_images/67a59b10a889fa4af81b8fefc0038a1b920bb89d54506293e200bf33cc6817cb.png" />
 </div>
 </div>
 <p>Now we will use the conditional density to find a conditional expectation. Remember that in our example, given that <span class="math notranslate nohighlight">\(X = 0.4\)</span> the possible values of <span class="math notranslate nohighlight">\(Y\)</span> go from <span class="math notranslate nohighlight">\(0.4\)</span> to 1.</p>
@@ -828,7 +826,7 @@ E(Y \mid X = 0.4) ~ = ~ \int_{0.4}^1 y \frac{5}{0.6^5} (y - 0.4)^4 dy ~ = ~ 0.9
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/7f2c728b9e6efe8cd5c476b061e4472ad6fb8ca124471ec85e9cca9cd770e822.png" src="../../_images/7f2c728b9e6efe8cd5c476b061e4472ad6fb8ca124471ec85e9cca9cd770e822.png" />
+<img alt="../../_images/d57f28e88a85057bed5c3793947ca787243e0d7b554fd3145f991b4a5285e902.png" src="../../_images/d57f28e88a85057bed5c3793947ca787243e0d7b554fd3145f991b4a5285e902.png" />
 </div>
 </div>
 <p>You can condition <span class="math notranslate nohighlight">\(X\)</span> on <span class="math notranslate nohighlight">\(Y\)</span> in the same way. By analogous arguments, for any fixed value of <span class="math notranslate nohighlight">\(y\)</span> the conditional density of <span class="math notranslate nohighlight">\(X\)</span> given <span class="math notranslate nohighlight">\(Y = y\)</span> is</p>

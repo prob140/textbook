@@ -592,7 +592,7 @@ document.write(`
 <p>The main axiom of probability is about mutually exclusive events, and it turns out that we don’t need any further axioms to deal with events that intersect.</p>
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/dfa6c0970392b4cff5dacdc9441fb016a90308ed70f82835fae8a9b8d40a2c20.png" src="../../_images/dfa6c0970392b4cff5dacdc9441fb016a90308ed70f82835fae8a9b8d40a2c20.png" />
+<img alt="../../_images/27e1bc4e13e81de0e3150da64fd7996973dd29003532dc9df6b7cb5e03997efd.png" src="../../_images/27e1bc4e13e81de0e3150da64fd7996973dd29003532dc9df6b7cb5e03997efd.png" />
 </div>
 </div>
 <p>Let <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> be two events. The <em>intersection</em> <span class="math notranslate nohighlight">\(A \cap B\)</span> is the event that both <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> occur, and is shown in bright blue in the Venn diagram on the right.</p>
@@ -612,25 +612,21 @@ P(\{ \text{GR} \}) = \frac{\#\{\text{GR}\}}{6} = \frac{1}{6}
 \[
 P(\{ \text{GR} \}) = \frac{1}{6} = \frac{1}{3} \times \frac{1}{2}
 \]</div>
-<div class="cell tag_remove-input tag_hide-output docutils container">
-<details class="hide above-output">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell outputs</span>
-<span class="expanded">Hide code cell outputs</span>
-</summary>
-<div class="cell_output docutils container">
-<div class="output text_html">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-video" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 3.75C0 2.784.784 2 1.75 2h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 14H1.75A1.75 1.75 0 0 1 0 12.25Zm1.75-.25a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25Z"></path><path d="M6 10.559V5.442a.25.25 0 0 1 .379-.215l4.264 2.559a.25.25 0 0 1 0 .428l-4.264 2.559A.25.25 0 0 1 6 10.559Z"></path></svg></span><span class="sd-summary-text">See More</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="output text_html">
         <iframe
             width="400"
             height="300"
             src="https://www.youtube.com/embed/Nd_gWqoMah4"
             frameborder="0"
             allowfullscreen
+            
         ></iframe>
-        </div></div>
-</details>
+        </span></p>
 </div>
-</section>
+</details></section>
 <section id="conditional-probability">
 <h2><span class="section-number">2.3.2. </span>Conditional Probability<a class="headerlink" href="#conditional-probability" title="Link to this heading">#</a></h2>
 <p>Let’s try to interpret the two fractions in the product. The first factor is not hard to identify.</p>
@@ -665,25 +661,21 @@ P(B \mid A) = \frac{P(AB)}{P(A)}
 <p>There is some abuse of notation here. “<span class="math notranslate nohighlight">\(B \mid A\)</span>” is not an event. But the notation is convenient. The entire left hand side should be read as “the probability that <span class="math notranslate nohighlight">\(B\)</span> happens given that <span class="math notranslate nohighlight">\(A\)</span> has happened.”</p>
 <p>The definition says: You’re given that <span class="math notranslate nohighlight">\(A\)</span> happened, so restrict your attention to the outcomes in which <span class="math notranslate nohighlight">\(A\)</span> happens. That’s your whole space now, so all chances have to be calculated relative to <span class="math notranslate nohighlight">\(P(A)\)</span>. Now what’s the chance that <span class="math notranslate nohighlight">\(B\)</span> happened as well? The answer is <span class="math notranslate nohighlight">\(\frac{P(AB)}{P(A)}\)</span>.</p>
 <p>We are dividing by <span class="math notranslate nohighlight">\(P(A)\)</span>, and the more careful among you might be wondering what happens if <span class="math notranslate nohighlight">\(P(A) = 0\)</span>. Well, in that case we wouldn’t be given that <span class="math notranslate nohighlight">\(A\)</span> happened, because <span class="math notranslate nohighlight">\(A\)</span> can’t happen. So that’s not a case we have to worry about.</p>
-<div class="cell tag_remove-input tag_hide-output docutils container">
-<details class="hide above-output">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell outputs</span>
-<span class="expanded">Hide code cell outputs</span>
-</summary>
-<div class="cell_output docutils container">
-<div class="output text_html">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-video" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 3.75C0 2.784.784 2 1.75 2h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 14H1.75A1.75 1.75 0 0 1 0 12.25Zm1.75-.25a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25Z"></path><path d="M6 10.559V5.442a.25.25 0 0 1 .379-.215l4.264 2.559a.25.25 0 0 1 0 .428l-4.264 2.559A.25.25 0 0 1 6 10.559Z"></path></svg></span><span class="sd-summary-text">See More</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="output text_html">
         <iframe
             width="400"
             height="300"
             src="https://www.youtube.com/embed/YE9p2cprkOI"
             frameborder="0"
             allowfullscreen
+            
         ></iframe>
-        </div></div>
-</details>
+        </span></p>
 </div>
-<div class="admonition-quick-check admonition">
+</details><div class="admonition-quick-check admonition">
 <p class="admonition-title">Quick Check</p>
 <p>A random number generator makes one draw at random from the 10 digits <span class="math notranslate nohighlight">\(0, 1, 2, 3, 4, 5, 6, 7, 8, 9\)</span>. Pick the correct option: Given that the number drawn is greater than 5, the chance that it is a prime number is</p>
 <p>(i) <span class="math notranslate nohighlight">\(\frac{1}{10}\)</span> <span class="math notranslate nohighlight">\(~~~\)</span> (ii) <span class="math notranslate nohighlight">\(\frac{1}{5}\)</span> <span class="math notranslate nohighlight">\(~~~\)</span> (iii) <span class="math notranslate nohighlight">\(\frac{1}{4}\)</span></p>

@@ -591,25 +591,21 @@ document.write(`
 <p>The same is true of any fixed number of tosses: if you know the number of heads, then you also know the number of tails.</p>
 <p>In any fixed number of Bernoulli trials, the number of successes and the number of failures are as dependent as it gets. If you know one, you know the other.</p>
 <p>However, something remarkable happens when the <em>number of trials is itself random and has a Poisson distribution.</em> After we see what happens, we will be able to understand why it matters.</p>
-<div class="cell tag_remove-input tag_hide-output docutils container">
-<details class="hide above-output">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell outputs</span>
-<span class="expanded">Hide code cell outputs</span>
-</summary>
-<div class="cell_output docutils container">
-<div class="output text_html">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-video" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 3.75C0 2.784.784 2 1.75 2h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 14H1.75A1.75 1.75 0 0 1 0 12.25Zm1.75-.25a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25Z"></path><path d="M6 10.559V5.442a.25.25 0 0 1 .379-.215l4.264 2.559a.25.25 0 0 1 0 .428l-4.264 2.559A.25.25 0 0 1 6 10.559Z"></path></svg></span><span class="sd-summary-text">See More</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="output text_html">
         <iframe
             width="400"
             height="300"
             src="https://www.youtube.com/embed/lnLUsr24r88"
             frameborder="0"
             allowfullscreen
+            
         ></iframe>
-        </div></div>
-</details>
+        </span></p>
 </div>
-<section id="randomizing-the-number-of-bernoulli-trials">
+</details><section id="randomizing-the-number-of-bernoulli-trials">
 <h2><span class="section-number">7.2.1. </span>Randomizing the Number of Bernoulli Trials<a class="headerlink" href="#randomizing-the-number-of-bernoulli-trials" title="Link to this heading">#</a></h2>
 <p>Let <span class="math notranslate nohighlight">\(N\)</span> have the Poisson <span class="math notranslate nohighlight">\((\mu)\)</span> distribution, let <span class="math notranslate nohighlight">\(S\)</span> be the number of successes in <span class="math notranslate nohighlight">\(N\)</span> i.i.d. Bernoulli <span class="math notranslate nohighlight">\((p)\)</span> trials. More formally:</p>
 <ul class="simple">
@@ -624,25 +620,21 @@ P(N=n, S=s) ~ = ~ e^{-\mu}\frac{\mu^n}{n!} \cdot
 \]</div>
 <p>You should check that the formula is correct when <span class="math notranslate nohighlight">\(n=0\)</span>.</p>
 <p>We can sum the terms in this joint distribution appropriately to get the marginal distribution of <span class="math notranslate nohighlight">\(S\)</span>.</p>
-<div class="cell tag_remove-input tag_hide-output docutils container">
-<details class="hide above-output">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell outputs</span>
-<span class="expanded">Hide code cell outputs</span>
-</summary>
-<div class="cell_output docutils container">
-<div class="output text_html">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-video" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 3.75C0 2.784.784 2 1.75 2h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 14H1.75A1.75 1.75 0 0 1 0 12.25Zm1.75-.25a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25Z"></path><path d="M6 10.559V5.442a.25.25 0 0 1 .379-.215l4.264 2.559a.25.25 0 0 1 0 .428l-4.264 2.559A.25.25 0 0 1 6 10.559Z"></path></svg></span><span class="sd-summary-text">See More</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="output text_html">
         <iframe
             width="400"
             height="300"
             src="https://www.youtube.com/embed/JQT1NQNbxsQ"
             frameborder="0"
             allowfullscreen
+            
         ></iframe>
-        </div></div>
-</details>
+        </span></p>
 </div>
-</section>
+</details></section>
 <section id="a-poisson-number-of-successes">
 <h2><span class="section-number">7.2.2. </span>A Poisson Number of Successes<a class="headerlink" href="#a-poisson-number-of-successes" title="Link to this heading">#</a></h2>
 <p>The possible values of <span class="math notranslate nohighlight">\(S\)</span> are <span class="math notranslate nohighlight">\(0, 1, 2, \ldots\)</span> with no upper limit because there is no upper limit on the possible values of <span class="math notranslate nohighlight">\(N\)</span>. For <span class="math notranslate nohighlight">\(s \ge 0\)</span>,</p>
@@ -682,25 +674,21 @@ P(S = s) &amp;= \sum_{n=s}^\infty P(N=n, S=s) \\ \\
 <p>(a) <span class="math notranslate nohighlight">\(\binom{24}{5} 0.25^5 0.75^{19}\)</span></p>
 <p>(b) <span class="math notranslate nohighlight">\(e^{-6}\frac{6^5}{5!}\)</span></p>
 </div>
-<div class="cell tag_remove-input tag_hide-output docutils container">
-<details class="hide above-output">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell outputs</span>
-<span class="expanded">Hide code cell outputs</span>
-</summary>
-<div class="cell_output docutils container">
-<div class="output text_html">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-video" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 3.75C0 2.784.784 2 1.75 2h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 14H1.75A1.75 1.75 0 0 1 0 12.25Zm1.75-.25a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25Z"></path><path d="M6 10.559V5.442a.25.25 0 0 1 .379-.215l4.264 2.559a.25.25 0 0 1 0 .428l-4.264 2.559A.25.25 0 0 1 6 10.559Z"></path></svg></span><span class="sd-summary-text">See More</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="output text_html">
         <iframe
             width="400"
             height="300"
             src="https://www.youtube.com/embed/2qLF6nNWPiw"
             frameborder="0"
             allowfullscreen
+            
         ></iframe>
-        </div></div>
-</details>
+        </span></p>
 </div>
-</section>
+</details></section>
 <section id="successes-and-failures-are-independent">
 <h2><span class="section-number">7.2.3. </span>Successes and Failures are Independent<a class="headerlink" href="#successes-and-failures-are-independent" title="Link to this heading">#</a></h2>
 <p>Yes, you read that right. If you run a Poisson number of i.i.d. Bernoulli trials, then the number of successes and the number of failures are <em>independent</em>.</p>

@@ -609,7 +609,7 @@ E(S_n) = n\mu ~~~~~~~~~~  SD(S_n) = \sqrt{n}\sigma
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/51876cb8c01cbafafd3b71b001b909ae991d09192c384de52706131cd7546899.png" src="../../_images/51876cb8c01cbafafd3b71b001b909ae991d09192c384de52706131cd7546899.png" />
+<img alt="../../_images/ade48f348fa8389fbb5b0856cc1f6b0e2f4ad77fe75b7eaf8d1ebce47f7d3639.png" src="../../_images/ade48f348fa8389fbb5b0856cc1f6b0e2f4ad77fe75b7eaf8d1ebce47f7d3639.png" />
 </div>
 </div>
 <p>You can see the normal distribution appearing already for the sum of 5 and 20 dice.</p>
@@ -617,25 +617,21 @@ E(S_n) = n\mu ~~~~~~~~~~  SD(S_n) = \sqrt{n}\sigma
 <p>Now let’s look at the spread more carefully.</p>
 <p>You can see also that the gold distribution isn’t four times as spread out as the blue, though the sample size in the gold distribution is four times that of the blue. The gold distribution is twice as spread out (and therefore half as tall) as the blue. That is because the SD of the sum is proportional to <span class="math notranslate nohighlight">\(\sqrt{n}\)</span>. It grows slower than <span class="math notranslate nohighlight">\(n\)</span>. Because the sample size is larger by a factor of 4, the SD of the gold distribution is <span class="math notranslate nohighlight">\(\sqrt{4} = 2\)</span> times the SD of the blue.</p>
 <p>The <em>average</em> of the sample behaves differently.</p>
-<div class="cell tag_remove-input tag_hide-output docutils container">
-<details class="hide above-output">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell outputs</span>
-<span class="expanded">Hide code cell outputs</span>
-</summary>
-<div class="cell_output docutils container">
-<div class="output text_html">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-video" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 3.75C0 2.784.784 2 1.75 2h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 14H1.75A1.75 1.75 0 0 1 0 12.25Zm1.75-.25a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25Z"></path><path d="M6 10.559V5.442a.25.25 0 0 1 .379-.215l4.264 2.559a.25.25 0 0 1 0 .428l-4.264 2.559A.25.25 0 0 1 6 10.559Z"></path></svg></span><span class="sd-summary-text">See More</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="output text_html">
         <iframe
             width="400"
             height="300"
             src="https://www.youtube.com/embed/UjxM2o6nlbc"
             frameborder="0"
             allowfullscreen
+            
         ></iframe>
-        </div></div>
-</details>
+        </span></p>
 </div>
-<section id="the-mean-of-an-iid-sample">
+</details><section id="the-mean-of-an-iid-sample">
 <h2><span class="section-number">14.5.1. </span>The Mean of an IID Sample<a class="headerlink" href="#the-mean-of-an-iid-sample" title="Link to this heading">#</a></h2>
 <p>Let <span class="math notranslate nohighlight">\(\bar{X}_n\)</span> be the sample mean, that is,</p>
 <div class="math notranslate nohighlight">
@@ -657,7 +653,7 @@ SD(\bar{X}_n) = \frac{SD(S_n)}{n} = \frac{\sqrt{n}\sigma}{n} = \frac{\sigma}{\sq
 <p>The graph below shows the distributions of the means of 5 rolls of a die and of 20 rolls. Both are centered at 3.5 but the distribution of the mean of the larger sample is narrower. You saw this frequently in Data 8: as the sample size increases, the distribution of the sample mean gets more concentrated around the population mean.</p>
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/ba56ed659fc366f22f863e0039c3454827aebb30748401dbe69aafcbef9fdc04.png" src="../../_images/ba56ed659fc366f22f863e0039c3454827aebb30748401dbe69aafcbef9fdc04.png" />
+<img alt="../../_images/101bef8d51c445347dca460cd06a718c544df734595ded4c1b036ac35c336b2e.png" src="../../_images/101bef8d51c445347dca460cd06a718c544df734595ded4c1b036ac35c336b2e.png" />
 </div>
 </div>
 </section>
@@ -667,25 +663,21 @@ SD(\bar{X}_n) = \frac{SD(S_n)}{n} = \frac{\sqrt{n}\sigma}{n} = \frac{\sigma}{\sq
 <p>The general result is usually stated in the reverse.</p>
 <p><strong>Square Root Law:</strong>
 If you multiply the sample size by a factor, then the SD of the i.i.d. sample mean decreases by the square root of the factor.</p>
-<div class="cell tag_remove-input tag_hide-output docutils container">
-<details class="hide above-output">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell outputs</span>
-<span class="expanded">Hide code cell outputs</span>
-</summary>
-<div class="cell_output docutils container">
-<div class="output text_html">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-video" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 3.75C0 2.784.784 2 1.75 2h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 14H1.75A1.75 1.75 0 0 1 0 12.25Zm1.75-.25a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25Z"></path><path d="M6 10.559V5.442a.25.25 0 0 1 .379-.215l4.264 2.559a.25.25 0 0 1 0 .428l-4.264 2.559A.25.25 0 0 1 6 10.559Z"></path></svg></span><span class="sd-summary-text">See More</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="output text_html">
         <iframe
             width="400"
             height="300"
             src="https://www.youtube.com/embed/WowLqZku3X8"
             frameborder="0"
             allowfullscreen
+            
         ></iframe>
-        </div></div>
-</details>
+        </span></p>
 </div>
-</section>
+</details></section>
 <section id="weak-law-of-large-numbers">
 <h2><span class="section-number">14.5.3. </span>Weak Law of Large Numbers<a class="headerlink" href="#weak-law-of-large-numbers" title="Link to this heading">#</a></h2>
 <p>The sample mean is an unbiased estimator of the population mean and has a small SD when the sample size is large. So the mean of a large sample is close to the population mean with high probability.</p>
@@ -729,7 +721,7 @@ P(\bar{X}_n \le x) ~ \approx ~ \Phi \big{(} \frac{x - \mu}{\sigma/\sqrt{n}} \big
 \]</div>
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/bb403f189c24e88b2b2f62d1edb739efc3b9015e33e56dc2c77d59fa529ec44e.png" src="../../_images/bb403f189c24e88b2b2f62d1edb739efc3b9015e33e56dc2c77d59fa529ec44e.png" />
+<img alt="../../_images/1f11708df9eafe7fdf464ed8074d2bb6d294f97ea44b39ffc78a81e99fb973cf.png" src="../../_images/1f11708df9eafe7fdf464ed8074d2bb6d294f97ea44b39ffc78a81e99fb973cf.png" />
 </div>
 </div>
 <p>The expectation stays the same no matter what <span class="math notranslate nohighlight">\(n\)</span> is. But as <span class="math notranslate nohighlight">\(n\)</span> gets large, the SD of the sample mean gets smaller. So the curve above starts looking like a spike at <span class="math notranslate nohighlight">\(\mu\)</span>.</p>

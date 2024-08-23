@@ -615,25 +615,21 @@ M_X(t) ~ = ~ E(e^{tX})
 </div>
 <p>This section presents three ways in which the mgf is useful. Other ways are demonstrated in the subsequent sections of this chapter. Much of what we say about mgf’s will not be accompanied by complete proofs as the math required is beyond the scope of this class. But the results should seem reasonable, even without formal proofs.</p>
 <p>We will list the three ways first, and then use them all in examples.</p>
-<div class="cell tag_remove-input tag_hide-output docutils container">
-<details class="hide above-output">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell outputs</span>
-<span class="expanded">Hide code cell outputs</span>
-</summary>
-<div class="cell_output docutils container">
-<div class="output text_html">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-video" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 3.75C0 2.784.784 2 1.75 2h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 14H1.75A1.75 1.75 0 0 1 0 12.25Zm1.75-.25a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25Z"></path><path d="M6 10.559V5.442a.25.25 0 0 1 .379-.215l4.264 2.559a.25.25 0 0 1 0 .428l-4.264 2.559A.25.25 0 0 1 6 10.559Z"></path></svg></span><span class="sd-summary-text">See More</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="output text_html">
         <iframe
             width="400"
             height="300"
             src="https://www.youtube.com/embed/uljcfZRj7os"
             frameborder="0"
             allowfullscreen
+            
         ></iframe>
-        </div></div>
-</details>
+        </span></p>
 </div>
-<section id="generating-moments">
+</details><section id="generating-moments">
 <h2><span class="section-number">19.2.1. </span>Generating Moments<a class="headerlink" href="#generating-moments" title="Link to this heading">#</a></h2>
 <p>For non-negative integers <span class="math notranslate nohighlight">\(k\)</span>, the expectation <span class="math notranslate nohighlight">\(E(X^k)\)</span> is called <em><span class="math notranslate nohighlight">\(k\)</span>th moment</em> of <span class="math notranslate nohighlight">\(X\)</span>. You saw in Data 8 and again in this course that the mean <span class="math notranslate nohighlight">\(E(X)\)</span> is the center of gravity of the probability histogram of <span class="math notranslate nohighlight">\(X\)</span>. In physics, the center of mass is called the <em>first moment</em>. The terminology of moments is used in probability theory as well.</p>
 <p>In this course we are only going to work with mgf’s that are finite in some interval around 0. The interval could be the entire real line. It is a fact that if the mgf is finite around 0 (not just to one side of 0), then all the moments exist.</p>
@@ -746,25 +742,21 @@ M_{X+Y} (t) ~ &amp;= ~ \big{(} \frac{\lambda}{\lambda - t} \big{)}^r \cdot \big{
 <p class="admonition-title">Answer</p>
 <p>gamma <span class="math notranslate nohighlight">\((3, 2)\)</span></p>
 </div>
-<div class="cell tag_remove-input tag_hide-output docutils container">
-<details class="hide above-output">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell outputs</span>
-<span class="expanded">Hide code cell outputs</span>
-</summary>
-<div class="cell_output docutils container">
-<div class="output text_html">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-video" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 3.75C0 2.784.784 2 1.75 2h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 14H1.75A1.75 1.75 0 0 1 0 12.25Zm1.75-.25a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25Z"></path><path d="M6 10.559V5.442a.25.25 0 0 1 .379-.215l4.264 2.559a.25.25 0 0 1 0 .428l-4.264 2.559A.25.25 0 0 1 6 10.559Z"></path></svg></span><span class="sd-summary-text">See More</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="output text_html">
         <iframe
             width="400"
             height="300"
             src="https://www.youtube.com/embed/juRbr3EXnJg"
             frameborder="0"
             allowfullscreen
+            
         ></iframe>
-        </div></div>
-</details>
+        </span></p>
 </div>
-</section>
+</details></section>
 <section id="note-on-existence">
 <h2><span class="section-number">19.2.7. </span>Note on Existence<a class="headerlink" href="#note-on-existence" title="Link to this heading">#</a></h2>
 <p>Let <span class="math notranslate nohighlight">\(X\)</span> be a random variable. For all <span class="math notranslate nohighlight">\(t\)</span>, the random variable <span class="math notranslate nohighlight">\(e^{tX}\)</span> is positive, so <span class="math notranslate nohighlight">\(M_X(t)\)</span> is either positive or <span class="math notranslate nohighlight">\(+\infty\)</span>.</p>

@@ -589,14 +589,10 @@ document.write(`
 <p>If <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> has a multivariate normal density and its elements are pairwise uncorrelated – that is, <span class="math notranslate nohighlight">\(Cov(X_i, X_j) = 0\)</span> for all
 <span class="math notranslate nohighlight">\(i \ne j\)</span> – then the elements of <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> are mutually independent.</p>
 <p>That is, <strong>multivariate normal random variables are independent if and only if they are pairwise uncorrelated.</strong></p>
-<div class="cell tag_remove-input tag_hide-output docutils container">
-<details class="hide above-output">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell outputs</span>
-<span class="expanded">Hide code cell outputs</span>
-</summary>
-<div class="cell_output docutils container">
-<div class="output text_html">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-video" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 3.75C0 2.784.784 2 1.75 2h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 14H1.75A1.75 1.75 0 0 1 0 12.25Zm1.75-.25a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25Z"></path><path d="M6 10.559V5.442a.25.25 0 0 1 .379-.215l4.264 2.559a.25.25 0 0 1 0 .428l-4.264 2.559A.25.25 0 0 1 6 10.559Z"></path></svg></span><span class="sd-summary-text">See More</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="output text_html">
         <iframe
             width="400"
             height="300"
@@ -605,10 +601,9 @@ document.write(`
             allowfullscreen
             
         ></iframe>
-        </div></div>
-</details>
+        </span></p>
 </div>
-<p>This is easy to see from the form of the density of <span class="math notranslate nohighlight">\(\mathbf{X}\)</span>. If <span class="math notranslate nohighlight">\(\boldsymbol{\Sigma}\)</span> is a diagonal matrix then so is <span class="math notranslate nohighlight">\(\boldsymbol{\Sigma}^{-1}\)</span>. The <span class="math notranslate nohighlight">\(i\)</span>th diagonal element of <span class="math notranslate nohighlight">\(\boldsymbol{\Sigma}^{-1}\)</span> is <span class="math notranslate nohighlight">\(1/\sigma_i^2\)</span> where <span class="math notranslate nohighlight">\(\sigma_i^2 = Var(X_i)\)</span>. So</p>
+</details><p>This is easy to see from the form of the density of <span class="math notranslate nohighlight">\(\mathbf{X}\)</span>. If <span class="math notranslate nohighlight">\(\boldsymbol{\Sigma}\)</span> is a diagonal matrix then so is <span class="math notranslate nohighlight">\(\boldsymbol{\Sigma}^{-1}\)</span>. The <span class="math notranslate nohighlight">\(i\)</span>th diagonal element of <span class="math notranslate nohighlight">\(\boldsymbol{\Sigma}^{-1}\)</span> is <span class="math notranslate nohighlight">\(1/\sigma_i^2\)</span> where <span class="math notranslate nohighlight">\(\sigma_i^2 = Var(X_i)\)</span>. So</p>
 <div class="math notranslate nohighlight">
 \[
 (\mathbf{x} - \boldsymbol{\mu})\boldsymbol{\Sigma}^{-1} (\mathbf{x} - \boldsymbol{\mu}) ~ = ~ \sum_{i=1}^n \frac{(x_i - \boldsymbol{\mu}(i))^2}{\sigma_i^2}

@@ -599,7 +599,7 @@ f(x, y) = 120x(y-x)(1-y), ~~~~ 0 &lt; x &lt; y &lt; 1
 <p>Let <span class="math notranslate nohighlight">\(U_1, U_2, \ldots, U_n\)</span> be i.i.d. uniform on <span class="math notranslate nohighlight">\((0, 1)\)</span>. Imagine each <span class="math notranslate nohighlight">\(U_i\)</span> as the position of a dart thrown at the unit interval. The graph below shows the positions of five such darts, each shown as a star.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/19dbe1aacd91dbb234b91c8d4bc30b3b091dad384922009e1dca2df4f5a78f63.png" src="../../_images/19dbe1aacd91dbb234b91c8d4bc30b3b091dad384922009e1dca2df4f5a78f63.png" />
+<img alt="../../_images/57131964e3f566549b097a1518c342c92ee952dd75ae8e4d9d961f84d8b4b26f.png" src="../../_images/57131964e3f566549b097a1518c342c92ee952dd75ae8e4d9d961f84d8b4b26f.png" />
 </div>
 </div>
 <p>Based on the graph above, can you tell which star corresponds to <span class="math notranslate nohighlight">\(U_1\)</span>? You can’t, because <span class="math notranslate nohighlight">\(U_1\)</span> could be any of the five stars. So also you can’t identify any of the five variables <span class="math notranslate nohighlight">\(U_1, U_2, U_3, U_4, U_5\)</span>.</p>
@@ -608,18 +608,14 @@ f(x, y) = 120x(y-x)(1-y), ~~~~ 0 &lt; x &lt; y &lt; 1
 <p>Remember that because the <span class="math notranslate nohighlight">\(U_i\)</span>’s are independent random variables with densities, there can’t be ties: the chance that two of them are equal is 0.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/5bdcc5241cd470c6239e46fc3ce5a17c726ff5262e80df3c3b37b77c23391781.png" src="../../_images/5bdcc5241cd470c6239e46fc3ce5a17c726ff5262e80df3c3b37b77c23391781.png" />
+<img alt="../../_images/44f3b5922ef304da8968d2efc8e387437bd8396365b688751caaf6495f03432e.png" src="../../_images/44f3b5922ef304da8968d2efc8e387437bd8396365b688751caaf6495f03432e.png" />
 </div>
 </div>
 <p>In general for <span class="math notranslate nohighlight">\(1 \le k \le n\)</span>, the <em><span class="math notranslate nohighlight">\(k\)</span>th order statistic</em> of <span class="math notranslate nohighlight">\(U_1, U_2, \ldots, U_n\)</span> is the <span class="math notranslate nohighlight">\(k\)</span>th value when the <span class="math notranslate nohighlight">\(U_i\)</span>’s are sorted in increasing order. This can also be thought of as the <span class="math notranslate nohighlight">\(k\)</span>th <em>ranked</em> value when the minimum has rank 1. It is denoted <span class="math notranslate nohighlight">\(U_{(k)}\)</span>.</p>
-<div class="cell tag_remove-input tag_hide-output docutils container">
-<details class="hide above-output">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell outputs</span>
-<span class="expanded">Hide code cell outputs</span>
-</summary>
-<div class="cell_output docutils container">
-<div class="output text_html">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-video" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 3.75C0 2.784.784 2 1.75 2h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 14H1.75A1.75 1.75 0 0 1 0 12.25Zm1.75-.25a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25Z"></path><path d="M6 10.559V5.442a.25.25 0 0 1 .379-.215l4.264 2.559a.25.25 0 0 1 0 .428l-4.264 2.559A.25.25 0 0 1 6 10.559Z"></path></svg></span><span class="sd-summary-text">See More</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="output text_html">
         <iframe
             width="400"
             height="300"
@@ -628,17 +624,16 @@ f(x, y) = 120x(y-x)(1-y), ~~~~ 0 &lt; x &lt; y &lt; 1
             allowfullscreen
             
         ></iframe>
-        </div></div>
-</details>
+        </span></p>
 </div>
-</section>
+</details></section>
 <section id="joint-density-of-two-order-statistics">
 <h2><span class="section-number">17.4.2. </span>Joint Density of Two Order Statistics<a class="headerlink" href="#joint-density-of-two-order-statistics" title="Link to this heading">#</a></h2>
 <p>Let <span class="math notranslate nohighlight">\(n = 5\)</span> as above and let’s try to work out the joint density of <span class="math notranslate nohighlight">\(U_{(2)}\)</span> and <span class="math notranslate nohighlight">\(U_{(4)}\)</span>. That’s the joint density of the second and fourth values on the sorted list.</p>
 <p>The graph below shows the event <span class="math notranslate nohighlight">\(\{U_{(2)} \in dx, U_{(4)} \in dy\}\)</span> for values <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> such that <span class="math notranslate nohighlight">\(0 &lt; x &lt; y &lt; 1\)</span>.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/61dbd088bf842bef00506cb7d33a4b5808afdef64d14d9115c5e9c581d75e7dc.png" src="../../_images/61dbd088bf842bef00506cb7d33a4b5808afdef64d14d9115c5e9c581d75e7dc.png" />
+<img alt="../../_images/fe0b23aecf81bf0a5399c86366dc1fe464bcce2ae89748b6244f74e3f66ecb6b.png" src="../../_images/fe0b23aecf81bf0a5399c86366dc1fe464bcce2ae89748b6244f74e3f66ecb6b.png" />
 </div>
 </div>
 <p>To find <span class="math notranslate nohighlight">\(P(U_{(2)} \in dx, U_{(4)} \in dy)\)</span>, notice that for this event to occur:</p>
@@ -694,7 +689,7 @@ f(x, y) = 120x(y-x)(1-y), ~~~ 0 &lt; x &lt; y &lt; 1
 </ul>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/90f676ddc356d516d4f510d3952c7724cf1a8ef245d63e5067217d84f12600ad.png" src="../../_images/90f676ddc356d516d4f510d3952c7724cf1a8ef245d63e5067217d84f12600ad.png" />
+<img alt="../../_images/f1c48afade06e93940feefb3f308c1049e0bb4816fd80cad6e9f2d1e36ce0aa4.png" src="../../_images/f1c48afade06e93940feefb3f308c1049e0bb4816fd80cad6e9f2d1e36ce0aa4.png" />
 </div>
 </div>
 <p>Apply the multinomial formula again.</p>
@@ -737,7 +732,7 @@ f(x) ~ = ~ \frac{(r+s-1)!}{(r-1)!(s-1)!} x^{r-1}(1-x)^{s-1}, ~~~ 0 &lt; x &lt; 1
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/72674364ad65cd6ab081201dc7aa08d8231189ed3867499a9259757025ea5835.png" src="../../_images/72674364ad65cd6ab081201dc7aa08d8231189ed3867499a9259757025ea5835.png" />
+<img alt="../../_images/80072fe8725f207c14e4c7c7dbfc9e98c8e5bacfe5ed90bd872ec8a7bf3af676.png" src="../../_images/80072fe8725f207c14e4c7c7dbfc9e98c8e5bacfe5ed90bd872ec8a7bf3af676.png" />
 </div>
 </div>
 <p>By choosing the parameters appropriately, you can create beta densities that put much of their mass near a prescribed value. That is one of the reasons beta densities are used to model <em>random proportions</em>. For example, if you think that the probability that an email is spam is most likely in the 60% to 90% range, but might be lower, you might model your belief by choosing the density that peaks at around 0.75 in the graph above.</p>
