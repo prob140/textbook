@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -601,7 +601,7 @@ f(x) =
 <p>As you can see from its graph below, <span class="math notranslate nohighlight">\(f\)</span> could be used to model the distribution of a random proportion that you think is likely to be somewhere between 0.2 and 0.4.</p>
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/fb7b5fbdf771f23e9732739788a7ae555b28a53e5b23efff0bea672394dacb3d.png" src="../../_images/fb7b5fbdf771f23e9732739788a7ae555b28a53e5b23efff0bea672394dacb3d.png" />
+<img alt="../../_images/9817323b7bed3d8f5b005ac5d2da1d73872c5c8321ad7a595ab55d03cb1d49e6.png" src="../../_images/9817323b7bed3d8f5b005ac5d2da1d73872c5c8321ad7a595ab55d03cb1d49e6.png" />
 </div>
 </div>
 <p>The density <span class="math notranslate nohighlight">\(f\)</span> is a polynomial on the unit interval, and in principle the algebra and calculus involved in integrating it are straightforward. But they are tedious. So let’s get <code class="docutils literal notranslate"><span class="pre">SymPy</span></code> to do the work.</p>
@@ -784,7 +784,7 @@ f(t) ~ = \lambda e^{-\lambda t}, ~~~ t \ge 0
 <p>The density is 0 on the negative numbers. Here is its graph when <span class="math notranslate nohighlight">\(\lambda = 3\)</span>.</p>
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/95bd8fbc0f86006aff19052239d1813f63e3d74d0c85c75c7bfc0dc0e1091cbb.png" src="../../_images/95bd8fbc0f86006aff19052239d1813f63e3d74d0c85c75c7bfc0dc0e1091cbb.png" />
+<img alt="../../_images/5907378f835cc46f9345accf46f20ecefcd1579a1bb32772ba75985ec2ce14f1.png" src="../../_images/5907378f835cc46f9345accf46f20ecefcd1579a1bb32772ba75985ec2ce14f1.png" />
 </div>
 </div>
 <p>To check that <span class="math notranslate nohighlight">\(f\)</span> is a density, we have to confirm that its integral is 1. We will start by constructing two symbols, <code class="docutils literal notranslate"><span class="pre">t</span></code> and <code class="docutils literal notranslate"><span class="pre">lamda</span></code>. Notice the incorrectly spelled <code class="docutils literal notranslate"><span class="pre">lamda</span></code> instead of <code class="docutils literal notranslate"><span class="pre">lambda</span></code>. That is because <code class="docutils literal notranslate"><span class="pre">lambda</span></code> has another meaning in Python, as some of you might know.</p>
