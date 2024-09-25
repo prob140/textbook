@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -609,7 +609,7 @@ E(Z) = 0 ~~~ \text{and} ~~~ SD(Z) = 1
 \]</div>
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/77df80c7815b02e1157c5358c3485ca18b9215d84650b4b0fec8d826afad5acf.png" src="../../_images/77df80c7815b02e1157c5358c3485ca18b9215d84650b4b0fec8d826afad5acf.png" />
+<img alt="../../_images/042a984a472981c77d9192022432e95e436789fccf87527f32555fe62c5a0127.png" src="../../_images/042a984a472981c77d9192022432e95e436789fccf87527f32555fe62c5a0127.png" />
 </div>
 </div>
 <p>The curve is symmetric about <span class="math notranslate nohighlight">\(0\)</span>. Its points of inflection are at <span class="math notranslate nohighlight">\(z=-1\)</span> and <span class="math notranslate nohighlight">\(z=1\)</span>. You observed this in Data 8 and can prove it by calculus.</p>
@@ -633,7 +633,7 @@ f(x) ~ = ~ \frac{1}{\sqrt{2\pi}\sigma} e^{-\frac{1}{2}(\frac{x-\mu}{\sigma})^2},
 \]</div>
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/900d198cc9eb5ae5aeb6739071a3b14c1c26ce7a8b68fab5f32993d4134ceba1.png" src="../../_images/900d198cc9eb5ae5aeb6739071a3b14c1c26ce7a8b68fab5f32993d4134ceba1.png" />
+<img alt="../../_images/3ce7629d419a059512f53b6eee4cfcde131a73d52a1f34ceeee189e2cd8b7782.png" src="../../_images/3ce7629d419a059512f53b6eee4cfcde131a73d52a1f34ceeee189e2cd8b7782.png" />
 </div>
 </div>
 <p>The shape looks exactly the same as the standard normal curve. The only difference is in the scales of measurement on the axes. The center is now <span class="math notranslate nohighlight">\(\mu\)</span> instead of <span class="math notranslate nohighlight">\(0\)</span>, and the points of inflection are at a distance of <span class="math notranslate nohighlight">\(\sigma\)</span> away from the center instead of <span class="math notranslate nohighlight">\(1\)</span>.</p>
@@ -676,7 +676,7 @@ E(S_n) = n\mu ~~~~~~~~~~ SD(S_n) = \sqrt{n}\sigma
 <p>A complete proof of this theorem is beyond the scope of this course. A calculation in a later chapter will bring you closer to a proof. For now, just accept it. You have seen plenty of evidence for it in the simulations done in Data 8 and in the exact distributions of sums computed in the previous section.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/e546e4c70a78a764c98f25a5a9a657dd7276f473cb9bd0d28608bdfb626d48ef.png" src="../../_images/e546e4c70a78a764c98f25a5a9a657dd7276f473cb9bd0d28608bdfb626d48ef.png" />
+<img alt="../../_images/3887f93aad08df626ae73f8062405893c49530c6d8b439b8baa1c917a8babf18.png" src="../../_images/3887f93aad08df626ae73f8062405893c49530c6d8b439b8baa1c917a8babf18.png" />
 </div>
 </div>
 <div class="admonition-quick-check admonition">
@@ -722,7 +722,7 @@ E(S_n) = n\mu ~~~~~~~~~~ SD(S_n) = \sqrt{n}\sigma
 <p>Note that at this stage of the course, the term <em>standard normal cdf</em> is being used only by analogy with the concept of a discrete cdf. In the next chapter we will show that the standard normal cdf is the cdf of a random variable that has values on the entire real line.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/155b926280181a0c285d2f046fbf89aa736287739666057fe0060640214548ed.png" src="../../_images/155b926280181a0c285d2f046fbf89aa736287739666057fe0060640214548ed.png" />
+<img alt="../../_images/6b189683c95f2543e98f3382bedd3227e35da297c36e9f415d6c8dddea415815.png" src="../../_images/6b189683c95f2543e98f3382bedd3227e35da297c36e9f415d6c8dddea415815.png" />
 </div>
 </div>
 <p>For each <span class="math notranslate nohighlight">\(x\)</span>, the integral that defines <span class="math notranslate nohighlight">\(\Phi(x)\)</span> is finite. But it does not have a closed form formula that can be written in terms of arithmetic operations, powers, trigonometric functions, exponential and logarithmic functions, composition, and other mathematical operations. It has to be approximated by numerical integration. That is why every statistical system has a built-in function that provides excellent approximations. In the next section we will use the function provided in <code class="docutils literal notranslate"><span class="pre">SciPy</span></code>.</p>
@@ -750,7 +750,7 @@ P(S_n \le x) ~ \approx ~ \Phi \big{(} \frac{x - n\mu}{\sqrt{n}\sigma} \big{)} ~~
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/66cf33b8ff613f3b243ddb124e4ff5742b5322176913538234494cbea094d8b0.png" src="../../_images/66cf33b8ff613f3b243ddb124e4ff5742b5322176913538234494cbea094d8b0.png" />
+<img alt="../../_images/b65c6b9fe724ba90d7c344be4269566415d70d953491f27917f141780b434d07.png" src="../../_images/b65c6b9fe724ba90d7c344be4269566415d70d953491f27917f141780b434d07.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -764,7 +764,7 @@ P(S_n \le x) ~ \approx ~ \Phi \big{(} \frac{x - n\mu}{\sqrt{n}\sigma} \big{)} ~~
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/f39b5a444c67a361ef0d9a1e743b109acd45aa61bdaf228c3813163488392c13.png" src="../../_images/f39b5a444c67a361ef0d9a1e743b109acd45aa61bdaf228c3813163488392c13.png" />
+<img alt="../../_images/a94ba67531c4b153eebe87f605c29f680ecfb4ee148e264f9713b350eb2d662a.png" src="../../_images/a94ba67531c4b153eebe87f605c29f680ecfb4ee148e264f9713b350eb2d662a.png" />
 </div>
 </div>
 <p>The difference arises due to the spread of the distributions. The Poisson approximation applies when <span class="math notranslate nohighlight">\(p\)</span> is small and the binomial distribution is scrunched up near <span class="math notranslate nohighlight">\(0\)</span>. When the spread is larger so that there are a substantial number of possible values on either side of the mean, then the normal approximation is the one to try.</p>
@@ -782,7 +782,7 @@ P(S_n \le x) ~ \approx ~ \Phi \big{(} \frac{x - n\mu}{\sqrt{n}\sigma} \big{)} ~~
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/9240da332a3a800386058a8a389f77cba6b589cc81ff8c08338df72193c4f815.png" src="../../_images/9240da332a3a800386058a8a389f77cba6b589cc81ff8c08338df72193c4f815.png" />
+<img alt="../../_images/8f85627200ac79ffa578be79cbbd552efbc1df042e9010f0be4ae3eed86d2964.png" src="../../_images/8f85627200ac79ffa578be79cbbd552efbc1df042e9010f0be4ae3eed86d2964.png" />
 </div>
 </div>
 <p>Notice how the points “<span class="math notranslate nohighlight">\(\mbox{mean } \pm \mbox{ SD}\)</span>” <span class="math notranslate nohighlight">\(= 50 \pm 5\)</span> are the points of inflection of the curve.</p>
