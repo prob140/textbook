@@ -6,7 +6,7 @@ project:
   numbering:
     title: true
     headings: true
-    equations: false 
+    equations: false
   exclude:
     - LICENSE.md
   github: prob140/textbook
