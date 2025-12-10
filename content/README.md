@@ -1,10 +1,14 @@
+---
+numbering: false
+---
+
 # Data 140
 
 ## Probability for Data Science
 -------------------------------
 **By [Ani Adhikari](http://statistics.berkeley.edu/people/ani-adhikari) and [Jim Pitman](http://www.stat.berkeley.edu/~pitman/)**
 
-This is the textbook for the [Probability for Data Science](http://prob140.org/) class at UC Berkeley.
+This is the textbook for the [Probability for Data Science](https://data140.org/) class at UC Berkeley.
 
 
 

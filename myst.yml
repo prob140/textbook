@@ -5,6 +5,8 @@ project:
     - name: Ani Adhikari
   numbering:
     title: true
+    headings: true
+    equations: false 
   exclude:
     - LICENSE.md
   github: prob140/textbook
@@ -13,7 +15,7 @@ project:
     - file: content/README.md
     - title: Introduction
       children:
-        - url: http://prob140.org
+        - url: https://data140.org/
           title: Course Home
         - file: content/To_the_Student.ipynb
     - title: Chapters
