@@ -1,6 +1,5 @@
 # Requirements for building and deploying the textbook.
 jupyter-book>=2
-ghp-import
 
 # Requirements for building and deploying the textbook.
 numpy
