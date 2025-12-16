@@ -1,6 +1,6 @@
 # Data 140 Textbook
 
-[![Jupyter Book (via myst) GitHub Pages Deploy](https://github.com/prob140/textbook/actions/workflows/deploy.yml/badge.svg)](https://github.com/prob140/textbook/actions/workflows/deploy.yml)
+[![Jupyter Book (via myst) GitHub Pages Deploy](https://github.com/prob140/textbook/actions/workflows/deploy.yml/badge.svg)](https://github.com/prob140/textbook/actions/workflows/deploy.yml) [![Accessibility Checks](https://github.com/prob140/textbook/actions/workflows/a11y.yml/badge.svg)](https://github.com/prob140/textbook/actions/workflows/a11y.yml)
 
 This textbook was built with [Jupyter Book](https://jupyterbook.org/en/stable/intro.html). This README was written by Shahzar.
 

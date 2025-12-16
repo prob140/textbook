@@ -1,0 +1,63 @@
+name: Accessibility Checks
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+
+jobs:
+  axe-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 1. Setup Python & Build the Book
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+          
+      - name: Install Python dependencies
+        run: pip install -r requirements.txt
+
+      - name: Build Jupyter Book
+        run: jupyter-book build --html
+
+      # 2. Setup Node environment for Axe
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Axe CLI and HTTP Server
+        run: npm install -g @axe-core/cli http-server
+
+      - name: Get Matching Chrome version
+        run: npx browser-driver-manager install chrome
+
+      # 3. Serve, Discover URLs, and Run Axe
+      - name: Run Axe Checks
+        run: |
+          # A. Start a local server in the background
+          npx http-server ./_build/html -p 8080 -s &
+          sleep 5
+          
+          # B. Generate the URL list from the actual build artifacts
+          cd _build/html
+          URLS=$(find . -name "*.html" -not -path "*/build/*" | sed 's|^\./||' | sed 's|^|http://localhost:8080/|' | tr '\n' ' ')          
+          
+          # C. Run Axe CLI on the discovered URLs
+          axe $URLS \
+            --tags wcag2a,wcag2aa,wcag21a,wcag21aa \
+            --save axe-report.json \
+            --exit
+
+      - name: Upload Accessibility Report
+        if: always() 
+        uses: actions/upload-artifact@v4
+        with:
+          name: axe-report
+          path: _build/html/axe-report.json
