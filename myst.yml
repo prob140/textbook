@@ -4,8 +4,6 @@ project:
   authors:
     - name: Ani Adhikari
   numbering:
-    title: true
-    headings: true
     equations: false
   exclude:
     - LICENSE.md
