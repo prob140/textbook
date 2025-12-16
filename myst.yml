@@ -1,0 +1,205 @@
+version: 1
+project:
+  title: Data 140 Textbook
+  authors:
+    - name: Ani Adhikari
+  numbering:
+    equations: false
+  exclude:
+    - LICENSE.md
+  github: prob140/textbook
+  license: CC-BY-NC-ND-4.0
+  toc:
+    - file: content/README.md
+    - title: Introduction
+      children:
+        - url: https://data140.org/
+          title: Course Home
+        - file: content/To_the_Student.ipynb
+    - title: Chapters
+      children:
+        - file: content/Chapter_01/00_Fundamentals.ipynb
+          children:
+            - file: content/Chapter_01/01_Outcome_Space_and_Events.ipynb
+            - file: content/Chapter_01/02_Equally_Likely_Outcomes.ipynb
+            - file: content/Chapter_01/03_Collisions_in_Hashing.ipynb
+            - file: content/Chapter_01/04_Birthday_Problem.ipynb
+            - file: content/Chapter_01/05_An_Exponential_Approximation.ipynb
+            - file: content/Chapter_01/06_Exercises.ipynb
+        - file: content/Chapter_02/00_Calculating_Chances.ipynb
+          children:
+            - file: content/Chapter_02/01_Addition.ipynb
+            - file: content/Chapter_02/02_Examples.ipynb
+            - file: content/Chapter_02/03_Multiplication.ipynb
+            - file: content/Chapter_02/04_More_Examples.ipynb
+            - file: content/Chapter_02/05_Updating_Probabilities.ipynb
+            - file: content/Chapter_02/06_Exercises.ipynb
+        - file: content/Chapter_03/00_Random_Variables.ipynb
+          children:
+            - file: content/Chapter_03/01_Functions_on_an_Outcome_Space.ipynb
+            - file: content/Chapter_03/02_Distributions.ipynb
+            - file: content/Chapter_03/03_Equality.ipynb
+            - file: content/Chapter_03/04_Exercises.ipynb
+        - file: content/Chapter_04/00_Relations_Between_Variables.ipynb
+          children:
+            - file: content/Chapter_04/01_Joint_Distributions.ipynb
+            - file: content/Chapter_04/02_Examples.ipynb
+            - file: content/Chapter_04/03_Marginal_Distributions.ipynb
+            - file: content/Chapter_04/04_Conditional_Distributions.ipynb
+            - file: content/Chapter_04/05_Dependence_and_Independence.ipynb
+            - file: content/Chapter_04/06_Exercises.ipynb
+        - file: content/Chapter_05/00_Collections_of_Events.ipynb
+          children:
+            - file: content/Chapter_05/01_Bounding_the_Chance_of_a_Union.ipynb
+            - file: content/Chapter_05/02_Inclusion_Exclusion.ipynb
+            - file: content/Chapter_05/03_The_Matching_Problem.ipynb
+            - file: content/Chapter_05/04_Sampling_Without_Replacement.ipynb
+            - file: content/Chapter_05/05_Exercises.ipynb
+        - file: content/Chapter_06/00_Random_Counts.ipynb
+          children:
+            - file: content/Chapter_06/01_Binomial_Distribution.ipynb
+            - file: content/Chapter_06/02_Examples.ipynb
+            - file: content/Chapter_06/03_Multinomial_Distribution.ipynb
+            - file: content/Chapter_06/04_The_Hypergeometric_Revisited.ipynb
+            - file: content/Chapter_06/05_Odds_Ratios.ipynb
+            - file: content/Chapter_06/06_Law_of_Small_Numbers.ipynb
+            - file: content/Chapter_06/07_Exercises.ipynb
+        - file: content/Chapter_07/00_Poissonization.ipynb
+          children:
+            - file: content/Chapter_07/01_Poisson_Distribution.ipynb
+            - file: content/Chapter_07/02_Poissonizing_the_Binomial.ipynb
+            - file: content/Chapter_07/03_Poissonizing_the_Multinomial.ipynb
+            - file: content/Chapter_07/04_Exercises.ipynb
+        - file: content/Chapter_08/00_Expectation.ipynb
+          children:
+            - file: content/Chapter_08/01_Definition.ipynb
+            - file: content/Chapter_08/02_Applying_the_Definition.ipynb
+            - file: content/Chapter_08/03_Expectations_of_Functions.ipynb
+            - file: content/Chapter_08/04_Additivity.ipynb
+            - file: content/Chapter_08/05_Method_of_Indicators.ipynb
+            - file: content/Chapter_08/06_Exercises.ipynb
+        - file: content/Chapter_09/00_Conditioning_Revisited.ipynb
+          children:
+            - file: content/Chapter_09/01_Probability_by_Conditioning.ipynb
+            - file: content/Chapter_09/02_Expectation_by_Conditioning.ipynb
+            - file: content/Chapter_09/03_Expected_Waiting_Times.ipynb
+            - file: content/Chapter_09/04_Exercises.ipynb
+        - file: content/Chapter_10/00_Markov_Chains.ipynb
+          children:
+            - file: content/Chapter_10/01_Transitions.ipynb
+            - file: content/Chapter_10/02_Deconstructing_Chains.ipynb
+            - file: content/Chapter_10/03_Long_Run_Behavior.ipynb
+            - file: content/Chapter_10/04_Examples.ipynb
+        - file: content/Chapter_11/00_Markov_Chain_Monte_Carlo.ipynb
+          children:
+            - file: content/Chapter_11/01_Balance_and_Detailed_Balance.ipynb
+            - file: content/Chapter_11/02_Code_Breaking.ipynb
+            - file: content/Chapter_11/03_Metropolis_Algorithm.ipynb
+            - file: content/Chapter_11/04_Exercises.ipynb
+        - file: content/Chapter_12/00_Standard_Deviation.ipynb
+          children:
+            - file: content/Chapter_12/01_Definition.ipynb
+            - file: content/Chapter_12/02_Prediction_and_Estimation.ipynb
+            - file: content/Chapter_12/03_Bounds.ipynb
+            - file: content/Chapter_12/04_Heavy_Tails.ipynb
+            - file: content/Chapter_12/05_Exercises.ipynb
+        - file: content/Chapter_13/00_Variance_Via_Covariance.ipynb
+          children:
+            - file: content/Chapter_13/01_Covariance.ipynb
+            - file: content/Chapter_13/02_Properties_of_Covariance.ipynb
+            - file: content/Chapter_13/03_Sums_of_Independent_Variables.ipynb
+            - file: content/Chapter_13/04_Symmetry_and_Indicators.ipynb
+            - file: content/Chapter_13/05_Finite_Population_Correction.ipynb
+            - file: content/Chapter_13/06_Exercises.ipynb
+        - file: content/Chapter_14/00_The_Central_Limit_Theorem.ipynb
+          children:
+            - file: content/Chapter_14/01_Exact_Distribution_of_a_Sum.ipynb
+            - file: content/Chapter_14/02_PGFs_in_NumPy.ipynb
+            - file: content/Chapter_14/03_Central_Limit_Theorem.ipynb
+            - file: content/Chapter_14/04_SciPy_and_Normal_Curves.ipynb
+            - file: content/Chapter_14/05_The_Sample_Mean.ipynb
+            - file: content/Chapter_14/06_Confidence_Intervals.ipynb
+            - file: content/Chapter_14/07_Exercises.ipynb
+        - file: content/Chapter_15/00_Continuous_Distributions.ipynb
+          children:
+            - file: content/Chapter_15/01_Density_and_CDF.ipynb
+            - file: content/Chapter_15/02_The_Meaning_of_Density.ipynb
+            - file: content/Chapter_15/03_Expectation.ipynb
+            - file: content/Chapter_15/04_Exponential_Distribution.ipynb
+            - file: content/Chapter_15/05_Calculus_in_SymPy.ipynb
+            - file: content/Chapter_15/06_Exercises.ipynb
+        - file: content/Chapter_16/00_Transformations.ipynb
+          children:
+            - file: content/Chapter_16/01_Linear_Transformations.ipynb
+            - file: content/Chapter_16/02_Monotone_Functions.ipynb
+            - file: content/Chapter_16/03_Simulation_via_the_CDF.ipynb
+            - file: content/Chapter_16/04_Two_to_One_Functions.ipynb
+            - file: content/Chapter_16/05_Exercises.ipynb
+        - file: content/Chapter_17/00_Joint_Densities.ipynb
+          children:
+            - file: content/Chapter_17/01_Probabilities_and_Expectations.ipynb
+            - file: content/Chapter_17/02_Independence.ipynb
+            - file: content/Chapter_17/03_Marginal_and_Conditional_Densities.ipynb
+            - file: >-
+                content/Chapter_17/04_Beta_Densities_with_Integer_Parameters.ipynb
+            - file: content/Chapter_17/05_Exercises.ipynb
+        - file: content/Chapter_18/00_The_Normal_and_Gamma_Families.ipynb
+          children:
+            - file: content/Chapter_18/01_Standard_Normal_Basics.ipynb
+            - file: content/Chapter_18/02_Sums_of_Independent_Normal_Variables.ipynb
+            - file: content/Chapter_18/03_The_Gamma_Family.ipynb
+            - file: content/Chapter_18/04_Chi_Squared_Distributions.ipynb
+            - file: content/Chapter_18/05_Exercises.ipynb
+        - file: content/Chapter_19/00_Distributions_of_Sums.ipynb
+          children:
+            - file: content/Chapter_19/01_Convolution_Formula.ipynb
+            - file: content/Chapter_19/02_Moment_Generating_Functions.ipynb
+            - file: content/Chapter_19/03_MGFs_Normal_and_the_CLT.ipynb
+            - file: content/Chapter_19/04_Chernoff_Bound.ipynb
+            - file: content/Chapter_19/05_Exercises.ipynb
+        - file: content/Chapter_20/00_Approaches_to_Estimation.ipynb
+          children:
+            - file: content/Chapter_20/01_Maximum_Likelihood.ipynb
+            - file: content/Chapter_20/02_Independence_Revisited.ipynb
+            - file: content/Chapter_20/03_Prior_and_Posterior.ipynb
+            - file: content/Chapter_20/04_Exercises.ipynb
+        - file: content/Chapter_21/00_The_Beta_and_the_Binomial.ipynb
+          children:
+            - file: content/Chapter_21/01_Updating_and_Prediction.ipynb
+            - file: content/Chapter_21/02_Beta_Binomial_Distribution.ipynb
+            - file: content/Chapter_21/03_Long_Run_Proportion_of_Heads.ipynb
+            - file: content/Chapter_21/04_Exercises.ipynb
+        - file: content/Chapter_22/00_Prediction.ipynb
+          children:
+            - file: content/Chapter_22/01_Conditional_Expectation_Projection.ipynb
+            - file: content/Chapter_22/02_Least_Squares_Predictor.ipynb
+            - file: content/Chapter_22/03_Variance_by_Conditioning.ipynb
+            - file: content/Chapter_22/04_Examples.ipynb
+            - file: content/Chapter_22/05_Exercises.ipynb
+        - file: content/Chapter_23/00_Multivariate_Normal_RVs.ipynb
+          children:
+            - file: content/Chapter_23/01_Random_Vectors.ipynb
+            - file: content/Chapter_23/02_Multivariate_Normal_Vectors.ipynb
+            - file: content/Chapter_23/03_Multivariate_Normal_Density.ipynb
+            - file: content/Chapter_23/04_Independence.ipynb
+            - file: content/Chapter_23/05_Exercises.ipynb
+        - file: content/Chapter_24/00_Simple_Linear_Regression.ipynb
+          children:
+            - file: content/Chapter_24/01_Linear_Least_Squares.ipynb
+            - file: content/Chapter_24/02_Bivariate_Normal_Distribution.ipynb
+            - file: content/Chapter_24/03_Regression_and_Bivariate_Normal.ipynb
+            - file: content/Chapter_24/04_Regression_Equation.ipynb
+            - file: content/Chapter_24/05_Exercises.ipynb
+        - file: content/Chapter_25/00_Multiple_Regression.ipynb
+          children:
+            - file: content/Chapter_25/01_Bilinearity_in_Matrix_Notation.ipynb
+            - file: content/Chapter_25/02_Best_Linear_Predictor.ipynb
+            - file: content/Chapter_25/03_Multivariate_Normal_Conditioning.ipynb
+            - file: content/Chapter_25/04_Multiple_Regression.ipynb
+site:
+  options:
+    logo: content/images/logo/sp22_ugarte_logo.png
+    favicon: content/images/favicon/favicon.ico
+    folders: true
+    hide_authors: true
+  template: book-theme
