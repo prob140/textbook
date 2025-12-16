@@ -1,6 +1,8 @@
 # Data 140 Textbook
 
-This textbook was built with [Jupyter Books](https://jupyterbook.org/en/stable/intro.html). This README was written by Shahzar.
+[![Jupyter Book (via myst) GitHub Pages Deploy](https://github.com/prob140/textbook/actions/workflows/deploy.yml/badge.svg)](https://github.com/prob140/textbook/actions/workflows/deploy.yml)
+
+This textbook was built with [Jupyter Book](https://jupyterbook.org/en/stable/intro.html). This README was written by Shahzar.
 
 ## Structure
 
