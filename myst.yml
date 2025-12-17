@@ -5,6 +5,7 @@ project:
     - name: Ani Adhikari
   numbering:
     equations: false
+    headings: true
   exclude:
     - LICENSE.md
   github: prob140/textbook
