@@ -20,7 +20,7 @@ This section details how to maintain the textbook.
 ### One-time Setup
 Follow these steps the first time you set up a computer to modify and maintain the textbook.
 1. Create a local copy of this repo by running `git clone https://github.com/prob140/textbook.git` from the command line in whichever folder you want to contain the textbook.
-2. Next, you need to install all the required packages. Either of the commands `pip install -r requirements.txt` or `conda install --file requirements.txt` should work. If you have a Windows device, it's preferable to run this in an Anaconda Prompt terminal. This should install the two packages `jupyter-book` and `ghp-import`, which are used for building and deploying the textbook, respectively, and a bunch of other typical packages (e.g. `numpy`, `scipy`, `matplotlib`, etc.) used by the `content/` notebooks. If you use pip to install the packages, I recommend using a python virtual environment:
+2. Next, you need to install all the required packages. Either of the commands `pip install -r requirements.txt` or `conda install --file requirements.txt` should work. If you have a Windows device, it's preferable to run this in an Anaconda Prompt terminal. This should install the packages used to build the textbook and execute the notebooks. If you use pip to install the packages, I recommend using a python virtual environment:
 ```
 python3 -m venv venv # create virtual environment
 source venv/bin/activate # activate the virtual environment
