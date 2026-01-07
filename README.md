@@ -26,16 +26,14 @@ python3 -m venv venv # create virtual environment
 source venv/bin/activate # activate the virtual environment
 pip install -r requirements.txt # as above
 ```
-If you use a virutal environment, make sure to activate it before updating the textbook by first running `source venv/bin/activate` at the root of this repo. You can deactivate the environment with `deactivate`.
+If you use a virutal environment, make sure to activate it before updating the textbook by first running `source venv/bin/activate` at the top level of this repository. You can deactivate the environment with `deactivate`.
 
 ### Updating the Textbook
 These steps detail the process you should go through every time you update the textbook.
 1. **Pull:** `cd` into `textbook/`, your local copy of the textbook repo and `git pull origin master` to collect any updates which may have been pushed to the remote copy by other collaborators.
 2. **Update:** Make any changes you wish to make. This should (likely) only consist of changes to `_myst.yml` and the files in `content/`.
-    - If you added new sections or chapters, update `myst.yml` as well to reflect your changes.
-3. **Build and Check:** `cd` into the directory above `textbook/` (i.e. `cd ..`) and run `jupyter book start` to build the book and serve it on localhost. View what the textbook will look like with any changes you've made. Make sure nothing is broken and the changes are as you want them. 
-    - See the [Troubleshooting](#troubleshooting) section for any issues you may be having.
-    - Take a look at the [Issues](#issues) for problematic parts of the textbook.
+    - If you added new sections or chapters, update the `toc` in `myst.yml` to ensure your changes are included.
+3. **Build and Check:** `cd` into the directory above `textbook/` (i.e. `cd ..`) and run `jupyter book start` to build the book and serve it on localhost. View what the textbook looks like with any changes you've made. Make sure nothing is broken and the changes are as you want them. 
 6. **Push:**  Stage any changes you made (i.e. using `git add [file]`, `git add -u`, `git add .`, etc.), commit your changes with `git commit -m "[description]"` (please include a useful description of any changes you made), and push to the master repository with `git push origin master`. Deployment will happen automatically via GitHub Actions.
 
 ### Deployment
