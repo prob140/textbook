@@ -38,8 +38,11 @@ These steps detail the process you should go through every time you update the t
     - Take a look at the [Issues](#issues) for problematic parts of the textbook.
 6. **Push:**  Stage any changes you made (i.e. using `git add [file]`, `git add -u`, `git add .`, etc.), commit your changes with `git commit -m "[description]"` (please include a useful description of any changes you made), and push to the master repository with `git push origin master`. Deployment will happen automatically via GitHub Actions.
 
+### Deployment
+The textbook is hosted on GitHub Pages and deployed automatically everytime you push to the master branch via [this workflow](https://github.com/prob140/textbook/actions/workflows/deploy.yml).
+
 ## Notes
-The (Jupyter Book)(https://jupyterbook.org/stable/) website has lots of information about Jupyter Book. This textbook has been upgraded to Jupyter Book v2 built on [MyST](https://mystmd.org/).
+The [Jupyter Book](https://jupyterbook.org/stable/) website has lots of information about Jupyter Book. This textbook has been upgraded to Jupyter Book v2 built on [MyST](https://mystmd.org/).
 
 If changes you've made aren't showing up the HTML after building, sometimes deleting `_build` and then building again helps. You can also run `jupyter book clean`.
 
@@ -48,13 +51,13 @@ Some cells are hidden with tags like `remove-input` or `remove-cell`.
 ### Links
 Links to the internet should be done as they are usually done in Markdown. However, to cross-link to other pages of the textbook, there is an internal linking system that should be used instead (since it is robust to file structure changes). This system is described [here](https://mystmd.org/guide/cross-references#targeting-headers). 
 
-For example, Section 12.4 Exercise 3 of the [Stat 88 Textbook](stat88.org/textbook) contains a link to Section 12.2. 
+For example, Section 12.4 Exercise 3 of the [Stat 88 Textbook](https://github.com/stat88/textbook) contains a link to Section 12.2. 
 1. The flag `(ch12.2)=` was added *before* the primary header of the notebook.
 ```
 (ch12.2)=
 ## The Distribution of the Estimated Slope ##
 ```
-2. The link to Section 12.2 was changed to `(ch12.2)`.
+2. The link referencing Section 12.2 is created like so:
 ```
 **3.** 
 Refer to the regression of active pulse rate on resting pulse rate in [Section 12.2](ch12.2). Here are the estimated values again, along with some additional data.
