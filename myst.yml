@@ -200,6 +200,7 @@ project:
 site:
   options:
     logo: content/images/logo/sp22_ugarte_logo.png
+    logo_text: "Data 140"
     favicon: content/images/favicon/favicon.ico
     folders: true
     hide_authors: true
