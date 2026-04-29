@@ -258,6 +258,39 @@ def write_summary(errors, warnings):
         f.write("| Autoplay | Remove autoplay |\n")
         f.write("| No controls | Enable controls |\n")
 
+def process_json_node(node, file_name):
+    modified = False
+    if isinstance(node, dict):
+        if "data" in node and isinstance(node["data"], dict) and "text/html" in node["data"] and "content" in node["data"]["text/html"]:
+            html_str = node["data"]["text/html"]["content"]
+            if "<iframe" in html_str.lower():
+                soup = BeautifulSoup(html_str, "html.parser")
+                iframe_modified = False
+                for iframe in soup.find_all("iframe"):
+                    src = iframe.get("src", "").strip()
+                    title = iframe.get("title", "").strip()
+                    aria = iframe.get("aria-label", "").strip()
+                    name = title or aria
+                    if not name or name.lower() in GENERIC_TITLES:
+                        if "youtube" in src.lower() or "vimeo" in src.lower():
+                            t = fetch_video_title(src)
+                            if t:
+                                iframe["title"] = t
+                                iframe_modified = True
+                                print(f"  Fixed {file_name}: Added title '{t}'")
+                if iframe_modified:
+                    node["data"]["text/html"]["content"] = str(soup)
+                    modified = True
+        
+        for k, v in node.items():
+            if process_json_node(v, file_name):
+                modified = True
+    elif isinstance(node, list):
+        for item in node:
+            if process_json_node(item, file_name):
+                modified = True
+    return modified
+
 def main():
     if len(sys.argv) != 2:
         print("Usage: script.py <html-dir>")
@@ -268,28 +301,15 @@ def main():
         print("Directory not found")
         sys.exit(2)
 
-    print("Auto-fixing missing iframe titles...")
-    for file in root.rglob("*.html"):
+    print("Auto-fixing missing iframe titles in JSON files...")
+    for file in root.rglob("*.json"):
         try:
             with open(file, 'r', encoding='utf-8') as f:
-                static_html = f.read()
-            static_soup = BeautifulSoup(static_html, "lxml")
-            modified = False
-            for iframe in static_soup.find_all("iframe"):
-                src = iframe.get("src", "").strip()
-                if is_video_iframe(src):
-                    title = iframe.get("title", "").strip()
-                    aria = iframe.get("aria-label", "").strip()
-                    name = title or aria
-                    if not name or name.lower() in GENERIC_TITLES:
-                        fetched_title = fetch_video_title(src)
-                        if fetched_title:
-                            iframe["title"] = fetched_title
-                            modified = True
-                            print(f"  Fixed {file.name}: Added title '{fetched_title}'")
-            if modified:
+                data = json.load(f)
+            
+            if process_json_node(data, file.name):
                 with open(file, 'w', encoding='utf-8') as f:
-                    f.write(str(static_soup))
+                    json.dump(data, f, separators=(',', ':'))
         except Exception:
             pass
 
