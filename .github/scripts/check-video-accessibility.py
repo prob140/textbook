@@ -50,6 +50,8 @@ from pathlib import Path
 from urllib.parse import urlparse, parse_qs
 from bs4 import BeautifulSoup
 from playwright.sync_api import sync_playwright
+import urllib.request
+import json
 
 def start_server(directory, port=8000):
     class Handler(http.server.SimpleHTTPRequestHandler):
@@ -116,6 +118,43 @@ def annotate_error(message):
 
 def annotate_warning(message):
     print(f"::warning::{message}")
+
+def fetch_video_title(src):
+    try:
+        if "youtube" in src.lower() or "youtu.be" in src.lower():
+            video_id = None
+            if "/embed/" in src:
+                video_id = src.split("/embed/")[1].split("?")[0]
+            elif "v=" in src:
+                video_id = parse_qs(urlparse(src).query).get("v", [None])[0]
+            elif "youtu.be/" in src:
+                video_id = src.split("youtu.be/")[1].split("?")[0]
+
+            if not video_id:
+                return None
+
+            url = f"https://www.youtube.com/oembed?url=http://www.youtube.com/watch?v={video_id}&format=json"
+            req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+            with urllib.request.urlopen(req, timeout=5) as response:
+                data = json.loads(response.read().decode())
+                return data.get("title")
+        
+        elif "vimeo.com" in src.lower():
+            video_id = None
+            if "/video/" in src:
+                video_id = src.split("/video/")[1].split("?")[0]
+            
+            if not video_id:
+                return None
+                
+            url = f"https://vimeo.com/api/oembed.json?url=https%3A%2F%2Fvimeo.com%2F{video_id}"
+            req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+            with urllib.request.urlopen(req, timeout=5) as response:
+                data = json.loads(response.read().decode())
+                return data.get("title")
+    except Exception:
+        return None
+    return None
 
 def check_iframe(file, iframe):
     errors = []
@@ -228,6 +267,31 @@ def main():
     if not root.exists():
         print("Directory not found")
         sys.exit(2)
+
+    print("Auto-fixing missing iframe titles...")
+    for file in root.rglob("*.html"):
+        try:
+            with open(file, 'r', encoding='utf-8') as f:
+                static_html = f.read()
+            static_soup = BeautifulSoup(static_html, "lxml")
+            modified = False
+            for iframe in static_soup.find_all("iframe"):
+                src = iframe.get("src", "").strip()
+                if is_video_iframe(src):
+                    title = iframe.get("title", "").strip()
+                    aria = iframe.get("aria-label", "").strip()
+                    name = title or aria
+                    if not name or name.lower() in GENERIC_TITLES:
+                        fetched_title = fetch_video_title(src)
+                        if fetched_title:
+                            iframe["title"] = fetched_title
+                            modified = True
+                            print(f"  Fixed {file.name}: Added title '{fetched_title}'")
+            if modified:
+                with open(file, 'w', encoding='utf-8') as f:
+                    f.write(str(static_soup))
+        except Exception:
+            pass
 
     all_errors = []
     all_warnings = []
