@@ -34,50 +34,13 @@ jobs:
           pip install beautifulsoup4 lxml playwright
           playwright install chromium --with-deps
 
-      # 4. Build the Jupyter Book HTML
-      - name: Build Jupyter Book
-        run: jupyter-book build --html
+      # 4. Run axe accessibility checks (this step will build the site)
+      - name: Run Axe Accessibility Checks
+        uses: berkeley-cdss/myst-a11y@v1
+        with:
+          base_url: '/${{ github.event.repository.name }}'
 
-      # 5. Run your custom video accessibility checker
-      # This checks the generated HTML files in _build/html
+      # 5. Custom video accessibility checker
       - name: Check video embeds for accessibility
+        if: always()  # Run this step even if axe accessibility checks fail
         run: python .github/scripts/check-video-accessibility.py _build/html
-
-      # 6. Set up Node for axe
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-
-      # 7. Install axe and local server tools
-      - name: Install Axe CLI and HTTP Server
-        run: npm install -g @axe-core/cli http-server wait-on browser-driver-manager
-
-      # 8. Install matching Chrome driver
-      - name: Get Matching Chrome version
-        run: npx browser-driver-manager install chrome
-
-      # 9. Serve the built site and run axe
-      - name: Run Axe Checks
-        run: |
-          mkdir -p staging${BASE_URL}
-          cp -r _build/html/* staging${BASE_URL}/
-
-          npx http-server staging -p 8080 -s &
-          npx wait-on http://localhost:8080${BASE_URL}/
-
-          cd _build/html
-          URLS=$(find . -name "*.html" -not -path "*/build/*" | sed 's|^\./||' | sed "s|^|http://localhost:8080${BASE_URL}/|" | tr '\n' ' ')
-
-          axe $URLS \
-            --tags wcag2a,wcag2aa,wcag21a,wcag21aa \
-            --save axe-report.json \
-            --exit
-
-      # 10. Upload axe report
-      - name: Upload Accessibility Report
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: axe-report
-          path: _build/html/axe-report.json
