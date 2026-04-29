@@ -16,57 +16,67 @@ jobs:
   axe-check:
     runs-on: ubuntu-latest
     steps:
+      # 1. Checkout repo
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # 1. Setup Python & Build the Book
+      # 2. Set up Python
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.11'
           cache: 'pip'
-          
-      - name: Install Python dependencies
-        run: pip install -r requirements.txt
 
+      # 3. Install Python dependencies
+      - name: Install Python dependencies
+        run: |
+          pip install -r requirements.txt
+          pip install beautifulsoup4 lxml playwright
+          playwright install chromium --with-deps
+
+      # 4. Build the Jupyter Book HTML
       - name: Build Jupyter Book
         run: jupyter-book build --html
 
-      # 2. Setup Node environment for Axe
+      # 5. Run your custom video accessibility checker
+      # This checks the generated HTML files in _build/html
+      - name: Check video embeds for accessibility
+        run: python .github/scripts/check-video-accessibility.py _build/html
+
+      # 6. Set up Node for axe
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
 
+      # 7. Install axe and local server tools
       - name: Install Axe CLI and HTTP Server
-        run: npm install -g @axe-core/cli http-server
+        run: npm install -g @axe-core/cli http-server wait-on browser-driver-manager
 
+      # 8. Install matching Chrome driver
       - name: Get Matching Chrome version
         run: npx browser-driver-manager install chrome
 
-      # 3. Serve, Discover URLs, and Run Axe
+      # 9. Serve the built site and run axe
       - name: Run Axe Checks
         run: |
-          # A. Create a subdirectory structure that matches the BASE_URL
           mkdir -p staging${BASE_URL}
           cp -r _build/html/* staging${BASE_URL}/
-          
-          # B. Start a local server in the background
+
           npx http-server staging -p 8080 -s &
           npx wait-on http://localhost:8080${BASE_URL}/
-          
-          # C. Generate the URL list from the actual build artifacts
+
           cd _build/html
-          URLS=$(find . -name "*.html" -not -path "*/build/*" | sed 's|^\./||' | sed "s|^|http://localhost:8080${BASE_URL}/|" | tr '\n' ' ')          
-          
-          # D. Run Axe CLI on the discovered URLs
+          URLS=$(find . -name "*.html" -not -path "*/build/*" | sed 's|^\./||' | sed "s|^|http://localhost:8080${BASE_URL}/|" | tr '\n' ' ')
+
           axe $URLS \
             --tags wcag2a,wcag2aa,wcag21a,wcag21aa \
             --save axe-report.json \
             --exit
 
+      # 10. Upload axe report
       - name: Upload Accessibility Report
-        if: always() 
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: axe-report
