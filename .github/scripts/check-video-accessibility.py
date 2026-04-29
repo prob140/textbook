@@ -50,8 +50,6 @@ from pathlib import Path
 from urllib.parse import urlparse, parse_qs
 from bs4 import BeautifulSoup
 from playwright.sync_api import sync_playwright
-import urllib.request
-import json
 
 def start_server(directory, port=8000):
     class Handler(http.server.SimpleHTTPRequestHandler):
@@ -118,43 +116,6 @@ def annotate_error(message):
 
 def annotate_warning(message):
     print(f"::warning::{message}")
-
-def fetch_video_title(src):
-    try:
-        if "youtube" in src.lower() or "youtu.be" in src.lower():
-            video_id = None
-            if "/embed/" in src:
-                video_id = src.split("/embed/")[1].split("?")[0]
-            elif "v=" in src:
-                video_id = parse_qs(urlparse(src).query).get("v", [None])[0]
-            elif "youtu.be/" in src:
-                video_id = src.split("youtu.be/")[1].split("?")[0]
-
-            if not video_id:
-                return None
-
-            url = f"https://www.youtube.com/oembed?url=http://www.youtube.com/watch?v={video_id}&format=json"
-            req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
-            with urllib.request.urlopen(req, timeout=5) as response:
-                data = json.loads(response.read().decode())
-                return data.get("title")
-        
-        elif "vimeo.com" in src.lower():
-            video_id = None
-            if "/video/" in src:
-                video_id = src.split("/video/")[1].split("?")[0]
-            
-            if not video_id:
-                return None
-                
-            url = f"https://vimeo.com/api/oembed.json?url=https%3A%2F%2Fvimeo.com%2F{video_id}"
-            req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
-            with urllib.request.urlopen(req, timeout=5) as response:
-                data = json.loads(response.read().decode())
-                return data.get("title")
-    except Exception:
-        return None
-    return None
 
 def check_iframe(file, iframe):
     errors = []
@@ -258,39 +219,6 @@ def write_summary(errors, warnings):
         f.write("| Autoplay | Remove autoplay |\n")
         f.write("| No controls | Enable controls |\n")
 
-def process_json_node(node, file_name):
-    modified = False
-    if isinstance(node, dict):
-        if "data" in node and isinstance(node["data"], dict) and "text/html" in node["data"] and "content" in node["data"]["text/html"]:
-            html_str = node["data"]["text/html"]["content"]
-            if "<iframe" in html_str.lower():
-                soup = BeautifulSoup(html_str, "html.parser")
-                iframe_modified = False
-                for iframe in soup.find_all("iframe"):
-                    src = iframe.get("src", "").strip()
-                    title = iframe.get("title", "").strip()
-                    aria = iframe.get("aria-label", "").strip()
-                    name = title or aria
-                    if not name or name.lower() in GENERIC_TITLES:
-                        if "youtube" in src.lower() or "vimeo" in src.lower():
-                            t = fetch_video_title(src)
-                            if t:
-                                iframe["title"] = t
-                                iframe_modified = True
-                                print(f"  Fixed {file_name}: Added title '{t}'")
-                if iframe_modified:
-                    node["data"]["text/html"]["content"] = str(soup)
-                    modified = True
-        
-        for k, v in node.items():
-            if process_json_node(v, file_name):
-                modified = True
-    elif isinstance(node, list):
-        for item in node:
-            if process_json_node(item, file_name):
-                modified = True
-    return modified
-
 def main():
     if len(sys.argv) != 2:
         print("Usage: script.py <html-dir>")
@@ -300,18 +228,6 @@ def main():
     if not root.exists():
         print("Directory not found")
         sys.exit(2)
-
-    print("Auto-fixing missing iframe titles in JSON files...")
-    for file in root.rglob("*.json"):
-        try:
-            with open(file, 'r', encoding='utf-8') as f:
-                data = json.load(f)
-            
-            if process_json_node(data, file.name):
-                with open(file, 'w', encoding='utf-8') as f:
-                    json.dump(data, f, separators=(',', ':'))
-        except Exception:
-            pass
 
     all_errors = []
     all_warnings = []
