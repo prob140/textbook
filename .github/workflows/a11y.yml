@@ -39,6 +39,7 @@ jobs:
         uses: berkeley-cdss/myst-a11y@v1
         with:
           base_url: '/${{ github.event.repository.name }}'
+          exclude: "iframe[src*='youtube.com'], #movie_player"
 
       # 5. Custom video accessibility checker
       - name: Check video embeds for accessibility
